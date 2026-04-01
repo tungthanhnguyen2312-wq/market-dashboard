@@ -1,8 +1,221 @@
 {
-  "updated_at": "",
-  "updated_at_display": "Chưa có dữ liệu. Hãy chạy update_data.py hoặc đợi GitHub Actions.",
-  "war_news": [],
-  "global_news": [],
-  "vn_news": [],
-  "markets": []
+  "updated_at": "2026-04-01T10:23:45.780207+07:00",
+  "updated_at_display": "01/04/2026 • 10:23 GMT+7",
+  "war_news": [
+    {
+      "source": "Al Jazeera",
+      "title": "Global protests condemning Israel’s new death penalty law for Palestinians",
+      "title_vi": "Các cuộc biểu tình toàn cầu lên án luật tử hình mới của Israel đối với người Palestine",
+      "summary": "Protesters are condemning Israel's new bill that makes the death penalty the default punishment for some Palestinians.",
+      "summary_vi": "Những người biểu tình đang lên án dự luật mới của Israel biến án tử hình thành hình phạt mặc định đối với một số người Palestine.",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/4/1/global-protests-condemning-israels-new-death-penalty-law-for-palestinians?traffic_source=rss",
+      "published_iso": "2026-04-01T09:51:34+07:00",
+      "published_text": "01/04 09:51"
+    },
+    {
+      "source": "Al Jazeera",
+      "title": "Al-Sharaa says Syria to stay out of war on Iran unless attacked",
+      "title_vi": "Al-Sharaa nói rằng Syria sẽ đứng ngoài cuộc chiến với Iran trừ khi bị tấn công",
+      "summary": "'14 years of war is enough for Syria': Ahmed al-Sharaa says Syria will remain outside the US-Israeli war on Iran.",
+      "summary_vi": "'14 năm chiến tranh là đủ cho Syria': Ahmed al-Sharaa nói rằng Syria sẽ vẫn ở bên ngoài cuộc chiến tranh Mỹ-Israel chống lại Iran.",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/4/1/al-sharaa-says-syria-to-stay-out-of-war-on-iran-unless-attacked?traffic_source=rss",
+      "published_iso": "2026-04-01T09:07:14+07:00",
+      "published_text": "01/04 09:07"
+    }
+  ],
+  "global_news": [
+    {
+      "source": "Google News Global Macro",
+      "title": "Trump's Endangered Species Committee exempts oil and gas drilling in the Gulf from rules - PBS",
+      "title_vi": "Ủy ban các loài có nguy cơ tuyệt chủng của Trump miễn trừ việc khoan dầu khí ở vùng Vịnh khỏi các quy tắc - PBS",
+      "summary": "Trump's Endangered Species Committee exempts oil and gas drilling in the Gulf from rules PBS",
+      "summary_vi": "Ủy ban các loài có nguy cơ tuyệt chủng của Trump miễn trừ việc khoan dầu khí ở vùng Vịnh khỏi các quy tắc PBS",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQMnVJaWdPSnhGTGdSY1dUb3dZclZocnJnRkhKQjNjOGNDa3M0UEphQWdXalZsdW9VNldCVWl2ZnJMTW9HV3pwcHdFWjVZN3FGRElYQnpiemRIY3M1SmFYakktc054Z1MzRDU5RkFLaW9nd0lDdjhUTDdlYXozQndTMmI3Wk9PQUtKY1hlLVhocWZNbUx0X1RBbHZ6LUdwdWVpYjF2R0d5OVNIS1hCWi1RYkl5MGhnQU9NX0I3ZnllS2M3Z9IBxwFBVV95cUxOVWF2Yk9xd1FlS2FrdE83Y1JKYWxqc3dCR1B6V213dTJpNjVkYWpuY1BmZ2dodXlnMkxFU2Z5M2FoQm5vY3R0cThIUFdDRnVXWk5GYmNBa0ZCQlVZQm1aTjhwWWNhRi1hbU4wWTU5OWpNbmNwamk4d1VfcE1DNWZLVURWcUNTbkE2cW9RVEV1R211ei1KY1F2Q09WMDAyODZQNk9CV0RzdVFfLU1ydnhfYzFXSERMTUVNNmxGNXNpalZmNG1DT0Zv?oc=5",
+      "published_iso": "2026-04-01T00:36:59+07:00",
+      "published_text": "01/04 00:36"
+    },
+    {
+      "source": "Google News Global Macro",
+      "title": "Chad Dollar Named Men’s Basketball Associate Head Coach - Charlotte Athletics",
+      "title_vi": "Chad Dollar Named Men's Basketball Associate Head Coach - Charlotte Athletics",
+      "summary": "Chad Dollar Named Men’s Basketball Associate Head Coach Charlotte Athletics",
+      "summary_vi": "Chad Dollar được bổ nhiệm làm huấn luyện viên trưởng đội bóng rổ nam Charlotte Athletics",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNR2pWaHVsSnFZWmtwd05CdmRpcXF1bEhDMWxCQzFqbjFJMEo3VVh1OVRiQnF0cGwyUkRLRTVwaVAzV0w4UlB3Ql9ZdVc1cF8zOGZLem9hcE9ER2dQZlhtMHNic0kyQmh4a0R3c0o4eXBqRDFHbThXQ3RXZlFuWUNRVTdjaElXVV9aMHl5OGgxcXVGVVdZVVNfNG9nbzdrRGRSaWs1TFlxTmc2V1BQVk05cFB3?oc=5",
+      "published_iso": "2026-04-01T00:26:53+07:00",
+      "published_text": "01/04 00:26"
+    },
+    {
+      "source": "Google News Global Macro",
+      "title": "Fed Communications and Inflation Expectations - Federal Reserve Bank of San Francisco",
+      "title_vi": "Thông tin liên lạc của Fed và kỳ vọng lạm phát - Ngân hàng Dự trữ Liên bang San Francisco",
+      "summary": "Fed Communications and Inflation Expectations Federal Reserve Bank of San Francisco",
+      "summary_vi": "Thông tin liên lạc của Fed và kỳ vọng lạm phát Ngân hàng Dự trữ Liên bang San Francisco",
+      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOejBwVzFyX3cyWHBfMFNQZUVkeDN0N0MyM0dxcWo3V0QwOUxfQVcybExaUVMyMFNUQkxiX1ZjRmt1QmJkUkIxN0ZsS2plQlpPcnRiblI4ZGtVR3RueEF1RWVMSExJVVVMV0lVUWVxQ0JsOVJKeWFJUDJMd2ppSmRrakRFTDRWRmVwdGlhSkVIdTFxRjBrX0RBSzhDakZNejVmeGkzTHhRZVVkT1kwWS1HNUdPeHdCR2VLNHFCS3p1TDFLODVnclE?oc=5",
+      "published_iso": "2026-04-01T00:00:00+07:00",
+      "published_text": "01/04 00:00"
+    },
+    {
+      "source": "Google News Global Macro",
+      "title": "U.S. crude oil production rose in 2025, setting new record - U.S. Energy Information Administration (EIA) (.gov)",
+      "title_vi": "Sản lượng dầu thô của Hoa Kỳ tăng vào năm 2025, lập kỷ lục mới - Cơ quan Thông tin Năng lượng Hoa Kỳ (EIA) (.gov)",
+      "summary": "U.S. crude oil production rose in 2025, setting new record U.S. Energy Information Administration (EIA) (.gov)",
+      "summary_vi": "Sản lượng dầu thô của Hoa Kỳ tăng vào năm 2025, lập kỷ lục mới của Cơ quan Thông tin Năng lượng Hoa Kỳ (EIA) (.gov)",
+      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE82ZC1aMHBteExqUjNYcFFKbjhjanZOUWcwZHh6ZVFLZG9fb21ocDBpUm9FRDl5T2ExcGF1ZC02cHZiOHd4ODZVaDVhNVpUQXNvTHc3alNpaEVRd09yeVhYMWNPdw?oc=5",
+      "published_iso": "2026-03-31T20:00:31+07:00",
+      "published_text": "31/03 20:00"
+    }
+  ],
+  "vn_news": [
+    {
+      "source": "Thời báo Tài chính VN",
+      "title": "Công ty đấu giá hợp danh Nhất An Phú - Chi nhánh Thanh Hóa: Đấu giá quyền khai thác sử dụng dịch vụ diện tích bán hàng tại chợ Tượng Văn, xã Tượng Lĩnh, tỉnh Thanh Hoá",
+      "title_vi": "Công ty đấu giá hợp danh Nhất An Phú - Chi nhánh Thanh Hóa: Đấu giá quyền khai thác sử dụng dịch vụ diện tích bán hàng tại chợ Tượng Văn, xã Tượng Lĩnh, tỉnh Thanh Hoá",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-nhat-an-phu-chi-nhanh-thanh-hoa-dau-gia-quyen-khai-thac-su-dung-dich-vu-dien-tich-ban-hang-tai-cho-tuong-van-xa-tuong-linh-tinh-thanh-hoa-50476.html",
+      "published_iso": "2026-04-01T10:25:19.599994+07:00",
+      "published_text": "01/04 10:25"
+    },
+    {
+      "source": "Thời báo Tài chính VN",
+      "title": "Công ty đấu giá hợp danh Đông Dương: Đấu giá 12 lô đất ở tại các khu dân cư trên địa bàn phường Hoài Nhơn, tỉnh Gia Lai",
+      "title_vi": "Công ty đấu giá hợp danh Đông Dương: Đấu giá 12 lô đất ở tại các khu dân cư trên địa bàn phường Hoài Nhơn, tỉnh Gia Lai",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-dong-duong-dau-gia-12-lo-dat-o-tai-cac-khu-dan-cu-tren-dia-ban-phuong-hoai-nhon-tinh-gia-lai-50477.html",
+      "published_iso": "2026-04-01T10:25:19.599927+07:00",
+      "published_text": "01/04 10:25"
+    },
+    {
+      "source": "VietnamFinance",
+      "title": "'Đầu kéo' bất động sản chững lại, tăng trưởng tín dụng giảm tốc",
+      "title_vi": "'Đầu kéo' bất động sản chững lại, tăng trưởng tín dụng giảm tốc",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://vietnamfinance.vn/dau-keo-bat-dong-san-chung-lai-tang-truong-tin-dung-giam-toc-d142388.html",
+      "published_iso": "2026-04-01T10:25:17.233970+07:00",
+      "published_text": "01/04 10:25"
+    },
+    {
+      "source": "VietnamFinance",
+      "title": "Vành đai 4 từ Cao tốc Nội Bài - Lào Cai đến cầu Hồng Hà: Mở ra quỹ đất lớn ở phía bắc Hà Nội",
+      "title_vi": "Vành đai 4 từ Cao tốc Nội Bài - Lào Cai đến cầu Hồng Hà: Mở ra quỹ đất lớn ở phía bắc Hà Nội",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://vietnamfinance.vn/tien-do-vanh-dai-4-doan-tu-cao-toc-noi-bai--lao-cai-den-cau-hong-ha-d142294.html",
+      "published_iso": "2026-04-01T10:25:17.233907+07:00",
+      "published_text": "01/04 10:25"
+    },
+    {
+      "source": "CafeF",
+      "title": "LPBank 18 tuổi: Viết tiếp hành trình rực rỡ",
+      "title_vi": "LPBank 18 tuổi: Viết tiếp hành trình rực rỡ",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://cafef.vn/lpbank-18-tuoi-viet-tiep-hanh-trinh-ruc-ro-188260330162643953.chn",
+      "published_iso": "2026-04-01T10:25:16.641356+07:00",
+      "published_text": "01/04 10:25"
+    }
+  ],
+  "markets": [
+    {
+      "name": "WTI",
+      "symbol": "CL=F",
+      "price": 103.1,
+      "change": 0.22,
+      "change_pct": 0.21,
+      "decimals": 2,
+      "note": "Dữ liệu gần nhất: 31/03 11:00"
+    },
+    {
+      "name": "Brent",
+      "symbol": "BZ=F",
+      "price": 105.45,
+      "change": -7.33,
+      "change_pct": -6.5,
+      "decimals": 2,
+      "note": "Dữ liệu gần nhất: 31/03 11:00"
+    },
+    {
+      "name": "Gold",
+      "symbol": "GC=F",
+      "price": 4714.1,
+      "change": 188.1,
+      "change_pct": 4.16,
+      "decimals": 2,
+      "note": "Dữ liệu gần nhất: 31/03 11:00"
+    },
+    {
+      "name": "US 10Y",
+      "symbol": "^TNX",
+      "price": 4.31,
+      "change": -0.03,
+      "change_pct": -0.71,
+      "decimals": 2,
+      "note": "Dữ liệu gần nhất: 31/03 12:00"
+    },
+    {
+      "name": "S&P 500",
+      "symbol": "^GSPC",
+      "price": 6528.52,
+      "change": 184.8,
+      "change_pct": 2.91,
+      "decimals": 2,
+      "note": "Dữ liệu gần nhất: 31/03 11:00"
+    },
+    {
+      "name": "Dow Jones",
+      "symbol": "^DJI",
+      "price": 46341.51,
+      "change": 1125.37,
+      "change_pct": 2.49,
+      "decimals": 2,
+      "note": "Dữ liệu gần nhất: 31/03 11:00"
+    },
+    {
+      "name": "Nasdaq",
+      "symbol": "^IXIC",
+      "price": 21590.63,
+      "change": 795.99,
+      "change_pct": 3.83,
+      "decimals": 2,
+      "note": "Dữ liệu gần nhất: 31/03 11:00"
+    },
+    {
+      "name": "VN-Index",
+      "symbol": "^VNINDEX.VN",
+      "price": 1709.31,
+      "change": 0.0,
+      "change_pct": 0.0,
+      "decimals": 2,
+      "note": "Dữ liệu gần nhất: 01/04 00:00"
+    },
+    {
+      "name": "Hang Seng",
+      "symbol": "^HSI",
+      "price": 25325.67,
+      "change": 537.53,
+      "change_pct": 2.17,
+      "decimals": 2,
+      "note": "Dữ liệu gần nhất: 31/03 23:00"
+    },
+    {
+      "name": "Nikkei",
+      "symbol": "^N225",
+      "price": 53128.33,
+      "change": 2064.61,
+      "change_pct": 4.04,
+      "decimals": 2,
+      "note": "Dữ liệu gần nhất: 31/03 22:00"
+    },
+    {
+      "name": "KOSPI",
+      "symbol": "^KS11",
+      "price": 5388.98,
+      "change": 336.52,
+      "change_pct": 6.66,
+      "decimals": 2,
+      "note": "Dữ liệu gần nhất: 31/03 22:00"
+    }
+  ]
 }
