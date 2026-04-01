@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Playbook 02/04/2026 — TTCK Việt Nam</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+  :root{
+    --bg:#060a12; --panel:rgba(17,24,39,.72); --panel2:rgba(15,23,42,.86);
+    --line:rgba(71,85,105,.35); --muted:#94a3b8; --text:#e2e8f0;
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:'JetBrains Mono',monospace;background:
+    radial-gradient(circle at top right, rgba(30,41,59,.55), transparent 28%),
+    linear-gradient(180deg, #050812 0%, #0a1220 45%, #070b13 100%);
+    color:var(--text)}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;backdrop-filter:blur(8px)}
+  .panel-strong{background:var(--panel2);border:1px solid rgba(59,130,246,.18);border-radius:16px;backdrop-filter:blur(8px)}
+  .tab-btn{transition:all .18s ease}
+  .tab-btn.active{background:rgba(59,130,246,.15);color:#cfe2ff;border:1px solid rgba(59,130,246,.35)}
+  .chip{border-radius:999px;padding:.2rem .55rem;font-size:10px;font-weight:700;border:1px solid transparent;white-space:nowrap}
+  .chip-green{background:rgba(34,197,94,.12);color:#86efac;border-color:rgba(34,197,94,.25)}
+  .chip-red{background:rgba(239,68,68,.12);color:#fca5a5;border-color:rgba(239,68,68,.25)}
+  .chip-yellow{background:rgba(245,158,11,.12);color:#fcd34d;border-color:rgba(245,158,11,.25)}
+  .chip-blue{background:rgba(59,130,246,.12);color:#93c5fd;border-color:rgba(59,130,246,.25)}
+  .kpi{background:linear-gradient(180deg, rgba(15,23,42,.88), rgba(17,24,39,.72));border:1px solid rgba(71,85,105,.28);border-radius:14px}
+  .kpi.good{box-shadow:0 0 0 1px rgba(34,197,94,.16) inset, 0 0 18px rgba(34,197,94,.08)}
+  .kpi.bad{box-shadow:0 0 0 1px rgba(239,68,68,.16) inset, 0 0 18px rgba(239,68,68,.08)}
+  .section-title{font-size:13px;font-weight:700;color:#f8fafc}
+  .tiny{font-size:10px;color:var(--muted)}
+  .body-xs{font-size:11px;line-height:1.55}
+  .accent-left-green{border-left:4px solid rgba(34,197,94,.9)}
+  .accent-left-yellow{border-left:4px solid rgba(245,158,11,.9)}
+  .accent-left-red{border-left:4px solid rgba(239,68,68,.9)}
+  .accent-left-blue{border-left:4px solid rgba(59,130,246,.9)}
+  .nav-link{padding:.5rem .75rem;border:1px solid rgba(71,85,105,.35);border-radius:10px;background:rgba(15,23,42,.7);font-size:12px;font-weight:700}
+  .nav-link:hover{border-color:rgba(59,130,246,.5);color:#dbeafe}
+  canvas{max-height:260px}
+</style>
+</head>
+<body class="min-h-screen">
+<header class="sticky top-0 z-20 border-b border-slate-800/80 bg-black/55 backdrop-blur-md">
+  <div class="max-w-6xl mx-auto px-4 py-3">
+    <div class="flex flex-col gap-3">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+        <div class="flex flex-wrap items-center gap-2">
+          <a href="index.html" class="nav-link">← Live Dashboard</a>
+          <a href="playbook-2026-04-01.html" class="nav-link">01/04/2026 Playbook</a>
+          <span class="nav-link border-blue-500/35 text-blue-200">02/04/2026 Playbook</span>
+        </div>
+        <div class="flex flex-wrap gap-1.5">
+          <span class="chip chip-green">VN-Index 1,702.93 ▲1.72%</span>
+          <span class="chip chip-yellow">Brent ~103</span>
+          <span class="chip chip-blue">FTSE 07/04</span>
+          <span class="chip chip-red">Interbank vẫn cao</span>
+        </div>
+      </div>
+      <div>
+        <h1 class="text-base sm:text-xl font-bold text-white">🔬 PLAYBOOK 02/04/2026 — TTCK Việt Nam</h1>
+        <p class="tiny mt-1">Follow-through sau phiên bứt qua 1.700 • Cross-asset • Dòng tiền ngoại • Thanh khoản nội địa • Dividend radar</p>
+      </div>
+      <div class="flex gap-1 overflow-x-auto" id="tabBar">
+        <button class="tab-btn active px-3 py-1.5 text-xs rounded" onclick="switchTab(0)">Phiên 01/04</button>
+        <button class="tab-btn px-3 py-1.5 text-xs rounded text-slate-400" onclick="switchTab(1)">Vĩ mô & địa chính trị</button>
+        <button class="tab-btn px-3 py-1.5 text-xs rounded text-slate-400" onclick="switchTab(2)">Xác suất 02/04</button>
+        <button class="tab-btn px-3 py-1.5 text-xs rounded text-slate-400" onclick="switchTab(3)">Playbook trong phiên</button>
+        <button class="tab-btn px-3 py-1.5 text-xs rounded text-slate-400" onclick="switchTab(4)">Dividend radar</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-6xl mx-auto px-4 py-4 space-y-4">
+
+  <section id="tab0" class="space-y-4">
+    <div class="grid grid-cols-2 lg:grid-cols-5 gap-3">
+      <div class="kpi good p-3">
+        <div class="tiny">VN-Index</div>
+        <div class="text-2xl font-bold text-emerald-400 mt-1">1,702.93</div>
+        <div class="text-xs text-emerald-300">+28.44 điểm (+1.72%)</div>
+      </div>
+      <div class="kpi p-3">
+        <div class="tiny">HNX-Index</div>
+        <div class="text-2xl font-bold text-slate-100 mt-1">251.46</div>
+        <div class="text-xs text-emerald-300">+0.19%</div>
+      </div>
+      <div class="kpi p-3">
+        <div class="tiny">Thanh khoản HOSE</div>
+        <div class="text-2xl font-bold text-slate-100 mt-1">~29.2K tỷ</div>
+        <div class="text-xs text-amber-300">Mạnh hơn phiên trước</div>
+      </div>
+      <div class="kpi bad p-3">
+        <div class="tiny">Khối ngoại headline</div>
+        <div class="text-2xl font-bold text-red-400 mt-1">~ -867 tỷ</div>
+        <div class="text-xs text-red-300">VIC kéo méo thống kê</div>
+      </div>
+      <div class="kpi p-3">
+        <div class="tiny">Độ rộng</div>
+        <div class="text-2xl font-bold text-slate-100 mt-1">208 / 103</div>
+        <div class="text-xs text-emerald-300">Tích cực hơn 31/03</div>
+      </div>
+    </div>
+
+    <div class="panel-strong p-4">
+      <div class="section-title mb-2">Kết luận nhanh phiên 01/04</div>
+      <p class="body-xs text-slate-300">
+        Đây là một phiên <strong class="text-emerald-300">mạnh và có ý nghĩa kỹ thuật tốt</strong>: VN-Index lấy lại mốc 1.700, MACD và Stochastic cải thiện, độ rộng tốt hơn và chỉ số quay về vùng cao nhất khoảng nửa tháng. Tuy nhiên chưa thể xem là “all clear”, vì đà tăng vẫn tập trung mạnh ở nhóm Vingroup, khối ngoại nếu nhìn theo headline value vẫn chưa đẹp, và Negative Volume Index còn nằm dưới EMA20 — nghĩa là rủi ro thrust-down chưa biến mất nếu dòng tiền suy yếu lại.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-4">
+      <div class="panel p-4">
+        <div class="section-title mb-2">✅ Điểm mạnh của phiên</div>
+        <div class="space-y-2 body-xs text-slate-300">
+          <p>• Độ lan tỏa tốt hơn phiên 31/03, vượt lại mốc tâm lý 1.700.</p>
+          <p>• Tín hiệu kỹ thuật ngắn hạn cải thiện: VN-Index vượt Middle Bollinger Bands; MACD và Stochastic tiếp tục đi lên.</p>
+          <p>• Thanh khoản cải thiện, tạo cảm giác follow-through tốt hơn relief rally thông thường.</p>
+          <p>• Bất động sản là nhóm mạnh nhất; chứng khoán và bất động sản dẫn dắt rõ trong phiên sáng.</p>
+        </div>
+      </div>
+      <div class="panel p-4">
+        <div class="section-title mb-2">⚠ Điểm cần thận trọng</div>
+        <div class="space-y-2 body-xs text-slate-300">
+          <p>• Mức tăng mang tính tập trung cao: riêng VIC + VHM đóng góp gần 17 điểm cho chỉ số.</p>
+          <p>• Nếu loại bớt ảnh hưởng nhóm Vin, bức tranh “broad-based bull” chưa thực sự sạch.</p>
+          <p>• NVI vẫn dưới EMA20, tức xác suất thị trường rung lắc lại vẫn tồn tại nếu tiền suy yếu.</p>
+          <p>• Nhóm năng lượng là điểm trừ tương đối khi dầu chưa hạ hẳn về vùng an toàn.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel p-4">
+      <div class="section-title mb-3">Đọc đúng dữ liệu khối ngoại ngày 01/04</div>
+      <div class="grid md:grid-cols-3 gap-3">
+        <div class="panel p-3 accent-left-red">
+          <div class="text-xs font-bold text-red-300">Headline value</div>
+          <p class="body-xs text-slate-300 mt-1">Nếu nhìn theo tổng giá trị cả phiên, HOSE vẫn bán ròng mạnh khoảng <strong class="text-red-300">-867 tỷ</strong>, chủ yếu do áp lực lớn ở VIC.</p>
+        </div>
+        <div class="panel p-3 accent-left-green">
+          <div class="text-xs font-bold text-emerald-300">Matched-order / tape flow</div>
+          <p class="body-xs text-slate-300 mt-1">Nếu tách theo matched-order, dòng tiền ngoại lại <strong class="text-emerald-300">cải thiện rõ</strong>, với mua ròng nổi bật ở MSN, HPG, SSI.</p>
+        </div>
+        <div class="panel p-3 accent-left-yellow">
+          <div class="text-xs font-bold text-amber-300">Cách hiểu hợp lý</div>
+          <p class="body-xs text-slate-300 mt-1">Headline flow còn xấu, nhưng phần “tape bên dưới” đã tốt hơn. Đây là tín hiệu cải thiện chứ <strong class="text-amber-300">chưa đủ xác nhận đảo chiều bền</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tab1" class="space-y-4 hidden">
+    <div class="grid md:grid-cols-2 gap-4">
+      <div class="panel p-4">
+        <div class="section-title mb-2">🌍 Trục vĩ mô toàn cầu đang hỗ trợ gì cho VN?</div>
+        <div class="space-y-2 body-xs text-slate-300">
+          <p>• Thị trường toàn cầu 01/04 giao dịch theo trục risk-on sau tín hiệu chiến dịch Iran có thể hạ nhiệt.</p>
+          <p>• Brent quanh <strong class="text-amber-300">102.94–103.32</strong>, WTI quanh <strong class="text-amber-300">100.27</strong>: tốt hơn đỉnh hoảng loạn trước đó nhưng chưa thể xem là hết premium rủi ro.</p>
+          <p>• DXY khoảng <strong class="text-blue-300">99.59</strong>, UST 10Y khoảng <strong class="text-blue-300">4.277%</strong>: bớt căng hơn cuối tháng 3, hỗ trợ định giá EM.</p>
+          <p>• PMI châu Á vẫn có áp lực chi phí đầu vào; PMI Việt Nam còn 51.2, vẫn trên 50 nhưng chưa “dễ thở”.</p>
+        </div>
+      </div>
+      <div class="panel p-4">
+        <div class="section-title mb-2">🏦 Biến nội địa phản biện luận điểm tăng một mạch</div>
+        <div class="space-y-2 body-xs text-slate-300">
+          <p>• Lãi suất liên ngân hàng qua đêm có lúc lên 12%, sau đó hạ về quanh 9.5% nhờ NHNN bơm ròng hơn 45.000 tỷ.</p>
+          <p>• Nếu interbank <strong class="text-red-300">không hạ tiếp</strong>, nhịp risk-on của Việt Nam dễ hụt dù thế giới tích cực.</p>
+          <p>• FTSE Russell interim review ngày <strong class="text-blue-300">07/04</strong> vẫn là catalyst tâm lý lớn cho broker và large caps.</p>
+          <p>• Hormuz chưa bình thường hóa hoàn toàn, nên bất kỳ headline xấu nào cũng có thể làm dầu bật lại rất nhanh.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel p-4">
+      <div class="section-title mb-3">Xếp hạng mức ảnh hưởng tới VN trong tuần này / tháng 4</div>
+      <canvas id="impactChart"></canvas>
+      <p class="tiny mt-3">Thứ tự ưu tiên: dầu/Hormuz, khối ngoại thực sự dừng bán, lãi suất liên ngân hàng, sau đó mới tới DXY + UST 10Y và FTSE 07/04.</p>
+    </div>
+  </section>
+
+  <section id="tab2" class="space-y-4 hidden">
+    <div class="panel-strong p-4">
+      <div class="section-title mb-2">Xác suất phiên 02/04</div>
+      <p class="body-xs text-slate-300">Base case hợp lý nhất là <strong class="text-blue-200">nghiêng tăng nhưng có rung lắc</strong>, thay vì bùng nổ mạnh phiên thứ hai liên tiếp. Sau một phiên +1.7% vượt 1.700, thị trường thường phải kiểm định xem dòng tiền có theo kịp hay không.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-4">
+      <div class="panel p-4">
+        <canvas id="probChart"></canvas>
+      </div>
+      <div class="panel p-4">
+        <div class="section-title mb-2">4 lớp đánh giá</div>
+        <div class="space-y-2 body-xs text-slate-300">
+          <p>• <strong class="text-emerald-300">Macro / cross-asset:</strong> dương.</p>
+          <p>• <strong class="text-amber-300">Flow:</strong> trung tính đến hơi âm.</p>
+          <p>• <strong class="text-emerald-300">Technical:</strong> dương nhưng chưa hoàn toàn sạch.</p>
+          <p>• <strong class="text-red-300">Local liquidity:</strong> âm, vì interbank vẫn cao bất thường.</p>
+        </div>
+        <div class="grid grid-cols-3 gap-2 mt-4">
+          <div class="kpi good p-3 text-center">
+            <div class="tiny">Tăng</div>
+            <div class="text-2xl font-bold text-emerald-400">43%</div>
+          </div>
+          <div class="kpi p-3 text-center">
+            <div class="tiny">Đi ngang / tích lũy</div>
+            <div class="text-2xl font-bold text-slate-100">34%</div>
+          </div>
+          <div class="kpi bad p-3 text-center">
+            <div class="tiny">Giảm</div>
+            <div class="text-2xl font-bold text-red-400">23%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-4">
+      <div class="panel p-4 accent-left-green">
+        <div class="text-xs font-bold text-emerald-300">Kịch bản 1 — giữ trên 1.700</div>
+        <p class="body-xs text-slate-300 mt-2">Nếu sau 30–45 phút đầu phiên VN-Index vẫn đứng trên 1.700, độ rộng không xấu đi và nhóm dẫn dắt không co lại chỉ còn vài trụ, đó là dấu hiệu follow-through tốt nhất.</p>
+      </div>
+      <div class="panel p-4 accent-left-yellow">
+        <div class="text-xs font-bold text-amber-300">Kịch bản 2 — mở xanh rồi mất 1.695–1.700</div>
+        <p class="body-xs text-slate-300 mt-2">Đây là dấu hiệu relief rally dễ hụt. Cần hạ hưng phấn, không đuổi giá và quan sát lực bán quay lại ở nhóm dẫn dắt.</p>
+      </div>
+      <div class="panel p-4 accent-left-blue">
+        <div class="text-xs font-bold text-blue-300">Kịch bản 3 — rung lắc rồi lấy lại 1.695–1.700</div>
+        <p class="body-xs text-slate-300 mt-2">Đây là cấu trúc có risk/reward tốt nhất, vì nó cho thấy thị trường hấp thụ được chốt lời sau phiên mạnh 01/04.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="tab3" class="space-y-4 hidden">
+    <div class="panel-strong p-4">
+      <div class="section-title mb-1">📋 Playbook trong phiên 02/04</div>
+      <p class="tiny">Quy tắc IF-THEN, ưu tiên xác nhận dòng tiền và độ rộng thay vì chỉ nhìn chỉ số.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-4">
+      <div class="panel p-4">
+        <div class="text-xs font-bold text-blue-300 mb-2">🌅 8:45–9:15 | ATO và 15 phút đầu</div>
+        <div class="space-y-2 body-xs text-slate-300">
+          <p>• Nếu mở xanh mạnh nhưng khối dẫn dắt chỉ tập trung vào vài trụ, <strong class="text-amber-300">không đuổi ATO</strong>.</p>
+          <p>• Ưu tiên quan sát xem VN-Index có giữ trên 1.700 sau nhịp đầu không.</p>
+          <p>• Nếu dầu/UST/DXY tiếp tục dịu và thị trường vẫn giữ nhịp, bias ngắn hạn tích cực hơn.</p>
+        </div>
+      </div>
+
+      <div class="panel p-4">
+        <div class="text-xs font-bold text-emerald-300 mb-2">⏱ 9:30–10:15 | Xác nhận follow-through</div>
+        <div class="space-y-2 body-xs text-slate-300">
+          <p>• Nếu vẫn trên 1.700, độ rộng không xấu đi và nhóm dẫn dắt mở rộng, có thể giải ngân thăm dò.</p>
+          <p>• Ưu tiên <strong class="text-emerald-300">broker / large caps / các mã được ngoại mua matched-order</strong>.</p>
+          <p>• Tránh mua đuổi ở các mã đã tăng nhờ narrative đơn lẻ nhưng thanh khoản không theo.</p>
+        </div>
+      </div>
+
+      <div class="panel p-4">
+        <div class="text-xs font-bold text-amber-300 mb-2">🕐 10:30–11:30 | Nếu hụt khỏi 1.700</div>
+        <div class="space-y-2 body-xs text-slate-300">
+          <p>• Nếu mở xanh rồi mất 1.695–1.700, coi là kiểm định thất bại ngắn hạn.</p>
+          <p>• Hành động hợp lý là <strong class="text-amber-300">giảm hưng phấn, không mua đuổi</strong>, và chờ xem lực bán có lan từ trụ sang breadth không.</p>
+          <p>• Nếu khối ngoại headline tiếp tục xấu và interbank không hạ, thị trường dễ co lại cuối phiên.</p>
+        </div>
+      </div>
+
+      <div class="panel p-4">
+        <div class="text-xs font-bold text-red-300 mb-2">🌆 13:00–14:30 | Quản trị cuối phiên</div>
+        <div class="space-y-2 body-xs text-slate-300">
+          <p>• Nếu đầu phiên rung lắc rồi lấy lại 1.695–1.700, đó mới là cấu trúc tích cực hơn gap-up đơn thuần.</p>
+          <p>• Nếu chiều suy yếu mạnh, coi nhịp 01/04 là một phần relief rally và giữ tỷ trọng thận trọng.</p>
+          <p>• Cuối phiên quan sát lại 3 biến: dầu, khối ngoại thực chất, interbank.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel p-4">
+      <div class="section-title mb-2">🔒 Kỷ luật rủi ro</div>
+      <div class="grid md:grid-cols-2 gap-3 body-xs text-slate-300">
+        <p>• Không mua chỉ vì thị trường vừa vượt 1.700 một phiên.</p>
+        <p>• Nếu độ rộng xấu nhanh trong khi chỉ số vẫn xanh nhờ trụ, coi đó là tín hiệu cảnh báo.</p>
+        <p>• Nếu interbank lại căng hoặc dầu bật ngược, giảm kỳ vọng follow-through.</p>
+        <p>• Focus vào chất lượng dòng tiền hơn là headline màu xanh của chỉ số.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="tab4" class="space-y-4 hidden">
+    <div class="panel-strong p-4">
+      <div class="section-title mb-1">💰 Dividend radar — phần thêm vào cho dashboard</div>
+      <p class="tiny">Tóm tắt từ dashboard cổ tức: so sánh logic “ăn cổ tức thuần” và “cổ tức + một chút tăng giá”, với hurdle rate là lợi suất TPCP Việt Nam 10 năm khoảng 4.34%.</p>
+    </div>
+
+    <div class="grid md:grid-cols-4 gap-3">
+      <div class="panel p-4 accent-left-green">
+        <div class="text-xs font-bold text-emerald-300">BMP</div>
+        <p class="body-xs text-slate-300 mt-2">Ứng viên mạnh nhất cho bài toán vừa cổ tức tốt vừa còn khả năng tăng giá. Yield công khai khoảng 8.79%, P/E ~9.66x, lợi nhuận 2025 tăng khoảng 24%.</p>
+      </div>
+      <div class="panel p-4 accent-left-blue">
+        <div class="text-xs font-bold text-blue-300">VNM</div>
+        <p class="body-xs text-slate-300 mt-2">Phù hợp vai trò lõi phòng thủ hơn là tối ưu yield tuyệt đối. Trailing yield công khai khoảng 8.62%, nhưng yield chuẩn hóa FY2025 khoảng 6.9% nếu lấy 4,350đ/cp trên giá 63,000.</p>
+      </div>
+      <div class="panel p-4 accent-left-yellow">
+        <div class="text-xs font-bold text-amber-300">QNS</div>
+        <p class="body-xs text-slate-300 mt-2">Cân bằng tốt cho tích sản cổ tức, nhưng lợi nhuận 2025 đã giảm còn 1,916 tỷ, khoảng -19% so với 2024, nên xếp sau BMP ở tiêu chí “cổ tức + tăng giá”.</p>
+      </div>
+      <div class="panel p-4 accent-left-red">
+        <div class="text-xs font-bold text-red-300">DCM</div>
+        <p class="body-xs text-slate-300 mt-2">Phù hợp nhóm “cổ tức + chu kỳ”. Yield hiện tại khoảng 4.15%, nhưng lợi nhuận 2025 tăng khoảng 35.8%, hợp cho người chấp nhận tính chu kỳ cao hơn.</p>
+      </div>
+    </div>
+
+    <div class="panel p-4">
+      <div class="section-title mb-2">Framework săn cổ tức tiền mặt</div>
+      <div class="space-y-2 body-xs text-slate-300">
+        <p>• Không mua chỉ vì sắp GDKHQ, vì giá tham chiếu thường điều chỉnh theo mức cổ tức.</p>
+        <p>• Chỉ thật sự hấp dẫn khi hội đủ 3 điều kiện: <strong class="text-slate-100">spread đủ rộng so với bond yield</strong>, <strong class="text-slate-100">cổ tức lặp lại được</strong>, và <strong class="text-slate-100">giá mua đủ rẻ</strong>.</p>
+        <p>• Từ 01/07/2026, chiến lược capture dividend càng phải tính đủ chi phí và thuế.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="border-t border-slate-800/80 py-4 px-4 text-center">
+  <p class="tiny">Tạo cho website cá nhân. Nội dung tổng hợp từ phần phân tích anh cung cấp và dashboard/playbook đã có sẵn.</p>
+  <p class="tiny mt-1">Cập nhật playbook: 02/04/2026</p>
+</footer>
+
+<script>
+function switchTab(idx){
+  document.querySelectorAll('main > section').forEach((s,i)=>s.classList.toggle('hidden', i!==idx));
+  document.querySelectorAll('#tabBar button').forEach((b,i)=>{
+    if(i===idx){b.classList.add('active');b.classList.remove('text-slate-400');}
+    else {b.classList.remove('active');b.classList.add('text-slate-400');}
+  });
+  if(idx===1) initImpact();
+  if(idx===2) initProb();
+}
+let charts = {impact:false, prob:false};
+function initImpact(){
+  if(charts.impact) return;
+  charts.impact = true;
+  new Chart(document.getElementById('impactChart'),{
+    type:'bar',
+    data:{
+      labels:['Dầu Brent / Hormuz','Khối ngoại thực sự dừng bán','Lãi suất liên NH VND','DXY + UST 10Y','FTSE 07/04','PMI châu Á','Vàng / trú ẩn'],
+      datasets:[{
+        data:[9,8.5,8,6.5,6,4,3],
+        backgroundColor:['#ef4444','#f59e0b','#ef4444','#3b82f6','#60a5fa','#64748b','#64748b'],
+        borderRadius:6
+      }]
+    },
+    options:{
+      indexAxis:'y',
+      responsive:true,
+      plugins:{legend:{display:false}},
+      scales:{
+        x:{ticks:{color:'#94a3b8'}, grid:{color:'rgba(30,41,59,.55)'}, min:0, max:10},
+        y:{ticks:{color:'#e2e8f0', font:{size:10}}, grid:{display:false}}
+      }
+    }
+  });
+}
+function initProb(){
+  if(charts.prob) return;
+  charts.prob = true;
+  new Chart(document.getElementById('probChart'),{
+    type:'doughnut',
+    data:{
+      labels:['Tăng','Đi ngang / tích lũy','Giảm'],
+      datasets:[{data:[43,34,23],backgroundColor:['#22c55e','#64748b','#ef4444'],borderWidth:0}]
+    },
+    options:{responsive:true,plugins:{legend:{position:'bottom',labels:{color:'#cbd5e1', font:{size:11}}}}}
+  });
+}
+</script>
+</body>
+</html>
