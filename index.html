@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tùng | Finance & Geopolitics Dashboard</title>
+  <meta name="description" content="Dashboard dark theme tự cập nhật: tin chiến sự, tin chính trị - kinh tế Việt Nam, và các chỉ số thị trường." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">LIVE DASHBOARD</div>
+        <h1>Finance & Geopolitics Dashboard</h1>
+        <p class="subtitle">Dark theme kiểu terminal, tự cập nhật tin tức và chỉ số. Tối ưu cho điện thoại.</p>
+      </div>
+      <div class="status-panel">
+        <div class="status-label">Cập nhật lần cuối</div>
+        <div id="last-updated" class="status-value">Đang tải...</div>
+        <button id="refresh-btn" class="ghost-btn" type="button">Làm mới dữ liệu</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="hero-grid">
+        <article class="panel hero-panel">
+          <div class="panel-head">
+            <h2>Tin chiến sự mới nhất</h2>
+            <span class="panel-chip">2 tin</span>
+          </div>
+          <div id="war-news" class="news-list loading-state">Đang tải...</div>
+        </article>
+
+        <article class="panel hero-panel">
+          <div class="panel-head">
+            <h2>Chính trị - kinh tế Việt Nam</h2>
+            <span class="panel-chip">Mới nhất</span>
+          </div>
+          <div id="vn-news" class="news-list loading-state">Đang tải...</div>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Market Snapshot</h2>
+          <span class="panel-chip">Auto update</span>
+        </div>
+        <div id="market-grid" class="market-grid">
+          <div class="loading-state">Đang tải chỉ số...</div>
+        </div>
+      </section>
+
+      <section class="panel ai-panel">
+        <div class="panel-head">
+          <h2>AI Workspace</h2>
+          <span class="panel-chip">Nhập key + prompt</span>
+        </div>
+
+        <div class="note-box">
+          <strong>Lưu ý:</strong> ô API key bên dưới hoạt động phía trình duyệt. Key chỉ dùng trên thiết bị của anh. Nếu anh bật ghi nhớ, trình duyệt sẽ lưu vào <code>localStorage</code>.
+        </div>
+
+        <div class="ai-grid">
+          <div class="form-group">
+            <label for="gemini-key">Gemini API key</label>
+            <input id="gemini-key" type="password" placeholder="Dán Gemini API key vào đây" />
+          </div>
+
+          <div class="form-group">
+            <label for="gemini-model">Model</label>
+            <select id="gemini-model">
+              <option value="gemini-2.5-flash">gemini-2.5-flash</option>
+              <option value="gemini-3-flash-preview">gemini-3-flash-preview</option>
+              <option value="gemini-2.0-flash">gemini-2.0-flash</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="ai-prompt">Prompt</label>
+          <textarea id="ai-prompt" rows="8" placeholder="Ví dụ: Tóm tắt rủi ro thị trường hôm nay và tác động lên VN-Index."></textarea>
+        </div>
+
+        <div class="ai-actions">
+          <label class="remember-wrap">
+            <input id="remember-key" type="checkbox" />
+            <span>Ghi nhớ key trên thiết bị này</span>
+          </label>
+          <button id="run-ai" class="primary-btn" type="button">Chạy AI</button>
+        </div>
+
+        <div id="ai-status" class="ai-status"></div>
+        <pre id="ai-output" class="ai-output">Kết quả AI sẽ hiển thị ở đây.</pre>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
