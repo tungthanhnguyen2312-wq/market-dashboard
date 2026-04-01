@@ -3,115 +3,210 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tùng | Finance & Geopolitics Dashboard</title>
-  <meta name="description" content="Dashboard dark theme tự cập nhật: tin chiến sự, tin chính trị - kinh tế Việt Nam, chỉ số thị trường, và playbook ngày 01/04/2026." />
+  <title>Tùng | Market Intelligence Desk</title>
+  <meta name="description" content="Live dashboard theo phong cách newsroom: chiến sự, vĩ mô quốc tế, chính trị - kinh tế Việt Nam, và market snapshot." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="page-shell">
-    <header class="topbar">
-      <div>
+    <header class="masthead">
+      <div class="masthead-top">
         <div class="nav-row">
-          <a class="eyebrow nav-pill active" href="index.html">Live Dashboard</a>
-          <a class="eyebrow nav-pill" href="playbook-2026-04-01.html">1/4/2026 Playbook</a>
+          <a class="nav-pill nav-pill-active" href="index.html">Live Dashboard</a>
+          <a class="nav-pill" href="playbook-2026-04-01.html">1/4/2026 Playbook</a>
         </div>
-        <h1>Finance & Geopolitics Dashboard</h1>
-        <p class="subtitle">Dark theme kiểu terminal, tự cập nhật tin tức và chỉ số. Tối ưu cho điện thoại.</p>
+        <div class="service-line">
+          <span class="service-dot"></span>
+          <span>Market Intelligence Desk</span>
+          <span class="divider-dot">•</span>
+          <span>Tài chính • Chính trị • Địa chính trị</span>
+        </div>
       </div>
-      <div class="status-panel">
-        <div class="status-label">Cập nhật lần cuối</div>
-        <div id="last-updated" class="status-value">Đang tải...</div>
-        <button id="refresh-btn" class="ghost-btn" type="button">Làm mới dữ liệu</button>
+
+      <div class="masthead-main">
+        <div class="headline-block">
+          <div class="eyebrow">LIVE COVERAGE</div>
+          <h1>Vietnam & Global Market Intelligence</h1>
+          <p class="headline-subtitle">Bảng tin theo phong cách newsroom: theo dõi chiến sự, vĩ mô quốc tế, dòng tin kinh tế Việt Nam và các chỉ số chủ chốt trên một màn hình.</p>
+
+          <div class="coverage-row">
+            <span class="coverage-chip">Chiến sự</span>
+            <span class="coverage-chip">Vĩ mô quốc tế</span>
+            <span class="coverage-chip">Kinh tế Việt Nam</span>
+            <span class="coverage-chip">Commodities</span>
+            <span class="coverage-chip">Major Indices</span>
+          </div>
+        </div>
+
+        <aside class="update-card">
+          <div class="update-card-top">
+            <div>
+              <div class="update-label">Cập nhật gần nhất</div>
+              <div id="last-updated" class="update-value">Đang tải...</div>
+            </div>
+            <div class="live-badge">LIVE</div>
+          </div>
+
+          <div class="update-meta">
+            <div>
+              <div class="meta-label">Nguồn tin</div>
+              <div class="meta-value">RSS + headline scraping</div>
+            </div>
+            <div>
+              <div class="meta-label">Dữ liệu thị trường</div>
+              <div class="meta-value">JSON snapshot</div>
+            </div>
+          </div>
+
+          <button id="refresh-btn" class="ghost-btn" type="button">Làm mới dữ liệu</button>
+        </aside>
       </div>
     </header>
 
     <main class="layout">
-      <section class="hero-grid">
-        <article class="panel hero-panel">
-          <div class="panel-head">
-            <h2>Tin chiến sự mới nhất</h2>
-            <span class="panel-chip">2 tin</span>
+      <section class="market-hero panel">
+        <div class="section-title-row">
+          <div>
+            <div class="section-kicker">MARKET SNAPSHOT</div>
+            <h2>Chỉ số trọng yếu</h2>
           </div>
-          <div id="war-news" class="news-list loading-state">Đang tải...</div>
-        </article>
-
-        <article class="panel hero-panel">
-          <div class="panel-head">
-            <h2>Chính trị - kinh tế Việt Nam</h2>
-            <span class="panel-chip">Mới nhất</span>
-          </div>
-          <div id="vn-news" class="news-list loading-state">Đang tải...</div>
-        </article>
-      </section>
-
-      <section class="panel">
-        <div class="panel-head">
-          <h2>Market Snapshot</h2>
-          <span class="panel-chip">Auto update</span>
+          <span class="section-chip">Auto Refresh</span>
         </div>
         <div id="market-grid" class="market-grid">
           <div class="loading-state">Đang tải chỉ số...</div>
         </div>
       </section>
 
-      <section class="panel quick-link-panel">
-        <div class="panel-head">
-          <h2>Playbook nhanh</h2>
-          <span class="panel-chip">01/04/2026</span>
-        </div>
-        <div class="quick-link-box">
-          <div>
-            <div class="quick-link-title">Playbook phiên 01/04/2026</div>
-            <div class="quick-link-text">Xem toàn bộ playbook phân tích TTCK Việt Nam, xác suất, kịch bản và hành động theo khung giờ.</div>
+      <section class="news-grid-three">
+        <article class="panel news-panel">
+          <div class="section-title-row news-title-row">
+            <div>
+              <div class="section-kicker alert-red">WAR WATCH</div>
+              <h2>Tin chiến sự</h2>
+            </div>
+            <span class="section-chip">2 tin mới</span>
           </div>
-          <a class="primary-btn" href="playbook-2026-04-01.html">Mở Playbook</a>
-        </div>
+          <div id="war-news" class="news-list loading-state">Đang tải...</div>
+        </article>
+
+        <article class="panel news-panel">
+          <div class="section-title-row news-title-row">
+            <div>
+              <div class="section-kicker alert-blue">GLOBAL MACRO</div>
+              <h2>Quốc tế nổi bật</h2>
+            </div>
+            <span class="section-chip">Vĩ mô & thị trường</span>
+          </div>
+          <div id="global-news" class="news-list loading-state">Đang tải...</div>
+        </article>
+
+        <article class="panel news-panel">
+          <div class="section-title-row news-title-row">
+            <div>
+              <div class="section-kicker alert-gold">VIETNAM DESK</div>
+              <h2>Việt Nam nổi bật</h2>
+            </div>
+            <span class="section-chip">Chính trị & kinh tế</span>
+          </div>
+          <div id="vn-news" class="news-list loading-state">Đang tải...</div>
+        </article>
       </section>
 
-      <section class="panel ai-panel">
-        <div class="panel-head">
-          <h2>AI Workspace</h2>
-          <span class="panel-chip">Nhập key + prompt</span>
-        </div>
+      <section class="utility-grid">
+        <article class="panel source-panel">
+          <div class="section-title-row">
+            <div>
+              <div class="section-kicker">SOURCE MAP</div>
+              <h2>Nguồn theo dõi</h2>
+            </div>
+            <span class="section-chip">Khuyến nghị</span>
+          </div>
 
-        <div class="note-box">
-          <strong>Lưu ý:</strong> ô API key bên dưới hoạt động phía trình duyệt. Key chỉ dùng trên thiết bị của anh. Nếu anh bật ghi nhớ, trình duyệt sẽ lưu vào <code>localStorage</code>.
-        </div>
+          <div class="source-groups">
+            <div class="source-group">
+              <div class="source-label">Việt Nam</div>
+              <div class="source-badges">
+                <span class="source-badge">VnExpress</span>
+                <span class="source-badge">VnBusiness</span>
+                <span class="source-badge">Vietstock</span>
+                <span class="source-badge">CafeF</span>
+                <span class="source-badge">VietnamFinance</span>
+                <span class="source-badge">Thời báo Tài chính VN</span>
+              </div>
+            </div>
 
-        <div class="ai-grid">
-          <div class="form-group">
-            <label for="gemini-key">Gemini API key</label>
-            <input id="gemini-key" type="password" placeholder="Dán Gemini API key vào đây" />
+            <div class="source-group">
+              <div class="source-label">Quốc tế</div>
+              <div class="source-badges">
+                <span class="source-badge">Investing.com</span>
+                <span class="source-badge">Al Jazeera</span>
+                <span class="source-badge">Reuters*</span>
+                <span class="source-badge">AP*</span>
+                <span class="source-badge">WSJ*</span>
+              </div>
+            </div>
+
+            <div class="source-group">
+              <div class="source-label">Market APIs</div>
+              <div class="source-badges">
+                <span class="source-badge">Alpha Vantage</span>
+                <span class="source-badge">Twelve Data</span>
+                <span class="source-badge">Finnhub</span>
+                <span class="source-badge">FMP</span>
+              </div>
+            </div>
+          </div>
+
+          <p class="source-note">* Dùng tốt nhất qua Google News RSS search hoặc API có giấy phép rõ ràng nếu anh muốn giữ website miễn phí và dễ bảo trì.</p>
+        </article>
+
+        <article class="panel ai-panel">
+          <div class="section-title-row">
+            <div>
+              <div class="section-kicker">AI WORKSPACE</div>
+              <h2>Prompt nhanh với Gemini</h2>
+            </div>
+            <span class="section-chip">Client-side</span>
+          </div>
+
+          <div class="note-box">
+            <strong>Lưu ý:</strong> API key chạy phía trình duyệt. Chỉ nên dùng cho thử nghiệm cá nhân trên thiết bị của anh.
+          </div>
+
+          <div class="ai-grid">
+            <div class="form-group">
+              <label for="gemini-key">Gemini API key</label>
+              <input id="gemini-key" type="password" placeholder="Dán Gemini API key" />
+            </div>
+            <div class="form-group">
+              <label for="gemini-model">Model</label>
+              <select id="gemini-model">
+                <option value="gemini-2.5-flash">gemini-2.5-flash</option>
+                <option value="gemini-2.0-flash">gemini-2.0-flash</option>
+                <option value="gemini-1.5-flash">gemini-1.5-flash</option>
+              </select>
+            </div>
           </div>
 
           <div class="form-group">
-            <label for="gemini-model">Model</label>
-            <select id="gemini-model">
-              <option value="gemini-2.5-flash">gemini-2.5-flash</option>
-              <option value="gemini-3-flash-preview">gemini-3-flash-preview</option>
-              <option value="gemini-2.0-flash">gemini-2.0-flash</option>
-            </select>
+            <label for="ai-prompt">Prompt</label>
+            <textarea id="ai-prompt" rows="8" placeholder="Ví dụ: Tóm tắt nhanh rủi ro hôm nay đối với VN-Index, USD/VND và nhóm ngân hàng."></textarea>
           </div>
-        </div>
 
-        <div class="form-group">
-          <label for="ai-prompt">Prompt</label>
-          <textarea id="ai-prompt" rows="8" placeholder="Ví dụ: Tóm tắt rủi ro thị trường hôm nay và tác động lên VN-Index."></textarea>
-        </div>
+          <div class="ai-actions">
+            <label class="remember-wrap">
+              <input id="remember-key" type="checkbox" />
+              <span>Ghi nhớ key trên thiết bị này</span>
+            </label>
+            <button id="run-ai" class="primary-btn" type="button">Chạy AI</button>
+          </div>
 
-        <div class="ai-actions">
-          <label class="remember-wrap">
-            <input id="remember-key" type="checkbox" />
-            <span>Ghi nhớ key trên thiết bị này</span>
-          </label>
-          <button id="run-ai" class="primary-btn" type="button">Chạy AI</button>
-        </div>
-
-        <div id="ai-status" class="ai-status"></div>
-        <pre id="ai-output" class="ai-output">Kết quả AI sẽ hiển thị ở đây.</pre>
+          <div id="ai-status" class="ai-status"></div>
+          <pre id="ai-output" class="ai-output">Kết quả AI sẽ hiển thị ở đây.</pre>
+        </article>
       </section>
     </main>
   </div>

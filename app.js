@@ -1,5 +1,6 @@
 const DATA_URL = "data.json";
 const warNewsEl = document.getElementById("war-news");
+const globalNewsEl = document.getElementById("global-news");
 const vnNewsEl = document.getElementById("vn-news");
 const marketGridEl = document.getElementById("market-grid");
 const lastUpdatedEl = document.getElementById("last-updated");
@@ -34,7 +35,7 @@ function fmtNumber(value, digits = 2) {
   if (value === null || value === undefined || Number.isNaN(Number(value))) return "—";
   return Number(value).toLocaleString("en-US", {
     minimumFractionDigits: 0,
-    maximumFractionDigits: digits
+    maximumFractionDigits: digits,
   });
 }
 
@@ -52,8 +53,8 @@ function renderNews(list, targetEl, emptyText) {
   }
 
   targetEl.innerHTML = list.map(item => {
-    const source = fmtText(item.source);
-    const time = fmtText(item.published_text);
+    const source = escapeHtml(fmtText(item.source));
+    const time = escapeHtml(fmtText(item.published_text));
     const titleVi = escapeHtml(fmtText(item.title_vi || item.title));
     const titleOriginal = escapeHtml(fmtText(item.title));
     const summary = escapeHtml(fmtText(item.summary_vi || item.summary, ""));
@@ -62,9 +63,9 @@ function renderNews(list, targetEl, emptyText) {
 
     return `
       <a class="news-card" href="${href}" target="_blank" rel="noopener noreferrer">
-        <div class="news-meta">
-          <span>${source}</span>
-          <span>${time}</span>
+        <div class="news-topline">
+          <span class="source-tag">${source}</span>
+          <span class="time-tag">${time}</span>
         </div>
         <h3 class="news-title">${titleVi}</h3>
         ${summary ? `<p class="news-summary">${summary}</p>` : ""}
@@ -107,12 +108,14 @@ async function loadDashboardData() {
     const data = await res.json();
 
     renderNews(data.war_news, warNewsEl, "Chưa có tin chiến sự.");
+    renderNews(data.global_news, globalNewsEl, "Chưa có tin quốc tế nổi bật.");
     renderNews(data.vn_news, vnNewsEl, "Chưa có tin Việt Nam.");
     renderMarkets(data.markets);
     lastUpdatedEl.textContent = data.updated_at_display || data.updated_at || "Không rõ";
   } catch (err) {
     console.error(err);
     warNewsEl.innerHTML = `<div class="empty-state">Không tải được dữ liệu tin chiến sự.</div>`;
+    globalNewsEl.innerHTML = `<div class="empty-state">Không tải được dữ liệu tin quốc tế.</div>`;
     vnNewsEl.innerHTML = `<div class="empty-state">Không tải được dữ liệu tin Việt Nam.</div>`;
     marketGridEl.innerHTML = `<div class="empty-state">Không tải được dữ liệu chỉ số.</div>`;
     lastUpdatedEl.textContent = "Lỗi tải dữ liệu";
@@ -161,30 +164,20 @@ async function runGemini() {
   aiOutputEl.textContent = "";
 
   try {
-    const body = {
-      contents: [{ parts: [{ text: prompt }] }]
-    };
-
+    const body = { contents: [{ parts: [{ text: prompt }] }] };
     const res = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent?key=${encodeURIComponent(apiKey)}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body)
+        body: JSON.stringify(body),
       }
     );
 
     const data = await res.json();
+    if (!res.ok) throw new Error(data?.error?.message || `Gemini request failed (${res.status})`);
 
-    if (!res.ok) {
-      const msg = data?.error?.message || `Gemini request failed (${res.status})`;
-      throw new Error(msg);
-    }
-
-    const text =
-      data?.candidates?.[0]?.content?.parts?.map(p => p.text || "").join("\n").trim() ||
-      "Không có nội dung trả về.";
-
+    const text = data?.candidates?.[0]?.content?.parts?.map(p => p.text || "").join("\n").trim() || "Không có nội dung trả về.";
     aiOutputEl.textContent = text;
     aiStatusEl.textContent = "Hoàn tất.";
   } catch (err) {

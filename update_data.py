@@ -8,28 +8,51 @@ import re
 from email.utils import parsedate_to_datetime
 from pathlib import Path
 from typing import Any, Dict, List, Optional
+from urllib.parse import urljoin
 
 import feedparser
 import requests
 import yfinance as yf
+from bs4 import BeautifulSoup
 
 ROOT = Path(__file__).resolve().parent
 OUTPUT_PATH = ROOT / "data.json"
 TZ = dt.timezone(dt.timedelta(hours=7))
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (compatible; MarketDashboard/2.0; +https://github.com/)"
+}
+TRANSLATE_EMAIL = os.getenv("TRANSLATE_EMAIL", "").strip()
 
 WAR_FEEDS = [
     ("Google News War", "https://news.google.com/rss/search?q=Iran%20OR%20Israel%20OR%20Middle%20East%20when%3A7d&hl=en-US&gl=US&ceid=US:en"),
     ("Al Jazeera", "https://www.aljazeera.com/xml/rss/all.xml"),
 ]
 
-VN_FEEDS = [
+GLOBAL_FEEDS = [
+    ("Google News Global Macro", "https://news.google.com/rss/search?q=(Fed%20OR%20inflation%20OR%20tariffs%20OR%20oil%20OR%20treasury%20OR%20dollar)%20when%3A7d&hl=en-US&gl=US&ceid=US:en"),
+]
+
+VN_RSS_FEEDS = [
     ("VnExpress Kinh doanh", "https://vnexpress.net/rss/kinh-doanh.rss"),
     ("VnExpress Thời sự", "https://vnexpress.net/rss/thoi-su.rss"),
+    ("VnBusiness Tài chính", "https://vnbusiness.vn/rss/tai-chinh.rss"),
+    ("VnBusiness Chứng khoán", "https://vnbusiness.vn/rss/chung-khoan.rss"),
+]
+
+VN_HTML_SOURCES = [
+    ("CafeF", "https://cafef.vn/"),
+    ("VietnamFinance", "https://vietnamfinance.vn/"),
+    ("Thời báo Tài chính VN", "https://thoibaotaichinhvietnam.vn/"),
 ]
 
 WAR_KEYWORDS = [
     "iran", "israel", "gaza", "middle east", "tehran", "tel aviv", "lebanon",
-    "hezbollah", "syria", "yemen", "houthis", "hamas", "red sea"
+    "hezbollah", "syria", "yemen", "houthis", "hamas", "red sea", "strait of hormuz"
+]
+
+GLOBAL_KEYWORDS = [
+    "fed", "federal reserve", "inflation", "treasury", "tariff", "oil", "brent",
+    "wti", "gold", "dollar", "yield", "recession", "economy", "macro", "commodities"
 ]
 
 MARKET_SYMBOLS = [
@@ -45,11 +68,6 @@ MARKET_SYMBOLS = [
     ("Nikkei", "^N225", 2),
     ("KOSPI", "^KS11", 2),
 ]
-
-TRANSLATE_EMAIL = os.getenv("TRANSLATE_EMAIL", "").strip()
-HEADERS = {
-    "User-Agent": "Mozilla/5.0 (compatible; FinanceDashboardBot/1.0; +https://github.com/)"
-}
 
 
 def strip_html(text: str) -> str:
@@ -84,11 +102,7 @@ def translate_to_vi(text: str) -> str:
         return text
     try:
         data = resp.json()
-        translated = (
-            data.get("responseData", {}).get("translatedText", "").strip()
-            if isinstance(data, dict)
-            else ""
-        )
+        translated = data.get("responseData", {}).get("translatedText", "").strip()
         return translated or text
     except Exception:
         return text
@@ -102,7 +116,6 @@ def parse_entry_time(entry: Any) -> dt.datetime:
                 return dt.datetime(*value[:6], tzinfo=dt.timezone.utc).astimezone(TZ)
             except Exception:
                 pass
-
     for key in ("published", "updated"):
         raw = getattr(entry, key, None)
         if raw:
@@ -110,7 +123,6 @@ def parse_entry_time(entry: Any) -> dt.datetime:
                 return parsedate_to_datetime(raw).astimezone(TZ)
             except Exception:
                 pass
-
     return dt.datetime.now(TZ)
 
 
@@ -118,77 +130,136 @@ def short_time(d: dt.datetime) -> str:
     return d.strftime("%d/%m %H:%M")
 
 
+def article_from_entry(source: str, entry: Any) -> Optional[Dict[str, Any]]:
+    title = strip_html(getattr(entry, "title", ""))
+    summary = strip_html(getattr(entry, "summary", ""))[:220]
+    link = getattr(entry, "link", "")
+    if not title or not link:
+        return None
+    when = parse_entry_time(entry)
+    return {
+        "source": source,
+        "title": title,
+        "title_vi": title,
+        "summary": summary,
+        "summary_vi": summary,
+        "url": link,
+        "published_iso": when.isoformat(),
+        "published_text": short_time(when),
+    }
+
+
+def fetch_rss_news(feeds: List[tuple[str, str]], limit_scan: int = 20) -> List[Dict[str, Any]]:
+    items: List[Dict[str, Any]] = []
+    seen = set()
+    for source, url in feeds:
+        feed = feedparser.parse(url)
+        for entry in getattr(feed, "entries", [])[:limit_scan]:
+            article = article_from_entry(source, entry)
+            if not article or article["url"] in seen:
+                continue
+            items.append(article)
+            seen.add(article["url"])
+    return items
+
+
+def fetch_html_news(source: str, url: str, limit: int = 4) -> List[Dict[str, Any]]:
+    resp = safe_request(url)
+    if not resp:
+        return []
+
+    soup = BeautifulSoup(resp.text, "html.parser")
+    selectors = [
+        "article h3 a", "article h2 a", "article h1 a",
+        "h3 a", "h2 a", ".title a", ".news-title a", ".story a", ".post-title a",
+    ]
+
+    seen = set()
+    items: List[Dict[str, Any]] = []
+    for selector in selectors:
+        for a in soup.select(selector):
+            text = strip_html(a.get_text(" ", strip=True))
+            href = (a.get("href") or "").strip()
+            if not text or len(text) < 24:
+                continue
+            href = urljoin(url, href)
+            if href in seen or href == url:
+                continue
+            items.append(
+                {
+                    "source": source,
+                    "title": text,
+                    "title_vi": text,
+                    "summary": "",
+                    "summary_vi": "",
+                    "url": href,
+                    "published_iso": dt.datetime.now(TZ).isoformat(),
+                    "published_text": short_time(dt.datetime.now(TZ)),
+                }
+            )
+            seen.add(href)
+            if len(items) >= limit:
+                return items
+    return items
+
+
 def fetch_war_news(limit: int = 2) -> List[Dict[str, Any]]:
-    items: List[Dict[str, Any]] = []
+    items = []
+    for item in fetch_rss_news(WAR_FEEDS, limit_scan=18):
+        blob = f"{item['title']} {item['summary']}".lower()
+        if any(k in blob for k in WAR_KEYWORDS):
+            item["title_vi"] = translate_to_vi(item["title"])
+            if item["summary"]:
+                item["summary_vi"] = translate_to_vi(item["summary"])
+            items.append(item)
+    items.sort(key=lambda x: x["published_iso"], reverse=True)
+    dedup = []
     seen = set()
+    for item in items:
+        if item["url"] in seen:
+            continue
+        dedup.append(item)
+        seen.add(item["url"])
+        if len(dedup) >= limit:
+            break
+    return dedup
 
-    for source, url in WAR_FEEDS:
-        feed = feedparser.parse(url)
-        for entry in getattr(feed, "entries", [])[:18]:
-            title = strip_html(getattr(entry, "title", ""))
-            summary = strip_html(getattr(entry, "summary", ""))[:220]
-            link = getattr(entry, "link", "")
-            blob = f"{title} {summary}".lower()
-            if not title or link in seen:
-                continue
-            if not any(k in blob for k in WAR_KEYWORDS):
-                continue
 
-            when = parse_entry_time(entry)
-            items.append(
-                {
-                    "source": source,
-                    "title": title,
-                    "title_vi": translate_to_vi(title),
-                    "summary": summary,
-                    "summary_vi": translate_to_vi(summary) if summary else "",
-                    "url": link,
-                    "published_iso": when.isoformat(),
-                    "published_text": short_time(when),
-                }
-            )
-            seen.add(link)
-
+def fetch_global_news(limit: int = 4) -> List[Dict[str, Any]]:
+    items = []
+    for item in fetch_rss_news(GLOBAL_FEEDS, limit_scan=24):
+        blob = f"{item['title']} {item['summary']}".lower()
+        if any(k in blob for k in GLOBAL_KEYWORDS):
+            item["title_vi"] = translate_to_vi(item["title"])
+            if item["summary"]:
+                item["summary_vi"] = translate_to_vi(item["summary"])
+            items.append(item)
     items.sort(key=lambda x: x["published_iso"], reverse=True)
     return items[:limit]
 
 
-def fetch_vn_news(limit: int = 4) -> List[Dict[str, Any]]:
-    items: List[Dict[str, Any]] = []
-    seen = set()
-
-    for source, url in VN_FEEDS:
-        feed = feedparser.parse(url)
-        for entry in getattr(feed, "entries", [])[:10]:
-            title = strip_html(getattr(entry, "title", ""))
-            summary = strip_html(getattr(entry, "summary", ""))[:220]
-            link = getattr(entry, "link", "")
-            if not title or link in seen:
-                continue
-            when = parse_entry_time(entry)
-            items.append(
-                {
-                    "source": source,
-                    "title": title,
-                    "title_vi": title,
-                    "summary": summary,
-                    "summary_vi": summary,
-                    "url": link,
-                    "published_iso": when.isoformat(),
-                    "published_text": short_time(when),
-                }
-            )
-            seen.add(link)
+def fetch_vn_news(limit: int = 5) -> List[Dict[str, Any]]:
+    items = fetch_rss_news(VN_RSS_FEEDS, limit_scan=12)
+    for source, url in VN_HTML_SOURCES:
+        items.extend(fetch_html_news(source, url, limit=2))
 
     items.sort(key=lambda x: x["published_iso"], reverse=True)
-    return items[:limit]
+    dedup = []
+    seen_title = set()
+    for item in items:
+        key = item["title"].lower()
+        if key in seen_title:
+            continue
+        dedup.append(item)
+        seen_title.add(key)
+        if len(dedup) >= limit:
+            break
+    return dedup
 
 
 def _scalar_from_value(value: Any) -> Optional[float]:
     if value is None:
         return None
-
-    # pandas scalar / numpy scalar / Series / one-cell DataFrame
     if hasattr(value, "iloc"):
         try:
             if getattr(value, "empty", False):
@@ -199,13 +270,11 @@ def _scalar_from_value(value: Any) -> Optional[float]:
                 value = value.iloc[-1, -1]
         except Exception:
             pass
-
     if hasattr(value, "item"):
         try:
             value = value.item()
         except Exception:
             pass
-
     try:
         return float(value)
     except Exception:
@@ -215,7 +284,6 @@ def _scalar_from_value(value: Any) -> Optional[float]:
 def fetch_market(symbol: str, name: str, decimals: int = 2) -> Dict[str, Any]:
     ticker = yf.Ticker(symbol)
     hist = ticker.history(period="7d", interval="1d", auto_adjust=False, actions=False)
-
     if hist is None or getattr(hist, "empty", True):
         raise ValueError("Không có dữ liệu lịch sử")
 
@@ -227,7 +295,6 @@ def fetch_market(symbol: str, name: str, decimals: int = 2) -> Dict[str, Any]:
     prev_close = _scalar_from_value(closes.iloc[-2] if len(closes) >= 2 else None)
 
     if last_close is None:
-        # fallback thử lấy từ info/fast_info
         fi = getattr(ticker, "fast_info", {}) or {}
         last_close = _scalar_from_value(fi.get("lastPrice") or fi.get("last_price") or fi.get("regularMarketPrice"))
         prev_close = prev_close or _scalar_from_value(fi.get("previousClose") or fi.get("previous_close"))
@@ -240,11 +307,7 @@ def fetch_market(symbol: str, name: str, decimals: int = 2) -> Dict[str, Any]:
     change = last_close - prev_close
     change_pct = (change / prev_close) * 100 if prev_close else 0.0
     latest_index = hist.index[-1]
-    if hasattr(latest_index, "to_pydatetime"):
-        latest_dt = latest_index.to_pydatetime()
-    else:
-        latest_dt = dt.datetime.now(dt.timezone.utc)
-
+    latest_dt = latest_index.to_pydatetime() if hasattr(latest_index, "to_pydatetime") else dt.datetime.now(dt.timezone.utc)
     if latest_dt.tzinfo is None:
         latest_dt = latest_dt.replace(tzinfo=dt.timezone.utc)
 
@@ -283,9 +346,10 @@ def build_payload() -> Dict[str, Any]:
     now = dt.datetime.now(TZ)
     return {
         "updated_at": now.isoformat(),
-        "updated_at_display": now.strftime("%d/%m/%Y %H:%M GMT+7"),
+        "updated_at_display": now.strftime("%d/%m/%Y • %H:%M GMT+7"),
         "war_news": fetch_war_news(limit=2),
-        "vn_news": fetch_vn_news(limit=4),
+        "global_news": fetch_global_news(limit=4),
+        "vn_news": fetch_vn_news(limit=5),
         "markets": fetch_markets(),
     }
 
