@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-04-01T09:23:47.020093+07:00",
-  "updated_at_display": "01/04/2026 09:23 GMT+7",
+  "updated_at": "2026-04-01T09:48:37.255190+07:00",
+  "updated_at_display": "01/04/2026 09:48 GMT+7",
   "war_news": [
     {
       "source": "Al Jazeera",
@@ -69,27 +69,27 @@
     {
       "name": "WTI",
       "symbol": "CL=F",
-      "price": 102.75,
-      "change": -0.13,
-      "change_pct": -0.13,
+      "price": 102.78,
+      "change": -0.1,
+      "change_pct": -0.1,
       "decimals": 2,
       "note": "Dữ liệu gần nhất: 31/03 11:00"
     },
     {
       "name": "Brent",
       "symbol": "BZ=F",
-      "price": 105.5,
-      "change": -7.28,
-      "change_pct": -6.46,
+      "price": 105.47,
+      "change": -7.31,
+      "change_pct": -6.48,
       "decimals": 2,
       "note": "Dữ liệu gần nhất: 31/03 11:00"
     },
     {
       "name": "Gold",
       "symbol": "GC=F",
-      "price": 4719.1,
-      "change": 193.1,
-      "change_pct": 4.27,
+      "price": 4707.9,
+      "change": 181.9,
+      "change_pct": 4.02,
       "decimals": 2,
       "note": "Dữ liệu gần nhất: 31/03 11:00"
     },
@@ -132,7 +132,7 @@
     {
       "name": "VN-Index",
       "symbol": "^VNINDEX.VN",
-      "price": 1707.19,
+      "price": 1708.15,
       "change": 0.0,
       "change_pct": 0.0,
       "decimals": 2,
@@ -141,27 +141,27 @@
     {
       "name": "Hang Seng",
       "symbol": "^HSI",
-      "price": 25281.79,
-      "change": 493.65,
-      "change_pct": 1.99,
+      "price": 25231.76,
+      "change": 443.62,
+      "change_pct": 1.79,
       "decimals": 2,
       "note": "Dữ liệu gần nhất: 31/03 23:00"
     },
     {
       "name": "Nikkei",
       "symbol": "^N225",
-      "price": 53202.91,
-      "change": 2139.19,
-      "change_pct": 4.19,
+      "price": 53128.33,
+      "change": 2064.61,
+      "change_pct": 4.04,
       "decimals": 2,
       "note": "Dữ liệu gần nhất: 31/03 22:00"
     },
     {
       "name": "KOSPI",
       "symbol": "^KS11",
-      "price": 5373.66,
-      "change": 321.2,
-      "change_pct": 6.36,
+      "price": 5379.29,
+      "change": 326.83,
+      "change_pct": 6.47,
       "decimals": 2,
       "note": "Dữ liệu gần nhất: 31/03 22:00"
     }
