@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VN-Index Playbook 03-04-2026</title>
+  <style>
+    :root {
+      --bg:#0b1020; --card:#121933; --muted:#9fb0d0; --text:#e8eefc;
+      --accent:#7aa2ff; --good:#1db954; --warn:#ffb020; --bad:#ff5c5c; --line:#243055;
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Inter,Arial,sans-serif; background:var(--bg); color:var(--text); line-height:1.55; }
+    .wrap { max-width:1200px; margin:0 auto; padding:24px; }
+    h1,h2,h3 { margin:0 0 12px; }
+    h1 { font-size:32px; }
+    h2 { font-size:22px; margin-top:28px; }
+    h3 { font-size:18px; margin-top:20px; }
+    p { margin:10px 0; }
+    .sub { color:var(--muted); }
+    .grid { display:grid; grid-template-columns: repeat(12, 1fr); gap:16px; margin-top:18px; }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:18px; box-shadow:0 10px 30px rgba(0,0,0,.18); }
+    .kpi { display:flex; flex-direction:column; gap:8px; min-height:120px; }
+    .kpi .label { color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.06em; }
+    .kpi .value { font-size:30px; font-weight:700; }
+    .good { color:var(--good); } .warn { color:var(--warn); } .bad { color:var(--bad); }
+    .span-3 { grid-column: span 3; } .span-4 { grid-column: span 4; } .span-6 { grid-column: span 6; } .span-12 { grid-column: span 12; }
+    table { width:100%; border-collapse:collapse; margin-top:10px; font-size:14px; }
+    th,td { border-bottom:1px solid var(--line); padding:10px 8px; text-align:left; vertical-align:top; }
+    th { color:var(--muted); font-weight:600; }
+    ul { margin:8px 0 0 18px; }
+    .pill { display:inline-block; padding:4px 10px; border-radius:999px; font-size:12px; font-weight:700; letter-spacing:.03em; }
+    .critical { background:rgba(255,92,92,.15); color:#ff8b8b; }
+    .high { background:rgba(255,176,32,.15); color:#ffd27a; }
+    .medium { background:rgba(122,162,255,.15); color:#a9c2ff; }
+    .low { background:rgba(29,185,84,.15); color:#93e3b0; }
+    .bar { height:12px; background:#1a2346; border-radius:999px; overflow:hidden; margin-top:8px; }
+    .fill-good,.fill-warn,.fill-bad { height:100%; border-radius:999px; }
+    .fill-good { background:var(--good); } .fill-warn { background:var(--warn); } .fill-bad { background:var(--bad); }
+    .small { font-size:13px; color:var(--muted); }
+    .footer { margin-top:28px; font-size:13px; color:var(--muted); }
+    @media (max-width: 900px) {
+      .span-3,.span-4,.span-6,.span-12 { grid-column: span 12; }
+      h1 { font-size:26px; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <h1>VN-Index Playbook cho phiên 03/04/2026</h1>
+  <p class="sub">Bản tóm tắt để dùng trên GitHub / đọc nhanh trước giờ mở cửa. Dữ liệu và nhận định cập nhật theo bối cảnh sau phiên 02/04/2026.</p>
+
+  <div class="grid">
+    <div class="card kpi span-3">
+      <div class="label">VN-Index 02/04</div>
+      <div class="value bad">1.694,77</div>
+      <div class="small">Giảm 0,48% so với 01/04</div>
+    </div>
+    <div class="card kpi span-3">
+      <div class="label">Mốc kỹ thuật gần</div>
+      <div class="value warn">1.700</div>
+      <div class="small">Mốc tâm lý bị mất lại sau phiên 01/04</div>
+    </div>
+    <div class="card kpi span-3">
+      <div class="label">Brent gần nhất</div>
+      <div class="value bad">~108 USD</div>
+      <div class="small">Sau bài phát biểu cứng rắn của Trump</div>
+    </div>
+    <div class="card kpi span-3">
+      <div class="label">Bias 03/04</div>
+      <div class="value warn">Nghiêng rung lắc</div>
+      <div class="small">Chưa đủ xác nhận đáy bền</div>
+    </div>
+  </div>
+
+  <h2>1) Dashboard nhanh</h2>
+  <div class="grid">
+    <div class="card span-6">
+      <h3>Thị trường Việt Nam</h3>
+      <table>
+        <tr><th>Biến</th><th>Trạng thái</th><th>Đọc nhanh</th></tr>
+        <tr><td>Chỉ số</td><td>1.694,77</td><td>Mất lại 1.700 sau phiên bùng nổ 01/04</td></tr>
+        <tr><td>Khung kỹ thuật</td><td>Trung tính/yếu</td><td>Breakout 01/04 chưa được follow-through</td></tr>
+        <tr><td>Thanh khoản</td><td>Cần xác nhận</td><td>Không nên đọc là tiền lớn vào mạnh diện rộng</td></tr>
+        <tr><td>Khối ngoại</td><td>Âm</td><td>Vẫn là lực cản cốt lõi nếu không cải thiện</td></tr>
+        <tr><td>Độ rộng</td><td>Phân hóa</td><td>Dễ bị chi phối bởi trụ lớn hơn là lan tỏa sạch</td></tr>
+      </table>
+    </div>
+
+    <div class="card span-6">
+      <h3>Cross-asset toàn cầu</h3>
+      <table>
+        <tr><th>Biến</th><th>Trạng thái</th><th>Ý nghĩa với VN</th></tr>
+        <tr><td>Mỹ đêm 01/04</td><td>Tăng</td><td>Hỗ trợ tâm lý, nhưng bị trung hòa bởi cú bật của dầu sau phát biểu mới</td></tr>
+        <tr><td>Futures Mỹ trước đêm 02/04</td><td>Giảm</td><td>Gợi ý risk-on đã yếu đi</td></tr>
+        <tr><td>Dầu Brent/WTI</td><td>Tăng mạnh lại</td><td>Tăng risk premium, bất lợi cho thị trường nhập khẩu năng lượng</td></tr>
+        <tr><td>USD / Yield</td><td>Dễ căng lại</td><td>Gây áp lực lên định giá EM và tỷ giá</td></tr>
+        <tr><td>Châu Á</td><td>Nhạy cảm hơn Mỹ</td><td>VN gần logic của châu Á hơn Nasdaq</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <h2>2) Mức độ rủi ro vĩ mô</h2>
+  <div class="grid">
+    <div class="card span-3">
+      <h3><span class="pill critical">Critical</span></h3>
+      <ul>
+        <li>Hormuz chưa có lộ trình mở lại rõ</li>
+        <li>Dầu bật mạnh sau phát biểu của Trump</li>
+        <li>Khối ngoại chưa xác nhận đảo chiều bền</li>
+      </ul>
+    </div>
+    <div class="card span-3">
+      <h3><span class="pill high">High</span></h3>
+      <ul>
+        <li>Lãi suất liên ngân hàng VND vẫn nhạy cảm</li>
+        <li>Tâm lý kỳ vọng còn neo cao sau phiên 01/04</li>
+        <li>Thị trường Mỹ có thể đổi hướng nhanh theo headline</li>
+      </ul>
+    </div>
+    <div class="card span-3">
+      <h3><span class="pill medium">Medium</span></h3>
+      <ul>
+        <li>FTSE Russell ngày 07/04</li>
+        <li>PMI châu Á chậm lại vì chi phí dầu</li>
+        <li>Thanh khoản nội cần thời gian xác nhận</li>
+      </ul>
+    </div>
+    <div class="card span-3">
+      <h3><span class="pill low">Low</span></h3>
+      <ul>
+        <li>Yếu tố mùa vụ đầu tháng</li>
+        <li>Độ trễ cập nhật mô hình của nhiều báo cáo</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>3) Mô hình xác suất đa nhân tố</h2>
+  <div class="grid">
+    <div class="card span-6">
+      <h3>Phiên 03/04/2026</h3>
+      <p><strong>Tăng:</strong> 38%</p>
+      <div class="bar"><div class="fill-good" style="width:38%"></div></div>
+      <p><strong>Đi ngang / rung lắc:</strong> 36%</p>
+      <div class="bar"><div class="fill-warn" style="width:36%"></div></div>
+      <p><strong>Giảm:</strong> 26%</p>
+      <div class="bar"><div class="fill-bad" style="width:26%"></div></div>
+      <p class="small">Bias: không còn nghiêng tăng như sau phiên 01/04; chuyển sang trạng thái cân bằng mong manh, hơi thiên về tích lũy/rung lắc.</p>
+    </div>
+    <div class="card span-6">
+      <h3>1–2 tuần tới</h3>
+      <p><strong>Xác nhận đáy và hồi bền:</strong> 31%</p>
+      <div class="bar"><div class="fill-good" style="width:31%"></div></div>
+      <p><strong>Đi ngang tích lũy:</strong> 37%</p>
+      <div class="bar"><div class="fill-warn" style="width:37%"></div></div>
+      <p><strong>Retest đáy / giảm lại:</strong> 32%</p>
+      <div class="bar"><div class="fill-bad" style="width:32%"></div></div>
+      <p class="small">Thị trường chưa có tín hiệu đủ mạnh để gọi là đáy trung hạn hoàn chỉnh.</p>
+    </div>
+  </div>
+
+  <h2>4) Điều kiện xác nhận tạo đáy</h2>
+  <div class="card">
+    <table>
+      <tr><th>Tiêu chí</th><th>Phiên 01/04</th><th>Phiên 02/04</th><th>Kết luận</th></tr>
+      <tr><td>Giữ trên 1.700</td><td>Có</td><td>Không</td><td>Chưa xác nhận</td></tr>
+      <tr><td>Lan tỏa rộng</td><td>Khá</td><td>Yếu đi</td><td>Thiếu follow-through</td></tr>
+      <tr><td>Khối ngoại</td><td>Cải thiện nhưng nhiễu theo block</td><td>Chưa chắc chắn</td><td>Chưa hỗ trợ rõ</td></tr>
+      <tr><td>Dầu / vĩ mô ngoài nước</td><td>Ủng hộ trong ngày</td><td>Đảo chiều xấu hơn</td><td>Risk premium tăng lại</td></tr>
+      <tr><td>Dòng tiền nội</td><td>Hỗ trợ chỉ số</td><td>Cần thêm xác nhận</td><td>Chưa đủ để gọi đáy bền</td></tr>
+    </table>
+  </div>
+
+  <h2>5) Ba kịch bản cho phiên 03/04</h2>
+  <div class="grid">
+    <div class="card span-4">
+      <h3>Kịch bản A — mở xanh, giữ trên 1.700</h3>
+      <p><strong>Xác suất:</strong> 28%</p>
+      <ul>
+        <li>Điều kiện: dầu hạ trở lại, futures Mỹ bớt đỏ, khối ngoại sáng không bán quá mạnh.</li>
+        <li>Hành động: không đuổi ATO; chỉ theo sau nếu 9h45–10h15 vẫn giữ trên 1.700.</li>
+      </ul>
+    </div>
+    <div class="card span-4">
+      <h3>Kịch bản B — rung lắc quanh 1.690–1.700</h3>
+      <p><strong>Xác suất:</strong> 41%</p>
+      <ul>
+        <li>Đây là base case hợp lý nhất.</li>
+        <li>Thị trường hấp thụ thông tin mới, chưa đủ xấu để gãy nhưng cũng chưa đủ tốt để breakout.</li>
+      </ul>
+    </div>
+    <div class="card span-4">
+      <h3>Kịch bản C — mất 1.680 và bán mạnh hơn</h3>
+      <p><strong>Xác suất:</strong> 31%</p>
+      <ul>
+        <li>Điều kiện: dầu tiếp tục tăng, USD/yield căng lại, khối ngoại bán gia tốc.</li>
+        <li>Nếu xảy ra, coi nhịp 01/04 là relief rally bị phủ nhận một phần.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>6) Các biến số cần nhìn trong ngày 03/04</h2>
+  <div class="card">
+    <table>
+      <tr><th>Biến</th><th>Tại sao quan trọng</th><th>Mức ưu tiên</th></tr>
+      <tr><td>Brent / WTI</td><td>Đây là biến phản ứng nhanh nhất với rủi ro Iran/Hormuz</td><td>Rất cao</td></tr>
+      <tr><td>Futures Mỹ trước giờ VN mở cửa</td><td>Cho biết đà risk-on từ đêm 01/04 còn hay đã mất</td><td>Rất cao</td></tr>
+      <tr><td>DXY / UST 10Y</td><td>Định hướng risk premium của EM</td><td>Cao</td></tr>
+      <tr><td>Khối ngoại HOSE</td><td>Kiểm tra xem cải thiện 01/04 có bền không</td><td>Cao</td></tr>
+      <tr><td>Lãi suất liên NH / OMO</td><td>Phản ánh độ căng thanh khoản nội địa</td><td>Cao</td></tr>
+      <tr><td>FTSE 07/04</td><td>Catalyst tâm lý cho tuần sau</td><td>Vừa</td></tr>
+      <tr><td>Headline Trump / Iran / Hormuz</td><td>Có thể đảo chiều mọi mô hình intraday</td><td>Rất cao</td></tr>
+    </table>
+  </div>
+
+  <h2>7) Playbook theo mốc giờ cho 03/04</h2>
+  <div class="card">
+    <table>
+      <tr><th>Mốc giờ</th><th>Việc cần nhìn</th><th>Diễn giải</th></tr>
+      <tr><td>08:30–08:55</td><td>Dầu, futures Mỹ, châu Á, DXY</td><td>Nếu dầu còn cao và futures đỏ, giảm kỳ vọng follow-through.</td></tr>
+      <tr><td>09:00–09:15</td><td>ATO và độ rộng</td><td>Không đọc chỉ số đơn lẻ; phải nhìn breadth và nhóm trụ.</td></tr>
+      <tr><td>09:30–10:15</td><td>Giữ hay mất 1.700 / 1.690</td><td>Đây là khung xác nhận quan trọng nhất của buổi sáng.</td></tr>
+      <tr><td>10:30–11:15</td><td>Khối ngoại, ngân hàng, chứng khoán, Vingroup</td><td>Nếu xanh chỉ nhờ vài trụ thì độ tin cậy thấp.</td></tr>
+      <tr><td>13:00–13:45</td><td>Phản ứng sau giờ nghỉ trưa</td><td>Nếu lực bán tăng lại ngay đầu chiều, đó là tín hiệu xấu.</td></tr>
+      <tr><td>14:00–14:30</td><td>Tốc độ dòng tiền và giá trị khớp</td><td>So với sáng, tiền vào tăng hay giảm mới quyết định chất lượng phiên.</td></tr>
+      <tr><td>ATC</td><td>Đóng cửa trên hay dưới 1.700</td><td>Đóng cửa mới là dữ kiện để đánh giá follow-through cho tuần sau.</td></tr>
+    </table>
+  </div>
+
+  <h2>8) Sự kiện sắp tới</h2>
+  <div class="card">
+    <ul>
+      <li>07/04/2026: FTSE Russell interim review announcement sau khi thị trường Mỹ đóng cửa.</li>
+      <li>Diễn biến mới từ Trump / Iran / Hormuz có thể thay đổi mọi bias trong ngày.</li>
+      <li>Biến động dầu, vàng, USD, lợi suất tiếp tục là trục điều khiển chính của tháng 4.</li>
+      <li>Theo dõi các động thái hỗ trợ thị trường của cơ quan quản lý Việt Nam nếu biến động kéo dài.</li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    <p>Generated for GitHub use. Nội dung này là playbook chiến lược, không phải khuyến nghị đầu tư cá nhân hóa hoàn toàn.</p>
+    <p>Generated at: 2026-04-02 08:18 UTC</p>
+  </div>
+</div>
+</body>
+</html>
