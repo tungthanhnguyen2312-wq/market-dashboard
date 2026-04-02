@@ -1,407 +1,407 @@
 {
-  "updated_at": "2026-04-02T09:30:00+07:00",
-  "updated_at_display": "02/04/2026 • 09:30 GMT+7",
+  "updated_at": "2026-04-02T12:22:35.949028+07:00",
+  "updated_at_display": "02/04/2026 • 12:22 GMT+7",
   "war_news": [
     {
-      "source": "War Desk",
-      "title": "Oil traders watch Hormuz shipping as Middle East risk stays elevated",
-      "title_vi": "Giới giao dịch dầu theo dõi Hormuz khi rủi ro Trung Đông vẫn cao",
-      "summary": "Risk premium in crude remains sensitive to any new escalation headline.",
-      "summary_vi": "Phí rủi ro của dầu vẫn rất nhạy với mọi headline leo thang mới.",
-      "url": "https://example.com/war-1",
-      "published_iso": "2026-04-02T08:40:00+07:00",
-      "published_text": "02/04 08:40"
+      "source": "Al Jazeera",
+      "title": "Trump claims ‘success’ in Iran in just 32 days compared to lengthy US wars",
+      "title_vi": "Trump tuyên bố ‘thành công’ ở Iran chỉ trong 32 ngày so với các cuộc chiến kéo dài của Mỹ",
+      "summary": "US President Donald Trump said Iran was the ‘bully of the Middle East’ but is ‘no longer a threat’.",
+      "summary_vi": "US President Donald Trump said Iran was the ‘bully of the Middle East’ but is ‘no longer a threat’.",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/4/2/trump-claims-success-in-iran-in-just-32-days-compared-to-lengthy-us-wars?traffic_source=rss",
+      "published_iso": "2026-04-02T12:00:13+07:00",
+      "published_text": "02/04 12:00"
     },
     {
-      "source": "War Desk",
-      "title": "Global markets assess ceasefire signals against fragile logistics recovery",
-      "title_vi": "Thị trường toàn cầu cân nhắc tín hiệu hạ nhiệt chiến sự trước khi logistics phục hồi bền",
-      "summary": "Shipping and insurance costs remain key variables for risk assets.",
-      "summary_vi": "Chi phí vận tải và bảo hiểm vẫn là biến số quan trọng với tài sản rủi ro.",
-      "url": "https://example.com/war-2",
-      "published_iso": "2026-04-02T07:55:00+07:00",
-      "published_text": "02/04 07:55"
+      "source": "Al Jazeera",
+      "title": "Trump threatens to bring Iran ‘back to the Stone Ages’",
+      "title_vi": "Trump đe dọa sẽ đưa Iran ‘trở lại thời kỳ đồ đá’",
+      "summary": "President Trump says the US will bring Iran ‘back to the Stone Ages where they belong' by striking hard.",
+      "summary_vi": "President Trump says the US will bring Iran ‘back to the Stone Ages where they belong' by striking hard.",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/4/2/trump-threatens-to-bring-iran-back-to-the-stone?traffic_source=rss",
+      "published_iso": "2026-04-02T11:57:14+07:00",
+      "published_text": "02/04 11:57"
     }
   ],
   "global_news": [
     {
-      "source": "Macro Desk",
-      "title": "Treasury yields ease while traders reprice rate-cut expectations",
-      "title_vi": "Lợi suất trái phiếu Mỹ hạ nhiệt khi thị trường định giá lại kỳ vọng cắt giảm lãi suất",
-      "summary": "Lower yields and a softer dollar tend to support EM sentiment, including Vietnam.",
-      "summary_vi": "Lợi suất hạ và USD dịu lại thường hỗ trợ tâm lý EM, trong đó có Việt Nam.",
-      "url": "https://example.com/global-1",
-      "published_iso": "2026-04-02T08:05:00+07:00",
-      "published_text": "02/04 08:05"
+      "source": "Investing News",
+      "title": "Hopes dim for swift end to Iran war after Trump speech, oil prices surge anew",
+      "title_vi": "Hy vọng mờ nhạt để nhanh chóng kết thúc chiến tranh Iran sau bài phát biểu của Trump, giá dầu tăng trở lại",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/world-news/hopes-dim-for-swift-end-to-iran-war-after-trump-speech-oil-prices-surge-anew-4594592",
+      "published_iso": "2026-04-02T11:24:28+07:00",
+      "published_text": "02/04 11:24"
     },
     {
-      "source": "Macro Desk",
-      "title": "Brent stays near the key 100–105 zone as traders track energy headlines",
-      "title_vi": "Brent vẫn ở vùng 100–105 khi thị trường bám sát headline năng lượng",
-      "summary": "This range matters directly for Vietnam through CPI, airlines and FX expectations.",
-      "summary_vi": "Vùng giá này tác động trực tiếp tới Việt Nam qua CPI, hàng không và kỳ vọng tỷ giá.",
-      "url": "https://example.com/global-2",
-      "published_iso": "2026-04-02T07:20:00+07:00",
-      "published_text": "02/04 07:20"
+      "source": "Investing News",
+      "title": "Oil jumps over 5% after Trump says U.S. to keep up attacks on Iran",
+      "title_vi": "Giá dầu tăng hơn 5% sau khi Trump nói rằng Mỹ sẽ tiếp tục tấn công Iran",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/commodities-news/oil-prices-drop-on-hopes-of-us-pullback-from-iran-war-4594538",
+      "published_iso": "2026-04-02T11:12:28+07:00",
+      "published_text": "02/04 11:12"
     },
     {
-      "source": "Macro Desk",
-      "title": "Asian manufacturing still faces input-cost pressure despite calmer markets",
-      "title_vi": "Sản xuất châu Á vẫn chịu áp lực chi phí đầu vào dù thị trường bớt căng hơn",
-      "summary": "PMI resilience remains uneven across the region.",
-      "summary_vi": "Độ bền PMI vẫn không đồng đều trên toàn khu vực.",
-      "url": "https://example.com/global-3",
-      "published_iso": "2026-04-02T06:30:00+07:00",
-      "published_text": "02/04 06:30"
+      "source": "Google News Macro",
+      "title": "Tracking the Economic Effects of Tariffs - budgetlab.yale.edu",
+      "title_vi": "Theo dõi ảnh hưởng kinh tế của thuế quan - budgetlab.yale.edu",
+      "summary": "Tracking the Economic Effects of Tariffs budgetlab.yale.edu",
+      "summary_vi": "Tracking the Economic Effects of Tariffs budgetlab.yale.edu",
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE4wOW5VcEYwNXNrb2pBN1BEaUdTMElDODZwUVFETmxENnVFNUhqWXNZYXdGRXNlRVV6ZGp4T01OUlNKMHA3ZDdkRzJ1MC1NRGRuZVBDMmF0TTFKam1jZExfYnFESjlqOVB4enpuR1NHWkZVN2M1SjZhUA?oc=5",
+      "published_iso": "2026-04-02T06:58:21+07:00",
+      "published_text": "02/04 06:58"
     },
     {
-      "source": "Macro Desk",
-      "title": "Investors look to tariff headlines and FTSE review as next sentiment tests",
-      "title_vi": "Nhà đầu tư theo dõi headline thuế quan và đợt review FTSE như phép thử tâm lý kế tiếp",
-      "summary": "Vietnam equities may react more to flow and liquidity than to headline indices alone.",
-      "summary_vi": "Cổ phiếu Việt Nam có thể phản ứng mạnh hơn với dòng tiền và thanh khoản hơn là chỉ số headline.",
-      "url": "https://example.com/global-4",
-      "published_iso": "2026-04-02T05:55:00+07:00",
-      "published_text": "02/04 05:55"
+      "source": "Google News Macro",
+      "title": "Oil Settles Lower As Market Awaits Trump Message - WSJ",
+      "title_vi": "Giá dầu ổn định thấp hơn khi thị trường chờ đợi thông điệp của Trump - WSJ",
+      "summary": "Oil Settles Lower As Market Awaits Trump Message WSJ",
+      "summary_vi": "Oil Settles Lower As Market Awaits Trump Message WSJ",
+      "url": "https://news.google.com/rss/articles/CBMiqgNBVV95cUxNbWdObHRKa2NJRzdiXzU5Y1pWVVQxSXoyOV9NVEtNZWpkTkxzbUF2MWFoamlqYmRxOVdRd0lSSE10czJENEdGeVM5WE5NUnhnM0h3Rjk0VURjZkpGU1FGTjM3QWZoVlF4RUF2ZFdXMW5VTGVjeWxSb25HT2piSFFMM3V2c3FXS2JiTWxzLWxXSjctUFlJdW5veVdaQlF3Vnc1eExwcnFVdTlHUFVlenlaNWVlOFpRaUtYdjdZY2pTVTkzdDNiODdYc3RkaDhhaHM4cml5YlRuT3BjcWN5OUJPd1hhbWk0WnV3NDRkZXk0LUFNalZRbWlkbXd6MFBJTXg0U0dWZ09UcGV5aHg3c2tDRTAxQ2lwY2MyT2hrU2ViN0JZWVh1NmN4U0JyMmJaQUhSWE8zdUVlejdnSHo1eFJ6UmIxbk1TQ0FNR3oxWHJ5NDJ1dm53M1g1WGtPZUktZVc0amJkeGtsLTA5SmNvRktva3cteWdlQXp4Rm12Q1VSdUtqRmhFZ1hPd0JPSEJ6Rkx2ZHV2TjZhTWZIcDhCTWY3MkNYeDhxVWoyTGc?oc=5",
+      "published_iso": "2026-04-02T02:11:00+07:00",
+      "published_text": "02/04 02:11"
     }
   ],
   "vn_news": [
     {
-      "source": "VnExpress",
-      "title": "Nhà đầu tư theo dõi nhịp giữ mốc 1.700 của VN-Index sau phiên tăng mạnh",
-      "title_vi": "Nhà đầu tư theo dõi nhịp giữ mốc 1.700 của VN-Index sau phiên tăng mạnh",
-      "summary": "Dòng tiền và độ rộng được xem là điều kiện cần để nhịp tăng bền hơn.",
-      "summary_vi": "Dòng tiền và độ rộng được xem là điều kiện cần để nhịp tăng bền hơn.",
-      "url": "https://example.com/vn-1",
-      "published_iso": "2026-04-02T08:45:00+07:00",
-      "published_text": "02/04 08:45"
-    },
-    {
-      "source": "CafeF",
-      "title": "Thanh khoản cải thiện nhưng thị trường vẫn cần xác nhận follow-through",
-      "title_vi": "Thanh khoản cải thiện nhưng thị trường vẫn cần xác nhận follow-through",
-      "summary": "Large caps và nhóm dẫn dắt vẫn là yếu tố quyết định chất lượng phiên.",
-      "summary_vi": "Large caps và nhóm dẫn dắt vẫn là yếu tố quyết định chất lượng phiên.",
-      "url": "https://example.com/vn-2",
-      "published_iso": "2026-04-02T08:10:00+07:00",
-      "published_text": "02/04 08:10"
-    },
-    {
-      "source": "Vietstock",
-      "title": "Khối ngoại tiếp tục là biến số lớn với nhịp hồi đầu tháng 4",
-      "title_vi": "Khối ngoại tiếp tục là biến số lớn với nhịp hồi đầu tháng 4",
-      "summary": "Headline value và matched-order có thể cho hai câu chuyện khác nhau.",
-      "summary_vi": "Headline value và matched-order có thể cho hai câu chuyện khác nhau.",
-      "url": "https://example.com/vn-3",
-      "published_iso": "2026-04-02T07:40:00+07:00",
-      "published_text": "02/04 07:40"
-    },
-    {
-      "source": "VietnamFinance",
-      "title": "Lãi suất liên ngân hàng và tỷ giá tiếp tục là biến phản biện mạnh với chứng khoán",
-      "title_vi": "Lãi suất liên ngân hàng và tỷ giá tiếp tục là biến phản biện mạnh với chứng khoán",
-      "summary": "Nếu interbank không hạ tiếp, khả năng kéo dài nhịp risk-on sẽ kém đi.",
-      "summary_vi": "Nếu interbank không hạ tiếp, khả năng kéo dài nhịp risk-on sẽ kém đi.",
-      "url": "https://example.com/vn-4",
-      "published_iso": "2026-04-02T07:05:00+07:00",
-      "published_text": "02/04 07:05"
-    },
-    {
-      "source": "VnBusiness",
-      "title": "Nhóm bất động sản và chứng khoán tiếp tục hút sự chú ý sau phiên bứt phá",
-      "title_vi": "Nhóm bất động sản và chứng khoán tiếp tục hút sự chú ý sau phiên bứt phá",
-      "summary": "Nhà đầu tư theo dõi xem dòng tiền có lan rộng ngoài vài trụ lớn hay không.",
-      "summary_vi": "Nhà đầu tư theo dõi xem dòng tiền có lan rộng ngoài vài trụ lớn hay không.",
-      "url": "https://example.com/vn-5",
-      "published_iso": "2026-04-02T06:50:00+07:00",
-      "published_text": "02/04 06:50"
+      "source": "Thời báo Tài chính VN",
+      "title": "Công ty Đấu giá Hợp danh Việt Á: Đấu giá gồm 03 xe ô tô đã qua sử dụng",
+      "title_vi": "Công ty Đấu giá Hợp danh Việt Á: Đấu giá gồm 03 xe ô tô đã qua sử dụng",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-viet-a-dau-gia-gom-03-xe-o-to-da-qua-su-dung-50499.html",
+      "published_iso": "2026-04-02T12:23:28.746376+07:00",
+      "published_text": "02/04 12:23"
     },
     {
       "source": "Thời báo Tài chính VN",
-      "title": "Thị trường kỳ vọng thêm tín hiệu rõ hơn trước đợt công bố FTSE ngày 07/04",
-      "title_vi": "Thị trường kỳ vọng thêm tín hiệu rõ hơn trước đợt công bố FTSE ngày 07/04",
-      "summary": "Nhóm broker và large caps nhiều khả năng phản ứng mạnh hơn với kỳ vọng nâng hạng.",
-      "summary_vi": "Nhóm broker và large caps nhiều khả năng phản ứng mạnh hơn với kỳ vọng nâng hạng.",
-      "url": "https://example.com/vn-6",
-      "published_iso": "2026-04-02T06:20:00+07:00",
-      "published_text": "02/04 06:20"
+      "title": "Công ty Đấu giá Hợp danh Miền Nam: Đấu giá xe nâng hàng, đã qua sử dụng",
+      "title_vi": "Công ty Đấu giá Hợp danh Miền Nam: Đấu giá xe nâng hàng, đã qua sử dụng",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-mien-nam-dau-gia-xe-nang-hang-da-qua-su-dung-50496.html",
+      "published_iso": "2026-04-02T12:23:28.746308+07:00",
+      "published_text": "02/04 12:23"
+    },
+    {
+      "source": "VietnamFinance",
+      "title": "Iran ra đòn trực diện sau tối hậu thư: Không kích cơ sở đám mây Amazon tại Bahrain",
+      "title_vi": "Iran ra đòn trực diện sau tối hậu thư: Không kích cơ sở đám mây Amazon tại Bahrain",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://vietnamfinance.vn/iran-ra-don-truc-dien-sau-toi-hau-thu-khong-kich-co-so-dam-may-amazon-tai-bahrain-d142495.html",
+      "published_iso": "2026-04-02T12:23:27.140541+07:00",
+      "published_text": "02/04 12:23"
+    },
+    {
+      "source": "VietnamFinance",
+      "title": "Thu hồi nước rửa tay Ginger: Lộ sai phạm và mắt xích Sky Eden – Toki",
+      "title_vi": "Thu hồi nước rửa tay Ginger: Lộ sai phạm và mắt xích Sky Eden – Toki",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://vietnamfinance.vn/thu-hoi-nuoc-rua-tay-ginger-lo-sai-pham-va-mat-xich-sky-eden-toki-d142372.html",
+      "published_iso": "2026-04-02T12:23:27.140474+07:00",
+      "published_text": "02/04 12:23"
+    },
+    {
+      "source": "CafeF",
+      "title": "Công thức thành công của NAB Việt Nam",
+      "title_vi": "Công thức thành công của NAB Việt Nam",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://cafef.vn/cong-thuc-thanh-cong-cua-nab-viet-nam-188260401161629848.chn",
+      "published_iso": "2026-04-02T12:23:26.688000+07:00",
+      "published_text": "02/04 12:23"
+    },
+    {
+      "source": "CafeF",
+      "title": "TS. Nguyễn Đình Cung: Việt Nam mở cơ hội lịch sử chưa từng có, không còn rào cản nhưng còn một vấn đề",
+      "title_vi": "TS. Nguyễn Đình Cung: Việt Nam mở cơ hội lịch sử chưa từng có, không còn rào cản nhưng còn một vấn đề",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://cafef.vn/ts-nguyen-dinh-cung-viet-nam-mo-co-hoi-lich-su-chua-tung-co-khong-con-rao-can-nhung-con-mot-van-de-188260329145429809.chn",
+      "published_iso": "2026-04-02T12:23:26.687928+07:00",
+      "published_text": "02/04 12:23"
     }
   ],
   "markets": [
     {
       "name": "WTI",
-      "symbol": "WTI",
+      "symbol": "CL=F",
       "category": "Energy",
-      "price": 100.21,
-      "change": -1.15,
-      "change_pct": -1.13,
+      "price": 104.9,
+      "change": 4.78,
+      "change_pct": 4.77,
       "decimals": 2,
       "suffix": "",
-      "note": "Snapshot mẫu — workflow sẽ tự cập nhật"
+      "note": "Dữ liệu gần nhất: 02/04 11:00"
     },
     {
       "name": "Brent",
-      "symbol": "Brent",
+      "symbol": "BZ=F",
       "category": "Energy",
-      "price": 103.12,
-      "change": -0.88,
-      "change_pct": -0.85,
+      "price": 106.93,
+      "change": 5.77,
+      "change_pct": 5.7,
       "decimals": 2,
       "suffix": "",
-      "note": "Snapshot mẫu — workflow sẽ tự cập nhật"
+      "note": "Dữ liệu gần nhất: 02/04 11:00"
     },
     {
       "name": "Natural Gas",
-      "symbol": "Natural Gas",
+      "symbol": "NG=F",
       "category": "Energy",
-      "price": 2.47,
-      "change": 0.03,
-      "change_pct": 1.23,
+      "price": 2.87,
+      "change": 0.05,
+      "change_pct": 1.92,
       "decimals": 2,
       "suffix": "",
-      "note": "Snapshot mẫu — workflow sẽ tự cập nhật"
+      "note": "Dữ liệu gần nhất: 02/04 11:00"
     },
     {
       "name": "Gold",
-      "symbol": "Gold",
+      "symbol": "GC=F",
       "category": "Metals",
-      "price": 3138.5,
-      "change": 12.4,
-      "change_pct": 0.4,
+      "price": 4698.5,
+      "change": -84.7,
+      "change_pct": -1.77,
       "decimals": 2,
       "suffix": "",
-      "note": "Snapshot mẫu — workflow sẽ tự cập nhật"
+      "note": "Dữ liệu gần nhất: 02/04 11:00"
     },
     {
       "name": "Silver",
-      "symbol": "Silver",
+      "symbol": "SI=F",
       "category": "Metals",
-      "price": 34.2,
-      "change": 0.18,
-      "change_pct": 0.53,
+      "price": 71.9,
+      "change": -3.97,
+      "change_pct": -5.23,
       "decimals": 2,
       "suffix": "",
-      "note": "Snapshot mẫu — workflow sẽ tự cập nhật"
+      "note": "Dữ liệu gần nhất: 02/04 11:00"
     },
     {
       "name": "Copper",
-      "symbol": "Copper",
+      "symbol": "HG=F",
       "category": "Metals",
-      "price": 5.07,
-      "change": -0.04,
-      "change_pct": -0.78,
+      "price": 5.55,
+      "change": -0.07,
+      "change_pct": -1.28,
       "decimals": 2,
       "suffix": "",
-      "note": "Snapshot mẫu — workflow sẽ tự cập nhật"
+      "note": "Dữ liệu gần nhất: 02/04 11:00"
     },
     {
       "name": "US 10Y",
-      "symbol": "US 10Y",
+      "symbol": "^TNX",
       "category": "Rates",
-      "price": 4.28,
-      "change": -0.06,
-      "change_pct": -1.38,
+      "price": 0.43,
+      "change": 0.0,
+      "change_pct": 0.19,
       "decimals": 2,
       "suffix": "%",
-      "note": "Snapshot mẫu — workflow sẽ tự cập nhật"
+      "note": "Dữ liệu gần nhất: 01/04 12:00"
     },
     {
       "name": "DXY",
-      "symbol": "DXY",
+      "symbol": "DX-Y.NYB",
       "category": "FX",
-      "price": 99.59,
-      "change": -0.22,
-      "change_pct": -0.22,
+      "price": 100.04,
+      "change": 0.39,
+      "change_pct": 0.39,
       "decimals": 2,
       "suffix": "",
-      "note": "Snapshot mẫu — workflow sẽ tự cập nhật"
+      "note": "Dữ liệu gần nhất: 02/04 11:00"
     },
     {
       "name": "EUR/USD",
-      "symbol": "EUR/USD",
+      "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.0832,
-      "change": 0.0041,
-      "change_pct": 0.38,
+      "price": 1.1535,
+      "change": -0.0039,
+      "change_pct": -0.34,
       "decimals": 4,
       "suffix": "",
-      "note": "Snapshot mẫu — workflow sẽ tự cập nhật"
+      "note": "Dữ liệu gần nhất: 02/04 06:00"
     },
     {
       "name": "BTC/USD",
-      "symbol": "BTC/USD",
+      "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 84620,
-      "change": 1200,
-      "change_pct": 1.44,
+      "price": 66354.0,
+      "change": -1880.0,
+      "change_pct": -2.75,
       "decimals": 0,
       "suffix": "",
-      "note": "Snapshot mẫu — workflow sẽ tự cập nhật"
+      "note": "Dữ liệu gần nhất: 02/04 07:00"
     },
     {
       "name": "S&P 500",
-      "symbol": "S&P 500",
+      "symbol": "^GSPC",
       "category": "US",
-      "price": 5745.4,
-      "change": 61.5,
-      "change_pct": 1.08,
+      "price": 6575.32,
+      "change": 46.8,
+      "change_pct": 0.72,
       "decimals": 2,
       "suffix": "",
-      "note": "Snapshot mẫu — workflow sẽ tự cập nhật"
+      "note": "Dữ liệu gần nhất: 01/04 11:00"
     },
     {
       "name": "Dow Jones",
-      "symbol": "Dow Jones",
+      "symbol": "^DJI",
       "category": "US",
-      "price": 42410.2,
-      "change": 322.4,
-      "change_pct": 0.77,
+      "price": 46565.74,
+      "change": 224.23,
+      "change_pct": 0.48,
       "decimals": 2,
       "suffix": "",
-      "note": "Snapshot mẫu — workflow sẽ tự cập nhật"
+      "note": "Dữ liệu gần nhất: 01/04 11:00"
     },
     {
       "name": "Nasdaq",
-      "symbol": "Nasdaq",
+      "symbol": "^IXIC",
       "category": "US",
-      "price": 18032.5,
-      "change": 208.1,
-      "change_pct": 1.17,
+      "price": 21840.95,
+      "change": 250.32,
+      "change_pct": 1.16,
       "decimals": 2,
       "suffix": "",
-      "note": "Snapshot mẫu — workflow sẽ tự cập nhật"
+      "note": "Dữ liệu gần nhất: 01/04 11:00"
     },
     {
       "name": "Russell 2000",
-      "symbol": "Russell 2000",
+      "symbol": "^RUT",
       "category": "US",
-      "price": 2089.3,
-      "change": 18.2,
-      "change_pct": 0.88,
+      "price": 2512.37,
+      "change": 16.0,
+      "change_pct": 0.64,
       "decimals": 2,
       "suffix": "",
-      "note": "Snapshot mẫu — workflow sẽ tự cập nhật"
+      "note": "Dữ liệu gần nhất: 01/04 11:00"
     },
     {
       "name": "VIX",
-      "symbol": "VIX",
+      "symbol": "^VIX",
       "category": "US",
-      "price": 19.8,
-      "change": -1.2,
-      "change_pct": -5.71,
+      "price": 24.54,
+      "change": -0.71,
+      "change_pct": -2.81,
       "decimals": 2,
       "suffix": "",
-      "note": "Snapshot mẫu — workflow sẽ tự cập nhật"
+      "note": "Dữ liệu gần nhất: 01/04 12:00"
     },
     {
       "name": "FTSE 100",
-      "symbol": "FTSE 100",
+      "symbol": "^FTSE",
       "category": "Europe",
-      "price": 8122.4,
-      "change": 44.6,
-      "change_pct": 0.55,
+      "price": 10364.8,
+      "change": 188.3,
+      "change_pct": 1.85,
       "decimals": 2,
       "suffix": "",
-      "note": "Snapshot mẫu — workflow sẽ tự cập nhật"
+      "note": "Dữ liệu gần nhất: 01/04 06:00"
     },
     {
       "name": "Euro Stoxx 50",
-      "symbol": "Euro Stoxx 50",
+      "symbol": "^STOXX50E",
       "category": "Europe",
-      "price": 5077.8,
-      "change": 28.5,
-      "change_pct": 0.56,
+      "price": 5732.71,
+      "change": 162.98,
+      "change_pct": 2.93,
       "decimals": 2,
       "suffix": "",
-      "note": "Snapshot mẫu — workflow sẽ tự cập nhật"
+      "note": "Dữ liệu gần nhất: 01/04 05:00"
     },
     {
       "name": "VN-Index",
-      "symbol": "VN-Index",
+      "symbol": "^VNINDEX.VN",
       "category": "Vietnam",
-      "price": 1702.93,
-      "change": 28.44,
-      "change_pct": 1.72,
+      "price": 1694.77,
+      "change": 0.0,
+      "change_pct": 0.0,
       "decimals": 2,
       "suffix": "",
-      "note": "Snapshot mẫu — workflow sẽ tự cập nhật"
+      "note": "Dữ liệu gần nhất: 02/04 00:00"
     },
     {
       "name": "Hang Seng",
-      "symbol": "Hang Seng",
+      "symbol": "^HSI",
       "category": "Asia",
-      "price": 16890.2,
-      "change": 175.4,
-      "change_pct": 1.05,
+      "price": 24952.53,
+      "change": -341.5,
+      "change_pct": -1.35,
       "decimals": 2,
       "suffix": "",
-      "note": "Snapshot mẫu — workflow sẽ tự cập nhật"
+      "note": "Dữ liệu gần nhất: 01/04 23:00"
     },
     {
       "name": "Nikkei 225",
-      "symbol": "Nikkei 225",
+      "symbol": "^N225",
       "category": "Asia",
-      "price": 40220.7,
-      "change": 420.1,
-      "change_pct": 1.06,
+      "price": 52469.12,
+      "change": -1270.56,
+      "change_pct": -2.36,
       "decimals": 2,
       "suffix": "",
-      "note": "Snapshot mẫu — workflow sẽ tự cập nhật"
+      "note": "Dữ liệu gần nhất: 01/04 22:00"
     },
     {
       "name": "KOSPI",
-      "symbol": "KOSPI",
+      "symbol": "^KS11",
       "category": "Asia",
-      "price": 2764.8,
-      "change": 18.2,
-      "change_pct": 0.66,
+      "price": 5258.91,
+      "change": -219.79,
+      "change_pct": -4.01,
       "decimals": 2,
       "suffix": "",
-      "note": "Snapshot mẫu — workflow sẽ tự cập nhật"
+      "note": "Dữ liệu gần nhất: 01/04 22:00"
     },
     {
       "name": "Shanghai Composite",
-      "symbol": "Shanghai Composite",
+      "symbol": "000001.SS",
       "category": "Asia",
-      "price": 3098.3,
-      "change": 8.6,
-      "change_pct": 0.28,
+      "price": 3917.74,
+      "change": -30.81,
+      "change_pct": -0.78,
       "decimals": 2,
       "suffix": "",
-      "note": "Snapshot mẫu — workflow sẽ tự cập nhật"
+      "note": "Dữ liệu gần nhất: 01/04 23:00"
     },
     {
       "name": "Shenzhen Component",
-      "symbol": "Shenzhen Component",
+      "symbol": "399001.SZ",
       "category": "Asia",
-      "price": 9550.2,
-      "change": 41.0,
-      "change_pct": 0.43,
+      "price": 13509.08,
+      "change": -197.44,
+      "change_pct": -1.44,
       "decimals": 2,
       "suffix": "",
-      "note": "Snapshot mẫu — workflow sẽ tự cập nhật"
+      "note": "Dữ liệu gần nhất: 01/04 23:00"
     },
     {
       "name": "Nifty 50",
-      "symbol": "Nifty 50",
+      "symbol": "^NSEI",
       "category": "Asia",
-      "price": 23210.1,
-      "change": 88.4,
-      "change_pct": 0.38,
+      "price": 22204.0,
+      "change": -475.4,
+      "change_pct": -2.1,
       "decimals": 2,
       "suffix": "",
-      "note": "Snapshot mẫu — workflow sẽ tự cập nhật"
+      "note": "Dữ liệu gần nhất: 02/04 01:30"
     },
     {
       "name": "ASX 200",
-      "symbol": "ASX 200",
+      "symbol": "^AXJO",
       "category": "Asia",
-      "price": 7852.7,
-      "change": 32.6,
-      "change_pct": 0.42,
+      "price": 8573.1,
+      "change": -98.7,
+      "change_pct": -1.14,
       "decimals": 2,
       "suffix": "",
-      "note": "Snapshot mẫu — workflow sẽ tự cập nhật"
+      "note": "Dữ liệu gần nhất: 01/04 20:00"
     }
   ]
 }
