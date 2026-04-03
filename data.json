@@ -1,39 +1,29 @@
 {
-  "updated_at": "2026-04-03T12:53:32.203531+07:00",
-  "updated_at_display": "03/04/2026 • 12:53 GMT+7",
+  "updated_at": "2026-04-03T15:37:35.008578+07:00",
+  "updated_at_display": "03/04/2026 • 15:37 GMT+7",
   "war_news": [
     {
       "source": "Al Jazeera",
-      "title": "Iran war live: Trump warns assault on infrastructure ‘hasn’t even started’",
-      "title_vi": "Chiến tranh Iran trực tiếp: Trump cảnh báo cuộc tấn công vào cơ sở hạ tầng ‘thậm chí còn chưa bắt đầu’",
-      "summary": "Trump steps up threats after US strike on Iran's largest bridge, as Tehran launches attacks across the region.",
-      "summary_vi": "Trump steps up threats after US strike on Iran's largest bridge, as Tehran launches attacks across the region.",
-      "url": "https://www.aljazeera.com/news/liveblog/2026/4/3/iran-war-live-trump-warns-assault-on-infrastructure-hasnt-even-started?traffic_source=rss",
-      "published_iso": "2026-04-03T12:00:00+07:00",
-      "published_text": "03/04 12:00"
+      "title": "Iran condemns US-Israeli ‘moral collapse’ after attacks on civilian sites",
+      "title_vi": "Iran lên án 'sự sụp đổ đạo đức‘ của Mỹ-Israel sau các cuộc tấn công vào các địa điểm dân sự",
+      "summary": "Strikes damage or destroy Iran’s tallest bridge and a century-old medical research centre fighting diseases.",
+      "summary_vi": "Strikes damage or destroy Iran’s tallest bridge and a century-old medical research centre fighting diseases.",
+      "url": "https://www.aljazeera.com/news/2026/4/3/iran-condemns-us-israeli-moral-collapse-after-attacks-on-civilian-sites?traffic_source=rss",
+      "published_iso": "2026-04-03T15:03:04+07:00",
+      "published_text": "03/04 15:03"
     },
     {
       "source": "Al Jazeera",
-      "title": "How war on Iran turned Pakistan’s LNG surplus into a looming shortage",
-      "title_vi": "Chiến tranh với Iran đã biến thặng dư LNG của Pakistan thành một sự thiếu hụt lờ mờ như thế nào",
-      "summary": "Pakistan braces for gas shortage crisis as LNG supplies collapse amid escalating regional conflict.",
-      "summary_vi": "Pakistan braces for gas shortage crisis as LNG supplies collapse amid escalating regional conflict.",
-      "url": "https://www.aljazeera.com/news/2026/4/3/how-war-on-iran-turned-pakistans-lng-surplus-into-a-looming-shortage?traffic_source=rss",
-      "published_iso": "2026-04-03T11:55:17+07:00",
-      "published_text": "03/04 11:55"
+      "title": "How Israel is destroying healthcare infrastructure in southern Lebanon",
+      "title_vi": "Israel đang phá hủy cơ sở hạ tầng y tế ở miền nam Lebanon như thế nào",
+      "summary": "Israel's attacks on hospitals, medical centres and healthcare workers are fuelling displacement and a health crisis.",
+      "summary_vi": "Israel's attacks on hospitals, medical centres and healthcare workers are fuelling displacement and a health crisis.",
+      "url": "https://www.aljazeera.com/features/2026/4/3/how-israel-is-destroying-healthcare-infrastructure-in-southern-lebanon?traffic_source=rss",
+      "published_iso": "2026-04-03T14:34:43+07:00",
+      "published_text": "03/04 14:34"
     }
   ],
   "global_news": [
-    {
-      "source": "Investing News",
-      "title": "UAE non-oil private sector growth slows to near four-year low in March, PMI shows",
-      "title_vi": "Tăng trưởng khu vực tư nhân phi dầu mỏ của UAE chậm lại gần mức thấp nhất trong bốn năm vào tháng 3, PMI cho thấy",
-      "summary": "",
-      "summary_vi": "",
-      "url": "https://www.investing.com/news/commodities-news/uae-nonoil-private-sector-growth-slows-to-near-fouryear-low-in-march-pmi-shows-4596860",
-      "published_iso": "2026-04-03T11:24:29+07:00",
-      "published_text": "03/04 11:24"
-    },
     {
       "source": "Google News Macro",
       "title": "Trump imposes tariffs on pharmaceuticals, adjusts duties on steel, other metals - Politico",
@@ -56,55 +46,65 @@
     },
     {
       "source": "Google News Macro",
-      "title": "A Year After ‘Liberation Day,’ Experts Review the Costs of Trump’s Tariffs - Council on Foreign Relations",
-      "title_vi": "Một năm sau ‘Ngày giải phóng’, các chuyên gia xem xét chi phí thuế quan của Trump - Hội đồng Quan hệ Đối ngoại",
-      "summary": "A Year After ‘Liberation Day,’ Experts Review the Costs of Trump’s Tariffs Council on Foreign Relations",
-      "summary_vi": "A Year After ‘Liberation Day,’ Experts Review the Costs of Trump’s Tariffs Council on Foreign Relations",
+      "title": "A Year After ‘Liberation Day,’ Experts Review the Costs of Trump’s Tariffs - cfr.org",
+      "title_vi": "Một năm sau ‘Ngày giải phóng’, các chuyên gia xem xét chi phí thuế quan của Trump - cfr.org",
+      "summary": "A Year After ‘Liberation Day,’ Experts Review the Costs of Trump’s Tariffs cfr.org",
+      "summary_vi": "A Year After ‘Liberation Day,’ Experts Review the Costs of Trump’s Tariffs cfr.org",
       "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNWmlydGN5Mm1BbDAxZk53Mld4d05rOWpERDJsM09qTDRnd21BQ1gxN3VMQzdVdVhiODhQdlE0RjNFbm03R216VmViZENoc2hjZDRMN09zT3hBTXNhLUtvUG10UWs2MjctSGhQUlVkYUd1bzJYa2ZQTXAxamlfRi1TaWQtOC01Z19yUmxiRXBuRVlpMTN6OWJGc3hzcUk2SkpD?oc=5",
       "published_iso": "2026-04-02T18:00:00+07:00",
       "published_text": "02/04 18:00"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "A year on: Four ways Trump's tariffs have changed the global economy - BBC",
+      "title_vi": "Một năm sau: Bốn cách thuế quan của Trump đã thay đổi nền kinh tế toàn cầu - BBC",
+      "summary": "A year on: Four ways Trump's tariffs have changed the global economy BBC",
+      "summary_vi": "A year on: Four ways Trump's tariffs have changed the global economy BBC",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5NcTJmTVo3ajMtLXFDTUw1bEVKbVd3UHh6MTdxb2NrQl9BNGxMN1NlRjUwXzdlT0ZWd3pKeE4wUlQ3dHRObGc0aVZZbzJMbXBnTWg2V0M1VHd4Zw?oc=5",
+      "published_iso": "2026-04-02T16:51:22+07:00",
+      "published_text": "02/04 16:51"
     }
   ],
   "vn_news": [
     {
       "source": "Thời báo Tài chính VN",
-      "title": "Công ty Đấu giá hợp danh Việt Nam: Đấu giá 232 xe mô tô, xe gắn máy (71 xe bán nguyên chiếc, đăng ký lại; 161 xe bán phế liệu, tiêu hủy) là tang vật vi phạm hành chính bị tịch thu",
-      "title_vi": "Công ty Đấu giá hợp danh Việt Nam: Đấu giá 232 xe mô tô, xe gắn máy (71 xe bán nguyên chiếc, đăng ký lại; 161 xe bán phế liệu, tiêu hủy) là tang vật vi phạm hành chính bị tịch thu",
+      "title": "Công ty đấu giá hợp danh Bảo Minh: Đấu giá 27 lô đất tại Khu đô thị mới Võ Văn Kiệt, phường Quảng Trị, tỉnh Quảng Trị",
+      "title_vi": "Công ty đấu giá hợp danh Bảo Minh: Đấu giá 27 lô đất tại Khu đô thị mới Võ Văn Kiệt, phường Quảng Trị, tỉnh Quảng Trị",
       "summary": "",
       "summary_vi": "",
-      "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-viet-nam-dau-gia-232-xe-mo-to-xe-gan-may-71-xe-ban-nguyen-chiec-dang-ky-lai-161-xe-ban-phe-lieu-tieu-huy-la-tang-vat-vi-pham-hanh-chinh-bi-tich-thu-50509.html",
-      "published_iso": "2026-04-03T12:54:22.130476+07:00",
-      "published_text": "03/04 12:54"
+      "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-bao-minh-dau-gia-27-lo-dat-tai-khu-do-thi-moi-vo-van-kiet-phuong-quang-tri-tinh-quang-tri-50516.html",
+      "published_iso": "2026-04-03T15:38:28.984939+07:00",
+      "published_text": "03/04 15:38"
     },
     {
       "source": "Thời báo Tài chính VN",
-      "title": "Công ty Đấu giá Hợp danh Phú Thọ: Đấu giá 6 ô đất ở tại khu Cổng Tề, xã Bản Nguyên, tỉnh Phú Thọ",
-      "title_vi": "Công ty Đấu giá Hợp danh Phú Thọ: Đấu giá 6 ô đất ở tại khu Cổng Tề, xã Bản Nguyên, tỉnh Phú Thọ",
+      "title": "Công ty Đấu giá Hợp danh Đông Nam: Đấu giá 1 xe ô tô khách, nhãn hiệu TOYOTA, số loại HIACE, biển số 51B-095.41",
+      "title_vi": "Công ty Đấu giá Hợp danh Đông Nam: Đấu giá 1 xe ô tô khách, nhãn hiệu TOYOTA, số loại HIACE, biển số 51B-095.41",
       "summary": "",
       "summary_vi": "",
-      "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-phu-tho-dau-gia-6-o-dat-o-tai-khu-cong-te-xa-ban-nguyen-tinh-phu-tho-50513.html",
-      "published_iso": "2026-04-03T12:54:22.130408+07:00",
-      "published_text": "03/04 12:54"
+      "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-dong-nam-dau-gia-1-xe-o-to-kha-ch-nhan-hieu-toyota-so-loa-i-hiace-bien-so-51b-09541-50517.html",
+      "published_iso": "2026-04-03T15:38:28.984876+07:00",
+      "published_text": "03/04 15:38"
     },
     {
       "source": "VietnamFinance",
-      "title": "Thị trường trái phiếu doanh nghiệp: NĐT 'đau đáu' với chất lượng thông tin",
-      "title_vi": "Thị trường trái phiếu doanh nghiệp: NĐT 'đau đáu' với chất lượng thông tin",
+      "title": "Khách hàng không mua giấc mơ: Doanh nghiệp BĐS phải làm gì để tồn tại?",
+      "title_vi": "Khách hàng không mua giấc mơ: Doanh nghiệp BĐS phải làm gì để tồn tại?",
       "summary": "",
       "summary_vi": "",
-      "url": "https://vietnamfinance.vn/thi-truong-trai-phieu-doanh-nghiep-ndt-dau-dau-voi-chat-luong-thong-tin-d142540.html",
-      "published_iso": "2026-04-03T12:54:19.584816+07:00",
-      "published_text": "03/04 12:54"
+      "url": "https://vietnamfinance.vn/khach-hang-khong-mua-giac-mo-doanh-nghiep-bds-phai-lam-gi-de-ton-tai-d142462.html",
+      "published_iso": "2026-04-03T15:38:26.852790+07:00",
+      "published_text": "03/04 15:38"
     },
     {
       "source": "VietnamFinance",
-      "title": "Âm thầm tạo lập 'vựa lúa năng lượng' đặc thù, Trung Quốc khiến toàn cầu nể phục",
-      "title_vi": "Âm thầm tạo lập 'vựa lúa năng lượng' đặc thù, Trung Quốc khiến toàn cầu nể phục",
+      "title": "Taxi tự lái đồng loạt gây tai nạn: Ô tô tự hành và những thảm họa báo trước",
+      "title_vi": "Taxi tự lái đồng loạt gây tai nạn: Ô tô tự hành và những thảm họa báo trước",
       "summary": "",
       "summary_vi": "",
-      "url": "https://vietnamfinance.vn/am-tham-tao-lap-vua-lua-nang-luong-dac-thu-trung-quoc-khien-toan-cau-ne-phuc-d142490.html",
-      "published_iso": "2026-04-03T12:54:19.584752+07:00",
-      "published_text": "03/04 12:54"
+      "url": "https://vietnamfinance.vn/taxi-tu-lai-dong-loat-gay-tai-nan-o-to-tu-hanh-va-nhung-tham-hoa-bao-truoc-d142531.html",
+      "published_iso": "2026-04-03T15:38:26.852722+07:00",
+      "published_text": "03/04 15:38"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/ts-nguyen-dinh-cung-viet-nam-mo-co-hoi-lich-su-chua-tung-co-khong-con-rao-can-nhung-con-mot-van-de-188260329145429809.chn",
-      "published_iso": "2026-04-03T12:54:19.081461+07:00",
-      "published_text": "03/04 12:54"
+      "published_iso": "2026-04-03T15:38:25.725593+07:00",
+      "published_text": "03/04 15:38"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/tu-the-he-dau-tien-den-bat-ngo-voi-nhung-doanh-nhan-ve-tu-dong-au-chuyen-gia-pham-chi-lan-noi-gi-ve-ong-pham-nhat-vuong-va-ty-phu-an-minh-voi-nhung-ky-luc-the-gioi-188260331110359369.chn",
-      "published_iso": "2026-04-03T12:54:19.081389+07:00",
-      "published_text": "03/04 12:54"
+      "published_iso": "2026-04-03T15:38:25.725519+07:00",
+      "published_text": "03/04 15:38"
     }
   ],
   "markets": [
@@ -209,9 +209,9 @@
       "name": "DXY",
       "symbol": "DX-Y.NYB",
       "category": "FX",
-      "price": 100.05,
-      "change": 0.02,
-      "change_pct": 0.02,
+      "price": 99.99,
+      "change": -0.04,
+      "change_pct": -0.04,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 03/04 11:00"
@@ -220,9 +220,9 @@
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1541,
-      "change": -0.005,
-      "change_pct": -0.43,
+      "price": 1.1547,
+      "change": -0.0043,
+      "change_pct": -0.37,
       "decimals": 4,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 03/04 06:00"
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 66644.0,
-      "change": -1434.0,
-      "change_pct": -2.11,
+      "price": 67100.0,
+      "change": 211.0,
+      "change_pct": 0.32,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 03/04 07:00"
@@ -319,7 +319,7 @@
       "name": "VN-Index",
       "symbol": "^VNINDEX.VN",
       "category": "Vietnam",
-      "price": 1699.34,
+      "price": 1684.04,
       "change": 0.0,
       "change_pct": 0.0,
       "decimals": 2,
@@ -341,9 +341,9 @@
       "name": "Nikkei 225",
       "symbol": "^N225",
       "category": "Asia",
-      "price": 53148.22,
-      "change": 684.95,
-      "change_pct": 1.31,
+      "price": 53123.49,
+      "change": 660.22,
+      "change_pct": 1.26,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 02/04 22:00"
@@ -352,9 +352,9 @@
       "name": "KOSPI",
       "symbol": "^KS11",
       "category": "Asia",
-      "price": 5378.12,
-      "change": 144.07,
-      "change_pct": 2.75,
+      "price": 5377.3,
+      "change": 143.25,
+      "change_pct": 2.74,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 02/04 22:00"
@@ -363,9 +363,9 @@
       "name": "Shanghai Composite",
       "symbol": "000001.SS",
       "category": "Asia",
-      "price": 3890.19,
-      "change": -29.09,
-      "change_pct": -0.74,
+      "price": 3880.1,
+      "change": -39.19,
+      "change_pct": -1.0,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 02/04 23:00"
@@ -374,9 +374,9 @@
       "name": "Shenzhen Component",
       "symbol": "399001.SZ",
       "category": "Asia",
-      "price": 13425.68,
-      "change": -61.26,
-      "change_pct": -0.45,
+      "price": 13352.9,
+      "change": -134.04,
+      "change_pct": -0.99,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 02/04 23:00"
