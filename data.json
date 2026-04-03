@@ -1,7 +1,17 @@
 {
-  "updated_at": "2026-04-03T15:37:35.008578+07:00",
-  "updated_at_display": "03/04/2026 • 15:37 GMT+7",
+  "updated_at": "2026-04-03T18:11:08.090829+07:00",
+  "updated_at_display": "03/04/2026 • 18:11 GMT+7",
   "war_news": [
+    {
+      "source": "Google News War",
+      "title": "Live Updates: Latest from Israel, Iran, and the Middle East - The Jerusalem Post",
+      "title_vi": "Cập nhật trực tiếp: Mới nhất từ Israel, Iran và Trung Đông - The Jerusalem Post",
+      "summary": "Live Updates: Latest from Israel, Iran, and the Middle East The Jerusalem Post",
+      "summary_vi": "Live Updates: Latest from Israel, Iran, and the Middle East The Jerusalem Post",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9jOERwMWJFOUdiaEVfUmFqVjJjTGs3eWlTSE9SU1hxNmQ2SWZKR0VEMmJnbmZ1MTUwR2l0QzlMYTRLZFFtVVdxdXdpek5Ddm9Cb21iRTBFNXJwWVAtME9NV2JyRFJMVGdWMjZ1Q2YtaEVJNjhXRFFvRFYzNjdxNlk?oc=5",
+      "published_iso": "2026-04-03T18:00:05+07:00",
+      "published_text": "03/04 18:00"
+    },
     {
       "source": "Al Jazeera",
       "title": "Iran condemns US-Israeli ‘moral collapse’ after attacks on civilian sites",
@@ -11,28 +21,28 @@
       "url": "https://www.aljazeera.com/news/2026/4/3/iran-condemns-us-israeli-moral-collapse-after-attacks-on-civilian-sites?traffic_source=rss",
       "published_iso": "2026-04-03T15:03:04+07:00",
       "published_text": "03/04 15:03"
-    },
-    {
-      "source": "Al Jazeera",
-      "title": "How Israel is destroying healthcare infrastructure in southern Lebanon",
-      "title_vi": "Israel đang phá hủy cơ sở hạ tầng y tế ở miền nam Lebanon như thế nào",
-      "summary": "Israel's attacks on hospitals, medical centres and healthcare workers are fuelling displacement and a health crisis.",
-      "summary_vi": "Israel's attacks on hospitals, medical centres and healthcare workers are fuelling displacement and a health crisis.",
-      "url": "https://www.aljazeera.com/features/2026/4/3/how-israel-is-destroying-healthcare-infrastructure-in-southern-lebanon?traffic_source=rss",
-      "published_iso": "2026-04-03T14:34:43+07:00",
-      "published_text": "03/04 14:34"
     }
   ],
   "global_news": [
     {
+      "source": "Investing News",
+      "title": "Inflation in focus for markets jostled by Middle East war signals",
+      "title_vi": "Lạm phát tập trung vào các thị trường bị chen lấn bởi các tín hiệu chiến tranh Trung Đông",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/economy-news/inflation-in-focus-for-markets-jostled-by-middle-east-war-signals-4596948",
+      "published_iso": "2026-04-03T17:30:47+07:00",
+      "published_text": "03/04 17:30"
+    },
+    {
       "source": "Google News Macro",
-      "title": "Trump imposes tariffs on pharmaceuticals, adjusts duties on steel, other metals - Politico",
-      "title_vi": "Trump áp thuế đối với dược phẩm, điều chỉnh thuế đối với thép, kim loại khác - Politico",
-      "summary": "Trump imposes tariffs on pharmaceuticals, adjusts duties on steel, other metals Politico",
-      "summary_vi": "Trump imposes tariffs on pharmaceuticals, adjusts duties on steel, other metals Politico",
-      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPMk1XZVdRYXZuU2o2R1ZydU5adFNFNGF5aERqOTVpWkZLUXVNcEZ6ZU9kRjJRQWtaQl9BVVB2Y0psWUxHbkZyYzRrWkRmX3BjMzJVYlZjNXB3UTFDbzZFMWZYTW9XRkRrVlFnS2Q0ZjFrX1ppZThPVjVOUUVTMnZCTzR0RTRITWltWE1fNFlhOW9zcTFK?oc=5",
-      "published_iso": "2026-04-03T02:59:47+07:00",
-      "published_text": "03/04 02:59"
+      "title": "Trump administration announces new tariffs on drugmakers - Axios",
+      "title_vi": "Chính quyền Trump công bố mức thuế mới đối với các nhà sản xuất thuốc - Axios",
+      "summary": "Trump administration announces new tariffs on drugmakers Axios",
+      "summary_vi": "Trump administration announces new tariffs on drugmakers Axios",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5MYlp1clVVMGw5YVR5cEYzSDlhZzBsNWV2dGhpU2VXVXNoN0FIMWFQa0Nyc1UtcHRMU3VqUHJNYXN6NkpCQUpGcUk4dFlOckYxQUc4VC15QmdOU0dqaWR0a3BRdXFNN2lZc0E?oc=5",
+      "published_iso": "2026-04-03T11:34:15+07:00",
+      "published_text": "03/04 11:34"
     },
     {
       "source": "Google News Macro",
@@ -41,28 +51,18 @@
       "summary": "Trump Revamps Metal and Pharmaceutical Tariffs The New York Times",
       "summary_vi": "Trump Revamps Metal and Pharmaceutical Tariffs The New York Times",
       "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNNzdiOEdzNE1sdjVfV0dtV0FWZk1MUG8yaURqR0NBTGY1RnhIeTJOcFFEcWlxbjIzRUxaRjl2Y2JxVVZwNmo3QWNuMy1wY1ZwRjhtbGhNdXVqSVJGTVlsc0Z0U09iQ29qeWh5VXhTMmVqSXZXaVZJRmktd1hsYUJ1bzVIMV9aWVF6eVV0UElsZ3FicUU1ckE?oc=5",
-      "published_iso": "2026-04-03T02:22:47+07:00",
-      "published_text": "03/04 02:22"
+      "published_iso": "2026-04-03T10:45:00+07:00",
+      "published_text": "03/04 10:45"
     },
     {
       "source": "Google News Macro",
-      "title": "A Year After ‘Liberation Day,’ Experts Review the Costs of Trump’s Tariffs - cfr.org",
-      "title_vi": "Một năm sau ‘Ngày giải phóng’, các chuyên gia xem xét chi phí thuế quan của Trump - cfr.org",
-      "summary": "A Year After ‘Liberation Day,’ Experts Review the Costs of Trump’s Tariffs cfr.org",
-      "summary_vi": "A Year After ‘Liberation Day,’ Experts Review the Costs of Trump’s Tariffs cfr.org",
-      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNWmlydGN5Mm1BbDAxZk53Mld4d05rOWpERDJsM09qTDRnd21BQ1gxN3VMQzdVdVhiODhQdlE0RjNFbm03R216VmViZENoc2hjZDRMN09zT3hBTXNhLUtvUG10UWs2MjctSGhQUlVkYUd1bzJYa2ZQTXAxamlfRi1TaWQtOC01Z19yUmxiRXBuRVlpMTN6OWJGc3hzcUk2SkpD?oc=5",
-      "published_iso": "2026-04-02T18:00:00+07:00",
-      "published_text": "02/04 18:00"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "A year on: Four ways Trump's tariffs have changed the global economy - BBC",
-      "title_vi": "Một năm sau: Bốn cách thuế quan của Trump đã thay đổi nền kinh tế toàn cầu - BBC",
-      "summary": "A year on: Four ways Trump's tariffs have changed the global economy BBC",
-      "summary_vi": "A year on: Four ways Trump's tariffs have changed the global economy BBC",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5NcTJmTVo3ajMtLXFDTUw1bEVKbVd3UHh6MTdxb2NrQl9BNGxMN1NlRjUwXzdlT0ZWd3pKeE4wUlQ3dHRObGc0aVZZbzJMbXBnTWg2V0M1VHd4Zw?oc=5",
-      "published_iso": "2026-04-02T16:51:22+07:00",
-      "published_text": "02/04 16:51"
+      "title": "Trump imposes tariffs on pharmaceuticals, adjusts duties on steel, other metals - politico.com",
+      "title_vi": "Trump áp thuế đối với dược phẩm, điều chỉnh thuế đối với thép, các kim loại khác - politico.com",
+      "summary": "Trump imposes tariffs on pharmaceuticals, adjusts duties on steel, other metals politico.com",
+      "summary_vi": "Trump imposes tariffs on pharmaceuticals, adjusts duties on steel, other metals politico.com",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPMk1XZVdRYXZuU2o2R1ZydU5adFNFNGF5aERqOTVpWkZLUXVNcEZ6ZU9kRjJRQWtaQl9BVVB2Y0psWUxHbkZyYzRrWkRmX3BjMzJVYlZjNXB3UTFDbzZFMWZYTW9XRkRrVlFnS2Q0ZjFrX1ppZThPVjVOUUVTMnZCTzR0RTRITWltWE1fNFlhOW9zcTFK?oc=5",
+      "published_iso": "2026-04-03T02:59:47+07:00",
+      "published_text": "03/04 02:59"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-bao-minh-dau-gia-27-lo-dat-tai-khu-do-thi-moi-vo-van-kiet-phuong-quang-tri-tinh-quang-tri-50516.html",
-      "published_iso": "2026-04-03T15:38:28.984939+07:00",
-      "published_text": "03/04 15:38"
+      "published_iso": "2026-04-03T18:12:09.632676+07:00",
+      "published_text": "03/04 18:12"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,28 +83,28 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-dong-nam-dau-gia-1-xe-o-to-kha-ch-nhan-hieu-toyota-so-loa-i-hiace-bien-so-51b-09541-50517.html",
-      "published_iso": "2026-04-03T15:38:28.984876+07:00",
-      "published_text": "03/04 15:38"
+      "published_iso": "2026-04-03T18:12:09.632610+07:00",
+      "published_text": "03/04 18:12"
     },
     {
       "source": "VietnamFinance",
-      "title": "Khách hàng không mua giấc mơ: Doanh nghiệp BĐS phải làm gì để tồn tại?",
-      "title_vi": "Khách hàng không mua giấc mơ: Doanh nghiệp BĐS phải làm gì để tồn tại?",
+      "title": "Artemis II: Cuộc đua ‘thôn tính’ Mặt Trăng, Mỹ vượt xa Trung Quốc",
+      "title_vi": "Artemis II: Cuộc đua ‘thôn tính’ Mặt Trăng, Mỹ vượt xa Trung Quốc",
       "summary": "",
       "summary_vi": "",
-      "url": "https://vietnamfinance.vn/khach-hang-khong-mua-giac-mo-doanh-nghiep-bds-phai-lam-gi-de-ton-tai-d142462.html",
-      "published_iso": "2026-04-03T15:38:26.852790+07:00",
-      "published_text": "03/04 15:38"
+      "url": "https://vietnamfinance.vn/artemis-ii-cuoc-dua-thon-tinh-mat-trang-my-vuot-xa-trung-quoc-d142569.html",
+      "published_iso": "2026-04-03T18:12:08.340403+07:00",
+      "published_text": "03/04 18:12"
     },
     {
       "source": "VietnamFinance",
-      "title": "Taxi tự lái đồng loạt gây tai nạn: Ô tô tự hành và những thảm họa báo trước",
-      "title_vi": "Taxi tự lái đồng loạt gây tai nạn: Ô tô tự hành và những thảm họa báo trước",
+      "title": "'Kỷ niệm' 1 năm 'Ngày Giải phóng', TT Trump lệnh áp thuế 100% với dược phẩm và kim loại",
+      "title_vi": "'Kỷ niệm' 1 năm 'Ngày Giải phóng', TT Trump lệnh áp thuế 100% với dược phẩm và kim loại",
       "summary": "",
       "summary_vi": "",
-      "url": "https://vietnamfinance.vn/taxi-tu-lai-dong-loat-gay-tai-nan-o-to-tu-hanh-va-nhung-tham-hoa-bao-truoc-d142531.html",
-      "published_iso": "2026-04-03T15:38:26.852722+07:00",
-      "published_text": "03/04 15:38"
+      "url": "https://vietnamfinance.vn/ky-niem-1-nam-ngay-giai-phong-tt-trump-lenh-ap-thue-100-voi-duoc-pham-va-kim-loai-d142560.html",
+      "published_iso": "2026-04-03T18:12:08.340341+07:00",
+      "published_text": "03/04 18:12"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/ts-nguyen-dinh-cung-viet-nam-mo-co-hoi-lich-su-chua-tung-co-khong-con-rao-can-nhung-con-mot-van-de-188260329145429809.chn",
-      "published_iso": "2026-04-03T15:38:25.725593+07:00",
-      "published_text": "03/04 15:38"
+      "published_iso": "2026-04-03T18:12:07.126659+07:00",
+      "published_text": "03/04 18:12"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/tu-the-he-dau-tien-den-bat-ngo-voi-nhung-doanh-nhan-ve-tu-dong-au-chuyen-gia-pham-chi-lan-noi-gi-ve-ong-pham-nhat-vuong-va-ty-phu-an-minh-voi-nhung-ky-luc-the-gioi-188260331110359369.chn",
-      "published_iso": "2026-04-03T15:38:25.725519+07:00",
-      "published_text": "03/04 15:38"
+      "published_iso": "2026-04-03T18:12:07.126589+07:00",
+      "published_text": "03/04 18:12"
     }
   ],
   "markets": [
@@ -209,9 +209,9 @@
       "name": "DXY",
       "symbol": "DX-Y.NYB",
       "category": "FX",
-      "price": 99.99,
-      "change": -0.04,
-      "change_pct": -0.04,
+      "price": 99.97,
+      "change": -0.06,
+      "change_pct": -0.06,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 03/04 11:00"
@@ -220,9 +220,9 @@
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1547,
-      "change": -0.0043,
-      "change_pct": -0.37,
+      "price": 1.155,
+      "change": -0.0041,
+      "change_pct": -0.35,
       "decimals": 4,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 03/04 06:00"
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 67100.0,
-      "change": 211.0,
-      "change_pct": 0.32,
+      "price": 66851.0,
+      "change": -38.0,
+      "change_pct": -0.06,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 03/04 07:00"
