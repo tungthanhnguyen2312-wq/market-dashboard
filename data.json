@@ -1,29 +1,39 @@
 {
-  "updated_at": "2026-04-03T21:08:50.085479+07:00",
-  "updated_at_display": "03/04/2026 • 21:08 GMT+7",
+  "updated_at": "2026-04-03T23:04:07.819812+07:00",
+  "updated_at_display": "03/04/2026 • 23:04 GMT+7",
   "war_news": [
     {
       "source": "Al Jazeera",
-      "title": "How the US and Israel are waging war on Iran’s medicines, vaccines",
-      "title_vi": "Mỹ và Israel đang tiến hành chiến tranh như thế nào đối với các loại thuốc, vắc-xin của Iran",
-      "summary": "The Pasteur Institute of Iran is one of several healthcare facilities in the country to be targeted.",
-      "summary_vi": "The Pasteur Institute of Iran is one of several healthcare facilities in the country to be targeted.",
-      "url": "https://www.aljazeera.com/news/2026/4/3/how-the-us-and-israel-are-waging-war-on-irans-medicines-vaccines?traffic_source=rss",
-      "published_iso": "2026-04-03T19:46:50+07:00",
-      "published_text": "03/04 19:46"
+      "title": "Drone footage shows a factory in Israel damaged by Iranian missile debris",
+      "title_vi": "Cảnh quay từ máy bay không người lái cho thấy một nhà máy ở Israel bị hư hại do mảnh vỡ tên lửa của Iran",
+      "summary": "Drone footage from Israel shows damage to a factory in Petah Tikva from debris from an intercepted Iranian missile.",
+      "summary_vi": "Drone footage from Israel shows damage to a factory in Petah Tikva from debris from an intercepted Iranian missile.",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/4/3/drone-footage-shows-a-factory-in-israel-damaged-by-iranian-missile-debris?traffic_source=rss",
+      "published_iso": "2026-04-03T22:51:15+07:00",
+      "published_text": "03/04 22:51"
     },
     {
       "source": "Al Jazeera",
-      "title": "War crimes are no longer shameful. That should terrify you",
-      "title_vi": "Tội ác chiến tranh không còn đáng xấu hổ nữa. Điều đó sẽ khiến bạn sợ hãi",
-      "summary": "In the latest escalation in the Middle East, warring sides have demonstrated complete disregard for civilian life.",
-      "summary_vi": "In the latest escalation in the Middle East, warring sides have demonstrated complete disregard for civilian life.",
-      "url": "https://www.aljazeera.com/opinions/2026/4/3/war-crimes-are-no-longer-shameful-that-should-terrify-you?traffic_source=rss",
-      "published_iso": "2026-04-03T19:16:18+07:00",
-      "published_text": "03/04 19:16"
+      "title": "Iranian forces launch search for crew of downed US fighter jet",
+      "title_vi": "Lực lượng Iran tiến hành tìm kiếm phi hành đoàn máy bay chiến đấu của Mỹ bị bắn rơi",
+      "summary": "The Fars news agency reports Iranian military launched a search operation to locate the crew of the aircraft.",
+      "summary_vi": "The Fars news agency reports Iranian military launched a search operation to locate the crew of the aircraft.",
+      "url": "https://www.aljazeera.com/news/2026/4/3/iranian-forces-launch-search-for-pilot-of-downed-us-fighter-jet?traffic_source=rss",
+      "published_iso": "2026-04-03T22:43:22+07:00",
+      "published_text": "03/04 22:43"
     }
   ],
   "global_news": [
+    {
+      "source": "Investing News",
+      "title": "Trump’s budget proposes massive defense spending with 10% cut to other federal programs",
+      "title_vi": "Ngân sách của Trump đề xuất chi tiêu quốc phòng lớn với 10% cắt giảm cho các chương trình liên bang khác",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/economy-news/trumps-budget-proposes-10-cut-in-discretionary-spending-increased-defense-spending-4597081",
+      "published_iso": "2026-04-03T22:55:02+07:00",
+      "published_text": "03/04 22:55"
+    },
     {
       "source": "Google News Macro",
       "title": "China Edges Past U.S. in Global Approval Ratings - Gallup News",
@@ -53,16 +63,6 @@
       "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPMk1XZVdRYXZuU2o2R1ZydU5adFNFNGF5aERqOTVpWkZLUXVNcEZ6ZU9kRjJRQWtaQl9BVVB2Y0psWUxHbkZyYzRrWkRmX3BjMzJVYlZjNXB3UTFDbzZFMWZYTW9XRkRrVlFnS2Q0ZjFrX1ppZThPVjVOUUVTMnZCTzR0RTRITWltWE1fNFlhOW9zcTFK?oc=5",
       "published_iso": "2026-04-03T02:59:47+07:00",
       "published_text": "03/04 02:59"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "Volatility hits Wall Street and U.S. oil tops $110 a barrel - PBS",
-      "title_vi": "Biến động tấn công Phố Wall và đỉnh dầu của Hoa Kỳ $ 110 một thùng - PBS",
-      "summary": "Volatility hits Wall Street and U.S. oil tops $110 a barrel PBS",
-      "summary_vi": "Volatility hits Wall Street and U.S. oil tops $110 a barrel PBS",
-      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPdmVpUURvV0FmVVktVlROUEpTMGZFTzNPXzF5WlRDT0dWY01fXzc0RGRySTFHZXVDcVNSMnBlQ2pDaUFLNkhSVzhkbUFlc2NsUmlpdDR3Tzd3SlNuVnhUcjdkZXFpT3hQM2VwM3duRGNxWHBKb25Dd21YVFoxWTg4N0t4VmdRYVVYcDRyTlVsMFlzRVM2Sk03NUJB0gGfAUFVX3lxTE51SnZ4RW1lWkJqYjlXNTNtVXBsLWlwTUcwUU1aQm0yeEhSeDBlb0pZb2hheVJyNkZQZDR5ZWdMcjN0djJmU0NVUVRsRldhd2ZrVVRjZmNyeldEU1Z4c055SGQ4azhzTEYyTHVlX2hmTDV6bmNCem1VQko4TDFWekNxdldOSkRNcTVxbnViMDVxTENCLThOdlI0b0tsY3gwVQ?oc=5",
-      "published_iso": "2026-04-03T02:35:32+07:00",
-      "published_text": "03/04 02:35"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-bao-minh-dau-gia-27-lo-dat-tai-khu-do-thi-moi-vo-van-kiet-phuong-quang-tri-tinh-quang-tri-50516.html",
-      "published_iso": "2026-04-03T21:09:38.975882+07:00",
-      "published_text": "03/04 21:09"
+      "published_iso": "2026-04-03T23:05:06.433639+07:00",
+      "published_text": "03/04 23:05"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-dong-nam-dau-gia-1-xe-o-to-kha-ch-nhan-hieu-toyota-so-loa-i-hiace-bien-so-51b-09541-50517.html",
-      "published_iso": "2026-04-03T21:09:38.975780+07:00",
-      "published_text": "03/04 21:09"
+      "published_iso": "2026-04-03T23:05:06.433570+07:00",
+      "published_text": "03/04 23:05"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/ky-niem-1-nam-ngay-giai-phong-tt-trump-lenh-ap-thue-100-voi-duoc-pham-va-kim-loai-d142560.html",
-      "published_iso": "2026-04-03T21:09:37.685931+07:00",
-      "published_text": "03/04 21:09"
+      "published_iso": "2026-04-03T23:05:04.166987+07:00",
+      "published_text": "03/04 23:05"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/san-onus-ve-chuoi-cua-hang-banh-mi-nghin-diem-de-loi-keo-nha-dau-tu-d142589.html",
-      "published_iso": "2026-04-03T21:09:37.685836+07:00",
-      "published_text": "03/04 21:09"
+      "published_iso": "2026-04-03T23:05:04.166921+07:00",
+      "published_text": "03/04 23:05"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/ts-nguyen-dinh-cung-viet-nam-mo-co-hoi-lich-su-chua-tung-co-khong-con-rao-can-nhung-con-mot-van-de-188260329145429809.chn",
-      "published_iso": "2026-04-03T21:09:37.132825+07:00",
-      "published_text": "03/04 21:09"
+      "published_iso": "2026-04-03T23:05:03.647080+07:00",
+      "published_text": "03/04 23:05"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/tu-the-he-dau-tien-den-bat-ngo-voi-nhung-doanh-nhan-ve-tu-dong-au-chuyen-gia-pham-chi-lan-noi-gi-ve-ong-pham-nhat-vuong-va-ty-phu-an-minh-voi-nhung-ky-luc-the-gioi-188260331110359369.chn",
-      "published_iso": "2026-04-03T21:09:37.132733+07:00",
-      "published_text": "03/04 21:09"
+      "published_iso": "2026-04-03T23:05:03.647008+07:00",
+      "published_text": "03/04 23:05"
     }
   ],
   "markets": [
@@ -209,9 +209,9 @@
       "name": "DXY",
       "symbol": "DX-Y.NYB",
       "category": "FX",
-      "price": 100.05,
-      "change": 0.02,
-      "change_pct": 0.02,
+      "price": 100.15,
+      "change": 0.12,
+      "change_pct": 0.12,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 03/04 11:00"
@@ -220,9 +220,9 @@
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1533,
-      "change": -0.0058,
-      "change_pct": -0.5,
+      "price": NaN,
+      "change": NaN,
+      "change_pct": NaN,
       "decimals": 4,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 03/04 06:00"
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 66766.0,
-      "change": -123.0,
-      "change_pct": -0.18,
+      "price": 66827.0,
+      "change": -62.0,
+      "change_pct": -0.09,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 03/04 07:00"
@@ -341,9 +341,9 @@
       "name": "Nikkei 225",
       "symbol": "^N225",
       "category": "Asia",
-      "price": 53123.49,
-      "change": 660.22,
-      "change_pct": 1.26,
+      "price": NaN,
+      "change": NaN,
+      "change_pct": NaN,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 02/04 22:00"
@@ -352,9 +352,9 @@
       "name": "KOSPI",
       "symbol": "^KS11",
       "category": "Asia",
-      "price": 5377.3,
-      "change": 143.25,
-      "change_pct": 2.74,
+      "price": NaN,
+      "change": NaN,
+      "change_pct": NaN,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 02/04 22:00"
@@ -363,9 +363,9 @@
       "name": "Shanghai Composite",
       "symbol": "000001.SS",
       "category": "Asia",
-      "price": 3880.1,
-      "change": -39.19,
-      "change_pct": -1.0,
+      "price": NaN,
+      "change": NaN,
+      "change_pct": NaN,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 02/04 23:00"
@@ -374,9 +374,9 @@
       "name": "Shenzhen Component",
       "symbol": "399001.SZ",
       "category": "Asia",
-      "price": 13352.9,
-      "change": -134.04,
-      "change_pct": -0.99,
+      "price": NaN,
+      "change": NaN,
+      "change_pct": NaN,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 02/04 23:00"
