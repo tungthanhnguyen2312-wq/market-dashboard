@@ -1,7 +1,17 @@
 {
-  "updated_at": "2026-04-05T04:58:24.247051+07:00",
-  "updated_at_display": "05/04/2026 • 04:58 GMT+7",
+  "updated_at": "2026-04-05T06:03:05.618430+07:00",
+  "updated_at_display": "05/04/2026 • 06:03 GMT+7",
   "war_news": [
+    {
+      "source": "Al Jazeera",
+      "title": "Israeli measures tighten grip on Hebron’s Ibrahimi Mosque",
+      "title_vi": "Các biện pháp của Israel thắt chặt kiểm soát Nhà thờ Hồi giáo Ibrahimi ở Hebron",
+      "summary": "Hebron’s Ibrahimi Mosque sees intensified control, with Israeli measures resembling policies applied at Al-Aqsa Mosque.",
+      "summary_vi": "Hebron’s Ibrahimi Mosque sees intensified control, with Israeli measures resembling policies applied at Al-Aqsa Mosque.",
+      "url": "https://www.aljazeera.com/news/2026/4/4/israel-measures-tighten-grip-hebron-ibrahimi-mosque?traffic_source=rss",
+      "published_iso": "2026-04-05T05:37:35+07:00",
+      "published_text": "05/04 05:37"
+    },
     {
       "source": "Al Jazeera",
       "title": "How will Pakistan deal with the fallout from Iran war?",
@@ -11,16 +21,6 @@
       "url": "https://www.aljazeera.com/video/inside-story/2026/4/4/how-will-pakistan-deal-with-the-fallout-from-iran-war?traffic_source=rss",
       "published_iso": "2026-04-05T03:42:26+07:00",
       "published_text": "05/04 03:42"
-    },
-    {
-      "source": "Al Jazeera",
-      "title": "Israeli police arrest antiwar protesters in Tel Aviv",
-      "title_vi": "Cảnh sát Israel bắt giữ những người biểu tình chống chiến tranh ở Tel Aviv",
-      "summary": "Israeli police clashed with protesters and made arrests in Tel Aviv as demonstrators rallied against the war on Iran.",
-      "summary_vi": "Israeli police clashed with protesters and made arrests in Tel Aviv as demonstrators rallied against the war on Iran.",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/4/4/israeli-police-arrest-antiwar-protesters-in-tel-aviv?traffic_source=rss",
-      "published_iso": "2026-04-05T03:04:21+07:00",
-      "published_text": "05/04 03:04"
     }
   ],
   "global_news": [
@@ -46,6 +46,16 @@
     },
     {
       "source": "Google News Macro",
+      "title": "China Air Quality Alert - IQAir",
+      "title_vi": "Cảnh báo chất lượng không khí Trung Quốc - IQAir",
+      "summary": "China Air Quality Alert IQAir",
+      "summary_vi": "China Air Quality Alert IQAir",
+      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE94emE2dklrN1l0NFdpR205SW5SeEw0WkxzMlpnSm92aWNPWEhTSTZjaUNnbHRCTUlqVXlJUXdtQ3RYWkZYdVg1MHZ2Y3B5SzFIdXB5SHlGeUFNRVNoQkplWjhxUDU?oc=5",
+      "published_iso": "2026-04-03T13:26:19+07:00",
+      "published_text": "03/04 13:26"
+    },
+    {
+      "source": "Google News Macro",
       "title": "Trump imposes tariffs on pharmaceuticals, adjusts duties on steel, other metals - Politico",
       "title_vi": "Trump áp thuế đối với dược phẩm, điều chỉnh thuế đối với thép, kim loại khác - Politico",
       "summary": "Trump imposes tariffs on pharmaceuticals, adjusts duties on steel, other metals Politico",
@@ -53,16 +63,6 @@
       "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPMk1XZVdRYXZuU2o2R1ZydU5adFNFNGF5aERqOTVpWkZLUXVNcEZ6ZU9kRjJRQWtaQl9BVVB2Y0psWUxHbkZyYzRrWkRmX3BjMzJVYlZjNXB3UTFDbzZFMWZYTW9XRkRrVlFnS2Q0ZjFrX1ppZThPVjVOUUVTMnZCTzR0RTRITWltWE1fNFlhOW9zcTFK?oc=5",
       "published_iso": "2026-04-03T02:59:47+07:00",
       "published_text": "03/04 02:59"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "Trump administration announces new tariffs on drugmakers - Axios",
-      "title_vi": "Chính quyền Trump công bố mức thuế mới đối với các nhà sản xuất thuốc - Axios",
-      "summary": "Trump administration announces new tariffs on drugmakers Axios",
-      "summary_vi": "Trump administration announces new tariffs on drugmakers Axios",
-      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5MYlp1clVVMGw5YVR5cEYzSDlhZzBsNWV2dGhpU2VXVXNoN0FIMWFQa0Nyc1UtcHRMU3VqUHJNYXN6NkpCQUpGcUk4dFlOckYxQUc4VC15QmdOU0dqaWR0a3BRdXFNN2lZc0E?oc=5",
-      "published_iso": "2026-04-03T02:51:47+07:00",
-      "published_text": "03/04 02:51"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-khai-hung-dau-gia-1-xe-o-to-con-5-cho-nhan-hieu-toyota-so-loai-corolla-bien-so-70b-0584-san-xuat-nam-2004-tai-viet-nam-50520.html",
-      "published_iso": "2026-04-05T04:59:24.119113+07:00",
-      "published_text": "05/04 04:59"
+      "published_iso": "2026-04-05T06:04:08.339632+07:00",
+      "published_text": "05/04 06:04"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-minh-thang-dau-gia-cho-thue-mat-bang-thuc-hien-dich-vu-giu-xe-o-to-tai-benh-vien-da-khoa-trung-uong-can-tho-50522.html",
-      "published_iso": "2026-04-05T04:59:24.119041+07:00",
-      "published_text": "05/04 04:59"
+      "published_iso": "2026-04-05T06:04:08.339566+07:00",
+      "published_text": "05/04 06:04"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/trung-tam-tai-chinh-quoc-te-them-nguon-tai-luc-tiep-suc-tang-truong-hai-con-so-d142618.html",
-      "published_iso": "2026-04-05T04:59:22.501555+07:00",
-      "published_text": "05/04 04:59"
+      "published_iso": "2026-04-05T06:04:06.478612+07:00",
+      "published_text": "05/04 06:04"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/chien-su-trung-dong-keo-dai-nganh-kinh-doanh-sieu-loi-nhuan-cua-chau-au-ngam-don-d142611.html",
-      "published_iso": "2026-04-05T04:59:22.501488+07:00",
-      "published_text": "05/04 04:59"
+      "published_iso": "2026-04-05T06:04:06.478543+07:00",
+      "published_text": "05/04 06:04"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/ts-nguyen-dinh-cung-viet-nam-mo-co-hoi-lich-su-chua-tung-co-khong-con-rao-can-nhung-con-mot-van-de-188260329145429809.chn",
-      "published_iso": "2026-04-05T04:59:22.047566+07:00",
-      "published_text": "05/04 04:59"
+      "published_iso": "2026-04-05T06:04:05.789513+07:00",
+      "published_text": "05/04 06:04"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/tu-the-he-dau-tien-den-bat-ngo-voi-nhung-doanh-nhan-ve-tu-dong-au-chuyen-gia-pham-chi-lan-noi-gi-ve-ong-pham-nhat-vuong-va-ty-phu-an-minh-voi-nhung-ky-luc-the-gioi-188260331110359369.chn",
-      "published_iso": "2026-04-05T04:59:22.047494+07:00",
-      "published_text": "05/04 04:59"
+      "published_iso": "2026-04-05T06:04:05.789440+07:00",
+      "published_text": "05/04 06:04"
     }
   ],
   "markets": [
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 67403.0,
-      "change": 471.0,
-      "change_pct": 0.7,
+      "price": 67386.0,
+      "change": 454.0,
+      "change_pct": 0.68,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 04/04 07:00"
