@@ -1,29 +1,59 @@
 {
-  "updated_at": "2026-04-04T07:02:28.713865+07:00",
-  "updated_at_display": "04/04/2026 • 07:02 GMT+7",
+  "updated_at": "2026-04-04T12:16:38.745087+07:00",
+  "updated_at_display": "04/04/2026 • 12:16 GMT+7",
   "war_news": [
     {
-      "source": "Google News War",
-      "title": "Exclusive: US intelligence warns Iran unlikely to ease Hormuz Strait chokehold soon, sources say - Reuters",
-      "title_vi": "Độc quyền: Tình báo Hoa Kỳ cảnh báo Iran khó có thể giảm bớt tình trạng tắc nghẽn eo biển Hormuz sớm, các nguồn tin cho biết - Reuters",
-      "summary": "Exclusive: US intelligence warns Iran unlikely to ease Hormuz Strait chokehold soon, sources say Reuters",
-      "summary_vi": "Exclusive: US intelligence warns Iran unlikely to ease Hormuz Strait chokehold soon, sources say Reuters",
-      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNbG8zWFFHOEFjb1dqT1JQVGJTVVFCUklqOGVjWjV5dTl6UFh1QUZuVElKQXFkd3FIYW1KcnhUdlYyc0RJQmlqRW5IZXNrdm5NZE44SUEwSHpsbUh1Rjg1ZVhkdWtXbS0yZVNYajk4Nm9BeHhld19xMzd2M1FuTUJZYXIyM3RJUW5EeUQ2Z0V1R2txM1hhSHI1ZlpidjB2YTBHdXUwWVVIN3YyNFdmOGl1bFBRTnl0MmdZTnV1dHlYaWhUNGlLb3lOd0dPOA?oc=5",
-      "published_iso": "2026-04-04T04:45:32+07:00",
-      "published_text": "04/04 04:45"
+      "source": "Al Jazeera",
+      "title": "Iran war: What is happening on day 36 of US-Israeli attacks?",
+      "title_vi": "Chiến tranh Iran: Điều gì đang xảy ra vào ngày thứ 36 của các cuộc tấn công Mỹ-Israel?",
+      "summary": "Iran claims responsibility for downing two US warplanes, as search under way for missing crewmember.",
+      "summary_vi": "Iran claims responsibility for downing two US warplanes, as search under way for missing crewmember.",
+      "url": "https://www.aljazeera.com/news/2026/4/4/iran-war-what-is-happening-on-day-36-of-us-israeli-attacks?traffic_source=rss",
+      "published_iso": "2026-04-04T10:51:08+07:00",
+      "published_text": "04/04 10:51"
     },
     {
       "source": "Al Jazeera",
-      "title": "Christians in Lebanon observe Good Friday under Israeli attacks",
-      "title_vi": "Kitô hữu ở Lebanon cử hành Thứ Sáu Tuần Thánh dưới các cuộc tấn công của Israel",
-      "summary": "Christians across Lebanon observed Good Friday, praying for peace as Israeli strikes and evacuation orders continue.",
-      "summary_vi": "Christians across Lebanon observed Good Friday, praying for peace as Israeli strikes and evacuation orders continue.",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/4/3/christians-in-lebanon-observe-good-friday-under-israeli-attacks?traffic_source=rss",
-      "published_iso": "2026-04-04T04:05:17+07:00",
-      "published_text": "04/04 04:05"
+      "title": "Iranian missile attack hits residential areas in central Israel",
+      "title_vi": "Cuộc tấn công tên lửa của Iran nhằm vào các khu dân cư ở miền trung Israel",
+      "summary": "An Iranian missile attack has caused damage across residential areas in central Israel, according to Israeli media.",
+      "summary_vi": "An Iranian missile attack has caused damage across residential areas in central Israel, according to Israeli media.",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/4/4/iranian-missile-attack-hits-residential-areas-in-central-israel?traffic_source=rss",
+      "published_iso": "2026-04-04T09:53:18+07:00",
+      "published_text": "04/04 09:53"
     }
   ],
   "global_news": [
+    {
+      "source": "Investing News",
+      "title": "U.S.-China ties stabilize as rare fugitive repatriation precedes Trump-Xi summit",
+      "title_vi": "Quan hệ Mỹ-Trung ổn định khi những người tị nạn hiếm hoi hồi hương trước hội nghị thượng đỉnh Trump-Xi",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/economy-news/uschina-ties-stabilize-as-rare-fugitive-repatriation-precedes-trumpxi-summit-4597511",
+      "published_iso": "2026-04-04T11:37:21+07:00",
+      "published_text": "04/04 11:37"
+    },
+    {
+      "source": "Investing News",
+      "title": "Iran’s asymmetric strategy yields tactical wins as U.S. warplane losses mount",
+      "title_vi": "Chiến lược bất đối xứng của Iran mang lại chiến thắng chiến thuật khi tổn thất máy bay chiến đấu của Mỹ gia tăng",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/economy-news/irans-asymmetric-strategy-yields-tactical-wins-as-us-warplane-losses-mount-4597504",
+      "published_iso": "2026-04-04T08:52:54+07:00",
+      "published_text": "04/04 08:52"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "Trump Gambled by Easing Oil Sanctions on Iran and Russia. Will It Pay Off? - Council on Foreign Relations",
+      "title_vi": "Trump đã đánh cược bằng cách nới lỏng các biện pháp trừng phạt dầu mỏ đối với Iran và Nga. Nó có được đền đáp không? - Hội đồng Quan hệ đối ngoại",
+      "summary": "Trump Gambled by Easing Oil Sanctions on Iran and Russia. Will It Pay Off? Council on Foreign Relations",
+      "summary_vi": "Trump Gambled by Easing Oil Sanctions on Iran and Russia. Will It Pay Off? Council on Foreign Relations",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPbHJsMXkyTmstOHFlWmx3VjJ2aFRSaU5IWUNhWHd6dldqdVJERUdIMDk3azM3S1V0aGNHRWFINXZObVYwUy1FTF9EM0pONU5sdjltVGpJcTIta080Y21KekVMcGNZMHM1OHBfZGpjdy1nbUo2NXh1cWFoaGpvMFYyMTJXUzZUaGtvOVhZTlBYaGJ3VEltVjZRU09EbGZKRUFTeUlR?oc=5",
+      "published_iso": "2026-04-03T22:26:31+07:00",
+      "published_text": "03/04 22:26"
+    },
     {
       "source": "Google News Macro",
       "title": "China Edges Past U.S. in Global Approval Ratings - Gallup News",
@@ -33,78 +63,48 @@
       "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQQkRqUWE3cU5RVkwxeFFKNUlTblYwYlBPVThaWkxjQXdReURINjB0ekF0RlZCZDlCcVI4eXlSejQ5d252b3R0Y3EtVG9ZTnJKQ0lTMDJxcTZPTzVqaGJ1R0ZwX0N3S0cwM3QzblYtWDFOMVVodzUwald0SE9FQXVJRVp4bkNMc1RE?oc=5",
       "published_iso": "2026-04-03T19:55:13+07:00",
       "published_text": "03/04 19:55"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "Trump tariff fallout: Some industries grapple with lingering effects one year later - CNBC",
-      "title_vi": "Sự sụp đổ thuế quan của Trump: Một số ngành công nghiệp vật lộn với các hiệu ứng kéo dài một năm sau đó - CNBC",
-      "summary": "Trump tariff fallout: Some industries grapple with lingering effects one year later CNBC",
-      "summary_vi": "Trump tariff fallout: Some industries grapple with lingering effects one year later CNBC",
-      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE4wQTdudlByQ24zTjlIZ19CVm82OTliTVFwZmg4amNONTVDVjNBNXA0Y1NFLTB1WlFMTHNqVWVGTENhOFNnMVJpSG5RblpLcHNnZFl0bFRLYTdSMWNqV0RYUVpDd2hfSnlsanFpRC1lUUxlMXBxQ2fSAXtBVV95cUxPbmdSTV9FQlh6WmJuVXRZempURXB1cW5QVnV6T25NVXcwejY2OHEzM3oxdDVsYjZRcXYtSzZHUXVTMkZtUzVfcTQ0UFlVaWdhaXg5QUZpSjZpd25yejFNbWVFU1VGVHVVWW9jd2Z2ZnRnMXVJZlF3ZWNUcHM?oc=5",
-      "published_iso": "2026-04-03T18:30:01+07:00",
-      "published_text": "03/04 18:30"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "Trump imposes tariffs on pharmaceuticals, adjusts duties on steel, other metals - Politico",
-      "title_vi": "Trump áp thuế đối với dược phẩm, điều chỉnh thuế đối với thép, kim loại khác - Politico",
-      "summary": "Trump imposes tariffs on pharmaceuticals, adjusts duties on steel, other metals Politico",
-      "summary_vi": "Trump imposes tariffs on pharmaceuticals, adjusts duties on steel, other metals Politico",
-      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPMk1XZVdRYXZuU2o2R1ZydU5adFNFNGF5aERqOTVpWkZLUXVNcEZ6ZU9kRjJRQWtaQl9BVVB2Y0psWUxHbkZyYzRrWkRmX3BjMzJVYlZjNXB3UTFDbzZFMWZYTW9XRkRrVlFnS2Q0ZjFrX1ppZThPVjVOUUVTMnZCTzR0RTRITWltWE1fNFlhOW9zcTFK?oc=5",
-      "published_iso": "2026-04-03T02:59:47+07:00",
-      "published_text": "03/04 02:59"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "Trump administration announces new tariffs on drugmakers - Axios",
-      "title_vi": "Chính quyền Trump công bố mức thuế mới đối với các nhà sản xuất thuốc - Axios",
-      "summary": "Trump administration announces new tariffs on drugmakers Axios",
-      "summary_vi": "Trump administration announces new tariffs on drugmakers Axios",
-      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5MYlp1clVVMGw5YVR5cEYzSDlhZzBsNWV2dGhpU2VXVXNoN0FIMWFQa0Nyc1UtcHRMU3VqUHJNYXN6NkpCQUpGcUk4dFlOckYxQUc4VC15QmdOU0dqaWR0a3BRdXFNN2lZc0E?oc=5",
-      "published_iso": "2026-04-03T02:51:47+07:00",
-      "published_text": "03/04 02:51"
     }
   ],
   "vn_news": [
     {
       "source": "Thời báo Tài chính VN",
-      "title": "Công ty đấu giá hợp danh Bảo Minh: Đấu giá 27 lô đất tại Khu đô thị mới Võ Văn Kiệt, phường Quảng Trị, tỉnh Quảng Trị",
-      "title_vi": "Công ty đấu giá hợp danh Bảo Minh: Đấu giá 27 lô đất tại Khu đô thị mới Võ Văn Kiệt, phường Quảng Trị, tỉnh Quảng Trị",
+      "title": "Công ty Đấu giá Hợp danh Khải Hưng: Đấu giá 1 xe ô tô cứu thương, nhãn hiệu HYUNDAI, số loại H-1, biển số 70A-009.03, sản xuất năm 2010 tại Hàn Quốc",
+      "title_vi": "Công ty Đấu giá Hợp danh Khải Hưng: Đấu giá 1 xe ô tô cứu thương, nhãn hiệu HYUNDAI, số loại H-1, biển số 70A-009.03, sản xuất năm 2010 tại Hàn Quốc",
       "summary": "",
       "summary_vi": "",
-      "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-bao-minh-dau-gia-27-lo-dat-tai-khu-do-thi-moi-vo-van-kiet-phuong-quang-tri-tinh-quang-tri-50516.html",
-      "published_iso": "2026-04-04T07:03:18.434050+07:00",
-      "published_text": "04/04 07:03"
+      "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-khai-hung-dau-gia-1-xe-o-to-cuu-thuong-nhan-hieu-hyundai-so-loai-h-1-bien-so-70a-00903-san-xuat-nam-2010-tai-han-quoc-50521.html",
+      "published_iso": "2026-04-04T12:17:30.790817+07:00",
+      "published_text": "04/04 12:17"
     },
     {
       "source": "Thời báo Tài chính VN",
-      "title": "Công ty Đấu giá Hợp danh Đông Nam: Đấu giá 1 xe ô tô khách, nhãn hiệu TOYOTA, số loại HIACE, biển số 51B-095.41",
-      "title_vi": "Công ty Đấu giá Hợp danh Đông Nam: Đấu giá 1 xe ô tô khách, nhãn hiệu TOYOTA, số loại HIACE, biển số 51B-095.41",
+      "title": "Công ty Đấu giá Hợp danh Khải Hưng: Đấu giá 1 xe ô tô con 5 chỗ, nhãn hiệu TOYOTA, số loại COROLLA, biển số 70B-0584, sản xuất năm 2004 tại Việt Nam",
+      "title_vi": "Công ty Đấu giá Hợp danh Khải Hưng: Đấu giá 1 xe ô tô con 5 chỗ, nhãn hiệu TOYOTA, số loại COROLLA, biển số 70B-0584, sản xuất năm 2004 tại Việt Nam",
       "summary": "",
       "summary_vi": "",
-      "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-dong-nam-dau-gia-1-xe-o-to-kha-ch-nhan-hieu-toyota-so-loa-i-hiace-bien-so-51b-09541-50517.html",
-      "published_iso": "2026-04-04T07:03:18.433989+07:00",
-      "published_text": "04/04 07:03"
+      "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-khai-hung-dau-gia-1-xe-o-to-con-5-cho-nhan-hieu-toyota-so-loai-corolla-bien-so-70b-0584-san-xuat-nam-2004-tai-viet-nam-50520.html",
+      "published_iso": "2026-04-04T12:17:30.790746+07:00",
+      "published_text": "04/04 12:17"
     },
     {
       "source": "VietnamFinance",
-      "title": "'Kỷ niệm' 1 năm 'Ngày Giải phóng', TT Trump lệnh áp thuế 100% với dược phẩm và kim loại",
-      "title_vi": "'Kỷ niệm' 1 năm 'Ngày Giải phóng', TT Trump lệnh áp thuế 100% với dược phẩm và kim loại",
+      "title": "Một nắm nhỏ trong bàn tay có giá triệu USD: 'Báu vật' hiếm có hấp dẫn cuộc đua lên mặt trăng",
+      "title_vi": "Một nắm nhỏ trong bàn tay có giá triệu USD: 'Báu vật' hiếm có hấp dẫn cuộc đua lên mặt trăng",
       "summary": "",
       "summary_vi": "",
-      "url": "https://vietnamfinance.vn/ky-niem-1-nam-ngay-giai-phong-tt-trump-lenh-ap-thue-100-voi-duoc-pham-va-kim-loai-d142560.html",
-      "published_iso": "2026-04-04T07:03:17.156712+07:00",
-      "published_text": "04/04 07:03"
+      "url": "https://vietnamfinance.vn/mot-nam-nho-trong-ban-tay-co-gia-trieu-usd-bau-vat-hiem-co-hap-dan-cuoc-dua-len-mat-trang-d142595.html",
+      "published_iso": "2026-04-04T12:17:28.701689+07:00",
+      "published_text": "04/04 12:17"
     },
     {
       "source": "VietnamFinance",
-      "title": "Sàn ONUS: ‘Vẽ’ chuỗi cửa hàng bánh mỳ nghìn điểm để lôi kéo nhà đầu tư",
-      "title_vi": "Sàn ONUS: ‘Vẽ’ chuỗi cửa hàng bánh mỳ nghìn điểm để lôi kéo nhà đầu tư",
+      "title": "Trung tâm đô thị mới phía tây Hà Nội: Cuộc ‘chuyển giao quyền lực’ giữa hai vành đai",
+      "title_vi": "Trung tâm đô thị mới phía tây Hà Nội: Cuộc ‘chuyển giao quyền lực’ giữa hai vành đai",
       "summary": "",
       "summary_vi": "",
-      "url": "https://vietnamfinance.vn/san-onus-ve-chuoi-cua-hang-banh-mi-nghin-diem-de-loi-keo-nha-dau-tu-d142589.html",
-      "published_iso": "2026-04-04T07:03:17.156650+07:00",
-      "published_text": "04/04 07:03"
+      "url": "https://vietnamfinance.vn/trung-tam-do-thi-moi-phia-tay-ha-noi-cuoc-chuyen-giao-quyen-luc-giua-hai-vanh-dai-d142604.html",
+      "published_iso": "2026-04-04T12:17:28.701618+07:00",
+      "published_text": "04/04 12:17"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/ts-nguyen-dinh-cung-viet-nam-mo-co-hoi-lich-su-chua-tung-co-khong-con-rao-can-nhung-con-mot-van-de-188260329145429809.chn",
-      "published_iso": "2026-04-04T07:03:16.605041+07:00",
-      "published_text": "04/04 07:03"
+      "published_iso": "2026-04-04T12:17:28.154458+07:00",
+      "published_text": "04/04 12:17"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/tu-the-he-dau-tien-den-bat-ngo-voi-nhung-doanh-nhan-ve-tu-dong-au-chuyen-gia-pham-chi-lan-noi-gi-ve-ong-pham-nhat-vuong-va-ty-phu-an-minh-voi-nhung-ky-luc-the-gioi-188260331110359369.chn",
-      "published_iso": "2026-04-04T07:03:16.604971+07:00",
-      "published_text": "04/04 07:03"
+      "published_iso": "2026-04-04T12:17:28.154383+07:00",
+      "published_text": "04/04 12:17"
     }
   ],
   "markets": [
@@ -231,12 +231,12 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 66889.0,
-      "change": -1190.0,
-      "change_pct": -1.75,
+      "price": 66866.0,
+      "change": -23.0,
+      "change_pct": -0.03,
       "decimals": 0,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 02/04 07:00"
+      "note": "Dữ liệu gần nhất: 04/04 07:00"
     },
     {
       "name": "S&P 500",
@@ -341,9 +341,9 @@
       "name": "Nikkei 225",
       "symbol": "^N225",
       "category": "Asia",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
+      "price": 53123.49,
+      "change": 660.22,
+      "change_pct": 1.26,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 02/04 22:00"
@@ -352,9 +352,9 @@
       "name": "KOSPI",
       "symbol": "^KS11",
       "category": "Asia",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
+      "price": 5377.3,
+      "change": 143.25,
+      "change_pct": 2.74,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 02/04 22:00"
@@ -363,9 +363,9 @@
       "name": "Shanghai Composite",
       "symbol": "000001.SS",
       "category": "Asia",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
+      "price": 3880.1,
+      "change": -39.19,
+      "change_pct": -1.0,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 02/04 23:00"
@@ -374,9 +374,9 @@
       "name": "Shenzhen Component",
       "symbol": "399001.SZ",
       "category": "Asia",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
+      "price": 13352.9,
+      "change": -134.04,
+      "change_pct": -0.99,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 02/04 23:00"
