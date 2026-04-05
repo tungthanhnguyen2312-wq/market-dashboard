@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-04-06T04:59:33.110995+07:00",
-  "updated_at_display": "06/04/2026 • 04:59 GMT+7",
+  "updated_at": "2026-04-06T06:05:29.067535+07:00",
+  "updated_at_display": "06/04/2026 • 06:05 GMT+7",
   "war_news": [
     {
       "source": "Al Jazeera",
@@ -26,6 +26,16 @@
   "global_news": [
     {
       "source": "Investing News",
+      "title": "Oil prices open higher as US-Israeli war with Iran continues to disrupt supply",
+      "title_vi": "Giá dầu mở cửa cao hơn khi chiến tranh Mỹ-Israel với Iran tiếp tục làm gián đoạn nguồn cung",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/commodities-news/oil-prices-open-higher-as-usisraeli-war-with-iran-continues-to-disrupt-supply-4597667",
+      "published_iso": "2026-04-06T05:30:26+07:00",
+      "published_text": "06/04 05:30"
+    },
+    {
+      "source": "Investing News",
       "title": "Is the world running out of oil? Goldman Sachs weighs in",
       "title_vi": "Thế giới đang cạn kiệt dầu? Goldman Sachs cân nhắc",
       "summary": "",
@@ -36,6 +46,16 @@
     },
     {
       "source": "Google News Macro",
+      "title": "Trump Gambled by Easing Oil Sanctions on Iran and Russia. Will It Pay Off? - Council on Foreign Relations",
+      "title_vi": "Trump đã đánh cược bằng cách nới lỏng các biện pháp trừng phạt dầu mỏ đối với Iran và Nga. Nó có được đền đáp không? - Hội đồng Quan hệ đối ngoại",
+      "summary": "Trump Gambled by Easing Oil Sanctions on Iran and Russia. Will It Pay Off? Council on Foreign Relations",
+      "summary_vi": "Trump Gambled by Easing Oil Sanctions on Iran and Russia. Will It Pay Off? Council on Foreign Relations",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPbHJsMXkyTmstOHFlWmx3VjJ2aFRSaU5IWUNhWHd6dldqdVJERUdIMDk3azM3S1V0aGNHRWFINXZObVYwUy1FTF9EM0pONU5sdjltVGpJcTIta080Y21KekVMcGNZMHM1OHBfZGpjdy1nbUo2NXh1cWFoaGpvMFYyMTJXUzZUaGtvOVhZTlBYaGJ3VEltVjZRU09EbGZKRUFTeUlR?oc=5",
+      "published_iso": "2026-04-03T22:26:31+07:00",
+      "published_text": "03/04 22:26"
+    },
+    {
+      "source": "Google News Macro",
       "title": "Treasury and IRS to Provide Guidance to Religious Organizations - U.S. Department of the Treasury (.gov)",
       "title_vi": "Kho bạc và IRS sẽ cung cấp hướng dẫn cho các tổ chức tôn giáo - Bộ Ngân khố Hoa Kỳ (.gov)",
       "summary": "Treasury and IRS to Provide Guidance to Religious Organizations U.S. Department of the Treasury (.gov)",
@@ -43,26 +63,6 @@
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE01R3lxeHNDN2RPWlJSbnpDcmRkWHVJZnpVX0VuQTR4N01ORExlWWd1U2NtN2QxUGlEUERaOThzSnUwckFnYklkcVBtZ3RTR3dNVnhTeXc0Tmw2Zi14Yi1tdThR?oc=5",
       "published_iso": "2026-04-03T20:30:00+07:00",
       "published_text": "03/04 20:30"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "The Fed - Labor force growth, breakeven employment, and potential GDP growth - Federal Reserve Board (.gov)",
-      "title_vi": "Fed - Tăng trưởng lực lượng lao động, việc làm hòa vốn và tăng trưởng GDP tiềm năng - Cục Dự trữ Liên bang (.gov)",
-      "summary": "The Fed - Labor force growth, breakeven employment, and potential GDP growth Federal Reserve Board (.gov)",
-      "summary_vi": "The Fed - Labor force growth, breakeven employment, and potential GDP growth Federal Reserve Board (.gov)",
-      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNX2RNNWk2ODdiUlR3M2RhVi1fZFhFWEZZa3k3UTBybzluOHVEbHhkWW9JazRRc0lxSXoyY1hEdnVlU21adGs3WWJiV1QyU0RxVERwNm93cV93OWFDNWZ0ZWt2YWhRaWdUWTVreXhQeUVUWkNSR1FuRUcxWTJPS0pNM051eHNIV0cyOTBJZkJLUnlqTm9McVJpVno4eUd5NTd5eHpqbVFyZnpGcTdVOVduYVFhdmlOS25CRm9tYzJfb2JybnRaZUUyMmZCODZSVmc?oc=5",
-      "published_iso": "2026-04-02T23:01:24+07:00",
-      "published_text": "02/04 23:01"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "The Defensive Playbook Isn’t Your Average Inflation Roadmap - J.P. Morgan",
-      "title_vi": "The Defensive Playbook không phải là lộ trình lạm phát trung bình của bạn - J.P. Morgan",
-      "summary": "The Defensive Playbook Isn’t Your Average Inflation Roadmap J.P. Morgan",
-      "summary_vi": "The Defensive Playbook Isn’t Your Average Inflation Roadmap J.P. Morgan",
-      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNdUFHbFIzVjJkT3NrbTBtYVVnN1oxV0k5amFjd1VYbDBUQ1FZNE5DMUNIRVBZZWowWW1RS0tHOVBkQndqaUxRc19aM0xwY3p4YU9iMy1zRnVlRjV2M3hKdjNrUkxhU29JOUxQekQ5NjBCZXEzVHFEbHI0ZmM2SDUwaW5wRW1VdC1YX2NUWm02aHU5a19VbEdfS2F0QnNzMHBuUjVoN0tiNjNpWWRwQmJWZndMVGxnaEJXa0NUNk16VEx6Z3NsdUZOa1pfVHZabnc1VEhj?oc=5",
-      "published_iso": "2026-04-02T20:43:10+07:00",
-      "published_text": "02/04 20:43"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-khai-hung-dau-gia-1-xe-o-to-con-5-cho-nhan-hieu-toyota-so-loai-corolla-bien-so-70b-0584-san-xuat-nam-2004-tai-viet-nam-50520.html",
-      "published_iso": "2026-04-06T05:00:37.602984+07:00",
-      "published_text": "06/04 05:00"
+      "published_iso": "2026-04-06T06:06:30.567774+07:00",
+      "published_text": "06/04 06:06"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-minh-thang-dau-gia-cho-thue-mat-bang-thuc-hien-dich-vu-giu-xe-o-to-tai-benh-vien-da-khoa-trung-uong-can-tho-50522.html",
-      "published_iso": "2026-04-06T05:00:37.602917+07:00",
-      "published_text": "06/04 05:00"
+      "published_iso": "2026-04-06T06:06:30.567706+07:00",
+      "published_text": "06/04 06:06"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/sang-mai-khai-mac-ky-hop-thu-nhat-quoc-hoi-khoa-xvi-d142654.html",
-      "published_iso": "2026-04-06T05:00:35.968519+07:00",
-      "published_text": "06/04 05:00"
+      "published_iso": "2026-04-06T06:06:28.915790+07:00",
+      "published_text": "06/04 06:06"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/gia-chung-cu-tp-hcm-leo-thang-rui-ro-bat-dau-lo-ro-d142643.html",
-      "published_iso": "2026-04-06T05:00:35.968458+07:00",
-      "published_text": "06/04 05:00"
+      "published_iso": "2026-04-06T06:06:28.915729+07:00",
+      "published_text": "06/04 06:06"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/ts-nguyen-dinh-cung-viet-nam-mo-co-hoi-lich-su-chua-tung-co-khong-con-rao-can-nhung-con-mot-van-de-188260329145429809.chn",
-      "published_iso": "2026-04-06T05:00:35.474728+07:00",
-      "published_text": "06/04 05:00"
+      "published_iso": "2026-04-06T06:06:28.432047+07:00",
+      "published_text": "06/04 06:06"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/tu-the-he-dau-tien-den-bat-ngo-voi-nhung-doanh-nhan-ve-tu-dong-au-chuyen-gia-pham-chi-lan-noi-gi-ve-ong-pham-nhat-vuong-va-ty-phu-an-minh-voi-nhung-ky-luc-the-gioi-188260331110359369.chn",
-      "published_iso": "2026-04-06T05:00:35.474657+07:00",
-      "published_text": "06/04 05:00"
+      "published_iso": "2026-04-06T06:06:28.431975+07:00",
+      "published_text": "06/04 06:06"
     }
   ],
   "markets": [
@@ -132,67 +132,67 @@
       "name": "WTI",
       "symbol": "CL=F",
       "category": "Energy",
-      "price": 112.06,
-      "change": 11.94,
-      "change_pct": 11.93,
+      "price": 113.96,
+      "change": 2.42,
+      "change_pct": 2.17,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 02/04 11:00"
+      "note": "Dữ liệu gần nhất: 05/04 11:00"
     },
     {
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 109.05,
-      "change": 7.89,
-      "change_pct": 7.8,
+      "price": 111.23,
+      "change": 2.2,
+      "change_pct": 2.02,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 02/04 11:00"
+      "note": "Dữ liệu gần nhất: 05/04 11:00"
     },
     {
       "name": "Natural Gas",
       "symbol": "NG=F",
       "category": "Energy",
-      "price": 2.81,
-      "change": -0.01,
-      "change_pct": -0.43,
+      "price": 2.84,
+      "change": 0.04,
+      "change_pct": 1.29,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 02/04 11:00"
+      "note": "Dữ liệu gần nhất: 05/04 11:00"
     },
     {
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4702.7,
-      "change": -80.5,
-      "change_pct": -1.68,
+      "price": 4662.1,
+      "change": 10.6,
+      "change_pct": 0.23,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 02/04 11:00"
+      "note": "Dữ liệu gần nhất: 05/04 11:00"
     },
     {
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 73.17,
-      "change": -2.7,
-      "change_pct": -3.55,
+      "price": 72.09,
+      "change": -0.65,
+      "change_pct": -0.89,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 02/04 11:00"
+      "note": "Dữ liệu gần nhất: 05/04 11:00"
     },
     {
       "name": "Copper",
       "symbol": "HG=F",
       "category": "Metals",
-      "price": 5.68,
-      "change": 0.06,
-      "change_pct": 1.02,
+      "price": 5.63,
+      "change": 0.07,
+      "change_pct": 1.29,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 02/04 11:00"
+      "note": "Dữ liệu gần nhất: 05/04 11:00"
     },
     {
       "name": "US 10Y",
@@ -209,31 +209,31 @@
       "name": "DXY",
       "symbol": "DX-Y.NYB",
       "category": "FX",
-      "price": 100.03,
-      "change": 0.38,
-      "change_pct": 0.38,
+      "price": 100.23,
+      "change": 0.2,
+      "change_pct": 0.2,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 02/04 11:00"
+      "note": "Dữ liệu gần nhất: 05/04 11:00"
     },
     {
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1525,
-      "change": -0.0017,
-      "change_pct": -0.15,
+      "price": 1.1517,
+      "change": -0.0025,
+      "change_pct": -0.22,
       "decimals": 4,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 05/04 06:00"
+      "note": "Dữ liệu gần nhất: 06/04 06:00"
     },
     {
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 67600.0,
-      "change": 309.0,
-      "change_pct": 0.46,
+      "price": 68296.0,
+      "change": 1005.0,
+      "change_pct": 1.49,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 05/04 07:00"
