@@ -1,7 +1,17 @@
 {
-  "updated_at": "2026-04-06T00:06:36.474006+07:00",
-  "updated_at_display": "06/04/2026 • 00:06 GMT+7",
+  "updated_at": "2026-04-06T01:03:06.788745+07:00",
+  "updated_at_display": "06/04/2026 • 01:03 GMT+7",
   "war_news": [
+    {
+      "source": "Al Jazeera",
+      "title": "OPEC+ agrees to hike oil output, warns of slow recovery after attacks",
+      "title_vi": "OPEC+ đồng ý tăng sản lượng dầu, cảnh báo phục hồi chậm sau các cuộc tấn công",
+      "summary": "The rise is largely symbolic as some key members are unable to raise ​production amid the US-Israel war on Iran.",
+      "summary_vi": "The rise is largely symbolic as some key members are unable to raise ​production amid the US-Israel war on Iran.",
+      "url": "https://www.aljazeera.com/news/2026/4/5/opec-agrees-to-hike-oil-output-warns-of-slow-recovery-after-attacks?traffic_source=rss",
+      "published_iso": "2026-04-06T00:33:04+07:00",
+      "published_text": "06/04 00:33"
+    },
     {
       "source": "Al Jazeera",
       "title": "At least 14 people killed in Israeli strikes across Lebanon",
@@ -11,29 +21,9 @@
       "url": "https://www.aljazeera.com/news/2026/4/5/at-least-14-people-killed-in-israeli-strikes-across-lebanon?traffic_source=rss",
       "published_iso": "2026-04-05T23:15:14+07:00",
       "published_text": "05/04 23:15"
-    },
-    {
-      "source": "Al Jazeera",
-      "title": "Iranian missile strikes industrial area in southern Israel",
-      "title_vi": "Tên lửa Iran tấn công khu công nghiệp ở miền nam Israel",
-      "summary": "Video captured the moment an Iranian missile hit the Ramat Hovav industrial area in southern Israel.",
-      "summary_vi": "Video captured the moment an Iranian missile hit the Ramat Hovav industrial area in southern Israel.",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/4/5/iranian-missile-strikes-industrial-area-in-southern-israel?traffic_source=rss",
-      "published_iso": "2026-04-05T23:06:15+07:00",
-      "published_text": "05/04 23:06"
     }
   ],
   "global_news": [
-    {
-      "source": "Investing News",
-      "title": "OPEC+ mulls \"paper\" output hike as Iran war paralyzes 15% of global oil supply",
-      "title_vi": "OPEC+ cân nhắc tăng sản lượng \"giấy\" khi chiến tranh Iran làm tê liệt 15% nguồn cung dầu toàn cầu",
-      "summary": "",
-      "summary_vi": "",
-      "url": "https://www.investing.com/news/commodities-news/opec-mulls-paper-output-hike-as-iran-war-paralyzes-15-of-global-oil-supply-4597598",
-      "published_iso": "2026-04-05T21:11:31+07:00",
-      "published_text": "05/04 21:11"
-    },
     {
       "source": "Google News Macro",
       "title": "Trump Gambled by Easing Oil Sanctions on Iran and Russia. Will It Pay Off? - Council on Foreign Relations",
@@ -63,6 +53,16 @@
       "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPMk1XZVdRYXZuU2o2R1ZydU5adFNFNGF5aERqOTVpWkZLUXVNcEZ6ZU9kRjJRQWtaQl9BVVB2Y0psWUxHbkZyYzRrWkRmX3BjMzJVYlZjNXB3UTFDbzZFMWZYTW9XRkRrVlFnS2Q0ZjFrX1ppZThPVjVOUUVTMnZCTzR0RTRITWltWE1fNFlhOW9zcTFK?oc=5",
       "published_iso": "2026-04-03T02:59:47+07:00",
       "published_text": "03/04 02:59"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "Trump administration announces new tariffs on drugmakers - Axios",
+      "title_vi": "Chính quyền Trump công bố mức thuế mới đối với các nhà sản xuất thuốc - Axios",
+      "summary": "Trump administration announces new tariffs on drugmakers Axios",
+      "summary_vi": "Trump administration announces new tariffs on drugmakers Axios",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5MYlp1clVVMGw5YVR5cEYzSDlhZzBsNWV2dGhpU2VXVXNoN0FIMWFQa0Nyc1UtcHRMU3VqUHJNYXN6NkpCQUpGcUk4dFlOckYxQUc4VC15QmdOU0dqaWR0a3BRdXFNN2lZc0E?oc=5",
+      "published_iso": "2026-04-03T02:51:47+07:00",
+      "published_text": "03/04 02:51"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-khai-hung-dau-gia-1-xe-o-to-con-5-cho-nhan-hieu-toyota-so-loai-corolla-bien-so-70b-0584-san-xuat-nam-2004-tai-viet-nam-50520.html",
-      "published_iso": "2026-04-06T00:07:34.143867+07:00",
-      "published_text": "06/04 00:07"
+      "published_iso": "2026-04-06T01:04:04.811842+07:00",
+      "published_text": "06/04 01:04"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-minh-thang-dau-gia-cho-thue-mat-bang-thuc-hien-dich-vu-giu-xe-o-to-tai-benh-vien-da-khoa-trung-uong-can-tho-50522.html",
-      "published_iso": "2026-04-06T00:07:34.143795+07:00",
-      "published_text": "06/04 00:07"
+      "published_iso": "2026-04-06T01:04:04.811779+07:00",
+      "published_text": "06/04 01:04"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/sang-mai-khai-mac-ky-hop-thu-nhat-quoc-hoi-khoa-xvi-d142654.html",
-      "published_iso": "2026-04-06T00:07:32.342776+07:00",
-      "published_text": "06/04 00:07"
+      "published_iso": "2026-04-06T01:04:02.792722+07:00",
+      "published_text": "06/04 01:04"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/gia-chung-cu-tp-hcm-leo-thang-rui-ro-bat-dau-lo-ro-d142643.html",
-      "published_iso": "2026-04-06T00:07:32.342708+07:00",
-      "published_text": "06/04 00:07"
+      "published_iso": "2026-04-06T01:04:02.792665+07:00",
+      "published_text": "06/04 01:04"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/ts-nguyen-dinh-cung-viet-nam-mo-co-hoi-lich-su-chua-tung-co-khong-con-rao-can-nhung-con-mot-van-de-188260329145429809.chn",
-      "published_iso": "2026-04-06T00:07:31.808848+07:00",
-      "published_text": "06/04 00:07"
+      "published_iso": "2026-04-06T01:04:02.485205+07:00",
+      "published_text": "06/04 01:04"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/tu-the-he-dau-tien-den-bat-ngo-voi-nhung-doanh-nhan-ve-tu-dong-au-chuyen-gia-pham-chi-lan-noi-gi-ve-ong-pham-nhat-vuong-va-ty-phu-an-minh-voi-nhung-ky-luc-the-gioi-188260331110359369.chn",
-      "published_iso": "2026-04-06T00:07:31.808766+07:00",
-      "published_text": "06/04 00:07"
+      "published_iso": "2026-04-06T01:04:02.485139+07:00",
+      "published_text": "06/04 01:04"
     }
   ],
   "markets": [
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 67196.0,
-      "change": -95.0,
-      "change_pct": -0.14,
+      "price": 67347.0,
+      "change": 56.0,
+      "change_pct": 0.08,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 05/04 07:00"
