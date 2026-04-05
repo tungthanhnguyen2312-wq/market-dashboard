@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-04-06T04:02:26.364633+07:00",
-  "updated_at_display": "06/04/2026 • 04:02 GMT+7",
+  "updated_at": "2026-04-06T04:59:33.110995+07:00",
+  "updated_at_display": "06/04/2026 • 04:59 GMT+7",
   "war_news": [
     {
       "source": "Al Jazeera",
@@ -36,16 +36,6 @@
     },
     {
       "source": "Google News Macro",
-      "title": "Trump Gambled by Easing Oil Sanctions on Iran and Russia. Will It Pay Off? - cfr.org",
-      "title_vi": "Trump đã đánh cược bằng cách nới lỏng các biện pháp trừng phạt dầu mỏ đối với Iran và Nga. Nó có được đền đáp không? - cfr.org",
-      "summary": "Trump Gambled by Easing Oil Sanctions on Iran and Russia. Will It Pay Off? cfr.org",
-      "summary_vi": "Trump Gambled by Easing Oil Sanctions on Iran and Russia. Will It Pay Off? cfr.org",
-      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPbHJsMXkyTmstOHFlWmx3VjJ2aFRSaU5IWUNhWHd6dldqdVJERUdIMDk3azM3S1V0aGNHRWFINXZObVYwUy1FTF9EM0pONU5sdjltVGpJcTIta080Y21KekVMcGNZMHM1OHBfZGpjdy1nbUo2NXh1cWFoaGpvMFYyMTJXUzZUaGtvOVhZTlBYaGJ3VEltVjZRU09EbGZKRUFTeUlR?oc=5",
-      "published_iso": "2026-04-03T22:26:31+07:00",
-      "published_text": "03/04 22:26"
-    },
-    {
-      "source": "Google News Macro",
       "title": "Treasury and IRS to Provide Guidance to Religious Organizations - U.S. Department of the Treasury (.gov)",
       "title_vi": "Kho bạc và IRS sẽ cung cấp hướng dẫn cho các tổ chức tôn giáo - Bộ Ngân khố Hoa Kỳ (.gov)",
       "summary": "Treasury and IRS to Provide Guidance to Religious Organizations U.S. Department of the Treasury (.gov)",
@@ -56,13 +46,23 @@
     },
     {
       "source": "Google News Macro",
-      "title": "China Edges Past U.S. in Global Approval Ratings - Gallup News",
-      "title_vi": "Trung Quốc vượt qua Mỹ về xếp hạng phê duyệt toàn cầu - Gallup News",
-      "summary": "China Edges Past U.S. in Global Approval Ratings Gallup News",
-      "summary_vi": "China Edges Past U.S. in Global Approval Ratings Gallup News",
-      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQQkRqUWE3cU5RVkwxeFFKNUlTblYwYlBPVThaWkxjQXdReURINjB0ekF0RlZCZDlCcVI4eXlSejQ5d252b3R0Y3EtVG9ZTnJKQ0lTMDJxcTZPTzVqaGJ1R0ZwX0N3S0cwM3QzblYtWDFOMVVodzUwald0SE9FQXVJRVp4bkNMc1RE?oc=5",
-      "published_iso": "2026-04-03T19:55:13+07:00",
-      "published_text": "03/04 19:55"
+      "title": "The Fed - Labor force growth, breakeven employment, and potential GDP growth - Federal Reserve Board (.gov)",
+      "title_vi": "Fed - Tăng trưởng lực lượng lao động, việc làm hòa vốn và tăng trưởng GDP tiềm năng - Cục Dự trữ Liên bang (.gov)",
+      "summary": "The Fed - Labor force growth, breakeven employment, and potential GDP growth Federal Reserve Board (.gov)",
+      "summary_vi": "The Fed - Labor force growth, breakeven employment, and potential GDP growth Federal Reserve Board (.gov)",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNX2RNNWk2ODdiUlR3M2RhVi1fZFhFWEZZa3k3UTBybzluOHVEbHhkWW9JazRRc0lxSXoyY1hEdnVlU21adGs3WWJiV1QyU0RxVERwNm93cV93OWFDNWZ0ZWt2YWhRaWdUWTVreXhQeUVUWkNSR1FuRUcxWTJPS0pNM051eHNIV0cyOTBJZkJLUnlqTm9McVJpVno4eUd5NTd5eHpqbVFyZnpGcTdVOVduYVFhdmlOS25CRm9tYzJfb2JybnRaZUUyMmZCODZSVmc?oc=5",
+      "published_iso": "2026-04-02T23:01:24+07:00",
+      "published_text": "02/04 23:01"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "The Defensive Playbook Isn’t Your Average Inflation Roadmap - J.P. Morgan",
+      "title_vi": "The Defensive Playbook không phải là lộ trình lạm phát trung bình của bạn - J.P. Morgan",
+      "summary": "The Defensive Playbook Isn’t Your Average Inflation Roadmap J.P. Morgan",
+      "summary_vi": "The Defensive Playbook Isn’t Your Average Inflation Roadmap J.P. Morgan",
+      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNdUFHbFIzVjJkT3NrbTBtYVVnN1oxV0k5amFjd1VYbDBUQ1FZNE5DMUNIRVBZZWowWW1RS0tHOVBkQndqaUxRc19aM0xwY3p4YU9iMy1zRnVlRjV2M3hKdjNrUkxhU29JOUxQekQ5NjBCZXEzVHFEbHI0ZmM2SDUwaW5wRW1VdC1YX2NUWm02aHU5a19VbEdfS2F0QnNzMHBuUjVoN0tiNjNpWWRwQmJWZndMVGxnaEJXa0NUNk16VEx6Z3NsdUZOa1pfVHZabnc1VEhj?oc=5",
+      "published_iso": "2026-04-02T20:43:10+07:00",
+      "published_text": "02/04 20:43"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-khai-hung-dau-gia-1-xe-o-to-con-5-cho-nhan-hieu-toyota-so-loai-corolla-bien-so-70b-0584-san-xuat-nam-2004-tai-viet-nam-50520.html",
-      "published_iso": "2026-04-06T04:03:27.853990+07:00",
-      "published_text": "06/04 04:03"
+      "published_iso": "2026-04-06T05:00:37.602984+07:00",
+      "published_text": "06/04 05:00"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-minh-thang-dau-gia-cho-thue-mat-bang-thuc-hien-dich-vu-giu-xe-o-to-tai-benh-vien-da-khoa-trung-uong-can-tho-50522.html",
-      "published_iso": "2026-04-06T04:03:27.853925+07:00",
-      "published_text": "06/04 04:03"
+      "published_iso": "2026-04-06T05:00:37.602917+07:00",
+      "published_text": "06/04 05:00"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/sang-mai-khai-mac-ky-hop-thu-nhat-quoc-hoi-khoa-xvi-d142654.html",
-      "published_iso": "2026-04-06T04:03:26.524694+07:00",
-      "published_text": "06/04 04:03"
+      "published_iso": "2026-04-06T05:00:35.968519+07:00",
+      "published_text": "06/04 05:00"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/gia-chung-cu-tp-hcm-leo-thang-rui-ro-bat-dau-lo-ro-d142643.html",
-      "published_iso": "2026-04-06T04:03:26.524629+07:00",
-      "published_text": "06/04 04:03"
+      "published_iso": "2026-04-06T05:00:35.968458+07:00",
+      "published_text": "06/04 05:00"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/ts-nguyen-dinh-cung-viet-nam-mo-co-hoi-lich-su-chua-tung-co-khong-con-rao-can-nhung-con-mot-van-de-188260329145429809.chn",
-      "published_iso": "2026-04-06T04:03:26.003356+07:00",
-      "published_text": "06/04 04:03"
+      "published_iso": "2026-04-06T05:00:35.474728+07:00",
+      "published_text": "06/04 05:00"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/tu-the-he-dau-tien-den-bat-ngo-voi-nhung-doanh-nhan-ve-tu-dong-au-chuyen-gia-pham-chi-lan-noi-gi-ve-ong-pham-nhat-vuong-va-ty-phu-an-minh-voi-nhung-ky-luc-the-gioi-188260331110359369.chn",
-      "published_iso": "2026-04-06T04:03:26.003266+07:00",
-      "published_text": "06/04 04:03"
+      "published_iso": "2026-04-06T05:00:35.474657+07:00",
+      "published_text": "06/04 05:00"
     }
   ],
   "markets": [
@@ -220,9 +220,9 @@
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1526,
-      "change": -0.0016,
-      "change_pct": -0.14,
+      "price": 1.1525,
+      "change": -0.0017,
+      "change_pct": -0.15,
       "decimals": 4,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 05/04 06:00"
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 67619.0,
-      "change": 328.0,
-      "change_pct": 0.49,
+      "price": 67600.0,
+      "change": 309.0,
+      "change_pct": 0.46,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 05/04 07:00"
