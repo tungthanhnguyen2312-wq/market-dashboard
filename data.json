@@ -1,49 +1,29 @@
 {
-  "updated_at": "2026-04-06T17:20:28.713920+07:00",
-  "updated_at_display": "06/04/2026 • 17:20 GMT+7",
+  "updated_at": "2026-04-06T19:09:14.228352+07:00",
+  "updated_at_display": "06/04/2026 • 19:09 GMT+7",
   "war_news": [
     {
       "source": "Al Jazeera",
-      "title": "Up to 1.2 million people forced to flee as Israel pummels Lebanon",
-      "title_vi": "Có tới 1,2 triệu người buộc phải chạy trốn khi Israel tấn công Lebanon",
-      "summary": "Families face repeated trauma as Israeli attacks displace nearly 1.2 million, many for the second time in recent months.",
-      "summary_vi": "Families face repeated trauma as Israeli attacks displace nearly 1.2 million, many for the second time in recent months.",
-      "url": "https://www.aljazeera.com/gallery/2026/4/6/israeli-airstrikes-devastate-lebanese-villages-and-displace-millions?traffic_source=rss",
-      "published_iso": "2026-04-06T16:45:16+07:00",
-      "published_text": "06/04 16:45"
+      "title": "Has Trump confirmed Iran’s claim that protesters were US-armed?",
+      "title_vi": "Trump có xác nhận tuyên bố của Iran rằng những người biểu tình có vũ trang của Mỹ không?",
+      "summary": "US president says Washington armed Kurdish Iranian opposition groups during the January demonstrations.",
+      "summary_vi": "US president says Washington armed Kurdish Iranian opposition groups during the January demonstrations.",
+      "url": "https://www.aljazeera.com/news/2026/4/6/has-trump-confirmed-irans-claim-that-protesters-were-us-armed?traffic_source=rss",
+      "published_iso": "2026-04-06T18:52:36+07:00",
+      "published_text": "06/04 18:52"
     },
     {
       "source": "Al Jazeera",
-      "title": "Families fleeing Israeli attacks take refuge in Lebanon’s mountains",
-      "title_vi": "Các gia đình chạy trốn khỏi các cuộc tấn công của Israel trú ẩn ở vùng núi Lebanon",
-      "summary": "Over one million people displaced across Lebanon as Israel escalates military campaign with air raids, ground invasion.",
-      "summary_vi": "Over one million people displaced across Lebanon as Israel escalates military campaign with air raids, ground invasion.",
-      "url": "https://www.aljazeera.com/news/2026/4/6/families-fleeing-israeli-attacks-take-refuge-in-lebanon-mountains?traffic_source=rss",
-      "published_iso": "2026-04-06T16:21:57+07:00",
-      "published_text": "06/04 16:21"
+      "title": "Iran threatens Bab al-Mandeb closure: How would that affect world trade?",
+      "title_vi": "Iran đe dọa đóng cửa Bab al-Mandeb: Điều đó sẽ ảnh hưởng đến thương mại thế giới như thế nào?",
+      "summary": "If the chokepoint were shut, along with the Strait of Hormuz, a quarter of the world's energy supply would be blocked.",
+      "summary_vi": "If the chokepoint were shut, along with the Strait of Hormuz, a quarter of the world's energy supply would be blocked.",
+      "url": "https://www.aljazeera.com/news/2026/4/6/iran-threatens-bab-al-mandeb-closure-how-would-that-affect-world-trade?traffic_source=rss",
+      "published_iso": "2026-04-06T18:49:04+07:00",
+      "published_text": "06/04 18:49"
     }
   ],
   "global_news": [
-    {
-      "source": "Investing News",
-      "title": "Oil turns lower amid Iran ceasefire hopes; major European stock markets closed",
-      "title_vi": "Giá dầu giảm trong bối cảnh Iran hy vọng ngừng bắn; các thị trường chứng khoán lớn của châu Âu đóng cửa",
-      "summary": "",
-      "summary_vi": "",
-      "url": "https://www.investing.com/news/stock-market-news/oil-rises-major-european-stock-markets-closed-for-holiday-4597791",
-      "published_iso": "2026-04-06T16:44:25+07:00",
-      "published_text": "06/04 16:44"
-    },
-    {
-      "source": "Investing News",
-      "title": "Netflix upped to Buy at Goldman on ’more positive risk-reward from current levels’",
-      "title_vi": "Netflix đã tăng lên Mua tại Goldman nhờ ’phần thưởng rủi ro tích cực hơn từ mức hiện tại’",
-      "summary": "",
-      "summary_vi": "",
-      "url": "https://www.investing.com/news/stock-market-news/netflix-upped-to-buy-at-goldman-on-more-positive-riskreward-from-current-levels-4597802",
-      "published_iso": "2026-04-06T16:44:12+07:00",
-      "published_text": "06/04 16:44"
-    },
     {
       "source": "Google News Macro",
       "title": "Trump Gambled by Easing Oil Sanctions on Iran and Russia. Will It Pay Off? - Council on Foreign Relations",
@@ -63,6 +43,26 @@
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE01R3lxeHNDN2RPWlJSbnpDcmRkWHVJZnpVX0VuQTR4N01ORExlWWd1U2NtN2QxUGlEUERaOThzSnUwckFnYklkcVBtZ3RTR3dNVnhTeXc0Tmw2Zi14Yi1tdThR?oc=5",
       "published_iso": "2026-04-03T20:30:00+07:00",
       "published_text": "03/04 20:30"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "China Edges Past U.S. in Global Approval Ratings - news.gallup.com",
+      "title_vi": "Trung Quốc vượt qua Mỹ về xếp hạng phê duyệt toàn cầu - news.gallup.com",
+      "summary": "China Edges Past U.S. in Global Approval Ratings news.gallup.com",
+      "summary_vi": "China Edges Past U.S. in Global Approval Ratings news.gallup.com",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQQkRqUWE3cU5RVkwxeFFKNUlTblYwYlBPVThaWkxjQXdReURINjB0ekF0RlZCZDlCcVI4eXlSejQ5d252b3R0Y3EtVG9ZTnJKQ0lTMDJxcTZPTzVqaGJ1R0ZwX0N3S0cwM3QzblYtWDFOMVVodzUwald0SE9FQXVJRVp4bkNMc1RE?oc=5",
+      "published_iso": "2026-04-03T19:55:13+07:00",
+      "published_text": "03/04 19:55"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "Strong Jobs Numbers Make the Fed’s Job Easier - The New York Times",
+      "title_vi": "Số lượng việc làm mạnh mẽ làm cho công việc của Fed dễ dàng hơn - The New York Times",
+      "summary": "Strong Jobs Numbers Make the Fed’s Job Easier The New York Times",
+      "summary_vi": "Strong Jobs Numbers Make the Fed’s Job Easier The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNQkhEdUtGQXYwSlo0eFpyZjdTRUc4LUxBNmRncEE2MHRqenU1VGJGMWNQTTFXbFhpU180eUk0cFVQVWJRZkxWaG9wd2V1X1pfSWd3SUE1LUpnU2JlNERrTUdRMnBiWlY4bjNqUFVaYmZGckx4alBrNjloYmNPT3ZxTW9sRXhBQy0zUlg3eFF2RElLbEU5bFA3MjRR?oc=5",
+      "published_iso": "2026-04-03T18:30:04+07:00",
+      "published_text": "03/04 18:30"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/trung-tam-dich-vu-dau-gia-tai-san-tinh-vinh-long-dau-gia-thanh-ly-01-xe-o-to-da-qua-su-dung-loai-xe-o-to-chuyen-dung-cho-tien-5-cho-ngoi-bien-kiem-soat-64a-33980-50526-50526.html",
-      "published_iso": "2026-04-06T17:21:30.257781+07:00",
-      "published_text": "06/04 17:21"
+      "published_iso": "2026-04-06T19:10:07.248757+07:00",
+      "published_text": "06/04 19:10"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-nam-phuong-dau-gia-cho-thue-quyen-su-dung-02-ki-ot-va-27-lo-quay-cho-trieu-binh-xa-trieu-binh-tinh-quang-tri-50527.html",
-      "published_iso": "2026-04-06T17:21:30.257710+07:00",
-      "published_text": "06/04 17:21"
+      "published_iso": "2026-04-06T19:10:07.248684+07:00",
+      "published_text": "06/04 19:10"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/hai-cong-ty-nang-luong-thuoc-wto-lo-nang-bi-phat-vi-vi-pham-lien-quan-den-trai-phieu-d142671.html",
-      "published_iso": "2026-04-06T17:21:28.324117+07:00",
-      "published_text": "06/04 17:21"
+      "published_iso": "2026-04-06T19:10:05.445429+07:00",
+      "published_text": "06/04 19:10"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/chu-tich-quoc-hoi-tran-thanh-man-tuyen-the-nham-chuc-d142691.html",
-      "published_iso": "2026-04-06T17:21:28.324052+07:00",
-      "published_text": "06/04 17:21"
+      "published_iso": "2026-04-06T19:10:05.445353+07:00",
+      "published_text": "06/04 19:10"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/giai-ma-cu-lua-tren-thi-truong-dau-mo-gia-dau-tren-bang-dien-thua-xa-gia-o-cong-nha-may-188260403223244721.chn",
-      "published_iso": "2026-04-06T17:21:27.883850+07:00",
-      "published_text": "06/04 17:21"
+      "published_iso": "2026-04-06T19:10:04.961323+07:00",
+      "published_text": "06/04 19:10"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/ts-nguyen-dinh-cung-viet-nam-thuc-hien-tham-vong-lon-phai-chap-nhan-danh-doi-188260405212823016.chn",
-      "published_iso": "2026-04-06T17:21:27.883777+07:00",
-      "published_text": "06/04 17:21"
+      "published_iso": "2026-04-06T19:10:04.961246+07:00",
+      "published_text": "06/04 19:10"
     }
   ],
   "markets": [
@@ -132,9 +132,9 @@
       "name": "WTI",
       "symbol": "CL=F",
       "category": "Energy",
-      "price": 110.19,
-      "change": -1.35,
-      "change_pct": -1.21,
+      "price": 110.0,
+      "change": -1.54,
+      "change_pct": -1.38,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 06/04 11:00"
@@ -143,9 +143,9 @@
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 108.21,
-      "change": -0.82,
-      "change_pct": -0.75,
+      "price": 108.64,
+      "change": -0.39,
+      "change_pct": -0.36,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 06/04 11:00"
@@ -154,9 +154,9 @@
       "name": "Natural Gas",
       "symbol": "NG=F",
       "category": "Energy",
-      "price": 2.84,
-      "change": 0.04,
-      "change_pct": 1.25,
+      "price": 2.83,
+      "change": 0.03,
+      "change_pct": 0.89,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 06/04 11:00"
@@ -165,9 +165,9 @@
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4721.4,
-      "change": 69.9,
-      "change_pct": 1.5,
+      "price": 4705.6,
+      "change": 54.1,
+      "change_pct": 1.16,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 06/04 11:00"
@@ -176,9 +176,9 @@
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 73.37,
-      "change": 0.64,
-      "change_pct": 0.87,
+      "price": 73.43,
+      "change": 0.7,
+      "change_pct": 0.96,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 06/04 11:00"
@@ -189,7 +189,7 @@
       "category": "Metals",
       "price": 5.67,
       "change": 0.11,
-      "change_pct": 1.95,
+      "change_pct": 1.98,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 06/04 11:00"
@@ -209,9 +209,9 @@
       "name": "DXY",
       "symbol": "DX-Y.NYB",
       "category": "FX",
-      "price": 99.89,
-      "change": -0.14,
-      "change_pct": -0.14,
+      "price": 99.96,
+      "change": -0.07,
+      "change_pct": -0.07,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 06/04 11:00"
@@ -220,9 +220,9 @@
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1553,
-      "change": 0.0011,
-      "change_pct": 0.09,
+      "price": 1.155,
+      "change": 0.0008,
+      "change_pct": 0.07,
       "decimals": 4,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 06/04 06:00"
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 69782.0,
-      "change": 800.0,
-      "change_pct": 1.16,
+      "price": 69577.0,
+      "change": 595.0,
+      "change_pct": 0.86,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 06/04 07:00"
@@ -286,9 +286,9 @@
       "name": "VIX",
       "symbol": "^VIX",
       "category": "US",
-      "price": 24.76,
-      "change": 0.89,
-      "change_pct": 3.73,
+      "price": 25.04,
+      "change": 1.17,
+      "change_pct": 4.9,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 06/04 12:00"
