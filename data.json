@@ -1,59 +1,29 @@
 {
-  "updated_at": "2026-04-10T22:10:31.800773+07:00",
-  "updated_at_display": "10/04/2026 • 22:10 GMT+7",
+  "updated_at": "2026-04-11T01:02:03.010197+07:00",
+  "updated_at_display": "11/04/2026 • 01:02 GMT+7",
   "war_news": [
     {
       "source": "Al Jazeera",
-      "title": "Pakistan sets modest goal for US-Iran summit: A deal to keep talks going",
-      "title_vi": "Pakistan đặt ra mục tiêu khiêm tốn cho hội nghị thượng đỉnh Mỹ-Iran: Một thỏa thuận để duy trì các cuộc đàm phán",
-      "summary": "US-Iran talks open in Islamabad with mediators focused on keeping dialogue alive amid deep divisions.",
-      "summary_vi": "US-Iran talks open in Islamabad with mediators focused on keeping dialogue alive amid deep divisions.",
-      "url": "https://www.aljazeera.com/news/2026/4/10/pakistan-sets-modest-goal-for-us-iran-summit-a-deal-to-keep-talks-going?traffic_source=rss",
-      "published_iso": "2026-04-10T21:26:44+07:00",
-      "published_text": "10/04 21:26"
+      "title": "Starmer and Trump talked military options to reopen Strait of Hormuz",
+      "title_vi": "Starmer và Trump đã thảo luận về các lựa chọn quân sự để mở lại Eo biển Hormuz",
+      "summary": "British PM Starmer said he and US President Donald Trump discussed “military capabilities” to reopen Hormuz.",
+      "summary_vi": "British PM Starmer said he and US President Donald Trump discussed “military capabilities” to reopen Hormuz.",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/4/10/starmer-and-trump-talked-military-options-to-reopen-strait-of-hormuz?traffic_source=rss",
+      "published_iso": "2026-04-11T00:03:30+07:00",
+      "published_text": "11/04 00:03"
     },
     {
       "source": "Al Jazeera",
-      "title": "Vance expects ‘positive’ Iran talks as he heads to Islamabad",
-      "title_vi": "Vance mong đợi các cuộc đàm phán ‘tích cực’ về Iran khi ông đến Islamabad",
-      "summary": "US VP JD Vance says Trump gave “clear guidelines” for Iran talks in Pakistan and expects “positive” negotiations.",
-      "summary_vi": "US VP JD Vance says Trump gave “clear guidelines” for Iran talks in Pakistan and expects “positive” negotiations.",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/4/10/vance-expects-positive-iran-talks-as-he-heads-to-islamabad?traffic_source=rss",
-      "published_iso": "2026-04-10T21:07:19+07:00",
-      "published_text": "10/04 21:07"
+      "title": "Israeli settlers turn Passover into celebration of ethnic cleansing",
+      "title_vi": "Những người định cư Israel biến Lễ Vượt Qua thành lễ kỷ niệm thanh lọc sắc tộc",
+      "summary": "Palestinians displaced by settler violence confront loss of community as settlers celebrate their forced expulsions.",
+      "summary_vi": "Palestinians displaced by settler violence confront loss of community as settlers celebrate their forced expulsions.",
+      "url": "https://www.aljazeera.com/features/2026/4/10/israeli-settlers-turn-passover-celebration-ethnic-cleansing?traffic_source=rss",
+      "published_iso": "2026-04-10T23:56:41+07:00",
+      "published_text": "10/04 23:56"
     }
   ],
   "global_news": [
-    {
-      "source": "Investing News",
-      "title": "S&P 500, Nasdaq gain on tech boost after inflation data; Mideast tensions in focus",
-      "title_vi": "S & P 500, Nasdaq tăng nhờ tăng cường công nghệ sau dữ liệu lạm phát; Căng thẳng Trung Đông tập trung",
-      "summary": "",
-      "summary_vi": "",
-      "url": "https://www.investing.com/news/economy-news/us-stock-futures-subdued-ahead-of-inflation-data-mideast-in-focus-4607245",
-      "published_iso": "2026-04-10T21:49:16+07:00",
-      "published_text": "10/04 21:49"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "Inflation Soared to 3.3% in March, Driven by Higher Gasoline Costs - WSJ",
-      "title_vi": "Lạm phát tăng vọt lên 3,3% trong tháng 3, do chi phí xăng dầu cao hơn - WSJ",
-      "summary": "Inflation Soared to 3.3% in March, Driven by Higher Gasoline Costs WSJ",
-      "summary_vi": "Inflation Soared to 3.3% in March, Driven by Higher Gasoline Costs WSJ",
-      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE92RGRQblp1T2JSM0VMenBvaVJLT241YTh5VzdJUWpBa0JQckJWSGdxWnpIRDNSTGNjRkhiTUFka1BraTdnX3hRM2tlbHFPay12ZVU2QUdZTWFoVUszMUxBT1NmQWtMMUdvT3lyTEVxa293ckw4Z3RZ?oc=5",
-      "published_iso": "2026-04-10T20:41:00+07:00",
-      "published_text": "10/04 20:41"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "The Oil Shock Is Worse Than You Think - The New York Times",
-      "title_vi": "Cú sốc dầu mỏ tồi tệ hơn bạn nghĩ - The New York Times",
-      "summary": "The Oil Shock Is Worse Than You Think The New York Times",
-      "summary_vi": "The Oil Shock Is Worse Than You Think The New York Times",
-      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPcVVvdVk5ZFo4QWFVdzZGY1hCSEtyNGxNdkNST2xGb0t3dmVWZXFpeGNLcFp4M0pkaTMyTF9KVGprTDVubXMwTnNpVkRMNEFSVkxndHlyQ3VyRl93bnYwTEc0TndWOG81MTF3MUpucWlieVFsek1neTVROUFQTFkwVlZsbUVQbkhoZGFZ?oc=5",
-      "published_iso": "2026-04-10T20:34:16+07:00",
-      "published_text": "10/04 20:34"
-    },
     {
       "source": "Google News Macro",
       "title": "US inflation jumps to highest level in almost two years - BBC",
@@ -61,8 +31,38 @@
       "summary": "US inflation jumps to highest level in almost two years BBC",
       "summary_vi": "US inflation jumps to highest level in almost two years BBC",
       "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFAtUExQcWxRS1cwbGk4TEJmVXVoVzBqZ253NVRXS2g5b1pnemRXaHRfOVlwZlY1VlZFd2JlcG43anlvaTIwUmlpRUJaVE91WldQbG1jNl80N0VkUQ?oc=5",
-      "published_iso": "2026-04-10T20:14:51+07:00",
-      "published_text": "10/04 20:14"
+      "published_iso": "2026-04-10T22:57:04+07:00",
+      "published_text": "10/04 22:57"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "Here's the inflation breakdown for March 2026 — in one chart - CNBC",
+      "title_vi": "Dưới đây là bảng phân tích lạm phát cho tháng 3 năm 2026 — trong một biểu đồ - CNBC",
+      "summary": "Here's the inflation breakdown for March 2026 — in one chart CNBC",
+      "summary_vi": "Here's the inflation breakdown for March 2026 — in one chart CNBC",
+      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9DV3NBZkhOd0JGdnh0Q0tnc2JHdDZPWWJmQ09scHpnUC1mZXhqTVBoZlk4UHhaQ3pnaC1HbU9LYldGQ0ZCbXdYWFM5OE5QWkotU1otSWFNSTBQQnBwaUZYdG9HZzJYVGlnYXd1MzNVbjJqRTY2YkpXMXljZ9IBgAFBVV95cUxOSnA5THhMZGdRenZja2RnZlB2RGpsRElDcVNVN3JPQ1VFTEZrMUlZMGxCOGYzTkVFcjE5Y2pCUWdlOG5wMjNvUWhKNVdBMl84VE1EaHR0eHZhN0VsQ3FvcklXZUlPNnZ4N1VLbmtzeXBhOF9kZWFtXzNxRHpTT0lhZA?oc=5",
+      "published_iso": "2026-04-10T21:46:31+07:00",
+      "published_text": "10/04 21:46"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "‘This is very real’: Surging gas prices drive inflation to highest level in two years - Politico",
+      "title_vi": "‘Điều này rất thật’: Giá xăng tăng vọt đẩy lạm phát lên mức cao nhất trong hai năm - Politico",
+      "summary": "‘This is very real’: Surging gas prices drive inflation to highest level in two years Politico",
+      "summary_vi": "‘This is very real’: Surging gas prices drive inflation to highest level in two years Politico",
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOeVY4SzNyWFQwOFdiQXpXQmRqUnMyaTVtTDR4dE83ZHBPbjA5bjVXRVFmNFUtcW9BVjdWRmdpZzFCMnpfeFAzU29PNnM0YUhWVXJCcWNXZ3doUTQ1MkhkeVRjU1gwakRQZW9tbVB4ajlFWFFQazBLWFNtWVl1bkwyRlFUSmRvVTVIZkg5NXdB?oc=5",
+      "published_iso": "2026-04-10T21:31:17+07:00",
+      "published_text": "10/04 21:31"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "Iran War Drives Deeper Oil Shock Than Prices Reveal - The New York Times",
+      "title_vi": "Iran War Drives Deeper Oil Shock Than Prices Reveal - The New York Times",
+      "summary": "Iran War Drives Deeper Oil Shock Than Prices Reveal The New York Times",
+      "summary_vi": "Iran War Drives Deeper Oil Shock Than Prices Reveal The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPcVVvdVk5ZFo4QWFVdzZGY1hCSEtyNGxNdkNST2xGb0t3dmVWZXFpeGNLcFp4M0pkaTMyTF9KVGprTDVubXMwTnNpVkRMNEFSVkxndHlyQ3VyRl93bnYwTEc0TndWOG81MTF3MUpucWlieVFsek1neTVROUFQTFkwVlZsbUVQbkhoZGFZ?oc=5",
+      "published_iso": "2026-04-10T20:32:15+07:00",
+      "published_text": "10/04 20:32"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-quoc-gia-dau-gia-1-xe-o-to-nhan-hieu-ford-everest-bien-so-14a-43542-san-xuat-nam-2019-50621.html",
-      "published_iso": "2026-04-10T22:11:53.099193+07:00",
-      "published_text": "10/04 22:11"
+      "published_iso": "2026-04-11T01:02:53.810802+07:00",
+      "published_text": "11/04 01:02"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-quoc-gia-dau-gia-1-xe-o-to-nhan-hieu-mazda-cx5-bien-so-30f-82066-san-xuat-nam-2019-50622.html",
-      "published_iso": "2026-04-10T22:11:53.099130+07:00",
-      "published_text": "10/04 22:11"
+      "published_iso": "2026-04-11T01:02:53.810727+07:00",
+      "published_text": "11/04 01:02"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/lai-suat-huy-dong-moi-ha-nhiet-xuat-hien-ngan-hang-giam-lai-vay-d142947.html",
-      "published_iso": "2026-04-10T22:11:51.800198+07:00",
-      "published_text": "10/04 22:11"
+      "published_iso": "2026-04-11T01:02:51.591813+07:00",
+      "published_text": "11/04 01:02"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/pho-chu-tich-quoc-hoi-lam-sao-de-nguoi-dan-khong-vui-tien-vao-dat-vang-d142943.html",
-      "published_iso": "2026-04-10T22:11:51.800133+07:00",
-      "published_text": "10/04 22:11"
+      "published_iso": "2026-04-11T01:02:51.591730+07:00",
+      "published_text": "11/04 01:02"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/3000-usd-va-thoi-khac-chua-tung-co-kho-bau-trong-tay-ty-phu-viet-thuc-giac-my-au-deu-khao-khat-188260408072549493.chn",
-      "published_iso": "2026-04-10T22:11:51.259809+07:00",
-      "published_text": "10/04 22:11"
+      "published_iso": "2026-04-11T01:02:51.026892+07:00",
+      "published_text": "11/04 01:02"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/tu-gia-cong-cho-ford-honda-cho-den-su-xuat-hien-cua-the-he-doanh-nghiep-ty-do-vingroup-fpt-hoa-phat-thay-gi-ve-su-lot-xac-cua-kinh-te-tu-nhan-viet-nam-188260408220222295.chn",
-      "published_iso": "2026-04-10T22:11:51.259737+07:00",
-      "published_text": "10/04 22:11"
+      "published_iso": "2026-04-11T01:02:51.026806+07:00",
+      "published_text": "11/04 01:02"
     }
   ],
   "markets": [
@@ -132,9 +132,9 @@
       "name": "WTI",
       "symbol": "CL=F",
       "category": "Energy",
-      "price": 98.64,
-      "change": 0.77,
-      "change_pct": 0.79,
+      "price": 98.24,
+      "change": 0.37,
+      "change_pct": 0.38,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 10/04 11:00"
@@ -143,9 +143,9 @@
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 95.92,
-      "change": 0.0,
-      "change_pct": 0.0,
+      "price": 96.44,
+      "change": 0.52,
+      "change_pct": 0.54,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 10/04 11:00"
@@ -154,9 +154,9 @@
       "name": "Natural Gas",
       "symbol": "NG=F",
       "category": "Energy",
-      "price": 2.67,
-      "change": 0.0,
-      "change_pct": 0.07,
+      "price": 2.65,
+      "change": -0.02,
+      "change_pct": -0.86,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 10/04 11:00"
@@ -165,9 +165,9 @@
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4800.1,
-      "change": 7.9,
-      "change_pct": 0.16,
+      "price": 4787.1,
+      "change": -5.1,
+      "change_pct": -0.11,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 10/04 11:00"
@@ -176,9 +176,9 @@
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 76.5,
-      "change": 0.22,
-      "change_pct": 0.29,
+      "price": 76.42,
+      "change": 0.14,
+      "change_pct": 0.19,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 10/04 11:00"
@@ -187,9 +187,9 @@
       "name": "Copper",
       "symbol": "HG=F",
       "category": "Metals",
-      "price": 5.92,
-      "change": 0.17,
-      "change_pct": 2.97,
+      "price": 5.88,
+      "change": 0.13,
+      "change_pct": 2.21,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 10/04 11:00"
@@ -200,7 +200,7 @@
       "category": "Rates",
       "price": 0.43,
       "change": 0.0,
-      "change_pct": 0.33,
+      "change_pct": 0.61,
       "decimals": 2,
       "suffix": "%",
       "note": "Dữ liệu gần nhất: 10/04 12:00"
@@ -209,9 +209,9 @@
       "name": "DXY",
       "symbol": "DX-Y.NYB",
       "category": "FX",
-      "price": 98.64,
-      "change": -0.18,
-      "change_pct": -0.18,
+      "price": 98.7,
+      "change": -0.12,
+      "change_pct": -0.12,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 10/04 11:00"
@@ -220,9 +220,9 @@
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1736,
-      "change": 0.0076,
-      "change_pct": 0.65,
+      "price": 1.1726,
+      "change": 0.0067,
+      "change_pct": 0.57,
       "decimals": 4,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 10/04 06:00"
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 73102.0,
-      "change": 1334.0,
-      "change_pct": 1.86,
+      "price": 72880.0,
+      "change": 1112.0,
+      "change_pct": 1.55,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 10/04 07:00"
@@ -242,9 +242,9 @@
       "name": "S&P 500",
       "symbol": "^GSPC",
       "category": "US",
-      "price": 6838.83,
-      "change": 14.17,
-      "change_pct": 0.21,
+      "price": 6816.6,
+      "change": -8.06,
+      "change_pct": -0.12,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 10/04 11:00"
@@ -253,9 +253,9 @@
       "name": "Dow Jones",
       "symbol": "^DJI",
       "category": "US",
-      "price": 48070.12,
-      "change": -115.68,
-      "change_pct": -0.24,
+      "price": 47937.27,
+      "change": -248.53,
+      "change_pct": -0.52,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 10/04 11:00"
@@ -264,9 +264,9 @@
       "name": "Nasdaq",
       "symbol": "^IXIC",
       "category": "US",
-      "price": 22983.27,
-      "change": 160.85,
-      "change_pct": 0.7,
+      "price": 22884.95,
+      "change": 62.53,
+      "change_pct": 0.27,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 10/04 11:00"
@@ -275,9 +275,9 @@
       "name": "Russell 2000",
       "symbol": "^RUT",
       "category": "US",
-      "price": 2636.79,
-      "change": 0.48,
-      "change_pct": 0.02,
+      "price": 2627.84,
+      "change": -8.47,
+      "change_pct": -0.32,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 10/04 11:00"
@@ -286,9 +286,9 @@
       "name": "VIX",
       "symbol": "^VIX",
       "category": "US",
-      "price": 19.17,
-      "change": -0.32,
-      "change_pct": -1.64,
+      "price": 20.0,
+      "change": 0.51,
+      "change_pct": 2.62,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 10/04 12:00"
@@ -297,9 +297,9 @@
       "name": "FTSE 100",
       "symbol": "^FTSE",
       "category": "Europe",
-      "price": 10608.18,
-      "change": 4.68,
-      "change_pct": 0.04,
+      "price": 10600.53,
+      "change": -2.97,
+      "change_pct": -0.03,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 10/04 06:00"
@@ -308,9 +308,9 @@
       "name": "Euro Stoxx 50",
       "symbol": "^STOXX50E",
       "category": "Europe",
-      "price": 5936.64,
-      "change": 40.35,
-      "change_pct": 0.68,
+      "price": 5926.11,
+      "change": 29.82,
+      "change_pct": 0.51,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 10/04 05:00"
@@ -330,9 +330,9 @@
       "name": "Hang Seng",
       "symbol": "^HSI",
       "category": "Asia",
-      "price": 25893.54,
-      "change": 141.14,
-      "change_pct": 0.55,
+      "price": NaN,
+      "change": NaN,
+      "change_pct": NaN,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 09/04 23:00"
@@ -363,9 +363,9 @@
       "name": "Shanghai Composite",
       "symbol": "000001.SS",
       "category": "Asia",
-      "price": 3986.22,
-      "change": 20.05,
-      "change_pct": 0.51,
+      "price": NaN,
+      "change": NaN,
+      "change_pct": NaN,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 09/04 23:00"
@@ -374,9 +374,9 @@
       "name": "Shenzhen Component",
       "symbol": "399001.SZ",
       "category": "Asia",
-      "price": 14309.47,
-      "change": 313.2,
-      "change_pct": 2.24,
+      "price": NaN,
+      "change": NaN,
+      "change_pct": NaN,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 09/04 23:00"
