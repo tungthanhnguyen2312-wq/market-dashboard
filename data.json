@@ -1,7 +1,17 @@
 {
-  "updated_at": "2026-04-12T05:00:36.469207+07:00",
-  "updated_at_display": "12/04/2026 • 05:00 GMT+7",
+  "updated_at": "2026-04-12T06:05:59.649339+07:00",
+  "updated_at_display": "12/04/2026 • 06:05 GMT+7",
   "war_news": [
+    {
+      "source": "Al Jazeera",
+      "title": "US President Trump says US ‘wins’ regardless of how Iran talks go",
+      "title_vi": "Tổng thống Hoa Kỳ Trump nói rằng Hoa Kỳ ‘thắng‘ bất kể các cuộc đàm phán về Iran diễn ra như thế nào",
+      "summary": "US President Donald Trump says ‘we win regardless of what happens’ in Iran talks.",
+      "summary_vi": "US President Donald Trump says ‘we win regardless of what happens’ in Iran talks.",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/4/11/us-president-trump-says-us-wins-regardless-of-how-iran-talks-go?traffic_source=rss",
+      "published_iso": "2026-04-12T05:09:46+07:00",
+      "published_text": "12/04 05:09"
+    },
     {
       "source": "Al Jazeera",
       "title": "“Diplomacy is not an event, it’s a process, it takes time.”",
@@ -11,16 +21,6 @@
       "url": "https://www.aljazeera.com/video/newsfeed/2026/4/11/diplomacy-is-not-an-event-its-a-process-it-takes-time?traffic_source=rss",
       "published_iso": "2026-04-12T03:55:03+07:00",
       "published_text": "12/04 03:55"
-    },
-    {
-      "source": "Al Jazeera",
-      "title": "Has Israeli society become conditioned to permanent war?",
-      "title_vi": "Xã hội Israel đã trở thành điều kiện cho chiến tranh vĩnh viễn?",
-      "summary": "Opinion polls indicate opposition to ending war against Iran.",
-      "summary_vi": "Opinion polls indicate opposition to ending war against Iran.",
-      "url": "https://www.aljazeera.com/video/inside-story/2026/4/11/has-israeli-society-become-conditioned-to-permament-war?traffic_source=rss",
-      "published_iso": "2026-04-12T03:40:54+07:00",
-      "published_text": "12/04 03:40"
     }
   ],
   "global_news": [
@@ -51,8 +51,8 @@
       "summary": "Oil-price disconnect obscures unprecedented energy shock Axios",
       "summary_vi": "Oil-price disconnect obscures unprecedented energy shock Axios",
       "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBtU0liNjY3X1FHNDA1OGNpV1dTVkZiVGNfaWVmQmM2b3FMRmFHWWZjZlFOUjNHZWdma1BxMFdCZF80X01WXzNITXhjQ3VlQ0pyZEthTnpPNlFlVGY4YUdLb1FrTFZwUQ?oc=5",
-      "published_iso": "2026-04-11T20:27:09+07:00",
-      "published_text": "11/04 20:27"
+      "published_iso": "2026-04-11T23:27:06+07:00",
+      "published_text": "11/04 23:27"
     },
     {
       "source": "Google News Macro",
@@ -61,8 +61,8 @@
       "summary": "How the Iran war could create a new global order in oil Axios",
       "summary_vi": "How the Iran war could create a new global order in oil Axios",
       "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE96WjRHQ21lb0cyUUpRaFFCdDlNRHBMYUdQcmV5aDNvRmFBdWhXN2NRVm0wNGtpUWwxUkEwdkpXRUVlRjR4cm9kT29aV19YT04xT3IwbGI5Nk5tVlVIcUEtMQ?oc=5",
-      "published_iso": "2026-04-11T12:06:52+07:00",
-      "published_text": "11/04 12:06"
+      "published_iso": "2026-04-11T15:07:12+07:00",
+      "published_text": "11/04 15:07"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-quoc-gia-dau-gia-1-xe-o-to-nhan-hieu-mazda-cx5-bien-so-30f-82066-san-xuat-nam-2019-50622.html",
-      "published_iso": "2026-04-12T05:01:27.469498+07:00",
-      "published_text": "12/04 05:01"
+      "published_iso": "2026-04-12T06:06:52.883736+07:00",
+      "published_text": "12/04 06:06"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-da-u-gia-ho-p-danh-go-cong-thanh-ly-nha-ve-sinh-hoc-sinh-nam-ts003-dien-tich-la-817m2-nha-ve-sinh-hoc-sinh-nu-ts004-dien-tich-la-817m2-va-cau-thang-noi-dien-tich-la-4125m2-cua-truong-thcs-dang-hung-phuoc-dong-thap-50623.html",
-      "published_iso": "2026-04-12T05:01:27.469425+07:00",
-      "published_text": "12/04 05:01"
+      "published_iso": "2026-04-12T06:06:52.883664+07:00",
+      "published_text": "12/04 06:06"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/do-mo-kinh-te-gap-doi-gdp-viet-nam-can-trung-tam-tai-chinh-quoc-te-de-hut-von-toan-cau-d143000.html",
-      "published_iso": "2026-04-12T05:01:26.273592+07:00",
-      "published_text": "12/04 05:01"
+      "published_iso": "2026-04-12T06:06:50.868363+07:00",
+      "published_text": "12/04 06:06"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/my-mo-khoa-6-ty-usd-cho-iran-tin-hieu-tan-bang-sat-gio-dam-phan-d143014.html",
-      "published_iso": "2026-04-12T05:01:26.273519+07:00",
-      "published_text": "12/04 05:01"
+      "published_iso": "2026-04-12T06:06:50.868286+07:00",
+      "published_text": "12/04 06:06"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/trai-nghiem-dac-quyen-danh-rieng-cho-khach-hang-uu-tien-cua-vib-188260410230225981.chn",
-      "published_iso": "2026-04-12T05:01:25.700639+07:00",
-      "published_text": "12/04 05:01"
+      "published_iso": "2026-04-12T06:06:50.409193+07:00",
+      "published_text": "12/04 06:06"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/tu-gia-cong-cho-ford-honda-cho-den-su-xuat-hien-cua-the-he-doanh-nghiep-ty-do-vingroup-fpt-hoa-phat-thay-gi-ve-su-lot-xac-cua-kinh-te-tu-nhan-viet-nam-188260408220222295.chn",
-      "published_iso": "2026-04-12T05:01:25.700565+07:00",
-      "published_text": "12/04 05:01"
+      "published_iso": "2026-04-12T06:06:50.409113+07:00",
+      "published_text": "12/04 06:06"
     }
   ],
   "markets": [
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 73477.0,
-      "change": 498.0,
-      "change_pct": 0.68,
+      "price": 73305.0,
+      "change": 326.0,
+      "change_pct": 0.45,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 11/04 07:00"
