@@ -1,7 +1,17 @@
 {
-  "updated_at": "2026-04-11T14:58:15.821305+07:00",
-  "updated_at_display": "11/04/2026 • 14:58 GMT+7",
+  "updated_at": "2026-04-11T17:02:25.771116+07:00",
+  "updated_at_display": "11/04/2026 • 17:02 GMT+7",
   "war_news": [
+    {
+      "source": "Al Jazeera",
+      "title": "At least seven Palestinians killed in Israeli attacks on Gaza",
+      "title_vi": "Ít nhất bảy người Palestine thiệt mạng trong các cuộc tấn công của Israel vào Gaza",
+      "summary": "An early-morning strike hits a group of civilians in ​​Bureij camp as drones attack a tent in Khan Younis.",
+      "summary_vi": "An early-morning strike hits a group of civilians in ​​Bureij camp as drones attack a tent in Khan Younis.",
+      "url": "https://www.aljazeera.com/news/2026/4/11/at-least-seven-palestinians-killed-in-israeli-attacks-on-gaza?traffic_source=rss",
+      "published_iso": "2026-04-11T15:35:13+07:00",
+      "published_text": "11/04 15:35"
+    },
     {
       "source": "Al Jazeera",
       "title": "Israel rejects ceasefire with Hezbollah ahead of Lebanon talks next week",
@@ -11,19 +21,19 @@
       "url": "https://www.aljazeera.com/news/2026/4/11/israel-rejects-ceasefire-with-hezbollah-ahead-of-lebanon-talks-next-week?traffic_source=rss",
       "published_iso": "2026-04-11T14:51:14+07:00",
       "published_text": "11/04 14:51"
-    },
-    {
-      "source": "Al Jazeera",
-      "title": "Israeli drone attack kills Palestinians near Gaza mosque",
-      "title_vi": "Cuộc tấn công bằng máy bay không người lái của Israel giết chết người Palestine gần nhà thờ Hồi giáo",
-      "summary": "An Israeli drone attack near a mosque in central Gaza has killed at least 6 people.",
-      "summary_vi": "An Israeli drone attack near a mosque in central Gaza has killed at least 6 people.",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/4/11/israeli-drone-attack-kills-palestinians-near-gaza-mosque?traffic_source=rss",
-      "published_iso": "2026-04-11T14:51:08+07:00",
-      "published_text": "11/04 14:51"
     }
   ],
   "global_news": [
+    {
+      "source": "Investing News",
+      "title": "Airline stocks: what happens after oil peaks?",
+      "title_vi": "Cổ phiếu hãng hàng không: điều gì xảy ra sau khi giá dầu đạt đỉnh?",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/stock-market-news/airline-stocks-what-happens-after-oil-peaks-4608304",
+      "published_iso": "2026-04-11T16:28:52+07:00",
+      "published_text": "11/04 16:28"
+    },
     {
       "source": "Google News Macro",
       "title": "Oil-price disconnect obscures unprecedented energy shock - Axios",
@@ -31,8 +41,8 @@
       "summary": "Oil-price disconnect obscures unprecedented energy shock Axios",
       "summary_vi": "Oil-price disconnect obscures unprecedented energy shock Axios",
       "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBtU0liNjY3X1FHNDA1OGNpV1dTVkZiVGNfaWVmQmM2b3FMRmFHWWZjZlFOUjNHZWdma1BxMFdCZF80X01WXzNITXhjQ3VlQ0pyZEthTnpPNlFlVGY4YUdLb1FrTFZwUQ?oc=5",
-      "published_iso": "2026-04-11T07:24:50+07:00",
-      "published_text": "11/04 07:24"
+      "published_iso": "2026-04-11T09:43:25+07:00",
+      "published_text": "11/04 09:43"
     },
     {
       "source": "Google News Macro",
@@ -53,16 +63,6 @@
       "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9DV3NBZkhOd0JGdnh0Q0tnc2JHdDZPWWJmQ09scHpnUC1mZXhqTVBoZlk4UHhaQ3pnaC1HbU9LYldGQ0ZCbXdYWFM5OE5QWkotU1otSWFNSTBQQnBwaUZYdG9HZzJYVGlnYXd1MzNVbjJqRTY2YkpXMXljZ9IBgAFBVV95cUxOSnA5THhMZGdRenZja2RnZlB2RGpsRElDcVNVN3JPQ1VFTEZrMUlZMGxCOGYzTkVFcjE5Y2pCUWdlOG5wMjNvUWhKNVdBMl84VE1EaHR0eHZhN0VsQ3FvcklXZUlPNnZ4N1VLbmtzeXBhOF9kZWFtXzNxRHpTT0lhZA?oc=5",
       "published_iso": "2026-04-10T21:46:31+07:00",
       "published_text": "10/04 21:46"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "‘This is very real’: Surging gas prices drive inflation to highest level in 2 years - Politico",
-      "title_vi": "‘Điều này rất thật’: Giá xăng tăng vọt đẩy lạm phát lên mức cao nhất trong 2 năm - Politico",
-      "summary": "‘This is very real’: Surging gas prices drive inflation to highest level in 2 years Politico",
-      "summary_vi": "‘This is very real’: Surging gas prices drive inflation to highest level in 2 years Politico",
-      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOeVY4SzNyWFQwOFdiQXpXQmRqUnMyaTVtTDR4dE83ZHBPbjA5bjVXRVFmNFUtcW9BVjdWRmdpZzFCMnpfeFAzU29PNnM0YUhWVXJCcWNXZ3doUTQ1MkhkeVRjU1gwakRQZW9tbVB4ajlFWFFQazBLWFNtWVl1bkwyRlFUSmRvVTVIZkg5NXdB?oc=5",
-      "published_iso": "2026-04-10T21:31:17+07:00",
-      "published_text": "10/04 21:31"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-quoc-gia-dau-gia-1-xe-o-to-nhan-hieu-mazda-cx5-bien-so-30f-82066-san-xuat-nam-2019-50622.html",
-      "published_iso": "2026-04-11T14:59:09.037735+07:00",
-      "published_text": "11/04 14:59"
+      "published_iso": "2026-04-11T17:03:18.667155+07:00",
+      "published_text": "11/04 17:03"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-da-u-gia-ho-p-danh-go-cong-thanh-ly-nha-ve-sinh-hoc-sinh-nam-ts003-dien-tich-la-817m2-nha-ve-sinh-hoc-sinh-nu-ts004-dien-tich-la-817m2-va-cau-thang-noi-dien-tich-la-4125m2-cua-truong-thcs-dang-hung-phuoc-dong-thap-50623.html",
-      "published_iso": "2026-04-11T14:59:09.037672+07:00",
-      "published_text": "11/04 14:59"
+      "published_iso": "2026-04-11T17:03:18.667094+07:00",
+      "published_text": "11/04 17:03"
     },
     {
       "source": "VietnamFinance",
@@ -93,18 +93,18 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/loi-nhuan-boc-hoi-gan-60-dieu-gi-dang-xay-ra-o-ac-quy-tia-sang-d142831.html",
-      "published_iso": "2026-04-11T14:59:06.436666+07:00",
-      "published_text": "11/04 14:59"
+      "published_iso": "2026-04-11T17:03:16.834467+07:00",
+      "published_text": "11/04 17:03"
     },
     {
       "source": "VietnamFinance",
-      "title": "Khi bảo vệ và đầu tư bị 'đánh đồng': Hiểu sai khi mua bảo hiểm và những hệ lụy rủi ro",
-      "title_vi": "Khi bảo vệ và đầu tư bị 'đánh đồng': Hiểu sai khi mua bảo hiểm và những hệ lụy rủi ro",
+      "title": "Độ mở kinh tế gấp đôi GDP, Việt Nam cần trung tâm tài chính quốc tế để hút vốn toàn cầu",
+      "title_vi": "Độ mở kinh tế gấp đôi GDP, Việt Nam cần trung tâm tài chính quốc tế để hút vốn toàn cầu",
       "summary": "",
       "summary_vi": "",
-      "url": "https://vietnamfinance.vn/khi-bao-ve-va-dau-tu-bi-danh-dong-hieu-sai-khi-mua-bao-hiem-va-nhung-he-luy-rui-ro-d142993.html",
-      "published_iso": "2026-04-11T14:59:06.436590+07:00",
-      "published_text": "11/04 14:59"
+      "url": "https://vietnamfinance.vn/do-mo-kinh-te-gap-doi-gdp-viet-nam-can-trung-tam-tai-chinh-quoc-te-de-hut-von-toan-cau-d143000.html",
+      "published_iso": "2026-04-11T17:03:16.834400+07:00",
+      "published_text": "11/04 17:03"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/trai-nghiem-dac-quyen-danh-rieng-cho-khach-hang-uu-tien-cua-vib-188260410230225981.chn",
-      "published_iso": "2026-04-11T14:59:05.983187+07:00",
-      "published_text": "11/04 14:59"
+      "published_iso": "2026-04-11T17:03:16.368629+07:00",
+      "published_text": "11/04 17:03"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/tu-gia-cong-cho-ford-honda-cho-den-su-xuat-hien-cua-the-he-doanh-nghiep-ty-do-vingroup-fpt-hoa-phat-thay-gi-ve-su-lot-xac-cua-kinh-te-tu-nhan-viet-nam-188260408220222295.chn",
-      "published_iso": "2026-04-11T14:59:05.983118+07:00",
-      "published_text": "11/04 14:59"
+      "published_iso": "2026-04-11T17:03:16.368557+07:00",
+      "published_text": "11/04 17:03"
     }
   ],
   "markets": [
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 72745.0,
-      "change": -234.0,
-      "change_pct": -0.32,
+      "price": 72938.0,
+      "change": -41.0,
+      "change_pct": -0.06,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 11/04 07:00"
