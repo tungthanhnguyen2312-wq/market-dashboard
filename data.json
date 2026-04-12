@@ -1,38 +1,58 @@
 {
-  "updated_at": "2026-04-12T21:05:49.581775+07:00",
-  "updated_at_display": "12/04/2026 • 21:05 GMT+7",
+  "updated_at": "2026-04-12T22:55:04.887599+07:00",
+  "updated_at_display": "12/04/2026 • 22:55 GMT+7",
   "war_news": [
     {
       "source": "Al Jazeera",
-      "title": "Palestinians condemn storming of Al-Aqsa Mosque by Israel’s Ben-Gvir",
-      "title_vi": "Người Palestine lên án việc Ben-Gvir của Israel xông vào Nhà thờ Hồi giáo Al-Aqsa",
-      "summary": "Israel’s far-right security minister storms mosque compound with protection, drawing condemnation from Palestinians.",
-      "summary_vi": "Israel’s far-right security minister storms mosque compound with protection, drawing condemnation from Palestinians.",
-      "url": "https://www.aljazeera.com/news/2026/4/12/palestinians-condemn-storming-of-al-aqsa-mosque-by-israels-ben-gvir?traffic_source=rss",
-      "published_iso": "2026-04-12T20:42:04+07:00",
-      "published_text": "12/04 20:42"
+      "title": "Global Sumud Flotilla sets sail from Barcelona for Gaza",
+      "title_vi": "Đội tàu Sumud toàn cầu khởi hành từ Barcelona đến Gaza",
+      "summary": "Thousands gathered at Barcelona’s port as the largest ever Global Sumud Flotilla prepared to depart for Gaza.",
+      "summary_vi": "Thousands gathered at Barcelona’s port as the largest ever Global Sumud Flotilla prepared to depart for Gaza.",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/4/12/global-sumud-flotilla-sets-sail-from-barcelona-for-gaza?traffic_source=rss",
+      "published_iso": "2026-04-12T22:27:08+07:00",
+      "published_text": "12/04 22:27"
     },
     {
       "source": "Al Jazeera",
-      "title": "Lessons from the Iran war",
-      "title_vi": "Bài học từ cuộc chiến Iran",
-      "summary": "The past month and a half have shown that the nature of modern warfare is shifting.",
-      "summary_vi": "The past month and a half have shown that the nature of modern warfare is shifting.",
-      "url": "https://www.aljazeera.com/opinions/2026/4/12/lessons-from-the-iran-war?traffic_source=rss",
-      "published_iso": "2026-04-12T20:10:22+07:00",
-      "published_text": "12/04 20:10"
+      "title": "FIFA rejects Iran’s request to relocate World Cup games amid US-Israel war",
+      "title_vi": "FIFA từ chối yêu cầu di dời các trận đấu World Cup của Iran trong bối cảnh chiến tranh Mỹ-Israel",
+      "summary": "Mexican President Sheinbaum says FIFA will not relocate Iran's fixtures from US despite repeated requests.",
+      "summary_vi": "Mexican President Sheinbaum says FIFA will not relocate Iran's fixtures from US despite repeated requests.",
+      "url": "https://www.aljazeera.com/sports/2026/4/12/fifa-rejects-irans-request-to-relocate-world-cup-games-amid-us-israel-war?traffic_source=rss",
+      "published_iso": "2026-04-12T22:17:17+07:00",
+      "published_text": "12/04 22:17"
     }
   ],
   "global_news": [
     {
+      "source": "Investing News",
+      "title": "How liquid is gold in practice?",
+      "title_vi": "Vàng có tính thanh khoản như thế nào trong thực tế?",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/commodities-news/how-liquid-is-gold-in-practice-4609030",
+      "published_iso": "2026-04-12T21:03:30+07:00",
+      "published_text": "12/04 21:03"
+    },
+    {
       "source": "Google News Macro",
-      "title": "Inflation Surges as Effects of the Iran War Show in Prices - The New York Times",
-      "title_vi": "Lạm phát tăng đột biến do ảnh hưởng của cuộc chiến tranh Iran về giá cả - The New York Times",
-      "summary": "Inflation Surges as Effects of the Iran War Show in Prices The New York Times",
-      "summary_vi": "Inflation Surges as Effects of the Iran War Show in Prices The New York Times",
-      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE10UHA3TExidVA3TzhFWXNlY2dob3NpdGo1UmJJcDN0T0kzUHpYOUpCOG1HajN5Z0wtMkI3cnk0N0ZLbDl4b2h5ZWgzWUdLTmo5ZkI3dm9TdlNFOEZGQmdyOExrSC0tMnJZQU5pUlNNVk43clZtUzBtQg?oc=5",
-      "published_iso": "2026-04-11T07:21:10+07:00",
-      "published_text": "11/04 07:21"
+      "title": "​Kiplinger Inflation Outlook: Surprise Drop May Not Last - Kiplinger",
+      "title_vi": "​Triển vọng lạm phát của Kiplinger: Giảm bất ngờ có thể không kéo dài - Kiplinger",
+      "summary": "​Kiplinger Inflation Outlook: Surprise Drop May Not Last Kiplinger",
+      "summary_vi": "​Kiplinger Inflation Outlook: Surprise Drop May Not Last Kiplinger",
+      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBCTG1sWWs5RUZKNy1wZnJyWGZPcU4wZGpCVFBudnhPVkRQUGg4RmFwM1NjYkFITjN3RE8tQ3JUTENtcDhIaWZWRGxZWDlDVGFMZ29NMHJMeEVfT0xBLXNQeFgxYTg?oc=5",
+      "published_iso": "2026-04-11T02:18:51+07:00",
+      "published_text": "11/04 02:18"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "Federal court hears new case against Trump's latest global tariffs - PBS",
+      "title_vi": "Tòa án liên bang xét xử vụ kiện mới chống lại thuế quan toàn cầu mới nhất của Trump - PBS",
+      "summary": "Federal court hears new case against Trump's latest global tariffs PBS",
+      "summary_vi": "Federal court hears new case against Trump's latest global tariffs PBS",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPMlE1YWFWa1hPOTdnWFRVWGdVRS1kV1d5RWVVbXByNjk5ZGljdXozNjNEdjBUc29ZMEN1WkppSmVVeEg0a2Q0TmFOTHQtRDdGNkFtcWp6QkVkNklmNWpWaV9NUm5CYmllaXJMUF9qdlhzRlRLUlFNaFNzdVc1N05DeURPLVJWUEF5bzdibDN5X0gtQVZnZnhOUE4xX2owOWEzeVJPetIBqgFBVV95cUxPVGhkVkpVbzdqN1VGNDFnY3lUN2dDaXNZR2FDZGJJVV9vbWNJVmdRSFJyRFk0T1ZkSHNjY21CdmJ6VWpuNXVRcFVYcmNfclRmOGl2UjFtZGdTVWFNd1FyeHJKdkVRVGZhOFIzMFhUcUR6bVNhRTFCRWxfOWtDQm5FdzY3MGc2ZnBTRGJyVU5OX0xpcmNqNU5yNDlsNHE4T2dISTVRck8wY3Awdw?oc=5",
+      "published_iso": "2026-04-11T00:01:14+07:00",
+      "published_text": "11/04 00:01"
     },
     {
       "source": "Google News Macro",
@@ -43,26 +63,6 @@
       "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFAtUExQcWxRS1cwbGk4TEJmVXVoVzBqZ253NVRXS2g5b1pnemRXaHRfOVlwZlY1VlZFd2JlcG43anlvaTIwUmlpRUJaVE91WldQbG1jNl80N0VkUQ?oc=5",
       "published_iso": "2026-04-10T23:20:58+07:00",
       "published_text": "10/04 23:20"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "Here's the inflation breakdown for March 2026 — in one chart - CNBC",
-      "title_vi": "Dưới đây là bảng phân tích lạm phát cho tháng 3 năm 2026 — trong một biểu đồ - CNBC",
-      "summary": "Here's the inflation breakdown for March 2026 — in one chart CNBC",
-      "summary_vi": "Here's the inflation breakdown for March 2026 — in one chart CNBC",
-      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9DV3NBZkhOd0JGdnh0Q0tnc2JHdDZPWWJmQ09scHpnUC1mZXhqTVBoZlk4UHhaQ3pnaC1HbU9LYldGQ0ZCbXdYWFM5OE5QWkotU1otSWFNSTBQQnBwaUZYdG9HZzJYVGlnYXd1MzNVbjJqRTY2YkpXMXljZ9IBgAFBVV95cUxOSnA5THhMZGdRenZja2RnZlB2RGpsRElDcVNVN3JPQ1VFTEZrMUlZMGxCOGYzTkVFcjE5Y2pCUWdlOG5wMjNvUWhKNVdBMl84VE1EaHR0eHZhN0VsQ3FvcklXZUlPNnZ4N1VLbmtzeXBhOF9kZWFtXzNxRHpTT0lhZA?oc=5",
-      "published_iso": "2026-04-10T21:46:31+07:00",
-      "published_text": "10/04 21:46"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "Soaring gas prices leads to biggest monthly inflation spike in four years in March - PBS",
-      "title_vi": "Giá xăng tăng vọt dẫn đến lạm phát hàng tháng tăng đột biến nhất trong bốn năm vào tháng 3 - PBS",
-      "summary": "Soaring gas prices leads to biggest monthly inflation spike in four years in March PBS",
-      "summary_vi": "Soaring gas prices leads to biggest monthly inflation spike in four years in March PBS",
-      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPNTlXb05pc2ZSVDdHbENxbEczRDJFazNweGZiRTI0UzhmQkZXVFRITnVyaVJpSm5NeTRCYUNDenV4bzBmdTg0LVBONVJCQWJLRTEtVTVpS3pNLUJNcU5lUUd0NmRDYVNrUnFGM3lTbEtWalRZV0FDdnl2SER3MjkwcDVqZEJxZGxHVDFtTHlrQ0MwcVdvN3lRbTB2SEtQcjFoMDhsRm5rUkFLZmFHV002VmV4OENIOUM1T3FB0gHAAUFVX3lxTFBQaE1tcVhyUlpkTWF0a0dITW54NGltTkU3OEVROHYzN3o3aEVQT2NMU0NJZkJOM1NkbjlmaW5vaW5fMWhYNTk2RFhJSVc4WkhIOTEtaUtCTDZBR2FTU2tEdWc2TWZfSDFuYklXRzc3T1NmRThGWExsdkZydWlYS2Zkc1lDTHVRZTFaSzZTaDJYUklldnJWbHFndDBvWFBuTHVoWFRHTGNpemgxR2lfWUVOZDNqZ3NFVDlNVzNFM2wzTQ?oc=5",
-      "published_iso": "2026-04-10T20:55:15+07:00",
-      "published_text": "10/04 20:55"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-quoc-gia-dau-gia-1-xe-o-to-nhan-hieu-mazda-cx5-bien-so-30f-82066-san-xuat-nam-2019-50622.html",
-      "published_iso": "2026-04-12T21:06:38.511833+07:00",
-      "published_text": "12/04 21:06"
+      "published_iso": "2026-04-12T22:55:54.595807+07:00",
+      "published_text": "12/04 22:55"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-da-u-gia-ho-p-danh-go-cong-thanh-ly-nha-ve-sinh-hoc-sinh-nam-ts003-dien-tich-la-817m2-nha-ve-sinh-hoc-sinh-nu-ts004-dien-tich-la-817m2-va-cau-thang-noi-dien-tich-la-4125m2-cua-truong-thcs-dang-hung-phuoc-dong-thap-50623.html",
-      "published_iso": "2026-04-12T21:06:38.511762+07:00",
-      "published_text": "12/04 21:06"
+      "published_iso": "2026-04-12T22:55:54.595737+07:00",
+      "published_text": "12/04 22:55"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/thi-truong-chung-khoan-kho-co-song-lon-nha-dau-tu-lam-gi-de-co-qua-d143027.html",
-      "published_iso": "2026-04-12T21:06:37.285163+07:00",
-      "published_text": "12/04 21:06"
+      "published_iso": "2026-04-12T22:55:53.405940+07:00",
+      "published_text": "12/04 22:55"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/my--iran-do-loi-cho-nhau-dam-phan-gian-doan-sau-21-tieng-khong-ket-qua-d143048.html",
-      "published_iso": "2026-04-12T21:06:37.285091+07:00",
-      "published_text": "12/04 21:06"
+      "published_iso": "2026-04-12T22:55:53.405860+07:00",
+      "published_text": "12/04 22:55"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/trai-nghiem-dac-quyen-danh-rieng-cho-khach-hang-uu-tien-cua-vib-188260410230225981.chn",
-      "published_iso": "2026-04-12T21:06:36.801994+07:00",
-      "published_text": "12/04 21:06"
+      "published_iso": "2026-04-12T22:55:52.977046+07:00",
+      "published_text": "12/04 22:55"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/tu-gia-cong-cho-ford-honda-cho-den-su-xuat-hien-cua-the-he-doanh-nghiep-ty-do-vingroup-fpt-hoa-phat-thay-gi-ve-su-lot-xac-cua-kinh-te-tu-nhan-viet-nam-188260408220222295.chn",
-      "published_iso": "2026-04-12T21:06:36.801915+07:00",
-      "published_text": "12/04 21:06"
+      "published_iso": "2026-04-12T22:55:52.976975+07:00",
+      "published_text": "12/04 22:55"
     }
   ],
   "markets": [
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 70967.0,
-      "change": -2087.0,
-      "change_pct": -2.86,
+      "price": 70916.0,
+      "change": -2138.0,
+      "change_pct": -2.93,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 12/04 07:00"
