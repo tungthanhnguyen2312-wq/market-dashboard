@@ -1,7 +1,17 @@
 {
-  "updated_at": "2026-04-13T04:53:39.764908+07:00",
-  "updated_at_display": "13/04/2026 • 04:53 GMT+7",
+  "updated_at": "2026-04-13T06:55:10.328572+07:00",
+  "updated_at_display": "13/04/2026 • 06:55 GMT+7",
   "war_news": [
+    {
+      "source": "Al Jazeera",
+      "title": "These are people Israel killed in Lebanon on a single day",
+      "title_vi": "Đây là những người Israel bị giết ở Lebanon trong một ngày",
+      "summary": "In a matter of minutes, Israel killed more than 350 people across Lebanon on Wednesday, April 8.",
+      "summary_vi": "In a matter of minutes, Israel killed more than 350 people across Lebanon on Wednesday, April 8.",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/4/12/these-are-people-israel-killed-in-lebanon-on-a-single-day?traffic_source=rss",
+      "published_iso": "2026-04-13T04:44:00+07:00",
+      "published_text": "13/04 04:44"
+    },
     {
       "source": "Al Jazeera",
       "title": "Could the Iran war pose lasting risks to global food security?",
@@ -11,58 +21,48 @@
       "url": "https://www.aljazeera.com/video/inside-story/2026/4/12/could-the-iran-war-pose-lasting-risks-to-global-food-security?traffic_source=rss",
       "published_iso": "2026-04-13T03:44:49+07:00",
       "published_text": "13/04 03:44"
-    },
-    {
-      "source": "Al Jazeera",
-      "title": "History of flotilla campaigns to end Israel’s siege of Gaza",
-      "title_vi": "Lịch sử các chiến dịch của đội tàu nhỏ nhằm chấm dứt cuộc bao vây Gaza của Israel",
-      "summary": "A 70-boat flotilla sets sail from Spain, aiming to break Israel's naval blockade on Gaza amid history of interceptions.",
-      "summary_vi": "A 70-boat flotilla sets sail from Spain, aiming to break Israel's naval blockade on Gaza amid history of interceptions.",
-      "url": "https://www.aljazeera.com/news/2026/4/12/history-of-flotilla-campaigns-to-end-israels-siege-of-gaza?traffic_source=rss",
-      "published_iso": "2026-04-13T03:30:26+07:00",
-      "published_text": "13/04 03:30"
     }
   ],
   "global_news": [
     {
       "source": "Investing News",
-      "title": "Dollar jumps after US/Iran peace talks fail",
-      "title_vi": "Đô la tăng vọt sau khi các cuộc đàm phán hòa bình Mỹ/Iran thất bại",
+      "title": "Oil prices jump above $100/barrel after Trump orders Hormuz blockade",
+      "title_vi": "Giá dầu tăng trên $ 100/thùng sau khi Trump ra lệnh phong tỏa Hormuz",
       "summary": "",
       "summary_vi": "",
-      "url": "https://www.investing.com/news/forex-news/dollar-jumps-after-usiran-peace-talks-fail-4609103",
-      "published_iso": "2026-04-13T02:30:28+07:00",
-      "published_text": "13/04 02:30"
+      "url": "https://www.investing.com/news/commodities-news/oil-prices-jump-above-100barrel-after-trump-orders-hormuz-blockade-4609119",
+      "published_iso": "2026-04-13T06:27:39+07:00",
+      "published_text": "13/04 06:27"
     },
     {
-      "source": "Google News Macro",
-      "title": "Exclusive: US intelligence indicates China is preparing weapons shipment to Iran amid fragile ceasefire, sources say - CNN",
-      "title_vi": "Độc quyền: Tình báo Mỹ cho thấy Trung Quốc đang chuẩn bị vận chuyển vũ khí đến Iran trong bối cảnh lệnh ngừng bắn mong manh, các nguồn tin cho biết - CNN",
-      "summary": "Exclusive: US intelligence indicates China is preparing weapons shipment to Iran amid fragile ceasefire, sources say CNN",
-      "summary_vi": "Exclusive: US intelligence indicates China is preparing weapons shipment to Iran amid fragile ceasefire, sources say CNN",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9QRHNxTlNLVFoyZHp4N3NZX21VdEZKUWZvaDdZbHZQZUh0dXAxME83cWoyc290R0VzNW40d0h3cVI4YzUyOWdCTVNBWnpNcmpmMV9IQjkzTGdCYUp0ZlR5RGw2UEV2RVRHeElqMHBseWNndGVOZXlLcFhJQXhRb00?oc=5",
-      "published_iso": "2026-04-11T11:01:54+07:00",
-      "published_text": "11/04 11:01"
+      "source": "Investing News",
+      "title": "Dollar and oil rise, stocks slide as US-Iran peace talks collapse",
+      "title_vi": "Đô la và dầu tăng, cổ phiếu trượt giá khi các cuộc đàm phán hòa bình Mỹ-Iran sụp đổ",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/stock-market-news/dollar-jumps-as-failed-usiran-peace-talks-spark-safehaven-push-4609115",
+      "published_iso": "2026-04-13T06:24:31+07:00",
+      "published_text": "13/04 06:24"
     },
     {
-      "source": "Google News Macro",
-      "title": "​Kiplinger Inflation Outlook: Surprise Drop May Not Last - Kiplinger",
-      "title_vi": "​Triển vọng lạm phát của Kiplinger: Giảm bất ngờ có thể không kéo dài - Kiplinger",
-      "summary": "​Kiplinger Inflation Outlook: Surprise Drop May Not Last Kiplinger",
-      "summary_vi": "​Kiplinger Inflation Outlook: Surprise Drop May Not Last Kiplinger",
-      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBCTG1sWWs5RUZKNy1wZnJyWGZPcU4wZGpCVFBudnhPVkRQUGg4RmFwM1NjYkFITjN3RE8tQ3JUTENtcDhIaWZWRGxZWDlDVGFMZ29NMHJMeEVfT0xBLXNQeFgxYTg?oc=5",
-      "published_iso": "2026-04-11T02:18:51+07:00",
-      "published_text": "11/04 02:18"
+      "source": "Investing News",
+      "title": "Spanish premier Sanchez heads for fourth China visit, risks annoying Trump",
+      "title_vi": "Thủ tướng Tây Ban Nha Sanchez chuẩn bị cho chuyến thăm Trung Quốc lần thứ tư, có nguy cơ gây khó chịu cho Trump",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/world-news/spanish-premier-sanchez-heads-for-fourth-china-visit-risks-annoying-trump-4609117",
+      "published_iso": "2026-04-13T06:12:31+07:00",
+      "published_text": "13/04 06:12"
     },
     {
-      "source": "Google News Macro",
-      "title": "Federal court hears new case against Trump's latest global tariffs - PBS",
-      "title_vi": "Tòa án liên bang xét xử vụ kiện mới chống lại thuế quan toàn cầu mới nhất của Trump - PBS",
-      "summary": "Federal court hears new case against Trump's latest global tariffs PBS",
-      "summary_vi": "Federal court hears new case against Trump's latest global tariffs PBS",
-      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPMlE1YWFWa1hPOTdnWFRVWGdVRS1kV1d5RWVVbXByNjk5ZGljdXozNjNEdjBUc29ZMEN1WkppSmVVeEg0a2Q0TmFOTHQtRDdGNkFtcWp6QkVkNklmNWpWaV9NUm5CYmllaXJMUF9qdlhzRlRLUlFNaFNzdVc1N05DeURPLVJWUEF5bzdibDN5X0gtQVZnZnhOUE4xX2owOWEzeVJPetIBqgFBVV95cUxPVGhkVkpVbzdqN1VGNDFnY3lUN2dDaXNZR2FDZGJJVV9vbWNJVmdRSFJyRFk0T1ZkSHNjY21CdmJ6VWpuNXVRcFVYcmNfclRmOGl2UjFtZGdTVWFNd1FyeHJKdkVRVGZhOFIzMFhUcUR6bVNhRTFCRWxfOWtDQm5FdzY3MGc2ZnBTRGJyVU5OX0xpcmNqNU5yNDlsNHE4T2dISTVRck8wY3Awdw?oc=5",
-      "published_iso": "2026-04-11T00:01:14+07:00",
-      "published_text": "11/04 00:01"
+      "source": "Investing News",
+      "title": "US military to block ships from Iranian ports after talks yield no agreement",
+      "title_vi": "Quân đội Mỹ chặn tàu từ các cảng của Iran sau khi các cuộc đàm phán không mang lại thỏa thuận",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/world-news/usiran-talks-pause-for-now-disagreements-remain-4609005",
+      "published_iso": "2026-04-13T05:37:10+07:00",
+      "published_text": "13/04 05:37"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-quoc-gia-dau-gia-1-xe-o-to-nhan-hieu-mazda-cx5-bien-so-30f-82066-san-xuat-nam-2019-50622.html",
-      "published_iso": "2026-04-13T04:54:36.952779+07:00",
-      "published_text": "13/04 04:54"
+      "published_iso": "2026-04-13T06:56:08.070881+07:00",
+      "published_text": "13/04 06:56"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-da-u-gia-ho-p-danh-go-cong-thanh-ly-nha-ve-sinh-hoc-sinh-nam-ts003-dien-tich-la-817m2-nha-ve-sinh-hoc-sinh-nu-ts004-dien-tich-la-817m2-va-cau-thang-noi-dien-tich-la-4125m2-cua-truong-thcs-dang-hung-phuoc-dong-thap-50623.html",
-      "published_iso": "2026-04-13T04:54:36.952724+07:00",
-      "published_text": "13/04 04:54"
+      "published_iso": "2026-04-13T06:56:08.070809+07:00",
+      "published_text": "13/04 06:56"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/thi-truong-chung-khoan-kho-co-song-lon-nha-dau-tu-lam-gi-de-co-qua-d143027.html",
-      "published_iso": "2026-04-13T04:54:35.110204+07:00",
-      "published_text": "13/04 04:54"
+      "published_iso": "2026-04-13T06:56:05.487007+07:00",
+      "published_text": "13/04 06:56"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/my--iran-do-loi-cho-nhau-dam-phan-gian-doan-sau-21-tieng-khong-ket-qua-d143048.html",
-      "published_iso": "2026-04-13T04:54:35.110143+07:00",
-      "published_text": "13/04 04:54"
+      "published_iso": "2026-04-13T06:56:05.486930+07:00",
+      "published_text": "13/04 06:56"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/trai-nghiem-dac-quyen-danh-rieng-cho-khach-hang-uu-tien-cua-vib-188260410230225981.chn",
-      "published_iso": "2026-04-13T04:54:34.669747+07:00",
-      "published_text": "13/04 04:54"
+      "published_iso": "2026-04-13T06:56:04.740962+07:00",
+      "published_text": "13/04 06:56"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/tu-gia-cong-cho-ford-honda-cho-den-su-xuat-hien-cua-the-he-doanh-nghiep-ty-do-vingroup-fpt-hoa-phat-thay-gi-ve-su-lot-xac-cua-kinh-te-tu-nhan-viet-nam-188260408220222295.chn",
-      "published_iso": "2026-04-13T04:54:34.669690+07:00",
-      "published_text": "13/04 04:54"
+      "published_iso": "2026-04-13T06:56:04.740881+07:00",
+      "published_text": "13/04 06:56"
     }
   ],
   "markets": [
@@ -132,67 +132,67 @@
       "name": "WTI",
       "symbol": "CL=F",
       "category": "Energy",
-      "price": 96.57,
-      "change": -1.3,
-      "change_pct": -1.33,
+      "price": 105.25,
+      "change": 8.68,
+      "change_pct": 8.99,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 10/04 11:00"
+      "note": "Dữ liệu gần nhất: 12/04 11:00"
     },
     {
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 95.2,
-      "change": -0.72,
-      "change_pct": -0.75,
+      "price": 103.56,
+      "change": 8.36,
+      "change_pct": 8.78,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 10/04 11:00"
+      "note": "Dữ liệu gần nhất: 12/04 11:00"
     },
     {
       "name": "Natural Gas",
       "symbol": "NG=F",
       "category": "Energy",
-      "price": 2.65,
-      "change": -0.02,
-      "change_pct": -0.82,
+      "price": 2.7,
+      "change": 0.05,
+      "change_pct": 1.96,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 10/04 11:00"
+      "note": "Dữ liệu gần nhất: 12/04 11:00"
     },
     {
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4787.4,
-      "change": -4.8,
-      "change_pct": -0.1,
+      "price": 4680.6,
+      "change": -81.3,
+      "change_pct": -1.71,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 10/04 11:00"
+      "note": "Dữ liệu gần nhất: 12/04 11:00"
     },
     {
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 76.48,
-      "change": 0.2,
-      "change_pct": 0.27,
+      "price": 73.41,
+      "change": -2.91,
+      "change_pct": -3.82,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 10/04 11:00"
+      "note": "Dữ liệu gần nhất: 12/04 11:00"
     },
     {
       "name": "Copper",
       "symbol": "HG=F",
       "category": "Metals",
-      "price": 5.89,
-      "change": 0.14,
-      "change_pct": 2.4,
+      "price": 5.78,
+      "change": -0.09,
+      "change_pct": -1.5,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 10/04 11:00"
+      "note": "Dữ liệu gần nhất: 12/04 11:00"
     },
     {
       "name": "US 10Y",
@@ -209,31 +209,31 @@
       "name": "DXY",
       "symbol": "DX-Y.NYB",
       "category": "FX",
-      "price": 98.65,
-      "change": -0.17,
-      "change_pct": -0.17,
+      "price": 99.12,
+      "change": 0.47,
+      "change_pct": 0.48,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 10/04 11:00"
+      "note": "Dữ liệu gần nhất: 12/04 11:00"
     },
     {
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1681,
-      "change": -0.001,
-      "change_pct": -0.09,
+      "price": 1.1678,
+      "change": -0.0013,
+      "change_pct": -0.11,
       "decimals": 4,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 12/04 06:00"
+      "note": "Dữ liệu gần nhất: 13/04 06:00"
     },
     {
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 71258.0,
-      "change": -1796.0,
-      "change_pct": -2.46,
+      "price": 70763.0,
+      "change": -2292.0,
+      "change_pct": -3.14,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 12/04 07:00"
