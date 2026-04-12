@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-04-12T06:05:59.649339+07:00",
-  "updated_at_display": "12/04/2026 • 06:05 GMT+7",
+  "updated_at": "2026-04-12T07:04:53.576453+07:00",
+  "updated_at_display": "12/04/2026 • 07:04 GMT+7",
   "war_news": [
     {
       "source": "Al Jazeera",
@@ -35,16 +35,6 @@
       "published_text": "12/04 04:07"
     },
     {
-      "source": "Investing News",
-      "title": "BofA explains why Fed is likely to deliver rate cuts this year",
-      "title_vi": "BofA giải thích lý do tại sao Fed có khả năng cắt giảm lãi suất trong năm nay",
-      "summary": "",
-      "summary_vi": "",
-      "url": "https://www.investing.com/news/economy-news/bofa-explains-why-fed-is-likely-to-deliver-rate-cuts-this-year-4607630",
-      "published_iso": "2026-04-12T01:30:59+07:00",
-      "published_text": "12/04 01:30"
-    },
-    {
       "source": "Google News Macro",
       "title": "Oil-price disconnect obscures unprecedented energy shock - Axios",
       "title_vi": "Ngắt kết nối giá dầu che khuất cú sốc năng lượng chưa từng có - Axios",
@@ -63,6 +53,16 @@
       "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE96WjRHQ21lb0cyUUpRaFFCdDlNRHBMYUdQcmV5aDNvRmFBdWhXN2NRVm0wNGtpUWwxUkEwdkpXRUVlRjR4cm9kT29aV19YT04xT3IwbGI5Nk5tVlVIcUEtMQ?oc=5",
       "published_iso": "2026-04-11T15:07:12+07:00",
       "published_text": "11/04 15:07"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "Exclusive: US intelligence indicates China is preparing weapons shipment to Iran amid fragile ceasefire, sources say - CNN",
+      "title_vi": "Độc quyền: Tình báo Mỹ cho thấy Trung Quốc đang chuẩn bị vận chuyển vũ khí đến Iran trong bối cảnh lệnh ngừng bắn mong manh, các nguồn tin cho biết - CNN",
+      "summary": "Exclusive: US intelligence indicates China is preparing weapons shipment to Iran amid fragile ceasefire, sources say CNN",
+      "summary_vi": "Exclusive: US intelligence indicates China is preparing weapons shipment to Iran amid fragile ceasefire, sources say CNN",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9QRHNxTlNLVFoyZHp4N3NZX21VdEZKUWZvaDdZbHZQZUh0dXAxME83cWoyc290R0VzNW40d0h3cVI4YzUyOWdCTVNBWnpNcmpmMV9IQjkzTGdCYUp0ZlR5RGw2UEV2RVRHeElqMHBseWNndGVOZXlLcFhJQXhRb00?oc=5",
+      "published_iso": "2026-04-11T11:01:54+07:00",
+      "published_text": "11/04 11:01"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-quoc-gia-dau-gia-1-xe-o-to-nhan-hieu-mazda-cx5-bien-so-30f-82066-san-xuat-nam-2019-50622.html",
-      "published_iso": "2026-04-12T06:06:52.883736+07:00",
-      "published_text": "12/04 06:06"
+      "published_iso": "2026-04-12T07:05:45.931021+07:00",
+      "published_text": "12/04 07:05"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,18 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-da-u-gia-ho-p-danh-go-cong-thanh-ly-nha-ve-sinh-hoc-sinh-nam-ts003-dien-tich-la-817m2-nha-ve-sinh-hoc-sinh-nu-ts004-dien-tich-la-817m2-va-cau-thang-noi-dien-tich-la-4125m2-cua-truong-thcs-dang-hung-phuoc-dong-thap-50623.html",
-      "published_iso": "2026-04-12T06:06:52.883664+07:00",
-      "published_text": "12/04 06:06"
-    },
-    {
-      "source": "VietnamFinance",
-      "title": "Độ mở kinh tế gấp đôi GDP, Việt Nam cần trung tâm tài chính quốc tế để hút vốn toàn cầu",
-      "title_vi": "Độ mở kinh tế gấp đôi GDP, Việt Nam cần trung tâm tài chính quốc tế để hút vốn toàn cầu",
-      "summary": "",
-      "summary_vi": "",
-      "url": "https://vietnamfinance.vn/do-mo-kinh-te-gap-doi-gdp-viet-nam-can-trung-tam-tai-chinh-quoc-te-de-hut-von-toan-cau-d143000.html",
-      "published_iso": "2026-04-12T06:06:50.868363+07:00",
-      "published_text": "12/04 06:06"
+      "published_iso": "2026-04-12T07:05:45.930957+07:00",
+      "published_text": "12/04 07:05"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +93,18 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/my-mo-khoa-6-ty-usd-cho-iran-tin-hieu-tan-bang-sat-gio-dam-phan-d143014.html",
-      "published_iso": "2026-04-12T06:06:50.868286+07:00",
-      "published_text": "12/04 06:06"
+      "published_iso": "2026-04-12T07:05:43.877258+07:00",
+      "published_text": "12/04 07:05"
+    },
+    {
+      "source": "VietnamFinance",
+      "title": "Giá vàng tuần qua: Vàng nhẫn lao dốc",
+      "title_vi": "Giá vàng tuần qua: Vàng nhẫn lao dốc",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://vietnamfinance.vn/gia-vang-tuan-qua-vang-nhan-lao-doc-d143022.html",
+      "published_iso": "2026-04-12T07:05:43.877192+07:00",
+      "published_text": "12/04 07:05"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/trai-nghiem-dac-quyen-danh-rieng-cho-khach-hang-uu-tien-cua-vib-188260410230225981.chn",
-      "published_iso": "2026-04-12T06:06:50.409193+07:00",
-      "published_text": "12/04 06:06"
+      "published_iso": "2026-04-12T07:05:43.377569+07:00",
+      "published_text": "12/04 07:05"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/tu-gia-cong-cho-ford-honda-cho-den-su-xuat-hien-cua-the-he-doanh-nghiep-ty-do-vingroup-fpt-hoa-phat-thay-gi-ve-su-lot-xac-cua-kinh-te-tu-nhan-viet-nam-188260408220222295.chn",
-      "published_iso": "2026-04-12T06:06:50.409113+07:00",
-      "published_text": "12/04 06:06"
+      "published_iso": "2026-04-12T07:05:43.377496+07:00",
+      "published_text": "12/04 07:05"
     }
   ],
   "markets": [
@@ -231,12 +231,12 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 73305.0,
-      "change": 326.0,
-      "change_pct": 0.45,
+      "price": 72993.0,
+      "change": 14.0,
+      "change_pct": 0.02,
       "decimals": 0,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 11/04 07:00"
+      "note": "Dữ liệu gần nhất: 12/04 07:00"
     },
     {
       "name": "S&P 500",
