@@ -1,39 +1,29 @@
 {
-  "updated_at": "2026-04-12T18:21:16.475079+07:00",
-  "updated_at_display": "12/04/2026 • 18:21 GMT+7",
+  "updated_at": "2026-04-12T21:05:49.581775+07:00",
+  "updated_at_display": "12/04/2026 • 21:05 GMT+7",
   "war_news": [
     {
       "source": "Al Jazeera",
-      "title": "More than 500 people arrested at London rally for Palestine Action",
-      "title_vi": "Hơn 500 người bị bắt tại cuộc biểu tình ủng hộ hành động Palestine ở London",
-      "summary": "Protest organisers accuse UK government of complicity in Gaza genocide as arrests made at Trafalgar Square rally.",
-      "summary_vi": "Protest organisers accuse UK government of complicity in Gaza genocide as arrests made at Trafalgar Square rally.",
-      "url": "https://www.aljazeera.com/gallery/2026/4/12/uk-police-arrest-523-during-pro-palestinian-demonstration-in-london?traffic_source=rss",
-      "published_iso": "2026-04-12T16:36:42+07:00",
-      "published_text": "12/04 16:36"
+      "title": "Palestinians condemn storming of Al-Aqsa Mosque by Israel’s Ben-Gvir",
+      "title_vi": "Người Palestine lên án việc Ben-Gvir của Israel xông vào Nhà thờ Hồi giáo Al-Aqsa",
+      "summary": "Israel’s far-right security minister storms mosque compound with protection, drawing condemnation from Palestinians.",
+      "summary_vi": "Israel’s far-right security minister storms mosque compound with protection, drawing condemnation from Palestinians.",
+      "url": "https://www.aljazeera.com/news/2026/4/12/palestinians-condemn-storming-of-al-aqsa-mosque-by-israels-ben-gvir?traffic_source=rss",
+      "published_iso": "2026-04-12T20:42:04+07:00",
+      "published_text": "12/04 20:42"
     },
     {
       "source": "Al Jazeera",
-      "title": "What happened in 40 days of war on Iran",
-      "title_vi": "Điều gì đã xảy ra trong 40 ngày chiến tranh với Iran",
-      "summary": "Who got hit in the war on Iran? The attacks, the damage and the people caught in between.",
-      "summary_vi": "Who got hit in the war on Iran? The attacks, the damage and the people caught in between.",
-      "url": "https://www.aljazeera.com/video/by-the-numbers-3/2026/4/12/what-happened-in-40-days-of-war-on-iran?traffic_source=rss",
-      "published_iso": "2026-04-12T15:09:55+07:00",
-      "published_text": "12/04 15:09"
+      "title": "Lessons from the Iran war",
+      "title_vi": "Bài học từ cuộc chiến Iran",
+      "summary": "The past month and a half have shown that the nature of modern warfare is shifting.",
+      "summary_vi": "The past month and a half have shown that the nature of modern warfare is shifting.",
+      "url": "https://www.aljazeera.com/opinions/2026/4/12/lessons-from-the-iran-war?traffic_source=rss",
+      "published_iso": "2026-04-12T20:10:22+07:00",
+      "published_text": "12/04 20:10"
     }
   ],
   "global_news": [
-    {
-      "source": "Investing News",
-      "title": "China’s Chery looking to expand car production in Europe, top executives say",
-      "title_vi": "Chery của Trung Quốc đang tìm cách mở rộng sản xuất xe hơi ở châu Âu, các giám đốc điều hành hàng đầu cho biết",
-      "summary": "",
-      "summary_vi": "",
-      "url": "https://www.investing.com/news/stock-market-news/chinas-chery-looking-to-expand-car-production-in-europe-top-executives-say-4609041",
-      "published_iso": "2026-04-12T17:43:49+07:00",
-      "published_text": "12/04 17:43"
-    },
     {
       "source": "Google News Macro",
       "title": "Inflation Surges as Effects of the Iran War Show in Prices - The New York Times",
@@ -63,6 +53,16 @@
       "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9DV3NBZkhOd0JGdnh0Q0tnc2JHdDZPWWJmQ09scHpnUC1mZXhqTVBoZlk4UHhaQ3pnaC1HbU9LYldGQ0ZCbXdYWFM5OE5QWkotU1otSWFNSTBQQnBwaUZYdG9HZzJYVGlnYXd1MzNVbjJqRTY2YkpXMXljZ9IBgAFBVV95cUxOSnA5THhMZGdRenZja2RnZlB2RGpsRElDcVNVN3JPQ1VFTEZrMUlZMGxCOGYzTkVFcjE5Y2pCUWdlOG5wMjNvUWhKNVdBMl84VE1EaHR0eHZhN0VsQ3FvcklXZUlPNnZ4N1VLbmtzeXBhOF9kZWFtXzNxRHpTT0lhZA?oc=5",
       "published_iso": "2026-04-10T21:46:31+07:00",
       "published_text": "10/04 21:46"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "Soaring gas prices leads to biggest monthly inflation spike in four years in March - PBS",
+      "title_vi": "Giá xăng tăng vọt dẫn đến lạm phát hàng tháng tăng đột biến nhất trong bốn năm vào tháng 3 - PBS",
+      "summary": "Soaring gas prices leads to biggest monthly inflation spike in four years in March PBS",
+      "summary_vi": "Soaring gas prices leads to biggest monthly inflation spike in four years in March PBS",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPNTlXb05pc2ZSVDdHbENxbEczRDJFazNweGZiRTI0UzhmQkZXVFRITnVyaVJpSm5NeTRCYUNDenV4bzBmdTg0LVBONVJCQWJLRTEtVTVpS3pNLUJNcU5lUUd0NmRDYVNrUnFGM3lTbEtWalRZV0FDdnl2SER3MjkwcDVqZEJxZGxHVDFtTHlrQ0MwcVdvN3lRbTB2SEtQcjFoMDhsRm5rUkFLZmFHV002VmV4OENIOUM1T3FB0gHAAUFVX3lxTFBQaE1tcVhyUlpkTWF0a0dITW54NGltTkU3OEVROHYzN3o3aEVQT2NMU0NJZkJOM1NkbjlmaW5vaW5fMWhYNTk2RFhJSVc4WkhIOTEtaUtCTDZBR2FTU2tEdWc2TWZfSDFuYklXRzc3T1NmRThGWExsdkZydWlYS2Zkc1lDTHVRZTFaSzZTaDJYUklldnJWbHFndDBvWFBuTHVoWFRHTGNpemgxR2lfWUVOZDNqZ3NFVDlNVzNFM2wzTQ?oc=5",
+      "published_iso": "2026-04-10T20:55:15+07:00",
+      "published_text": "10/04 20:55"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-quoc-gia-dau-gia-1-xe-o-to-nhan-hieu-mazda-cx5-bien-so-30f-82066-san-xuat-nam-2019-50622.html",
-      "published_iso": "2026-04-12T18:22:11.112581+07:00",
-      "published_text": "12/04 18:22"
+      "published_iso": "2026-04-12T21:06:38.511833+07:00",
+      "published_text": "12/04 21:06"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-da-u-gia-ho-p-danh-go-cong-thanh-ly-nha-ve-sinh-hoc-sinh-nam-ts003-dien-tich-la-817m2-nha-ve-sinh-hoc-sinh-nu-ts004-dien-tich-la-817m2-va-cau-thang-noi-dien-tich-la-4125m2-cua-truong-thcs-dang-hung-phuoc-dong-thap-50623.html",
-      "published_iso": "2026-04-12T18:22:11.112516+07:00",
-      "published_text": "12/04 18:22"
+      "published_iso": "2026-04-12T21:06:38.511762+07:00",
+      "published_text": "12/04 21:06"
     },
     {
       "source": "VietnamFinance",
@@ -93,18 +93,18 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/thi-truong-chung-khoan-kho-co-song-lon-nha-dau-tu-lam-gi-de-co-qua-d143027.html",
-      "published_iso": "2026-04-12T18:22:09.293995+07:00",
-      "published_text": "12/04 18:22"
+      "published_iso": "2026-04-12T21:06:37.285163+07:00",
+      "published_text": "12/04 21:06"
     },
     {
       "source": "VietnamFinance",
-      "title": "Gần 2 tháng chiến sự: Trung Đông đánh mất vị thế trong chuỗi công nghệ toàn cầu?",
-      "title_vi": "Gần 2 tháng chiến sự: Trung Đông đánh mất vị thế trong chuỗi công nghệ toàn cầu?",
+      "title": "Mỹ - Iran đổ lỗi cho nhau: Đàm phán gián đoạn sau 21 tiếng không kết quả",
+      "title_vi": "Mỹ - Iran đổ lỗi cho nhau: Đàm phán gián đoạn sau 21 tiếng không kết quả",
       "summary": "",
       "summary_vi": "",
-      "url": "https://vietnamfinance.vn/gan-2-thang-chien-su-trung-dong-danh-mat-vi-the-trong-chuoi-cong-nghe-toan-cau-d142991.html",
-      "published_iso": "2026-04-12T18:22:09.293929+07:00",
-      "published_text": "12/04 18:22"
+      "url": "https://vietnamfinance.vn/my--iran-do-loi-cho-nhau-dam-phan-gian-doan-sau-21-tieng-khong-ket-qua-d143048.html",
+      "published_iso": "2026-04-12T21:06:37.285091+07:00",
+      "published_text": "12/04 21:06"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/trai-nghiem-dac-quyen-danh-rieng-cho-khach-hang-uu-tien-cua-vib-188260410230225981.chn",
-      "published_iso": "2026-04-12T18:22:08.842135+07:00",
-      "published_text": "12/04 18:22"
+      "published_iso": "2026-04-12T21:06:36.801994+07:00",
+      "published_text": "12/04 21:06"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/tu-gia-cong-cho-ford-honda-cho-den-su-xuat-hien-cua-the-he-doanh-nghiep-ty-do-vingroup-fpt-hoa-phat-thay-gi-ve-su-lot-xac-cua-kinh-te-tu-nhan-viet-nam-188260408220222295.chn",
-      "published_iso": "2026-04-12T18:22:08.842064+07:00",
-      "published_text": "12/04 18:22"
+      "published_iso": "2026-04-12T21:06:36.801915+07:00",
+      "published_text": "12/04 21:06"
     }
   ],
   "markets": [
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 71514.0,
-      "change": -1540.0,
-      "change_pct": -2.11,
+      "price": 70967.0,
+      "change": -2087.0,
+      "change_pct": -2.86,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 12/04 07:00"
