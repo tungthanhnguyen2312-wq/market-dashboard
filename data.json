@@ -1,39 +1,29 @@
 {
-  "updated_at": "2026-04-15T17:43:55.774754+07:00",
-  "updated_at_display": "15/04/2026 • 17:43 GMT+7",
+  "updated_at": "2026-04-15T21:57:01.328427+07:00",
+  "updated_at_display": "15/04/2026 • 21:57 GMT+7",
   "war_news": [
     {
       "source": "Al Jazeera",
-      "title": "Italy suspends long-standing defence agreement with Israel",
-      "title_vi": "Ý đình chỉ thỏa thuận quốc phòng lâu dài với Israel",
-      "summary": "Italy suspended the renewal of a 20-year-long defence agreement with Israel, following recent tensions between them.",
-      "summary_vi": "Italy suspended the renewal of a 20-year-long defence agreement with Israel, following recent tensions between them.",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/4/15/italy-suspends-long-standing-defence-agreement-with-israel?traffic_source=rss",
-      "published_iso": "2026-04-15T17:11:00+07:00",
-      "published_text": "15/04 17:11"
+      "title": "Italian magazine cover of Israeli settler sparks diplomatic backlash",
+      "title_vi": "Bìa tạp chí Ý của người định cư Israel gây ra phản ứng ngoại giao",
+      "summary": "Italian magazine cover showing an armed Israeli settler grinning at a Palestinian woman has sparked backlash from Israel",
+      "summary_vi": "Italian magazine cover showing an armed Israeli settler grinning at a Palestinian woman has sparked backlash from Israel",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/4/15/italian-magazine-cover-of-israeli-settler-sparks-diplomatic-backlash?traffic_source=rss",
+      "published_iso": "2026-04-15T21:00:18+07:00",
+      "published_text": "15/04 21:00"
     },
     {
       "source": "Al Jazeera",
-      "title": "What you need to know about Israel’s ambassador to the US",
-      "title_vi": "Những điều bạn cần biết về đại sứ Israel tại Mỹ",
-      "summary": "Israel’s ambassador held talks with his Lebanese counterpart. But critics say Yechiel Leiter is a problematic negotiator",
-      "summary_vi": "Israel’s ambassador held talks with his Lebanese counterpart. But critics say Yechiel Leiter is a problematic negotiator",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/4/15/what-you-need-to-know-about-israels-ambassador-to-the-us?traffic_source=rss",
-      "published_iso": "2026-04-15T17:10:56+07:00",
-      "published_text": "15/04 17:10"
+      "title": "US-Iran talks: What’s the latest on mediation efforts?",
+      "title_vi": "Các cuộc đàm phán Mỹ-Iran: Nỗ lực hòa giải mới nhất là gì?",
+      "summary": "Tehran rejects US conditions on nuclear arms; sanctions relief and strait control fuel diplomatic deadlock in Islamabad.",
+      "summary_vi": "Tehran rejects US conditions on nuclear arms; sanctions relief and strait control fuel diplomatic deadlock in Islamabad.",
+      "url": "https://www.aljazeera.com/news/2026/4/15/us-iran-talks-whats-the-latest-on-mediation-efforts?traffic_source=rss",
+      "published_iso": "2026-04-15T20:55:40+07:00",
+      "published_text": "15/04 20:55"
     }
   ],
   "global_news": [
-    {
-      "source": "Investing News",
-      "title": "Nifty hits one-month high as oil drops below $100",
-      "title_vi": "Nifty đạt mức cao nhất trong một tháng khi giá dầu giảm xuống dưới $ 100",
-      "summary": "",
-      "summary_vi": "",
-      "url": "https://www.investing.com/news/stock-market-news/nifty-hits-onemonth-high-as-oil-drops-below-100-93CH-4614754",
-      "published_iso": "2026-04-15T17:24:17+07:00",
-      "published_text": "15/04 17:24"
-    },
     {
       "source": "Google News Macro",
       "title": "Americans’ views of China have grown somewhat more positive in recent years - Pew Research Center",
@@ -63,28 +53,38 @@
       "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOUGVmempHVjM0NTNsTjZrUUs3VldQNlFZVWhNSHBjSEppNXRUM0tOTHl6U2NiWDFfTG9fVksyRUZqZy1oejNfMzI1YXZJWWhnbllsd01fNnNYLWFoRW9VcVB0elg1OTRPdk44NDh0d0F6U3VrcExGeGc1Z1BqSTA5ZVAtVHhaWVdfMmZqQkFaM0RPd2JOWVJhTXNkOENyb3RRc193?oc=5",
       "published_iso": "2026-04-13T20:00:00+07:00",
       "published_text": "13/04 20:00"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "Opinion | I Went to China to See Their Progress on A.I. We Can’t Beat Them. - The New York Times",
+      "title_vi": "Ý kiến | Tôi đã đến Trung Quốc để xem sự tiến bộ của họ về A.I. Chúng ta không thể đánh bại họ. - The New York Times",
+      "summary": "Opinion | I Went to China to See Their Progress on A.I. We Can’t Beat Them. The New York Times",
+      "summary_vi": "Opinion | I Went to China to See Their Progress on A.I. We Can’t Beat Them. The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQSGFDVnpNUTQ2emZQQk1pcjRRdGVvOTJzLUEzanV3ZlY4azU5cTZzcTRCWjdLbFhMRHprSHpxZWpYLVEwSjZKLW1FeW8tQ3Y0RzZnem5YanlpSXM3NnRuZWxobWFQTUpoOFEwOUxpMlZvYlVqUHM2YjhhSG02d29aeg?oc=5",
+      "published_iso": "2026-04-13T16:02:39+07:00",
+      "published_text": "13/04 16:02"
     }
   ],
   "vn_news": [
     {
       "source": "Thời báo Tài chính VN",
-      "title": "Công ty Đấu giá Hợp danh Khải Hưng: Đấu giá 1.225 cây xanh tại Nghĩa trang liệt sĩ đồi 82 - Tây Ninh, xã Tân Biên, tỉnh Tây Ninh",
-      "title_vi": "Công ty Đấu giá Hợp danh Khải Hưng: Đấu giá 1.225 cây xanh tại Nghĩa trang liệt sĩ đồi 82 - Tây Ninh, xã Tân Biên, tỉnh Tây Ninh",
+      "title": "Trung tâm Dịch vụ đấu giá tài sản tỉnh Tây Ninh: Đấu giá sắt, nhôm, gỗ, tôn, quạt trần, bồn inox thu hồi từ các công trình sửa chữa đang tập kết trong kho đội Quản lý tài sản và trang cấp tại phường Tân Ninh",
+      "title_vi": "Trung tâm Dịch vụ đấu giá tài sản tỉnh Tây Ninh: Đấu giá sắt, nhôm, gỗ, tôn, quạt trần, bồn inox thu hồi từ các công trình sửa chữa đang tập kết trong kho đội Quản lý tài sản và trang cấp tại phường Tân Ninh",
       "summary": "",
       "summary_vi": "",
-      "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-khai-hung-dau-gia-1225-cay-xanh-tai-nghia-trang-liet-si-doi-82-tay-ninh-xa-tan-bien-tinh-tay-ninh-50676.html",
-      "published_iso": "2026-04-15T17:44:48.532898+07:00",
-      "published_text": "15/04 17:44"
+      "url": "https://taisancong.vn/trung-tam-dich-vu-dau-gia-tai-san-tinh-tay-ninh-dau-gia-sat-nhom-go-ton-quat-tran-bon-inox-thu-hoi-tu-cac-cong-trinh-sua-chua-dang-tap-ket-trong-kho-doi-quan-ly-tai-san-va-trang-cap-tai-phuong-tan-ninh-50678.html",
+      "published_iso": "2026-04-15T21:57:51.024522+07:00",
+      "published_text": "15/04 21:57"
     },
     {
       "source": "Thời báo Tài chính VN",
-      "title": "Trung tâm dịch vụ đấu giá tài sản Quảng Ninh: Đấu giá 22 ô đất, có tổng diện tích 2.696,2 m2 tại phường Mạo Khê, tỉnh Quảng Ninh",
-      "title_vi": "Trung tâm dịch vụ đấu giá tài sản Quảng Ninh: Đấu giá 22 ô đất, có tổng diện tích 2.696,2 m2 tại phường Mạo Khê, tỉnh Quảng Ninh",
+      "title": "Trung tâm Dịch vụ đấu giá tài sản tỉnh Tây Ninh: Đấu giá tài sản thanh lý là trụ anten cao 70 mét của Công an tỉnh Tây Ninh (lần 3)",
+      "title_vi": "Trung tâm Dịch vụ đấu giá tài sản tỉnh Tây Ninh: Đấu giá tài sản thanh lý là trụ anten cao 70 mét của Công an tỉnh Tây Ninh (lần 3)",
       "summary": "",
       "summary_vi": "",
-      "url": "https://taisancong.vn/trung-tam-dich-vu-dau-gia-tai-san-quang-ninh-dau-gia-22-o-dat-co-tong-dien-tich-26962-m2-tai-phuong-mao-khe-tinh-quang-ninh-50679.html",
-      "published_iso": "2026-04-15T17:44:48.532837+07:00",
-      "published_text": "15/04 17:44"
+      "url": "https://taisancong.vn/trung-tam-dich-vu-dau-gia-tai-san-tinh-tay-ninh-dau-gia-tai-san-thanh-ly-la-tru-anten-cao-70-met-cua-cong-an-tinh-tay-ninh-lan-3-50677.html",
+      "published_iso": "2026-04-15T21:57:51.024424+07:00",
+      "published_text": "15/04 21:57"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/vu-bookingcom-bi-tan-cong-khach-hang-nhan-email-va-tin-nhan-lua-dao-lo-lang-bao-mat-the-tin-dung-d143427.html",
-      "published_iso": "2026-04-15T17:44:47.476822+07:00",
-      "published_text": "15/04 17:44"
+      "published_iso": "2026-04-15T21:57:48.890471+07:00",
+      "published_text": "15/04 21:57"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/dau-tu-lon-loi-nhuan-thap-tai-sao-nguoi-singapore-van-dat-cuoc-vao-bat-dong-san-d143416.html",
-      "published_iso": "2026-04-15T17:44:47.476758+07:00",
-      "published_text": "15/04 17:44"
+      "published_iso": "2026-04-15T21:57:48.890382+07:00",
+      "published_text": "15/04 21:57"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/bo-ba-sacombank-acb-eximbank-ngay-ay-va-bay-gio-188260414225055107.chn",
-      "published_iso": "2026-04-15T17:44:46.541538+07:00",
-      "published_text": "15/04 17:44"
+      "published_iso": "2026-04-15T21:57:48.314870+07:00",
+      "published_text": "15/04 21:57"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/vi-chu-tich-ngan-hang-khong-vui-voi-co-dong-nho-madam-ha-thu-thanh-chi-ra-sai-lam-khien-doanh-nghiep-mat-diem-truoc-quy-ngoai-188260412220526811.chn",
-      "published_iso": "2026-04-15T17:44:46.541474+07:00",
-      "published_text": "15/04 17:44"
+      "published_iso": "2026-04-15T21:57:48.314782+07:00",
+      "published_text": "15/04 21:57"
     }
   ],
   "markets": [
@@ -132,9 +132,9 @@
       "name": "WTI",
       "symbol": "CL=F",
       "category": "Energy",
-      "price": 92.94,
-      "change": 1.66,
-      "change_pct": 1.82,
+      "price": 91.89,
+      "change": 0.61,
+      "change_pct": 0.67,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 15/04 11:00"
@@ -143,9 +143,9 @@
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 96.64,
-      "change": 1.85,
-      "change_pct": 1.95,
+      "price": 95.01,
+      "change": 0.22,
+      "change_pct": 0.23,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 15/04 11:00"
@@ -154,9 +154,9 @@
       "name": "Natural Gas",
       "symbol": "NG=F",
       "category": "Energy",
-      "price": 2.59,
-      "change": -0.0,
-      "change_pct": -0.19,
+      "price": 2.61,
+      "change": 0.02,
+      "change_pct": 0.58,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 15/04 11:00"
@@ -165,9 +165,9 @@
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4816.7,
-      "change": -8.3,
-      "change_pct": -0.17,
+      "price": 4840.6,
+      "change": 15.6,
+      "change_pct": 0.32,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 15/04 11:00"
@@ -176,9 +176,9 @@
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 78.64,
-      "change": -0.76,
-      "change_pct": -0.95,
+      "price": 80.14,
+      "change": 0.75,
+      "change_pct": 0.94,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 15/04 11:00"
@@ -187,9 +187,9 @@
       "name": "Copper",
       "symbol": "HG=F",
       "category": "Metals",
-      "price": 6.07,
-      "change": 0.0,
-      "change_pct": 0.0,
+      "price": 6.08,
+      "change": 0.01,
+      "change_pct": 0.08,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 15/04 11:00"
@@ -199,19 +199,19 @@
       "symbol": "^TNX",
       "category": "Rates",
       "price": 0.43,
-      "change": -0.0,
-      "change_pct": -0.95,
+      "change": 0.0,
+      "change_pct": 0.42,
       "decimals": 2,
       "suffix": "%",
-      "note": "Dữ liệu gần nhất: 14/04 12:00"
+      "note": "Dữ liệu gần nhất: 15/04 12:00"
     },
     {
       "name": "DXY",
       "symbol": "DX-Y.NYB",
       "category": "FX",
-      "price": 98.27,
-      "change": 0.15,
-      "change_pct": 0.15,
+      "price": 98.1,
+      "change": -0.02,
+      "change_pct": -0.02,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 15/04 11:00"
@@ -220,9 +220,9 @@
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1783,
-      "change": 0.0014,
-      "change_pct": 0.12,
+      "price": 1.1801,
+      "change": 0.0032,
+      "change_pct": 0.27,
       "decimals": 4,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 15/04 06:00"
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 74073.0,
-      "change": -109.0,
-      "change_pct": -0.15,
+      "price": 74186.0,
+      "change": 4.0,
+      "change_pct": 0.01,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 15/04 07:00"
@@ -242,53 +242,53 @@
       "name": "S&P 500",
       "symbol": "^GSPC",
       "category": "US",
-      "price": 6967.38,
-      "change": 81.14,
-      "change_pct": 1.18,
+      "price": 6993.25,
+      "change": 25.87,
+      "change_pct": 0.37,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 14/04 11:00"
+      "note": "Dữ liệu gần nhất: 15/04 11:00"
     },
     {
       "name": "Dow Jones",
       "symbol": "^DJI",
       "category": "US",
-      "price": 48535.99,
-      "change": 317.74,
-      "change_pct": 0.66,
+      "price": 48355.42,
+      "change": -180.57,
+      "change_pct": -0.37,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 14/04 11:00"
+      "note": "Dữ liệu gần nhất: 15/04 11:00"
     },
     {
       "name": "Nasdaq",
       "symbol": "^IXIC",
       "category": "US",
-      "price": 23639.08,
-      "change": 455.34,
-      "change_pct": 1.96,
+      "price": 23861.1,
+      "change": 222.02,
+      "change_pct": 0.94,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 14/04 11:00"
+      "note": "Dữ liệu gần nhất: 15/04 11:00"
     },
     {
       "name": "Russell 2000",
       "symbol": "^RUT",
       "category": "US",
-      "price": 2705.67,
-      "change": 35.18,
-      "change_pct": 1.32,
+      "price": 2709.05,
+      "change": 3.38,
+      "change_pct": 0.12,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 14/04 11:00"
+      "note": "Dữ liệu gần nhất: 15/04 11:00"
     },
     {
       "name": "VIX",
       "symbol": "^VIX",
       "category": "US",
-      "price": 18.48,
-      "change": 0.12,
-      "change_pct": 0.65,
+      "price": 17.9,
+      "change": -0.46,
+      "change_pct": -2.51,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 15/04 12:00"
@@ -297,9 +297,9 @@
       "name": "FTSE 100",
       "symbol": "^FTSE",
       "category": "Europe",
-      "price": 10604.92,
-      "change": -4.18,
-      "change_pct": -0.04,
+      "price": 10575.69,
+      "change": -33.41,
+      "change_pct": -0.31,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 15/04 06:00"
@@ -308,9 +308,9 @@
       "name": "Euro Stoxx 50",
       "symbol": "^STOXX50E",
       "category": "Europe",
-      "price": 5950.34,
-      "change": -34.17,
-      "change_pct": -0.57,
+      "price": 5942.8,
+      "change": -41.71,
+      "change_pct": -0.7,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 15/04 05:00"
@@ -396,9 +396,9 @@
       "name": "ASX 200",
       "symbol": "^AXJO",
       "category": "Asia",
-      "price": 8978.7,
-      "change": 7.9,
-      "change_pct": 0.09,
+      "price": NaN,
+      "change": NaN,
+      "change_pct": NaN,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 14/04 21:00"
