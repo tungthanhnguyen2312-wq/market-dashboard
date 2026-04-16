@@ -1,7 +1,17 @@
 {
-  "updated_at": "2026-04-16T04:38:47.593008+07:00",
-  "updated_at_display": "16/04/2026 • 04:38 GMT+7",
+  "updated_at": "2026-04-16T07:02:51.547422+07:00",
+  "updated_at_display": "16/04/2026 • 07:02 GMT+7",
   "war_news": [
+    {
+      "source": "Al Jazeera",
+      "title": "Israel bombs homes in southern Lebanon",
+      "title_vi": "Israel ném bom các ngôi nhà ở miền nam Lebanon",
+      "summary": "The Israeli army has bombed buildings in southern Lebanon’s Bint Jbeil district.",
+      "summary_vi": "The Israeli army has bombed buildings in southern Lebanon’s Bint Jbeil district.",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/4/15/israel-bombs-homes-in-southern-lebanon?traffic_source=rss",
+      "published_iso": "2026-04-16T05:53:41+07:00",
+      "published_text": "16/04 05:53"
+    },
     {
       "source": "Al Jazeera",
       "title": "Could the EU’s alliance with Israel soon change?",
@@ -11,16 +21,6 @@
       "url": "https://www.aljazeera.com/video/inside-story/2026/4/15/could-the-eus-alliance-with-israel-soon-change?traffic_source=rss",
       "published_iso": "2026-04-16T04:09:55+07:00",
       "published_text": "16/04 04:09"
-    },
-    {
-      "source": "Al Jazeera",
-      "title": "Israel appoints first ambassador to Somaliland",
-      "title_vi": "Israel bổ nhiệm đại sứ đầu tiên tại Somaliland",
-      "summary": "The move comes months after Israel became the first country to recognise the territory, in a widely condemned move.",
-      "summary_vi": "The move comes months after Israel became the first country to recognise the territory, in a widely condemned move.",
-      "url": "https://www.aljazeera.com/news/2026/4/15/israel-appoints-first-ambassador-to-somaliland?traffic_source=rss",
-      "published_iso": "2026-04-16T04:05:27+07:00",
-      "published_text": "16/04 04:05"
     }
   ],
   "global_news": [
@@ -46,23 +46,23 @@
     },
     {
       "source": "Google News Macro",
-      "title": "Exclusive | Jeanine Pirro’s Prosecutors Make Surprise Visit to Fed Headquarters - WSJ",
-      "title_vi": "Độc quyền | Các công tố viên của Jeanine Pirro bất ngờ đến thăm trụ sở Fed - WSJ",
-      "summary": "Exclusive | Jeanine Pirro’s Prosecutors Make Surprise Visit to Fed Headquarters WSJ",
-      "summary_vi": "Exclusive | Jeanine Pirro’s Prosecutors Make Surprise Visit to Fed Headquarters WSJ",
-      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPVko2VWNYZUc1UXBSQTZiZnpPZUJ6MGlXWWIzTUtMVHFBRTZJblNPakc2YXBhejJYQnhybkNLMjlaOTFod2FiV3RIZjBsdkRERDVvNHg4eUNrcEVyQjR2Z2lMU0FlUGlWWWV0WDhta09ENXBEZVZtZXVNTGg1LUFLNXJ6SVF1aFFaMUxGY0Rzb0dtWjUzWmUySFNuUUVwdUVSZHNkeDNrZ0ZheXc?oc=5",
-      "published_iso": "2026-04-15T09:24:00+07:00",
-      "published_text": "15/04 09:24"
+      "title": "Americans’ views of China have grown somewhat more positive in recent years - Pew Research Center",
+      "title_vi": "Quan điểm của người Mỹ về Trung Quốc đã tăng lên phần nào tích cực hơn trong những năm gần đây - Trung tâm nghiên cứu Pew",
+      "summary": "Americans’ views of China have grown somewhat more positive in recent years Pew Research Center",
+      "summary_vi": "Americans’ views of China have grown somewhat more positive in recent years Pew Research Center",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxONHJpTDNtd0w2bElvVm5DbmdOelAzTzF0Y1pEUnhNaHkyaEdncVk0bnVzRUdiX0lzNWVBRUJkX1MyWDhBZU53ZXd6Z3pUX1dCQl92bzNzOGJPZGtxSTNLZDIzOWxkYnotbVNpaG4wdXVsWlE2ZjA0YU1kcThSd2k5YkF5QnpDQ1RvNGcyYzdpRHdzVFNtQnJhVUFCT01obWpaNTY4V2dnWVg2TndNZEFSNXFlWHA0MWFXeFNYZEczTDdRR2Z5?oc=5",
+      "published_iso": "2026-04-14T21:53:45+07:00",
+      "published_text": "14/04 21:53"
     },
     {
       "source": "Google News Macro",
-      "title": "What the Taiwanese opposition leader’s recent China visit means for Taipei, Beijing, and Washington - Atlantic Council",
-      "title_vi": "Chuyến thăm Trung Quốc gần đây của nhà lãnh đạo phe đối lập Đài Loan có ý nghĩa gì đối với Hội đồng Đài Bắc, Bắc Kinh và Washington - Đại Tây Dương",
-      "summary": "What the Taiwanese opposition leader’s recent China visit means for Taipei, Beijing, and Washington Atlantic Council",
-      "summary_vi": "What the Taiwanese opposition leader’s recent China visit means for Taipei, Beijing, and Washington Atlantic Council",
-      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQb0tHNE44cGJtWjRKYmlrSmxmSXNJVUtqazJsT3RvUFliTVhuQnR3aFFRblpkUENubUxaVkF0TGwwV2NYQTB0RDJnRERvY21JalJiQ2cxTmRnNzVZaG1sYWUyVTBsZ0hkeW1RNmoxdUpEYk84bDdrTHE4OENMWXc5TjQyUUZaN0huZGJwckhDZnB6a3J1MTBsQVBvbHo5OVRwbWE0Z0V0LUJ6c2R1MnVUeFI5dTFHeGFBZ1d3ZEg1S3VCX1J5Y3Zfc1dTSWdWSmJuSzNGTWdOOA?oc=5",
-      "published_iso": "2026-04-14T23:03:33+07:00",
-      "published_text": "14/04 23:03"
+      "title": "Oil Market Report - April 2026 – Analysis - IEA – International Energy Agency",
+      "title_vi": "Báo cáo thị trường dầu mỏ - Tháng 4 năm 2026 – Phân tích - IEA – Cơ quan Năng lượng Quốc tế",
+      "summary": "Oil Market Report - April 2026 – Analysis IEA – International Energy Agency",
+      "summary_vi": "Oil Market Report - April 2026 – Analysis IEA – International Energy Agency",
+      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBCR255QmlpVnZPWkprSm0yQ01UanYyNzhtdmdIbXZsREV3N3Y1LXAxLWJhaGpjd2dmaFVoMGk4bnl1RFllc0hUMm9BVWpLMS1Ga2lKdG1sNmplZWVZN1BqR013QU56QWs?oc=5",
+      "published_iso": "2026-04-14T15:00:00+07:00",
+      "published_text": "14/04 15:00"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/trung-tam-dich-vu-dau-gia-tai-san-tinh-tay-ninh-dau-gia-sat-nhom-go-ton-quat-tran-bon-inox-thu-hoi-tu-cac-cong-trinh-sua-chua-dang-tap-ket-trong-kho-doi-quan-ly-tai-san-va-trang-cap-tai-phuong-tan-ninh-50678.html",
-      "published_iso": "2026-04-16T04:39:36.406284+07:00",
-      "published_text": "16/04 04:39"
+      "published_iso": "2026-04-16T07:03:39.999810+07:00",
+      "published_text": "16/04 07:03"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/trung-tam-dich-vu-dau-gia-tai-san-tinh-tay-ninh-dau-gia-tai-san-thanh-ly-la-tru-anten-cao-70-met-cua-cong-an-tinh-tay-ninh-lan-3-50677.html",
-      "published_iso": "2026-04-16T04:39:36.406189+07:00",
-      "published_text": "16/04 04:39"
+      "published_iso": "2026-04-16T07:03:39.999727+07:00",
+      "published_text": "16/04 07:03"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/vu-bookingcom-bi-tan-cong-khach-hang-nhan-email-va-tin-nhan-lua-dao-lo-lang-bao-mat-the-tin-dung-d143427.html",
-      "published_iso": "2026-04-16T04:39:35.181532+07:00",
-      "published_text": "16/04 04:39"
+      "published_iso": "2026-04-16T07:03:37.980590+07:00",
+      "published_text": "16/04 07:03"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/dau-tu-lon-loi-nhuan-thap-tai-sao-nguoi-singapore-van-dat-cuoc-vao-bat-dong-san-d143416.html",
-      "published_iso": "2026-04-16T04:39:35.181452+07:00",
-      "published_text": "16/04 04:39"
+      "published_iso": "2026-04-16T07:03:37.980525+07:00",
+      "published_text": "16/04 07:03"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/bo-ba-sacombank-acb-eximbank-ngay-ay-va-bay-gio-188260414225055107.chn",
-      "published_iso": "2026-04-16T04:39:34.706518+07:00",
-      "published_text": "16/04 04:39"
+      "published_iso": "2026-04-16T07:03:37.510403+07:00",
+      "published_text": "16/04 07:03"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/vi-chu-tich-ngan-hang-khong-vui-voi-co-dong-nho-madam-ha-thu-thanh-chi-ra-sai-lam-khien-doanh-nghiep-mat-diem-truoc-quy-ngoai-188260412220526811.chn",
-      "published_iso": "2026-04-16T04:39:34.706437+07:00",
-      "published_text": "16/04 04:39"
+      "published_iso": "2026-04-16T07:03:37.510329+07:00",
+      "published_text": "16/04 07:03"
     }
   ],
   "markets": [
@@ -132,9 +132,9 @@
       "name": "WTI",
       "symbol": "CL=F",
       "category": "Energy",
-      "price": 91.39,
-      "change": 0.11,
-      "change_pct": 0.12,
+      "price": 90.99,
+      "change": -0.29,
+      "change_pct": -0.32,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 15/04 11:00"
@@ -143,9 +143,9 @@
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 94.93,
-      "change": 0.14,
-      "change_pct": 0.15,
+      "price": 94.58,
+      "change": -0.21,
+      "change_pct": -0.22,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 15/04 11:00"
@@ -154,9 +154,9 @@
       "name": "Natural Gas",
       "symbol": "NG=F",
       "category": "Energy",
-      "price": 2.61,
-      "change": 0.01,
-      "change_pct": 0.54,
+      "price": 2.6,
+      "change": -0.0,
+      "change_pct": -0.04,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 15/04 11:00"
@@ -165,9 +165,9 @@
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4813.9,
-      "change": -11.1,
-      "change_pct": -0.23,
+      "price": 4845.9,
+      "change": 20.9,
+      "change_pct": 0.43,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 15/04 11:00"
@@ -176,9 +176,9 @@
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 79.11,
-      "change": -0.28,
-      "change_pct": -0.35,
+      "price": 79.65,
+      "change": 0.26,
+      "change_pct": 0.33,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 15/04 11:00"
@@ -187,9 +187,9 @@
       "name": "Copper",
       "symbol": "HG=F",
       "category": "Metals",
-      "price": 6.08,
-      "change": 0.01,
-      "change_pct": 0.13,
+      "price": 6.1,
+      "change": 0.03,
+      "change_pct": 0.41,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 15/04 11:00"
@@ -209,9 +209,9 @@
       "name": "DXY",
       "symbol": "DX-Y.NYB",
       "category": "FX",
-      "price": 98.09,
-      "change": -0.03,
-      "change_pct": -0.03,
+      "price": 98.01,
+      "change": -0.11,
+      "change_pct": -0.11,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 15/04 11:00"
@@ -220,23 +220,23 @@
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1804,
-      "change": 0.0035,
-      "change_pct": 0.3,
+      "price": 1.1809,
+      "change": 0.001,
+      "change_pct": 0.08,
       "decimals": 4,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 15/04 06:00"
+      "note": "Dữ liệu gần nhất: 16/04 06:00"
     },
     {
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 74709.0,
-      "change": 527.0,
-      "change_pct": 0.71,
+      "price": 74780.0,
+      "change": 598.0,
+      "change_pct": 0.81,
       "decimals": 0,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 15/04 07:00"
+      "note": "Dữ liệu gần nhất: 16/04 07:00"
     },
     {
       "name": "S&P 500",
@@ -297,9 +297,9 @@
       "name": "FTSE 100",
       "symbol": "^FTSE",
       "category": "Europe",
-      "price": 10559.58,
-      "change": -49.52,
-      "change_pct": -0.47,
+      "price": NaN,
+      "change": NaN,
+      "change_pct": NaN,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 15/04 06:00"
@@ -308,12 +308,12 @@
       "name": "Euro Stoxx 50",
       "symbol": "^STOXX50E",
       "category": "Europe",
-      "price": 5940.34,
-      "change": -44.17,
-      "change_pct": -0.74,
+      "price": 5984.51,
+      "change": 79.49,
+      "change_pct": 1.35,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 15/04 05:00"
+      "note": "Dữ liệu gần nhất: 14/04 05:00"
     },
     {
       "name": "VN-Index",
@@ -341,12 +341,12 @@
       "name": "Nikkei 225",
       "symbol": "^N225",
       "category": "Asia",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
+      "price": 57877.39,
+      "change": 1374.62,
+      "change_pct": 2.43,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 14/04 22:00"
+      "note": "Dữ liệu gần nhất: 13/04 22:00"
     },
     {
       "name": "KOSPI",
@@ -396,12 +396,12 @@
       "name": "ASX 200",
       "symbol": "^AXJO",
       "category": "Asia",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
+      "price": 8970.8,
+      "change": 44.8,
+      "change_pct": 0.5,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 14/04 21:00"
+      "note": "Dữ liệu gần nhất: 13/04 21:00"
     }
   ]
 }
