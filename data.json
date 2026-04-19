@@ -1,7 +1,17 @@
 {
-  "updated_at": "2026-04-20T04:53:59.866664+07:00",
-  "updated_at_display": "20/04/2026 • 04:53 GMT+7",
+  "updated_at": "2026-04-20T06:56:04.775387+07:00",
+  "updated_at_display": "20/04/2026 • 06:56 GMT+7",
   "war_news": [
+    {
+      "source": "Al Jazeera",
+      "title": "US forces attack and seize Iranian ship Touska near Strait of Hormuz",
+      "title_vi": "Lực lượng Mỹ tấn công và bắt giữ tàu Touska của Iran gần eo biển Hormuz",
+      "summary": "US Central Command has published a video said to show a guided-missile destroyer firing at an Iranian-flagged ship.",
+      "summary_vi": "US Central Command has published a video said to show a guided-missile destroyer firing at an Iranian-flagged ship.",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/4/19/us-forces-attack-and-seize-iranian-ship-touska-near-strait-of-hormuz?traffic_source=rss",
+      "published_iso": "2026-04-20T04:53:29+07:00",
+      "published_text": "20/04 04:53"
+    },
     {
       "source": "Al Jazeera",
       "title": "Argentina’s Milei backs US-Israel war on Iran in Jerusalem visit",
@@ -11,19 +21,29 @@
       "url": "https://www.aljazeera.com/video/newsfeed/2026/4/19/argentinas-milei-backs-us-israel-war-on-iran-in-jerusalem-visit?traffic_source=rss",
       "published_iso": "2026-04-20T04:23:19+07:00",
       "published_text": "20/04 04:23"
-    },
-    {
-      "source": "Al Jazeera",
-      "title": "Schools, shops shut in northern Israel to protest the Lebanon ceasefire",
-      "title_vi": "Các trường học, cửa hàng đóng cửa ở miền bắc Israel để phản đối lệnh ngừng bắn ở Lebanon",
-      "summary": "Shops and schools shut in northern Israel as residents protested a 10-day ceasefire with Lebanon.",
-      "summary_vi": "Shops and schools shut in northern Israel as residents protested a 10-day ceasefire with Lebanon.",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/4/19/schools-shops-shut-in-northern-israel-to-protest-the-lebanon-ceasefire?traffic_source=rss",
-      "published_iso": "2026-04-20T04:21:51+07:00",
-      "published_text": "20/04 04:21"
     }
   ],
   "global_news": [
+    {
+      "source": "Investing News",
+      "title": "Oil prices jump 7% after US seizes Iran ship, Hormuz closed again",
+      "title_vi": "Giá dầu tăng 7% sau khi Mỹ bắt giữ tàu Iran, Hormuz lại đóng cửa",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/commodities-news/oil-prices-jump-7-after-us-seizes-iran-ship-hormuz-closed-again-4622272",
+      "published_iso": "2026-04-20T06:26:03+07:00",
+      "published_text": "20/04 06:26"
+    },
+    {
+      "source": "Investing News",
+      "title": "Dollar rebounds as Middle East tensions reignite, Hormuz closed",
+      "title_vi": "Đô la phục hồi khi căng thẳng Trung Đông tái diễn, Hormuz đóng cửa",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/forex-news/dollar-rebounds-as-middle-east-tensions-reignite-hormuz-closed-4622264",
+      "published_iso": "2026-04-20T05:42:33+07:00",
+      "published_text": "20/04 05:42"
+    },
     {
       "source": "Google News Macro",
       "title": "Low-Producing Oil Wells in Texas Cause Headaches for Landowners - Inside Climate News",
@@ -36,16 +56,6 @@
     },
     {
       "source": "Google News Macro",
-      "title": "China Air Quality Alert - IQAir",
-      "title_vi": "Cảnh báo chất lượng không khí Trung Quốc - IQAir",
-      "summary": "China Air Quality Alert IQAir",
-      "summary_vi": "China Air Quality Alert IQAir",
-      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE94emE2dklrN1l0NFdpR205SW5SeEw0WkxzMlpnSm92aWNPWEhTSTZjaUNnbHRCTUlqVXlJUXdtQ3RYWkZYdVg1MHZ2Y3B5SzFIdXB5SHlGeUFNRVNoQkplWjhxUDU?oc=5",
-      "published_iso": "2026-04-18T18:27:37+07:00",
-      "published_text": "18/04 18:27"
-    },
-    {
-      "source": "Google News Macro",
       "title": "Governor Newsom exposes Trump’s Sable offshore pipeline lie: one month of oil, prices have only gone up - California State Portal | CA.gov",
       "title_vi": "Thống đốc Newsom vạch trần lời nói dối về đường ống ngoài khơi Sable của Trump: một tháng dầu mỏ, giá chỉ tăng lên - Cổng thông tin Tiểu bang California | CA.gov",
       "summary": "Governor Newsom exposes Trump’s Sable offshore pipeline lie: one month of oil, prices have only gone up California State Portal | CA.gov",
@@ -53,16 +63,6 @@
       "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQdWlUQ1NXMFJySURNWW80TFBNaWxoM2szRzdrcG5kcnFxU2p1bmgzNjFDZThfaDBTSTY3Tk9uajBJNzJNT2syeW92RjZ6U0dBSUhMS0h3WnFPZkpsTnZlSjlfSEMtT0kwZU1Xa2hlZUhpLXVpdWJ3LW9tNkxqUHNwblY0ZlQ3SWpTZFQ0cW9SZVdRVi02RWpOY1BsaFVfR2J4ZzhzU0ctSDdwc2M5a0tpZ2dnZ3h3QkdqTFBmZjNyX21ZRXc0VTAyb3JhOEZyQlk4?oc=5",
       "published_iso": "2026-04-18T06:50:55+07:00",
       "published_text": "18/04 06:50"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "Court unanimously sides with oil and gas companies in suit over damage to Louisiana coast - SCOTUSblog",
-      "title_vi": "Tòa án nhất trí đứng về phía các công ty dầu khí trong vụ kiện về thiệt hại cho bờ biển Louisiana - SCOTUSblog",
-      "summary": "Court unanimously sides with oil and gas companies in suit over damage to Louisiana coast SCOTUSblog",
-      "summary_vi": "Court unanimously sides with oil and gas companies in suit over damage to Louisiana coast SCOTUSblog",
-      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPTGREaXBLcUhtYUFqaS1jdmlQY2tJRWxRcUU2QmtaRy16Y0E0bm1YeFd3YU5DdVNrNFRkVkRDSTVrMXgxQUdldTZKcGt4V2Nzek5XT1BlZG9ScGUtaGlwTlZDVF9fcTN2TzRlX0NhM1VwMFdITzNFV0t6SzVpWXFfRERDcmhtT04xRGtka2t4bUJQcjU3NmRYSUdod3I2TUluNE1ZblM1M3hfTFVtcjllNmoyODRfeWtWRGprUHRJeXh5a28?oc=5",
-      "published_iso": "2026-04-18T00:01:26+07:00",
-      "published_text": "18/04 00:01"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-dong-nam-dau-gia-tai-san-la-vat-tu-vat-lieu-thu-hoi-sau-pha-do-toan-bo-hang-rao-cong-vien-303-xa-vinh-hung-tinh-tay-ninh-50713.html",
-      "published_iso": "2026-04-20T04:55:01.786229+07:00",
-      "published_text": "20/04 04:55"
+      "published_iso": "2026-04-20T06:57:10.161231+07:00",
+      "published_text": "20/04 06:57"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-dau-gia-viet-nam-dau-gia-may-moc-thiet-bi-y-te-cu-hong-bi-thiet-hai-do-mua-lu-cua-con-bao-so-11-matmo-2025-cua-benh-vien-pham-ngoc-thach-tinh-thai-nguyen-50714.html",
-      "published_iso": "2026-04-20T04:55:01.786163+07:00",
-      "published_text": "20/04 04:55"
+      "published_iso": "2026-04-20T06:57:10.161143+07:00",
+      "published_text": "20/04 06:57"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/thep-viet-y-chua-khoi-thoat-chuoi-thua-lo-keo-dai-nhieu-nam-d143607.html",
-      "published_iso": "2026-04-20T04:54:59.848096+07:00",
-      "published_text": "20/04 04:54"
+      "published_iso": "2026-04-20T06:57:08.852682+07:00",
+      "published_text": "20/04 06:57"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/hormuz-dang-dong--mo-bat-dinh-dam-phan-my--iran-tien-hay-lui-d143602.html",
-      "published_iso": "2026-04-20T04:54:59.848032+07:00",
-      "published_text": "20/04 04:54"
+      "published_iso": "2026-04-20T06:57:08.852619+07:00",
+      "published_text": "20/04 06:57"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/bo-ba-sacombank-acb-eximbank-ngay-ay-va-bay-gio-188260414225055107.chn",
-      "published_iso": "2026-04-20T04:54:59.489110+07:00",
-      "published_text": "20/04 04:54"
+      "published_iso": "2026-04-20T06:57:08.380647+07:00",
+      "published_text": "20/04 06:57"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/buc-tranh-thi-truong-o-to-viet-nam-quy-12026-ong-pham-nhat-vuong-keo-thi-truong-tang-toc-ngoi-vuong-doi-chu-hang-loat-188260416090712268.chn",
-      "published_iso": "2026-04-20T04:54:59.489039+07:00",
-      "published_text": "20/04 04:54"
+      "published_iso": "2026-04-20T06:57:08.380562+07:00",
+      "published_text": "20/04 06:57"
     }
   ],
   "markets": [
@@ -165,34 +165,34 @@
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4879.6,
-      "change": 94.2,
-      "change_pct": 1.97,
+      "price": 4759.1,
+      "change": -98.5,
+      "change_pct": -2.03,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 17/04 11:00"
+      "note": "Dữ liệu gần nhất: 19/04 11:00"
     },
     {
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 81.84,
-      "change": 3.24,
-      "change_pct": 4.12,
+      "price": 78.82,
+      "change": -2.92,
+      "change_pct": -3.57,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 17/04 11:00"
+      "note": "Dữ liệu gần nhất: 19/04 11:00"
     },
     {
       "name": "Copper",
       "symbol": "HG=F",
       "category": "Metals",
-      "price": 6.11,
-      "change": 0.05,
-      "change_pct": 0.79,
+      "price": 6.02,
+      "change": -0.08,
+      "change_pct": -1.35,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 17/04 11:00"
+      "note": "Dữ liệu gần nhất: 19/04 11:00"
     },
     {
       "name": "US 10Y",
@@ -209,31 +209,31 @@
       "name": "DXY",
       "symbol": "DX-Y.NYB",
       "category": "FX",
-      "price": 98.1,
-      "change": -0.12,
-      "change_pct": -0.12,
+      "price": 98.3,
+      "change": 0.2,
+      "change_pct": 0.21,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 17/04 11:00"
+      "note": "Dữ liệu gần nhất: 19/04 11:00"
     },
     {
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1737,
-      "change": -0.0046,
-      "change_pct": -0.39,
+      "price": 1.1743,
+      "change": -0.004,
+      "change_pct": -0.34,
       "decimals": 4,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 19/04 06:00"
+      "note": "Dữ liệu gần nhất: 20/04 06:00"
     },
     {
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 74415.0,
-      "change": -1311.0,
-      "change_pct": -1.73,
+      "price": 73875.0,
+      "change": -1851.0,
+      "change_pct": -2.44,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 19/04 07:00"
