@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Report 21/04/2026 — Hormuz Day 52 | VNI 1,833</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+  body { font-family:'JetBrains Mono',monospace; background:#060a12; color:#e2e8f0; }
+  .tab-btn { transition:all .2s; cursor:pointer; }
+  .tab-btn.active { background:rgba(59,130,246,.15); color:#93c5fd; border:1px solid rgba(59,130,246,.3); }
+  .card { background:rgba(17,24,39,.6); border:1px solid rgba(55,65,81,.4); border-radius:.5rem; }
+  .badge-ok { background:rgba(16,185,129,.15); color:#6ee7b7; border:1px solid rgba(16,185,129,.3); }
+  .badge-warn { background:rgba(234,179,8,.15); color:#fde047; border:1px solid rgba(234,179,8,.3); }
+  .badge-err { background:rgba(220,38,38,.15); color:#fca5a5; border:1px solid rgba(220,38,38,.3); }
+  .badge-info { background:rgba(59,130,246,.15); color:#93c5fd; border:1px solid rgba(59,130,246,.3); }
+  .fade-in { animation:fadeIn .3s ease-in; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+  .stock-row:hover { background:rgba(59,130,246,.06); }
+  input[type=number] { -moz-appearance:textfield; }
+  input::-webkit-outer-spin-button,input::-webkit-inner-spin-button { -webkit-appearance:none; }
+  .alert-flash { animation:flash 1s ease-in-out infinite alternate; }
+  @keyframes flash { from{opacity:.6} to{opacity:1} }
+</style>
+</head>
+<body class="min-h-screen">
+<div class="max-w-5xl mx-auto px-4 pt-4">
+  <div class="flex gap-2 flex-wrap mb-3">
+    <a href="index.html" style="display:inline-block;padding:8px 12px;border-radius:999px;border:1px solid rgba(59,130,246,.35);background:rgba(59,130,246,.08);color:#dbeafe;font-size:12px;font-weight:700;text-decoration:none;">Live Dashboard</a>
+    <a href="playbook-2026-04-01.html" style="display:inline-block;padding:8px 12px;border-radius:999px;border:1px solid rgba(59,130,246,.35);background:rgba(59,130,246,.08);color:#dbeafe;font-size:12px;font-weight:700;text-decoration:none;">1/4 Playbook</a>
+    <a href="playbook-2026-04-02.html" style="display:inline-block;padding:8px 12px;border-radius:999px;border:1px solid rgba(59,130,246,.35);background:rgba(59,130,246,.08);color:#dbeafe;font-size:12px;font-weight:700;text-decoration:none;">2/4 Playbook</a>
+    <a href="playbook-2026-04-03.html" style="display:inline-block;padding:8px 12px;border-radius:999px;border:1px solid rgba(59,130,246,.35);background:rgba(59,130,246,.08);color:#dbeafe;font-size:12px;font-weight:700;text-decoration:none;">3/4 Playbook</a>
+    <a href="playbook-2026-04-09.html" style="display:inline-block;padding:8px 12px;border-radius:999px;border:1px solid rgba(59,130,246,.35);background:rgba(59,130,246,.08);color:#dbeafe;font-size:12px;font-weight:700;text-decoration:none;">9/4 Playbook</a>
+    <a href="vn_crosscheck_update_2026-04-08.html" style="display:inline-block;padding:8px 12px;border-radius:999px;border:1px solid rgba(59,130,246,.35);background:rgba(59,130,246,.08);color:#dbeafe;font-size:12px;font-weight:700;text-decoration:none;">Crosscheck 8/4</a>
+    <a href="report-2026-04-21.html" style="display:inline-block;padding:8px 12px;border-radius:999px;border:1px solid rgba(59,130,246,.5);background:rgba(59,130,246,.2);color:#dbeafe;font-size:12px;font-weight:700;text-decoration:none;">Report 21/4 ★</a>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="bg-black/70 border-b border-gray-800 px-4 py-3 sticky top-0 z-10 backdrop-blur-md">
+  <div class="max-w-5xl mx-auto">
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 mb-2">
+      <div>
+        <h1 class="text-sm sm:text-base font-bold text-white">📊 MARKET INTELLIGENCE REPORT — 21/04/2026</h1>
+        <p class="text-[10px] text-gray-500">Hormuz Crisis Day 52 • SMC + Price Action + Financial Analysis • DCA Playbook</p>
+      </div>
+      <div class="flex gap-1 flex-wrap">
+        <span class="px-2 py-0.5 badge-err rounded text-[10px] font-bold">Hormuz: ĐÓNG</span>
+        <span class="px-2 py-0.5 badge-warn rounded text-[10px] font-bold">Brent: $90</span>
+        <span class="px-2 py-0.5 badge-ok rounded text-[10px] font-bold">VNI: 1,833</span>
+        <span class="px-2 py-0.5 badge-err rounded text-[10px] font-bold">CPI: 4.65%</span>
+      </div>
+    </div>
+    <div class="flex gap-1 overflow-x-auto" id="tabBar">
+      <button class="tab-btn active px-3 py-1.5 text-xs rounded" onclick="switchTab(0)">Tổng quan</button>
+      <button class="tab-btn px-3 py-1.5 text-xs rounded text-gray-500" onclick="switchTab(1)">VNI Kịch bản</button>
+      <button class="tab-btn px-3 py-1.5 text-xs rounded text-gray-500" onclick="switchTab(2)">DCA & Alert</button>
+      <button class="tab-btn px-3 py-1.5 text-xs rounded text-gray-500" onclick="switchTab(3)">HPG</button>
+      <button class="tab-btn px-3 py-1.5 text-xs rounded text-gray-500" onclick="switchTab(4)">SSI</button>
+      <button class="tab-btn px-3 py-1.5 text-xs rounded text-gray-500" onclick="switchTab(5)">EVF</button>
+      <button class="tab-btn px-3 py-1.5 text-xs rounded text-gray-500" onclick="switchTab(6)">PAN</button>
+      <button class="tab-btn px-3 py-1.5 text-xs rounded text-gray-500" onclick="switchTab(7)">QNS</button>
+      <button class="tab-btn px-3 py-1.5 text-xs rounded text-gray-500" onclick="switchTab(8)">VNM</button>
+      <button class="tab-btn px-3 py-1.5 text-xs rounded text-gray-500" onclick="switchTab(9)">FPT</button>
+      <button class="tab-btn px-3 py-1.5 text-xs rounded text-gray-500" onclick="switchTab(10)">PVD</button>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-5xl mx-auto px-4 py-4">
+
+<!-- ==================== TAB 0: OVERVIEW ==================== -->
+<div id="tab0" class="space-y-3 fade-in">
+  <!-- Macro cards -->
+  <div class="grid grid-cols-2 md:grid-cols-5 gap-2">
+    <div class="card p-3"><div class="text-[10px] text-gray-500">VN-Index 21/4</div><div class="text-lg font-bold text-white">1,833.48</div><div class="text-xs text-red-400">-0.20% (gap up rồi bán)</div></div>
+    <div class="card p-3"><div class="text-[10px] text-gray-500">Brent / WTI</div><div class="text-lg font-bold text-red-400">$90 / $84</div><div class="text-xs text-red-300">Sập 9-11% rồi bật lại</div></div>
+    <div class="card p-3"><div class="text-[10px] text-gray-500">Vàng</div><div class="text-lg font-bold text-yellow-400">$4,868</div><div class="text-xs text-yellow-300">Đỉnh lịch sử</div></div>
+    <div class="card p-3"><div class="text-[10px] text-gray-500">USD/VND</div><div class="text-lg font-bold text-orange-400">26,335</div><div class="text-xs text-orange-300">Sát trần band NHNN</div></div>
+    <div class="card p-3"><div class="text-[10px] text-gray-500">CPI VN T3</div><div class="text-lg font-bold text-red-400">4.65%</div><div class="text-xs text-red-300">Vượt trần 4.5%</div></div>
+  </div>
+
+  <!-- Geopolitical -->
+  <div class="card p-4">
+    <h3 class="text-sm font-bold text-white mb-2">🌍 Hormuz & Địa chính trị (21/4/2026)</h3>
+    <div class="space-y-2">
+      <div class="flex gap-2 items-start"><span class="badge-err text-[10px] px-1.5 py-0.5 rounded shrink-0">critical</span><div><span class="text-xs font-bold text-white">Hormuz ĐÓNG: </span><span class="text-xs text-gray-400">0 tàu/ngày (19/4). Iran tái đóng sau khi mở 17/4. Mỹ tịch thu tàu Iran "Touska" 19/4. Phí bảo hiểm war-risk tăng 60x.</span></div></div>
+      <div class="flex gap-2 items-start"><span class="badge-err text-[10px] px-1.5 py-0.5 rounded shrink-0">critical</span><div><span class="text-xs font-bold text-white">Ngừng bắn hết hạn 21/4: </span><span class="text-xs text-gray-400">Iran từ chối vòng 2 Islamabad. Trump đe dọa "thả bom lại" nếu không gia hạn. Biến số binary.</span></div></div>
+      <div class="flex gap-2 items-start"><span class="badge-warn text-[10px] px-1.5 py-0.5 rounded shrink-0">high</span><div><span class="text-xs font-bold text-white">Fed hold 3.50-3.75%: </span><span class="text-xs text-gray-400">CPI Mỹ T3 +3.3% YoY. CME FedWatch: 98% giữ nguyên 29/4. Warsh thay Powell tháng 5.</span></div></div>
+      <div class="flex gap-2 items-start"><span class="badge-warn text-[10px] px-1.5 py-0.5 rounded shrink-0">high</span><div><span class="text-xs font-bold text-white">VGB 10Y: 4.36%: </span><span class="text-xs text-gray-400">Tăng 121bp YoY, cao nhất 3 năm. Áp lực lạm phát năng lượng + nhu cầu vốn đầu tư công.</span></div></div>
+      <div class="flex gap-2 items-start"><span class="badge-ok text-[10px] px-1.5 py-0.5 rounded shrink-0">positive</span><div><span class="text-xs font-bold text-white">FTSE nâng hạng: </span><span class="text-xs text-gray-400">Hiệu lực 21/9/2026. Dòng passive ~$6 tỷ vào 28 mã. VN-Index hưởng lợi cấu trúc 2-3 năm.</span></div></div>
+      <div class="flex gap-2 items-start"><span class="badge-ok text-[10px] px-1.5 py-0.5 rounded shrink-0">positive</span><div><span class="text-xs font-bold text-white">GDP Q1: +7.83%: </span><span class="text-xs text-gray-400">FDI đăng ký +42.9%. Chính trị ổn định (Tô Lâm CTN, Lê Minh Hưng TTg). Đầu tư công kỷ lục.</span></div></div>
+    </div>
+  </div>
+
+  <!-- Ranking table -->
+  <div class="card p-4">
+    <h3 class="text-sm font-bold text-white mb-3">📋 Xếp hạng 8 mã — Ưu tiên DCA</h3>
+    <div class="overflow-x-auto">
+      <table class="w-full text-xs">
+        <thead><tr class="border-b border-gray-700 text-left">
+          <th class="py-2 px-1 text-gray-500">#</th>
+          <th class="py-2 px-1 text-gray-500">Mã</th>
+          <th class="py-2 px-1 text-gray-500">Giá</th>
+          <th class="py-2 px-1 text-gray-500">Δ%</th>
+          <th class="py-2 px-1 text-gray-500">Bias 1W</th>
+          <th class="py-2 px-1 text-gray-500">Bias 1D</th>
+          <th class="py-2 px-1 text-gray-500">RSI</th>
+          <th class="py-2 px-1 text-gray-500">Risk</th>
+          <th class="py-2 px-1 text-gray-500">Lý do</th>
+        </tr></thead>
+        <tbody>
+          <tr class="border-b border-gray-800 stock-row"><td class="py-2 px-1 text-emerald-400 font-bold">1</td><td class="py-2 px-1 font-bold text-blue-400 cursor-pointer" onclick="switchTab(6)">PAN</td><td class="py-2 px-1">32.65</td><td class="py-2 px-1 text-emerald-400">+1.08%</td><td class="py-2 px-1"><span class="badge-ok px-1 rounded text-[10px]">Bullish</span></td><td class="py-2 px-1"><span class="badge-ok px-1 rounded text-[10px]">Bullish</span></td><td class="py-2 px-1">60.7</td><td class="py-2 px-1"><span class="badge-warn px-1 rounded text-[10px]">Med</span></td><td class="py-2 px-1 text-gray-400">Q1 x40, cổ tức 9.2%, trên mọi MA</td></tr>
+          <tr class="border-b border-gray-800 stock-row"><td class="py-2 px-1 text-emerald-400 font-bold">2</td><td class="py-2 px-1 font-bold text-blue-400 cursor-pointer" onclick="switchTab(3)">HPG</td><td class="py-2 px-1">28.55</td><td class="py-2 px-1 text-emerald-400">+0.35%</td><td class="py-2 px-1"><span class="badge-ok px-1 rounded text-[10px]">Bullish</span></td><td class="py-2 px-1"><span class="badge-warn px-1 rounded text-[10px]">Ranging</span></td><td class="py-2 px-1">60.8</td><td class="py-2 px-1"><span class="badge-warn px-1 rounded text-[10px]">High</span></td><td class="py-2 px-1 text-gray-400">Trên MA cluster, đầu tư công, vol đột biến</td></tr>
+          <tr class="border-b border-gray-800 stock-row"><td class="py-2 px-1 text-emerald-400 font-bold">3</td><td class="py-2 px-1 font-bold text-blue-400 cursor-pointer" onclick="switchTab(7)">QNS</td><td class="py-2 px-1">44.60</td><td class="py-2 px-1 text-red-400">-1.33%</td><td class="py-2 px-1"><span class="badge-warn px-1 rounded text-[10px]">Ranging</span></td><td class="py-2 px-1"><span class="badge-err px-1 rounded text-[10px]">Bearish</span></td><td class="py-2 px-1 text-emerald-400">34.8</td><td class="py-2 px-1"><span class="badge-ok px-1 rounded text-[10px]">Low</span></td><td class="py-2 px-1 text-gray-400">RSI oversold, MA200 support, yield 8.4%</td></tr>
+          <tr class="border-b border-gray-800 stock-row"><td class="py-2 px-1 text-yellow-400 font-bold">4</td><td class="py-2 px-1 font-bold text-blue-400 cursor-pointer" onclick="switchTab(8)">VNM</td><td class="py-2 px-1">61.60</td><td class="py-2 px-1 text-emerald-400">+0.16%</td><td class="py-2 px-1"><span class="badge-warn px-1 rounded text-[10px]">Ranging</span></td><td class="py-2 px-1"><span class="badge-warn px-1 rounded text-[10px]">Ranging</span></td><td class="py-2 px-1">47.7</td><td class="py-2 px-1"><span class="badge-ok px-1 rounded text-[10px]">Low</span></td><td class="py-2 px-1 text-gray-400">Defensive, tại MA200, thiếu catalyst</td></tr>
+          <tr class="border-b border-gray-800 stock-row"><td class="py-2 px-1 text-yellow-400 font-bold">5</td><td class="py-2 px-1 font-bold text-blue-400 cursor-pointer" onclick="switchTab(5)">EVF</td><td class="py-2 px-1">13.75</td><td class="py-2 px-1 text-red-400">-0.72%</td><td class="py-2 px-1"><span class="badge-warn px-1 rounded text-[10px]">Ranging</span></td><td class="py-2 px-1"><span class="badge-warn px-1 rounded text-[10px]">Ranging</span></td><td class="py-2 px-1">50.8</td><td class="py-2 px-1"><span class="badge-warn px-1 rounded text-[10px]">Med</span></td><td class="py-2 px-1 text-gray-400">Cổ tức 7.9%, BB bóp, thanh khoản thấp</td></tr>
+          <tr class="border-b border-gray-800 stock-row"><td class="py-2 px-1 text-orange-400 font-bold">6</td><td class="py-2 px-1 font-bold text-blue-400 cursor-pointer" onclick="switchTab(9)">FPT</td><td class="py-2 px-1">75.10</td><td class="py-2 px-1 text-red-400">-2.34%</td><td class="py-2 px-1"><span class="badge-err px-1 rounded text-[10px]">Bearish</span></td><td class="py-2 px-1"><span class="badge-err px-1 rounded text-[10px]">Bearish</span></td><td class="py-2 px-1">43.4</td><td class="py-2 px-1"><span class="badge-warn px-1 rounded text-[10px]">High</span></td><td class="py-2 px-1 text-gray-400">Giá trị dài hạn, cấu trúc bearish nặng</td></tr>
+          <tr class="border-b border-gray-800 stock-row"><td class="py-2 px-1 text-orange-400 font-bold">7</td><td class="py-2 px-1 font-bold text-blue-400 cursor-pointer" onclick="switchTab(4)">SSI</td><td class="py-2 px-1">28.30</td><td class="py-2 px-1 text-red-400">-2.25%</td><td class="py-2 px-1"><span class="badge-err px-1 rounded text-[10px]">Bearish</span></td><td class="py-2 px-1"><span class="badge-err px-1 rounded text-[10px]">Bearish</span></td><td class="py-2 px-1">48.8</td><td class="py-2 px-1"><span class="badge-err px-1 rounded text-[10px]">Crit</span></td><td class="py-2 px-1 text-gray-400">Chờ đáy 26-27, chưa có CHOCH</td></tr>
+          <tr class="border-b border-gray-800 stock-row"><td class="py-2 px-1 text-red-400 font-bold">—</td><td class="py-2 px-1 font-bold text-blue-400 cursor-pointer" onclick="switchTab(10)">PVD</td><td class="py-2 px-1">32.50</td><td class="py-2 px-1 text-red-400">-1.07%</td><td class="py-2 px-1"><span class="badge-err px-1 rounded text-[10px]">Bearish</span></td><td class="py-2 px-1"><span class="badge-err px-1 rounded text-[10px]">Bearish</span></td><td class="py-2 px-1">41.4</td><td class="py-2 px-1"><span class="badge-err px-1 rounded text-[10px]">Crit</span></td><td class="py-2 px-1 text-gray-400">Triple negative ĐHĐCĐ. Tránh.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Strategy -->
+  <div class="card p-4" style="border-color:rgba(59,130,246,.3)">
+    <h4 class="text-xs font-bold text-blue-300 mb-2">🎯 Chiến lược tổng quát tuần 21-25/4</h4>
+    <p class="text-xs text-gray-400">Phòng thủ có chọn lọc. Tỷ trọng cổ phiếu 60-70%, tiền mặt 30-40%. Không margin. Ưu tiên: (1) PAN cổ tức + KQKD, (2) HPG đầu tư công, (3) QNS/VNM defensive. FPT chỉ DCA rất từ từ. SSI chờ đáy. PVD tránh. Stop-loss kỷ luật.</p>
+  </div>
+</div>
+
+<!-- ==================== TAB 1: VNI SCENARIOS ==================== -->
+<div id="tab1" class="hidden space-y-3 fade-in">
+  <div class="card p-4">
+    <h2 class="text-sm font-bold text-white mb-3">📈 VN-Index — Kịch bản tuần 21-25/4/2026</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-4">
+      <div class="card p-3"><div class="text-[10px] text-gray-500">Close 21/4</div><div class="text-lg font-bold">1,833.48</div><div class="text-xs text-red-400">-0.20%</div></div>
+      <div class="card p-3"><div class="text-[10px] text-gray-500">RSI(14)</div><div class="text-lg font-bold text-orange-400">66.37</div><div class="text-xs text-orange-300">Gần overbought</div></div>
+      <div class="card p-3"><div class="text-[10px] text-gray-500">MA50 / MA200</div><div class="text-lg font-bold text-emerald-400">1,749 / 1,690</div><div class="text-xs text-emerald-300">Trên cả hai</div></div>
+      <div class="card p-3"><div class="text-[10px] text-gray-500">Volume</div><div class="text-lg font-bold text-white">751M</div><div class="text-xs text-gray-400">= MA20 (758M)</div></div>
+    </div>
+  </div>
+
+  <div class="card p-4 scenario-a">
+    <h4 class="text-xs font-bold text-emerald-300 mb-1">Kịch bản TÍCH CỰC (25%) — VNI 1,900-1,920</h4>
+    <p class="text-xs text-gray-400 mb-2">Điều kiện: Deal Mỹ-Iran đạt khung, Hormuz mở hoàn toàn, Brent về $75-80, CPI VN hạ nhiệt, dòng vốn quay lại EM.</p>
+    <div class="text-xs text-emerald-400">→ Hành động: Tăng tỷ trọng lên 80-90%. Mua thêm HPG, SSI (hưởng lợi thanh khoản). TP VNI: 1,918 (đỉnh 52T).</div>
+  </div>
+  <div class="card p-4 scenario-b">
+    <h4 class="text-xs font-bold text-yellow-300 mb-1">Kịch bản CƠ SỞ (50%) — VNI 1,770-1,870</h4>
+    <p class="text-xs text-gray-400 mb-2">Điều kiện: Ngừng bắn gia hạn dưới áp lực, Hormuz mở 50-70%, Brent $85-95, Fed giữ nguyên, NHNN không đổi lãi suất.</p>
+    <div class="text-xs text-yellow-400">→ Hành động: Giữ 60-70% cổ phiếu. DCA PAN, HPG tại vùng hỗ trợ. Chốt lời từng phần nếu VNI test 1,858-1,866.</div>
+  </div>
+  <div class="card p-4 scenario-c">
+    <h4 class="text-xs font-bold text-red-300 mb-1">Kịch bản TIÊU CỰC (25%) — VNI 1,700-1,740</h4>
+    <p class="text-xs text-gray-400 mb-2">Điều kiện: Ngừng bắn sụp đổ sau 21/4, Mỹ nối lại không kích, Brent vọt $115+, CPI VN T5 >5%, NHNN can thiệp tỷ giá mạnh.</p>
+    <div class="text-xs text-red-400">→ Hành động: Giảm tỷ trọng xuống 40-50%. Stop-loss kỷ luật. Chỉ giữ PAN/QNS/VNM defensive. Chờ đáy VNI 1,700-1,740 để gom lại.</div>
+  </div>
+
+  <div class="card p-4">
+    <h4 class="text-xs font-bold text-white mb-2">Mốc giá VN-Index cần theo dõi</h4>
+    <div class="grid grid-cols-2 gap-2 text-xs">
+      <div><span class="text-red-400 font-bold">🔴 Hỗ trợ 1:</span> <span class="text-white">1,800</span> <span class="text-gray-500">(tâm lý)</span></div>
+      <div><span class="text-emerald-400 font-bold">🟢 Kháng cự 1:</span> <span class="text-white">1,858</span> <span class="text-gray-500">(BB Upper)</span></div>
+      <div><span class="text-red-400 font-bold">🔴 Hỗ trợ 2:</span> <span class="text-white">1,762</span> <span class="text-gray-500">(MA100)</span></div>
+      <div><span class="text-emerald-400 font-bold">🟢 Kháng cự 2:</span> <span class="text-white">1,866</span> <span class="text-gray-500">(High 21/4)</span></div>
+      <div><span class="text-red-400 font-bold">🔴 Hỗ trợ 3:</span> <span class="text-white">1,749</span> <span class="text-gray-500">(MA50)</span></div>
+      <div><span class="text-emerald-400 font-bold">🟢 Kháng cự 3:</span> <span class="text-white">1,918</span> <span class="text-gray-500">(đỉnh 52T)</span></div>
+      <div><span class="text-red-400 font-bold">🔴 Hỗ trợ 4:</span> <span class="text-white">1,689</span> <span class="text-gray-500">(MA200)</span></div>
+      <div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== TAB 2: DCA & ALERTS ==================== -->
+<div id="tab2" class="hidden space-y-3 fade-in">
+  <div class="card p-4">
+    <h2 class="text-sm font-bold text-white mb-1">💰 Phân bổ vốn DCA & Cảnh báo giá tự động</h2>
+    <p class="text-[10px] text-gray-500 mb-3">Nhập giá hiện tại để xem cảnh báo. Dữ liệu lưu trong trình duyệt (localStorage).</p>
+    <div class="overflow-x-auto">
+      <table class="w-full text-xs" id="dcaTable">
+        <thead><tr class="border-b border-gray-700 text-left">
+          <th class="py-2 px-1 text-gray-500">Mã</th>
+          <th class="py-2 px-1 text-gray-500">Alloc %</th>
+          <th class="py-2 px-1 text-gray-500">DCA 1 (40%)</th>
+          <th class="py-2 px-1 text-gray-500">DCA 2 (30%)</th>
+          <th class="py-2 px-1 text-gray-500">DCA 3 (30%)</th>
+          <th class="py-2 px-1 text-gray-500">Stop-Loss</th>
+          <th class="py-2 px-1 text-gray-500">Giá hiện tại</th>
+          <th class="py-2 px-1 text-gray-500">Trạng thái</th>
+        </tr></thead>
+        <tbody id="dcaBody"></tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card p-4">
+    <h3 class="text-sm font-bold text-white mb-2">🔔 Bảng cảnh báo</h3>
+    <div id="alertBox" class="space-y-1 text-xs"></div>
+  </div>
+  <div class="card p-4">
+    <h3 class="text-sm font-bold text-white mb-2">📊 Tỷ trọng danh mục khuyến nghị</h3>
+    <div id="allocChart" class="flex gap-1 h-8 rounded overflow-hidden mb-2"></div>
+    <div id="allocLegend" class="flex flex-wrap gap-3 text-[10px]"></div>
+  </div>
+</div>
+
+<!-- ==================== TAB 3-10: STOCK DETAILS ==================== -->
+<div id="tab3" class="hidden space-y-3 fade-in"></div>
+<div id="tab4" class="hidden space-y-3 fade-in"></div>
+<div id="tab5" class="hidden space-y-3 fade-in"></div>
+<div id="tab6" class="hidden space-y-3 fade-in"></div>
+<div id="tab7" class="hidden space-y-3 fade-in"></div>
+<div id="tab8" class="hidden space-y-3 fade-in"></div>
+<div id="tab9" class="hidden space-y-3 fade-in"></div>
+<div id="tab10" class="hidden space-y-3 fade-in"></div>
+
+</main>
+
+<footer class="border-t border-gray-800 py-4 px-4 text-center">
+  <p class="text-[10px] text-gray-600">Phân tích bằng AI (Claude) + dữ liệu TradingView, Investing.com, CafeF, Vietstock, CTCK. Không phải khuyến nghị đầu tư.</p>
+  <p class="text-[10px] text-gray-700">Cập nhật: 21/04/2026 16:00 ICT | Chart data đóng cửa phiên 21/4/2026</p>
+</footer>
+
+<script>
+const TOTAL_TABS = 11;
+function switchTab(idx) {
+  for(let i=0;i<TOTAL_TABS;i++){
+    document.getElementById('tab'+i).classList.add('hidden');
+    const btns=document.querySelectorAll('#tabBar button');
+    if(btns[i]){btns[i].classList.remove('active');btns[i].classList.add('text-gray-500');}
+  }
+  document.getElementById('tab'+idx).classList.remove('hidden');
+  const btns=document.querySelectorAll('#tabBar button');
+  if(btns[idx]){btns[idx].classList.add('active');btns[idx].classList.remove('text-gray-500');}
+  if(idx===2) renderDCA();
+}
+
+// ==================== STOCK DATA ====================
+const stocks = [
+  {
+    id:"HPG", tab:3, name:"Hòa Phát", price:28.55, change:0.35, alloc:20,
+    bias1W:"Bullish (trong Kumo)", bias1D:"Bullish/Ranging", risk:"High", rsi:60.80,
+    ma:[{k:"MA50",v:27.30},{k:"MA100",v:27.02},{k:"MA200",v:27.14},{k:"Ich Conv",v:28.55},{k:"Ich Base",v:27.35},{k:"BB Upper",v:29.02},{k:"BB Lower",v:25.88},{k:"Volume",v:"99.6M"},{k:"Vol MA",v:"36.2M"}],
+    support:["27.3-27.5 (MA50/Ichimoku Base)","27.0 (MA100/200 cluster)","25.9 (BB Lower)"],
+    resist:["29.0-29.5 (BB Upper / đỉnh gần)","30.8 (đỉnh 52T)"],
+    flow:"Volume đột biến 99.6M vs MA 36.2M (x2.75) → dòng tiền lớn tham gia. Nhưng giá chỉ +0.35% với bóng trên dài (H 29.45 vs C 28.55) → có thể là distribution.",
+    smc:"1W: Giá 28.55 trong Kumo cloud (A 27.95 / B 27.48), Lagging Span bám sát → cân bằng, chưa breakout rõ.\n1D: Trên toàn bộ MA cluster (27.0-27.3), RSI 60.8 → momentum trung tính-tích cực.\nPatterns 21/4: Bullish Doji Star (15m, 30m) nhưng Three Outside Down (1H) → xung đột tín hiệu ngắn hạn.",
+    scenario:"Nếu giữ trên 28.0 với volume duy trì → tích lũy trước breakout 29.5.\nNếu mất 27.0 → cấu trúc tăng bị phá, về 25.5-26.0.",
+    kqkd:"Q1/2026 ước: LNST 5,100-5,500 tỷ (+52-64% YoY). Sản lượng HRC +82% YoY, thị phần HRC ~63%. Chưa có BCTC chính thức (deadline 30/4).",
+    dca:[{z:"DCA1 (40%)",v:"27.3-28.0"},{z:"DCA2 (30%)",v:"26.5-27.0"},{z:"DCA3 (30%)",v:"25.5-26.0"}],
+    sl:"< 25.0", tp:["29.5","31.5","34.0"], rr:"1:2.2",
+    devil:"Volume đột biến 99.6M nhưng giá chỉ +0.35% → có thể là SM bán cho retail. Nến 1D có bóng trên dài (H 29.45 vs C 28.55) = rejection tại kháng cự. Nếu phiên sau volume giảm mạnh và giá không giữ 28.5 → xác nhận distribution."
+  },
+  {
+    id:"SSI", tab:4, name:"Chứng khoán SSI", price:28.30, change:-2.25, alloc:10,
+    bias1W:"Ranging → Bearish", bias1D:"Bearish", risk:"Critical", rsi:48.79,
+    ma:[{k:"MA50",v:29.29},{k:"MA100",v:29.95},{k:"MA200",v:31.30},{k:"Ich Conv",v:28.68},{k:"Ich Base",v:27.33},{k:"BB Upper",v:29.71},{k:"BB Lower",v:26.07},{k:"Volume",v:"21.6M"},{k:"Vol MA",v:"27.0M"}],
+    support:["27.3 (Ichimoku Base)","26.0-26.5 (BB Lower / đáy T3)","24.5 (đáy cũ)"],
+    resist:["29.3 (MA50)","30.0 (MA100/Leading B)","31.3 (MA200)"],
+    flow:"Phân phối. Giá dưới toàn bộ MA50/100/150/200. Volume dưới trung bình. Engulfing Bearish 1D.",
+    smc:"1D: Giá 28.30 DƯỚI MA50/100/150/200 → cấu trúc bearish rõ ràng. Engulfing Bearish 1D (17/4) + Falling Three Methods 5H → momentum giảm mạnh.\n1W: Thrusting Bearish (22/3) + Three Inside Down (1D 10/4) → cấu trúc tuần yếu.\nConversion Line 28.68 đang bị test → nếu mất, giá hướng Base Line 27.33.",
+    scenario:"Kịch bản chính (60%): Test SSL 26.0-27.0 trước khi hồi.\nKịch bản tích cực (25%): VN-Index giữ 1,800, SSI bật từ 27.3.\nKịch bản xấu (15%): Phá 26.0 → về 24.5.",
+    kqkd:"Q1/2026: LNTT hợp nhất 1,593 tỷ, DT 3,295 tỷ (dẫn đầu ngành). ROE TTM 13.3%. Vốn CSH 38,531 tỷ (+24% YoY). Giá không phản ứng → đã price-in.",
+    dca:[{z:"DCA1 (30%)",v:"27.0-27.5"},{z:"DCA2 (30%)",v:"26.0-26.5"},{z:"DCA3 (25%)",v:"24.5-25.0"}],
+    sl:"< 23.5", tp:["29.5","31.0","33.0"], rr:"1:1.8",
+    devil:"LNTT Q1 đạt 1,593 tỷ nhưng giá -2.25% phiên 21/4 → dòng tiền đã price-in hoặc lo thanh khoản thị trường giảm. Beta cao với VN-Index → nếu Index mất 1,800, SSI có thể -5-7% nhanh. Chỉ mua khi có CHOCH xác nhận trên 1D."
+  },
+  {
+    id:"EVF", tab:5, name:"Tài chính Điện lực", price:13.75, change:-0.72, alloc:10,
+    bias1W:"Ranging", bias1D:"Ranging (slight bearish)", risk:"Medium", rsi:50.77,
+    ma:[{k:"MA50",v:13.41},{k:"MA100",v:12.47},{k:"MA200",v:12.87},{k:"Ich Conv",v:14.10},{k:"Ich Base",v:13.90},{k:"BB Upper",v:14.42},{k:"BB Lower",v:13.28},{k:"Volume",v:"5.02M"},{k:"Vol MA",v:"8.99M"}],
+    support:["13.3-13.5 (BB Lower / đáy gần)","12.9 (MA200)","12.5 (MA100)","11.5 (đáy lịch sử)"],
+    resist:["14.0-14.1 (Ichimoku Conv/Leading A)","14.4 (BB Upper)","15.0 (đỉnh T3/2026)"],
+    flow:"Thanh khoản thấp (56% MA). Tích lũy kéo dài, chưa có catalyst. BB bóp hẹp (1.14) → sắp breakout.",
+    smc:"1D: Giá 13.75 trên MA50 (13.41) và MA200 (12.87) nhưng DƯỚI Ichimoku Conversion (14.10) → vùng trung tính.\nBB bóp hẹp (14.42 - 13.28 = 1.14) → sắp có breakout.\nPatterns: Engulfing Bearish 5H (hiện tại) vs Bullish Doji Star (15m/30m) → mixed.\nVolume 5M vs MA 9M → dòng tiền không quan tâm.",
+    scenario:"Cần volume đột biến (>15M) để xác nhận hướng đi.\nNếu phá 14.2 → target 15.0.\nNếu mất 13.3 → test 12.5-12.9.",
+    kqkd:"Q1/2026 ước: LNTT 331 tỷ (đạt 25% KH). KH 2026: LNTT 1,325 tỷ (+20% YoY). Tổng TS mục tiêu 93,000 tỷ. Cổ tức ~7.9%.",
+    dca:[{z:"DCA1 (40%)",v:"13.3-13.5"},{z:"DCA2 (35%)",v:"12.8-13.0"},{z:"DCA3 (25%)",v:"12.0-12.4"}],
+    sl:"< 11.5", tp:["14.5","15.5","17.0"], rr:"1:1.8",
+    devil:"Thanh khoản quá thấp → spread rộng, khó DCA đúng giá. Cổ tức 7.9% hấp dẫn nhưng nếu VGB 10Y tiếp tục tăng (hiện 4.36%), premium cổ tức thu hẹp. Play kiên nhẫn, không phù hợp nếu cần thanh khoản."
+  },
+  {
+    id:"PAN", tab:6, name:"Tập đoàn PAN", price:32.65, change:1.08, alloc:20,
+    bias1W:"Bullish (trên Kumo)", bias1D:"Bullish/Ranging", risk:"Medium", rsi:60.67,
+    ma:[{k:"MA50",v:31.59},{k:"MA100",v:29.86},{k:"MA200",v:30.71},{k:"Ich Conv",v:31.75},{k:"Ich Base",v:30.50},{k:"BB Upper",v:33.35},{k:"BB Lower",v:29.49},{k:"Volume",v:"1.32M"},{k:"Vol MA",v:"845K"}],
+    support:["31.5-32.0 (Ichimoku Conv/MA50)","30.5 (Base Line)","29.5-30.0 (BB Lower/MA100)"],
+    resist:["33.0-33.4 (BB Upper / đỉnh tuần)","35.0-36.0 (đỉnh T10/2025)"],
+    flow:"Volume 1.32M vs MA 845K (+56%) → dòng tiền tích cực. Giá trên toàn bộ MA cluster.",
+    smc:"1W: Giá 32.65 TRÊN Kumo cloud (Leading A 30.96 / B 28.15), trên toàn bộ MA tuần → cấu trúc bullish rõ. RSI tuần 58.29.\n1D: Trên toàn bộ MA cluster (29.86-31.59). Ichimoku Leading Span B 31.58 tạo hỗ trợ cứng.\nPatterns: Doji Star Bearish (30m/15m hiện tại) vs Bullish Engulfing (15m) → conflict ngắn hạn, bias trung hạn vẫn tăng.\nKQKD Q1 gấp 40x cùng kỳ là catalyst cực mạnh.",
+    scenario:"Kịch bản chính (55%): Consolidate 31.5-33.5 rồi breakout lên 35.0.\nKịch bản tích cực (25%): ĐHĐCĐ 21/4 positive → test 35.0.\nKịch bản điều chỉnh (20%): Chốt lời KQKD → về 30.5-31.5.",
+    kqkd:"Q1/2026: LNST 1,094 tỷ (x40 cùng kỳ), đạt 87.5% KH năm. DT tài chính 1,235 tỷ (bán Bibica). Tiền mặt 2,056 tỷ. Cổ tức 30% TM (3,000đ/cp = ~9.2% yield).\n⚠ Lưu ý: LNST Q1 chủ yếu từ bán Bibica → lợi nhuận một lần, không lặp lại Q2-Q4.",
+    dca:[{z:"DCA1 (35%)",v:"31.5-32.0"},{z:"DCA2 (35%)",v:"30.5-31.0"},{z:"DCA3 (30%)",v:"29.0-29.5"}],
+    sl:"< 28.0", tp:["35.0","38.0","40.0"], rr:"1:2.2",
+    devil:"LNST Q1 gấp 40x chủ yếu từ bán Bibica (1,235 tỷ DT tài chính) → lợi nhuận một lần. Sau Q1 không còn hợp nhất Bibica → Q2-Q4 sẽ yếu hơn đáng kể. ĐHĐCĐ 21/4 bổ sung ngành BĐS → chưa rõ hiệu quả."
+  },
+  {
+    id:"QNS", tab:7, name:"Đường Quảng Ngãi", price:44.60, change:-1.33, alloc:10,
+    bias1W:"Ranging", bias1D:"Bearish (RSI oversold)", risk:"Low", rsi:34.84,
+    ma:[{k:"MA50",v:46.12},{k:"MA100",v:44.67},{k:"MA200",v:44.35},{k:"Ich Conv",v:46.00},{k:"Ich Base",v:46.00},{k:"BB Upper",v:46.23},{k:"BB Lower",v:44.90},{k:"Volume",v:"156.6K"},{k:"Vol MA",v:"95.4K"}],
+    support:["44.2-44.4 (MA200/150 cluster)","43.5 (đáy T3/2026)","42.0 (đáy 2025)"],
+    resist:["46.0-46.1 (Ichimoku Conv+Base / MA50)","46.2 (BB Upper)","48.0 (đỉnh T2/2026)"],
+    flow:"Volume tăng khi giảm → áp lực bán thực. RSI 34.84 = OVERSOLD → phản hồi kỹ thuật có xác suất cao.",
+    smc:"1D: Giá 44.60 ngay tại MA100 (44.67) và MA200 (44.35) → vùng hỗ trợ cluster quan trọng.\nRSI 34.84 = OVERSOLD.\nIchimoku Conv = Base = 46.00 (flat) → thiếu xu hướng.\nBB bóp cực hẹp (46.23 - 44.90 = 1.33) → breakout sắp xảy ra.",
+    scenario:"Kịch bản chính (50%): Bounce kỹ thuật từ oversold về 46.0.\nKịch bản tích cực (20%): Phá 46.0 → test 48.0.\nKịch bản xấu (30%): Mất MA200 (44.35) → về 42.0-43.0.",
+    kqkd:"Dự phóng 2026: LNST 1,939 tỷ (+0.8% YoY) — gần flat. P/E TTM ~9.1x. Cổ tức yield ~8.4%. EPS TTM ~5,231.",
+    dca:[{z:"DCA1 (40%)",v:"44.0-44.5"},{z:"DCA2 (35%)",v:"43.0-43.5"},{z:"DCA3 (25%)",v:"41.5-42.0"}],
+    sl:"< 40.5", tp:["46.5","48.5","50.0"], rr:"1:1.6",
+    devil:"VDSC hạ dự phóng LNST 2026 xuống gần flat YoY. Giá đường thế giới xu hướng giảm. P/E 9.1x rẻ nhưng nếu tăng trưởng 0% thì không có catalyst re-rating. Cổ tức 8.4% là lý do chính để hold."
+  },
+  {
+    id:"VNM", tab:8, name:"Vinamilk", price:61.60, change:0.16, alloc:10,
+    bias1W:"Ranging (dưới Kumo tuần)", bias1D:"Ranging → Slight Bearish", risk:"Low", rsi:47.65,
+    ma:[{k:"MA50",v:63.85},{k:"MA100",v:64.33},{k:"MA200",v:61.41},{k:"Ich Conv",v:62.55},{k:"Ich Base",v:61.60},{k:"BB Upper",v:62.90},{k:"BB Lower",v:59.95},{k:"Volume",v:"5.31M"},{k:"Vol MA",v:"3.71M"}],
+    support:["61.4 (MA200 / Ichimoku Base)","60.0 (BB Lower)","58.0 (đáy T1/2026)"],
+    resist:["62.5-63.0 (Ichimoku Conv / BB Upper)","63.9-64.3 (MA50/100)","65.9 (Leading Span B tuần)"],
+    flow:"Volume trên MA (+43%) nhưng giá chỉ +0.16% → absorbing selling pressure.",
+    smc:"1D: Giá 61.60 đúng tại MA200 (61.41) và Ichimoku Base Line (61.60) → vùng support cực kỳ quan trọng. Nếu giữ → bullish setup. Nếu mất → bearish.\nGiá DƯỚI MA50 (63.85) và MA100 (64.33) → cấu trúc yếu trung hạn.\nLeading Span B tuần 65.85 = ceiling Kumo nặng.\nRSI 47.65 = trung tính, thiếu momentum.",
+    scenario:"Kịch bản chính (50%): Sideway 60-63, tích lũy tại MA200.\nKịch bản tích cực (25%): Vượt 63.0 → test 65-66.\nKịch bản xấu (25%): Mất 60.0 → về 58.0.",
+    kqkd:"Dự phóng 2026: DT 65,500 tỷ (+3%), LNST ~10,000 tỷ (+6-10%). ROI TTM 26.6%. P/E ~16-17x.",
+    dca:[{z:"DCA1 (35%)",v:"61.0-61.5"},{z:"DCA2 (35%)",v:"59.5-60.0"},{z:"DCA3 (30%)",v:"57.5-58.0"}],
+    sl:"< 56.5", tp:["64.0","66.0","70.0"], rr:"1:1.8",
+    devil:"VNM dưới cả MA50 và MA100 → bias trung hạn bearish. Tăng trưởng LNST chỉ 6-10% → thiếu catalyst. Giá rely hoàn toàn vào MA200 support. Nếu mất, test đáy 55-56."
+  },
+  {
+    id:"FPT", tab:9, name:"FPT Corporation", price:75.10, change:-2.34, alloc:10,
+    bias1W:"Bearish (dưới Kumo tuần)", bias1D:"Bearish", risk:"High", rsi:43.37,
+    ma:[{k:"MA50",v:82.30},{k:"MA100",v:90.19},{k:"MA200",v:95.36},{k:"Ich Conv",v:76.60},{k:"Ich Base",v:76.45},{k:"BB Upper",v:78.64},{k:"BB Lower",v:72.60},{k:"Volume",v:"7.12M"},{k:"Vol MA",v:"8.02M"}],
+    support:["75.1 (BB Median)","72.6 (BB Lower)","70.0 (tâm lý)","65.0 (đáy 2024)"],
+    resist:["76.5-76.6 (Ichimoku Conv/Base)","78.6 (BB Upper)","82.3 (MA50)","88.5 (Leading Span B)"],
+    flow:"Phân phối kéo dài. Giá xa MA200 (-21%). RSI 43 chưa oversold → còn room giảm.",
+    smc:"1D: Giá 75.10 DƯỚI toàn bộ MA (50/100/150/200), dưới Ichimoku cloud → cấu trúc BEARISH mạnh nhất trong 8 mã.\nKhoảng cách vs MA200: -21.2% → severely oversold so với trend dài hạn.\nRSI 43 chưa vào vùng oversold (<30) → còn room giảm.\n1W: Giá dưới Kumo tuần (Leading B 88.50 = ceiling cực nặng).\nNến 21/4 giảm -2.34% → selling pressure chưa dừng.",
+    scenario:"Kịch bản chính (45%): Tiếp tục giảm test 72-73 (BB Lower) trước khi bounce.\nKịch bản hồi kỹ thuật (30%): Bounce từ 75 về 78-80 rồi giảm tiếp.\nKịch bản xấu (25%): Break 72 → 65-68.",
+    kqkd:"Dự phóng 2026: EPS tăng ~14%/năm. ROE 5 năm 26-29%. Mục tiêu CTCK: 113-127K (+50-70%). Chart đang đi ngược fundamental → market đang discount rủi ro nào đó.",
+    dca:[{z:"DCA1 (25%)",v:"73-75"},{z:"DCA2 (30%)",v:"70-72"},{z:"DCA3 (25%)",v:"66-68"},{z:"DCA4 (20%)",v:"63-65"}],
+    sl:"< 60", tp:["82","90","95"], rr:"1:1.8",
+    devil:"FPT giảm từ 130+ xuống 75 (-42%) → bẫy giá trị nếu tăng trưởng chậm lại. P/E 14x rẻ lịch sử nhưng mảng viễn thông/phân phối kéo blended margin xuống. Cần kiên nhẫn 6-12 tháng, KHÔNG bắt đáy aggressive."
+  },
+  {
+    id:"PVD", tab:10, name:"PV Drilling", price:32.50, change:-1.07, alloc:0,
+    bias1W:"Bearish → Ranging", bias1D:"Bearish", risk:"Critical", rsi:41.35,
+    ma:[{k:"MA50",v:35.83},{k:"MA100",v:31.83},{k:"MA200",v:26.78},{k:"Ich Conv",v:33.17},{k:"Ich Base",v:34.70},{k:"BB Upper",v:36.00},{k:"BB Lower",v:31.46},{k:"Volume",v:"2.84M"},{k:"Vol MA",v:"3.85M"}],
+    support:["31.5 (BB Lower)","31.8 (MA100)","28.7 (MA150)","26.8 (MA200)"],
+    resist:["33.2-33.7 (Ichimoku Conv / BB Median)","34.7 (Ichimoku Base)","35.8 (MA50)","36.0 (BB Upper)"],
+    flow:"Phân phối sau ĐHĐCĐ. LNST KH giảm 24%, không cổ tức, pha loãng 66.9%.",
+    smc:"1D: Giá 32.50 dưới MA50 (35.83), dưới Ichimoku Conv (33.17) và Base (34.70), nửa dưới BB → bias bearish.\nKumo cloud phía trước dày (Leading A 33.94 / B 37.95) = ceiling cực nặng.\nRSI 41 → yếu nhưng chưa oversold.\nĐHĐCĐ 21/4: LNST KH giảm 24%, không cổ tức, phát hành 372M cp thưởng (pha loãng 66.9%) → triple negative.",
+    scenario:"Kịch bản chính (50%): Test 31.5 (BB Lower/MA100).\nKịch bản tích cực (20%): Giá dầu vọt → hồi kỹ thuật 34-35.\nKịch bản xấu (30%): Phá 31.5 → về 28-29.",
+    kqkd:"KH 2026: DT 11,185 tỷ (-3.2%), LNST 800 tỷ (-24% YoY). Không chia cổ tức. Phát hành thưởng 372M cp (pha loãng 66.9%).",
+    dca:[],
+    sl:"N/A — Không mua", tp:["Bán tại 33.5-34.5 nếu hồi"], rr:"N/A",
+    devil:"Paradox: Hormuz đóng → dầu tăng → lẽ ra PVD hưởng lợi. Thực tế: hợp đồng khoan đã ký giá cũ, LNST KH giảm 24%, pha loãng 66.9%. Giá dầu cao mà fundamental yếu = tín hiệu giá cổ phiếu sẽ không theo dầu. TRÁNH."
+  }
+];
+
+// ==================== RENDER STOCK TABS ====================
+function badgeClass(type){
+  if(type==='ok') return 'badge-ok';
+  if(type==='warn') return 'badge-warn';
+  if(type==='err') return 'badge-err';
+  return 'badge-info';
+}
+function riskBadge(r){
+  if(r==='Critical') return '<span class="badge-err px-1.5 py-0.5 rounded text-[10px] font-bold">'+r+'</span>';
+  if(r==='High') return '<span class="badge-warn px-1.5 py-0.5 rounded text-[10px] font-bold">'+r+'</span>';
+  if(r==='Medium') return '<span class="badge-warn px-1.5 py-0.5 rounded text-[10px] font-bold">'+r+'</span>';
+  return '<span class="badge-ok px-1.5 py-0.5 rounded text-[10px] font-bold">'+r+'</span>';
+}
+function biasBadge(b){
+  if(b.includes('Bullish')) return '<span class="badge-ok px-1.5 py-0.5 rounded text-[10px] font-bold">'+b+'</span>';
+  if(b.includes('Bearish')) return '<span class="badge-err px-1.5 py-0.5 rounded text-[10px] font-bold">'+b+'</span>';
+  return '<span class="badge-warn px-1.5 py-0.5 rounded text-[10px] font-bold">'+b+'</span>';
+}
+
+stocks.forEach(s => {
+  const el = document.getElementById('tab'+s.tab);
+  const chg = s.change > 0 ? 'text-emerald-400' : s.change < 0 ? 'text-red-400' : 'text-gray-400';
+  const chgSign = s.change > 0 ? '+' : '';
+  let maHTML = s.ma.map(m => `<div class="card p-2"><div class="text-[10px] text-gray-500">${m.k}</div><div class="text-sm font-bold">${m.v}</div></div>`).join('');
+  let supHTML = s.support.map(v => `<div class="text-xs text-emerald-400 py-0.5">▸ ${v}</div>`).join('');
+  let resHTML = s.resist.map(v => `<div class="text-xs text-red-400 py-0.5">▸ ${v}</div>`).join('');
+  let dcaHTML = s.dca.length ? s.dca.map(d => `<tr class="border-b border-gray-800"><td class="py-1 px-2 text-emerald-400">${d.z}</td><td class="py-1 px-2">${d.v}</td></tr>`).join('') : '<tr><td colspan="2" class="py-1 px-2 text-red-400">Không khuyến nghị mua</td></tr>';
+  let tpHTML = s.tp.map((t,i) => `TP${i+1}: ${t}`).join(' | ');
+
+  el.innerHTML = `
+    <div class="card p-4">
+      <div class="flex justify-between items-center flex-wrap gap-2 mb-3">
+        <div><span class="text-xl font-bold">${s.id}</span> <span class="text-sm text-gray-500">${s.name}</span></div>
+        <div class="text-right"><span class="text-xl font-bold ${chg}">${s.price}</span> <span class="text-sm ${chg}">(${chgSign}${s.change}%)</span></div>
+      </div>
+      <div class="flex flex-wrap gap-2 mb-3">${riskBadge(s.risk)} ${biasBadge(s.bias1W)} ${biasBadge(s.bias1D)} <span class="badge-info px-1.5 py-0.5 rounded text-[10px] font-bold">RSI ${s.rsi}</span> <span class="badge-info px-1.5 py-0.5 rounded text-[10px] font-bold">Alloc ${s.alloc}%</span></div>
+      <div class="grid grid-cols-3 md:grid-cols-5 gap-2 mb-4">${maHTML}</div>
+    </div>
+    <div class="card p-4"><h4 class="text-xs font-bold text-blue-400 mb-2 uppercase tracking-wider">Dòng tiền & Volume</h4><p class="text-xs text-gray-300">${s.flow}</p></div>
+    <div class="card p-4"><h4 class="text-xs font-bold text-blue-400 mb-2 uppercase tracking-wider">SMC & Cấu trúc giá</h4><p class="text-xs text-gray-300 whitespace-pre-line">${s.smc}</p></div>
+    <div class="grid grid-cols-2 gap-3">
+      <div class="card p-4"><h4 class="text-xs font-bold text-emerald-400 mb-2">Hỗ trợ (Demand)</h4>${supHTML}</div>
+      <div class="card p-4"><h4 class="text-xs font-bold text-red-400 mb-2">Kháng cự (Supply)</h4>${resHTML}</div>
+    </div>
+    <div class="card p-4"><h4 class="text-xs font-bold text-blue-400 mb-2 uppercase tracking-wider">KQKD & Định giá</h4><p class="text-xs text-gray-300 whitespace-pre-line">${s.kqkd}</p></div>
+    <div class="card p-4"><h4 class="text-xs font-bold text-blue-400 mb-2 uppercase tracking-wider">Kịch bản</h4><p class="text-xs text-gray-300 whitespace-pre-line">${s.scenario}</p></div>
+    <div class="card p-4">
+      <h4 class="text-xs font-bold text-blue-400 mb-2 uppercase tracking-wider">Kế hoạch DCA</h4>
+      <table class="w-full text-xs mb-2"><tbody>${dcaHTML}</tbody></table>
+      <div class="text-xs text-gray-400"><span class="text-red-400 font-bold">SL:</span> ${s.sl} | <span class="text-emerald-400 font-bold">${tpHTML}</span> | <span class="text-blue-400 font-bold">R:R:</span> ${s.rr}</div>
+    </div>
+    <div class="card p-4" style="border-color:rgba(220,38,38,.3)"><h4 class="text-xs font-bold text-red-300 mb-2">⚠ Phản biện (Devil's Advocate)</h4><p class="text-xs text-gray-300">${s.devil}</p></div>
+  `;
+});
+
+// ==================== DCA TABLE & ALERTS ====================
+const portfolio = [
+  {sym:"PAN", alloc:20, dca1:31.5, dca2:30.5, dca3:29.0, sl:28.0, price:32.65},
+  {sym:"HPG", alloc:20, dca1:27.3, dca2:26.5, dca3:25.5, sl:25.0, price:28.55},
+  {sym:"QNS", alloc:10, dca1:44.0, dca2:43.0, dca3:41.5, sl:40.5, price:44.60},
+  {sym:"VNM", alloc:10, dca1:61.0, dca2:59.5, dca3:57.5, sl:56.5, price:61.60},
+  {sym:"EVF", alloc:10, dca1:13.3, dca2:12.8, dca3:12.0, sl:11.5, price:13.75},
+  {sym:"FPT", alloc:10, dca1:73, dca2:70, dca3:66, sl:60, price:75.10},
+  {sym:"SSI", alloc:10, dca1:27.0, dca2:26.0, dca3:24.5, sl:23.5, price:28.30},
+  {sym:"PVD", alloc:0, dca1:0, dca2:0, dca3:0, sl:0, price:32.50},
+  {sym:"CASH", alloc:10, dca1:0, dca2:0, dca3:0, sl:0, price:0},
+];
+
+// Load saved prices
+const saved = localStorage.getItem('rpt_prices_20260421');
+if(saved){
+  try{const p=JSON.parse(saved);p.forEach(sp=>{const f=portfolio.find(x=>x.sym===sp.sym);if(f)f.price=sp.price;});}catch(e){}
+}
+
+function savePrices(){
+  localStorage.setItem('rpt_prices_20260421', JSON.stringify(portfolio.map(p=>({sym:p.sym,price:p.price}))));
+}
+
+function renderDCA(){
+  const body = document.getElementById('dcaBody');
+  const alertBox = document.getElementById('alertBox');
+  body.innerHTML = '';
+  alertBox.innerHTML = '';
+  const colors = ['#22c55e','#3b82f6','#eab308','#f97316','#8b5cf6','#06b6d4','#ec4899','#ef4444','#64748b'];
+  
+  portfolio.forEach((p,i) => {
+    if(p.sym==='CASH'){
+      body.innerHTML += `<tr class="border-b border-gray-800"><td class="py-2 px-1 font-bold text-gray-500">CASH</td><td class="py-2 px-1 text-gray-500">${p.alloc}%</td><td colspan="5" class="py-2 px-1 text-gray-500">Tiền mặt dự phòng</td><td class="py-2 px-1"><span class="badge-ok px-1 rounded text-[10px]">SAFE</span></td></tr>`;
+      return;
+    }
+    let status = '';
+    let statusClass = '';
+    if(p.alloc === 0){
+      status = '🚫 TRÁNH';
+      statusClass = 'badge-err';
+    } else if(p.price <= p.sl && p.sl > 0){
+      status = '🔴 DƯỚI SL';
+      statusClass = 'badge-err';
+      alertBox.innerHTML += `<div class="text-red-400 alert-flash">🔴 ${p.sym}: Giá ${p.price} ĐÃ DƯỚI Stop-Loss ${p.sl} → CẮT LỖ</div>`;
+    } else if(p.price <= p.dca3 && p.dca3 > 0){
+      status = '🟢 DCA3 ZONE';
+      statusClass = 'badge-ok';
+      alertBox.innerHTML += `<div class="text-emerald-400">🟢 ${p.sym}: Giá ${p.price} trong vùng DCA3 (${p.dca3}) → Mua 30% vốn còn lại</div>`;
+    } else if(p.price <= p.dca2 && p.dca2 > 0){
+      status = '🟡 DCA2 ZONE';
+      statusClass = 'badge-warn';
+      alertBox.innerHTML += `<div class="text-yellow-400">🟡 ${p.sym}: Giá ${p.price} trong vùng DCA2 (${p.dca2}) → Mua thêm 30%</div>`;
+    } else if(p.price <= p.dca1 && p.dca1 > 0){
+      status = '🔵 DCA1 ZONE';
+      statusClass = 'badge-info';
+      alertBox.innerHTML += `<div class="text-blue-400">🔵 ${p.sym}: Giá ${p.price} trong vùng DCA1 (${p.dca1}) → Mở vị thế 40%</div>`;
+    } else {
+      status = '⏳ CHỜ';
+      statusClass = 'badge-info';
+    }
+
+    body.innerHTML += `<tr class="border-b border-gray-800 stock-row">
+      <td class="py-2 px-1 font-bold text-blue-400 cursor-pointer" onclick="switchTab(${stocks.find(s=>s.id===p.sym)?.tab||0})">${p.sym}</td>
+      <td class="py-2 px-1">${p.alloc}%</td>
+      <td class="py-2 px-1 text-emerald-400">${p.dca1||'—'}</td>
+      <td class="py-2 px-1 text-yellow-400">${p.dca2||'—'}</td>
+      <td class="py-2 px-1 text-orange-400">${p.dca3||'—'}</td>
+      <td class="py-2 px-1 text-red-400">${p.sl||'—'}</td>
+      <td class="py-2 px-1"><input type="number" step="0.01" value="${p.price}" onchange="updPrice('${p.sym}',this.value)" class="bg-black/50 border border-gray-700 rounded w-20 px-1 py-0.5 text-white text-xs focus:border-blue-500 outline-none"></td>
+      <td class="py-2 px-1"><span class="${statusClass} px-1.5 py-0.5 rounded text-[10px] font-bold">${status}</span></td>
+    </tr>`;
+  });
+
+  if(!alertBox.innerHTML) alertBox.innerHTML = '<div class="text-gray-500">Tất cả các mã đang trên vùng DCA. Chờ điều chỉnh để giải ngân.</div>';
+
+  // Allocation chart
+  const chart = document.getElementById('allocChart');
+  const legend = document.getElementById('allocLegend');
+  chart.innerHTML = '';
+  legend.innerHTML = '';
+  portfolio.filter(p=>p.alloc>0).forEach((p,i) => {
+    chart.innerHTML += `<div style="width:${p.alloc}%;background:${colors[i]}" class="flex items-center justify-center text-[9px] font-bold text-black">${p.sym}</div>`;
+    legend.innerHTML += `<div class="flex items-center gap-1"><div style="width:10px;height:10px;border-radius:2px;background:${colors[i]}"></div><span class="text-gray-400">${p.sym} ${p.alloc}%</span></div>`;
+  });
+}
+
+function updPrice(sym, val){
+  const p = portfolio.find(x=>x.sym===sym);
+  if(p) p.price = parseFloat(val)||0;
+  savePrices();
+  renderDCA();
+}
+
+// Init
+renderDCA();
+</script>
+</body>
+</html>
