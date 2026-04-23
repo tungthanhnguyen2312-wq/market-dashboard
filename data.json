@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-04-24T05:56:13.781399+07:00",
-  "updated_at_display": "24/04/2026 • 05:56 GMT+7",
+  "updated_at": "2026-04-24T06:54:45.119335+07:00",
+  "updated_at_display": "24/04/2026 • 06:54 GMT+7",
   "war_news": [
     {
       "source": "Al Jazeera",
@@ -24,6 +24,16 @@
     }
   ],
   "global_news": [
+    {
+      "source": "Investing News",
+      "title": "Japan CPI picks up in March; Core inflation remains below BOJ target",
+      "title_vi": "CPI Nhật Bản tăng trong tháng 3; Lạm phát cơ bản vẫn thấp hơn mục tiêu của BOJ",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/economic-indicators/japan-cpi-picks-up-in-march-core-inflation-remains-below-boj-target-4634482",
+      "published_iso": "2026-04-24T06:47:05+07:00",
+      "published_text": "24/04 06:47"
+    },
     {
       "source": "Google News Macro",
       "title": "Current price of oil as of April 23, 2026 - Fortune",
@@ -53,16 +63,6 @@
       "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPRHJJSXI2emE1M1lJb25Rcjhvc2ZUblVuYlNHSDFXWWNEWUl3MnZiVUcySFN2d2ZkcTRkeEI1MHhsR20tQzBBSmc3MmZVOGMtRGdUMDVIUjhMeGo5c3NjeEFPVDl4Y1pKRDV5VnpEdkVTcHUxZm80dXN1dkRYMlBHbVZMWWw0dnhCeHVmWjlybw?oc=5",
       "published_iso": "2026-04-23T11:00:00+07:00",
       "published_text": "23/04 11:00"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "A Fed Under Warsh: What the Confirmation Hearing Tells Us - Council on Foreign Relations",
-      "title_vi": "Một Fed dưới thời Warsh: Phiên điều trần xác nhận cho chúng ta biết điều gì - Hội đồng Quan hệ Đối ngoại",
-      "summary": "A Fed Under Warsh: What the Confirmation Hearing Tells Us Council on Foreign Relations",
-      "summary_vi": "A Fed Under Warsh: What the Confirmation Hearing Tells Us Council on Foreign Relations",
-      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPeEZPVndTLTE0YzdrSGNSNURJNFd2Z0o3dEtaVTBpYmZwWHN4aG82UFQxQ2M3a1dJbXR6NHpSbUp0anVvVF9Wb09lTHBNV2NuQkhZMHhDdkZITGdZWktlN0xYTTU3VE9oQ3N5QW5CRjlMMC1XUkd3b0t2SEJxa0FiSHRsNHl5QWx2UnphNEx6dFVWb3dyUXA1SmsydGxGT0l2SGZoeFU1MA?oc=5",
-      "published_iso": "2026-04-23T02:25:06+07:00",
-      "published_text": "23/04 02:25"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/trung-tam-dich-vu-dau-gia-tai-san-tinh-phu-tho-dau-gia-15-o-dat-dich-vu-tren-dia-ban-phuong-vinh-yen-tinh-phu-tho-50779.html",
-      "published_iso": "2026-04-24T05:57:10.567160+07:00",
-      "published_text": "24/04 05:57"
+      "published_iso": "2026-04-24T06:55:42.148547+07:00",
+      "published_text": "24/04 06:55"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-khai-hung-dau-gia-thanh-ly-01-xe-o-to-con-nhan-hieu-toyota-bien-so-70a-00561-tai-san-cua-van-phong-hdnd-va-ubnd-xa-ben-cau-50778.html",
-      "published_iso": "2026-04-24T05:57:10.567103+07:00",
-      "published_text": "24/04 05:57"
+      "published_iso": "2026-04-24T06:55:42.148483+07:00",
+      "published_text": "24/04 06:55"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/hanh-trinh-khoi-nghiep-cua-ty-phu-dung-sau-de-che-mat-than-cua-trung-quoc-d143839.html",
-      "published_iso": "2026-04-24T05:57:08.940943+07:00",
-      "published_text": "24/04 05:57"
+      "published_iso": "2026-04-24T06:55:38.822035+07:00",
+      "published_text": "24/04 06:55"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/ha-noi-se-duoc-thanh-lap-don-vi-hanh-chinh--kinh-te-dac-biet-d143865.html",
-      "published_iso": "2026-04-24T05:57:08.940881+07:00",
-      "published_text": "24/04 05:57"
+      "published_iso": "2026-04-24T06:55:38.821973+07:00",
+      "published_text": "24/04 06:55"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/26-nam-sau-cot-moc-lich-su-thay-gi-ve-viec-viet-nam-dong-y-mo-cua-cho-doanh-nghiep-my-vao-canh-tranh-truc-tiep-voi-viettel-vnpt-188260420111726933.chn",
-      "published_iso": "2026-04-24T05:57:08.449641+07:00",
-      "published_text": "24/04 05:57"
+      "published_iso": "2026-04-24T06:55:38.353264+07:00",
+      "published_text": "24/04 06:55"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/mot-ky-luc-vua-xac-lap-tai-dhdcd-ngan-hang-top-5-tmcp-tu-nhan-viet-nam-188260423101438463.chn",
-      "published_iso": "2026-04-24T05:57:08.449580+07:00",
-      "published_text": "24/04 05:57"
+      "published_iso": "2026-04-24T06:55:38.353195+07:00",
+      "published_text": "24/04 06:55"
     }
   ],
   "markets": [
@@ -132,9 +132,9 @@
       "name": "WTI",
       "symbol": "CL=F",
       "category": "Energy",
-      "price": 97.08,
-      "change": 4.12,
-      "change_pct": 4.43,
+      "price": 96.92,
+      "change": 3.96,
+      "change_pct": 4.26,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 23/04 11:00"
@@ -143,9 +143,9 @@
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 106.44,
-      "change": 4.53,
-      "change_pct": 4.45,
+      "price": 106.29,
+      "change": 4.38,
+      "change_pct": 4.3,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 23/04 11:00"
@@ -154,9 +154,9 @@
       "name": "Natural Gas",
       "symbol": "NG=F",
       "category": "Energy",
-      "price": 2.74,
-      "change": 0.02,
-      "change_pct": 0.55,
+      "price": 2.73,
+      "change": 0.01,
+      "change_pct": 0.33,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 23/04 11:00"
@@ -165,9 +165,9 @@
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4709.5,
-      "change": -23.0,
-      "change_pct": -0.49,
+      "price": 4712.0,
+      "change": -20.5,
+      "change_pct": -0.43,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 23/04 11:00"
@@ -176,9 +176,9 @@
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 75.5,
-      "change": -2.4,
-      "change_pct": -3.08,
+      "price": 75.62,
+      "change": -2.27,
+      "change_pct": -2.92,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 23/04 11:00"
@@ -187,9 +187,9 @@
       "name": "Copper",
       "symbol": "HG=F",
       "category": "Metals",
-      "price": 6.03,
-      "change": -0.09,
-      "change_pct": -1.42,
+      "price": 6.04,
+      "change": -0.08,
+      "change_pct": -1.35,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 23/04 11:00"
@@ -209,9 +209,9 @@
       "name": "DXY",
       "symbol": "DX-Y.NYB",
       "category": "FX",
-      "price": 98.8,
-      "change": 0.21,
-      "change_pct": 0.21,
+      "price": 98.83,
+      "change": 0.24,
+      "change_pct": 0.24,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 23/04 11:00"
@@ -220,20 +220,20 @@
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1689,
-      "change": -0.0055,
-      "change_pct": -0.47,
+      "price": 1.1688,
+      "change": -0.0018,
+      "change_pct": -0.16,
       "decimals": 4,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 23/04 06:00"
+      "note": "Dữ liệu gần nhất: 24/04 06:00"
     },
     {
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 78234.0,
-      "change": 30.0,
-      "change_pct": 0.04,
+      "price": 78282.0,
+      "change": 79.0,
+      "change_pct": 0.1,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 23/04 07:00"
@@ -297,9 +297,9 @@
       "name": "FTSE 100",
       "symbol": "^FTSE",
       "category": "Europe",
-      "price": 10457.01,
-      "change": -19.49,
-      "change_pct": -0.19,
+      "price": NaN,
+      "change": NaN,
+      "change_pct": NaN,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 23/04 06:00"
