@@ -1,7 +1,17 @@
 {
-  "updated_at": "2026-04-23T17:56:58.823720+07:00",
-  "updated_at_display": "23/04/2026 • 17:56 GMT+7",
+  "updated_at": "2026-04-23T18:32:35.695693+07:00",
+  "updated_at_display": "23/04/2026 • 18:32 GMT+7",
   "war_news": [
+    {
+      "source": "Al Jazeera",
+      "title": "Iran war: How big is the global energy shock?",
+      "title_vi": "Chiến tranh Iran: Cú sốc năng lượng toàn cầu lớn như thế nào?",
+      "summary": "More than 500 million barrels of oil disrupted in just weeks, reshaping global energy flows.",
+      "summary_vi": "More than 500 million barrels of oil disrupted in just weeks, reshaping global energy flows.",
+      "url": "https://www.aljazeera.com/video/counting-the-cost/2026/4/23/iran-war-how-big-is-the-global-energy-shock?traffic_source=rss",
+      "published_iso": "2026-04-23T18:08:29+07:00",
+      "published_text": "23/04 18:08"
+    },
     {
       "source": "Al Jazeera",
       "title": "Lufthansa cuts 20,000 flights as Iran war causes jet fuel shortage",
@@ -11,58 +21,48 @@
       "url": "https://www.aljazeera.com/news/2026/4/23/lufthansa-cuts-20000-flights-as-iran-war-causes-jet-fuel-shortage?traffic_source=rss",
       "published_iso": "2026-04-23T17:29:22+07:00",
       "published_text": "23/04 17:29"
-    },
-    {
-      "source": "Al Jazeera",
-      "title": "What we know about Israel killing Lebanese journalist Amal Khalil",
-      "title_vi": "Những gì chúng ta biết về việc Israel giết nhà báo người Lebanon Amal Khalil",
-      "summary": "Khalil was killed and her colleague injured in what Lebanese officials are calling a 'double-tap' strike by Israel.",
-      "summary_vi": "Khalil was killed and her colleague injured in what Lebanese officials are calling a 'double-tap' strike by Israel.",
-      "url": "https://www.aljazeera.com/news/2026/4/23/what-we-know-about-israel-killing-lebanese-journalist-amal-khalil?traffic_source=rss",
-      "published_iso": "2026-04-23T17:02:58+07:00",
-      "published_text": "23/04 17:02"
     }
   ],
   "global_news": [
     {
       "source": "Investing News",
-      "title": "Gold slides as fresh inflation worries, firmer dollar weigh",
-      "title_vi": "Vàng trượt giá do lo ngại lạm phát mới, đồng đô la vững chắc hơn",
+      "title": "Iran war impact seeps ever deeper into global economy",
+      "title_vi": "Tác động của chiến tranh Iran ngấm sâu hơn vào nền kinh tế toàn cầu",
       "summary": "",
       "summary_vi": "",
-      "url": "https://www.investing.com/news/commodities-news/gold-prices-fall-further-as-uncertainty-over-iran-talks-us-rates-boosts-dollar-4631150",
-      "published_iso": "2026-04-23T17:39:50+07:00",
-      "published_text": "23/04 17:39"
+      "url": "https://www.investing.com/news/economy-news/iran-war-impact-seeps-ever-deeper-into-global-economy-4632043",
+      "published_iso": "2026-04-23T18:25:33+07:00",
+      "published_text": "23/04 18:25"
+    },
+    {
+      "source": "Investing News",
+      "title": "Cyber agencies warn organisations to guard against China-linked covert networks",
+      "title_vi": "Các cơ quan an ninh mạng cảnh báo các tổ chức bảo vệ chống lại các mạng lưới bí mật liên kết với Trung Quốc",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/world-news/cyber-agencies-warn-organisations-to-guard-against-chinalinked-covert-networks-4632041",
+      "published_iso": "2026-04-23T18:25:15+07:00",
+      "published_text": "23/04 18:25"
+    },
+    {
+      "source": "Investing News",
+      "title": "Dollar gains as angst over Iran-US stand-off drives safe-haven demand",
+      "title_vi": "Đồng đô la tăng giá khi lo ngại về sự bế tắc giữa Iran và Hoa Kỳ thúc đẩy nhu cầu trú ẩn an toàn",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/economy-news/dollar-holds-near-112week-high-as-iranus-standoff-persists-4631129",
+      "published_iso": "2026-04-23T18:25:14+07:00",
+      "published_text": "23/04 18:25"
     },
     {
       "source": "Google News Macro",
-      "title": "Kevin Warsh gave his preferred way for measuring inflation. It could come back to bite him - CNBC",
-      "title_vi": "Kevin Warsh đã đưa ra cách ưa thích của mình để đo lường lạm phát. Nó có thể quay lại cắn anh ta - CNBC",
-      "summary": "Kevin Warsh gave his preferred way for measuring inflation. It could come back to bite him CNBC",
-      "summary_vi": "Kevin Warsh gave his preferred way for measuring inflation. It could come back to bite him CNBC",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE45bkdUT2p5VnRFRkg4Y01hVUFFZHpmVGFqa2sxRGVrTV82R1hMZFBhZHE3ZTZvWkZkT1pNdThqam1DeWJqZEtrWEE1UklMZlBldlRJVjhyZ1E4UWszVVFTaDZ5ZFdmU1VXbDEtRERhYnNzaGNubkt0OVpwdWtjN2PSAYQBQVVfeXFMT0pyWW1hSFFGRFRHcUNJdGhuSzU4MW5PLVZPaG1oMGw5akpzaG5MTUNzOEIzeEVjOFJPSUpFVk5kbmhFVmRhM3N2NVdOMVhUbkFLRDVKbXYzcHlzT0JBWlRNZUgyRzhUSzhOc2g5WXhPWFctWHdqdm5jYTNvX3ZlX195M2tu?oc=5",
-      "published_iso": "2026-04-23T01:00:46+07:00",
-      "published_text": "23/04 01:00"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "Fed nominee Warsh questioned on independence from Trump and personal wealth - PBS",
-      "title_vi": "Ứng cử viên Fed Warsh đặt câu hỏi về sự độc lập khỏi Trump và tài sản cá nhân - PBS",
-      "summary": "Fed nominee Warsh questioned on independence from Trump and personal wealth PBS",
-      "summary_vi": "Fed nominee Warsh questioned on independence from Trump and personal wealth PBS",
-      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQTURpNi1aT1Z1MHJZXzM4Nm42V1Rxei1ZSFFpWGp5b1FiRXpuazZCRE5rR3IyQlktZjVldXl3YldRQUxIeHV3SnlQSkNGdTFjR0syZVEzcm9uZDB0ekY5d0pZdXFCY2RzRzJPazlXRGx2V2dHSngxT25RbVNsUHRuemZiZklkSW55S3R4WmQxRk5welVsWU04RlhLSzNMUTF3SmxWWm9xYVBLTFNhRXZLRDZUcnkyUVpJMmxqTWxlRQ?oc=5",
-      "published_iso": "2026-04-22T05:45:29+07:00",
-      "published_text": "22/04 05:45"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "The Strait of Hormuz closure forces a choice: Ration oil now or pay a steep price later - Atlantic Council",
-      "title_vi": "Eo biển Hormuz đóng cửa buộc một sự lựa chọn: Dầu ăn ngay bây giờ hoặc phải trả giá đắt sau đó - Hội đồng Đại Tây Dương",
-      "summary": "The Strait of Hormuz closure forces a choice: Ration oil now or pay a steep price later Atlantic Council",
-      "summary_vi": "The Strait of Hormuz closure forces a choice: Ration oil now or pay a steep price later Atlantic Council",
-      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNTnNrSl9TeFRzeHRoUG1BLV9mNjRZajRqNUtKZlVLaEJYVG1pYThZYjJ6dU1ITVpSNnRMR1AwdmotOXlPTV8ydVk1bHlnYVZvWkhicFJNME9fdE5EVDZGajEzaURhcTlKcDhOSTg4TU9sT0FPelVFZ3F2MWhzQ2tUMjlFYzJYQUhmS1VJdjhlbmZTT1k3a1ZBZERkZlRWX19YODZ2WDV1M3ItVENERy1uNUlnS29WeW13SWk0Ukp5dV9ic1BjeVdkc2FR?oc=5",
-      "published_iso": "2026-04-22T05:08:43+07:00",
-      "published_text": "22/04 05:08"
+      "title": "A Fed Under Warsh: What the Confirmation Hearing Tells Us - Council on Foreign Relations",
+      "title_vi": "Một Fed dưới thời Warsh: Phiên điều trần xác nhận cho chúng ta biết điều gì - Hội đồng Quan hệ Đối ngoại",
+      "summary": "A Fed Under Warsh: What the Confirmation Hearing Tells Us Council on Foreign Relations",
+      "summary_vi": "A Fed Under Warsh: What the Confirmation Hearing Tells Us Council on Foreign Relations",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPeEZPVndTLTE0YzdrSGNSNURJNFd2Z0o3dEtaVTBpYmZwWHN4aG82UFQxQ2M3a1dJbXR6NHpSbUp0anVvVF9Wb09lTHBNV2NuQkhZMHhDdkZITGdZWktlN0xYTTU3VE9oQ3N5QW5CRjlMMC1XUkd3b0t2SEJxa0FiSHRsNHl5QWx2UnphNEx6dFVWb3dyUXA1SmsydGxGT0l2SGZoeFU1MA?oc=5",
+      "published_iso": "2026-04-23T02:25:06+07:00",
+      "published_text": "23/04 02:25"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-kien-giang-dau-gia-thanh-ly-tai-san-sau-thao-do-cau-kenh-vam-tru-50774.html",
-      "published_iso": "2026-04-23T17:58:04.776118+07:00",
-      "published_text": "23/04 17:58"
+      "published_iso": "2026-04-23T18:33:40.389202+07:00",
+      "published_text": "23/04 18:33"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-minh-thang-dau-gia-thanh-ly-pha-do-cac-phong-hoc-va-cac-phong-lam-viec-tai-truong-thcs-cau-ke-50775.html",
-      "published_iso": "2026-04-23T17:58:04.776060+07:00",
-      "published_text": "23/04 17:58"
+      "published_iso": "2026-04-23T18:33:40.389140+07:00",
+      "published_text": "23/04 18:33"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/hanh-trinh-khoi-nghiep-cua-ty-phu-dung-sau-de-che-mat-than-cua-trung-quoc-d143839.html",
-      "published_iso": "2026-04-23T17:58:01.934718+07:00",
-      "published_text": "23/04 17:58"
+      "published_iso": "2026-04-23T18:33:38.727884+07:00",
+      "published_text": "23/04 18:33"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/ha-noi-se-duoc-thanh-lap-don-vi-hanh-chinh--kinh-te-dac-biet-d143865.html",
-      "published_iso": "2026-04-23T17:58:01.934652+07:00",
-      "published_text": "23/04 17:58"
+      "published_iso": "2026-04-23T18:33:38.727805+07:00",
+      "published_text": "23/04 18:33"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/26-nam-sau-cot-moc-lich-su-thay-gi-ve-viec-viet-nam-dong-y-mo-cua-cho-doanh-nghiep-my-vao-canh-tranh-truc-tiep-voi-viettel-vnpt-188260420111726933.chn",
-      "published_iso": "2026-04-23T17:58:01.418376+07:00",
-      "published_text": "23/04 17:58"
+      "published_iso": "2026-04-23T18:33:38.077125+07:00",
+      "published_text": "23/04 18:33"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/mot-ky-luc-vua-xac-lap-tai-dhdcd-ngan-hang-top-5-tmcp-tu-nhan-viet-nam-188260423101438463.chn",
-      "published_iso": "2026-04-23T17:58:01.418305+07:00",
-      "published_text": "23/04 17:58"
+      "published_iso": "2026-04-23T18:33:38.077053+07:00",
+      "published_text": "23/04 18:33"
     }
   ],
   "markets": [
@@ -132,9 +132,9 @@
       "name": "WTI",
       "symbol": "CL=F",
       "category": "Energy",
-      "price": 94.45,
-      "change": 1.49,
-      "change_pct": 1.6,
+      "price": 93.9,
+      "change": 0.94,
+      "change_pct": 1.01,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 23/04 11:00"
@@ -143,9 +143,9 @@
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 97.75,
-      "change": -4.16,
-      "change_pct": -4.08,
+      "price": 97.15,
+      "change": -4.76,
+      "change_pct": -4.67,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 23/04 11:00"
@@ -154,9 +154,9 @@
       "name": "Natural Gas",
       "symbol": "NG=F",
       "category": "Energy",
-      "price": 2.86,
-      "change": 0.14,
-      "change_pct": 5.18,
+      "price": 2.87,
+      "change": 0.15,
+      "change_pct": 5.4,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 23/04 11:00"
@@ -165,9 +165,9 @@
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4706.4,
-      "change": -26.1,
-      "change_pct": -0.55,
+      "price": 4717.5,
+      "change": -15.0,
+      "change_pct": -0.32,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 23/04 11:00"
@@ -176,9 +176,9 @@
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 74.33,
-      "change": -3.56,
-      "change_pct": -4.57,
+      "price": 74.72,
+      "change": -3.17,
+      "change_pct": -4.07,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 23/04 11:00"
@@ -187,9 +187,9 @@
       "name": "Copper",
       "symbol": "HG=F",
       "category": "Metals",
-      "price": 6.02,
-      "change": -0.1,
-      "change_pct": -1.57,
+      "price": 6.03,
+      "change": -0.09,
+      "change_pct": -1.4,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 23/04 11:00"
@@ -209,9 +209,9 @@
       "name": "DXY",
       "symbol": "DX-Y.NYB",
       "category": "FX",
-      "price": 98.79,
-      "change": 0.2,
-      "change_pct": 0.21,
+      "price": 98.78,
+      "change": 0.19,
+      "change_pct": 0.19,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 23/04 11:00"
@@ -220,9 +220,9 @@
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1685,
-      "change": -0.0059,
-      "change_pct": -0.5,
+      "price": 1.1684,
+      "change": -0.0061,
+      "change_pct": -0.52,
       "decimals": 4,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 23/04 06:00"
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 77433.0,
-      "change": -770.0,
-      "change_pct": -0.98,
+      "price": 77444.0,
+      "change": -759.0,
+      "change_pct": -0.97,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 23/04 07:00"
@@ -286,9 +286,9 @@
       "name": "VIX",
       "symbol": "^VIX",
       "category": "US",
-      "price": 19.68,
-      "change": 0.76,
-      "change_pct": 4.02,
+      "price": 19.6,
+      "change": 0.68,
+      "change_pct": 3.59,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 23/04 12:00"
@@ -297,9 +297,9 @@
       "name": "FTSE 100",
       "symbol": "^FTSE",
       "category": "Europe",
-      "price": 10387.98,
-      "change": -88.52,
-      "change_pct": -0.84,
+      "price": 10394.09,
+      "change": -82.41,
+      "change_pct": -0.79,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 23/04 06:00"
@@ -308,9 +308,9 @@
       "name": "Euro Stoxx 50",
       "symbol": "^STOXX50E",
       "category": "Europe",
-      "price": 5865.12,
-      "change": -41.1,
-      "change_pct": -0.7,
+      "price": 5869.36,
+      "change": -36.86,
+      "change_pct": -0.62,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 23/04 05:00"
