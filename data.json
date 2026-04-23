@@ -1,7 +1,17 @@
 {
-  "updated_at": "2026-04-24T02:56:01.655674+07:00",
-  "updated_at_display": "24/04/2026 • 02:56 GMT+7",
+  "updated_at": "2026-04-24T04:00:15.714313+07:00",
+  "updated_at_display": "24/04/2026 • 04:00 GMT+7",
   "war_news": [
+    {
+      "source": "Al Jazeera",
+      "title": "Iran dismisses Trump’s claim of leadership rift, says nation is ‘one soul’",
+      "title_vi": "Iran bác bỏ tuyên bố của Trump về sự rạn nứt lãnh đạo, nói rằng quốc gia là ‘một linh hồn’",
+      "summary": "Several Iranian officials share same message, emphasising what they call the 'iron unity of the nation and government'.",
+      "summary_vi": "Several Iranian officials share same message, emphasising what they call the 'iron unity of the nation and government'.",
+      "url": "https://www.aljazeera.com/news/2026/4/23/iran-dismisses-trumps-claim-of-leadership-rift-says-nation-is-one-soul?traffic_source=rss",
+      "published_iso": "2026-04-24T03:26:13+07:00",
+      "published_text": "24/04 03:26"
+    },
     {
       "source": "Al Jazeera",
       "title": "How Trump’s Iran war is driving military dissent",
@@ -11,39 +21,9 @@
       "url": "https://www.aljazeera.com/video/the-take-2/2026/4/23/how-trumps-iran-war-is-driving-military-dissent?traffic_source=rss",
       "published_iso": "2026-04-24T02:08:51+07:00",
       "published_text": "24/04 02:08"
-    },
-    {
-      "source": "Al Jazeera",
-      "title": "Mixed views in Lebanon ahead of controversial talks with Israel",
-      "title_vi": "Quan điểm hỗn hợp ở Lebanon trước các cuộc đàm phán gây tranh cãi với Israel",
-      "summary": "Lebanon remains divided over the best way to end the conflict with Israel, with some backing Hezbollah's armed response.",
-      "summary_vi": "Lebanon remains divided over the best way to end the conflict with Israel, with some backing Hezbollah's armed response.",
-      "url": "https://www.aljazeera.com/news/2026/4/23/mixed-views-in-lebanon-ahead-of-controversial-talks-with-israel?traffic_source=rss",
-      "published_iso": "2026-04-24T01:09:39+07:00",
-      "published_text": "24/04 01:09"
     }
   ],
   "global_news": [
-    {
-      "source": "Investing News",
-      "title": "Crude oil futures jump on reports of air attacks, Iran power struggle",
-      "title_vi": "Hợp đồng dầu thô tương lai nhảy vào các báo cáo về các cuộc không kích, cuộc đấu tranh quyền lực của Iran",
-      "summary": "",
-      "summary_vi": "",
-      "url": "https://www.investing.com/news/commodities-news/oil-prices-edge-lower-with-no-progress-on-usiran-talks-hormuz-shipping-still-disrupted-4631124",
-      "published_iso": "2026-04-24T02:55:50+07:00",
-      "published_text": "24/04 02:55"
-    },
-    {
-      "source": "Investing News",
-      "title": "White House accuses China of industrial-scale theft of AI technology",
-      "title_vi": "Nhà Trắng cáo buộc Trung Quốc đánh cắp công nghệ AI ở quy mô công nghiệp",
-      "summary": "",
-      "summary_vi": "",
-      "url": "https://www.investing.com/news/economy-news/white-house-accuses-china-of-industrial-scale-theft-of-ai-technology-ft-reports-4633186",
-      "published_iso": "2026-04-24T02:54:53+07:00",
-      "published_text": "24/04 02:54"
-    },
     {
       "source": "Google News Macro",
       "title": "Current price of oil as of April 23, 2026 - Fortune",
@@ -63,6 +43,26 @@
       "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPRHJJSXI2emE1M1lJb25Rcjhvc2ZUblVuYlNHSDFXWWNEWUl3MnZiVUcySFN2d2ZkcTRkeEI1MHhsR20tQzBBSmc3MmZVOGMtRGdUMDVIUjhMeGo5c3NjeEFPVDl4Y1pKRDV5VnpEdkVTcHUxZm80dXN1dkRYMlBHbVZMWWw0dnhCeHVmWjlybw?oc=5",
       "published_iso": "2026-04-23T11:00:00+07:00",
       "published_text": "23/04 11:00"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "A Fed Under Warsh: What the Confirmation Hearing Tells Us - Council on Foreign Relations",
+      "title_vi": "Một Fed dưới thời Warsh: Phiên điều trần xác nhận cho chúng ta biết điều gì - Hội đồng Quan hệ Đối ngoại",
+      "summary": "A Fed Under Warsh: What the Confirmation Hearing Tells Us Council on Foreign Relations",
+      "summary_vi": "A Fed Under Warsh: What the Confirmation Hearing Tells Us Council on Foreign Relations",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPeEZPVndTLTE0YzdrSGNSNURJNFd2Z0o3dEtaVTBpYmZwWHN4aG82UFQxQ2M3a1dJbXR6NHpSbUp0anVvVF9Wb09lTHBNV2NuQkhZMHhDdkZITGdZWktlN0xYTTU3VE9oQ3N5QW5CRjlMMC1XUkd3b0t2SEJxa0FiSHRsNHl5QWx2UnphNEx6dFVWb3dyUXA1SmsydGxGT0l2SGZoeFU1MA?oc=5",
+      "published_iso": "2026-04-23T02:25:06+07:00",
+      "published_text": "23/04 02:25"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "Kevin Warsh gave his preferred way for measuring inflation. It could come back to bite him - CNBC",
+      "title_vi": "Kevin Warsh đã đưa ra cách ưa thích của mình để đo lường lạm phát. Nó có thể quay lại cắn anh ta - CNBC",
+      "summary": "Kevin Warsh gave his preferred way for measuring inflation. It could come back to bite him CNBC",
+      "summary_vi": "Kevin Warsh gave his preferred way for measuring inflation. It could come back to bite him CNBC",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE45bkdUT2p5VnRFRkg4Y01hVUFFZHpmVGFqa2sxRGVrTV82R1hMZFBhZHE3ZTZvWkZkT1pNdThqam1DeWJqZEtrWEE1UklMZlBldlRJVjhyZ1E4UWszVVFTaDZ5ZFdmU1VXbDEtRERhYnNzaGNubkt0OVpwdWtjN2PSAYQBQVVfeXFMT0pyWW1hSFFGRFRHcUNJdGhuSzU4MW5PLVZPaG1oMGw5akpzaG5MTUNzOEIzeEVjOFJPSUpFVk5kbmhFVmRhM3N2NVdOMVhUbkFLRDVKbXYzcHlzT0JBWlRNZUgyRzhUSzhOc2g5WXhPWFctWHdqdm5jYTNvX3ZlX195M2tu?oc=5",
+      "published_iso": "2026-04-23T01:00:46+07:00",
+      "published_text": "23/04 01:00"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/trung-tam-dich-vu-dau-gia-tai-san-tinh-phu-tho-dau-gia-15-o-dat-dich-vu-tren-dia-ban-phuong-vinh-yen-tinh-phu-tho-50779.html",
-      "published_iso": "2026-04-24T02:57:02.498771+07:00",
-      "published_text": "24/04 02:57"
+      "published_iso": "2026-04-24T04:01:14.642842+07:00",
+      "published_text": "24/04 04:01"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-khai-hung-dau-gia-thanh-ly-01-xe-o-to-con-nhan-hieu-toyota-bien-so-70a-00561-tai-san-cua-van-phong-hdnd-va-ubnd-xa-ben-cau-50778.html",
-      "published_iso": "2026-04-24T02:57:02.498702+07:00",
-      "published_text": "24/04 02:57"
+      "published_iso": "2026-04-24T04:01:14.642755+07:00",
+      "published_text": "24/04 04:01"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/hanh-trinh-khoi-nghiep-cua-ty-phu-dung-sau-de-che-mat-than-cua-trung-quoc-d143839.html",
-      "published_iso": "2026-04-24T02:57:00.806432+07:00",
-      "published_text": "24/04 02:57"
+      "published_iso": "2026-04-24T04:01:13.031311+07:00",
+      "published_text": "24/04 04:01"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/ha-noi-se-duoc-thanh-lap-don-vi-hanh-chinh--kinh-te-dac-biet-d143865.html",
-      "published_iso": "2026-04-24T02:57:00.806363+07:00",
-      "published_text": "24/04 02:57"
+      "published_iso": "2026-04-24T04:01:13.031247+07:00",
+      "published_text": "24/04 04:01"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/26-nam-sau-cot-moc-lich-su-thay-gi-ve-viec-viet-nam-dong-y-mo-cua-cho-doanh-nghiep-my-vao-canh-tranh-truc-tiep-voi-viettel-vnpt-188260420111726933.chn",
-      "published_iso": "2026-04-24T02:57:00.364585+07:00",
-      "published_text": "24/04 02:57"
+      "published_iso": "2026-04-24T04:01:12.372515+07:00",
+      "published_text": "24/04 04:01"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/mot-ky-luc-vua-xac-lap-tai-dhdcd-ngan-hang-top-5-tmcp-tu-nhan-viet-nam-188260423101438463.chn",
-      "published_iso": "2026-04-24T02:57:00.364506+07:00",
-      "published_text": "24/04 02:57"
+      "published_iso": "2026-04-24T04:01:12.372436+07:00",
+      "published_text": "24/04 04:01"
     }
   ],
   "markets": [
@@ -132,9 +132,9 @@
       "name": "WTI",
       "symbol": "CL=F",
       "category": "Energy",
-      "price": 96.58,
-      "change": 3.62,
-      "change_pct": 3.89,
+      "price": 97.21,
+      "change": 4.25,
+      "change_pct": 4.57,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 23/04 11:00"
@@ -143,9 +143,9 @@
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 105.82,
-      "change": 3.91,
-      "change_pct": 3.84,
+      "price": 106.65,
+      "change": 4.74,
+      "change_pct": 4.65,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 23/04 11:00"
@@ -156,7 +156,7 @@
       "category": "Energy",
       "price": 2.74,
       "change": 0.02,
-      "change_pct": 0.66,
+      "change_pct": 0.55,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 23/04 11:00"
@@ -165,9 +165,9 @@
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4711.5,
-      "change": -21.0,
-      "change_pct": -0.44,
+      "price": 4706.4,
+      "change": -26.1,
+      "change_pct": -0.55,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 23/04 11:00"
@@ -176,9 +176,9 @@
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 75.53,
-      "change": -2.36,
-      "change_pct": -3.03,
+      "price": 75.41,
+      "change": -2.48,
+      "change_pct": -3.19,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 23/04 11:00"
@@ -187,9 +187,9 @@
       "name": "Copper",
       "symbol": "HG=F",
       "category": "Metals",
-      "price": 6.04,
-      "change": -0.08,
-      "change_pct": -1.38,
+      "price": 6.03,
+      "change": -0.09,
+      "change_pct": -1.55,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 23/04 11:00"
@@ -210,8 +210,8 @@
       "symbol": "DX-Y.NYB",
       "category": "FX",
       "price": 98.82,
-      "change": 0.24,
-      "change_pct": 0.24,
+      "change": 0.23,
+      "change_pct": 0.23,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 23/04 11:00"
@@ -220,20 +220,20 @@
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.169,
-      "change": -0.0054,
-      "change_pct": -0.46,
+      "price": 1.1697,
+      "change": -0.0009,
+      "change_pct": -0.07,
       "decimals": 4,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 23/04 06:00"
+      "note": "Dữ liệu gần nhất: 24/04 06:00"
     },
     {
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 77771.0,
-      "change": -432.0,
-      "change_pct": -0.55,
+      "price": 77871.0,
+      "change": -332.0,
+      "change_pct": -0.42,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 23/04 07:00"
@@ -242,9 +242,9 @@
       "name": "S&P 500",
       "symbol": "^GSPC",
       "category": "US",
-      "price": 7105.56,
-      "change": -32.34,
-      "change_pct": -0.45,
+      "price": 7108.4,
+      "change": -29.5,
+      "change_pct": -0.41,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 23/04 11:00"
@@ -253,9 +253,9 @@
       "name": "Dow Jones",
       "symbol": "^DJI",
       "category": "US",
-      "price": 49292.05,
-      "change": -197.98,
-      "change_pct": -0.4,
+      "price": 49310.32,
+      "change": -179.71,
+      "change_pct": -0.36,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 23/04 11:00"
@@ -264,9 +264,9 @@
       "name": "Nasdaq",
       "symbol": "^IXIC",
       "category": "US",
-      "price": 24427.59,
-      "change": -229.98,
-      "change_pct": -0.93,
+      "price": 24438.5,
+      "change": -219.07,
+      "change_pct": -0.89,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 23/04 11:00"
@@ -275,9 +275,9 @@
       "name": "Russell 2000",
       "symbol": "^RUT",
       "category": "US",
-      "price": 2767.41,
-      "change": -17.97,
-      "change_pct": -0.64,
+      "price": 2775.1,
+      "change": -10.28,
+      "change_pct": -0.37,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 23/04 11:00"
@@ -286,9 +286,9 @@
       "name": "VIX",
       "symbol": "^VIX",
       "category": "US",
-      "price": 19.41,
-      "change": 0.49,
-      "change_pct": 2.59,
+      "price": 19.31,
+      "change": 0.39,
+      "change_pct": 2.06,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 23/04 12:00"
