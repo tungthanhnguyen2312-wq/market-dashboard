@@ -1,7 +1,17 @@
 {
-  "updated_at": "2026-04-24T16:55:49.160462+07:00",
-  "updated_at_display": "24/04/2026 • 16:55 GMT+7",
+  "updated_at": "2026-04-24T18:13:40.048357+07:00",
+  "updated_at_display": "24/04/2026 • 18:13 GMT+7",
   "war_news": [
+    {
+      "source": "Al Jazeera",
+      "title": "Explosions by Israeli forces in south Lebanon despite ceasefire",
+      "title_vi": "Các vụ nổ của lực lượng Israel ở miền nam Lebanon bất chấp lệnh ngừng bắn",
+      "summary": "Smoke rise above Khiam in southern Lebanon after Israel carries out explosions despite the ceasefire.",
+      "summary_vi": "Smoke rise above Khiam in southern Lebanon after Israel carries out explosions despite the ceasefire.",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/4/24/explosions-by-israeli-forces-in-south-lebanon-despite-ceasefire?traffic_source=rss",
+      "published_iso": "2026-04-24T17:58:55+07:00",
+      "published_text": "24/04 17:58"
+    },
     {
       "source": "Al Jazeera",
       "title": "Why is there a political deadlock in Lebanon?",
@@ -11,19 +21,19 @@
       "url": "https://www.aljazeera.com/video/newsfeed/2026/4/24/why-is-there-a-political-deadlock-in-lebanon?traffic_source=rss",
       "published_iso": "2026-04-24T15:49:09+07:00",
       "published_text": "24/04 15:49"
-    },
-    {
-      "source": "Al Jazeera",
-      "title": "Baby twins attend their father’s funeral after Israeli settler attack",
-      "title_vi": "Cặp song sinh tham dự đám tang của cha mình sau cuộc tấn công của người định cư Israel",
-      "summary": "Palestinians gathered in the occupied West Bank to bury a 25-year-old father of twins shot dead by Israeli settlers.",
-      "summary_vi": "Palestinians gathered in the occupied West Bank to bury a 25-year-old father of twins shot dead by Israeli settlers.",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/4/24/baby-twins-attend-their-fathers-funeral-after-israeli-settler-attack?traffic_source=rss",
-      "published_iso": "2026-04-24T15:34:27+07:00",
-      "published_text": "24/04 15:34"
     }
   ],
   "global_news": [
+    {
+      "source": "Investing News",
+      "title": "BYD doubles down on fast charging to target China’s EV holdouts",
+      "title_vi": "BYD tăng gấp đôi khi sạc nhanh để nhắm mục tiêu nắm giữ xe điện của Trung Quốc",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/stock-market-news/byd-doubles-down-on-fast-charging-to-targetchinas-ev-holdouts-4635236",
+      "published_iso": "2026-04-24T18:06:35+07:00",
+      "published_text": "24/04 18:06"
+    },
     {
       "source": "Google News Macro",
       "title": "China Air Quality Alert - IQAir",
@@ -53,38 +63,28 @@
       "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPeEZPVndTLTE0YzdrSGNSNURJNFd2Z0o3dEtaVTBpYmZwWHN4aG82UFQxQ2M3a1dJbXR6NHpSbUp0anVvVF9Wb09lTHBNV2NuQkhZMHhDdkZITGdZWktlN0xYTTU3VE9oQ3N5QW5CRjlMMC1XUkd3b0t2SEJxa0FiSHRsNHl5QWx2UnphNEx6dFVWb3dyUXA1SmsydGxGT0l2SGZoeFU1MA?oc=5",
       "published_iso": "2026-04-23T02:25:06+07:00",
       "published_text": "23/04 02:25"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "Treasury Secretary Scott Bessent Testifies on Trump's 2027 Budget Request - C-SPAN",
-      "title_vi": "Bộ trưởng Tài chính Scott Bessent làm chứng về yêu cầu ngân sách năm 2027 của Trump - C-SPAN",
-      "summary": "Treasury Secretary Scott Bessent Testifies on Trump's 2027 Budget Request C-SPAN",
-      "summary_vi": "Treasury Secretary Scott Bessent Testifies on Trump's 2027 Budget Request C-SPAN",
-      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOSVhrYTNfd3RQMURCOFRVUE1kODJObGtXXzNyc3BEUUZzS1hMSGp5S1kxVE9URzFkYWRnUFNuaDlOSjE4RC1pVkRxZDdEZ3dwYW50Qnh0cVdNeWxlR1lMRkV4S0hDY3RXZ05aTDRDcnlmNGU2RDNkVXJOaUF1OWtGcElwUlpKTlJCSE8wSUMyWG04Y1plV2d5ZlNHN0lwZ0FiZVRxejJXVERyQXR3UndTcXpaeEwwMU5sS3h6czV5SWVMVEk?oc=5",
-      "published_iso": "2026-04-23T02:08:46+07:00",
-      "published_text": "23/04 02:08"
     }
   ],
   "vn_news": [
     {
       "source": "Thời báo Tài chính VN",
-      "title": "Trung tâm dịch vụ đấu giá tài sản Quy Nhơn: Đấu giá 52 điện thoại, 1 máy tính xách tay, 1 Apple watch Series 7, 2 màn hình máy vi tính, 2 bàn phím máy vi tính, 1 cây gắn điện thoại livestream, 1 giá đỡ điện thoại bằng kim loại của UBND phường Quy Nhơn Nam",
-      "title_vi": "Trung tâm dịch vụ đấu giá tài sản Quy Nhơn: Đấu giá 52 điện thoại, 1 máy tính xách tay, 1 Apple watch Series 7, 2 màn hình máy vi tính, 2 bàn phím máy vi tính, 1 cây gắn điện thoại livestream, 1 giá đỡ điện thoại bằng kim loại của UBND phường Quy Nhơn Nam",
+      "title": "Công ty Đấu giá Hợp danh Khải Bảo: Đấu giá quyền thuê 8 vị trí tại Tòa nhà ICT1 tại Khu công nghệ thông tin tập trung Công viên phần mềm Đà Nẵng - Công viên phần mềm số 2",
+      "title_vi": "Công ty Đấu giá Hợp danh Khải Bảo: Đấu giá quyền thuê 8 vị trí tại Tòa nhà ICT1 tại Khu công nghệ thông tin tập trung Công viên phần mềm Đà Nẵng - Công viên phần mềm số 2",
       "summary": "",
       "summary_vi": "",
-      "url": "https://taisancong.vn/trung-tam-dich-vu-dau-gia-tai-san-quy-nhon-dau-gia-52-dien-thoai-1-may-tinh-xach-tay-1-apple-watch-series-7-2-man-hinh-may-vi-tinh-2-ban-phim-may-vi-tinh-1-cay-gan-dien-thoai-livestream-1-gia-do-dien-thoai-bang-kim-loai-cua-ubnd-phuong-quy-nhon-nam-50789.html",
-      "published_iso": "2026-04-24T16:56:52.876356+07:00",
-      "published_text": "24/04 16:56"
+      "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-khai-bao-dau-gia-quyen-thue-8-vi-tri-tai-toa-nha-ict1-tai-khu-cong-nghe-thong-tin-tap-trung-cong-vien-phan-mem-da-nang-cong-vien-phan-mem-so-2-50792.html",
+      "published_iso": "2026-04-24T18:14:42.281617+07:00",
+      "published_text": "24/04 18:14"
     },
     {
       "source": "Thời báo Tài chính VN",
-      "title": "Công ty Đấu giá Hợp danh Đông Nam: Đấu giá 36 lô đất cho nhân dân làm nhà ở tại Khu dân cư tập trung xóm Sơn Lâm Thọ, xã Hoành Sơn, nay là xã Giao Thủy, tỉnh Ninh Bình",
-      "title_vi": "Công ty Đấu giá Hợp danh Đông Nam: Đấu giá 36 lô đất cho nhân dân làm nhà ở tại Khu dân cư tập trung xóm Sơn Lâm Thọ, xã Hoành Sơn, nay là xã Giao Thủy, tỉnh Ninh Bình",
+      "title": "Công ty đấu giá hợp danh Nam Phương: Đấu giá cho thuê 13 quán kinh doanh dịch vụ tại Bãi tắm cộng đồng Trung Giang, thôn Bắc Sơn và thôn Nam Sơn, xã Bến Hải, tỉnh Quảng Trị",
+      "title_vi": "Công ty đấu giá hợp danh Nam Phương: Đấu giá cho thuê 13 quán kinh doanh dịch vụ tại Bãi tắm cộng đồng Trung Giang, thôn Bắc Sơn và thôn Nam Sơn, xã Bến Hải, tỉnh Quảng Trị",
       "summary": "",
       "summary_vi": "",
-      "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-dong-nam-dau-gia-36-lo-dat-cho-nhan-dan-lam-nha-o-tai-khu-dan-cu-tap-trung-xom-son-lam-tho-xa-hoanh-son-nay-la-xa-giao-thuy-tinh-ninh-binh-50790.html",
-      "published_iso": "2026-04-24T16:56:52.876279+07:00",
-      "published_text": "24/04 16:56"
+      "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-nam-phuong-dau-gia-cho-thue-13-quan-kinh-doanh-dich-vu-tai-bai-tam-cong-dong-trung-giang-thon-bac-son-va-thon-nam-son-xa-ben-hai-tinh-quang-tri-50796.html",
+      "published_iso": "2026-04-24T18:14:42.281543+07:00",
+      "published_text": "24/04 18:14"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/quoc-hoi-chot-bo-nguong-500-trieu-dong-chiu-thue-voi-ho-kinh-doanh-d143892.html",
-      "published_iso": "2026-04-24T16:56:50.984605+07:00",
-      "published_text": "24/04 16:56"
+      "published_iso": "2026-04-24T18:14:40.233341+07:00",
+      "published_text": "24/04 18:14"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/du-lieu-tai-chinh-tai-dinh-hinh-quyen-luc-kinh-te-tiem-nang-di-cung-rui-ro-d143890.html",
-      "published_iso": "2026-04-24T16:56:50.984537+07:00",
-      "published_text": "24/04 16:56"
+      "published_iso": "2026-04-24T18:14:40.233269+07:00",
+      "published_text": "24/04 18:14"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/26-nam-sau-cot-moc-lich-su-thay-gi-ve-viec-viet-nam-dong-y-mo-cua-cho-doanh-nghiep-my-vao-canh-tranh-truc-tiep-voi-viettel-vnpt-188260420111726933.chn",
-      "published_iso": "2026-04-24T16:56:50.518268+07:00",
-      "published_text": "24/04 16:56"
+      "published_iso": "2026-04-24T18:14:39.695357+07:00",
+      "published_text": "24/04 18:14"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/bat-dong-san-viet-nam-tro-thanh-thoi-nam-cham-hut-von-ngoai-ty-usd-cham-chan-truoc-luat-choi-moi-nha-dau-tu-noi-co-the-danh-mat-loi-the-san-nha-188260422084859555.chn",
-      "published_iso": "2026-04-24T16:56:50.518192+07:00",
-      "published_text": "24/04 16:56"
+      "published_iso": "2026-04-24T18:14:39.695280+07:00",
+      "published_text": "24/04 18:14"
     }
   ],
   "markets": [
@@ -132,9 +132,9 @@
       "name": "WTI",
       "symbol": "CL=F",
       "category": "Energy",
-      "price": 97.48,
-      "change": 1.63,
-      "change_pct": 1.7,
+      "price": 96.53,
+      "change": 0.68,
+      "change_pct": 0.71,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 24/04 11:00"
@@ -143,9 +143,9 @@
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 100.94,
-      "change": -4.13,
-      "change_pct": -3.93,
+      "price": 100.08,
+      "change": -4.99,
+      "change_pct": -4.75,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 24/04 11:00"
@@ -156,7 +156,7 @@
       "category": "Energy",
       "price": 2.71,
       "change": 0.09,
-      "change_pct": 3.52,
+      "change_pct": 3.56,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 24/04 11:00"
@@ -165,9 +165,9 @@
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4700.7,
-      "change": -4.4,
-      "change_pct": -0.09,
+      "price": 4698.3,
+      "change": -6.8,
+      "change_pct": -0.14,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 24/04 11:00"
@@ -176,9 +176,9 @@
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 74.76,
-      "change": -0.7,
-      "change_pct": -0.93,
+      "price": 74.96,
+      "change": -0.5,
+      "change_pct": -0.66,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 24/04 11:00"
@@ -189,7 +189,7 @@
       "category": "Metals",
       "price": 5.99,
       "change": -0.08,
-      "change_pct": -1.39,
+      "change_pct": -1.37,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 24/04 11:00"
@@ -209,9 +209,9 @@
       "name": "DXY",
       "symbol": "DX-Y.NYB",
       "category": "FX",
-      "price": 98.8,
-      "change": -0.0,
-      "change_pct": -0.0,
+      "price": 98.68,
+      "change": -0.12,
+      "change_pct": -0.13,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 24/04 11:00"
@@ -220,9 +220,9 @@
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.169,
-      "change": -0.0016,
-      "change_pct": -0.13,
+      "price": 1.1711,
+      "change": 0.0005,
+      "change_pct": 0.04,
       "decimals": 4,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 24/04 06:00"
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 77542.0,
-      "change": -726.0,
-      "change_pct": -0.93,
+      "price": 78227.0,
+      "change": -42.0,
+      "change_pct": -0.05,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 24/04 07:00"
@@ -286,9 +286,9 @@
       "name": "VIX",
       "symbol": "^VIX",
       "category": "US",
-      "price": 19.25,
-      "change": -0.06,
-      "change_pct": -0.31,
+      "price": 19.16,
+      "change": -0.15,
+      "change_pct": -0.78,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 24/04 12:00"
@@ -297,9 +297,9 @@
       "name": "FTSE 100",
       "symbol": "^FTSE",
       "category": "Europe",
-      "price": 10386.95,
-      "change": -70.05,
-      "change_pct": -0.67,
+      "price": 10395.82,
+      "change": -61.18,
+      "change_pct": -0.59,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 24/04 06:00"
@@ -308,9 +308,9 @@
       "name": "Euro Stoxx 50",
       "symbol": "^STOXX50E",
       "category": "Europe",
-      "price": 5855.97,
-      "change": -38.76,
-      "change_pct": -0.66,
+      "price": 5868.17,
+      "change": -26.56,
+      "change_pct": -0.45,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 24/04 05:00"
@@ -385,9 +385,9 @@
       "name": "Nifty 50",
       "symbol": "^NSEI",
       "category": "Asia",
-      "price": 23910.75,
-      "change": -262.3,
-      "change_pct": -1.09,
+      "price": 23897.95,
+      "change": -275.1,
+      "change_pct": -1.14,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 24/04 01:30"
