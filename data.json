@@ -1,7 +1,17 @@
 {
-  "updated_at": "2026-04-25T20:24:32.005112+07:00",
-  "updated_at_display": "25/04/2026 • 20:24 GMT+7",
+  "updated_at": "2026-04-25T21:24:47.456783+07:00",
+  "updated_at_display": "25/04/2026 • 21:24 GMT+7",
   "war_news": [
+    {
+      "source": "Al Jazeera",
+      "title": "Israeli attacks kill four in southern Lebanon",
+      "title_vi": "Các cuộc tấn công của Israel đã giết chết bốn người ở miền nam Lebanon",
+      "summary": "Raids on a truck and a motorcycle in the town of Yohmor al-Shaqif kill four people, state media report.",
+      "summary_vi": "Raids on a truck and a motorcycle in the town of Yohmor al-Shaqif kill four people, state media report.",
+      "url": "https://www.aljazeera.com/news/2026/4/25/israeli-strikes-kill-four-in-southern-lebanon?traffic_source=rss",
+      "published_iso": "2026-04-25T20:25:30+07:00",
+      "published_text": "25/04 20:25"
+    },
     {
       "source": "Al Jazeera",
       "title": "Flights resume at Tehran airport as US-Iran ceasefire holds",
@@ -11,16 +21,6 @@
       "url": "https://www.aljazeera.com/video/newsfeed/2026/4/25/flights-resume-at-tehran-airport-as-us-iran-ceasefire-holds?traffic_source=rss",
       "published_iso": "2026-04-25T19:23:27+07:00",
       "published_text": "25/04 19:23"
-    },
-    {
-      "source": "Al Jazeera",
-      "title": "Iran resumes commercial flights from Tehran airport",
-      "title_vi": "Iran nối lại các chuyến bay thương mại từ sân bay Tehran",
-      "summary": "Commercial flights begin for the first time since the conflict with the US and Israel began about two months ago.",
-      "summary_vi": "Commercial flights begin for the first time since the conflict with the US and Israel began about two months ago.",
-      "url": "https://www.aljazeera.com/news/2026/4/25/iran-resumes-commercial-flights-from-tehran-airport?traffic_source=rss",
-      "published_iso": "2026-04-25T18:58:53+07:00",
-      "published_text": "25/04 18:58"
     }
   ],
   "global_news": [
@@ -56,13 +56,13 @@
     },
     {
       "source": "Google News Macro",
-      "title": "Brent crude oil spot prices surge past futures price in April - U.S. Energy Information Administration (EIA) (.gov)",
-      "title_vi": "Giá dầu thô Brent giao ngay tăng so với giá kỳ hạn trong tháng 4 - Cơ quan Thông tin Năng lượng Hoa Kỳ (EIA) (.gov)",
-      "summary": "Brent crude oil spot prices surge past futures price in April U.S. Energy Information Administration (EIA) (.gov)",
-      "summary_vi": "Brent crude oil spot prices surge past futures price in April U.S. Energy Information Administration (EIA) (.gov)",
-      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9HSTVJZEhFT1U4Y2t2WFJRTjl0eFN5alpTQWZ6bE52MkIzVHp0VFJUTGtjejdOQjZuRE9pNlhBOXZvbEVQQVBSX3o0Z1NJMU4xNFFvelJYZ2ladEJhbC05emhMRQ?oc=5",
-      "published_iso": "2026-04-24T20:02:32+07:00",
-      "published_text": "24/04 20:02"
+      "title": "Tariffs Raised Consumers’ Prices, but the Refunds Go Only to Businesses - The New York Times",
+      "title_vi": "Thuế quan đã làm tăng giá của người tiêu dùng, nhưng tiền hoàn lại chỉ dành cho các doanh nghiệp - The New York Times",
+      "summary": "Tariffs Raised Consumers’ Prices, but the Refunds Go Only to Businesses The New York Times",
+      "summary_vi": "Tariffs Raised Consumers’ Prices, but the Refunds Go Only to Businesses The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOU0FSYjRuZVhBSERuYVlwclE0VFA5MGtwM3lDdkk4QzlSc2s2bnVCMEdTN01XUFlseEdDYkhWVDB4WlJ4TlFLR2pWa3JnV0lkcEd2RmVsb2lqX2lkaThmYy1QMVZIZUVscUIwTFlRdkFfWmxucHJQVjN5OWc2aVJJWEdKUThjZXVrM0l1QjVxZw?oc=5",
+      "published_iso": "2026-04-24T20:57:43+07:00",
+      "published_text": "24/04 20:57"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-phu-tho-dau-gia-17-o-dat-o-tai-khu-dong-lo-ao-cho-xa-son-thuy-cu-xa-thanh-thuy-tinh-phu-tho-50799.html",
-      "published_iso": "2026-04-25T20:25:34.443154+07:00",
-      "published_text": "25/04 20:25"
+      "published_iso": "2026-04-25T21:25:42.390827+07:00",
+      "published_text": "25/04 21:25"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-xuan-truong-dau-gia-quyen-cho-thue-kinh-doanh-nha-thuoc-cua-benh-vien-da-khoa-xuan-truong-tinh-ninh-binh-50801.html",
-      "published_iso": "2026-04-25T20:25:34.443083+07:00",
-      "published_text": "25/04 20:25"
+      "published_iso": "2026-04-25T21:25:42.390754+07:00",
+      "published_text": "25/04 21:25"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/cu-bat-tay-150-ty-usd-viet--han-tu-doi-tac-dau-tu-den-dong-kien-tao-tuong-lai-d143957.html",
-      "published_iso": "2026-04-25T20:25:32.220015+07:00",
-      "published_text": "25/04 20:25"
+      "published_iso": "2026-04-25T21:25:41.181714+07:00",
+      "published_text": "25/04 21:25"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/nhung-tuyen-duong-bi-mat-dua-dau-khi-trung-dong-vuot-tu-huyet-hormuz-d143951.html",
-      "published_iso": "2026-04-25T20:25:32.219942+07:00",
-      "published_text": "25/04 20:25"
+      "published_iso": "2026-04-25T21:25:41.181626+07:00",
+      "published_text": "25/04 21:25"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/26-nam-sau-cot-moc-lich-su-thay-gi-ve-viec-viet-nam-dong-y-mo-cua-cho-doanh-nghiep-my-vao-canh-tranh-truc-tiep-voi-viettel-vnpt-188260420111726933.chn",
-      "published_iso": "2026-04-25T20:25:31.696058+07:00",
-      "published_text": "25/04 20:25"
+      "published_iso": "2026-04-25T21:25:40.701425+07:00",
+      "published_text": "25/04 21:25"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/bat-dong-san-viet-nam-tro-thanh-thoi-nam-cham-hut-von-ngoai-ty-usd-cham-chan-truoc-luat-choi-moi-nha-dau-tu-noi-co-the-danh-mat-loi-the-san-nha-188260422084859555.chn",
-      "published_iso": "2026-04-25T20:25:31.695980+07:00",
-      "published_text": "25/04 20:25"
+      "published_iso": "2026-04-25T21:25:40.701339+07:00",
+      "published_text": "25/04 21:25"
     }
   ],
   "markets": [
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 77644.0,
-      "change": 189.0,
-      "change_pct": 0.24,
+      "price": 77711.0,
+      "change": 255.0,
+      "change_pct": 0.33,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 25/04 07:00"
