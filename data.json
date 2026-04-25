@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-04-25T17:23:35.741147+07:00",
-  "updated_at_display": "25/04/2026 • 17:23 GMT+7",
+  "updated_at": "2026-04-25T18:22:59.208946+07:00",
+  "updated_at_display": "25/04/2026 • 18:22 GMT+7",
   "war_news": [
     {
       "source": "Al Jazeera",
@@ -25,16 +25,6 @@
   ],
   "global_news": [
     {
-      "source": "Investing News",
-      "title": "The GDP-employment disconnect is deepening in China",
-      "title_vi": "Sự mất kết nối giữa GDP và việc làm đang ngày càng sâu sắc ở Trung Quốc",
-      "summary": "",
-      "summary_vi": "",
-      "url": "https://www.investing.com/news/economy-news/the-gdpemployment-disconnect-is-deepening-in-china-4637341",
-      "published_iso": "2026-04-25T16:36:01+07:00",
-      "published_text": "25/04 16:36"
-    },
-    {
       "source": "Google News Macro",
       "title": "Trump government extends Jones Act waiver by 90 days to dampen oil prices - Al Jazeera",
       "title_vi": "Chính phủ Trump gia hạn miễn trừ Đạo luật Jones thêm 90 ngày để làm giảm giá dầu - Al Jazeera",
@@ -56,13 +46,23 @@
     },
     {
       "source": "Google News Macro",
-      "title": "Tariffs Raised Consumers’ Prices, but the Refunds Go Only to Businesses - The New York Times",
-      "title_vi": "Thuế quan đã làm tăng giá của người tiêu dùng, nhưng tiền hoàn lại chỉ dành cho các doanh nghiệp - The New York Times",
-      "summary": "Tariffs Raised Consumers’ Prices, but the Refunds Go Only to Businesses The New York Times",
-      "summary_vi": "Tariffs Raised Consumers’ Prices, but the Refunds Go Only to Businesses The New York Times",
-      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOU0FSYjRuZVhBSERuYVlwclE0VFA5MGtwM3lDdkk4QzlSc2s2bnVCMEdTN01XUFlseEdDYkhWVDB4WlJ4TlFLR2pWa3JnV0lkcEd2RmVsb2lqX2lkaThmYy1QMVZIZUVscUIwTFlRdkFfWmxucHJQVjN5OWc2aVJJWEdKUThjZXVrM0l1QjVxZw?oc=5",
-      "published_iso": "2026-04-24T20:57:43+07:00",
-      "published_text": "24/04 20:57"
+      "title": "Brent crude oil spot prices surge past futures price in April - U.S. Energy Information Administration (EIA) (.gov)",
+      "title_vi": "Giá dầu thô Brent giao ngay tăng so với giá kỳ hạn trong tháng 4 - Cơ quan Thông tin Năng lượng Hoa Kỳ (EIA) (.gov)",
+      "summary": "Brent crude oil spot prices surge past futures price in April U.S. Energy Information Administration (EIA) (.gov)",
+      "summary_vi": "Brent crude oil spot prices surge past futures price in April U.S. Energy Information Administration (EIA) (.gov)",
+      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9HSTVJZEhFT1U4Y2t2WFJRTjl0eFN5alpTQWZ6bE52MkIzVHp0VFJUTGtjejdOQjZuRE9pNlhBOXZvbEVQQVBSX3o0Z1NJMU4xNFFvelJYZ2ladEJhbC05emhMRQ?oc=5",
+      "published_iso": "2026-04-24T20:02:32+07:00",
+      "published_text": "24/04 20:02"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "War and Sanctions Accelerate China’s Currency Push - The New York Times",
+      "title_vi": "Chiến tranh và các biện pháp trừng phạt đẩy nhanh việc đẩy mạnh đồng tiền của Trung Quốc - The New York Times",
+      "summary": "War and Sanctions Accelerate China’s Currency Push The New York Times",
+      "summary_vi": "War and Sanctions Accelerate China’s Currency Push The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1oZjZTWjJRbUcxZklyS0pvN2NTNFFfcXVJcGRwZ18yMldLamkxeVdIV0N4V3JQZ3N2aVlCcU41YVpocGxwMktmOXlqVVJHSG9uQS1kbmdkOGFpZ2tUazAyTlNqUkZyWWlBcjQ5OWxjVFBwNkdXQnM4?oc=5",
+      "published_iso": "2026-04-24T11:00:16+07:00",
+      "published_text": "24/04 11:00"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-phu-tho-dau-gia-17-o-dat-o-tai-khu-dong-lo-ao-cho-xa-son-thuy-cu-xa-thanh-thuy-tinh-phu-tho-50799.html",
-      "published_iso": "2026-04-25T17:24:31.402561+07:00",
-      "published_text": "25/04 17:24"
+      "published_iso": "2026-04-25T18:23:59.079762+07:00",
+      "published_text": "25/04 18:23"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-xuan-truong-dau-gia-quyen-cho-thue-kinh-doanh-nha-thuoc-cua-benh-vien-da-khoa-xuan-truong-tinh-ninh-binh-50801.html",
-      "published_iso": "2026-04-25T17:24:31.402488+07:00",
-      "published_text": "25/04 17:24"
+      "published_iso": "2026-04-25T18:23:59.079701+07:00",
+      "published_text": "25/04 18:23"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/cu-bat-tay-150-ty-usd-viet--han-tu-doi-tac-dau-tu-den-dong-kien-tao-tuong-lai-d143957.html",
-      "published_iso": "2026-04-25T17:24:30.156367+07:00",
-      "published_text": "25/04 17:24"
+      "published_iso": "2026-04-25T18:23:56.956811+07:00",
+      "published_text": "25/04 18:23"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/nhung-tuyen-duong-bi-mat-dua-dau-khi-trung-dong-vuot-tu-huyet-hormuz-d143951.html",
-      "published_iso": "2026-04-25T17:24:30.156296+07:00",
-      "published_text": "25/04 17:24"
+      "published_iso": "2026-04-25T18:23:56.956749+07:00",
+      "published_text": "25/04 18:23"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/26-nam-sau-cot-moc-lich-su-thay-gi-ve-viec-viet-nam-dong-y-mo-cua-cho-doanh-nghiep-my-vao-canh-tranh-truc-tiep-voi-viettel-vnpt-188260420111726933.chn",
-      "published_iso": "2026-04-25T17:24:29.661769+07:00",
-      "published_text": "25/04 17:24"
+      "published_iso": "2026-04-25T18:23:56.164015+07:00",
+      "published_text": "25/04 18:23"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/bat-dong-san-viet-nam-tro-thanh-thoi-nam-cham-hut-von-ngoai-ty-usd-cham-chan-truoc-luat-choi-moi-nha-dau-tu-noi-co-the-danh-mat-loi-the-san-nha-188260422084859555.chn",
-      "published_iso": "2026-04-25T17:24:29.661689+07:00",
-      "published_text": "25/04 17:24"
+      "published_iso": "2026-04-25T18:23:56.163947+07:00",
+      "published_text": "25/04 18:23"
     }
   ],
   "markets": [
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 77834.0,
-      "change": 379.0,
-      "change_pct": 0.49,
+      "price": 77670.0,
+      "change": 215.0,
+      "change_pct": 0.28,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 25/04 07:00"
