@@ -1,7 +1,17 @@
 {
-  "updated_at": "2026-04-25T14:40:43.264798+07:00",
-  "updated_at_display": "25/04/2026 • 14:40 GMT+7",
+  "updated_at": "2026-04-25T15:36:46.444725+07:00",
+  "updated_at_display": "25/04/2026 • 15:36 GMT+7",
   "war_news": [
+    {
+      "source": "Al Jazeera",
+      "title": "Ireland to demand Israel pay for settler demolition of Palestinian school",
+      "title_vi": "Ireland yêu cầu Israel trả tiền cho người định cư phá hủy trường học của người Palestine",
+      "summary": "Ireland will demand that Israeli authorities repay the cost of a school that was demolished by settlers.",
+      "summary_vi": "Ireland will demand that Israeli authorities repay the cost of a school that was demolished by settlers.",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/4/25/ireland-to-demand-israel-pay-for-settler-demolition-of-palestinian-school?traffic_source=rss",
+      "published_iso": "2026-04-25T15:06:36+07:00",
+      "published_text": "25/04 15:06"
+    },
     {
       "source": "Al Jazeera",
       "title": "West Bank scepticism as Palestinians doubt local elections will change much",
@@ -11,28 +21,18 @@
       "url": "https://www.aljazeera.com/features/2026/4/25/west-bank-scepticism-as-palestinians-doubt-local-elections-will-change-much?traffic_source=rss",
       "published_iso": "2026-04-25T14:16:54+07:00",
       "published_text": "25/04 14:16"
-    },
-    {
-      "source": "Al Jazeera",
-      "title": "US sanctions China’s ‘teapot’ refinery for buying Iranian oil",
-      "title_vi": "Mỹ trừng phạt nhà máy lọc dầu 'ấm trà’ của Trung Quốc vì mua dầu của Iran",
-      "summary": "The Hengli refinery has generated hundreds of millions of dollars for Iran's military, says US Treasury.",
-      "summary_vi": "The Hengli refinery has generated hundreds of millions of dollars for Iran's military, says US Treasury.",
-      "url": "https://www.aljazeera.com/news/2026/4/25/us-sanctions-chinas-teapot-refinery-for-buying-iranian-oil?traffic_source=rss",
-      "published_iso": "2026-04-25T14:10:19+07:00",
-      "published_text": "25/04 14:10"
     }
   ],
   "global_news": [
     {
       "source": "Investing News",
-      "title": "US consumer sentiment slumps to record low in April; inflation expectations rise",
-      "title_vi": "Tâm lý người tiêu dùng Mỹ giảm xuống mức thấp kỷ lục trong tháng 4; kỳ vọng lạm phát tăng",
+      "title": "DeepSeek unveils new AI model tailored for Huawei chips as China pushes for tech autonomy",
+      "title_vi": "DeepSeek tiết lộ mô hình AI mới được thiết kế riêng cho chip Huawei khi Trung Quốc thúc đẩy quyền tự chủ công nghệ",
       "summary": "",
       "summary_vi": "",
-      "url": "https://www.investing.com/news/economic-indicators/us-consumer-sentiment-drops-to-near-fouryear-low-in-april-4636156",
-      "published_iso": "2026-04-25T13:55:32+07:00",
-      "published_text": "25/04 13:55"
+      "url": "https://www.investing.com/news/stock-market-news/chinas-ai-darling-deepseek-previews-new-model-4634553",
+      "published_iso": "2026-04-25T14:30:27+07:00",
+      "published_text": "25/04 14:30"
     },
     {
       "source": "Google News Macro",
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-nam-phuong-dau-gia-cho-thue-13-quan-kinh-doanh-dich-vu-tai-bai-tam-cong-dong-trung-giang-thon-bac-son-va-thon-nam-son-xa-ben-hai-tinh-quang-tri-50796.html",
-      "published_iso": "2026-04-25T14:41:43.449627+07:00",
-      "published_text": "25/04 14:41"
+      "published_iso": "2026-04-25T15:37:47.228653+07:00",
+      "published_text": "25/04 15:37"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-phu-tho-dau-gia-17-o-dat-o-tai-khu-dong-lo-ao-cho-xa-son-thuy-cu-xa-thanh-thuy-tinh-phu-tho-50799.html",
-      "published_iso": "2026-04-25T14:41:43.449554+07:00",
-      "published_text": "25/04 14:41"
+      "published_iso": "2026-04-25T15:37:47.228579+07:00",
+      "published_text": "25/04 15:37"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/cu-bat-tay-150-ty-usd-viet--han-tu-doi-tac-dau-tu-den-dong-kien-tao-tuong-lai-d143957.html",
-      "published_iso": "2026-04-25T14:41:42.438206+07:00",
-      "published_text": "25/04 14:41"
+      "published_iso": "2026-04-25T15:37:45.604245+07:00",
+      "published_text": "25/04 15:37"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/nhung-tuyen-duong-bi-mat-dua-dau-khi-trung-dong-vuot-tu-huyet-hormuz-d143951.html",
-      "published_iso": "2026-04-25T14:41:42.438138+07:00",
-      "published_text": "25/04 14:41"
+      "published_iso": "2026-04-25T15:37:45.604155+07:00",
+      "published_text": "25/04 15:37"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/26-nam-sau-cot-moc-lich-su-thay-gi-ve-viec-viet-nam-dong-y-mo-cua-cho-doanh-nghiep-my-vao-canh-tranh-truc-tiep-voi-viettel-vnpt-188260420111726933.chn",
-      "published_iso": "2026-04-25T14:41:41.986232+07:00",
-      "published_text": "25/04 14:41"
+      "published_iso": "2026-04-25T15:37:45.293279+07:00",
+      "published_text": "25/04 15:37"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/bat-dong-san-viet-nam-tro-thanh-thoi-nam-cham-hut-von-ngoai-ty-usd-cham-chan-truoc-luat-choi-moi-nha-dau-tu-noi-co-the-danh-mat-loi-the-san-nha-188260422084859555.chn",
-      "published_iso": "2026-04-25T14:41:41.986159+07:00",
-      "published_text": "25/04 14:41"
+      "published_iso": "2026-04-25T15:37:45.293187+07:00",
+      "published_text": "25/04 15:37"
     }
   ],
   "markets": [
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 77566.0,
-      "change": 111.0,
-      "change_pct": 0.14,
+      "price": 77675.0,
+      "change": 220.0,
+      "change_pct": 0.28,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 25/04 07:00"
