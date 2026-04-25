@@ -1,7 +1,17 @@
 {
-  "updated_at": "2026-04-26T01:28:53.361878+07:00",
-  "updated_at_display": "26/04/2026 • 01:28 GMT+7",
+  "updated_at": "2026-04-26T02:28:11.832103+07:00",
+  "updated_at_display": "26/04/2026 • 02:28 GMT+7",
   "war_news": [
+    {
+      "source": "Al Jazeera",
+      "title": "Trump cancels US envoys’ trip after Iran’s Araghchi leaves Pakistan",
+      "title_vi": "Trump hủy chuyến đi của phái viên Mỹ sau khi Araghchi của Iran rời Pakistan",
+      "summary": "Trump later suggests that next talks will be over phone, saying 'If they want to talk, all they have to do is call!!!'",
+      "summary_vi": "Trump later suggests that next talks will be over phone, saying 'If they want to talk, all they have to do is call!!!'",
+      "url": "https://www.aljazeera.com/news/2026/4/25/trump-cancels-envoys-trip-to-pakistan-after-irans-araghchi-leaves-country?traffic_source=rss",
+      "published_iso": "2026-04-26T01:16:34+07:00",
+      "published_text": "26/04 01:16"
+    },
     {
       "source": "Al Jazeera",
       "title": "Joy and desire for change as Gaza’s Deir el-Balah holds elections",
@@ -11,16 +21,6 @@
       "url": "https://www.aljazeera.com/features/2026/4/25/joy-and-desire-for-change-as-gazas-deir-el-balah-holds-elections?traffic_source=rss",
       "published_iso": "2026-04-26T00:25:09+07:00",
       "published_text": "26/04 00:25"
-    },
-    {
-      "source": "Al Jazeera",
-      "title": "Iran FM Abbas Araghchi and Pakistan PM Shehbaz Sharif meet in Pakistan",
-      "title_vi": "Thủ tướng Iran Abbas Araghchi và Thủ tướng Pakistan Shehbaz Sharif gặp nhau tại Pakistan",
-      "summary": "Iranian FM Araghchi met Pakistani PM Sharif in Islamabad as part of efforts to revive direct negotiations with the US.",
-      "summary_vi": "Iranian FM Araghchi met Pakistani PM Sharif in Islamabad as part of efforts to revive direct negotiations with the US.",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/4/25/iran-fm-abbas-araghchi-and-pakistan-pm-shehbaz-sharif-meet-in-pakistan?traffic_source=rss",
-      "published_iso": "2026-04-26T00:06:38+07:00",
-      "published_text": "26/04 00:06"
     }
   ],
   "global_news": [
@@ -33,16 +33,6 @@
       "url": "https://www.investing.com/news/stock-market-news/goldman-says-this-stock-market-is-likely-to-outperform-the-us-equity-market-index-4637384",
       "published_iso": "2026-04-25T22:49:04+07:00",
       "published_text": "25/04 22:49"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "36-year-old left the U.S. for China—now pays $1,000 rent and $100 for groceries for family of 4: It's my 'version of the American Dream’ - CNBC",
-      "title_vi": "36 tuổi rời Hoa Kỳ đến Trung Quốc - bây giờ trả $ 1.000 tiền thuê nhà và $ 100 cho cửa hàng tạp hóa cho gia đình 4 người: Đó là 'phiên bản Giấc mơ Mỹ’ của tôi - CNBC",
-      "summary": "36-year-old left the U.S. for China—now pays $1,000 rent and $100 for groceries for family of 4: It's my 'version of the American Dream’ CNBC",
-      "summary_vi": "36-year-old left the U.S. for China—now pays $1,000 rent and $100 for groceries for family of 4: It's my 'version of the American Dream’ CNBC",
-      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOOUxQLTFTYkdqVllKbTdoQVVnQkMyTFFXVy1KcUMyQ0xsN2hBdnlGalBuVXExd29xZGFsWkUyYW5pUDJRdi1vQzl1dV9oWXR0WXRGRUVRallZcnBvdmVfYTBBSzl2Uzd5NUt4ZHFpNjR5T2pzUzhFQ29kMm04TGJ5UHowdkd3UENINTFLdnVmeXF5WkdMR0YzUlJRMEcxSUsySUtDXzJDLXF3ellFaVlxODAxR2JLOGh3bWp1Vm9JdGR2d1NE0gHKAUFVX3lxTE9EMm1QM28wamE3TVI0N0tqS3hRWWNweDdEZVlReGtvR2FLR0dTMzNLYkV2OXNEOEZzSmV5OTNQNXJhbHRMeEFPZFJ2N0JDRzB6ejZ5dEkzM3BQbHZfWTZ0WHpLc002S2xGUVlJd2tISXhXTXBHbFA1Z3h5dnYwSUxOOFQ0ckhkQ1ZWNkpuLVB0MTItZy00T2Nka0hBY2IxaE9SQk40MVhUVEw1ZGloLUFtb0RDbDIzdHJrMXdIbkp1ZnNXR1E1TDR4UUE?oc=5",
-      "published_iso": "2026-04-25T20:00:01+07:00",
-      "published_text": "25/04 20:00"
     },
     {
       "source": "Google News Macro",
@@ -63,6 +53,16 @@
       "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNNk9Qa1NYTDB4dHN2dU9vZlA2UUktcGtsNDJfSXJYeThEYk1BZHNZSjVBS2JHN08xTHdiY21ZUHRFeG0ycEs2RUxXUURVVHVtSkllSUNsdXNRRS1xWWNEeVg3MXFQNllfOGh6eTFndV9uU21DNmgzaVdsR21HT01ndWhqSVMxaEhQczNacll6ZWFyd1dIN0F5RnhDMTFfbk1IWE1KSjBXQXJkVktHWk0tZFNjZmZaUE4zejQwZE1QNHktaXpiTlhkZDR2N29MekpBRnFLOEpQQdIB3AFBVV95cUxOWHJ6S1ZYa2N1TzlBRXI1V1M4UVpuM1dwQmNLQXNzc0JIUXZqYmlZS2NVRkJMQ0oxSGVMT1EwWUdtTFZTVkx1ZE1kT0l0WDB4MG5jT1B5Z2ttaEFxY2ZqWXFPSXYwN1l5Qlh1c285blR2WGViNDRxNnNDTzNQclJkbThORkhMYnhiRi1HbVNSMEtfa0VMVXhsWDk4N05hR21QVGE4Snh6Wm54cFBMQ3lEYUhpeVdpR0tHdU9zU0FpdUo5dUtKTDBzdV90Mk5WeGVYQTJVcl9FUVR0TmlX?oc=5",
       "published_iso": "2026-04-24T22:06:07+07:00",
       "published_text": "24/04 22:06"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "Brent crude oil spot prices surge past futures price in April - U.S. Energy Information Administration (EIA) (.gov)",
+      "title_vi": "Giá dầu thô Brent giao ngay tăng so với giá kỳ hạn trong tháng 4 - Cơ quan Thông tin Năng lượng Hoa Kỳ (EIA) (.gov)",
+      "summary": "Brent crude oil spot prices surge past futures price in April U.S. Energy Information Administration (EIA) (.gov)",
+      "summary_vi": "Brent crude oil spot prices surge past futures price in April U.S. Energy Information Administration (EIA) (.gov)",
+      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9HSTVJZEhFT1U4Y2t2WFJRTjl0eFN5alpTQWZ6bE52MkIzVHp0VFJUTGtjejdOQjZuRE9pNlhBOXZvbEVQQVBSX3o0Z1NJMU4xNFFvelJYZ2ladEJhbC05emhMRQ?oc=5",
+      "published_iso": "2026-04-24T20:02:32+07:00",
+      "published_text": "24/04 20:02"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-phu-tho-dau-gia-17-o-dat-o-tai-khu-dong-lo-ao-cho-xa-son-thuy-cu-xa-thanh-thuy-tinh-phu-tho-50799.html",
-      "published_iso": "2026-04-26T01:29:49.679783+07:00",
-      "published_text": "26/04 01:29"
+      "published_iso": "2026-04-26T02:29:10.739988+07:00",
+      "published_text": "26/04 02:29"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-xuan-truong-dau-gia-quyen-cho-thue-kinh-doanh-nha-thuoc-cua-benh-vien-da-khoa-xuan-truong-tinh-ninh-binh-50801.html",
-      "published_iso": "2026-04-26T01:29:49.679713+07:00",
-      "published_text": "26/04 01:29"
+      "published_iso": "2026-04-26T02:29:10.739922+07:00",
+      "published_text": "26/04 02:29"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/cu-bat-tay-150-ty-usd-viet--han-tu-doi-tac-dau-tu-den-dong-kien-tao-tuong-lai-d143957.html",
-      "published_iso": "2026-04-26T01:29:47.635938+07:00",
-      "published_text": "26/04 01:29"
+      "published_iso": "2026-04-26T02:29:08.611617+07:00",
+      "published_text": "26/04 02:29"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/nhung-tuyen-duong-bi-mat-dua-dau-khi-trung-dong-vuot-tu-huyet-hormuz-d143951.html",
-      "published_iso": "2026-04-26T01:29:47.635852+07:00",
-      "published_text": "26/04 01:29"
+      "published_iso": "2026-04-26T02:29:08.611552+07:00",
+      "published_text": "26/04 02:29"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/26-nam-sau-cot-moc-lich-su-thay-gi-ve-viec-viet-nam-dong-y-mo-cua-cho-doanh-nghiep-my-vao-canh-tranh-truc-tiep-voi-viettel-vnpt-188260420111726933.chn",
-      "published_iso": "2026-04-26T01:29:47.140394+07:00",
-      "published_text": "26/04 01:29"
+      "published_iso": "2026-04-26T02:29:08.099110+07:00",
+      "published_text": "26/04 02:29"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/bat-dong-san-viet-nam-tro-thanh-thoi-nam-cham-hut-von-ngoai-ty-usd-cham-chan-truoc-luat-choi-moi-nha-dau-tu-noi-co-the-danh-mat-loi-the-san-nha-188260422084859555.chn",
-      "published_iso": "2026-04-26T01:29:47.140316+07:00",
-      "published_text": "26/04 01:29"
+      "published_iso": "2026-04-26T02:29:08.099035+07:00",
+      "published_text": "26/04 02:29"
     }
   ],
   "markets": [
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 77349.0,
-      "change": -107.0,
-      "change_pct": -0.14,
+      "price": 77277.0,
+      "change": -179.0,
+      "change_pct": -0.23,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 25/04 07:00"
