@@ -1,7 +1,17 @@
 {
-  "updated_at": "2026-04-25T21:24:47.456783+07:00",
-  "updated_at_display": "25/04/2026 • 21:24 GMT+7",
+  "updated_at": "2026-04-25T22:10:50.808732+07:00",
+  "updated_at_display": "25/04/2026 • 22:10 GMT+7",
   "war_news": [
+    {
+      "source": "Al Jazeera",
+      "title": "African governments need to take urgent action on fertiliser shortages",
+      "title_vi": "Chính phủ châu Phi cần hành động khẩn cấp để giải quyết tình trạng thiếu phân bón",
+      "summary": "Tensions in the Strait of Hormuz have slowed fertiliser shipments which could put harvests at risk.",
+      "summary_vi": "Tensions in the Strait of Hormuz have slowed fertiliser shipments which could put harvests at risk.",
+      "url": "https://www.aljazeera.com/opinions/2026/4/25/african-governments-need-to-take-urgent-action-on-fertiliser-shortages?traffic_source=rss",
+      "published_iso": "2026-04-25T21:27:27+07:00",
+      "published_text": "25/04 21:27"
+    },
     {
       "source": "Al Jazeera",
       "title": "Israeli attacks kill four in southern Lebanon",
@@ -11,19 +21,19 @@
       "url": "https://www.aljazeera.com/news/2026/4/25/israeli-strikes-kill-four-in-southern-lebanon?traffic_source=rss",
       "published_iso": "2026-04-25T20:25:30+07:00",
       "published_text": "25/04 20:25"
-    },
-    {
-      "source": "Al Jazeera",
-      "title": "Flights resume at Tehran airport as US-Iran ceasefire holds",
-      "title_vi": "Các chuyến bay tiếp tục tại sân bay Tehran khi lệnh ngừng bắn Mỹ-Iran được thực hiện",
-      "summary": "International flights have resumed at Tehran’s Imam Khomeini International Airport, after weeks of disruption by the war",
-      "summary_vi": "International flights have resumed at Tehran’s Imam Khomeini International Airport, after weeks of disruption by the war",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/4/25/flights-resume-at-tehran-airport-as-us-iran-ceasefire-holds?traffic_source=rss",
-      "published_iso": "2026-04-25T19:23:27+07:00",
-      "published_text": "25/04 19:23"
     }
   ],
   "global_news": [
+    {
+      "source": "Investing News",
+      "title": "China protests EU decision to sanction Chinese firms in latest Russia package",
+      "title_vi": "Trung Quốc phản đối quyết định của EU xử phạt các công ty Trung Quốc trong gói trừng phạt mới nhất của Nga",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/world-news/china-protests-eu-decision-to-sanction-chinese-firms-in-latest-russia-package-4637382",
+      "published_iso": "2026-04-25T21:32:37+07:00",
+      "published_text": "25/04 21:32"
+    },
     {
       "source": "Investing News",
       "title": "Goldman expects 100 IPOs totalling $160 billion will come to market in 2026",
@@ -53,16 +63,6 @@
       "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNNk9Qa1NYTDB4dHN2dU9vZlA2UUktcGtsNDJfSXJYeThEYk1BZHNZSjVBS2JHN08xTHdiY21ZUHRFeG0ycEs2RUxXUURVVHVtSkllSUNsdXNRRS1xWWNEeVg3MXFQNllfOGh6eTFndV9uU21DNmgzaVdsR21HT01ndWhqSVMxaEhQczNacll6ZWFyd1dIN0F5RnhDMTFfbk1IWE1KSjBXQXJkVktHWk0tZFNjZmZaUE4zejQwZE1QNHktaXpiTlhkZDR2N29MekpBRnFLOEpQQdIB3AFBVV95cUxOWHJ6S1ZYa2N1TzlBRXI1V1M4UVpuM1dwQmNLQXNzc0JIUXZqYmlZS2NVRkJMQ0oxSGVMT1EwWUdtTFZTVkx1ZE1kT0l0WDB4MG5jT1B5Z2ttaEFxY2ZqWXFPSXYwN1l5Qlh1c285blR2WGViNDRxNnNDTzNQclJkbThORkhMYnhiRi1HbVNSMEtfa0VMVXhsWDk4N05hR21QVGE4Snh6Wm54cFBMQ3lEYUhpeVdpR0tHdU9zU0FpdUo5dUtKTDBzdV90Mk5WeGVYQTJVcl9FUVR0TmlX?oc=5",
       "published_iso": "2026-04-24T22:06:07+07:00",
       "published_text": "24/04 22:06"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "Tariffs Raised Consumers’ Prices, but the Refunds Go Only to Businesses - The New York Times",
-      "title_vi": "Thuế quan đã làm tăng giá của người tiêu dùng, nhưng tiền hoàn lại chỉ dành cho các doanh nghiệp - The New York Times",
-      "summary": "Tariffs Raised Consumers’ Prices, but the Refunds Go Only to Businesses The New York Times",
-      "summary_vi": "Tariffs Raised Consumers’ Prices, but the Refunds Go Only to Businesses The New York Times",
-      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOU0FSYjRuZVhBSERuYVlwclE0VFA5MGtwM3lDdkk4QzlSc2s2bnVCMEdTN01XUFlseEdDYkhWVDB4WlJ4TlFLR2pWa3JnV0lkcEd2RmVsb2lqX2lkaThmYy1QMVZIZUVscUIwTFlRdkFfWmxucHJQVjN5OWc2aVJJWEdKUThjZXVrM0l1QjVxZw?oc=5",
-      "published_iso": "2026-04-24T20:57:43+07:00",
-      "published_text": "24/04 20:57"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-phu-tho-dau-gia-17-o-dat-o-tai-khu-dong-lo-ao-cho-xa-son-thuy-cu-xa-thanh-thuy-tinh-phu-tho-50799.html",
-      "published_iso": "2026-04-25T21:25:42.390827+07:00",
-      "published_text": "25/04 21:25"
+      "published_iso": "2026-04-25T22:11:50.717855+07:00",
+      "published_text": "25/04 22:11"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-xuan-truong-dau-gia-quyen-cho-thue-kinh-doanh-nha-thuoc-cua-benh-vien-da-khoa-xuan-truong-tinh-ninh-binh-50801.html",
-      "published_iso": "2026-04-25T21:25:42.390754+07:00",
-      "published_text": "25/04 21:25"
+      "published_iso": "2026-04-25T22:11:50.717790+07:00",
+      "published_text": "25/04 22:11"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/cu-bat-tay-150-ty-usd-viet--han-tu-doi-tac-dau-tu-den-dong-kien-tao-tuong-lai-d143957.html",
-      "published_iso": "2026-04-25T21:25:41.181714+07:00",
-      "published_text": "25/04 21:25"
+      "published_iso": "2026-04-25T22:11:49.386263+07:00",
+      "published_text": "25/04 22:11"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/nhung-tuyen-duong-bi-mat-dua-dau-khi-trung-dong-vuot-tu-huyet-hormuz-d143951.html",
-      "published_iso": "2026-04-25T21:25:41.181626+07:00",
-      "published_text": "25/04 21:25"
+      "published_iso": "2026-04-25T22:11:49.386193+07:00",
+      "published_text": "25/04 22:11"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/26-nam-sau-cot-moc-lich-su-thay-gi-ve-viec-viet-nam-dong-y-mo-cua-cho-doanh-nghiep-my-vao-canh-tranh-truc-tiep-voi-viettel-vnpt-188260420111726933.chn",
-      "published_iso": "2026-04-25T21:25:40.701425+07:00",
-      "published_text": "25/04 21:25"
+      "published_iso": "2026-04-25T22:11:48.855002+07:00",
+      "published_text": "25/04 22:11"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/bat-dong-san-viet-nam-tro-thanh-thoi-nam-cham-hut-von-ngoai-ty-usd-cham-chan-truoc-luat-choi-moi-nha-dau-tu-noi-co-the-danh-mat-loi-the-san-nha-188260422084859555.chn",
-      "published_iso": "2026-04-25T21:25:40.701339+07:00",
-      "published_text": "25/04 21:25"
+      "published_iso": "2026-04-25T22:11:48.854928+07:00",
+      "published_text": "25/04 22:11"
     }
   ],
   "markets": [
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 77711.0,
-      "change": 255.0,
-      "change_pct": 0.33,
+      "price": 77680.0,
+      "change": 225.0,
+      "change_pct": 0.29,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 25/04 07:00"
