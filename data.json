@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-04-26T06:24:28.507365+07:00",
-  "updated_at_display": "26/04/2026 • 06:24 GMT+7",
+  "updated_at": "2026-04-26T07:05:43.281638+07:00",
+  "updated_at_display": "26/04/2026 • 07:05 GMT+7",
   "war_news": [
     {
       "source": "Al Jazeera",
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-phu-tho-dau-gia-17-o-dat-o-tai-khu-dong-lo-ao-cho-xa-son-thuy-cu-xa-thanh-thuy-tinh-phu-tho-50799.html",
-      "published_iso": "2026-04-26T06:25:26.130505+07:00",
-      "published_text": "26/04 06:25"
+      "published_iso": "2026-04-26T07:06:40.263027+07:00",
+      "published_text": "26/04 07:06"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,18 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-xuan-truong-dau-gia-quyen-cho-thue-kinh-doanh-nha-thuoc-cua-benh-vien-da-khoa-xuan-truong-tinh-ninh-binh-50801.html",
-      "published_iso": "2026-04-26T06:25:26.130439+07:00",
-      "published_text": "26/04 06:25"
-    },
-    {
-      "source": "VietnamFinance",
-      "title": "'Cú bắt tay' 150 tỷ USD: Việt - Hàn từ đối tác đầu tư đến đồng kiến tạo tương lai",
-      "title_vi": "'Cú bắt tay' 150 tỷ USD: Việt - Hàn từ đối tác đầu tư đến đồng kiến tạo tương lai",
-      "summary": "",
-      "summary_vi": "",
-      "url": "https://vietnamfinance.vn/cu-bat-tay-150-ty-usd-viet--han-tu-doi-tac-dau-tu-den-dong-kien-tao-tuong-lai-d143957.html",
-      "published_iso": "2026-04-26T06:25:24.065100+07:00",
-      "published_text": "26/04 06:25"
+      "published_iso": "2026-04-26T07:06:40.262961+07:00",
+      "published_text": "26/04 07:06"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +93,18 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/nhung-tuyen-duong-bi-mat-dua-dau-khi-trung-dong-vuot-tu-huyet-hormuz-d143951.html",
-      "published_iso": "2026-04-26T06:25:24.065028+07:00",
-      "published_text": "26/04 06:25"
+      "published_iso": "2026-04-26T07:06:39.048477+07:00",
+      "published_text": "26/04 07:06"
+    },
+    {
+      "source": "VietnamFinance",
+      "title": "Giá vàng tuần qua: Vàng nhẫn, vàng miếng 'đua nhau' giảm",
+      "title_vi": "Giá vàng tuần qua: Vàng nhẫn, vàng miếng 'đua nhau' giảm",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://vietnamfinance.vn/gia-vang-tuan-qua-vang-nhan-vang-mieng-dua-nhau-giam-d143988.html",
+      "published_iso": "2026-04-26T07:06:39.048410+07:00",
+      "published_text": "26/04 07:06"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/26-nam-sau-cot-moc-lich-su-thay-gi-ve-viec-viet-nam-dong-y-mo-cua-cho-doanh-nghiep-my-vao-canh-tranh-truc-tiep-voi-viettel-vnpt-188260420111726933.chn",
-      "published_iso": "2026-04-26T06:25:23.333615+07:00",
-      "published_text": "26/04 06:25"
+      "published_iso": "2026-04-26T07:06:38.592048+07:00",
+      "published_text": "26/04 07:06"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/bat-dong-san-viet-nam-tro-thanh-thoi-nam-cham-hut-von-ngoai-ty-usd-cham-chan-truoc-luat-choi-moi-nha-dau-tu-noi-co-the-danh-mat-loi-the-san-nha-188260422084859555.chn",
-      "published_iso": "2026-04-26T06:25:23.333534+07:00",
-      "published_text": "26/04 06:25"
+      "published_iso": "2026-04-26T07:06:38.591972+07:00",
+      "published_text": "26/04 07:06"
     }
   ],
   "markets": [
@@ -231,12 +231,12 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 77600.0,
-      "change": 145.0,
-      "change_pct": 0.19,
+      "price": 77574.0,
+      "change": 119.0,
+      "change_pct": 0.15,
       "decimals": 0,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 25/04 07:00"
+      "note": "Dữ liệu gần nhất: 26/04 07:00"
     },
     {
       "name": "S&P 500",
