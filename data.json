@@ -1,39 +1,29 @@
 {
-  "updated_at": "2026-04-27T01:30:20.417489+07:00",
-  "updated_at_display": "27/04/2026 • 01:30 GMT+7",
+  "updated_at": "2026-04-27T02:29:47.703423+07:00",
+  "updated_at_display": "27/04/2026 • 02:29 GMT+7",
   "war_news": [
     {
       "source": "Al Jazeera",
-      "title": "Iran shifts economic focus to essentials during war uncertainty",
-      "title_vi": "Iran chuyển trọng tâm kinh tế sang các yếu tố thiết yếu trong thời kỳ bất ổn chiến tranh",
-      "summary": "The government is partly reversing a currency decision for basic items and tapping into the country's sovereign fund.",
-      "summary_vi": "The government is partly reversing a currency decision for basic items and tapping into the country's sovereign fund.",
-      "url": "https://www.aljazeera.com/news/2026/4/26/iran-shifts-economic-focus-to-essentials-amid-war-uncertainty?traffic_source=rss",
-      "published_iso": "2026-04-27T00:00:10+07:00",
-      "published_text": "27/04 00:00"
+      "title": "Israel issues forced evacuation orders for southern Lebanon in escalation",
+      "title_vi": "Israel ban hành lệnh sơ tán bắt buộc đối với miền nam Lebanon trong tình trạng leo thang",
+      "summary": "Hezbollah rejects allegations from Israeli PM Benjamin Netanyahu that it is undermining the Israel-Lebanon ceasefire.",
+      "summary_vi": "Hezbollah rejects allegations from Israeli PM Benjamin Netanyahu that it is undermining the Israel-Lebanon ceasefire.",
+      "url": "https://www.aljazeera.com/news/2026/4/26/israel-issues-forced-evacuation-orders-for-southern-lebanon-in-escalation?traffic_source=rss",
+      "published_iso": "2026-04-27T02:09:56+07:00",
+      "published_text": "27/04 02:09"
     },
     {
-      "source": "Al Jazeera",
-      "title": "Abbas loyalists sweep Palestinian elections, including some seats in Gaza",
-      "title_vi": "Những người trung thành với Abbas càn quét các cuộc bầu cử Palestine, bao gồm một số ghế ở Gaza",
-      "summary": "Voter turnout in Gaza remained low due to the ongoing impact of the genocide.",
-      "summary_vi": "Voter turnout in Gaza remained low due to the ongoing impact of the genocide.",
-      "url": "https://www.aljazeera.com/news/2026/4/26/abbas-loyalists-sweep-palestine-elections-in-occupied-west-bank-gaza-city?traffic_source=rss",
-      "published_iso": "2026-04-26T23:50:27+07:00",
-      "published_text": "26/04 23:50"
+      "source": "Google News War",
+      "title": "No headway in Middle East peace efforts as US and Iran refuse to yield - The Guardian",
+      "title_vi": "Không có tiến triển nào trong các nỗ lực hòa bình Trung Đông vì Mỹ và Iran từ chối nhượng bộ - The Guardian",
+      "summary": "No headway in Middle East peace efforts as US and Iran refuse to yield The Guardian",
+      "summary_vi": "No headway in Middle East peace efforts as US and Iran refuse to yield The Guardian",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNdkl0bFlJb1FNWmNYeUFvYUxlRlJTc3I4R0ZNbzQyUXRRZjVSM05ZSjJ5VmY5elNNT2l5RjRaRi1HQk41MXAxVkxaV0UzSnF3cVRwQjhDN1BrdHZfbFBLR2d2b3VBOVpCNDVYX1g5ZV9QTTlVeWxLc2l5TTVsekpHeFVYREowcnlkekNCQVZDU0ozZnJnd2tmNDJuSjdzZzZybDJuVTlsbWRESGJrUS1SWlo3WDhGRUE?oc=5",
+      "published_iso": "2026-04-27T01:48:00+07:00",
+      "published_text": "27/04 01:48"
     }
   ],
   "global_news": [
-    {
-      "source": "Investing News",
-      "title": "Sen Tillis clears path for Trump’s Fed pick after DOJ drops Powell probe",
-      "title_vi": "Sen Tillis dọn đường cho lựa chọn Fed của Trump sau khi DOJ bỏ thăm dò Powell",
-      "summary": "",
-      "summary_vi": "",
-      "url": "https://www.investing.com/news/economy-news/sen-tillis-clears-path-for-trumps-fed-pick-after-doj-drops-powell-probe-4637482",
-      "published_iso": "2026-04-26T20:58:24+07:00",
-      "published_text": "26/04 20:58"
-    },
     {
       "source": "Google News Macro",
       "title": "Justice Department drops criminal probe of Fed chair Powell, likely clearing way for Warsh confirmation - PBS",
@@ -63,6 +53,16 @@
       "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOU0FSYjRuZVhBSERuYVlwclE0VFA5MGtwM3lDdkk4QzlSc2s2bnVCMEdTN01XUFlseEdDYkhWVDB4WlJ4TlFLR2pWa3JnV0lkcEd2RmVsb2lqX2lkaThmYy1QMVZIZUVscUIwTFlRdkFfWmxucHJQVjN5OWc2aVJJWEdKUThjZXVrM0l1QjVxZw?oc=5",
       "published_iso": "2026-04-24T16:02:57+07:00",
       "published_text": "24/04 16:02"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "War and Sanctions Accelerate China’s Currency Push - The New York Times",
+      "title_vi": "Chiến tranh và các biện pháp trừng phạt đẩy nhanh việc đẩy mạnh đồng tiền của Trung Quốc - The New York Times",
+      "summary": "War and Sanctions Accelerate China’s Currency Push The New York Times",
+      "summary_vi": "War and Sanctions Accelerate China’s Currency Push The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1oZjZTWjJRbUcxZklyS0pvN2NTNFFfcXVJcGRwZ18yMldLamkxeVdIV0N4V3JQZ3N2aVlCcU41YVpocGxwMktmOXlqVVJHSG9uQS1kbmdkOGFpZ2tUazAyTlNqUkZyWWlBcjQ5OWxjVFBwNkdXQnM4?oc=5",
+      "published_iso": "2026-04-24T11:00:16+07:00",
+      "published_text": "24/04 11:00"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-phu-tho-dau-gia-17-o-dat-o-tai-khu-dong-lo-ao-cho-xa-son-thuy-cu-xa-thanh-thuy-tinh-phu-tho-50799.html",
-      "published_iso": "2026-04-27T01:31:17.205563+07:00",
-      "published_text": "27/04 01:31"
+      "published_iso": "2026-04-27T02:30:42.783720+07:00",
+      "published_text": "27/04 02:30"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-xuan-truong-dau-gia-quyen-cho-thue-kinh-doanh-nha-thuoc-cua-benh-vien-da-khoa-xuan-truong-tinh-ninh-binh-50801.html",
-      "published_iso": "2026-04-27T01:31:17.205497+07:00",
-      "published_text": "27/04 01:31"
+      "published_iso": "2026-04-27T02:30:42.783646+07:00",
+      "published_text": "27/04 02:30"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/hinh-dang-cau-di-bo-vuot-song-sai-gon-sau-hon-mot-nam-thi-cong-d143994.html",
-      "published_iso": "2026-04-27T01:31:15.049620+07:00",
-      "published_text": "27/04 01:31"
+      "published_iso": "2026-04-27T02:30:40.725403+07:00",
+      "published_text": "27/04 02:30"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/luat-kinh-doanh-bat-dong-san-sua-doi-siet-chat-quy-dinh-voi-cac-co-so-dao-tao-moi-gioi-d143923.html",
-      "published_iso": "2026-04-27T01:31:15.049551+07:00",
-      "published_text": "27/04 01:31"
+      "published_iso": "2026-04-27T02:30:40.725334+07:00",
+      "published_text": "27/04 02:30"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/26-nam-sau-cot-moc-lich-su-thay-gi-ve-viec-viet-nam-dong-y-mo-cua-cho-doanh-nghiep-my-vao-canh-tranh-truc-tiep-voi-viettel-vnpt-188260420111726933.chn",
-      "published_iso": "2026-04-27T01:31:14.513386+07:00",
-      "published_text": "27/04 01:31"
+      "published_iso": "2026-04-27T02:30:40.265776+07:00",
+      "published_text": "27/04 02:30"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/bat-dong-san-viet-nam-tro-thanh-thoi-nam-cham-hut-von-ngoai-ty-usd-cham-chan-truoc-luat-choi-moi-nha-dau-tu-noi-co-the-danh-mat-loi-the-san-nha-188260422084859555.chn",
-      "published_iso": "2026-04-27T01:31:14.513310+07:00",
-      "published_text": "27/04 01:31"
+      "published_iso": "2026-04-27T02:30:40.265698+07:00",
+      "published_text": "27/04 02:30"
     }
   ],
   "markets": [
@@ -220,20 +220,20 @@
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1726,
-      "change": 0.002,
-      "change_pct": 0.17,
+      "price": 1.1718,
+      "change": 0.0034,
+      "change_pct": 0.29,
       "decimals": 4,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 24/04 06:00"
+      "note": "Dữ liệu gần nhất: 26/04 06:00"
     },
     {
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 78208.0,
-      "change": 596.0,
-      "change_pct": 0.77,
+      "price": 78225.0,
+      "change": 613.0,
+      "change_pct": 0.79,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 26/04 07:00"
