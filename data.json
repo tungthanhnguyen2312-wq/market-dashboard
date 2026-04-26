@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-04-26T14:49:28.451746+07:00",
-  "updated_at_display": "26/04/2026 • 14:49 GMT+7",
+  "updated_at": "2026-04-26T15:45:44.527052+07:00",
+  "updated_at_display": "26/04/2026 • 15:45 GMT+7",
   "war_news": [
     {
       "source": "Al Jazeera",
@@ -24,6 +24,16 @@
     }
   ],
   "global_news": [
+    {
+      "source": "Investing News",
+      "title": "Why Strait of Hormuz disruption is more severe for global LNG markets than for oil",
+      "title_vi": "Tại sao sự gián đoạn eo biển Hormuz nghiêm trọng hơn đối với thị trường LNG toàn cầu so với dầu mỏ",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/commodities-news/why-strait-of-hormuz-disruption-is-more-severe-for-global-lng-markets-than-for-oil-4637438",
+      "published_iso": "2026-04-26T14:53:27+07:00",
+      "published_text": "26/04 14:53"
+    },
     {
       "source": "Google News Macro",
       "title": "Trump government extends Jones Act waiver by 90 days to dampen oil prices - Al Jazeera",
@@ -53,16 +63,6 @@
       "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9HSTVJZEhFT1U4Y2t2WFJRTjl0eFN5alpTQWZ6bE52MkIzVHp0VFJUTGtjejdOQjZuRE9pNlhBOXZvbEVQQVBSX3o0Z1NJMU4xNFFvelJYZ2ladEJhbC05emhMRQ?oc=5",
       "published_iso": "2026-04-24T20:02:32+07:00",
       "published_text": "24/04 20:02"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "Tariffs Raised Consumers’ Prices, but the Refunds Go Only to Businesses - The New York Times",
-      "title_vi": "Thuế quan đã làm tăng giá của người tiêu dùng, nhưng tiền hoàn lại chỉ dành cho các doanh nghiệp - The New York Times",
-      "summary": "Tariffs Raised Consumers’ Prices, but the Refunds Go Only to Businesses The New York Times",
-      "summary_vi": "Tariffs Raised Consumers’ Prices, but the Refunds Go Only to Businesses The New York Times",
-      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOU0FSYjRuZVhBSERuYVlwclE0VFA5MGtwM3lDdkk4QzlSc2s2bnVCMEdTN01XUFlseEdDYkhWVDB4WlJ4TlFLR2pWa3JnV0lkcEd2RmVsb2lqX2lkaThmYy1QMVZIZUVscUIwTFlRdkFfWmxucHJQVjN5OWc2aVJJWEdKUThjZXVrM0l1QjVxZw?oc=5",
-      "published_iso": "2026-04-24T16:02:57+07:00",
-      "published_text": "24/04 16:02"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-phu-tho-dau-gia-17-o-dat-o-tai-khu-dong-lo-ao-cho-xa-son-thuy-cu-xa-thanh-thuy-tinh-phu-tho-50799.html",
-      "published_iso": "2026-04-26T14:50:24.379944+07:00",
-      "published_text": "26/04 14:50"
+      "published_iso": "2026-04-26T15:46:38.553709+07:00",
+      "published_text": "26/04 15:46"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-xuan-truong-dau-gia-quyen-cho-thue-kinh-doanh-nha-thuoc-cua-benh-vien-da-khoa-xuan-truong-tinh-ninh-binh-50801.html",
-      "published_iso": "2026-04-26T14:50:24.379879+07:00",
-      "published_text": "26/04 14:50"
+      "published_iso": "2026-04-26T15:46:38.553641+07:00",
+      "published_text": "26/04 15:46"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/hinh-dang-cau-di-bo-vuot-song-sai-gon-sau-hon-mot-nam-thi-cong-d143994.html",
-      "published_iso": "2026-04-26T14:50:22.140512+07:00",
-      "published_text": "26/04 14:50"
+      "published_iso": "2026-04-26T15:46:37.084677+07:00",
+      "published_text": "26/04 15:46"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/luat-kinh-doanh-bat-dong-san-sua-doi-siet-chat-quy-dinh-voi-cac-co-so-dao-tao-moi-gioi-d143923.html",
-      "published_iso": "2026-04-26T14:50:22.140443+07:00",
-      "published_text": "26/04 14:50"
+      "published_iso": "2026-04-26T15:46:37.084614+07:00",
+      "published_text": "26/04 15:46"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/26-nam-sau-cot-moc-lich-su-thay-gi-ve-viec-viet-nam-dong-y-mo-cua-cho-doanh-nghiep-my-vao-canh-tranh-truc-tiep-voi-viettel-vnpt-188260420111726933.chn",
-      "published_iso": "2026-04-26T14:50:21.667818+07:00",
-      "published_text": "26/04 14:50"
+      "published_iso": "2026-04-26T15:46:36.802079+07:00",
+      "published_text": "26/04 15:46"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/bat-dong-san-viet-nam-tro-thanh-thoi-nam-cham-hut-von-ngoai-ty-usd-cham-chan-truoc-luat-choi-moi-nha-dau-tu-noi-co-the-danh-mat-loi-the-san-nha-188260422084859555.chn",
-      "published_iso": "2026-04-26T14:50:21.667753+07:00",
-      "published_text": "26/04 14:50"
+      "published_iso": "2026-04-26T15:46:36.801980+07:00",
+      "published_text": "26/04 15:46"
     }
   ],
   "markets": [
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 78014.0,
-      "change": 402.0,
-      "change_pct": 0.52,
+      "price": 78058.0,
+      "change": 446.0,
+      "change_pct": 0.57,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 26/04 07:00"
