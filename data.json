@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-04-26T10:51:04.593285+07:00",
-  "updated_at_display": "26/04/2026 • 10:51 GMT+7",
+  "updated_at": "2026-04-26T12:58:31.837529+07:00",
+  "updated_at_display": "26/04/2026 • 12:58 GMT+7",
   "war_news": [
     {
       "source": "Al Jazeera",
@@ -24,6 +24,16 @@
     }
   ],
   "global_news": [
+    {
+      "source": "Investing News",
+      "title": "What is the impact of rising fertiliser prices on the global economy?",
+      "title_vi": "Tác động của việc tăng giá phân bón đối với nền kinh tế toàn cầu là gì?",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/economy-news/what-is-the-impact-of-rising-fertiliser-prices-on-the-global-economy-4637421",
+      "published_iso": "2026-04-26T10:25:34+07:00",
+      "published_text": "26/04 10:25"
+    },
     {
       "source": "Google News Macro",
       "title": "Trump government extends Jones Act waiver by 90 days to dampen oil prices - Al Jazeera",
@@ -53,16 +63,6 @@
       "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9HSTVJZEhFT1U4Y2t2WFJRTjl0eFN5alpTQWZ6bE52MkIzVHp0VFJUTGtjejdOQjZuRE9pNlhBOXZvbEVQQVBSX3o0Z1NJMU4xNFFvelJYZ2ladEJhbC05emhMRQ?oc=5",
       "published_iso": "2026-04-24T20:02:32+07:00",
       "published_text": "24/04 20:02"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "Tariffs Raised Consumers’ Prices, but the Refunds Go Only to Businesses - The New York Times",
-      "title_vi": "Thuế quan đã làm tăng giá của người tiêu dùng, nhưng tiền hoàn lại chỉ dành cho các doanh nghiệp - The New York Times",
-      "summary": "Tariffs Raised Consumers’ Prices, but the Refunds Go Only to Businesses The New York Times",
-      "summary_vi": "Tariffs Raised Consumers’ Prices, but the Refunds Go Only to Businesses The New York Times",
-      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOU0FSYjRuZVhBSERuYVlwclE0VFA5MGtwM3lDdkk4QzlSc2s2bnVCMEdTN01XUFlseEdDYkhWVDB4WlJ4TlFLR2pWa3JnV0lkcEd2RmVsb2lqX2lkaThmYy1QMVZIZUVscUIwTFlRdkFfWmxucHJQVjN5OWc2aVJJWEdKUThjZXVrM0l1QjVxZw?oc=5",
-      "published_iso": "2026-04-24T16:02:57+07:00",
-      "published_text": "24/04 16:02"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-phu-tho-dau-gia-17-o-dat-o-tai-khu-dong-lo-ao-cho-xa-son-thuy-cu-xa-thanh-thuy-tinh-phu-tho-50799.html",
-      "published_iso": "2026-04-26T10:52:00.180531+07:00",
-      "published_text": "26/04 10:52"
+      "published_iso": "2026-04-26T12:59:23.438368+07:00",
+      "published_text": "26/04 12:59"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-xuan-truong-dau-gia-quyen-cho-thue-kinh-doanh-nha-thuoc-cua-benh-vien-da-khoa-xuan-truong-tinh-ninh-binh-50801.html",
-      "published_iso": "2026-04-26T10:52:00.180449+07:00",
-      "published_text": "26/04 10:52"
+      "published_iso": "2026-04-26T12:59:23.438289+07:00",
+      "published_text": "26/04 12:59"
     },
     {
       "source": "VietnamFinance",
@@ -93,18 +93,18 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/cuc-tang-truong-moi-cua-bds-cong-nghiep-dong-von-fdi-ty-usd-do-ve-mien-trung-d143972.html",
-      "published_iso": "2026-04-26T10:51:58.919778+07:00",
-      "published_text": "26/04 10:51"
+      "published_iso": "2026-04-26T12:59:22.178432+07:00",
+      "published_text": "26/04 12:59"
     },
     {
       "source": "VietnamFinance",
-      "title": "Hơn 21 tỷ USD xây ba tuyến đường sắt kết nối sang Trung Quốc",
-      "title_vi": "Hơn 21 tỷ USD xây ba tuyến đường sắt kết nối sang Trung Quốc",
+      "title": "Hình dáng cầu đi bộ vượt sông Sài Gòn sau hơn một năm thi công",
+      "title_vi": "Hình dáng cầu đi bộ vượt sông Sài Gòn sau hơn một năm thi công",
       "summary": "",
       "summary_vi": "",
-      "url": "https://vietnamfinance.vn/hon-21-ty-usd-xay-ba-tuyen-duong-sat-ket-noi-sang-trung-quoc-d143992.html",
-      "published_iso": "2026-04-26T10:51:58.919702+07:00",
-      "published_text": "26/04 10:51"
+      "url": "https://vietnamfinance.vn/hinh-dang-cau-di-bo-vuot-song-sai-gon-sau-hon-mot-nam-thi-cong-d143994.html",
+      "published_iso": "2026-04-26T12:59:22.178354+07:00",
+      "published_text": "26/04 12:59"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/26-nam-sau-cot-moc-lich-su-thay-gi-ve-viec-viet-nam-dong-y-mo-cua-cho-doanh-nghiep-my-vao-canh-tranh-truc-tiep-voi-viettel-vnpt-188260420111726933.chn",
-      "published_iso": "2026-04-26T10:51:58.147418+07:00",
-      "published_text": "26/04 10:51"
+      "published_iso": "2026-04-26T12:59:21.628160+07:00",
+      "published_text": "26/04 12:59"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/bat-dong-san-viet-nam-tro-thanh-thoi-nam-cham-hut-von-ngoai-ty-usd-cham-chan-truoc-luat-choi-moi-nha-dau-tu-noi-co-the-danh-mat-loi-the-san-nha-188260422084859555.chn",
-      "published_iso": "2026-04-26T10:51:58.147335+07:00",
-      "published_text": "26/04 10:51"
+      "published_iso": "2026-04-26T12:59:21.628074+07:00",
+      "published_text": "26/04 12:59"
     }
   ],
   "markets": [
@@ -143,9 +143,9 @@
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 105.33,
-      "change": 0.26,
-      "change_pct": 0.25,
+      "price": 99.13,
+      "change": -5.94,
+      "change_pct": -5.65,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 24/04 11:00"
@@ -154,9 +154,9 @@
       "name": "Natural Gas",
       "symbol": "NG=F",
       "category": "Energy",
-      "price": 2.52,
-      "change": -0.09,
-      "change_pct": -3.48,
+      "price": 2.68,
+      "change": 0.07,
+      "change_pct": 2.64,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 24/04 11:00"
@@ -165,9 +165,9 @@
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4722.3,
-      "change": 17.2,
-      "change_pct": 0.37,
+      "price": 4740.9,
+      "change": 35.8,
+      "change_pct": 0.76,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 24/04 11:00"
@@ -176,9 +176,9 @@
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 76.38,
-      "change": 0.92,
-      "change_pct": 1.22,
+      "price": 76.41,
+      "change": 0.95,
+      "change_pct": 1.26,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 24/04 11:00"
@@ -187,9 +187,9 @@
       "name": "Copper",
       "symbol": "HG=F",
       "category": "Metals",
-      "price": 6.02,
+      "price": 6.03,
       "change": -0.05,
-      "change_pct": -0.86,
+      "change_pct": -0.8,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 24/04 11:00"
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 77407.0,
-      "change": -48.0,
-      "change_pct": -0.06,
+      "price": 78014.0,
+      "change": 559.0,
+      "change_pct": 0.72,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 26/04 07:00"
