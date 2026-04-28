@@ -1,58 +1,38 @@
 {
-  "updated_at": "2026-04-28T14:18:28.584436+07:00",
-  "updated_at_display": "28/04/2026 • 14:18 GMT+7",
+  "updated_at": "2026-04-28T16:35:43.736301+07:00",
+  "updated_at_display": "28/04/2026 • 16:35 GMT+7",
   "war_news": [
     {
       "source": "Al Jazeera",
-      "title": "Oil prices rise despite Iran’s proposal to reopen Strait of Hormuz",
-      "title_vi": "Giá dầu tăng bất chấp đề xuất của Iran về việc mở lại eo biển Hormuz",
-      "summary": "Brent crude rises more than 1 percent despite Iran's offer to reopen waterway in exchange for deferral of nuclear talks.",
-      "summary_vi": "Brent crude rises more than 1 percent despite Iran's offer to reopen waterway in exchange for deferral of nuclear talks.",
-      "url": "https://www.aljazeera.com/news/2026/4/28/oil-prices-rise-despite-irans-proposal-to-reopen-strait-of-hormuz?traffic_source=rss",
-      "published_iso": "2026-04-28T12:13:33+07:00",
-      "published_text": "28/04 12:13"
+      "title": "How Iran has changed, and how it hasn’t, in two months of war",
+      "title_vi": "Iran đã thay đổi như thế nào, và nó đã không thay đổi như thế nào, trong hai tháng chiến tranh",
+      "summary": "Common Iranians face job losses and shortages. But key institutions remain in place, with hardliners stronger now.",
+      "summary_vi": "Common Iranians face job losses and shortages. But key institutions remain in place, with hardliners stronger now.",
+      "url": "https://www.aljazeera.com/news/2026/4/28/how-iran-has-changed-and-how-it-hasnt-in-two-months-of-war?traffic_source=rss",
+      "published_iso": "2026-04-28T16:15:24+07:00",
+      "published_text": "28/04 16:15"
     },
     {
       "source": "Al Jazeera",
-      "title": "Iran war live: Trump reviews peace plan; UN calls for Hormuz to reopen",
-      "title_vi": "Chiến tranh Iran trực tiếp: Trump xem xét kế hoạch hòa bình; Liên Hợp Quốc kêu gọi Hormuz mở cửa trở lại",
-      "summary": "UN chief says US-Iran standoff in the Strait of Hormuz risks triggering a global food emergency.",
-      "summary_vi": "UN chief says US-Iran standoff in the Strait of Hormuz risks triggering a global food emergency.",
-      "url": "https://www.aljazeera.com/news/liveblog/2026/4/28/iran-war-live-trump-reviews-peace-plan-un-calls-for-hormuz-to-reopen?traffic_source=rss",
-      "published_iso": "2026-04-28T07:00:00+07:00",
-      "published_text": "28/04 07:00"
+      "title": "Palestine weekly wrap: Under cover of ceasefire, Israel increases grip",
+      "title_vi": "Gói hàng tuần của Palestine: Dưới vỏ bọc của lệnh ngừng bắn, Israel tăng cường kiểm soát",
+      "summary": "Settler violence surges deeper into Palestinian-administered areas, and Gaza's police forces are decimated further.",
+      "summary_vi": "Settler violence surges deeper into Palestinian-administered areas, and Gaza's police forces are decimated further.",
+      "url": "https://www.aljazeera.com/news/2026/4/28/palestine-weekly-wrap-under-cover-of-ceasefire-israel-increases-grip?traffic_source=rss",
+      "published_iso": "2026-04-28T15:24:45+07:00",
+      "published_text": "28/04 15:24"
     }
   ],
   "global_news": [
     {
       "source": "Investing News",
-      "title": "Oil prices up 2% as no end to Iran war stand-off seems in sight",
-      "title_vi": "Giá dầu tăng 2% khi cuộc chiến tranh Iran dường như chưa có hồi kết",
+      "title": "Oil prices climb as Trump considers fresh Iran proposal to reopen Hormuz",
+      "title_vi": "Giá dầu tăng khi Trump xem xét đề xuất mới của Iran để mở lại Hormuz",
       "summary": "",
       "summary_vi": "",
-      "url": "https://www.investing.com/news/commodities-news/oil-prices-rise-as-no-end-to-iran-war-standoff-seems-in-sight-4640185",
-      "published_iso": "2026-04-28T13:42:30+07:00",
-      "published_text": "28/04 13:42"
-    },
-    {
-      "source": "Investing News",
-      "title": "Bitcoin dips below $77k as oil surge weighs; central bank decisions in focus",
-      "title_vi": "Bitcoin giảm xuống dưới $ 77k khi giá dầu tăng; tập trung vào các quyết định của ngân hàng trung ương",
-      "summary": "",
-      "summary_vi": "",
-      "url": "https://www.investing.com/news/cryptocurrency-news/bitcoin-dips-below-77k-as-oil-surge-weighs-central-bank-decisions-in-focus-4640352",
-      "published_iso": "2026-04-28T13:41:08+07:00",
-      "published_text": "28/04 13:41"
-    },
-    {
-      "source": "Investing News",
-      "title": "BP beats first-quarter profit forecasts on strong oil trading",
-      "title_vi": "BP đánh bại dự báo lợi nhuận quý đầu tiên về giao dịch dầu mạnh mẽ",
-      "summary": "",
-      "summary_vi": "",
-      "url": "https://www.investing.com/news/earnings/bp-beats-firstquarter-profit-forecasts-on-strong-oil-trading-4640316",
-      "published_iso": "2026-04-28T13:30:07+07:00",
-      "published_text": "28/04 13:30"
+      "url": "https://www.investing.com/news/commodities-news/oil-prices-upbeat-as-us-iran-consider-hormuz-reopening-deal-4640149",
+      "published_iso": "2026-04-28T16:29:19+07:00",
+      "published_text": "28/04 16:29"
     },
     {
       "source": "Google News Macro",
@@ -63,6 +43,26 @@
       "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQNjFmZXRBdE8xWGFhUmRPNVlpbTZkQlpDRTl1MU1WUUYtZl9xMk1fZjVqXzlrMnkxVjVlM2xENVhwMzQzQ2liQ283TmpNNVgxWnFyME5IUmJYYzJmN3lUdUVrXzFmWHRRM01xc0swcnJabnBDQVpvMXRhM2lMTHdCT0pNUDlQeGhORmpFRUZKTFM4MzhyMk5WZ055bE8?oc=5",
       "published_iso": "2026-04-28T02:00:16+07:00",
       "published_text": "28/04 02:00"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "Trump’s New Tariffs Expand the Boundaries of Section 232 - Lawfare",
+      "title_vi": "Thuế quan mới của Trump mở rộng ranh giới của Mục 232 - Luật",
+      "summary": "Trump’s New Tariffs Expand the Boundaries of Section 232 Lawfare",
+      "summary_vi": "Trump’s New Tariffs Expand the Boundaries of Section 232 Lawfare",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNYlhzNENteVhTUTRvWmhnblB1Z1R2Zlh1bFJvTjZGSnRuWnlPV0ktclZ2X2RkS0ZKcFo1XzRoeVVnVl9uU2ZBbUo2RWVLcWNQaTJpLXRkM2ZSTWdua2JRQ0t6bHAwRi1EMVNKQVBiUE43Y1hqR0F0VFVLN3hmS0VCSTc3Tzl5aTMwbFk2Sjl4Q0MzZmVqV0xGUw?oc=5",
+      "published_iso": "2026-04-28T00:34:20+07:00",
+      "published_text": "28/04 00:34"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "Current price of oil as of April 27, 2026 - Fortune",
+      "title_vi": "Giá dầu hiện tại tính đến ngày 27 tháng 4 năm 2026 - Fortune",
+      "summary": "Current price of oil as of April 27, 2026 Fortune",
+      "summary_vi": "Current price of oil as of April 27, 2026 Fortune",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1YNmk2UWdqWkg1MDhaQmp5TDFqTERybC1mcEhRdDlHUEFZaGJMdFJlcmUzVmNvLWVUTTE5X0VXLUpMR2dmUVZBZzNoMDJnb05sOVd0NWU1bXFTelhzMEg1aGFn?oc=5",
+      "published_iso": "2026-04-27T19:58:00+07:00",
+      "published_text": "27/04 19:58"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/trung-tam-dich-vu-dau-gia-tai-san-tinh-vinh-long-dau-gia-lo-hang-hoa-cac-loai-la-tang-vat-phuong-tien-vi-pham-hanh-chinh-bi-tich-thu-50802.html",
-      "published_iso": "2026-04-28T14:19:32.241346+07:00",
-      "published_text": "28/04 14:19"
+      "published_iso": "2026-04-28T16:36:42.492685+07:00",
+      "published_text": "28/04 16:36"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,18 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/trung-tam-dich-vu-dau-gia-tai-san-pleiku-dau-gia-quyen-su-dung-1653371-m2-dat-tai-phuong-pleiku-tinh-gia-lai-50805.html",
-      "published_iso": "2026-04-28T14:19:32.241275+07:00",
-      "published_text": "28/04 14:19"
-    },
-    {
-      "source": "VietnamFinance",
-      "title": "Hàng trăm tỷ USD đổ vào năng lượng tái tạo: Đầu tư sai chỗ, hệ lụy khó chữa",
-      "title_vi": "Hàng trăm tỷ USD đổ vào năng lượng tái tạo: Đầu tư sai chỗ, hệ lụy khó chữa",
-      "summary": "",
-      "summary_vi": "",
-      "url": "https://vietnamfinance.vn/hang-tram-ty-usd-do-vao-nang-luong-tai-tao-dau-tu-sai-cho-he-luy-kho-chua-d144021.html",
-      "published_iso": "2026-04-28T14:19:31.025933+07:00",
-      "published_text": "28/04 14:19"
+      "published_iso": "2026-04-28T16:36:42.492614+07:00",
+      "published_text": "28/04 16:36"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +93,18 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/cuoc-tai-cau-truc-khong-the-tri-hoan-cua-thi-truong-bat-dong-san-d144064.html",
-      "published_iso": "2026-04-28T14:19:31.025856+07:00",
-      "published_text": "28/04 14:19"
+      "published_iso": "2026-04-28T16:36:40.859663+07:00",
+      "published_text": "28/04 16:36"
+    },
+    {
+      "source": "VietnamFinance",
+      "title": "Bốn lỗi thường gặp khi quyết toán thuế TNCN cho người phụ thuộc trên eTax Mobile",
+      "title_vi": "Bốn lỗi thường gặp khi quyết toán thuế TNCN cho người phụ thuộc trên eTax Mobile",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://vietnamfinance.vn/bon-loi-thuong-gap-khi-quyet-toan-thue-tncn-cho-nguoi-phu-thuoc-tren-etax-mobile-d144087.html",
+      "published_iso": "2026-04-28T16:36:40.859589+07:00",
+      "published_text": "28/04 16:36"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/26-nam-sau-cot-moc-lich-su-thay-gi-ve-viec-viet-nam-dong-y-mo-cua-cho-doanh-nghiep-my-vao-canh-tranh-truc-tiep-voi-viettel-vnpt-188260420111726933.chn",
-      "published_iso": "2026-04-28T14:19:30.337693+07:00",
-      "published_text": "28/04 14:19"
+      "published_iso": "2026-04-28T16:36:39.984214+07:00",
+      "published_text": "28/04 16:36"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/bat-dong-san-viet-nam-tro-thanh-thoi-nam-cham-hut-von-ngoai-ty-usd-cham-chan-truoc-luat-choi-moi-nha-dau-tu-noi-co-the-danh-mat-loi-the-san-nha-188260422084859555.chn",
-      "published_iso": "2026-04-28T14:19:30.337617+07:00",
-      "published_text": "28/04 14:19"
+      "published_iso": "2026-04-28T16:36:39.984128+07:00",
+      "published_text": "28/04 16:36"
     }
   ],
   "markets": [
@@ -132,9 +132,9 @@
       "name": "WTI",
       "symbol": "CL=F",
       "category": "Energy",
-      "price": 98.52,
-      "change": 2.15,
-      "change_pct": 2.23,
+      "price": 99.51,
+      "change": 3.14,
+      "change_pct": 3.26,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 28/04 11:00"
@@ -143,9 +143,9 @@
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 103.86,
-      "change": -4.37,
-      "change_pct": -4.04,
+      "price": 104.35,
+      "change": -3.88,
+      "change_pct": -3.58,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 28/04 11:00"
@@ -156,7 +156,7 @@
       "category": "Energy",
       "price": 2.71,
       "change": 0.16,
-      "change_pct": 6.39,
+      "change_pct": 6.24,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 28/04 11:00"
@@ -165,9 +165,9 @@
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4647.1,
-      "change": -28.3,
-      "change_pct": -0.61,
+      "price": 4630.8,
+      "change": -44.6,
+      "change_pct": -0.95,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 28/04 11:00"
@@ -176,9 +176,9 @@
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 73.35,
-      "change": -1.66,
-      "change_pct": -2.21,
+      "price": 73.68,
+      "change": -1.32,
+      "change_pct": -1.76,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 28/04 11:00"
@@ -187,9 +187,9 @@
       "name": "Copper",
       "symbol": "HG=F",
       "category": "Metals",
-      "price": 6.06,
-      "change": 0.04,
-      "change_pct": 0.71,
+      "price": 6.02,
+      "change": 0.0,
+      "change_pct": 0.07,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 28/04 11:00"
@@ -211,7 +211,7 @@
       "category": "FX",
       "price": 98.69,
       "change": 0.21,
-      "change_pct": 0.21,
+      "change_pct": 0.22,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 28/04 11:00"
@@ -220,9 +220,9 @@
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.17,
-      "change": -0.0006,
-      "change_pct": -0.05,
+      "price": 1.169,
+      "change": -0.0016,
+      "change_pct": -0.14,
       "decimals": 4,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 28/04 06:00"
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 76466.0,
-      "change": -901.0,
-      "change_pct": -1.16,
+      "price": 76635.0,
+      "change": -731.0,
+      "change_pct": -0.95,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 28/04 07:00"
@@ -286,20 +286,20 @@
       "name": "VIX",
       "symbol": "^VIX",
       "category": "US",
-      "price": 18.02,
-      "change": -0.69,
-      "change_pct": -3.69,
+      "price": 18.25,
+      "change": 0.23,
+      "change_pct": 1.28,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 27/04 12:00"
+      "note": "Dữ liệu gần nhất: 28/04 12:00"
     },
     {
       "name": "FTSE 100",
       "symbol": "^FTSE",
       "category": "Europe",
-      "price": 10305.41,
-      "change": -15.69,
-      "change_pct": -0.15,
+      "price": 10372.13,
+      "change": 51.03,
+      "change_pct": 0.49,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 28/04 06:00"
@@ -308,9 +308,9 @@
       "name": "Euro Stoxx 50",
       "symbol": "^STOXX50E",
       "category": "Europe",
-      "price": 5854.84,
-      "change": -5.48,
-      "change_pct": -0.09,
+      "price": 5883.2,
+      "change": 22.88,
+      "change_pct": 0.39,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 28/04 05:00"
@@ -319,7 +319,7 @@
       "name": "VN-Index",
       "symbol": "^VNINDEX.VN",
       "category": "Vietnam",
-      "price": 1875.12,
+      "price": 1875.84,
       "change": 0.0,
       "change_pct": 0.0,
       "decimals": 2,
@@ -330,9 +330,9 @@
       "name": "Hang Seng",
       "symbol": "^HSI",
       "category": "Asia",
-      "price": 25689.0,
-      "change": -236.65,
-      "change_pct": -0.91,
+      "price": 25679.78,
+      "change": -245.87,
+      "change_pct": -0.95,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 27/04 23:00"
@@ -385,9 +385,9 @@
       "name": "Nifty 50",
       "symbol": "^NSEI",
       "category": "Asia",
-      "price": 24029.85,
-      "change": -62.85,
-      "change_pct": -0.26,
+      "price": 24004.7,
+      "change": -88.0,
+      "change_pct": -0.37,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 28/04 01:30"
