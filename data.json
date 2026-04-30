@@ -1,29 +1,39 @@
 {
-  "updated_at": "2026-05-01T01:59:13.921378+07:00",
-  "updated_at_display": "01/05/2026 • 01:59 GMT+7",
+  "updated_at": "2026-05-01T03:14:12.547079+07:00",
+  "updated_at_display": "01/05/2026 • 03:14 GMT+7",
   "war_news": [
     {
       "source": "Al Jazeera",
-      "title": "UN chief calls for immediate reopening of the Strait of Hormuz",
-      "title_vi": "Tổng thư ký Liên Hợp Quốc kêu gọi mở lại ngay lập tức Eo biển Hormuz",
-      "summary": "UN Secretary-General António Guterres has urged the immediate reopening of the Strait of Hormuz.",
-      "summary_vi": "UN Secretary-General António Guterres has urged the immediate reopening of the Strait of Hormuz.",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/4/30/un-chief-calls-for-immediate-reopening-of-the-strait-of-hormuz?traffic_source=rss",
-      "published_iso": "2026-05-01T01:02:37+07:00",
-      "published_text": "01/05 01:02"
+      "title": "Iran confirmed to play at World Cup according to FIFA chief Infantino",
+      "title_vi": "Iran xác nhận sẽ thi đấu tại World Cup theo giám đốc FIFA Infantino",
+      "summary": "Iran's place at the US cohosted 2026 event has been in doubt since the US-Israeli war on their country.",
+      "summary_vi": "Iran's place at the US cohosted 2026 event has been in doubt since the US-Israeli war on their country.",
+      "url": "https://www.aljazeera.com/sports/2026/4/30/iran-confirmed-to-play-at-world-cup-according-by-fifa-chief-infantino?traffic_source=rss",
+      "published_iso": "2026-05-01T02:10:47+07:00",
+      "published_text": "01/05 02:10"
     },
     {
       "source": "Al Jazeera",
-      "title": "Israel rights group petitions top court to order release of 14 Gaza doctors",
-      "title_vi": "Nhóm nhân quyền Israel kiến nghị tòa án tối cao ra lệnh thả 14 bác sĩ Gaza",
-      "summary": "Physicians for Human Rights-Israel accuses authorities of hindering the rehabilitation of Gaza's healthcare system.",
-      "summary_vi": "Physicians for Human Rights-Israel accuses authorities of hindering the rehabilitation of Gaza's healthcare system.",
-      "url": "https://www.aljazeera.com/news/2026/4/30/israel-rights-group-petitions-top-court-to-order-release-of-14-gaza-doctors?traffic_source=rss",
-      "published_iso": "2026-05-01T00:35:32+07:00",
-      "published_text": "01/05 00:35"
+      "title": "Piracy rises off Somalia as US-Israeli war on Iran diverts naval forces",
+      "title_vi": "Cướp biển gia tăng ngoài khơi Somalia khi chiến tranh Mỹ-Israel chống lại Iran chuyển hướng lực lượng hải quân",
+      "summary": "More than a dozen sailors, mostly from Pakistan, are being held by Somali pirates as hijackings and harassment surge.",
+      "summary_vi": "More than a dozen sailors, mostly from Pakistan, are being held by Somali pirates as hijackings and harassment surge.",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/4/30/piracy-rises-off-somalia-as-us-israeli-war-on-iran-diverts-naval-forces?traffic_source=rss",
+      "published_iso": "2026-05-01T01:59:13+07:00",
+      "published_text": "01/05 01:59"
     }
   ],
   "global_news": [
+    {
+      "source": "Investing News",
+      "title": "China, US economic officials trade barbs in ’candid’ call ahead of Trump-Xi summit",
+      "title_vi": "Trung Quốc, các quan chức kinh tế Mỹ trao đổi gay gắt trong cuộc gọi ’thẳng thắn’ trước hội nghị thượng đỉnh Trump-Xi",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/economy-news/china-us-trade-chiefs-had-candid-call-weeks-ahead-of-expected-trumpxi-summit-4650185",
+      "published_iso": "2026-05-01T03:08:32+07:00",
+      "published_text": "01/05 03:08"
+    },
     {
       "source": "Google News Macro",
       "title": "Core inflation rate hit 3.2% in March as first-quarter growth disappointed at 2% - CNBC",
@@ -53,16 +63,6 @@
       "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQSTlZaEFKQXl6ZWlmRVpjTUZoQVE2cGgxckhZWTdQTjEweDk4T3JoUHotOTNQN0g2azdwV3NsZzR3cE96d0ZWLWtCWnRfbEZvWm5HWGRhNUtxWmllekdyZWVCUEpDc3N3NVljNUJ0OGZCUnVCaVlXQ3d4dW00bzB0S1NYQ20yaEU?oc=5",
       "published_iso": "2026-04-30T15:18:08+07:00",
       "published_text": "30/04 15:18"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "Powell plans to remain on Fed board, cites legal actions by Trump administration - AP News",
-      "title_vi": "Powell có kế hoạch ở lại hội đồng quản trị Fed, trích dẫn các hành động pháp lý của chính quyền Trump - AP News",
-      "summary": "Powell plans to remain on Fed board, cites legal actions by Trump administration AP News",
-      "summary_vi": "Powell plans to remain on Fed board, cites legal actions by Trump administration AP News",
-      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNZ01LUUZwSy1jQUlDM3JaSVhKX1dBRU9qOWNuV3BORFVkaXlqNWlsZUEzUkJHcTh6ajBMRVFRbFhtRUNQa1JFWEdwWVNpNmZvOVZXVW5sbmF5Z0hrakdMaUV6Y293RGIxSGRxQ21FVG44M0hNM3lHUGhKNXYzb3lQNlYwZnozVE0wTFJRTTBLcy02b1JxV1VTaTlxcTBwanE3MGNubTJ2dw?oc=5",
-      "published_iso": "2026-04-30T13:56:00+07:00",
-      "published_text": "30/04 13:56"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-phu-tho-dau-gia-13-o-dat-o-tai-khu-bai-kim-va-khu-dong-buoi-xa-phung-nguyen-tinh-phu-tho-50835.html",
-      "published_iso": "2026-05-01T02:00:08.305479+07:00",
-      "published_text": "01/05 02:00"
+      "published_iso": "2026-05-01T03:15:08.495823+07:00",
+      "published_text": "01/05 03:15"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-phu-tho-dau-gia-6-o-dat-o-tai-khu-cho-huong-nha-xa-hien-quan-tinh-phu-tho-50834.html",
-      "published_iso": "2026-05-01T02:00:08.305387+07:00",
-      "published_text": "01/05 02:00"
+      "published_iso": "2026-05-01T03:15:08.495756+07:00",
+      "published_text": "01/05 03:15"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/quan-tri-sieu-do-thi-hien-dai-cau-truc-moi-tao-da-tang-truong-cho-tphcm-d144167.html",
-      "published_iso": "2026-05-01T02:00:06.508094+07:00",
-      "published_text": "01/05 02:00"
+      "published_iso": "2026-05-01T03:15:07.137798+07:00",
+      "published_text": "01/05 03:15"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/dong-nai-cung-tphcm-sieu-do-thi-kep-ganh-trong-trach-cuc-tang-truong-cua-ca-nuoc-d144150.html",
-      "published_iso": "2026-05-01T02:00:06.508023+07:00",
-      "published_text": "01/05 02:00"
+      "published_iso": "2026-05-01T03:15:07.137708+07:00",
+      "published_text": "01/05 03:15"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/bat-dong-san-viet-nam-tro-thanh-thoi-nam-cham-hut-von-ngoai-ty-usd-cham-chan-truoc-luat-choi-moi-nha-dau-tu-noi-co-the-danh-mat-loi-the-san-nha-188260422084859555.chn",
-      "published_iso": "2026-05-01T02:00:06.024271+07:00",
-      "published_text": "01/05 02:00"
+      "published_iso": "2026-05-01T03:15:06.611457+07:00",
+      "published_text": "01/05 03:15"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/cung-dat-nuoc-buoc-vao-doi-moi-20-ngan-hang-top-5-tmcp-viet-nam-khat-vong-vuon-tam-trong-ky-nguyen-moi-188260428015810535.chn",
-      "published_iso": "2026-05-01T02:00:06.024188+07:00",
-      "published_text": "01/05 02:00"
+      "published_iso": "2026-05-01T03:15:06.611381+07:00",
+      "published_text": "01/05 03:15"
     }
   ],
   "markets": [
@@ -132,9 +132,9 @@
       "name": "WTI",
       "symbol": "CL=F",
       "category": "Energy",
-      "price": 105.27,
-      "change": -1.61,
-      "change_pct": -1.51,
+      "price": 105.92,
+      "change": -0.96,
+      "change_pct": -0.9,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 30/04 11:00"
@@ -143,9 +143,9 @@
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 110.73,
-      "change": -7.3,
-      "change_pct": -6.18,
+      "price": 111.6,
+      "change": -6.43,
+      "change_pct": -5.45,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 30/04 11:00"
@@ -156,7 +156,7 @@
       "category": "Energy",
       "price": 2.77,
       "change": 0.12,
-      "change_pct": 4.65,
+      "change_pct": 4.5,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 30/04 11:00"
@@ -165,9 +165,9 @@
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4634.3,
-      "change": 89.1,
-      "change_pct": 1.96,
+      "price": 4629.9,
+      "change": 84.7,
+      "change_pct": 1.86,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 30/04 11:00"
@@ -176,9 +176,9 @@
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 74.15,
-      "change": 2.58,
-      "change_pct": 3.61,
+      "price": 74.11,
+      "change": 2.54,
+      "change_pct": 3.55,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 30/04 11:00"
@@ -187,9 +187,9 @@
       "name": "Copper",
       "symbol": "HG=F",
       "category": "Metals",
-      "price": 6.02,
+      "price": 6.01,
       "change": 0.14,
-      "change_pct": 2.42,
+      "change_pct": 2.31,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 30/04 11:00"
@@ -209,9 +209,9 @@
       "name": "DXY",
       "symbol": "DX-Y.NYB",
       "category": "FX",
-      "price": 98.04,
-      "change": -0.88,
-      "change_pct": -0.88,
+      "price": 98.09,
+      "change": -0.83,
+      "change_pct": -0.84,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 30/04 11:00"
@@ -220,9 +220,9 @@
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.174,
-      "change": 0.0022,
-      "change_pct": 0.19,
+      "price": 1.1736,
+      "change": 0.0018,
+      "change_pct": 0.15,
       "decimals": 4,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 30/04 06:00"
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 76290.0,
-      "change": 514.0,
-      "change_pct": 0.68,
+      "price": 76432.0,
+      "change": 655.0,
+      "change_pct": 0.86,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 30/04 07:00"
@@ -242,9 +242,9 @@
       "name": "S&P 500",
       "symbol": "^GSPC",
       "category": "US",
-      "price": 7206.69,
-      "change": 70.74,
-      "change_pct": 0.99,
+      "price": 7209.01,
+      "change": 73.06,
+      "change_pct": 1.02,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 30/04 11:00"
@@ -253,9 +253,9 @@
       "name": "Dow Jones",
       "symbol": "^DJI",
       "category": "US",
-      "price": 49684.8,
-      "change": 822.99,
-      "change_pct": 1.68,
+      "price": 49652.14,
+      "change": 790.33,
+      "change_pct": 1.62,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 30/04 11:00"
@@ -264,9 +264,9 @@
       "name": "Nasdaq",
       "symbol": "^IXIC",
       "category": "US",
-      "price": 24878.03,
-      "change": 204.79,
-      "change_pct": 0.83,
+      "price": 24892.31,
+      "change": 219.07,
+      "change_pct": 0.89,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 30/04 11:00"
@@ -275,9 +275,9 @@
       "name": "Russell 2000",
       "symbol": "^RUT",
       "category": "US",
-      "price": 2794.97,
-      "change": 55.5,
-      "change_pct": 2.03,
+      "price": 2799.86,
+      "change": 60.39,
+      "change_pct": 2.2,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 30/04 11:00"
@@ -286,9 +286,9 @@
       "name": "VIX",
       "symbol": "^VIX",
       "category": "US",
-      "price": 17.27,
-      "change": -1.54,
-      "change_pct": -8.19,
+      "price": 17.03,
+      "change": -1.78,
+      "change_pct": -9.46,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 30/04 12:00"
