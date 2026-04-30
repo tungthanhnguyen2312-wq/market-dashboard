@@ -1,7 +1,17 @@
 {
-  "updated_at": "2026-04-30T11:06:22.914525+07:00",
-  "updated_at_display": "30/04/2026 • 11:06 GMT+7",
+  "updated_at": "2026-04-30T13:37:36.174075+07:00",
+  "updated_at_display": "30/04/2026 • 13:37 GMT+7",
   "war_news": [
+    {
+      "source": "Al Jazeera",
+      "title": "Oil prices soar on fears of long supply disruption, US siege of Iran ports",
+      "title_vi": "Giá dầu tăng cao do lo ngại về sự gián đoạn nguồn cung kéo dài, Mỹ bao vây các cảng Iran",
+      "summary": "US President Trump meets with oil firms over ways to minimise impact on fuel supplies amid US blockade of Iranian ports.",
+      "summary_vi": "US President Trump meets with oil firms over ways to minimise impact on fuel supplies amid US blockade of Iranian ports.",
+      "url": "https://www.aljazeera.com/news/2026/4/30/oil-prices-soar-on-fears-of-long-supply-disruption-us-siege-of-iran-ports?traffic_source=rss",
+      "published_iso": "2026-04-30T11:06:50+07:00",
+      "published_text": "30/04 11:06"
+    },
     {
       "source": "Al Jazeera",
       "title": "Israel seizes Global Sumud Flotilla boats 1,000km away from Gaza",
@@ -11,28 +21,28 @@
       "url": "https://www.aljazeera.com/video/newsfeed/2026/4/30/israel-seizes-global-sumud-flotilla-boats-1000km-away-from-gaza?traffic_source=rss",
       "published_iso": "2026-04-30T09:10:26+07:00",
       "published_text": "30/04 09:10"
-    },
-    {
-      "source": "Google News War",
-      "title": "Live Updates: Latest from Israel, Iran, and the Middle East - The Jerusalem Post",
-      "title_vi": "Cập nhật trực tiếp: Mới nhất từ Israel, Iran và Trung Đông - The Jerusalem Post",
-      "summary": "Live Updates: Latest from Israel, Iran, and the Middle East The Jerusalem Post",
-      "summary_vi": "Live Updates: Latest from Israel, Iran, and the Middle East The Jerusalem Post",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFA1dHdjdEdzdml6d3NLbTd0R1lsVGt3Y2NzcXZYTjBqRWhLNGhwOVJUNlZ0LU9heHIwM0FXZHU5OW82X1RJYkx1VS1fb25fRmg2M2ZPS0VfQ0FwTVN6YmVoNVVaMThFWTFFOHdhd0EwRHNvb3BZYXRSeU9NTC1oVG8?oc=5",
-      "published_iso": "2026-04-30T08:44:05+07:00",
-      "published_text": "30/04 08:44"
     }
   ],
   "global_news": [
     {
       "source": "Investing News",
-      "title": "China’s factory activity extends expansion, PMI shows, as Iran war risks mount",
-      "title_vi": "PMI cho thấy hoạt động nhà máy của Trung Quốc mở rộng mở rộng, khi rủi ro chiến tranh Iran gia tăng",
+      "title": "Remy breaks annual sales slump as China lifts cognac sales",
+      "title_vi": "Remy phá vỡ sự sụt giảm doanh số hàng năm khi Trung Quốc nâng doanh số bán rượu cognac",
       "summary": "",
       "summary_vi": "",
-      "url": "https://www.investing.com/news/economy-news/chinas-factory-activity-remains-in-expansion-in-april-pmi-shows-4647553",
-      "published_iso": "2026-04-30T10:25:11+07:00",
-      "published_text": "30/04 10:25"
+      "url": "https://www.investing.com/news/stock-market-news/remy-breaks-annual-sales-slump-as-china-lifts-cognac-sales-4647690",
+      "published_iso": "2026-04-30T13:24:59+07:00",
+      "published_text": "30/04 13:24"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "Powell says he will stay on Fed board after chair term ends, addressing Trump’s attacks - PBS",
+      "title_vi": "Powell nói rằng ông sẽ ở lại hội đồng quản trị Fed sau khi nhiệm kỳ chủ tịch kết thúc, giải quyết các cuộc tấn công của Trump - PBS",
+      "summary": "Powell says he will stay on Fed board after chair term ends, addressing Trump’s attacks PBS",
+      "summary_vi": "Powell says he will stay on Fed board after chair term ends, addressing Trump’s attacks PBS",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNSllaOXN4alNiQk9Ub2JFaTFBaUpFYzBxdE9tWGdOZlkyd1ZQZFBPRGszYzdyWEJTVkhndlY1eGRnWGVnYzBKZ01Uc19XOUtCcUZrQmFHNnd2UDFuVEVldDNsNnZwbDczdkRoaDdQWTg1bnBHcUVGMEs2dmdoc09fTDBmQUxwdEdLVFoteFJ3R0ZTZWJmaHRncWhwcFdUaTVLM0tJTTA3OEkyV3V2dHpaMVd2X3E4RUpmUExN?oc=5",
+      "published_iso": "2026-04-30T05:35:06+07:00",
+      "published_text": "30/04 05:35"
     },
     {
       "source": "Google News Macro",
@@ -53,16 +63,6 @@
       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBTWklKY0pZemxlMnNiSkhXZEpUNFVXZk84QjNkM2tWT0pTa3BoSGZZXzVnM3ZoWld5eFJ5VUxkelVSU2s0dzV2SjZfR1VURnNnbFIxSWwzdDgzaEtrU3d5eXdFQUstOVltc1VvZWFvcDVNaUZoLUJMSDJPRjJDV2PSAYQBQVVfeXFMT3JUdkVsMGxZOVpyVXFIS3FCSkdWN1ZZakdEMlRGVTVuR1diSFpGR09TVWtzUmpVUFByS3NzN3VVblVuQnNYbHMzTktsZWVtaXVCS2owaU1nNlhBYzFaNlZEQlNLM2xNdnNWLWJWazZQRnpWcy1tNnZneU15VHB4aWgtTnVG?oc=5",
       "published_iso": "2026-04-30T01:00:47+07:00",
       "published_text": "30/04 01:00"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "Current price of oil as of April 29, 2026 - Fortune",
-      "title_vi": "Giá dầu hiện tại tính đến ngày 29 tháng 4 năm 2026 - Fortune",
-      "summary": "Current price of oil as of April 29, 2026 Fortune",
-      "summary_vi": "Current price of oil as of April 29, 2026 Fortune",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1SbHRoaGVBUlYyeHlpQWhQOHM1TzVGRDNOcEN3MEJJZzRUeExrWUNZdkx6ZTlwU2xPeFl3OGYxakhvOG5EOFhRc3VFNGZpWmQ4Wm0xUTJQZFJ0MUJxdkJEMUJB?oc=5",
-      "published_iso": "2026-04-29T19:58:00+07:00",
-      "published_text": "29/04 19:58"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-phu-tho-dau-gia-13-o-dat-o-tai-khu-bai-kim-va-khu-dong-buoi-xa-phung-nguyen-tinh-phu-tho-50835.html",
-      "published_iso": "2026-04-30T11:07:20.598619+07:00",
-      "published_text": "30/04 11:07"
+      "published_iso": "2026-04-30T13:38:35.438593+07:00",
+      "published_text": "30/04 13:38"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,28 +83,28 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-phu-tho-dau-gia-6-o-dat-o-tai-khu-cho-huong-nha-xa-hien-quan-tinh-phu-tho-50834.html",
-      "published_iso": "2026-04-30T11:07:20.598540+07:00",
-      "published_text": "30/04 11:07"
+      "published_iso": "2026-04-30T13:38:35.438528+07:00",
+      "published_text": "30/04 13:38"
     },
     {
       "source": "VietnamFinance",
-      "title": "Những 'mũi nhọn' đưa thương hiệu Trung Quốc ra biển lớn",
-      "title_vi": "Những 'mũi nhọn' đưa thương hiệu Trung Quốc ra biển lớn",
+      "title": "Không khí thi công xuyên lễ tại loạt dự án cao tốc nghìn tỷ",
+      "title_vi": "Không khí thi công xuyên lễ tại loạt dự án cao tốc nghìn tỷ",
       "summary": "",
       "summary_vi": "",
-      "url": "https://vietnamfinance.vn/nhung-mui-nhon-dua-thuong-hieu-trung-quoc-ra-bien-lon-d143813.html",
-      "published_iso": "2026-04-30T11:07:18.787107+07:00",
-      "published_text": "30/04 11:07"
+      "url": "https://vietnamfinance.vn/khong-khi-thi-cong-xuyen-le-tai-loat-du-an-cao-toc-nghin-ty-d144208.html",
+      "published_iso": "2026-04-30T13:38:33.776000+07:00",
+      "published_text": "30/04 13:38"
     },
     {
       "source": "VietnamFinance",
-      "title": "Bán thấp hơn giá thế giới, DN phân bón vẫn lãi đậm",
-      "title_vi": "Bán thấp hơn giá thế giới, DN phân bón vẫn lãi đậm",
+      "title": "TP. HCM: Từ biểu tượng thống nhất đến động lực phát triển",
+      "title_vi": "TP. HCM: Từ biểu tượng thống nhất đến động lực phát triển",
       "summary": "",
       "summary_vi": "",
-      "url": "https://vietnamfinance.vn/ban-thap-hon-gia-the-gioi-dn-phan-bon-van-lai-dam-d144175.html",
-      "published_iso": "2026-04-30T11:07:18.787042+07:00",
-      "published_text": "30/04 11:07"
+      "url": "https://vietnamfinance.vn/tp-hcm-tu-bieu-tuong-thong-nhat-den-dong-luc-phat-trien-d144210.html",
+      "published_iso": "2026-04-30T13:38:33.775934+07:00",
+      "published_text": "30/04 13:38"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/bat-dong-san-viet-nam-tro-thanh-thoi-nam-cham-hut-von-ngoai-ty-usd-cham-chan-truoc-luat-choi-moi-nha-dau-tu-noi-co-the-danh-mat-loi-the-san-nha-188260422084859555.chn",
-      "published_iso": "2026-04-30T11:07:18.312599+07:00",
-      "published_text": "30/04 11:07"
+      "published_iso": "2026-04-30T13:38:33.299711+07:00",
+      "published_text": "30/04 13:38"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/cung-dat-nuoc-buoc-vao-doi-moi-20-ngan-hang-top-5-tmcp-viet-nam-khat-vong-vuon-tam-trong-ky-nguyen-moi-188260428015810535.chn",
-      "published_iso": "2026-04-30T11:07:18.312522+07:00",
-      "published_text": "30/04 11:07"
+      "published_iso": "2026-04-30T13:38:33.299634+07:00",
+      "published_text": "30/04 13:38"
     }
   ],
   "markets": [
@@ -132,67 +132,67 @@
       "name": "WTI",
       "symbol": "CL=F",
       "category": "Energy",
-      "price": 106.88,
-      "change": 6.95,
-      "change_pct": 6.95,
+      "price": 110.14,
+      "change": 3.26,
+      "change_pct": 3.05,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 29/04 11:00"
+      "note": "Dữ liệu gần nhất: 30/04 11:00"
     },
     {
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 118.03,
-      "change": 6.77,
-      "change_pct": 6.08,
+      "price": 114.17,
+      "change": -3.86,
+      "change_pct": -3.27,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 29/04 11:00"
+      "note": "Dữ liệu gần nhất: 30/04 11:00"
     },
     {
       "name": "Natural Gas",
       "symbol": "NG=F",
       "category": "Energy",
       "price": 2.65,
-      "change": 0.09,
-      "change_pct": 3.44,
+      "change": -0.0,
+      "change_pct": -0.04,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 29/04 11:00"
+      "note": "Dữ liệu gần nhất: 30/04 11:00"
     },
     {
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4545.2,
-      "change": -46.3,
-      "change_pct": -1.01,
+      "price": 4579.9,
+      "change": 34.7,
+      "change_pct": 0.76,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 29/04 11:00"
+      "note": "Dữ liệu gần nhất: 30/04 11:00"
     },
     {
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 71.57,
-      "change": -1.64,
-      "change_pct": -2.23,
+      "price": 72.77,
+      "change": 1.2,
+      "change_pct": 1.68,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 29/04 11:00"
+      "note": "Dữ liệu gần nhất: 30/04 11:00"
     },
     {
       "name": "Copper",
       "symbol": "HG=F",
       "category": "Metals",
-      "price": 5.88,
-      "change": -0.04,
-      "change_pct": -0.61,
+      "price": 5.94,
+      "change": 0.06,
+      "change_pct": 1.08,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 29/04 11:00"
+      "note": "Dữ liệu gần nhất: 30/04 11:00"
     },
     {
       "name": "US 10Y",
@@ -209,20 +209,20 @@
       "name": "DXY",
       "symbol": "DX-Y.NYB",
       "category": "FX",
-      "price": 98.92,
-      "change": 0.3,
-      "change_pct": 0.3,
+      "price": 99.03,
+      "change": 0.11,
+      "change_pct": 0.11,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 29/04 11:00"
+      "note": "Dữ liệu gần nhất: 30/04 11:00"
     },
     {
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1666,
-      "change": -0.0052,
-      "change_pct": -0.44,
+      "price": 1.1671,
+      "change": -0.0046,
+      "change_pct": -0.4,
       "decimals": 4,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 30/04 06:00"
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 75731.0,
-      "change": -620.0,
-      "change_pct": -0.81,
+      "price": 75784.0,
+      "change": 8.0,
+      "change_pct": 0.01,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 30/04 07:00"
@@ -330,9 +330,9 @@
       "name": "Hang Seng",
       "symbol": "^HSI",
       "category": "Asia",
-      "price": 25785.01,
-      "change": -326.83,
-      "change_pct": -1.25,
+      "price": 25787.84,
+      "change": -324.0,
+      "change_pct": -1.24,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 29/04 23:00"
@@ -341,9 +341,9 @@
       "name": "Nikkei 225",
       "symbol": "^N225",
       "category": "Asia",
-      "price": 59238.47,
-      "change": -678.99,
-      "change_pct": -1.13,
+      "price": 59119.86,
+      "change": -797.6,
+      "change_pct": -1.33,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 29/04 22:00"
@@ -352,9 +352,9 @@
       "name": "KOSPI",
       "symbol": "^KS11",
       "category": "Asia",
-      "price": 6673.23,
-      "change": -17.67,
-      "change_pct": -0.26,
+      "price": 6608.3,
+      "change": -82.6,
+      "change_pct": -1.23,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 29/04 22:00"
@@ -363,9 +363,9 @@
       "name": "Shanghai Composite",
       "symbol": "000001.SS",
       "category": "Asia",
-      "price": 4111.02,
-      "change": 3.5,
-      "change_pct": 0.09,
+      "price": 4112.26,
+      "change": 4.75,
+      "change_pct": 0.12,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 29/04 23:00"
@@ -374,9 +374,9 @@
       "name": "Shenzhen Component",
       "symbol": "399001.SZ",
       "category": "Asia",
-      "price": 15111.33,
-      "change": -9.59,
-      "change_pct": -0.06,
+      "price": 15105.6,
+      "change": -15.32,
+      "change_pct": -0.1,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 29/04 23:00"
@@ -385,9 +385,9 @@
       "name": "Nifty 50",
       "symbol": "^NSEI",
       "category": "Asia",
-      "price": 23904.55,
-      "change": -273.1,
-      "change_pct": -1.13,
+      "price": 23851.1,
+      "change": -326.55,
+      "change_pct": -1.35,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 30/04 01:30"
@@ -396,9 +396,9 @@
       "name": "ASX 200",
       "symbol": "^AXJO",
       "category": "Asia",
-      "price": 8665.5,
-      "change": -21.5,
-      "change_pct": -0.25,
+      "price": 8665.8,
+      "change": -21.2,
+      "change_pct": -0.24,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 29/04 21:00"
