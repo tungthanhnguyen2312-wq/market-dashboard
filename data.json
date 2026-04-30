@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-05-01T05:11:28.109312+07:00",
-  "updated_at_display": "01/05/2026 • 05:11 GMT+7",
+  "updated_at": "2026-05-01T06:12:08.825986+07:00",
+  "updated_at_display": "01/05/2026 • 06:12 GMT+7",
   "war_news": [
     {
       "source": "Google News War",
@@ -25,6 +25,26 @@
   ],
   "global_news": [
     {
+      "source": "Investing News",
+      "title": "Bonds, stocks climb on oil’s pullback; yen jumps after Japan’s currency intervention",
+      "title_vi": "Trái phiếu, cổ phiếu tăng khi giá dầu giảm; đồng yên tăng sau khi Nhật Bản can thiệp tiền tệ",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/economy-news/tech-shares-rise-in-asia-bonds-scarred-by-central-bank-hawks-as-oil-spikes-4647565",
+      "published_iso": "2026-05-01T06:06:28+07:00",
+      "published_text": "01/05 06:06"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "Why oil prices predicted by financial markets are missing the mark - marketplace.org",
+      "title_vi": "Tại sao giá dầu được dự đoán bởi thị trường tài chính đang thiếu dấu ấn - marketplace.org",
+      "summary": "Why oil prices predicted by financial markets are missing the mark marketplace.org",
+      "summary_vi": "Why oil prices predicted by financial markets are missing the mark marketplace.org",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPY3JHR2xOVG5HR1RPVGFFczBUT2ZHb2hheWItLXNGZ1Q5QnhqS0xqRmctanp1TEk5TllyMWhWbC1hNlNRaGxkNXBPX2ZtdjVya3lVZFByYnduWHFHYUFWakFlT094SkpPNjJKRmdCMFhhVE83elhjZ2tUNXljMVRpLUFldlpWOWpWdVI1QTJ4WUZnTGJTbWtIdklfbWhuU0xEMmZXeGJHZUtXNDdGcDJWeA?oc=5",
+      "published_iso": "2026-05-01T04:05:00+07:00",
+      "published_text": "01/05 04:05"
+    },
+    {
       "source": "Google News Macro",
       "title": "Oil Prices Spike, National Average Up Nearly 30 Cents in One Week - AAA Gas Prices",
       "title_vi": "Giá dầu tăng đột biến, trung bình quốc gia tăng gần 30 cent trong một tuần - Giá xăng AAA",
@@ -43,26 +63,6 @@
       "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE53M2p4S0stWVJ2UnBaRWpWbHJpakZabDR0OWJGOVI4ejYwcS1ORVFHTDZXUEtsWVJaaXI1XzBiM1c2Z0N3YUtmZzU1cHIxUEhBN1hJbVM2SWw3TmVkOVpnV3RuVk00STMtdTI0ZUpFSm93NkE00gF6QVVfeXFMT0NvZE5hM1RtbVRSa0dZb1NwTHp3QmF4YTNqV0pZUWRycVBfYjdTNk9hUFBoZGx6LW9vR3paQkdPbHRkUXowbUR0VlZhSG50X0d3bnk5WHVjc0YzTGZlTXhDY3V1LXM5eU1ucmZWRkZvQjBtRGQydHNubFE?oc=5",
       "published_iso": "2026-04-30T19:34:53+07:00",
       "published_text": "30/04 19:34"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "Current price of oil as of April 30, 2026 - Fortune",
-      "title_vi": "Giá dầu hiện tại tính đến ngày 30 tháng 4 năm 2026 - Fortune",
-      "summary": "Current price of oil as of April 30, 2026 Fortune",
-      "summary_vi": "Current price of oil as of April 30, 2026 Fortune",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE0wZUNaemRBY0lvb3kyejRXenJhSVk1cFhDcnU5bERhTkZtTzZBdjNRZmxxRHU1MF9hZ2FwbTkzLWhFOGk5dm1kd3BsZzcyWE9hSFlhY2RYSGs2VFBjSHc4Y0Jn?oc=5",
-      "published_iso": "2026-04-30T19:32:00+07:00",
-      "published_text": "30/04 19:32"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "Oil markets are still in La La land - The Economist",
-      "title_vi": "Thị trường dầu mỏ vẫn nằm trong vùng đất La La - The Economist",
-      "summary": "Oil markets are still in La La land The Economist",
-      "summary_vi": "Oil markets are still in La La land The Economist",
-      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQSTlZaEFKQXl6ZWlmRVpjTUZoQVE2cGgxckhZWTdQTjEweDk4T3JoUHotOTNQN0g2azdwV3NsZzR3cE96d0ZWLWtCWnRfbEZvWm5HWGRhNUtxWmllekdyZWVCUEpDc3N3NVljNUJ0OGZCUnVCaVlXQ3d4dW00bzB0S1NYQ20yaEU?oc=5",
-      "published_iso": "2026-04-30T15:18:08+07:00",
-      "published_text": "30/04 15:18"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-phu-tho-dau-gia-13-o-dat-o-tai-khu-bai-kim-va-khu-dong-buoi-xa-phung-nguyen-tinh-phu-tho-50835.html",
-      "published_iso": "2026-05-01T05:12:27.991293+07:00",
-      "published_text": "01/05 05:12"
+      "published_iso": "2026-05-01T06:13:14.473436+07:00",
+      "published_text": "01/05 06:13"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-phu-tho-dau-gia-6-o-dat-o-tai-khu-cho-huong-nha-xa-hien-quan-tinh-phu-tho-50834.html",
-      "published_iso": "2026-05-01T05:12:27.991210+07:00",
-      "published_text": "01/05 05:12"
+      "published_iso": "2026-05-01T06:13:14.473376+07:00",
+      "published_text": "01/05 06:13"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/quan-tri-sieu-do-thi-hien-dai-cau-truc-moi-tao-da-tang-truong-cho-tphcm-d144167.html",
-      "published_iso": "2026-05-01T05:12:26.985651+07:00",
-      "published_text": "01/05 05:12"
+      "published_iso": "2026-05-01T06:13:12.777102+07:00",
+      "published_text": "01/05 06:13"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/dong-nai-cung-tphcm-sieu-do-thi-kep-ganh-trong-trach-cuc-tang-truong-cua-ca-nuoc-d144150.html",
-      "published_iso": "2026-05-01T05:12:26.985566+07:00",
-      "published_text": "01/05 05:12"
+      "published_iso": "2026-05-01T06:13:12.777042+07:00",
+      "published_text": "01/05 06:13"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/bat-dong-san-viet-nam-tro-thanh-thoi-nam-cham-hut-von-ngoai-ty-usd-cham-chan-truoc-luat-choi-moi-nha-dau-tu-noi-co-the-danh-mat-loi-the-san-nha-188260422084859555.chn",
-      "published_iso": "2026-05-01T05:12:26.475501+07:00",
-      "published_text": "01/05 05:12"
+      "published_iso": "2026-05-01T06:13:12.322135+07:00",
+      "published_text": "01/05 06:13"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/cung-dat-nuoc-buoc-vao-doi-moi-20-ngan-hang-top-5-tmcp-viet-nam-khat-vong-vuon-tam-trong-ky-nguyen-moi-188260428015810535.chn",
-      "published_iso": "2026-05-01T05:12:26.475420+07:00",
-      "published_text": "01/05 05:12"
+      "published_iso": "2026-05-01T06:13:12.322070+07:00",
+      "published_text": "01/05 06:13"
     }
   ],
   "markets": [
@@ -132,9 +132,9 @@
       "name": "WTI",
       "symbol": "CL=F",
       "category": "Energy",
-      "price": 105.34,
-      "change": -1.54,
-      "change_pct": -1.44,
+      "price": 105.63,
+      "change": -1.25,
+      "change_pct": -1.17,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 30/04 11:00"
@@ -143,9 +143,9 @@
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 111.19,
-      "change": -6.84,
-      "change_pct": -5.8,
+      "price": 111.53,
+      "change": -6.5,
+      "change_pct": -5.51,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 30/04 11:00"
@@ -154,9 +154,9 @@
       "name": "Natural Gas",
       "symbol": "NG=F",
       "category": "Energy",
-      "price": 2.75,
-      "change": 0.1,
-      "change_pct": 3.93,
+      "price": 2.76,
+      "change": 0.11,
+      "change_pct": 4.12,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 30/04 11:00"
@@ -165,9 +165,9 @@
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4642.4,
-      "change": 97.2,
-      "change_pct": 2.14,
+      "price": 4641.4,
+      "change": 96.2,
+      "change_pct": 2.12,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 30/04 11:00"
@@ -177,8 +177,8 @@
       "symbol": "SI=F",
       "category": "Metals",
       "price": 74.65,
-      "change": 3.09,
-      "change_pct": 4.31,
+      "change": 3.08,
+      "change_pct": 4.3,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 30/04 11:00"
@@ -189,7 +189,7 @@
       "category": "Metals",
       "price": 6.03,
       "change": 0.15,
-      "change_pct": 2.54,
+      "change_pct": 2.5,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 30/04 11:00"
@@ -221,19 +221,19 @@
       "symbol": "EURUSD=X",
       "category": "FX",
       "price": 1.1736,
-      "change": 0.0018,
-      "change_pct": 0.15,
+      "change": 0.0051,
+      "change_pct": 0.44,
       "decimals": 4,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 30/04 06:00"
+      "note": "Dữ liệu gần nhất: 01/05 06:00"
     },
     {
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 76317.0,
-      "change": 541.0,
-      "change_pct": 0.71,
+      "price": 76225.0,
+      "change": 448.0,
+      "change_pct": 0.59,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 30/04 07:00"
@@ -297,9 +297,9 @@
       "name": "FTSE 100",
       "symbol": "^FTSE",
       "category": "Europe",
-      "price": 10378.82,
-      "change": 165.72,
-      "change_pct": 1.62,
+      "price": NaN,
+      "change": NaN,
+      "change_pct": NaN,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 30/04 06:00"
