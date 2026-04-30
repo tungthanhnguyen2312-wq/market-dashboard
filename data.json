@@ -1,7 +1,17 @@
 {
-  "updated_at": "2026-04-30T06:12:02.064057+07:00",
-  "updated_at_display": "30/04/2026 • 06:12 GMT+7",
+  "updated_at": "2026-04-30T07:09:28.642336+07:00",
+  "updated_at_display": "30/04/2026 • 07:09 GMT+7",
   "war_news": [
+    {
+      "source": "Google News War",
+      "title": "Live Updates: Latest from Israel, Iran, and the Middle East - The Jerusalem Post",
+      "title_vi": "Cập nhật trực tiếp: Mới nhất từ Israel, Iran và Trung Đông - The Jerusalem Post",
+      "summary": "Live Updates: Latest from Israel, Iran, and the Middle East The Jerusalem Post",
+      "summary_vi": "Live Updates: Latest from Israel, Iran, and the Middle East The Jerusalem Post",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFA1dHdjdEdzdml6d3NLbTd0R1lsVGt3Y2NzcXZYTjBqRWhLNGhwOVJUNlZ0LU9heHIwM0FXZHU5OW82X1RJYkx1VS1fb25fRmg2M2ZPS0VfQ0FwTVN6YmVoNVVaMThFWTFFOHdhd0EwRHNvb3BZYXRSeU9NTC1oVG8?oc=5",
+      "published_iso": "2026-04-30T06:22:49+07:00",
+      "published_text": "30/04 06:22"
+    },
     {
       "source": "Al Jazeera",
       "title": "Israel has begun intercepting Gaza-bound Global Sumud Flotilla aid boats",
@@ -11,19 +21,19 @@
       "url": "https://www.aljazeera.com/video/newsfeed/2026/4/29/israel-has-begun-intercepting-gaza-bound-global-sumud-flotilla-aid-boats?traffic_source=rss",
       "published_iso": "2026-04-30T04:59:08+07:00",
       "published_text": "30/04 04:59"
-    },
-    {
-      "source": "Al Jazeera",
-      "title": "Israel intercepts Global Sumud boats, demands activists halt their mission",
-      "title_vi": "Israel chặn các tàu Sumud toàn cầu, yêu cầu các nhà hoạt động ngừng sứ mệnh của họ",
-      "summary": "Seven out of 58 vessels captured by Israel near Crete as flotilla aims to deliver aid to Gaza under blockade.",
-      "summary_vi": "Seven out of 58 vessels captured by Israel near Crete as flotilla aims to deliver aid to Gaza under blockade.",
-      "url": "https://www.aljazeera.com/news/2026/4/29/israeli-military-speedboats-block-gaza-bound-aid-ship?traffic_source=rss",
-      "published_iso": "2026-04-30T04:46:23+07:00",
-      "published_text": "30/04 04:46"
     }
   ],
   "global_news": [
+    {
+      "source": "Google News Macro",
+      "title": "Fed officials poised to dissent on rates with Warsh on verge of getting chair - Politico",
+      "title_vi": "Các quan chức Fed sẵn sàng bất đồng quan điểm về lãi suất với Warsh trên bờ vực nhận ghế - Politico",
+      "summary": "Fed officials poised to dissent on rates with Warsh on verge of getting chair Politico",
+      "summary_vi": "Fed officials poised to dissent on rates with Warsh on verge of getting chair Politico",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNTnVpY0VnVHdEdW9Db3FoUzA5OVVxX01OUDNnc19TZjBvMmtWOGM4alVxMEtsT3hvb3l5Rk81NE5DMURHUzNqQ3ZwQkRHdnhlMHpnU3B2c2NtOGJpS3hZTFZBSFF2S1oydXpZSUlKQlB2OU9fVnkzYkFTQmY1RUlKWW5xcmRhUUZiclE?oc=5",
+      "published_iso": "2026-04-30T03:47:51+07:00",
+      "published_text": "30/04 03:47"
+    },
     {
       "source": "Google News Macro",
       "title": "Fed holds rates steady but with highest level of dissent since 1992 - CNBC",
@@ -53,16 +63,6 @@
       "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1XcEZzdG9CZUJoUW51V3FzekZJSi1pNXlhTGw2bHFxRTk2WXpNLVNVdEdFbWppUy1yR0lkNmV5bkx5Mml6dkJqOG4yZm1JeHFsbTgwUW01OWpraDc5UVlueFFrTDdxeGUxX0hiZ1NyYWN1TWtyYVFtNzRR?oc=5",
       "published_iso": "2026-04-29T19:00:00+07:00",
       "published_text": "29/04 19:00"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "Iran may have oil options to drag things out - Axios",
-      "title_vi": "Iran có thể có các lựa chọn dầu mỏ để kéo mọi thứ ra - Axios",
-      "summary": "Iran may have oil options to drag things out Axios",
-      "summary_vi": "Iran may have oil options to drag things out Axios",
-      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1JNUo4TWpaWEhKMXlmNEZpOFp3NWp6QUowZk55OXVOS3V4S2FLWmY3UVRxVDlTZ1VGdVRlam9DMkI3UWQwenZiTng3YThxZmg4VTF0VHZPbkhwWFJiM1V4akx1X0JPSkFJV3c?oc=5",
-      "published_iso": "2026-04-29T13:13:06+07:00",
-      "published_text": "29/04 13:13"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-phu-tho-dau-gia-13-o-dat-o-tai-khu-bai-kim-va-khu-dong-buoi-xa-phung-nguyen-tinh-phu-tho-50835.html",
-      "published_iso": "2026-04-30T06:12:58.435510+07:00",
-      "published_text": "30/04 06:12"
+      "published_iso": "2026-04-30T07:10:23.314097+07:00",
+      "published_text": "30/04 07:10"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,18 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-phu-tho-dau-gia-6-o-dat-o-tai-khu-cho-huong-nha-xa-hien-quan-tinh-phu-tho-50834.html",
-      "published_iso": "2026-04-30T06:12:58.435449+07:00",
-      "published_text": "30/04 06:12"
-    },
-    {
-      "source": "VietnamFinance",
-      "title": "Gỡ vướng hơn 3.000 dự án đình trệ, chờ nguồn hàng BĐS bùng nổ",
-      "title_vi": "Gỡ vướng hơn 3.000 dự án đình trệ, chờ nguồn hàng BĐS bùng nổ",
-      "summary": "",
-      "summary_vi": "",
-      "url": "https://vietnamfinance.vn/go-vuong-hon-3000-du-an-dinh-tre-cho-nguon-hang-bds-bung-no-d144139.html",
-      "published_iso": "2026-04-30T06:12:57.070538+07:00",
-      "published_text": "30/04 06:12"
+      "published_iso": "2026-04-30T07:10:23.314028+07:00",
+      "published_text": "30/04 07:10"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +93,18 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/tu-bo-thuong-hieu-dien-may-gia-dung-hitachi-ong-lon-nhat-ban-lai-dam-nho-tri-tue-nhan-tao-d144073.html",
-      "published_iso": "2026-04-30T06:12:57.070473+07:00",
-      "published_text": "30/04 06:12"
+      "published_iso": "2026-04-30T07:10:21.304834+07:00",
+      "published_text": "30/04 07:10"
+    },
+    {
+      "source": "VietnamFinance",
+      "title": "Giá vàng hôm nay 30/4: Trầm lắng và đi ngang trong kỳ nghỉ lễ",
+      "title_vi": "Giá vàng hôm nay 30/4: Trầm lắng và đi ngang trong kỳ nghỉ lễ",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://vietnamfinance.vn/gia-vang-hom-nay-30-4-tram-lang-va-di-ngang-trong-ky-nghi-le-d144185.html",
+      "published_iso": "2026-04-30T07:10:21.304762+07:00",
+      "published_text": "30/04 07:10"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/bat-dong-san-viet-nam-tro-thanh-thoi-nam-cham-hut-von-ngoai-ty-usd-cham-chan-truoc-luat-choi-moi-nha-dau-tu-noi-co-the-danh-mat-loi-the-san-nha-188260422084859555.chn",
-      "published_iso": "2026-04-30T06:12:56.563095+07:00",
-      "published_text": "30/04 06:12"
+      "published_iso": "2026-04-30T07:10:20.841653+07:00",
+      "published_text": "30/04 07:10"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/cung-dat-nuoc-buoc-vao-doi-moi-20-ngan-hang-top-5-tmcp-viet-nam-khat-vong-vuon-tam-trong-ky-nguyen-moi-188260428015810535.chn",
-      "published_iso": "2026-04-30T06:12:56.563024+07:00",
-      "published_text": "30/04 06:12"
+      "published_iso": "2026-04-30T07:10:20.841570+07:00",
+      "published_text": "30/04 07:10"
     }
   ],
   "markets": [
@@ -132,9 +132,9 @@
       "name": "WTI",
       "symbol": "CL=F",
       "category": "Energy",
-      "price": 108.43,
-      "change": 8.5,
-      "change_pct": 8.51,
+      "price": 107.55,
+      "change": 7.62,
+      "change_pct": 7.63,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 29/04 11:00"
@@ -143,9 +143,9 @@
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 111.98,
-      "change": 0.72,
-      "change_pct": 0.65,
+      "price": 111.2,
+      "change": -0.06,
+      "change_pct": -0.05,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 29/04 11:00"
@@ -154,9 +154,9 @@
       "name": "Natural Gas",
       "symbol": "NG=F",
       "category": "Energy",
-      "price": 2.64,
+      "price": 2.63,
       "change": 0.08,
-      "change_pct": 3.13,
+      "change_pct": 2.93,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 29/04 11:00"
@@ -165,9 +165,9 @@
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4564.4,
-      "change": -27.1,
-      "change_pct": -0.59,
+      "price": 4579.3,
+      "change": -12.2,
+      "change_pct": -0.27,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 29/04 11:00"
@@ -176,9 +176,9 @@
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 72.07,
-      "change": -1.14,
-      "change_pct": -1.56,
+      "price": 72.5,
+      "change": -0.71,
+      "change_pct": -0.96,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 29/04 11:00"
@@ -187,9 +187,9 @@
       "name": "Copper",
       "symbol": "HG=F",
       "category": "Metals",
-      "price": 5.94,
-      "change": 0.03,
-      "change_pct": 0.43,
+      "price": 5.95,
+      "change": 0.04,
+      "change_pct": 0.63,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 29/04 11:00"
@@ -209,9 +209,9 @@
       "name": "DXY",
       "symbol": "DX-Y.NYB",
       "category": "FX",
-      "price": 98.97,
-      "change": 0.35,
-      "change_pct": 0.36,
+      "price": 98.84,
+      "change": 0.22,
+      "change_pct": 0.23,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 29/04 11:00"
@@ -220,9 +220,9 @@
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.168,
-      "change": -0.0038,
-      "change_pct": -0.33,
+      "price": 1.1693,
+      "change": -0.0025,
+      "change_pct": -0.21,
       "decimals": 4,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 30/04 06:00"
@@ -231,12 +231,12 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 75934.0,
-      "change": -417.0,
-      "change_pct": -0.55,
+      "price": 75716.0,
+      "change": -635.0,
+      "change_pct": -0.83,
       "decimals": 0,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 29/04 07:00"
+      "note": "Dữ liệu gần nhất: 30/04 07:00"
     },
     {
       "name": "S&P 500",
@@ -396,12 +396,12 @@
       "name": "ASX 200",
       "symbol": "^AXJO",
       "category": "Asia",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
+      "price": 8710.7,
+      "change": -55.7,
+      "change_pct": -0.64,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 28/04 21:00"
+      "note": "Dữ liệu gần nhất: 27/04 21:00"
     }
   ]
 }
