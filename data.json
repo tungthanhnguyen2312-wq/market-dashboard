@@ -1,7 +1,17 @@
 {
-  "updated_at": "2026-05-01T07:08:16.400139+07:00",
-  "updated_at_display": "01/05/2026 • 07:08 GMT+7",
+  "updated_at": "2026-05-01T11:31:08.804072+07:00",
+  "updated_at_display": "01/05/2026 • 11:31 GMT+7",
   "war_news": [
+    {
+      "source": "Al Jazeera",
+      "title": "Condemnation and protests against Israel’s raid of Gaza aid flotilla",
+      "title_vi": "Lên án và phản đối cuộc đột kích của Israel vào đội tàu cứu trợ Gaza",
+      "summary": "Israel has provoked international condemnation for its interception of Gaza-bound aid boats in international waters.",
+      "summary_vi": "Israel has provoked international condemnation for its interception of Gaza-bound aid boats in international waters.",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/1/condemnation-and-protests-against-israels-raid-of-gaza-aid-flotilla?traffic_source=rss",
+      "published_iso": "2026-05-01T09:31:12+07:00",
+      "published_text": "01/05 09:31"
+    },
     {
       "source": "Google News War",
       "title": "Iran supreme leader issues defiant statement on strait of Hormuz - The Guardian",
@@ -9,60 +19,50 @@
       "summary": "Iran supreme leader issues defiant statement on strait of Hormuz The Guardian",
       "summary_vi": "Iran supreme leader issues defiant statement on strait of Hormuz The Guardian",
       "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOZGI0QWxzaHlrWW5JeE9Dc1ZXWGx6MV9LWG9qWDdxcnd1RXZzU29Xam9HQWlFM2puM3ZrVHRSLTJoNE9KNzJmSHVoUDU1UHhRbHBudjBQdW5hZmZ0dl9McEtDQzI1bHBoamY4MnNFLTNXTE9oSW1zcG9FY1pHSWVsU1BtcFZfa3AtT0xkaEdOck5Tak9hQWtRRE00RjJ3Q21aWjZyNHpoV2hjY1dsOXhR?oc=5",
-      "published_iso": "2026-05-01T06:11:00+07:00",
-      "published_text": "01/05 06:11"
-    },
-    {
-      "source": "Google News War",
-      "title": "Live Updates: Latest from Israel, Iran, and Middle East - The Jerusalem Post",
-      "title_vi": "Cập nhật trực tiếp: Mới nhất từ Israel, Iran và Trung Đông - The Jerusalem Post",
-      "summary": "Live Updates: Latest from Israel, Iran, and Middle East The Jerusalem Post",
-      "summary_vi": "Live Updates: Latest from Israel, Iran, and Middle East The Jerusalem Post",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFAzYXJDUmQxVEQzZXl5ajlmS1lWNkE3TzViUEZvQ1NybHJlZDRxZkE2M3cxdmJoM1NvMlNhdEUteVNsbDR1RElSVHA3bmZVUjYyeUloMEFtRFpudG9XelpiVVM2SXI4eldadnoydHVyY09GOWhjdWdkSDZzUmZFbjg?oc=5",
-      "published_iso": "2026-05-01T05:01:45+07:00",
-      "published_text": "01/05 05:01"
+      "published_iso": "2026-05-01T08:30:00+07:00",
+      "published_text": "01/05 08:30"
     }
   ],
   "global_news": [
     {
       "source": "Investing News",
-      "title": "Bonds, stocks climb on oil’s pullback; yen jumps after Japan’s currency intervention",
-      "title_vi": "Trái phiếu, cổ phiếu tăng khi giá dầu giảm; đồng yên tăng sau khi Nhật Bản can thiệp tiền tệ",
+      "title": "China, US economic chiefs raise complaints in ’candid’ call ahead of Trump-Xi summit",
+      "title_vi": "Trung Quốc, các nhà lãnh đạo kinh tế Hoa Kỳ đưa ra khiếu nại trong cuộc gọi ’thẳng thắn’ trước hội nghị thượng đỉnh Trump-Xi",
       "summary": "",
       "summary_vi": "",
-      "url": "https://www.investing.com/news/economy-news/tech-shares-rise-in-asia-bonds-scarred-by-central-bank-hawks-as-oil-spikes-4647565",
-      "published_iso": "2026-05-01T06:06:28+07:00",
-      "published_text": "01/05 06:06"
+      "url": "https://www.investing.com/news/economy-news/china-us-trade-chiefs-had-candid-call-weeks-ahead-of-expected-trumpxi-summit-4650185",
+      "published_iso": "2026-05-01T10:54:27+07:00",
+      "published_text": "01/05 10:54"
+    },
+    {
+      "source": "Investing News",
+      "title": "Morgan Stanley’s Top Picks in China Industrials",
+      "title_vi": "Những lựa chọn hàng đầu của Morgan Stanley trong ngành công nghiệp Trung Quốc",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/stock-market-news/morgan-stanleys-top-picks-in-china-industrials-93CH-4651876",
+      "published_iso": "2026-05-01T10:15:21+07:00",
+      "published_text": "01/05 10:15"
     },
     {
       "source": "Google News Macro",
-      "title": "Trump removes tariffs on Scottish whisky after King Charles visit - Politico",
-      "title_vi": "Trump xóa bỏ thuế quan đối với rượu whisky Scotland sau chuyến thăm của Vua Charles - Politico",
-      "summary": "Trump removes tariffs on Scottish whisky after King Charles visit Politico",
-      "summary_vi": "Trump removes tariffs on Scottish whisky after King Charles visit Politico",
-      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNWnlMYXhGcXBtWWpvOHR0Nm5JM1FrcjNLSC1DV19TQnNvMmZFQVJDWHNOcTFRN3RheHdZY0ZCVXNaNGpHTmoweFd6dzNxTjRRUXl1VURvWnlDaXBXZ0JZclZZdTVPVjZJOVhldVlPbDNFS1YyaTZuQlRkRXFhTzFoVHNFRmd1dw?oc=5",
-      "published_iso": "2026-05-01T04:09:39+07:00",
-      "published_text": "01/05 04:09"
+      "title": "China scraps tariffs for all but one African nation - BBC",
+      "title_vi": "Trung Quốc loại bỏ thuế quan cho tất cả trừ một quốc gia châu Phi - BBC",
+      "summary": "China scraps tariffs for all but one African nation BBC",
+      "summary_vi": "China scraps tariffs for all but one African nation BBC",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1VU05BOUZ3ZmhTTU5BY2FZempWTWRDeUZDWG5sY3kzYmNsVl9UdG9HRjdOdmxqV2dpeGx0cGN2NmE3bTlEX1NJOS1MLVhLbTlNa1hBOU9CUDdLdw?oc=5",
+      "published_iso": "2026-05-01T07:02:57+07:00",
+      "published_text": "01/05 07:02"
     },
     {
       "source": "Google News Macro",
-      "title": "Why oil prices predicted by financial markets are missing the mark - marketplace.org",
-      "title_vi": "Tại sao giá dầu được dự đoán bởi thị trường tài chính đang thiếu dấu ấn - marketplace.org",
-      "summary": "Why oil prices predicted by financial markets are missing the mark marketplace.org",
-      "summary_vi": "Why oil prices predicted by financial markets are missing the mark marketplace.org",
-      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPY3JHR2xOVG5HR1RPVGFFczBUT2ZHb2hheWItLXNGZ1Q5QnhqS0xqRmctanp1TEk5TllyMWhWbC1hNlNRaGxkNXBPX2ZtdjVya3lVZFByYnduWHFHYUFWakFlT094SkpPNjJKRmdCMFhhVE83elhjZ2tUNXljMVRpLUFldlpWOWpWdVI1QTJ4WUZnTGJTbWtIdklfbWhuU0xEMmZXeGJHZUtXNDdGcDJWeA?oc=5",
-      "published_iso": "2026-05-01T04:05:00+07:00",
-      "published_text": "01/05 04:05"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "Oil Prices Spike, National Average Up Nearly 30 Cents in One Week - AAA Gas Prices",
-      "title_vi": "Giá dầu tăng đột biến, trung bình quốc gia tăng gần 30 cent trong một tuần - Giá xăng AAA",
-      "summary": "Oil Prices Spike, National Average Up Nearly 30 Cents in One Week AAA Gas Prices",
-      "summary_vi": "Oil Prices Spike, National Average Up Nearly 30 Cents in One Week AAA Gas Prices",
-      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNSWdWWHV2VVFaWDdCUmhqRURiRi1xSVVGUExJSTh2TVlveVVLWGVzb1hCQ1JiX2kwdC1ucHlpX25mUTF1VHE5cEUwZjFEekxGVC1oYWdVYXI3aFl1ZzlNMmtWb3JQOWZWMWNyTmxlMFduS09wMDlvR01oaU5WbFU2NU9aZjMwc1N3bmxZWGpfc1J4SlZ0bGc?oc=5",
-      "published_iso": "2026-04-30T21:37:59+07:00",
-      "published_text": "30/04 21:37"
+      "title": "Trump gives the go-ahead for a major new Canada-U.S. oil pipeline - NPR",
+      "title_vi": "Trump cho phép đi trước cho một đường ống dẫn dầu Canada-Mỹ mới - NPR",
+      "summary": "Trump gives the go-ahead for a major new Canada-U.S. oil pipeline NPR",
+      "summary_vi": "Trump gives the go-ahead for a major new Canada-U.S. oil pipeline NPR",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNVUJBZE5zUXZaYVcyblo1dk8tVnZmQkF3WDRmakNCMFhDMXplc2VZWUpBVDYtV1laQVB4TDE1bTNmVXZhUU5QQWQzTUUtN0FEZkFEU2xuNE1nYXBrRkdOd0l5TlAyN2VTaEhaNk5UX1VwLThnSFU5eWh2S3NiSGJlcUFTWVE4d2FKVE0zOHpVTXdmMEU?oc=5",
+      "published_iso": "2026-05-01T06:18:15+07:00",
+      "published_text": "01/05 06:18"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-phu-tho-dau-gia-13-o-dat-o-tai-khu-bai-kim-va-khu-dong-buoi-xa-phung-nguyen-tinh-phu-tho-50835.html",
-      "published_iso": "2026-05-01T07:09:20.202310+07:00",
-      "published_text": "01/05 07:09"
+      "published_iso": "2026-05-01T11:32:07.734420+07:00",
+      "published_text": "01/05 11:32"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,28 +83,28 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-phu-tho-dau-gia-6-o-dat-o-tai-khu-cho-huong-nha-xa-hien-quan-tinh-phu-tho-50834.html",
-      "published_iso": "2026-05-01T07:09:20.202225+07:00",
-      "published_text": "01/05 07:09"
+      "published_iso": "2026-05-01T11:32:07.734356+07:00",
+      "published_text": "01/05 11:32"
     },
     {
       "source": "VietnamFinance",
-      "title": "Đồng Nai cùng TP.HCM: 'Siêu đô thị kép' gánh trọng trách cực tăng trưởng của cả nước",
-      "title_vi": "Đồng Nai cùng TP.HCM: 'Siêu đô thị kép' gánh trọng trách cực tăng trưởng của cả nước",
+      "title": "Lợi nhuận ngân hàng quý I/2026: 'Ngôi vương' thuộc về ai?",
+      "title_vi": "Lợi nhuận ngân hàng quý I/2026: 'Ngôi vương' thuộc về ai?",
       "summary": "",
       "summary_vi": "",
-      "url": "https://vietnamfinance.vn/dong-nai-cung-tphcm-sieu-do-thi-kep-ganh-trong-trach-cuc-tang-truong-cua-ca-nuoc-d144150.html",
-      "published_iso": "2026-05-01T07:09:18.211112+07:00",
-      "published_text": "01/05 07:09"
+      "url": "https://vietnamfinance.vn/loi-nhuan-ngan-hang-quy-i-2026-ngoi-vuong-thuoc-ve-ai-d144215.html",
+      "published_iso": "2026-05-01T11:32:06.659897+07:00",
+      "published_text": "01/05 11:32"
     },
     {
       "source": "VietnamFinance",
-      "title": "Giá vàng hôm nay 1/5: Chưa có sóng mới, vàng miếng neo giữ giá",
-      "title_vi": "Giá vàng hôm nay 1/5: Chưa có sóng mới, vàng miếng neo giữ giá",
+      "title": "Xung đột Trung Đông kéo dài: Giá nhiên liệu tăng sẽ nhanh chóng truyền dẫn vào lạm phát",
+      "title_vi": "Xung đột Trung Đông kéo dài: Giá nhiên liệu tăng sẽ nhanh chóng truyền dẫn vào lạm phát",
       "summary": "",
       "summary_vi": "",
-      "url": "https://vietnamfinance.vn/gia-vang-hom-nay-1-5-chua-co-song-moi-vang-mieng-neo-giu-gia-d144220.html",
-      "published_iso": "2026-05-01T07:09:18.211042+07:00",
-      "published_text": "01/05 07:09"
+      "url": "https://vietnamfinance.vn/xung-dot-trung-dong-ap-luc-lan-rong-toi-kinh-te-viet-nam-d143704.html",
+      "published_iso": "2026-05-01T11:32:06.659837+07:00",
+      "published_text": "01/05 11:32"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/bat-dong-san-viet-nam-tro-thanh-thoi-nam-cham-hut-von-ngoai-ty-usd-cham-chan-truoc-luat-choi-moi-nha-dau-tu-noi-co-the-danh-mat-loi-the-san-nha-188260422084859555.chn",
-      "published_iso": "2026-05-01T07:09:17.050925+07:00",
-      "published_text": "01/05 07:09"
+      "published_iso": "2026-05-01T11:32:04.490143+07:00",
+      "published_text": "01/05 11:32"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/cung-dat-nuoc-buoc-vao-doi-moi-20-ngan-hang-top-5-tmcp-viet-nam-khat-vong-vuon-tam-trong-ky-nguyen-moi-188260428015810535.chn",
-      "published_iso": "2026-05-01T07:09:17.050831+07:00",
-      "published_text": "01/05 07:09"
+      "published_iso": "2026-05-01T11:32:04.490071+07:00",
+      "published_text": "01/05 11:32"
     }
   ],
   "markets": [
@@ -132,67 +132,67 @@
       "name": "WTI",
       "symbol": "CL=F",
       "category": "Energy",
-      "price": 105.63,
-      "change": -1.25,
-      "change_pct": -1.17,
+      "price": 105.36,
+      "change": 0.29,
+      "change_pct": 0.28,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 30/04 11:00"
+      "note": "Dữ liệu gần nhất: 01/05 11:00"
     },
     {
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 111.47,
-      "change": -6.56,
-      "change_pct": -5.56,
+      "price": 111.27,
+      "change": -6.76,
+      "change_pct": -5.73,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 30/04 11:00"
+      "note": "Dữ liệu gần nhất: 01/05 11:00"
     },
     {
       "name": "Natural Gas",
       "symbol": "NG=F",
       "category": "Energy",
-      "price": 2.76,
-      "change": 0.11,
-      "change_pct": 4.31,
+      "price": 2.78,
+      "change": 0.01,
+      "change_pct": 0.43,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 30/04 11:00"
+      "note": "Dữ liệu gần nhất: 01/05 11:00"
     },
     {
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4640.2,
-      "change": 95.0,
-      "change_pct": 2.09,
+      "price": 4632.7,
+      "change": 18.0,
+      "change_pct": 0.39,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 30/04 11:00"
+      "note": "Dữ liệu gần nhất: 01/05 11:00"
     },
     {
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 74.84,
-      "change": 3.27,
-      "change_pct": 4.57,
+      "price": 74.62,
+      "change": 1.09,
+      "change_pct": 1.48,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 30/04 11:00"
+      "note": "Dữ liệu gần nhất: 01/05 11:00"
     },
     {
       "name": "Copper",
       "symbol": "HG=F",
       "category": "Metals",
-      "price": 6.02,
-      "change": 0.14,
-      "change_pct": 2.46,
+      "price": 6.01,
+      "change": 0.09,
+      "change_pct": 1.5,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 30/04 11:00"
+      "note": "Dữ liệu gần nhất: 01/05 11:00"
     },
     {
       "name": "US 10Y",
@@ -209,20 +209,20 @@
       "name": "DXY",
       "symbol": "DX-Y.NYB",
       "category": "FX",
-      "price": 98.14,
-      "change": -0.78,
-      "change_pct": -0.79,
+      "price": 98.17,
+      "change": 0.09,
+      "change_pct": 0.09,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 30/04 11:00"
+      "note": "Dữ liệu gần nhất: 01/05 11:00"
     },
     {
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1733,
-      "change": 0.0048,
-      "change_pct": 0.41,
+      "price": 1.1732,
+      "change": 0.0047,
+      "change_pct": 0.4,
       "decimals": 4,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 01/05 06:00"
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 76439.0,
-      "change": 663.0,
-      "change_pct": 0.87,
+      "price": 77040.0,
+      "change": 1264.0,
+      "change_pct": 1.67,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 01/05 07:00"
@@ -297,9 +297,9 @@
       "name": "FTSE 100",
       "symbol": "^FTSE",
       "category": "Europe",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
+      "price": 10378.8,
+      "change": 165.7,
+      "change_pct": 1.62,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 30/04 06:00"
@@ -308,12 +308,12 @@
       "name": "Euro Stoxx 50",
       "symbol": "^STOXX50E",
       "category": "Europe",
-      "price": 5816.48,
-      "change": -19.62,
-      "change_pct": -0.34,
+      "price": 5881.51,
+      "change": 65.03,
+      "change_pct": 1.12,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 29/04 05:00"
+      "note": "Dữ liệu gần nhất: 30/04 05:00"
     },
     {
       "name": "VN-Index",
@@ -330,9 +330,9 @@
       "name": "Hang Seng",
       "symbol": "^HSI",
       "category": "Asia",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
+      "price": 25776.53,
+      "change": -335.31,
+      "change_pct": -1.28,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 29/04 23:00"
@@ -341,20 +341,20 @@
       "name": "Nikkei 225",
       "symbol": "^N225",
       "category": "Asia",
-      "price": 59917.46,
-      "change": -619.9,
-      "change_pct": -1.02,
+      "price": 59648.41,
+      "change": 363.49,
+      "change_pct": 0.61,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 27/04 22:00"
+      "note": "Dữ liệu gần nhất: 30/04 22:00"
     },
     {
       "name": "KOSPI",
       "symbol": "^KS11",
       "category": "Asia",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
+      "price": 6598.87,
+      "change": -92.03,
+      "change_pct": -1.38,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 29/04 22:00"
@@ -363,9 +363,9 @@
       "name": "Shanghai Composite",
       "symbol": "000001.SS",
       "category": "Asia",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
+      "price": 4112.16,
+      "change": 4.65,
+      "change_pct": 0.11,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 29/04 23:00"
@@ -374,9 +374,9 @@
       "name": "Shenzhen Component",
       "symbol": "399001.SZ",
       "category": "Asia",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
+      "price": 15107.55,
+      "change": -13.37,
+      "change_pct": -0.09,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 29/04 23:00"
@@ -385,9 +385,9 @@
       "name": "Nifty 50",
       "symbol": "^NSEI",
       "category": "Asia",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
+      "price": 23997.55,
+      "change": -180.1,
+      "change_pct": -0.74,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 30/04 01:30"
@@ -396,12 +396,12 @@
       "name": "ASX 200",
       "symbol": "^AXJO",
       "category": "Asia",
-      "price": 8687.0,
-      "change": -23.7,
-      "change_pct": -0.27,
+      "price": 8749.2,
+      "change": 83.4,
+      "change_pct": 0.96,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 28/04 21:00"
+      "note": "Dữ liệu gần nhất: 30/04 21:00"
     }
   ]
 }
