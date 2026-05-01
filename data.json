@@ -1,7 +1,17 @@
 {
-  "updated_at": "2026-05-01T18:44:39.665401+07:00",
-  "updated_at_display": "01/05/2026 • 18:44 GMT+7",
+  "updated_at": "2026-05-01T19:42:43.480298+07:00",
+  "updated_at_display": "01/05/2026 • 19:42 GMT+7",
   "war_news": [
+    {
+      "source": "Al Jazeera",
+      "title": "Giorgia Meloni’s moral retreat on Gaza",
+      "title_vi": "Khóa tu đạo đức của Giorgia Meloni về Gaza",
+      "summary": "The Italian PM’s response to Israel’s genocidal war on Gaza reflects not moral conviction, but political calculation.",
+      "summary_vi": "The Italian PM’s response to Israel’s genocidal war on Gaza reflects not moral conviction, but political calculation.",
+      "url": "https://www.aljazeera.com/opinions/2026/5/1/giorgia-melonis-moral-retreat-on-gaza?traffic_source=rss",
+      "published_iso": "2026-05-01T19:33:00+07:00",
+      "published_text": "01/05 19:33"
+    },
     {
       "source": "Al Jazeera",
       "title": "Gaza aid flotilla vessels taken to Crete after Israeli interception",
@@ -11,38 +21,18 @@
       "url": "https://www.aljazeera.com/news/2026/5/1/gaza-aid-flotilla-vessels-taken-to-crete-after-israeli-interception?traffic_source=rss",
       "published_iso": "2026-05-01T18:31:33+07:00",
       "published_text": "01/05 18:31"
-    },
-    {
-      "source": "Al Jazeera",
-      "title": "Has the US-Iran ceasefire reset the clock on War Powers Act deadline?",
-      "title_vi": "Lệnh ngừng bắn Mỹ-Iran có đặt lại thời hạn của Đạo luật Quyền hạn Chiến tranh không?",
-      "summary": "Defence secretary claims hostilities have ceased, but lawmakers say US forces remain active despite halted air raids.",
-      "summary_vi": "Defence secretary claims hostilities have ceased, but lawmakers say US forces remain active despite halted air raids.",
-      "url": "https://www.aljazeera.com/news/2026/5/1/has-the-us-iran-ceasefire-reset-the-clock-on-war-powers-act-deadline?traffic_source=rss",
-      "published_iso": "2026-05-01T17:56:21+07:00",
-      "published_text": "01/05 17:56"
     }
   ],
   "global_news": [
     {
-      "source": "Investing News",
-      "title": "China property sales decline narrowed in April, Morgan Stanley stays cautious",
-      "title_vi": "Doanh số bán bất động sản tại Trung Quốc giảm trong tháng 4, Morgan Stanley vẫn thận trọng",
-      "summary": "",
-      "summary_vi": "",
-      "url": "https://www.investing.com/news/stock-market-news/china-property-sales-decline-narrowed-in-april-morgan-stanley-stays-cautious-93CH-4652776",
-      "published_iso": "2026-05-01T18:30:44+07:00",
-      "published_text": "01/05 18:30"
-    },
-    {
-      "source": "Investing News",
-      "title": "Japan ready to act on crude oil futures amid currency moves",
-      "title_vi": "Nhật Bản sẵn sàng hành động đối với dầu thô kỳ hạn trong bối cảnh tiền tệ biến động",
-      "summary": "",
-      "summary_vi": "",
-      "url": "https://www.investing.com/news/commodities-news/japan-ready-to-act-on-crude-oil-futures-amid-currency-moves-93CH-4652755",
-      "published_iso": "2026-05-01T18:26:41+07:00",
-      "published_text": "01/05 18:26"
+      "source": "Google News Macro",
+      "title": "A tech worker in China is laid off and replaced by AI. Is it legal? - NPR",
+      "title_vi": "Một nhân viên công nghệ ở Trung Quốc bị sa thải và thay thế bằng AI. Nó có hợp pháp không? - NPR",
+      "summary": "A tech worker in China is laid off and replaced by AI. Is it legal? NPR",
+      "summary_vi": "A tech worker in China is laid off and replaced by AI. Is it legal? NPR",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBiTmoya25pWVM4Um42R2xyRnNXNUVkZTV1Ni14MGtsMUgwWGt6cVVCaEZjLWdKMko2LVBhbnNxblVseVRnMVp4UUdkZlNjQU4tY2dTY1hxMUM3Tld6TjZGc0J5S1J3cldwSFNENVpKS1VJX2c?oc=5",
+      "published_iso": "2026-05-01T17:35:51+07:00",
+      "published_text": "01/05 17:35"
     },
     {
       "source": "Google News Macro",
@@ -63,6 +53,16 @@
       "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9YdVhTb0U2bE1nSXpGYUhWTW1VbW9UYmRHN05jMkozSERkUzNJeFVCUC0yVXFPYjRfR1NhdFR3MVpRQXo0aTBVbXZqWXVMNnlBbGRLN3VKclZ3UQ?oc=5",
       "published_iso": "2026-05-01T14:52:56+07:00",
       "published_text": "01/05 14:52"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "China scraps tariffs for all but one African nation - BBC",
+      "title_vi": "Trung Quốc loại bỏ thuế quan cho tất cả trừ một quốc gia châu Phi - BBC",
+      "summary": "China scraps tariffs for all but one African nation BBC",
+      "summary_vi": "China scraps tariffs for all but one African nation BBC",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1VU05BOUZ3ZmhTTU5BY2FZempWTWRDeUZDWG5sY3kzYmNsVl9UdG9HRjdOdmxqV2dpeGx0cGN2NmE3bTlEX1NJOS1MLVhLbTlNa1hBOU9CUDdLdw?oc=5",
+      "published_iso": "2026-05-01T07:02:57+07:00",
+      "published_text": "01/05 07:02"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-phu-tho-dau-gia-13-o-dat-o-tai-khu-bai-kim-va-khu-dong-buoi-xa-phung-nguyen-tinh-phu-tho-50835.html",
-      "published_iso": "2026-05-01T18:45:39.849938+07:00",
-      "published_text": "01/05 18:45"
+      "published_iso": "2026-05-01T19:43:46.344877+07:00",
+      "published_text": "01/05 19:43"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-phu-tho-dau-gia-6-o-dat-o-tai-khu-cho-huong-nha-xa-hien-quan-tinh-phu-tho-50834.html",
-      "published_iso": "2026-05-01T18:45:39.849874+07:00",
-      "published_text": "01/05 18:45"
+      "published_iso": "2026-05-01T19:43:46.344811+07:00",
+      "published_text": "01/05 19:43"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/nganh-bia-tiep-tuc-chat-vat-doanh-nghiep-dau-nganh-xoay-so-ra-sao-d144211.html",
-      "published_iso": "2026-05-01T18:45:37.772493+07:00",
-      "published_text": "01/05 18:45"
+      "published_iso": "2026-05-01T19:43:44.706127+07:00",
+      "published_text": "01/05 19:43"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/co-phieu-tang-manh-thang-4-vic-pha-dinh-nvl-bat-len-tu-day-d144247.html",
-      "published_iso": "2026-05-01T18:45:37.772432+07:00",
-      "published_text": "01/05 18:45"
+      "published_iso": "2026-05-01T19:43:44.706054+07:00",
+      "published_text": "01/05 19:43"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/bat-dong-san-viet-nam-tro-thanh-thoi-nam-cham-hut-von-ngoai-ty-usd-cham-chan-truoc-luat-choi-moi-nha-dau-tu-noi-co-the-danh-mat-loi-the-san-nha-188260422084859555.chn",
-      "published_iso": "2026-05-01T18:45:35.592604+07:00",
-      "published_text": "01/05 18:45"
+      "published_iso": "2026-05-01T19:43:42.932868+07:00",
+      "published_text": "01/05 19:43"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/cung-dat-nuoc-buoc-vao-doi-moi-20-ngan-hang-top-5-tmcp-viet-nam-khat-vong-vuon-tam-trong-ky-nguyen-moi-188260428015810535.chn",
-      "published_iso": "2026-05-01T18:45:35.592530+07:00",
-      "published_text": "01/05 18:45"
+      "published_iso": "2026-05-01T19:43:42.932783+07:00",
+      "published_text": "01/05 19:43"
     }
   ],
   "markets": [
@@ -132,9 +132,9 @@
       "name": "WTI",
       "symbol": "CL=F",
       "category": "Energy",
-      "price": 104.17,
-      "change": -0.9,
-      "change_pct": -0.86,
+      "price": 102.61,
+      "change": -2.46,
+      "change_pct": -2.34,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 01/05 11:00"
@@ -143,9 +143,9 @@
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 110.9,
-      "change": -3.11,
-      "change_pct": -2.73,
+      "price": 110.04,
+      "change": -3.97,
+      "change_pct": -3.48,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 01/05 11:00"
@@ -165,9 +165,9 @@
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4586.7,
-      "change": -28.0,
-      "change_pct": -0.61,
+      "price": 4608.2,
+      "change": -6.5,
+      "change_pct": -0.14,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 01/05 11:00"
@@ -176,9 +176,9 @@
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 74.0,
-      "change": 0.46,
-      "change_pct": 0.63,
+      "price": 75.28,
+      "change": 1.74,
+      "change_pct": 2.37,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 01/05 11:00"
@@ -187,9 +187,9 @@
       "name": "Copper",
       "symbol": "HG=F",
       "category": "Metals",
-      "price": 5.97,
-      "change": 0.05,
-      "change_pct": 0.78,
+      "price": 5.99,
+      "change": 0.06,
+      "change_pct": 1.0,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 01/05 11:00"
@@ -200,18 +200,18 @@
       "category": "Rates",
       "price": 0.44,
       "change": -0.0,
-      "change_pct": -0.63,
+      "change_pct": -0.55,
       "decimals": 2,
       "suffix": "%",
-      "note": "Dữ liệu gần nhất: 30/04 12:00"
+      "note": "Dữ liệu gần nhất: 01/05 12:00"
     },
     {
       "name": "DXY",
       "symbol": "DX-Y.NYB",
       "category": "FX",
-      "price": 97.96,
-      "change": -0.12,
-      "change_pct": -0.12,
+      "price": 97.86,
+      "change": -0.22,
+      "change_pct": -0.22,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 01/05 11:00"
@@ -220,9 +220,9 @@
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1752,
-      "change": 0.0068,
-      "change_pct": 0.58,
+      "price": 1.1765,
+      "change": 0.008,
+      "change_pct": 0.68,
       "decimals": 4,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 01/05 06:00"
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 77416.0,
-      "change": 1112.0,
-      "change_pct": 1.46,
+      "price": 77933.0,
+      "change": 1629.0,
+      "change_pct": 2.13,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 01/05 07:00"
@@ -286,9 +286,9 @@
       "name": "VIX",
       "symbol": "^VIX",
       "category": "US",
-      "price": 16.99,
-      "change": 0.1,
-      "change_pct": 0.59,
+      "price": 16.77,
+      "change": -0.12,
+      "change_pct": -0.71,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 01/05 12:00"
@@ -297,9 +297,9 @@
       "name": "FTSE 100",
       "symbol": "^FTSE",
       "category": "Europe",
-      "price": 10323.28,
-      "change": -55.52,
-      "change_pct": -0.53,
+      "price": 10328.94,
+      "change": -49.86,
+      "change_pct": -0.48,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 01/05 06:00"
