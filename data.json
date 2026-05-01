@@ -1,7 +1,17 @@
 {
-  "updated_at": "2026-05-02T02:41:05.370413+07:00",
-  "updated_at_display": "02/05/2026 • 02:41 GMT+7",
+  "updated_at": "2026-05-02T03:35:30.949429+07:00",
+  "updated_at_display": "02/05/2026 • 03:35 GMT+7",
   "war_news": [
+    {
+      "source": "Al Jazeera",
+      "title": "US judge bars Trump from ending protected status for Yemeni nationals",
+      "title_vi": "Thẩm phán Hoa Kỳ cấm Trump chấm dứt tình trạng được bảo vệ đối với công dân Yemen",
+      "summary": "Trump administration has sought to cancel temporary protections for 13 countries as part of immigration crackdown.",
+      "summary_vi": "Trump administration has sought to cancel temporary protections for 13 countries as part of immigration crackdown.",
+      "url": "https://www.aljazeera.com/news/2026/5/1/us-judge-bars-trump-from-ending-protected-status-for-yemeni-nationals?traffic_source=rss",
+      "published_iso": "2026-05-02T03:05:24+07:00",
+      "published_text": "02/05 03:05"
+    },
     {
       "source": "Al Jazeera",
       "title": "Trump says Iran seeks terms he ‘can’t agree to’ in latest peace proposal",
@@ -11,19 +21,19 @@
       "url": "https://www.aljazeera.com/news/2026/5/1/us-president-trump-not-satisfied-with-irans-latest-peace-proposal?traffic_source=rss",
       "published_iso": "2026-05-02T01:46:50+07:00",
       "published_text": "02/05 01:46"
-    },
-    {
-      "source": "Al Jazeera",
-      "title": "Poll finds 61 percent of Americans believe attacking Iran was a mistake",
-      "title_vi": "Thăm dò cho thấy 61% người Mỹ tin rằng tấn công Iran là một sai lầm",
-      "summary": "Poll finds that Americans are concerned about impact of the war on the cost of living and sceptical of success thus far.",
-      "summary_vi": "Poll finds that Americans are concerned about impact of the war on the cost of living and sceptical of success thus far.",
-      "url": "https://www.aljazeera.com/news/2026/5/1/poll-finds-61-percent-of-americans-believe-attacking-iran-was-a-mistake?traffic_source=rss",
-      "published_iso": "2026-05-02T00:51:54+07:00",
-      "published_text": "02/05 00:51"
     }
   ],
   "global_news": [
+    {
+      "source": "Google News Macro",
+      "title": "China and America Are Courting Nuclear Catastrophe - Foreign Affairs",
+      "title_vi": "Trung Quốc và Mỹ đang tán thành thảm họa hạt nhân - Ngoại giao",
+      "summary": "China and America Are Courting Nuclear Catastrophe Foreign Affairs",
+      "summary_vi": "China and America Are Courting Nuclear Catastrophe Foreign Affairs",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNMFZ4dmRwVjJCTzFraUZ2VmhkZk1YTFQyOXhWYnZvMzV1dkRscVdWbGVQQmRxZG9uX1ZTeDhwdGRGRjBSSlJZM3IyWk5Ubks4NUYycHdmbTFMNFVySDhtbE5WQmJMRDJzWDkzbDIwRU9QS0U4VE0wZjB6V21nQ1JyVm1mMDhCUE9VR0xpaGJpakFfdkdadmxzRU8xRQ?oc=5",
+      "published_iso": "2026-05-02T02:23:31+07:00",
+      "published_text": "02/05 02:23"
+    },
     {
       "source": "Google News Macro",
       "title": "Trump Administration Pushes Forward With Tariffs Based on Forced Labor Laws - The New York Times",
@@ -33,16 +43,6 @@
       "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPWGtFUGpUTkJuREtmYVVuWHUyckEtdTdEaU9wMjlZY20yVGE5cmhGQzZ0Z3FoZkh1MTRUQ2VpbkhpemRIS3hWOTVESU16elNqb3JQU1NTaUJHMklBaFJrNXBiYXpXNUN0endPNWh5U1FJQTRnaVJxZEJIREsxU2k1di1JTzVsdWZlcTk0?oc=5",
       "published_iso": "2026-05-02T01:44:47+07:00",
       "published_text": "02/05 01:44"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "Trump threatens to raise tariffs on EU automobiles to 25 percent - Politico",
-      "title_vi": "Trump đe dọa sẽ tăng thuế đối với ô tô EU lên 25% - Politico",
-      "summary": "Trump threatens to raise tariffs on EU automobiles to 25 percent Politico",
-      "summary_vi": "Trump threatens to raise tariffs on EU automobiles to 25 percent Politico",
-      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPWUVOWHpPWWE3M3l1RC1uWmg3WHJjVGlkdkxmVXJ2ZlY3NExRdUtya01PZm1yLU1xUzZIYjVkcUg3bG1VUFoyVjJJcDRvbjRNMUh1aGJvNnJhYXY5YVhpNFltUzFRdFZPMkZGN2xhU1VrUmNGTnVtdFpfV1ZDU1IzdC1tOW1pRTZySWxZcQ?oc=5",
-      "published_iso": "2026-05-01T23:46:32+07:00",
-      "published_text": "01/05 23:46"
     },
     {
       "source": "Google News Macro",
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-phu-tho-dau-gia-13-o-dat-o-tai-khu-bai-kim-va-khu-dong-buoi-xa-phung-nguyen-tinh-phu-tho-50835.html",
-      "published_iso": "2026-05-02T02:42:03.777734+07:00",
-      "published_text": "02/05 02:42"
+      "published_iso": "2026-05-02T03:36:31.185472+07:00",
+      "published_text": "02/05 03:36"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-phu-tho-dau-gia-6-o-dat-o-tai-khu-cho-huong-nha-xa-hien-quan-tinh-phu-tho-50834.html",
-      "published_iso": "2026-05-02T02:42:03.777663+07:00",
-      "published_text": "02/05 02:42"
+      "published_iso": "2026-05-02T03:36:31.185410+07:00",
+      "published_text": "02/05 03:36"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/nganh-bia-tiep-tuc-chat-vat-doanh-nghiep-dau-nganh-xoay-so-ra-sao-d144211.html",
-      "published_iso": "2026-05-02T02:42:01.812826+07:00",
-      "published_text": "02/05 02:42"
+      "published_iso": "2026-05-02T03:36:29.475660+07:00",
+      "published_text": "02/05 03:36"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/co-phieu-tang-manh-thang-4-vic-pha-dinh-nvl-bat-len-tu-day-d144247.html",
-      "published_iso": "2026-05-02T02:42:01.812753+07:00",
-      "published_text": "02/05 02:42"
+      "published_iso": "2026-05-02T03:36:29.475597+07:00",
+      "published_text": "02/05 03:36"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/bat-dong-san-viet-nam-tro-thanh-thoi-nam-cham-hut-von-ngoai-ty-usd-cham-chan-truoc-luat-choi-moi-nha-dau-tu-noi-co-the-danh-mat-loi-the-san-nha-188260422084859555.chn",
-      "published_iso": "2026-05-02T02:42:00.062923+07:00",
-      "published_text": "02/05 02:42"
+      "published_iso": "2026-05-02T03:36:27.407074+07:00",
+      "published_text": "02/05 03:36"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/cung-dat-nuoc-buoc-vao-doi-moi-20-ngan-hang-top-5-tmcp-viet-nam-khat-vong-vuon-tam-trong-ky-nguyen-moi-188260428015810535.chn",
-      "published_iso": "2026-05-02T02:42:00.062840+07:00",
-      "published_text": "02/05 02:42"
+      "published_iso": "2026-05-02T03:36:27.406974+07:00",
+      "published_text": "02/05 03:36"
     }
   ],
   "markets": [
@@ -132,9 +132,9 @@
       "name": "WTI",
       "symbol": "CL=F",
       "category": "Energy",
-      "price": 102.04,
-      "change": -3.03,
-      "change_pct": -2.88,
+      "price": 102.54,
+      "change": -2.53,
+      "change_pct": -2.41,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 01/05 11:00"
@@ -143,9 +143,9 @@
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 108.35,
-      "change": -5.66,
-      "change_pct": -4.96,
+      "price": 108.99,
+      "change": -5.02,
+      "change_pct": -4.4,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 01/05 11:00"
@@ -156,7 +156,7 @@
       "category": "Energy",
       "price": 2.79,
       "change": 0.02,
-      "change_pct": 0.8,
+      "change_pct": 0.69,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 01/05 11:00"
@@ -165,9 +165,9 @@
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4634.0,
-      "change": 19.3,
-      "change_pct": 0.42,
+      "price": 4624.8,
+      "change": 10.1,
+      "change_pct": 0.22,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 01/05 11:00"
@@ -176,9 +176,9 @@
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 76.22,
-      "change": 2.69,
-      "change_pct": 3.65,
+      "price": 75.99,
+      "change": 2.45,
+      "change_pct": 3.33,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 01/05 11:00"
@@ -188,8 +188,8 @@
       "symbol": "HG=F",
       "category": "Metals",
       "price": 5.97,
-      "change": 0.05,
-      "change_pct": 0.77,
+      "change": 0.04,
+      "change_pct": 0.67,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 01/05 11:00"
@@ -209,9 +209,9 @@
       "name": "DXY",
       "symbol": "DX-Y.NYB",
       "category": "FX",
-      "price": 98.2,
-      "change": 0.12,
-      "change_pct": 0.12,
+      "price": 98.22,
+      "change": 0.14,
+      "change_pct": 0.14,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 01/05 11:00"
@@ -220,9 +220,9 @@
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1726,
-      "change": 0.0041,
-      "change_pct": 0.35,
+      "price": 1.1722,
+      "change": 0.0037,
+      "change_pct": 0.32,
       "decimals": 4,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 01/05 06:00"
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 78364.0,
-      "change": 2060.0,
-      "change_pct": 2.7,
+      "price": 78113.0,
+      "change": 1809.0,
+      "change_pct": 2.37,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 01/05 07:00"
@@ -242,9 +242,9 @@
       "name": "S&P 500",
       "symbol": "^GSPC",
       "category": "US",
-      "price": 7245.22,
-      "change": 36.21,
-      "change_pct": 0.5,
+      "price": 7230.12,
+      "change": 21.11,
+      "change_pct": 0.29,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 01/05 11:00"
@@ -253,9 +253,9 @@
       "name": "Dow Jones",
       "symbol": "^DJI",
       "category": "US",
-      "price": 49615.5,
-      "change": -36.64,
-      "change_pct": -0.07,
+      "price": 49499.27,
+      "change": -152.87,
+      "change_pct": -0.31,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 01/05 11:00"
@@ -264,9 +264,9 @@
       "name": "Nasdaq",
       "symbol": "^IXIC",
       "category": "US",
-      "price": 25157.86,
-      "change": 265.54,
-      "change_pct": 1.07,
+      "price": 25114.44,
+      "change": 222.13,
+      "change_pct": 0.89,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 01/05 11:00"
@@ -275,9 +275,9 @@
       "name": "Russell 2000",
       "symbol": "^RUT",
       "category": "US",
-      "price": 2815.56,
-      "change": 15.65,
-      "change_pct": 0.56,
+      "price": 2812.82,
+      "change": 12.91,
+      "change_pct": 0.46,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 01/05 11:00"
@@ -286,9 +286,9 @@
       "name": "VIX",
       "symbol": "^VIX",
       "category": "US",
-      "price": 16.64,
-      "change": -0.25,
-      "change_pct": -1.48,
+      "price": 16.99,
+      "change": 0.1,
+      "change_pct": 0.59,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 01/05 12:00"
