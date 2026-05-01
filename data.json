@@ -1,38 +1,58 @@
 {
-  "updated_at": "2026-05-01T23:11:54.774160+07:00",
-  "updated_at_display": "01/05/2026 • 23:11 GMT+7",
+  "updated_at": "2026-05-02T00:15:50.363835+07:00",
+  "updated_at_display": "02/05/2026 • 00:15 GMT+7",
   "war_news": [
     {
       "source": "Al Jazeera",
-      "title": "Woman killed, children injured as Israel attacks Lebanon",
-      "title_vi": "Phụ nữ bị giết, trẻ em bị thương khi Israel tấn công Lebanon",
-      "summary": "Israel's assault, which has displaced more than one people in Lebanon, escalates despite US brokered 'ceasefire'.",
-      "summary_vi": "Israel's assault, which has displaced more than one people in Lebanon, escalates despite US brokered 'ceasefire'.",
-      "url": "https://www.aljazeera.com/news/2026/5/1/woman-killed-children-injured-as-israel-attacks-lebanon?traffic_source=rss",
-      "published_iso": "2026-05-01T20:26:44+07:00",
-      "published_text": "01/05 20:26"
+      "title": "UAE exit from OPEC signals closer alignment with US interests, experts say",
+      "title_vi": "Các chuyên gia cho biết, việc UAE rời khỏi OPEC báo hiệu sự liên kết chặt chẽ hơn với các lợi ích của Mỹ.",
+      "summary": "UAE wants to supply more oil than its OPEC quota and that could help push down prices once the Strait of Hormuz opens.",
+      "summary_vi": "UAE wants to supply more oil than its OPEC quota and that could help push down prices once the Strait of Hormuz opens.",
+      "url": "https://www.aljazeera.com/economy/2026/5/1/uae-exit-from-opec-signals-closer-alignment-with-us-interests-experts-say?traffic_source=rss",
+      "published_iso": "2026-05-01T23:32:01+07:00",
+      "published_text": "01/05 23:32"
     },
     {
       "source": "Al Jazeera",
-      "title": "Trump’s threat: Why cutting US troops in Europe won’t be easy",
-      "title_vi": "Mối đe dọa của Trump: Tại sao cắt giảm quân đội Mỹ ở châu Âu sẽ không dễ dàng",
-      "summary": "Amid transatlantic tensions over the Iran war, Trump has threatened to reduce troops in Germany.",
-      "summary_vi": "Amid transatlantic tensions over the Iran war, Trump has threatened to reduce troops in Germany.",
-      "url": "https://www.aljazeera.com/news/2026/5/1/trumps-threat-why-cutting-us-troops-in-europe-wont-be-easy?traffic_source=rss",
-      "published_iso": "2026-05-01T20:25:46+07:00",
-      "published_text": "01/05 20:25"
+      "title": "Pentagon announces deal with seven AI companies for classified systems",
+      "title_vi": "Lầu Năm Góc công bố thỏa thuận với bảy công ty AI cho các hệ thống được phân loại",
+      "summary": "Most recent instance of department integrating with AI comes amid Anthropic standoff, concern over use in Iran war.",
+      "summary_vi": "Most recent instance of department integrating with AI comes amid Anthropic standoff, concern over use in Iran war.",
+      "url": "https://www.aljazeera.com/news/2026/5/1/pentagon-announces-deal-with-seven-ai-companies-for-classified-systems?traffic_source=rss",
+      "published_iso": "2026-05-01T22:57:09+07:00",
+      "published_text": "01/05 22:57"
     }
   ],
   "global_news": [
     {
       "source": "Investing News",
-      "title": "Trump raises tariffs on EU cars to 25%, citing trade agreement violations",
-      "title_vi": "Trump tăng thuế đối với ô tô EU lên 25%, với lý do vi phạm thỏa thuận thương mại",
+      "title": "Eldorado Gold Q1 2026 slides: growth projects advance amid cost pressures",
+      "title_vi": "Eldorado Gold Q1 2026 slide: các dự án tăng trưởng tiến lên trong bối cảnh áp lực chi phí",
       "summary": "",
       "summary_vi": "",
-      "url": "https://www.investing.com/news/economy-news/trump-raises-tariffs-on-eu-cars-to-25-citing-trade-agreement-violations-4653876",
-      "published_iso": "2026-05-01T23:04:01+07:00",
-      "published_text": "01/05 23:04"
+      "url": "https://www.investing.com/news/company-news/eldorado-gold-q1-2026-slides-growth-projects-advance-amid-cost-pressures-93CH-4653987",
+      "published_iso": "2026-05-01T23:48:49+07:00",
+      "published_text": "01/05 23:48"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "Trump says he will hike tariffs on EU cars to 25% - BBC",
+      "title_vi": "Trump cho biết ông sẽ tăng thuế đối với ô tô EU lên 25% - BBC",
+      "summary": "Trump says he will hike tariffs on EU cars to 25% BBC",
+      "summary_vi": "Trump says he will hike tariffs on EU cars to 25% BBC",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1RNW1NRzFQeU56T0NkaXRBQTZpWW1IRTdjcy1QZTc2bkxNRjJaNURkejRuVFVvV1RPOW1EMDlScmx4VWowcnI4SjQwbVNiRXFEV0YwVTBNRHh4dw?oc=5",
+      "published_iso": "2026-05-01T23:41:46+07:00",
+      "published_text": "01/05 23:41"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "UK exports to U.S. plunge by 25% after Trump's 'liberation day' tariffs blitz - CNBC",
+      "title_vi": "Xuất khẩu của Anh sang Mỹ giảm 25% sau khi thuế quan 'ngày giải phóng' của Trump bùng nổ - CNBC",
+      "summary": "UK exports to U.S. plunge by 25% after Trump's 'liberation day' tariffs blitz CNBC",
+      "summary_vi": "UK exports to U.S. plunge by 25% after Trump's 'liberation day' tariffs blitz CNBC",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNbllhMElDLVpxbVRmTkpGcXNUQjVYd21KTVh1bVZiNVNXMi1BRnBoNXFXVUJZQzd6UnZ3WEdheGhyczlvQlVDeEd6aVdLNGpCV19PdUhfWFZkNTZYcFQ2SGt2azU4QndyRWtObTFIcWdFejVoOFJISGhVdVl3M2VSWnNGUGJySGdNUDd4bzE3anfSAZYBQVVfeXFMTVJXNEVLdThObkhmRHo0SnpBeFZLMTlCVEM2LWJITzlMdllGTUgzUUpZTURTMzVjcFJ3LXVtemJIQ01vUndqanRtRkdPNHhnV1dxQndEbW5obkpZc1M1d0Z4d3BJSXAtNlNJeFUzMzltcmEtaEs2VE41aXFWTzlnQmx0eDlfSjl5REc4ZlZsNmlVZ2RHdUpn?oc=5",
+      "published_iso": "2026-05-01T22:11:44+07:00",
+      "published_text": "01/05 22:11"
     },
     {
       "source": "Google News Macro",
@@ -43,26 +63,6 @@
       "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBiTmoya25pWVM4Um42R2xyRnNXNUVkZTV1Ni14MGtsMUgwWGt6cVVCaEZjLWdKMko2LVBhbnNxblVseVRnMVp4UUdkZlNjQU4tY2dTY1hxMUM3Tld6TjZGc0J5S1J3cldwSFNENVpKS1VJX2c?oc=5",
       "published_iso": "2026-05-01T17:35:51+07:00",
       "published_text": "01/05 17:35"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "Trump scraps Scotch whisky tariffs ‘in honor’ of King Charles - CNBC",
-      "title_vi": "Trump loại bỏ thuế quan rượu whisky Scotch ‘để tôn vinh’ Vua Charles - CNBC",
-      "summary": "Trump scraps Scotch whisky tariffs ‘in honor’ of King Charles CNBC",
-      "summary_vi": "Trump scraps Scotch whisky tariffs ‘in honor’ of King Charles CNBC",
-      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPVVhmZ191N1g5ckdoemd1eU9ZV1A1Vm94R081RHlFME5aV2VadWdueElmR2hGcGUzU1lhRTYwZkZxMXh0RTNvUTF6eFRsQlkteG1LMnktVC1QbldnVVNrX0VnQUs4SDE0SE1hWjlWWEkzM0l1OWZpSG15bjBhV0Z0ZXdtclgtNUdGNklkNmtaWm1xQnhyM3lreVZLVlZtT3h2TFNiUEVUeklsSW1OQ3NR0gG0AUFVX3lxTFB3ZThTZmVPZXVISEtwMWRLSWhuM3kwRU01NFlhQWtJUW10d3p6ZXdIaG5haWE3RUFnVW1nU1haQzFROS0tc1JydWNNX1NoOTI5czZuM3U0cHpuTFlWeG9UMG1GNURwY0NsbnNiVDhFYm5EaTZ5YWhoNWljaDBtRnpYMFNxQkJQcl90dnJSUDBoWC1yNmF4MEotQVptOVBtdGg2b3R3dzJpUGNFN0x2QkxXbVNLdA?oc=5",
-      "published_iso": "2026-05-01T16:01:50+07:00",
-      "published_text": "01/05 16:01"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "Trump to remove whisky tariffs after King's visit - BBC",
-      "title_vi": "Trump xóa bỏ thuế rượu whisky sau chuyến thăm của King - BBC",
-      "summary": "Trump to remove whisky tariffs after King's visit BBC",
-      "summary_vi": "Trump to remove whisky tariffs after King's visit BBC",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9YdVhTb0U2bE1nSXpGYUhWTW1VbW9UYmRHN05jMkozSERkUzNJeFVCUC0yVXFPYjRfR1NhdFR3MVpRQXo0aTBVbXZqWXVMNnlBbGRLN3VKclZ3UQ?oc=5",
-      "published_iso": "2026-05-01T14:52:56+07:00",
-      "published_text": "01/05 14:52"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-phu-tho-dau-gia-13-o-dat-o-tai-khu-bai-kim-va-khu-dong-buoi-xa-phung-nguyen-tinh-phu-tho-50835.html",
-      "published_iso": "2026-05-01T23:12:57.084928+07:00",
-      "published_text": "01/05 23:12"
+      "published_iso": "2026-05-02T00:16:51.967262+07:00",
+      "published_text": "02/05 00:16"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-phu-tho-dau-gia-6-o-dat-o-tai-khu-cho-huong-nha-xa-hien-quan-tinh-phu-tho-50834.html",
-      "published_iso": "2026-05-01T23:12:57.084864+07:00",
-      "published_text": "01/05 23:12"
+      "published_iso": "2026-05-02T00:16:51.967189+07:00",
+      "published_text": "02/05 00:16"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/nganh-bia-tiep-tuc-chat-vat-doanh-nghiep-dau-nganh-xoay-so-ra-sao-d144211.html",
-      "published_iso": "2026-05-01T23:12:55.467591+07:00",
-      "published_text": "01/05 23:12"
+      "published_iso": "2026-05-02T00:16:50.448764+07:00",
+      "published_text": "02/05 00:16"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/co-phieu-tang-manh-thang-4-vic-pha-dinh-nvl-bat-len-tu-day-d144247.html",
-      "published_iso": "2026-05-01T23:12:55.467525+07:00",
-      "published_text": "01/05 23:12"
+      "published_iso": "2026-05-02T00:16:50.448700+07:00",
+      "published_text": "02/05 00:16"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/bat-dong-san-viet-nam-tro-thanh-thoi-nam-cham-hut-von-ngoai-ty-usd-cham-chan-truoc-luat-choi-moi-nha-dau-tu-noi-co-the-danh-mat-loi-the-san-nha-188260422084859555.chn",
-      "published_iso": "2026-05-01T23:12:53.589932+07:00",
-      "published_text": "01/05 23:12"
+      "published_iso": "2026-05-02T00:16:48.330426+07:00",
+      "published_text": "02/05 00:16"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/cung-dat-nuoc-buoc-vao-doi-moi-20-ngan-hang-top-5-tmcp-viet-nam-khat-vong-vuon-tam-trong-ky-nguyen-moi-188260428015810535.chn",
-      "published_iso": "2026-05-01T23:12:53.589862+07:00",
-      "published_text": "01/05 23:12"
+      "published_iso": "2026-05-02T00:16:48.330348+07:00",
+      "published_text": "02/05 00:16"
     }
   ],
   "markets": [
@@ -132,9 +132,9 @@
       "name": "WTI",
       "symbol": "CL=F",
       "category": "Energy",
-      "price": 100.91,
-      "change": -4.16,
-      "change_pct": -3.96,
+      "price": 101.6,
+      "change": -3.47,
+      "change_pct": -3.3,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 01/05 11:00"
@@ -143,9 +143,9 @@
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 107.55,
-      "change": -6.46,
-      "change_pct": -5.67,
+      "price": 108.02,
+      "change": -5.99,
+      "change_pct": -5.25,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 01/05 11:00"
@@ -154,9 +154,9 @@
       "name": "Natural Gas",
       "symbol": "NG=F",
       "category": "Energy",
-      "price": 2.76,
-      "change": -0.01,
-      "change_pct": -0.29,
+      "price": 2.78,
+      "change": 0.01,
+      "change_pct": 0.36,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 01/05 11:00"
@@ -165,9 +165,9 @@
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4655.1,
-      "change": 40.4,
-      "change_pct": 0.88,
+      "price": 4651.9,
+      "change": 37.2,
+      "change_pct": 0.81,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 01/05 11:00"
@@ -176,9 +176,9 @@
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 76.54,
-      "change": 3.0,
-      "change_pct": 4.08,
+      "price": 76.66,
+      "change": 3.13,
+      "change_pct": 4.25,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 01/05 11:00"
@@ -187,9 +187,9 @@
       "name": "Copper",
       "symbol": "HG=F",
       "category": "Metals",
-      "price": 5.98,
-      "change": 0.05,
-      "change_pct": 0.89,
+      "price": 5.99,
+      "change": 0.06,
+      "change_pct": 1.03,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 01/05 11:00"
@@ -200,7 +200,7 @@
       "category": "Rates",
       "price": 0.44,
       "change": -0.0,
-      "change_pct": -0.18,
+      "change_pct": -0.32,
       "decimals": 2,
       "suffix": "%",
       "note": "Dữ liệu gần nhất: 01/05 12:00"
@@ -209,9 +209,9 @@
       "name": "DXY",
       "symbol": "DX-Y.NYB",
       "category": "FX",
-      "price": 97.94,
-      "change": -0.14,
-      "change_pct": -0.14,
+      "price": 98.08,
+      "change": 0.0,
+      "change_pct": 0.0,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 01/05 11:00"
@@ -220,9 +220,9 @@
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1758,
-      "change": 0.0073,
-      "change_pct": 0.63,
+      "price": 1.174,
+      "change": 0.0055,
+      "change_pct": 0.47,
       "decimals": 4,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 01/05 06:00"
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 78483.0,
-      "change": 2179.0,
-      "change_pct": 2.86,
+      "price": 78310.0,
+      "change": 2006.0,
+      "change_pct": 2.63,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 01/05 07:00"
@@ -242,9 +242,9 @@
       "name": "S&P 500",
       "symbol": "^GSPC",
       "category": "US",
-      "price": 7250.15,
-      "change": 41.14,
-      "change_pct": 0.57,
+      "price": 7248.68,
+      "change": 39.67,
+      "change_pct": 0.55,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 01/05 11:00"
@@ -253,9 +253,9 @@
       "name": "Dow Jones",
       "symbol": "^DJI",
       "category": "US",
-      "price": 49641.83,
-      "change": -10.31,
-      "change_pct": -0.02,
+      "price": 49631.46,
+      "change": -20.68,
+      "change_pct": -0.04,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 01/05 11:00"
@@ -264,9 +264,9 @@
       "name": "Nasdaq",
       "symbol": "^IXIC",
       "category": "US",
-      "price": 25153.87,
-      "change": 261.56,
-      "change_pct": 1.05,
+      "price": 25165.42,
+      "change": 273.11,
+      "change_pct": 1.1,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 01/05 11:00"
@@ -275,9 +275,9 @@
       "name": "Russell 2000",
       "symbol": "^RUT",
       "category": "US",
-      "price": 2807.98,
-      "change": 8.07,
-      "change_pct": 0.29,
+      "price": 2806.87,
+      "change": 6.96,
+      "change_pct": 0.25,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 01/05 11:00"
@@ -286,9 +286,9 @@
       "name": "VIX",
       "symbol": "^VIX",
       "category": "US",
-      "price": 16.79,
-      "change": -0.1,
-      "change_pct": -0.59,
+      "price": 16.7,
+      "change": -0.19,
+      "change_pct": -1.12,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 01/05 12:00"
