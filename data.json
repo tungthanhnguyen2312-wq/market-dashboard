@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-05-02T16:34:59.756589+07:00",
-  "updated_at_display": "02/05/2026 • 16:34 GMT+7",
+  "updated_at": "2026-05-02T17:29:56.772509+07:00",
+  "updated_at_display": "02/05/2026 • 17:29 GMT+7",
   "war_news": [
     {
       "source": "Google News War",
@@ -25,26 +25,6 @@
   ],
   "global_news": [
     {
-      "source": "Investing News",
-      "title": "Trump auto tariff hike could cost Germany nearly $18 billion in output, institute says",
-      "title_vi": "Viện nghiên cứu cho biết việc tăng thuế tự động của Trump có thể khiến Đức mất gần 18 tỷ $ sản lượng",
-      "summary": "",
-      "summary_vi": "",
-      "url": "https://www.investing.com/news/economy-news/trump-auto-tariff-hike-could-cost-germany-nearly-18-billion-in-output-institute-says-4654750",
-      "published_iso": "2026-05-02T16:24:27+07:00",
-      "published_text": "02/05 16:24"
-    },
-    {
-      "source": "Investing News",
-      "title": "Trump says he will raise tariff on autos from European Union to 25%",
-      "title_vi": "Trump cho biết ông sẽ tăng thuế đối với ô tô từ Liên minh châu Âu lên 25%",
-      "summary": "",
-      "summary_vi": "",
-      "url": "https://www.investing.com/news/stock-market-news/trump-says-he-will-raise-tariffs-on-eu-autos-to-25-4653880",
-      "published_iso": "2026-05-02T16:06:29+07:00",
-      "published_text": "02/05 16:06"
-    },
-    {
       "source": "Google News Macro",
       "title": "Trump Threatens Higher Tariffs on European Cars - The New York Times",
       "title_vi": "Trump đe dọa thuế quan cao hơn đối với ô tô châu Âu - The New York Times",
@@ -61,8 +41,28 @@
       "summary": "Trump Administration Pushes Forward With Tariffs Based on Forced Labor Laws The New York Times",
       "summary_vi": "Trump Administration Pushes Forward With Tariffs Based on Forced Labor Laws The New York Times",
       "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPWGtFUGpUTkJuREtmYVVuWHUyckEtdTdEaU9wMjlZY20yVGE5cmhGQzZ0Z3FoZkh1MTRUQ2VpbkhpemRIS3hWOTVESU16elNqb3JQU1NTaUJHMklBaFJrNXBiYXpXNUN0endPNWh5U1FJQTRnaVJxZEJIREsxU2k1di1JTzVsdWZlcTk0?oc=5",
-      "published_iso": "2026-05-02T01:44:47+07:00",
-      "published_text": "02/05 01:44"
+      "published_iso": "2026-05-01T22:40:08+07:00",
+      "published_text": "01/05 22:40"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "UK exports to U.S. plunge by 25% after Trump's 'liberation day' tariffs blitz - CNBC",
+      "title_vi": "Xuất khẩu của Anh sang Mỹ giảm 25% sau khi thuế quan 'ngày giải phóng' của Trump bùng nổ - CNBC",
+      "summary": "UK exports to U.S. plunge by 25% after Trump's 'liberation day' tariffs blitz CNBC",
+      "summary_vi": "UK exports to U.S. plunge by 25% after Trump's 'liberation day' tariffs blitz CNBC",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNbllhMElDLVpxbVRmTkpGcXNUQjVYd21KTVh1bVZiNVNXMi1BRnBoNXFXVUJZQzd6UnZ3WEdheGhyczlvQlVDeEd6aVdLNGpCV19PdUhfWFZkNTZYcFQ2SGt2azU4QndyRWtObTFIcWdFejVoOFJISGhVdVl3M2VSWnNGUGJySGdNUDd4bzE3anfSAZYBQVVfeXFMTVJXNEVLdThObkhmRHo0SnpBeFZLMTlCVEM2LWJITzlMdllGTUgzUUpZTURTMzVjcFJ3LXVtemJIQ01vUndqanRtRkdPNHhnV1dxQndEbW5obkpZc1M1d0Z4d3BJSXAtNlNJeFUzMzltcmEtaEs2VE41aXFWTzlnQmx0eDlfSjl5REc4ZlZsNmlVZ2RHdUpn?oc=5",
+      "published_iso": "2026-05-01T22:11:44+07:00",
+      "published_text": "01/05 22:11"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "Profit for the biggest U.S. oil companies declined in 1st quarter – but only on paper - PBS",
+      "title_vi": "Lợi nhuận cho các công ty dầu mỏ lớn nhất của Mỹ đã giảm trong quý 1 – nhưng chỉ trên giấy tờ - PBS",
+      "summary": "Profit for the biggest U.S. oil companies declined in 1st quarter – but only on paper PBS",
+      "summary_vi": "Profit for the biggest U.S. oil companies declined in 1st quarter – but only on paper PBS",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNbVBfZ0tITFlBV2RNZjRwRXJCNjZuck9vSHd3VTU3LWhkZTNSYkRhZHdaQ09uQ3hBNXc2bV91dFRKU2JUMHQ0aVotc1JUZGp0Vm1qR25hanZZWHY5Tmo5ZWVTeXNCa0dETnpqQWV2TnVvR1daZEJya3lIRTRuTVIxR0xLUFV0ekNUdjlIT0p2bkY2WmlKNF92eHJEQXhWQjhBUWx5aVZzcTlJdXQyT1p2cnNuWEtVNWJWM0pv0gHAAUFVX3lxTE8zbWM2czgzRGtpZ1dwOHJhSWVsd3FKOUgtQmFWQzduVHlzUTJVQkt0dmNMWnpjRURqVXVsMXJqWTlyLVZ3SHZaNjBUTC01amM2UUEzVUVpa2NoVlNYTGVhUU90dVV2YWZWSEx0bG9VSkJmTHRqNjBrQ3llSElEa1JUZnNYMFp5Q01mWW5Nc0pUamx0MHJzZlJ2OVVnNENUaEJubHNmdGdlSk9OM1U3ZWdaV3AzYUM4U3RzaFVSQkhDNw?oc=5",
+      "published_iso": "2026-05-01T21:28:36+07:00",
+      "published_text": "01/05 21:28"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-phu-tho-dau-gia-13-o-dat-o-tai-khu-bai-kim-va-khu-dong-buoi-xa-phung-nguyen-tinh-phu-tho-50835.html",
-      "published_iso": "2026-05-02T16:36:05.292580+07:00",
-      "published_text": "02/05 16:36"
+      "published_iso": "2026-05-02T17:31:55.235265+07:00",
+      "published_text": "02/05 17:31"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-phu-tho-dau-gia-6-o-dat-o-tai-khu-cho-huong-nha-xa-hien-quan-tinh-phu-tho-50834.html",
-      "published_iso": "2026-05-02T16:36:05.292516+07:00",
-      "published_text": "02/05 16:36"
+      "published_iso": "2026-05-02T17:31:55.235189+07:00",
+      "published_text": "02/05 17:31"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/khi-lanh-dao-doanh-nghiep-tran-tro-ve-gia-co-phieu-d144257.html",
-      "published_iso": "2026-05-02T16:36:03.576768+07:00",
-      "published_text": "02/05 16:36"
+      "published_iso": "2026-05-02T17:31:53.982083+07:00",
+      "published_text": "02/05 17:31"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/khi-big-tech-xuong-tien-nguyen-tac-van-hanh-cua-co-may-tai-chinh-va-goi-mo-cho-doanh-nghiep-viet-d144250.html",
-      "published_iso": "2026-05-02T16:36:03.576709+07:00",
-      "published_text": "02/05 16:36"
+      "published_iso": "2026-05-02T17:31:53.982011+07:00",
+      "published_text": "02/05 17:31"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/bat-dong-san-viet-nam-tro-thanh-thoi-nam-cham-hut-von-ngoai-ty-usd-cham-chan-truoc-luat-choi-moi-nha-dau-tu-noi-co-the-danh-mat-loi-the-san-nha-188260422084859555.chn",
-      "published_iso": "2026-05-02T16:36:01.339919+07:00",
-      "published_text": "02/05 16:36"
+      "published_iso": "2026-05-02T17:31:51.802250+07:00",
+      "published_text": "02/05 17:31"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/cung-dat-nuoc-buoc-vao-doi-moi-20-ngan-hang-top-5-tmcp-viet-nam-khat-vong-vuon-tam-trong-ky-nguyen-moi-188260428015810535.chn",
-      "published_iso": "2026-05-02T16:36:01.339850+07:00",
-      "published_text": "02/05 16:36"
+      "published_iso": "2026-05-02T17:31:51.802169+07:00",
+      "published_text": "02/05 17:31"
     }
   ],
   "markets": [
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 78327.0,
-      "change": 148.0,
-      "change_pct": 0.19,
+      "price": 78251.0,
+      "change": 72.0,
+      "change_pct": 0.09,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 02/05 07:00"
