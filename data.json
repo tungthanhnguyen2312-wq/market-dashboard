@@ -1,7 +1,17 @@
 {
-  "updated_at": "2026-05-02T15:10:22.007581+07:00",
-  "updated_at_display": "02/05/2026 • 15:10 GMT+7",
+  "updated_at": "2026-05-02T16:34:59.756589+07:00",
+  "updated_at_display": "02/05/2026 • 16:34 GMT+7",
   "war_news": [
+    {
+      "source": "Google News War",
+      "title": "Live Updates: Latest from Israel, Iran, and Middle East - The Jerusalem Post",
+      "title_vi": "Cập nhật trực tiếp: Mới nhất từ Israel, Iran và Trung Đông - The Jerusalem Post",
+      "summary": "Live Updates: Latest from Israel, Iran, and Middle East The Jerusalem Post",
+      "summary_vi": "Live Updates: Latest from Israel, Iran, and Middle East The Jerusalem Post",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9zaTIxNTdOSS1vMHVvR1EyUUhhMEVpVll4eFBGRmcycWxxbGdNRDRHdEc2Z3RTSkZ0UjhGdUEwNThlcF84RnliVXNJeXU5Q1AyVHpUZUVZN0k0bV95cWV1YWNfeHRzTi0zd2JMSWh5Yi1GTWxwVl85NWtRU2R3UG8?oc=5",
+      "published_iso": "2026-05-02T15:28:30+07:00",
+      "published_text": "02/05 15:28"
+    },
     {
       "source": "Al Jazeera",
       "title": "China’s UN Envoy: Hormuz closure will dominate Trump-Xi talks",
@@ -11,29 +21,9 @@
       "url": "https://www.aljazeera.com/video/newsfeed/2026/5/2/chinas-un-envoy-hormuz-closure-will-dominate-trump-xi-talks?traffic_source=rss",
       "published_iso": "2026-05-02T14:37:49+07:00",
       "published_text": "02/05 14:37"
-    },
-    {
-      "source": "Al Jazeera",
-      "title": "China urges reversal of UNIFIL departure from Lebanon as conflict escalates",
-      "title_vi": "Trung Quốc kêu gọi đảo ngược việc UNIFIL rời khỏi Lebanon khi xung đột leo thang",
-      "summary": "The UNIFIL mission has faced a growing number of casualties as Israel and Hezbollah continue to fight.",
-      "summary_vi": "The UNIFIL mission has faced a growing number of casualties as Israel and Hezbollah continue to fight.",
-      "url": "https://www.aljazeera.com/news/2026/5/2/china-urges-reversal-of-unifil-departure-from-lebanon-as-conflict-escalates?traffic_source=rss",
-      "published_iso": "2026-05-02T13:47:18+07:00",
-      "published_text": "02/05 13:47"
     }
   ],
   "global_news": [
-    {
-      "source": "Investing News",
-      "title": "Trump says he will raise tariff on autos from European Union to 25%",
-      "title_vi": "Trump cho biết ông sẽ tăng thuế đối với ô tô từ Liên minh châu Âu lên 25%",
-      "summary": "",
-      "summary_vi": "",
-      "url": "https://www.investing.com/news/stock-market-news/trump-says-he-will-raise-tariffs-on-eu-autos-to-25-4653880",
-      "published_iso": "2026-05-02T14:42:28+07:00",
-      "published_text": "02/05 14:42"
-    },
     {
       "source": "Investing News",
       "title": "Trump auto tariff hike could cost Germany nearly $18 billion in output, institute says",
@@ -41,28 +31,38 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://www.investing.com/news/economy-news/trump-auto-tariff-hike-could-cost-germany-nearly-18-billion-in-output-institute-says-4654750",
-      "published_iso": "2026-05-02T14:36:26+07:00",
-      "published_text": "02/05 14:36"
+      "published_iso": "2026-05-02T16:24:27+07:00",
+      "published_text": "02/05 16:24"
     },
     {
       "source": "Investing News",
-      "title": "U.S. targets Chinese ’teapot’ refiners to sever Iranian oil lifeline",
-      "title_vi": "Mỹ nhắm mục tiêu vào các nhà máy lọc dầu ’ấm trà’ của Trung Quốc để cắt đứt dây cứu sinh dầu mỏ của Iran",
+      "title": "Trump says he will raise tariff on autos from European Union to 25%",
+      "title_vi": "Trump cho biết ông sẽ tăng thuế đối với ô tô từ Liên minh châu Âu lên 25%",
       "summary": "",
       "summary_vi": "",
-      "url": "https://www.investing.com/news/economy-news/us-targets-chinese-teapot-refiners-to-sever-iranian-oil-lifeline-4654744",
-      "published_iso": "2026-05-02T13:44:56+07:00",
-      "published_text": "02/05 13:44"
+      "url": "https://www.investing.com/news/stock-market-news/trump-says-he-will-raise-tariffs-on-eu-autos-to-25-4653880",
+      "published_iso": "2026-05-02T16:06:29+07:00",
+      "published_text": "02/05 16:06"
     },
     {
       "source": "Google News Macro",
-      "title": "Trump announces 25 percent tariffs on European Union cars, trucks - Al Jazeera",
-      "title_vi": "Trump công bố mức thuế 25% đối với ô tô, xe tải của Liên minh châu Âu - Al Jazeera",
-      "summary": "Trump announces 25 percent tariffs on European Union cars, trucks Al Jazeera",
-      "summary_vi": "Trump announces 25 percent tariffs on European Union cars, trucks Al Jazeera",
-      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQaHBLTVpGR1ZkVWNvbHFVQi05alpkQmZJTjNKQmRuQklOMW1pbGJ5YzZSZF8wcVBFLUxQaDlnMEVETXBxaXUwRXhfcUFwNTZJQ0Yyam1Fdk0wMUtiVGZ5Z3NONGVuN2ZiejR3VHVSSkJBYlRyRHN4a2hINExidnpjc2Zmc2FrMktWZG91czdtWTJyUHZ6Q3oyVHdrVkFxRkM3d2ZUamV6MNIBrAFBVV95cUxQMndlYXNVdU1XMm5tOWpERmxJam1kYVBIUHd5MTJVNHhNMlZCZklJLUVDUk9leldRaTNQckYxdUJwdjVfS0xUTThIVWtacDZIeDB2NlJlTDBVQ1lQOXVING0zY3FRVU9tOGJDQmxpM0lkZHY0MjJnRWExLWJlZGp0T1gzWVZkYWVGNDJySVFha2NjcDQ0TmxKVGRraWhoRGJYeE1MSzRfeV9Zamxh?oc=5",
-      "published_iso": "2026-05-02T03:52:27+07:00",
-      "published_text": "02/05 03:52"
+      "title": "Trump Threatens Higher Tariffs on European Cars - The New York Times",
+      "title_vi": "Trump đe dọa thuế quan cao hơn đối với ô tô châu Âu - The New York Times",
+      "summary": "Trump Threatens Higher Tariffs on European Cars The New York Times",
+      "summary_vi": "Trump Threatens Higher Tariffs on European Cars The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFByZWlWUUdNb2plQUlTX2hFRGdWZmlzVlhJejlWY0pRU3RZMnlZamRtbVkzV2FQZFdXQk5ldk9zYnZKODN4SUQ3UTVGS2pFSFNrV3BHUks3ZGlKRTVIdndUOXgzQzhjRVdBSlVxVS1wbkpHRndCSkE2QzI4LU9kQQ?oc=5",
+      "published_iso": "2026-05-02T02:36:45+07:00",
+      "published_text": "02/05 02:36"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "Trump Administration Pushes Forward With Tariffs Based on Forced Labor Laws - The New York Times",
+      "title_vi": "Chính quyền Trump thúc đẩy thuế quan dựa trên luật lao động cưỡng bức - The New York Times",
+      "summary": "Trump Administration Pushes Forward With Tariffs Based on Forced Labor Laws The New York Times",
+      "summary_vi": "Trump Administration Pushes Forward With Tariffs Based on Forced Labor Laws The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPWGtFUGpUTkJuREtmYVVuWHUyckEtdTdEaU9wMjlZY20yVGE5cmhGQzZ0Z3FoZkh1MTRUQ2VpbkhpemRIS3hWOTVESU16elNqb3JQU1NTaUJHMklBaFJrNXBiYXpXNUN0endPNWh5U1FJQTRnaVJxZEJIREsxU2k1di1JTzVsdWZlcTk0?oc=5",
+      "published_iso": "2026-05-02T01:44:47+07:00",
+      "published_text": "02/05 01:44"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-phu-tho-dau-gia-13-o-dat-o-tai-khu-bai-kim-va-khu-dong-buoi-xa-phung-nguyen-tinh-phu-tho-50835.html",
-      "published_iso": "2026-05-02T15:11:26.249835+07:00",
-      "published_text": "02/05 15:11"
+      "published_iso": "2026-05-02T16:36:05.292580+07:00",
+      "published_text": "02/05 16:36"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-phu-tho-dau-gia-6-o-dat-o-tai-khu-cho-huong-nha-xa-hien-quan-tinh-phu-tho-50834.html",
-      "published_iso": "2026-05-02T15:11:26.249773+07:00",
-      "published_text": "02/05 15:11"
+      "published_iso": "2026-05-02T16:36:05.292516+07:00",
+      "published_text": "02/05 16:36"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/khi-lanh-dao-doanh-nghiep-tran-tro-ve-gia-co-phieu-d144257.html",
-      "published_iso": "2026-05-02T15:11:24.036863+07:00",
-      "published_text": "02/05 15:11"
+      "published_iso": "2026-05-02T16:36:03.576768+07:00",
+      "published_text": "02/05 16:36"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/khi-big-tech-xuong-tien-nguyen-tac-van-hanh-cua-co-may-tai-chinh-va-goi-mo-cho-doanh-nghiep-viet-d144250.html",
-      "published_iso": "2026-05-02T15:11:24.036798+07:00",
-      "published_text": "02/05 15:11"
+      "published_iso": "2026-05-02T16:36:03.576709+07:00",
+      "published_text": "02/05 16:36"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/bat-dong-san-viet-nam-tro-thanh-thoi-nam-cham-hut-von-ngoai-ty-usd-cham-chan-truoc-luat-choi-moi-nha-dau-tu-noi-co-the-danh-mat-loi-the-san-nha-188260422084859555.chn",
-      "published_iso": "2026-05-02T15:11:22.002636+07:00",
-      "published_text": "02/05 15:11"
+      "published_iso": "2026-05-02T16:36:01.339919+07:00",
+      "published_text": "02/05 16:36"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/cung-dat-nuoc-buoc-vao-doi-moi-20-ngan-hang-top-5-tmcp-viet-nam-khat-vong-vuon-tam-trong-ky-nguyen-moi-188260428015810535.chn",
-      "published_iso": "2026-05-02T15:11:22.002567+07:00",
-      "published_text": "02/05 15:11"
+      "published_iso": "2026-05-02T16:36:01.339850+07:00",
+      "published_text": "02/05 16:36"
     }
   ],
   "markets": [
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 78238.0,
-      "change": 59.0,
-      "change_pct": 0.07,
+      "price": 78327.0,
+      "change": 148.0,
+      "change_pct": 0.19,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 02/05 07:00"
