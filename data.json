@@ -1,7 +1,17 @@
 {
-  "updated_at": "2026-05-02T20:50:28.976077+07:00",
-  "updated_at_display": "02/05/2026 • 20:50 GMT+7",
+  "updated_at": "2026-05-02T21:37:17.890647+07:00",
+  "updated_at_display": "02/05/2026 • 21:37 GMT+7",
   "war_news": [
+    {
+      "source": "Google News War",
+      "title": "Live Updates: Latest from Israel, Iran, and Middle East - The Jerusalem Post",
+      "title_vi": "Cập nhật trực tiếp: Mới nhất từ Israel, Iran và Trung Đông - The Jerusalem Post",
+      "summary": "Live Updates: Latest from Israel, Iran, and Middle East The Jerusalem Post",
+      "summary_vi": "Live Updates: Latest from Israel, Iran, and Middle East The Jerusalem Post",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9zaTIxNTdOSS1vMHVvR1EyUUhhMEVpVll4eFBGRmcycWxxbGdNRDRHdEc2Z3RTSkZ0UjhGdUEwNThlcF84RnliVXNJeXU5Q1AyVHpUZUVZN0k0bV95cWV1YWNfeHRzTi0zd2JMSWh5Yi1GTWxwVl85NWtRU2R3UG8?oc=5",
+      "published_iso": "2026-05-02T21:29:18+07:00",
+      "published_text": "02/05 21:29"
+    },
     {
       "source": "Al Jazeera",
       "title": "The dark side of Gaza’s new fancy cafes and restaurants",
@@ -11,19 +21,19 @@
       "url": "https://www.aljazeera.com/opinions/2026/5/2/the-dark-side-of-gazas-new-fancy-cafes-and-restaurants?traffic_source=rss",
       "published_iso": "2026-05-02T20:12:32+07:00",
       "published_text": "02/05 20:12"
-    },
-    {
-      "source": "Al Jazeera",
-      "title": "Israeli air strikes kill 10 people in southern Lebanon",
-      "title_vi": "Các cuộc không kích của Israel đã giết chết 10 người ở miền nam Lebanon",
-      "summary": "Drones and planes hit several towns despite 'ceasefire' since April 17 as Hezbollah pledges to continue its attacks.",
-      "summary_vi": "Drones and planes hit several towns despite 'ceasefire' since April 17 as Hezbollah pledges to continue its attacks.",
-      "url": "https://www.aljazeera.com/news/2026/5/2/israeli-air-strikes-kill-10-people-in-southern-lebanon?traffic_source=rss",
-      "published_iso": "2026-05-02T19:55:34+07:00",
-      "published_text": "02/05 19:55"
     }
   ],
   "global_news": [
+    {
+      "source": "Investing News",
+      "title": "OPEC+ set for another oil output quota hike despite Hormuz closure, sources say",
+      "title_vi": "Các nguồn tin cho biết OPEC+ được thiết lập cho một đợt tăng hạn ngạch sản lượng dầu khác mặc dù đóng cửa Hormuz, các nguồn tin cho biết",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/commodities-news/opec-agrees-in-principle-on-small-oil-output-quota-hike-without-uae-sources-say-4654770",
+      "published_iso": "2026-05-02T21:24:27+07:00",
+      "published_text": "02/05 21:24"
+    },
     {
       "source": "Investing News",
       "title": "Taiwan president arrives in Eswatini after blaming China for cancellation of prior trip",
@@ -46,23 +56,13 @@
     },
     {
       "source": "Google News Macro",
-      "title": "Trump Administration Pushes Forward With Tariffs Based on Forced Labor Laws - The New York Times",
-      "title_vi": "Chính quyền Trump thúc đẩy thuế quan dựa trên luật lao động cưỡng bức - The New York Times",
-      "summary": "Trump Administration Pushes Forward With Tariffs Based on Forced Labor Laws The New York Times",
-      "summary_vi": "Trump Administration Pushes Forward With Tariffs Based on Forced Labor Laws The New York Times",
-      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPWGtFUGpUTkJuREtmYVVuWHUyckEtdTdEaU9wMjlZY20yVGE5cmhGQzZ0Z3FoZkh1MTRUQ2VpbkhpemRIS3hWOTVESU16elNqb3JQU1NTaUJHMklBaFJrNXBiYXpXNUN0endPNWh5U1FJQTRnaVJxZEJIREsxU2k1di1JTzVsdWZlcTk0?oc=5",
-      "published_iso": "2026-05-01T22:40:08+07:00",
-      "published_text": "01/05 22:40"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "UK exports to U.S. plunge by 25% after Trump's 'liberation day' tariffs blitz - CNBC",
-      "title_vi": "Xuất khẩu của Anh sang Mỹ giảm 25% sau khi thuế quan 'ngày giải phóng' của Trump bùng nổ - CNBC",
-      "summary": "UK exports to U.S. plunge by 25% after Trump's 'liberation day' tariffs blitz CNBC",
-      "summary_vi": "UK exports to U.S. plunge by 25% after Trump's 'liberation day' tariffs blitz CNBC",
-      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNbllhMElDLVpxbVRmTkpGcXNUQjVYd21KTVh1bVZiNVNXMi1BRnBoNXFXVUJZQzd6UnZ3WEdheGhyczlvQlVDeEd6aVdLNGpCV19PdUhfWFZkNTZYcFQ2SGt2azU4QndyRWtObTFIcWdFejVoOFJISGhVdVl3M2VSWnNGUGJySGdNUDd4bzE3anfSAZYBQVVfeXFMTVJXNEVLdThObkhmRHo0SnpBeFZLMTlCVEM2LWJITzlMdllGTUgzUUpZTURTMzVjcFJ3LXVtemJIQ01vUndqanRtRkdPNHhnV1dxQndEbW5obkpZc1M1d0Z4d3BJSXAtNlNJeFUzMzltcmEtaEs2VE41aXFWTzlnQmx0eDlfSjl5REc4ZlZsNmlVZ2RHdUpn?oc=5",
-      "published_iso": "2026-05-01T22:11:44+07:00",
-      "published_text": "01/05 22:11"
+      "title": "Trump Threatens Higher Tariffs on European Cars - The New York Times",
+      "title_vi": "Trump đe dọa thuế quan cao hơn đối với ô tô châu Âu - The New York Times",
+      "summary": "Trump Threatens Higher Tariffs on European Cars The New York Times",
+      "summary_vi": "Trump Threatens Higher Tariffs on European Cars The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFByZWlWUUdNb2plQUlTX2hFRGdWZmlzVlhJejlWY0pRU3RZMnlZamRtbVkzV2FQZFdXQk5ldk9zYnZKODN4SUQ3UTVGS2pFSFNrV3BHUks3ZGlKRTVIdndUOXgzQzhjRVdBSlVxVS1wbkpHRndCSkE2QzI4LU9kQQ?oc=5",
+      "published_iso": "2026-05-02T02:36:45+07:00",
+      "published_text": "02/05 02:36"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-phu-tho-dau-gia-13-o-dat-o-tai-khu-bai-kim-va-khu-dong-buoi-xa-phung-nguyen-tinh-phu-tho-50835.html",
-      "published_iso": "2026-05-02T20:51:28.986018+07:00",
-      "published_text": "02/05 20:51"
+      "published_iso": "2026-05-02T21:38:20.937395+07:00",
+      "published_text": "02/05 21:38"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-phu-tho-dau-gia-6-o-dat-o-tai-khu-cho-huong-nha-xa-hien-quan-tinh-phu-tho-50834.html",
-      "published_iso": "2026-05-02T20:51:28.985947+07:00",
-      "published_text": "02/05 20:51"
+      "published_iso": "2026-05-02T21:38:20.937318+07:00",
+      "published_text": "02/05 21:38"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/khi-lanh-dao-doanh-nghiep-tran-tro-ve-gia-co-phieu-d144257.html",
-      "published_iso": "2026-05-02T20:51:26.034436+07:00",
-      "published_text": "02/05 20:51"
+      "published_iso": "2026-05-02T21:38:18.749942+07:00",
+      "published_text": "02/05 21:38"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/khi-big-tech-xuong-tien-nguyen-tac-van-hanh-cua-co-may-tai-chinh-va-goi-mo-cho-doanh-nghiep-viet-d144250.html",
-      "published_iso": "2026-05-02T20:51:26.034367+07:00",
-      "published_text": "02/05 20:51"
+      "published_iso": "2026-05-02T21:38:18.749868+07:00",
+      "published_text": "02/05 21:38"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/bat-dong-san-viet-nam-tro-thanh-thoi-nam-cham-hut-von-ngoai-ty-usd-cham-chan-truoc-luat-choi-moi-nha-dau-tu-noi-co-the-danh-mat-loi-the-san-nha-188260422084859555.chn",
-      "published_iso": "2026-05-02T20:51:24.273883+07:00",
-      "published_text": "02/05 20:51"
+      "published_iso": "2026-05-02T21:38:16.670903+07:00",
+      "published_text": "02/05 21:38"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/cung-dat-nuoc-buoc-vao-doi-moi-20-ngan-hang-top-5-tmcp-viet-nam-khat-vong-vuon-tam-trong-ky-nguyen-moi-188260428015810535.chn",
-      "published_iso": "2026-05-02T20:51:24.273802+07:00",
-      "published_text": "02/05 20:51"
+      "published_iso": "2026-05-02T21:38:16.670823+07:00",
+      "published_text": "02/05 21:38"
     }
   ],
   "markets": [
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 78336.0,
-      "change": 157.0,
-      "change_pct": 0.2,
+      "price": 78407.0,
+      "change": 228.0,
+      "change_pct": 0.29,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 02/05 07:00"
