@@ -1,7 +1,17 @@
 {
-  "updated_at": "2026-05-05T00:01:49.381694+07:00",
-  "updated_at_display": "05/05/2026 • 00:01 GMT+7",
+  "updated_at": "2026-05-05T01:22:12.030018+07:00",
+  "updated_at_display": "05/05/2026 • 01:22 GMT+7",
   "war_news": [
+    {
+      "source": "Google News War",
+      "title": "The UAE says Iran resumes attacks as the U.S. moves to reopen the Strait of Hormuz - NPR",
+      "title_vi": "UAE cho biết Iran tiếp tục các cuộc tấn công khi Mỹ di chuyển để mở lại eo biển Hormuz - NPR",
+      "summary": "The UAE says Iran resumes attacks as the U.S. moves to reopen the Strait of Hormuz NPR",
+      "summary_vi": "The UAE says Iran resumes attacks as the U.S. moves to reopen the Strait of Hormuz NPR",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9INGhNdm00ejBxc01CS3pBMVRuTTZKWExyV0pseHo5M2JhaGhlbVJwUDlWV0hXYy1hN1dKcWFpLUl0VUhvcDlkQkIzdU9WS19qZ1ZpSGwxLXJKRS1kSWM1dnpSaElOcEpIVC1pcENR?oc=5",
+      "published_iso": "2026-05-05T00:36:13+07:00",
+      "published_text": "05/05 00:36"
+    },
     {
       "source": "Al Jazeera",
       "title": "Captain warns ‘no ship will be a hero’ by risking Hormuz transit",
@@ -11,58 +21,48 @@
       "url": "https://www.aljazeera.com/video/newsfeed/2026/5/4/captain-warns-no-ship-will-be-a-hero-by-risking-hormuz-transit?traffic_source=rss",
       "published_iso": "2026-05-04T23:27:13+07:00",
       "published_text": "04/05 23:27"
-    },
-    {
-      "source": "Google News War",
-      "title": "The UAE says Iran resumes attacks as the U.S. moves to reopen the Strait of Hormuz - NPR",
-      "title_vi": "UAE cho biết Iran tiếp tục các cuộc tấn công khi Mỹ di chuyển để mở lại eo biển Hormuz - NPR",
-      "summary": "The UAE says Iran resumes attacks as the U.S. moves to reopen the Strait of Hormuz NPR",
-      "summary_vi": "The UAE says Iran resumes attacks as the U.S. moves to reopen the Strait of Hormuz NPR",
-      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9INGhNdm00ejBxc01CS3pBMVRuTTZKWExyV0pseHo5M2JhaGhlbVJwUDlWV0hXYy1hN1dKcWFpLUl0VUhvcDlkQkIzdU9WS19qZ1ZpSGwxLXJKRS1kSWM1dnpSaElOcEpIVC1pcENR?oc=5",
-      "published_iso": "2026-05-04T23:08:35+07:00",
-      "published_text": "04/05 23:08"
     }
   ],
   "global_news": [
     {
       "source": "Investing News",
-      "title": "Fed’s Williams says monetary policy well positioned amid Middle East uncertainty",
-      "title_vi": "Williams của Fed cho biết chính sách tiền tệ có vị thế tốt trong bối cảnh bất ổn ở Trung Đông",
+      "title": "US to raise EU car import tariffs to 25%, says trade representative",
+      "title_vi": "Đại diện thương mại cho biết Mỹ sẽ tăng thuế nhập khẩu ô tô của EU lên 25%",
       "summary": "",
       "summary_vi": "",
-      "url": "https://www.investing.com/news/economy-news/feds-williams-says-monetary-policy-well-positioned-amid-middle-east-uncertainty-4656987",
-      "published_iso": "2026-05-04T23:55:12+07:00",
-      "published_text": "04/05 23:55"
+      "url": "https://www.investing.com/news/economy-news/us-to-raise-eu-car-import-tariffs-to-25-says-trade-representative-93CH-4657099",
+      "published_iso": "2026-05-05T01:15:43+07:00",
+      "published_text": "05/05 01:15"
     },
     {
       "source": "Investing News",
-      "title": "Williams says Fed policy well positioned for economic risks, uncertainty",
-      "title_vi": "Williams cho biết chính sách của Fed có vị trí tốt đối với rủi ro kinh tế, sự không chắc chắn",
+      "title": "Fed’s Williams says policy consensus stronger than vote suggests",
+      "title_vi": "Williams của Fed cho biết sự đồng thuận chính sách mạnh hơn phiếu bầu cho thấy",
       "summary": "",
       "summary_vi": "",
-      "url": "https://www.investing.com/news/economy-news/williams-says-fed-policy-well-positioned-for-economic-risks-uncertainty-4656985",
-      "published_iso": "2026-05-04T23:54:55+07:00",
-      "published_text": "04/05 23:54"
-    },
-    {
-      "source": "Investing News",
-      "title": "Korean ship on fire in strait, Iran hits UAE oil port after Trump says Navy will help ships cross",
-      "title_vi": "Tàu Hàn Quốc bốc cháy ở eo biển, Iran tấn công cảng dầu UAE sau khi Trump nói Hải quân sẽ giúp tàu vượt biển",
-      "summary": "",
-      "summary_vi": "",
-      "url": "https://www.investing.com/news/world-news/trump-says-us-to-help-ships-stranded-in-strait-of-hormuz-as-tanker-hit-by-projectiles-4654934",
-      "published_iso": "2026-05-04T23:54:32+07:00",
-      "published_text": "04/05 23:54"
+      "url": "https://www.investing.com/news/economy-news/feds-williams-says-policy-consensus-stronger-than-vote-suggests-93CH-4657088",
+      "published_iso": "2026-05-05T01:06:01+07:00",
+      "published_text": "05/05 01:06"
     },
     {
       "source": "Google News Macro",
-      "title": "Oil Futures Pull Back From Earlier Highs - WSJ",
-      "title_vi": "Hợp đồng tương lai dầu kéo trở lại từ mức cao trước đó - WSJ",
-      "summary": "Oil Futures Pull Back From Earlier Highs WSJ",
-      "summary_vi": "Oil Futures Pull Back From Earlier Highs WSJ",
-      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNZ1RSZGRfZXF3andrSVcwdEhyMVRkNnJZYndFbXRJMHk5bjhNQ0JmemFvX2tldzhJX2MzbHlRZ3N6T01HUjhNeGRnVlhzRl9xdFRJZG5LNl9QQ21XeDlmU1ZLUm5JS0dWSzNwU2RmVnJPUFNRaUtfUmp0SGVWR2lSdVhfSEUza0V2cS1qajVaWC1iWW9ScEVwUWpFN3BXdw?oc=5",
-      "published_iso": "2026-05-04T21:09:00+07:00",
-      "published_text": "04/05 21:09"
+      "title": "China’s unprecedented defiance of U.S. sanctions triggers showdown - Fortune",
+      "title_vi": "Sự thách thức chưa từng có của Trung Quốc đối với các lệnh trừng phạt của Hoa Kỳ gây ra sự thách thức - Fortune",
+      "summary": "China’s unprecedented defiance of U.S. sanctions triggers showdown Fortune",
+      "summary_vi": "China’s unprecedented defiance of U.S. sanctions triggers showdown Fortune",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9QY0ktQXdpSkszX3pMaWUxYkQ5UWZsWTRCcHh3TkwtcHl5Y21tLUplWS1oR2NNSWUtSDQ4VVBvVnZtWXVQNXZHR1JXQUc0Y2ZUc1loWEZuTW9laTlQRHoyMmJuZE41LUxCbENyMGhxd202UW9QR2ZV?oc=5",
+      "published_iso": "2026-05-04T18:31:00+07:00",
+      "published_text": "04/05 18:31"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "Warsh's take on Fed independence is met with confusion and some concern - CNBC",
+      "title_vi": "Quan điểm của Warsh về sự độc lập của Fed gặp phải sự nhầm lẫn và một số lo ngại - CNBC",
+      "summary": "Warsh's take on Fed independence is met with confusion and some concern CNBC",
+      "summary_vi": "Warsh's take on Fed independence is met with confusion and some concern CNBC",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5EQkdJeVVWNVdsZXE4X2dscDQ0NkZxMnp6MGxrM1plWE5QR080cGpxWHpFWXdHNk10cDR2OVhZcFVONlRESGZSU0U0Q0hjNXBjUFhpZ2paNXBTa2h1eXBOd3o3dDJmcTVEWE9CTU1UT0dMemtBdGfSAXtBVV95cUxPQlZvNDlkVXRNY3BRcnk1YXE2Y1h2c1QwMmlsQ3ZjeFVETmViWHNOVS11V2JQVmhHY1BVREJCeHVPU0FiTVVVdy1CUnpSSDJVZHl5RnR0UDJ2YU1pR0J2Ym1CcEdJOTdoU0hNc0ZJdlh3NE9LMDFPQWNFRUk?oc=5",
+      "published_iso": "2026-05-04T18:00:01+07:00",
+      "published_text": "04/05 18:00"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-dong-duongdau-gia-quyen-su-dung-dat-o-doi-voi-25-lo-dat-o-tai-khu-do-02-khu-tai-dinh-cu-thon-chanh-oai-xa-cat-tien-tinh-gia-lai-50848.html",
-      "published_iso": "2026-05-05T00:02:47.407875+07:00",
-      "published_text": "05/05 00:02"
+      "published_iso": "2026-05-05T01:23:10.011248+07:00",
+      "published_text": "05/05 01:23"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-so-5-quoc-gia-dau-gia-2074-hop-gach-lat-san-theo-quyet-dinh-xu-phat-vi-pham-hanh-chinh-cua-chi-cuc-quan-ly-thi-truong-tinh-hung-yen-50851.html",
-      "published_iso": "2026-05-05T00:02:47.407806+07:00",
-      "published_text": "05/05 00:02"
+      "published_iso": "2026-05-05T01:23:10.011170+07:00",
+      "published_text": "05/05 01:23"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/khao-sat-du-an-metropoli5-cua-vietradico-sau-nhieu-nam-quay-ton-d144234.html",
-      "published_iso": "2026-05-05T00:02:46.103871+07:00",
-      "published_text": "05/05 00:02"
+      "published_iso": "2026-05-05T01:23:07.889075+07:00",
+      "published_text": "05/05 01:23"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/nganh-o-to-toan-cau-chay-theo-toc-do-trung-quoc-d143814.html",
-      "published_iso": "2026-05-05T00:02:46.103800+07:00",
-      "published_text": "05/05 00:02"
+      "published_iso": "2026-05-05T01:23:07.889006+07:00",
+      "published_text": "05/05 01:23"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/51-nam-sau-ngay-thong-nhat-dat-nuoc-viet-nam-co-16-ong-lon-tren-5-ty-usd-ha-noi-nam-10-cai-ten-tphcm-cam-5-don-vi-188260430082151629.chn",
-      "published_iso": "2026-05-05T00:02:43.719817+07:00",
-      "published_text": "05/05 00:02"
+      "published_iso": "2026-05-05T01:23:05.738602+07:00",
+      "published_text": "05/05 01:23"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/cu-nhay-vot-4-ty-usd-von-dieu-le-va-tham-vong-moi-cua-techcombank-18826050322594015.chn",
-      "published_iso": "2026-05-05T00:02:43.719735+07:00",
-      "published_text": "05/05 00:02"
+      "published_iso": "2026-05-05T01:23:05.738527+07:00",
+      "published_text": "05/05 01:23"
     }
   ],
   "markets": [
@@ -132,9 +132,9 @@
       "name": "WTI",
       "symbol": "CL=F",
       "category": "Energy",
-      "price": 106.15,
-      "change": 4.21,
-      "change_pct": 4.13,
+      "price": 104.89,
+      "change": 2.95,
+      "change_pct": 2.89,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 04/05 11:00"
@@ -143,9 +143,9 @@
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 114.89,
-      "change": 6.72,
-      "change_pct": 6.21,
+      "price": 113.19,
+      "change": 5.02,
+      "change_pct": 4.64,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 04/05 11:00"
@@ -154,9 +154,9 @@
       "name": "Natural Gas",
       "symbol": "NG=F",
       "category": "Energy",
-      "price": 2.88,
-      "change": 0.1,
-      "change_pct": 3.56,
+      "price": 2.86,
+      "change": 0.08,
+      "change_pct": 2.99,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 04/05 11:00"
@@ -165,9 +165,9 @@
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4519.1,
-      "change": -110.8,
-      "change_pct": -2.39,
+      "price": 4530.9,
+      "change": -99.0,
+      "change_pct": -2.14,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 04/05 11:00"
@@ -176,9 +176,9 @@
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 73.22,
-      "change": -2.73,
-      "change_pct": -3.6,
+      "price": 73.26,
+      "change": -2.69,
+      "change_pct": -3.54,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 04/05 11:00"
@@ -187,9 +187,9 @@
       "name": "Copper",
       "symbol": "HG=F",
       "category": "Metals",
-      "price": 5.85,
-      "change": -0.09,
-      "change_pct": -1.44,
+      "price": 5.87,
+      "change": -0.06,
+      "change_pct": -1.08,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 04/05 11:00"
@@ -198,9 +198,9 @@
       "name": "US 10Y",
       "symbol": "^TNX",
       "category": "Rates",
-      "price": 0.45,
+      "price": 0.44,
       "change": 0.01,
-      "change_pct": 1.74,
+      "change_pct": 1.55,
       "decimals": 2,
       "suffix": "%",
       "note": "Dữ liệu gần nhất: 04/05 12:00"
@@ -209,9 +209,9 @@
       "name": "DXY",
       "symbol": "DX-Y.NYB",
       "category": "FX",
-      "price": 98.51,
-      "change": 0.3,
-      "change_pct": 0.3,
+      "price": 98.43,
+      "change": 0.22,
+      "change_pct": 0.23,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 04/05 11:00"
@@ -220,9 +220,9 @@
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1689,
-      "change": -0.004,
-      "change_pct": -0.34,
+      "price": 1.1693,
+      "change": -0.0036,
+      "change_pct": -0.31,
       "decimals": 4,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 04/05 06:00"
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 80145.0,
-      "change": 1607.0,
-      "change_pct": 2.05,
+      "price": 80244.0,
+      "change": 1706.0,
+      "change_pct": 2.17,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 04/05 07:00"
@@ -242,9 +242,9 @@
       "name": "S&P 500",
       "symbol": "^GSPC",
       "category": "US",
-      "price": 7191.16,
-      "change": -38.96,
-      "change_pct": -0.54,
+      "price": 7202.64,
+      "change": -27.48,
+      "change_pct": -0.38,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 04/05 11:00"
@@ -253,9 +253,9 @@
       "name": "Dow Jones",
       "symbol": "^DJI",
       "category": "US",
-      "price": 48970.81,
-      "change": -528.46,
-      "change_pct": -1.07,
+      "price": 49005.75,
+      "change": -493.52,
+      "change_pct": -1.0,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 04/05 11:00"
@@ -264,9 +264,9 @@
       "name": "Nasdaq",
       "symbol": "^IXIC",
       "category": "US",
-      "price": 25012.38,
-      "change": -102.06,
-      "change_pct": -0.41,
+      "price": 25072.06,
+      "change": -42.38,
+      "change_pct": -0.17,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 04/05 11:00"
@@ -275,9 +275,9 @@
       "name": "Russell 2000",
       "symbol": "^RUT",
       "category": "US",
-      "price": 2789.7,
-      "change": -23.12,
-      "change_pct": -0.82,
+      "price": 2801.07,
+      "change": -11.75,
+      "change_pct": -0.42,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 04/05 11:00"
@@ -286,9 +286,9 @@
       "name": "VIX",
       "symbol": "^VIX",
       "category": "US",
-      "price": 18.82,
-      "change": 1.83,
-      "change_pct": 10.77,
+      "price": 18.03,
+      "change": 1.04,
+      "change_pct": 6.12,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 04/05 12:00"
