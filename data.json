@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-05-05T06:11:34.921191+07:00",
-  "updated_at_display": "05/05/2026 • 06:11 GMT+7",
+  "updated_at": "2026-05-05T07:10:14.902991+07:00",
+  "updated_at_display": "05/05/2026 • 07:10 GMT+7",
   "war_news": [
     {
       "source": "Google News War",
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-dong-duongdau-gia-quyen-su-dung-dat-o-doi-voi-25-lo-dat-o-tai-khu-do-02-khu-tai-dinh-cu-thon-chanh-oai-xa-cat-tien-tinh-gia-lai-50848.html",
-      "published_iso": "2026-05-05T06:12:36.184707+07:00",
-      "published_text": "05/05 06:12"
+      "published_iso": "2026-05-05T07:11:15.338910+07:00",
+      "published_text": "05/05 07:11"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,18 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-so-5-quoc-gia-dau-gia-2074-hop-gach-lat-san-theo-quyet-dinh-xu-phat-vi-pham-hanh-chinh-cua-chi-cuc-quan-ly-thi-truong-tinh-hung-yen-50851.html",
-      "published_iso": "2026-05-05T06:12:36.184649+07:00",
-      "published_text": "05/05 06:12"
-    },
-    {
-      "source": "VietnamFinance",
-      "title": "Khảo sát dự án Metropoli5 của Vietradico sau nhiều năm quây tôn",
-      "title_vi": "Khảo sát dự án Metropoli5 của Vietradico sau nhiều năm quây tôn",
-      "summary": "",
-      "summary_vi": "",
-      "url": "https://vietnamfinance.vn/khao-sat-du-an-metropoli5-cua-vietradico-sau-nhieu-nam-quay-ton-d144234.html",
-      "published_iso": "2026-05-05T06:12:34.129873+07:00",
-      "published_text": "05/05 06:12"
+      "published_iso": "2026-05-05T07:11:15.338848+07:00",
+      "published_text": "05/05 07:11"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +93,18 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/nganh-o-to-toan-cau-chay-theo-toc-do-trung-quoc-d143814.html",
-      "published_iso": "2026-05-05T06:12:34.129813+07:00",
-      "published_text": "05/05 06:12"
+      "published_iso": "2026-05-05T07:11:13.894303+07:00",
+      "published_text": "05/05 07:11"
+    },
+    {
+      "source": "VietnamFinance",
+      "title": "Giá vàng hôm nay 5/5: Quay đầu giảm nhẹ",
+      "title_vi": "Giá vàng hôm nay 5/5: Quay đầu giảm nhẹ",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://vietnamfinance.vn/gia-vang-hom-nay-5-5-quay-dau-giam-nhe-d144363.html",
+      "published_iso": "2026-05-05T07:11:13.894242+07:00",
+      "published_text": "05/05 07:11"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/51-nam-sau-ngay-thong-nhat-dat-nuoc-viet-nam-co-16-ong-lon-tren-5-ty-usd-ha-noi-nam-10-cai-ten-tphcm-cam-5-don-vi-188260430082151629.chn",
-      "published_iso": "2026-05-05T06:12:31.960385+07:00",
-      "published_text": "05/05 06:12"
+      "published_iso": "2026-05-05T07:11:12.445862+07:00",
+      "published_text": "05/05 07:11"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/cu-nhay-vot-4-ty-usd-von-dieu-le-va-tham-vong-moi-cua-techcombank-18826050322594015.chn",
-      "published_iso": "2026-05-05T06:12:31.960321+07:00",
-      "published_text": "05/05 06:12"
+      "published_iso": "2026-05-05T07:11:12.445793+07:00",
+      "published_text": "05/05 07:11"
     }
   ],
   "markets": [
@@ -132,9 +132,9 @@
       "name": "WTI",
       "symbol": "CL=F",
       "category": "Energy",
-      "price": 104.99,
-      "change": 3.05,
-      "change_pct": 2.99,
+      "price": 104.85,
+      "change": 2.91,
+      "change_pct": 2.85,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 04/05 11:00"
@@ -143,9 +143,9 @@
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 113.95,
-      "change": 5.78,
-      "change_pct": 5.34,
+      "price": 113.8,
+      "change": 5.63,
+      "change_pct": 5.2,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 04/05 11:00"
@@ -156,7 +156,7 @@
       "category": "Energy",
       "price": 2.85,
       "change": 0.07,
-      "change_pct": 2.41,
+      "change_pct": 2.52,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 04/05 11:00"
@@ -165,8 +165,8 @@
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4527.6,
-      "change": -102.3,
+      "price": 4527.4,
+      "change": -102.5,
       "change_pct": -2.21,
       "decimals": 2,
       "suffix": "",
@@ -176,9 +176,9 @@
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 73.04,
-      "change": -2.92,
-      "change_pct": -3.84,
+      "price": 73.11,
+      "change": -2.84,
+      "change_pct": -3.74,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 04/05 11:00"
@@ -187,9 +187,9 @@
       "name": "Copper",
       "symbol": "HG=F",
       "category": "Metals",
-      "price": 5.86,
-      "change": -0.07,
-      "change_pct": -1.23,
+      "price": 5.88,
+      "change": -0.06,
+      "change_pct": -0.93,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 04/05 11:00"
@@ -209,8 +209,8 @@
       "name": "DXY",
       "symbol": "DX-Y.NYB",
       "category": "FX",
-      "price": 98.48,
-      "change": 0.27,
+      "price": 98.47,
+      "change": 0.26,
       "change_pct": 0.27,
       "decimals": 2,
       "suffix": "",
@@ -220,9 +220,9 @@
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1695,
-      "change": -0.0032,
-      "change_pct": -0.27,
+      "price": 1.1696,
+      "change": -0.0031,
+      "change_pct": -0.26,
       "decimals": 4,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 05/05 06:00"
@@ -231,12 +231,12 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 79913.0,
-      "change": 1375.0,
-      "change_pct": 1.75,
+      "price": 79982.0,
+      "change": 1444.0,
+      "change_pct": 1.84,
       "decimals": 0,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 04/05 07:00"
+      "note": "Dữ liệu gần nhất: 05/05 07:00"
     },
     {
       "name": "S&P 500",
@@ -396,12 +396,12 @@
       "name": "ASX 200",
       "symbol": "^AXJO",
       "category": "Asia",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
+      "price": 8729.8,
+      "change": 64.0,
+      "change_pct": 0.74,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 03/05 21:00"
+      "note": "Dữ liệu gần nhất: 30/04 21:00"
     }
   ]
 }
