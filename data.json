@@ -1,38 +1,58 @@
 {
-  "updated_at": "2026-05-09T00:26:40.215943+07:00",
-  "updated_at_display": "09/05/2026 • 00:26 GMT+7",
+  "updated_at": "2026-05-09T01:53:12.894955+07:00",
+  "updated_at_display": "09/05/2026 • 01:53 GMT+7",
   "war_news": [
     {
       "source": "Al Jazeera",
-      "title": "Rubio says Iranian boats firing at Americans will be ‘blown up’",
-      "title_vi": "Rubio nói rằng các tàu Iran bắn vào người Mỹ sẽ bị ‘nổ tung’",
-      "summary": "US Secretary of State Marco Rubio defended the US military’s actions in the Strait of Hormuz.",
-      "summary_vi": "US Secretary of State Marco Rubio defended the US military’s actions in the Strait of Hormuz.",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/8/rubio-says-iranian-boats-firing-at-americans-will-be-blown?traffic_source=rss",
-      "published_iso": "2026-05-08T22:33:12+07:00",
-      "published_text": "08/05 22:33"
+      "title": "ASEAN leaders adopt measures to ease economic pain caused by Iran war",
+      "title_vi": "Các nhà lãnh đạo ASEAN áp dụng các biện pháp để giảm bớt thiệt hại kinh tế do chiến tranh Iran gây ra",
+      "summary": "The bloc currently imports more than half of its crude oil from the Middle East.",
+      "summary_vi": "The bloc currently imports more than half of its crude oil from the Middle East.",
+      "url": "https://www.aljazeera.com/economy/2026/5/8/asean-summit-iran-war?traffic_source=rss",
+      "published_iso": "2026-05-09T01:07:49+07:00",
+      "published_text": "09/05 01:07"
     },
     {
       "source": "Al Jazeera",
-      "title": "Thousands run Palestine Marathon under shadow of Israel’s war on Gaza",
-      "title_vi": "Hàng ngàn người chạy Marathon Palestine dưới cái bóng của cuộc chiến của Israel ở Gaza",
-      "summary": "Marathon draws 13,000 runners globally to amplify unity and resilience amid escalating violence in Gaza and West Bank.",
-      "summary_vi": "Marathon draws 13,000 runners globally to amplify unity and resilience amid escalating violence in Gaza and West Bank.",
-      "url": "https://www.aljazeera.com/gallery/2026/5/8/thousands-run-palestine-marathon-under-shadow-of-israels-war-on-gaza?traffic_source=rss",
-      "published_iso": "2026-05-08T21:10:59+07:00",
-      "published_text": "08/05 21:10"
+      "title": "More than a dozen reported killed in Israeli attacks on south Lebanon",
+      "title_vi": "Hơn một chục người được báo cáo đã thiệt mạng trong các cuộc tấn công của Israel vào miền nam Lebanon",
+      "summary": "Israeli air raids on southern Lebanon escalate ahead of new round of talks expected next week in Washington, DC.",
+      "summary_vi": "Israeli air raids on southern Lebanon escalate ahead of new round of talks expected next week in Washington, DC.",
+      "url": "https://www.aljazeera.com/news/2026/5/8/more-than-a-dozen-reported-killed-in-israeli-attacks-on-south-lebanon?traffic_source=rss",
+      "published_iso": "2026-05-09T00:18:33+07:00",
+      "published_text": "09/05 00:18"
     }
   ],
   "global_news": [
     {
       "source": "Investing News",
-      "title": "Trump’s crackdown on China-linked solar firms stalls U.S. factory boom",
-      "title_vi": "Cuộc đàn áp của Trump đối với các công ty năng lượng mặt trời liên quan đến Trung Quốc đã ngăn chặn sự bùng nổ của các nhà máy ở Mỹ",
+      "title": "Stocks mixed as investors digest US job growth, chipmaker growth and elevated oil prices",
+      "title_vi": "Cổ phiếu trộn lẫn khi các nhà đầu tư tiêu hóa tăng trưởng việc làm của Hoa Kỳ, tăng trưởng của nhà sản xuất chip và giá dầu tăng cao",
       "summary": "",
       "summary_vi": "",
-      "url": "https://www.investing.com/news/stock-market-news/trumps-crackdown-on-chinalinked-solar-firms-stalls-us-factory-boom-4671558",
-      "published_iso": "2026-05-09T00:18:31+07:00",
-      "published_text": "09/05 00:18"
+      "url": "https://www.investing.com/news/stock-market-news/oil-jumps-and-stock-futures-slip-on-renewed-usiran-fighting-4670525",
+      "published_iso": "2026-05-09T01:37:46+07:00",
+      "published_text": "09/05 01:37"
+    },
+    {
+      "source": "Investing News",
+      "title": "Trump administration appeals latest court loss on tariffs",
+      "title_vi": "Chính quyền Trump kháng cáo những tổn thất mới nhất của tòa án về thuế quan",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/economic-indicators/trump-administration-appeals-latest-court-loss-on-tariffs-4673719",
+      "published_iso": "2026-05-09T01:36:49+07:00",
+      "published_text": "09/05 01:36"
+    },
+    {
+      "source": "Investing News",
+      "title": "Colombia economy set for first quarter slowdown, with 2.2% growth",
+      "title_vi": "Nền kinh tế Colombia có dấu hiệu chậm lại trong quý đầu tiên, với mức tăng trưởng 2,2%",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/economy-news/colombia-economy-set-for-first-quarter-slowdown-with-22-growth-4673797",
+      "published_iso": "2026-05-09T01:36:33+07:00",
+      "published_text": "09/05 01:36"
     },
     {
       "source": "Google News Macro",
@@ -43,26 +63,6 @@
       "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE0yNHJOck9ubVFya09hNFFNSGNYbTVqdl9tOHNsVjJNMXlCSkNYdWNBZUJVamp5bUhUekxNM3ZZMEwwb2F1dkxsMHZEOWRKUHk5aGp5SnZzWnlRZ1lrX2U4R3ROdlZqc2dRZDN6aUxPZFFNMUF4WlE?oc=5",
       "published_iso": "2026-05-08T20:42:42+07:00",
       "published_text": "08/05 20:42"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "Current price of oil as of May 8, 2026 - Fortune",
-      "title_vi": "Giá dầu hiện tại tính đến ngày 8 tháng 5 năm 2026 - Fortune",
-      "summary": "Current price of oil as of May 8, 2026 Fortune",
-      "summary_vi": "Current price of oil as of May 8, 2026 Fortune",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1lc1NDUW1pUllOWndfLWRfX3Z5UGFlVVVJYnJtSUZKZXNZZ0RQMXAxQlVsaTBGY2lGeFNmdW5CWWNjbHJkN1lQR0hvR0dVbjY1SEc0eEZPTFFvSmtzLVVpNGdB?oc=5",
-      "published_iso": "2026-05-08T19:58:00+07:00",
-      "published_text": "08/05 19:58"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "Trump threatens EU with ‘much higher’ tariffs if no trade deal signed by new deadline - CNBC",
-      "title_vi": "Trump đe dọa EU với mức thuế ‘cao hơn nhiều’ nếu không có thỏa thuận thương mại nào được ký trước thời hạn mới - CNBC",
-      "summary": "Trump threatens EU with ‘much higher’ tariffs if no trade deal signed by new deadline CNBC",
-      "summary_vi": "Trump threatens EU with ‘much higher’ tariffs if no trade deal signed by new deadline CNBC",
-      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1hdk14cERPNDV0QXlrUnJQUzhjN2VIQnVtT3BQcTZORVV6Snd5WnZOeHhaTmptUTlyQ1BXalZpN3BjMm5vVnBXTTBsTF9PWl9tb3RKNEZMaTNZTTh1aHE0cWg4QWhfSGN2YlZKT1A2bVhCOGViWjh1VGxUY9IBgAFBVV95cUxPLVdOMkwxV0UwdEQ2ZjVjRnRmM0g1eG9QYWh0MTh5cy1obThHTUdDSldLbFlTYUJENEh6WVVzY0tCdVFybkJacFhrMGRMTGNlTjBUa1FHaU05MUR6LVFCMDQ0dlFfU3dLemlaZHBCLWt3NVBrWE5oMkpWdUs2eEhIdg?oc=5",
-      "published_iso": "2026-05-08T14:32:28+07:00",
-      "published_text": "08/05 14:32"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-kieu-viet-dau-gia-33-lo-dat-o-ta-i-khu-dan-cu-doc-quoc-lo-19-moi-khu-vuc-1-xa-phuoc-loc-cu-xa-tuy-phuoc-tinh-gia-lai-dau-gia-ngay-2852026-50908.html",
-      "published_iso": "2026-05-09T00:27:27.305909+07:00",
-      "published_text": "09/05 00:27"
+      "published_iso": "2026-05-09T01:54:06.194801+07:00",
+      "published_text": "09/05 01:54"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-kieu-viet-dau-gia-33-lo-dat-o-ta-i-khu-dan-cu-doc-quoc-lo-19-moi-khu-vuc-1-xa-phuoc-loc-cu-xa-tuy-phuoc-tinh-gia-lai-dau-gia-ngay-462026-50909.html",
-      "published_iso": "2026-05-09T00:27:27.305836+07:00",
-      "published_text": "09/05 00:27"
+      "published_iso": "2026-05-09T01:54:06.194732+07:00",
+      "published_text": "09/05 01:54"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/tin-dung-ngan-hang-giam-dan-bds-bat-dau-chay-manh-sang-xay-dung-d144517.html",
-      "published_iso": "2026-05-09T00:27:26.287588+07:00",
-      "published_text": "09/05 00:27"
+      "published_iso": "2026-05-09T01:54:04.532514+07:00",
+      "published_text": "09/05 01:54"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/song-gio-tai-samsung-cuoc-chien-tien-thuong-co-the-anh-huong-ca-nganh-ai-d144533.html",
-      "published_iso": "2026-05-09T00:27:26.287516+07:00",
-      "published_text": "09/05 00:27"
+      "published_iso": "2026-05-09T01:54:04.532452+07:00",
+      "published_text": "09/05 01:54"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/cu-nhay-vot-4-ty-usd-von-dieu-le-va-tham-vong-moi-cua-techcombank-18826050322594015.chn",
-      "published_iso": "2026-05-09T00:27:24.255621+07:00",
-      "published_text": "09/05 00:27"
+      "published_iso": "2026-05-09T01:54:02.831323+07:00",
+      "published_text": "09/05 01:54"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/dua-vao-thu-tung-bi-coi-la-rac-cung-mot-ga-gan-do-nuoc-my-tu-ke-phu-thuoc-tro-thanh-tay-choi-lon-trong-linh-vuc-then-chot-toan-cau-nhu-the-nao-18826050514383963.chn",
-      "published_iso": "2026-05-09T00:27:24.255530+07:00",
-      "published_text": "09/05 00:27"
+      "published_iso": "2026-05-09T01:54:02.831253+07:00",
+      "published_text": "09/05 01:54"
     }
   ],
   "markets": [
@@ -132,9 +132,9 @@
       "name": "WTI",
       "symbol": "CL=F",
       "category": "Energy",
-      "price": 95.75,
-      "change": 0.94,
-      "change_pct": 0.99,
+      "price": 95.31,
+      "change": 0.5,
+      "change_pct": 0.53,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 08/05 11:00"
@@ -143,9 +143,9 @@
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 101.08,
-      "change": 1.02,
-      "change_pct": 1.02,
+      "price": 101.0,
+      "change": 0.94,
+      "change_pct": 0.94,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 08/05 11:00"
@@ -154,9 +154,9 @@
       "name": "Natural Gas",
       "symbol": "NG=F",
       "category": "Energy",
-      "price": 2.75,
-      "change": -0.02,
-      "change_pct": -0.61,
+      "price": 2.74,
+      "change": -0.03,
+      "change_pct": -0.9,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 08/05 11:00"
@@ -165,9 +165,9 @@
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4727.6,
-      "change": 27.8,
-      "change_pct": 0.59,
+      "price": 4735.5,
+      "change": 35.7,
+      "change_pct": 0.76,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 08/05 11:00"
@@ -176,9 +176,9 @@
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 80.75,
-      "change": 1.05,
-      "change_pct": 1.32,
+      "price": 81.12,
+      "change": 1.42,
+      "change_pct": 1.79,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 08/05 11:00"
@@ -188,8 +188,8 @@
       "symbol": "HG=F",
       "category": "Metals",
       "price": 6.3,
-      "change": 0.18,
-      "change_pct": 2.89,
+      "change": 0.17,
+      "change_pct": 2.84,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 08/05 11:00"
@@ -200,7 +200,7 @@
       "category": "Rates",
       "price": 0.44,
       "change": -0.0,
-      "change_pct": -0.59,
+      "change_pct": -0.68,
       "decimals": 2,
       "suffix": "%",
       "note": "Dữ liệu gần nhất: 08/05 12:00"
@@ -209,9 +209,9 @@
       "name": "DXY",
       "symbol": "DX-Y.NYB",
       "category": "FX",
-      "price": 97.95,
-      "change": -0.3,
-      "change_pct": -0.31,
+      "price": 97.9,
+      "change": -0.35,
+      "change_pct": -0.36,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 08/05 11:00"
@@ -220,9 +220,9 @@
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1779,
-      "change": 0.0031,
-      "change_pct": 0.27,
+      "price": 1.1783,
+      "change": 0.0035,
+      "change_pct": 0.3,
       "decimals": 4,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 08/05 06:00"
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 80005.0,
-      "change": -5.0,
-      "change_pct": -0.01,
+      "price": 80192.0,
+      "change": 182.0,
+      "change_pct": 0.23,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 08/05 07:00"
@@ -242,9 +242,9 @@
       "name": "S&P 500",
       "symbol": "^GSPC",
       "category": "US",
-      "price": 7399.94,
-      "change": 62.83,
-      "change_pct": 0.86,
+      "price": 7391.06,
+      "change": 53.95,
+      "change_pct": 0.74,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 08/05 11:00"
@@ -253,9 +253,9 @@
       "name": "Dow Jones",
       "symbol": "^DJI",
       "category": "US",
-      "price": 49633.01,
-      "change": 36.04,
-      "change_pct": 0.07,
+      "price": 49513.74,
+      "change": -83.23,
+      "change_pct": -0.17,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 08/05 11:00"
@@ -264,9 +264,9 @@
       "name": "Nasdaq",
       "symbol": "^IXIC",
       "category": "US",
-      "price": 26206.03,
-      "change": 399.83,
-      "change_pct": 1.55,
+      "price": 26191.24,
+      "change": 385.04,
+      "change_pct": 1.49,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 08/05 11:00"
@@ -275,9 +275,9 @@
       "name": "Russell 2000",
       "symbol": "^RUT",
       "category": "US",
-      "price": 2853.94,
-      "change": 14.31,
-      "change_pct": 0.5,
+      "price": 2860.32,
+      "change": 20.69,
+      "change_pct": 0.73,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 08/05 11:00"
@@ -286,9 +286,9 @@
       "name": "VIX",
       "symbol": "^VIX",
       "category": "US",
-      "price": 17.32,
-      "change": 0.24,
-      "change_pct": 1.41,
+      "price": 17.44,
+      "change": 0.36,
+      "change_pct": 2.11,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 08/05 12:00"
@@ -385,9 +385,9 @@
       "name": "Nifty 50",
       "symbol": "^NSEI",
       "category": "Asia",
-      "price": 24176.15,
-      "change": -150.5,
-      "change_pct": -0.62,
+      "price": NaN,
+      "change": NaN,
+      "change_pct": NaN,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 08/05 01:30"
