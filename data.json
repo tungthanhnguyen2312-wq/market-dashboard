@@ -1,29 +1,39 @@
 {
-  "updated_at": "2026-05-10T00:02:52.100726+07:00",
-  "updated_at_display": "10/05/2026 • 00:02 GMT+7",
+  "updated_at": "2026-05-10T00:56:31.485374+07:00",
+  "updated_at_display": "10/05/2026 • 00:56 GMT+7",
   "war_news": [
     {
-      "source": "Google News War",
-      "title": "Live Updates: Latest from Israel, Iran, and Middle East - The Jerusalem Post",
-      "title_vi": "Cập nhật trực tiếp: Mới nhất từ Israel, Iran và Trung Đông - The Jerusalem Post",
-      "summary": "Live Updates: Latest from Israel, Iran, and Middle East The Jerusalem Post",
-      "summary_vi": "Live Updates: Latest from Israel, Iran, and Middle East The Jerusalem Post",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBKSnVTU1V5V2paUkdLZzJTMEdTaGVhTVlnMzBLb09FQThKeWlueG5PMlNDdHFwamphVU4tdEh3TWpZOElfOUZNd3AwWnlPTlAta2V1U0JSUzIxWDljdVF3NF9KQTZaS05Ga1pzaldZS1pLd1RfVkp0d0pZTkpGb0U?oc=5",
-      "published_iso": "2026-05-09T23:12:58+07:00",
-      "published_text": "09/05 23:12"
+      "source": "Al Jazeera",
+      "title": "“Nowhere left to go”: Gaza residents return to rubble after Israeli strike",
+      "title_vi": "\"Không còn nơi nào để đi\": cư dân Gaza trở lại đống đổ nát sau cuộc tấn công của Israel",
+      "summary": "Al Jazeera’s Tareq Abu Azzoum reports from Al-Shati Refugee Camp after overnight Israeli airstrikes.",
+      "summary_vi": "Al Jazeera’s Tareq Abu Azzoum reports from Al-Shati Refugee Camp after overnight Israeli airstrikes.",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/9/nowhere-left-to-go-gaza-residents-return-to-rubble-after-israeli-strike?traffic_source=rss",
+      "published_iso": "2026-05-10T00:21:33+07:00",
+      "published_text": "10/05 00:21"
     },
     {
       "source": "Al Jazeera",
-      "title": "Israel to release two detained Gaza flotilla activists",
-      "title_vi": "Israel trả tự do cho hai nhà hoạt động đội tàu Gaza bị giam giữ",
-      "summary": "Lawyer representing Saif Abu Keshek and Thiago Avila tells Al Jazeera they will be 'released to their home countries'.",
-      "summary_vi": "Lawyer representing Saif Abu Keshek and Thiago Avila tells Al Jazeera they will be 'released to their home countries'.",
-      "url": "https://www.aljazeera.com/news/2026/5/9/israel-to-release-two-detained-gaza-flotilla-activists?traffic_source=rss",
-      "published_iso": "2026-05-09T21:06:55+07:00",
-      "published_text": "09/05 21:06"
+      "title": "Israeli attacks across Lebanon kill at least 19",
+      "title_vi": "Các cuộc tấn công của Israel trên khắp Lebanon đã giết chết ít nhất 19 người",
+      "summary": "No letup in Israeli attacks despite a US-brokered ceasefire, with a new round of talks expected next week.",
+      "summary_vi": "No letup in Israeli attacks despite a US-brokered ceasefire, with a new round of talks expected next week.",
+      "url": "https://www.aljazeera.com/news/2026/5/9/israeli-attacks-across-lebanon-kill-at-least-19?traffic_source=rss",
+      "published_iso": "2026-05-10T00:07:31+07:00",
+      "published_text": "10/05 00:07"
     }
   ],
   "global_news": [
+    {
+      "source": "Investing News",
+      "title": "Goldman Sachs raises yuan forecasts on China export strength",
+      "title_vi": "Goldman Sachs tăng dự báo nhân dân tệ về sức mạnh xuất khẩu của Trung Quốc",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/forex-news/goldman-sachs-raises-yuan-forecasts-on-china-export-strength-4674664",
+      "published_iso": "2026-05-10T00:01:13+07:00",
+      "published_text": "10/05 00:01"
+    },
     {
       "source": "Google News Macro",
       "title": "China’s Exports and Imports Set Records in April Amid High Energy Costs - The New York Times",
@@ -33,16 +43,6 @@
       "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOdWR1NUNxejNzeGFBV29WTGY1UnA5dkROcmVmS1RCOGVwQi1Kb1QzQmF5Um1kZDV2VzZJeXR0eWJhd1dMTVJxMXJHX1laUERyaTExQy0xSVJsMWhUQWpPUjJKakg2SC1lVXpKZV9sZXdqdjJNbzlOd1d5ZUlzU3duNmdnTWtzQ2hac2c?oc=5",
       "published_iso": "2026-05-09T22:24:47+07:00",
       "published_text": "09/05 22:24"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "Trump’s Latest Tariff Setback Looms Over China Talks - The New York Times",
-      "title_vi": "Sự thụt lùi thuế quan mới nhất của Trump xuất hiện trong các cuộc đàm phán về Trung Quốc - The New York Times",
-      "summary": "Trump’s Latest Tariff Setback Looms Over China Talks The New York Times",
-      "summary_vi": "Trump’s Latest Tariff Setback Looms Over China Talks The New York Times",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1xZk53NFUybTdOUDA2T0lCUUZ4bi10M3hja1N4MW9tYVgzc2dOUkdEa1dRUTc2MjNSVGpMWWF5aUd4SVJlS3p4NUIxcDJ6ODF3VEdGQk5lckpMbFl0QzFPQ2I4R3FFX09HbHV0TTJSMVpoTjd0VlVEdVBLYnBfZzQ?oc=5",
-      "published_iso": "2026-05-09T03:21:57+07:00",
-      "published_text": "09/05 03:21"
     },
     {
       "source": "Google News Macro",
@@ -56,13 +56,13 @@
     },
     {
       "source": "Google News Macro",
-      "title": "Trump threatens EU with ‘much higher’ tariffs if no trade deal signed by new deadline - CNBC",
-      "title_vi": "Trump đe dọa EU với mức thuế ‘cao hơn nhiều’ nếu không có thỏa thuận thương mại nào được ký trước thời hạn mới - CNBC",
-      "summary": "Trump threatens EU with ‘much higher’ tariffs if no trade deal signed by new deadline CNBC",
-      "summary_vi": "Trump threatens EU with ‘much higher’ tariffs if no trade deal signed by new deadline CNBC",
-      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1hdk14cERPNDV0QXlrUnJQUzhjN2VIQnVtT3BQcTZORVV6Snd5WnZOeHhaTmptUTlyQ1BXalZpN3BjMm5vVnBXTTBsTF9PWl9tb3RKNEZMaTNZTTh1aHE0cWg4QWhfSGN2YlZKT1A2bVhCOGViWjh1VGxUY9IBgAFBVV95cUxPLVdOMkwxV0UwdEQ2ZjVjRnRmM0g1eG9QYWh0MTh5cy1obThHTUdDSldLbFlTYUJENEh6WVVzY0tCdVFybkJacFhrMGRMTGNlTjBUa1FHaU05MUR6LVFCMDQ0dlFfU3dLemlaZHBCLWt3NVBrWE5oMkpWdUs2eEhIdg?oc=5",
-      "published_iso": "2026-05-08T14:32:28+07:00",
-      "published_text": "08/05 14:32"
+      "title": "Trump’s Latest Tariff Setback Looms Over China Talks - The New York Times",
+      "title_vi": "Sự thụt lùi thuế quan mới nhất của Trump xuất hiện trong các cuộc đàm phán về Trung Quốc - The New York Times",
+      "summary": "Trump’s Latest Tariff Setback Looms Over China Talks The New York Times",
+      "summary_vi": "Trump’s Latest Tariff Setback Looms Over China Talks The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1xZk53NFUybTdOUDA2T0lCUUZ4bi10M3hja1N4MW9tYVgzc2dOUkdEa1dRUTc2MjNSVGpMWWF5aUd4SVJlS3p4NUIxcDJ6ODF3VEdGQk5lckpMbFl0QzFPQ2I4R3FFX09HbHV0TTJSMVpoTjd0VlVEdVBLYnBfZzQ?oc=5",
+      "published_iso": "2026-05-08T23:00:22+07:00",
+      "published_text": "08/05 23:00"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-ben-thanh-dau-gia-01-xe-o-to-con-nhan-hieu-toyota-bien-so-51a-49053-50921-50921.html",
-      "published_iso": "2026-05-10T00:03:39.090173+07:00",
-      "published_text": "10/05 00:03"
+      "published_iso": "2026-05-10T00:57:20.903874+07:00",
+      "published_text": "10/05 00:57"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/trung-tam-dich-vu-dau-gia-tai-san-quy-nhon-dau-gia-mot-so-tai-san-cong-thuoc-benh-vien-da-khoa-gia-lai-50920.html",
-      "published_iso": "2026-05-10T00:03:39.090107+07:00",
-      "published_text": "10/05 00:03"
+      "published_iso": "2026-05-10T00:57:20.903814+07:00",
+      "published_text": "10/05 00:57"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/tinh-hinh-tai-chinh-cua-9pay-truoc-khi-buoc-vao-ifc-da-nang-d144492.html",
-      "published_iso": "2026-05-10T00:03:37.230213+07:00",
-      "published_text": "10/05 00:03"
+      "published_iso": "2026-05-10T00:57:19.699925+07:00",
+      "published_text": "10/05 00:57"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/stb-lo-trinh-thanh-co-phieu-ngan-hang-dat-gia-nhat-san-chung-khoan-d144547.html",
-      "published_iso": "2026-05-10T00:03:37.230144+07:00",
-      "published_text": "10/05 00:03"
+      "published_iso": "2026-05-10T00:57:19.699863+07:00",
+      "published_text": "10/05 00:57"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/cu-nhay-vot-4-ty-usd-von-dieu-le-va-tham-vong-moi-cua-techcombank-18826050322594015.chn",
-      "published_iso": "2026-05-10T00:03:35.263046+07:00",
-      "published_text": "10/05 00:03"
+      "published_iso": "2026-05-10T00:57:17.496983+07:00",
+      "published_text": "10/05 00:57"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/dua-vao-thu-tung-bi-coi-la-rac-cung-mot-ga-gan-do-nuoc-my-tu-ke-phu-thuoc-tro-thanh-tay-choi-lon-trong-linh-vuc-then-chot-toan-cau-nhu-the-nao-18826050514383963.chn",
-      "published_iso": "2026-05-10T00:03:35.262972+07:00",
-      "published_text": "10/05 00:03"
+      "published_iso": "2026-05-10T00:57:17.496911+07:00",
+      "published_text": "10/05 00:57"
     }
   ],
   "markets": [
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 80621.0,
-      "change": 434.0,
-      "change_pct": 0.54,
+      "price": 80741.0,
+      "change": 554.0,
+      "change_pct": 0.69,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 09/05 07:00"
