@@ -1,7 +1,17 @@
 {
-  "updated_at": "2026-05-09T15:17:59.434341+07:00",
-  "updated_at_display": "09/05/2026 • 15:17 GMT+7",
+  "updated_at": "2026-05-09T16:45:03.677010+07:00",
+  "updated_at_display": "09/05/2026 • 16:45 GMT+7",
   "war_news": [
+    {
+      "source": "Al Jazeera",
+      "title": "The war on Iran will likely end in American retreat",
+      "title_vi": "Cuộc chiến chống Iran có thể sẽ kết thúc bằng việc Mỹ rút lui",
+      "summary": "The American empire cannot win the war against Iran at acceptable financial, military, and political costs.",
+      "summary_vi": "The American empire cannot win the war against Iran at acceptable financial, military, and political costs.",
+      "url": "https://www.aljazeera.com/opinions/2026/5/9/the-war-on-iran-will-likely-end-in-american-retreat?traffic_source=rss",
+      "published_iso": "2026-05-09T16:14:33+07:00",
+      "published_text": "09/05 16:14"
+    },
     {
       "source": "Al Jazeera",
       "title": "Israeli settlers set fire to homes and cars in violent West Bank raids",
@@ -11,29 +21,9 @@
       "url": "https://www.aljazeera.com/news/2026/5/9/israeli-settlers-set-fire-to-homes-and-cars-in-violent-west-bank-raids?traffic_source=rss",
       "published_iso": "2026-05-09T14:18:27+07:00",
       "published_text": "09/05 14:18"
-    },
-    {
-      "source": "Al Jazeera",
-      "title": "Financial struggles burden Yemen’s army as soldiers wait for wages",
-      "title_vi": "Cuộc đấu tranh tài chính gây gánh nặng cho quân đội Yemen khi những người lính chờ đợi tiền lương",
-      "summary": "Yemeni soldiers earn $38 to $116 monthly, but an unstable currency has eroded the value of their salaries.",
-      "summary_vi": "Yemeni soldiers earn $38 to $116 monthly, but an unstable currency has eroded the value of their salaries.",
-      "url": "https://www.aljazeera.com/economy/2026/5/9/financial-struggles-haunt-yemens-army-as-wage-payments-stall?traffic_source=rss",
-      "published_iso": "2026-05-09T14:11:53+07:00",
-      "published_text": "09/05 14:11"
     }
   ],
   "global_news": [
-    {
-      "source": "Investing News",
-      "title": "China April exports rebound strongly, trade surplus widens ahead of Trump visit",
-      "title_vi": "Xuất khẩu Trung Quốc tháng 4 phục hồi mạnh mẽ, thặng dư thương mại mở rộng trước chuyến thăm của Trump",
-      "summary": "",
-      "summary_vi": "",
-      "url": "https://www.investing.com/news/economic-indicators/china-april-exports-rebound-strongly-trade-surplus-widens-ahead-of-trump-visit-4674595",
-      "published_iso": "2026-05-09T14:30:31+07:00",
-      "published_text": "09/05 14:30"
-    },
     {
       "source": "Google News Macro",
       "title": "Trump’s Latest Tariff Setback Looms Over China Talks - The New York Times",
@@ -56,13 +46,23 @@
     },
     {
       "source": "Google News Macro",
-      "title": "Iran War: China's Invisible Hand Is Rebalancing the Oil Market - Bloomberg.com",
-      "title_vi": "Chiến tranh Iran: Bàn tay vô hình của Trung Quốc đang tái cân bằng thị trường dầu mỏ - Bloomberg.com",
-      "summary": "Iran War: China's Invisible Hand Is Rebalancing the Oil Market Bloomberg.com",
-      "summary_vi": "Iran War: China's Invisible Hand Is Rebalancing the Oil Market Bloomberg.com",
+      "title": "Iran War: China's Invisible Hand Is Rebalancing the Oil Market - Bloomberg",
+      "title_vi": "Chiến tranh Iran: Bàn tay vô hình của Trung Quốc đang tái cân bằng thị trường dầu mỏ - Bloomberg",
+      "summary": "Iran War: China's Invisible Hand Is Rebalancing the Oil Market Bloomberg",
+      "summary_vi": "Iran War: China's Invisible Hand Is Rebalancing the Oil Market Bloomberg",
       "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQREdxOFE4TDl0WVJHZWZuUEU3YU9iOG9iLVdpMGJXd2dYT1Y2SjhpREtqanNFbU1aLUlrZEV3YmlWT1lPVVdva2l4cjNlMVlkU3E3eW5FRVNmSU5WUGo2ZGlHU0d4SkhvNjZKTDlfN2N6ekZ3aHhaWENVaUcxUlJNa1JpU1BrTE1nSWpVb29NbTVmeVFlb0F2TXMzRUsxN1dUWXVFaDlFenAzRUVtN1ZaYjVDZHY4dw?oc=5",
       "published_iso": "2026-05-08T10:00:00+07:00",
       "published_text": "08/05 10:00"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "Trade court strikes down Trump 10% universal tariffs - Axios",
+      "title_vi": "Tòa án thương mại loại bỏ thuế quan phổ quát 10% của Trump - Axios",
+      "summary": "Trade court strikes down Trump 10% universal tariffs Axios",
+      "summary_vi": "Trade court strikes down Trump 10% universal tariffs Axios",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFAtZmJSUFJUdlFLN0RhMlY3TXl4U2xLMVRXS0VPMVZ2azNhdWtEcUZKMUc5V1IzdXI2RnJ2R3Nyb1lkUk1xZmQ0d2dSemxoNnhxTHNBVWs5eEdRbkMxQzEzTzVWd3pWWldnVVE?oc=5",
+      "published_iso": "2026-05-08T08:51:33+07:00",
+      "published_text": "08/05 08:51"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-kieu-viet-dau-gia-33-lo-dat-o-ta-i-khu-dan-cu-doc-quoc-lo-19-moi-khu-vuc-1-xa-phuoc-loc-cu-xa-tuy-phuoc-tinh-gia-lai-dau-gia-ngay-2852026-50908.html",
-      "published_iso": "2026-05-09T15:18:44.357136+07:00",
-      "published_text": "09/05 15:18"
+      "published_iso": "2026-05-09T16:45:54.521772+07:00",
+      "published_text": "09/05 16:45"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-kieu-viet-dau-gia-33-lo-dat-o-ta-i-khu-dan-cu-doc-quoc-lo-19-moi-khu-vuc-1-xa-phuoc-loc-cu-xa-tuy-phuoc-tinh-gia-lai-dau-gia-ngay-462026-50909.html",
-      "published_iso": "2026-05-09T15:18:44.357061+07:00",
-      "published_text": "09/05 15:18"
+      "published_iso": "2026-05-09T16:45:54.521701+07:00",
+      "published_text": "09/05 16:45"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/tinh-hinh-tai-chinh-cua-9pay-truoc-khi-buoc-vao-ifc-da-nang-d144492.html",
-      "published_iso": "2026-05-09T15:18:43.305792+07:00",
-      "published_text": "09/05 15:18"
+      "published_iso": "2026-05-09T16:45:52.911172+07:00",
+      "published_text": "09/05 16:45"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/stb-lo-trinh-thanh-co-phieu-ngan-hang-dat-gia-nhat-san-chung-khoan-d144547.html",
-      "published_iso": "2026-05-09T15:18:43.305719+07:00",
-      "published_text": "09/05 15:18"
+      "published_iso": "2026-05-09T16:45:52.911105+07:00",
+      "published_text": "09/05 16:45"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/cu-nhay-vot-4-ty-usd-von-dieu-le-va-tham-vong-moi-cua-techcombank-18826050322594015.chn",
-      "published_iso": "2026-05-09T15:18:41.140526+07:00",
-      "published_text": "09/05 15:18"
+      "published_iso": "2026-05-09T16:45:50.963452+07:00",
+      "published_text": "09/05 16:45"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/dua-vao-thu-tung-bi-coi-la-rac-cung-mot-ga-gan-do-nuoc-my-tu-ke-phu-thuoc-tro-thanh-tay-choi-lon-trong-linh-vuc-then-chot-toan-cau-nhu-the-nao-18826050514383963.chn",
-      "published_iso": "2026-05-09T15:18:41.140445+07:00",
-      "published_text": "09/05 15:18"
+      "published_iso": "2026-05-09T16:45:50.963351+07:00",
+      "published_text": "09/05 16:45"
     }
   ],
   "markets": [
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 80400.0,
-      "change": 213.0,
-      "change_pct": 0.27,
+      "price": 80232.0,
+      "change": 45.0,
+      "change_pct": 0.06,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 09/05 07:00"
