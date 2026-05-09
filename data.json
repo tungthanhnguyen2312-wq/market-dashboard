@@ -1,7 +1,17 @@
 {
-  "updated_at": "2026-05-09T22:00:24.712731+07:00",
-  "updated_at_display": "09/05/2026 • 22:00 GMT+7",
+  "updated_at": "2026-05-09T22:59:09.326215+07:00",
+  "updated_at_display": "09/05/2026 • 22:59 GMT+7",
   "war_news": [
+    {
+      "source": "Google News War",
+      "title": "Live Updates: Latest from Israel, Iran, and Middle East - The Jerusalem Post",
+      "title_vi": "Cập nhật trực tiếp: Mới nhất từ Israel, Iran và Trung Đông - The Jerusalem Post",
+      "summary": "Live Updates: Latest from Israel, Iran, and Middle East The Jerusalem Post",
+      "summary_vi": "Live Updates: Latest from Israel, Iran, and Middle East The Jerusalem Post",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBKSnVTU1V5V2paUkdLZzJTMEdTaGVhTVlnMzBLb09FQThKeWlueG5PMlNDdHFwamphVU4tdEh3TWpZOElfOUZNd3AwWnlPTlAta2V1U0JSUzIxWDljdVF3NF9KQTZaS05Ga1pzaldZS1pLd1RfVkp0d0pZTkpGb0U?oc=5",
+      "published_iso": "2026-05-09T22:01:31+07:00",
+      "published_text": "09/05 22:01"
+    },
     {
       "source": "Al Jazeera",
       "title": "Israel to release two detained Gaza flotilla activists",
@@ -11,29 +21,9 @@
       "url": "https://www.aljazeera.com/news/2026/5/9/israel-to-release-two-detained-gaza-flotilla-activists?traffic_source=rss",
       "published_iso": "2026-05-09T21:06:55+07:00",
       "published_text": "09/05 21:06"
-    },
-    {
-      "source": "Al Jazeera",
-      "title": "Bahrain rounds up dozens over alleged links to Iran’s IRGC",
-      "title_vi": "Bahrain làm tròn hàng chục liên kết bị cáo buộc với IRGC của Iran",
-      "summary": "The country's interior ministry said legal proceedings are under way against the 41 people arrested.",
-      "summary_vi": "The country's interior ministry said legal proceedings are under way against the 41 people arrested.",
-      "url": "https://www.aljazeera.com/news/2026/5/9/bahrain-rounds-up-dozens-over-alleged-links-to-irans-irgc?traffic_source=rss",
-      "published_iso": "2026-05-09T20:53:00+07:00",
-      "published_text": "09/05 20:53"
     }
   ],
   "global_news": [
-    {
-      "source": "Investing News",
-      "title": "AO Smith Q1 2026 slides: earnings miss forecast, China weighs on results",
-      "title_vi": "AO Smith Q1 2026 slide: dự báo thiếu thu nhập, Trung Quốc cân nhắc kết quả",
-      "summary": "",
-      "summary_vi": "",
-      "url": "https://www.investing.com/news/company-news/ao-smith-q1-2026-slides-earnings-miss-forecast-china-weighs-on-results-93CH-4674648",
-      "published_iso": "2026-05-09T20:58:20+07:00",
-      "published_text": "09/05 20:58"
-    },
     {
       "source": "Google News Macro",
       "title": "China’s Exports and Imports Set Records in April Amid High Energy Costs - The New York Times",
@@ -63,6 +53,16 @@
       "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNX2lURVdvWVp6UmNLVUcyS3RGak4wMTNkUGxndlJxdjNQaFFpQ2daOWNjVDdVRXp2S0lGVGRjdXM0YWRDQUcxeXpqdkpPTHhneHM2djItOEJIemxEbWlNcnZwTWlVWTBwM2VPUnhDaU9KeFpfdnhCd2NZT0JhdmRrRTRtWnNUdFh5Smc?oc=5",
       "published_iso": "2026-05-09T03:01:40+07:00",
       "published_text": "09/05 03:01"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "Trump threatens EU with ‘much higher’ tariffs if no trade deal signed by new deadline - CNBC",
+      "title_vi": "Trump đe dọa EU với mức thuế ‘cao hơn nhiều’ nếu không có thỏa thuận thương mại nào được ký trước thời hạn mới - CNBC",
+      "summary": "Trump threatens EU with ‘much higher’ tariffs if no trade deal signed by new deadline CNBC",
+      "summary_vi": "Trump threatens EU with ‘much higher’ tariffs if no trade deal signed by new deadline CNBC",
+      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1hdk14cERPNDV0QXlrUnJQUzhjN2VIQnVtT3BQcTZORVV6Snd5WnZOeHhaTmptUTlyQ1BXalZpN3BjMm5vVnBXTTBsTF9PWl9tb3RKNEZMaTNZTTh1aHE0cWg4QWhfSGN2YlZKT1A2bVhCOGViWjh1VGxUY9IBgAFBVV95cUxPLVdOMkwxV0UwdEQ2ZjVjRnRmM0g1eG9QYWh0MTh5cy1obThHTUdDSldLbFlTYUJENEh6WVVzY0tCdVFybkJacFhrMGRMTGNlTjBUa1FHaU05MUR6LVFCMDQ0dlFfU3dLemlaZHBCLWt3NVBrWE5oMkpWdUs2eEhIdg?oc=5",
+      "published_iso": "2026-05-08T14:32:28+07:00",
+      "published_text": "08/05 14:32"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-ben-thanh-dau-gia-01-xe-o-to-con-nhan-hieu-toyota-bien-so-51a-49053-50921-50921.html",
-      "published_iso": "2026-05-09T22:01:16.479311+07:00",
-      "published_text": "09/05 22:01"
+      "published_iso": "2026-05-09T22:59:58.754587+07:00",
+      "published_text": "09/05 22:59"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/trung-tam-dich-vu-dau-gia-tai-san-quy-nhon-dau-gia-mot-so-tai-san-cong-thuoc-benh-vien-da-khoa-gia-lai-50920.html",
-      "published_iso": "2026-05-09T22:01:16.479247+07:00",
-      "published_text": "09/05 22:01"
+      "published_iso": "2026-05-09T22:59:58.754523+07:00",
+      "published_text": "09/05 22:59"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/tinh-hinh-tai-chinh-cua-9pay-truoc-khi-buoc-vao-ifc-da-nang-d144492.html",
-      "published_iso": "2026-05-09T22:01:14.035995+07:00",
-      "published_text": "09/05 22:01"
+      "published_iso": "2026-05-09T22:59:56.974399+07:00",
+      "published_text": "09/05 22:59"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/stb-lo-trinh-thanh-co-phieu-ngan-hang-dat-gia-nhat-san-chung-khoan-d144547.html",
-      "published_iso": "2026-05-09T22:01:14.035935+07:00",
-      "published_text": "09/05 22:01"
+      "published_iso": "2026-05-09T22:59:56.974328+07:00",
+      "published_text": "09/05 22:59"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/cu-nhay-vot-4-ty-usd-von-dieu-le-va-tham-vong-moi-cua-techcombank-18826050322594015.chn",
-      "published_iso": "2026-05-09T22:01:11.884548+07:00",
-      "published_text": "09/05 22:01"
+      "published_iso": "2026-05-09T22:59:54.883226+07:00",
+      "published_text": "09/05 22:59"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/dua-vao-thu-tung-bi-coi-la-rac-cung-mot-ga-gan-do-nuoc-my-tu-ke-phu-thuoc-tro-thanh-tay-choi-lon-trong-linh-vuc-then-chot-toan-cau-nhu-the-nao-18826050514383963.chn",
-      "published_iso": "2026-05-09T22:01:11.884482+07:00",
-      "published_text": "09/05 22:01"
+      "published_iso": "2026-05-09T22:59:54.883154+07:00",
+      "published_text": "09/05 22:59"
     }
   ],
   "markets": [
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 80309.0,
-      "change": 122.0,
-      "change_pct": 0.15,
+      "price": 80524.0,
+      "change": 337.0,
+      "change_pct": 0.42,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 09/05 07:00"
