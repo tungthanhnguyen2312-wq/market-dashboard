@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-05-10T05:55:40.415705+07:00",
-  "updated_at_display": "10/05/2026 • 05:55 GMT+7",
+  "updated_at": "2026-05-10T06:56:41.259160+07:00",
+  "updated_at_display": "10/05/2026 • 06:56 GMT+7",
   "war_news": [
     {
       "source": "Google News War",
@@ -35,16 +35,6 @@
       "published_text": "10/05 04:33"
     },
     {
-      "source": "Investing News",
-      "title": "PPG Q1 2026 slides: aerospace drives earnings beat amid inflation",
-      "title_vi": "PPG Q1 2026 slide: hàng không vũ trụ thúc đẩy lợi nhuận trong bối cảnh lạm phát",
-      "summary": "",
-      "summary_vi": "",
-      "url": "https://www.investing.com/news/company-news/ppg-q1-2026-slides-aerospace-drives-earnings-beat-amid-inflation-93CH-4674727",
-      "published_iso": "2026-05-10T02:49:58+07:00",
-      "published_text": "10/05 02:49"
-    },
-    {
       "source": "Google News Macro",
       "title": "Embodied AI: China’s ambitious path to transform its robotics industry - Mercator Institute for China Studies (MERICS)",
       "title_vi": "Hiện thân AI: Con đường đầy tham vọng của Trung Quốc để chuyển đổi ngành công nghiệp robot - Viện Nghiên cứu Trung Quốc Mercator (MERICS)",
@@ -63,6 +53,16 @@
       "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOdWR1NUNxejNzeGFBV29WTGY1UnA5dkROcmVmS1RCOGVwQi1Kb1QzQmF5Um1kZDV2VzZJeXR0eWJhd1dMTVJxMXJHX1laUERyaTExQy0xSVJsMWhUQWpPUjJKakg2SC1lVXpKZV9sZXdqdjJNbzlOd1d5ZUlzU3duNmdnTWtzQ2hac2c?oc=5",
       "published_iso": "2026-05-09T22:24:47+07:00",
       "published_text": "09/05 22:24"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "Trump’s Latest Tariff Setback Looms Over China Talks - The New York Times",
+      "title_vi": "Sự thụt lùi thuế quan mới nhất của Trump xuất hiện trong các cuộc đàm phán về Trung Quốc - The New York Times",
+      "summary": "Trump’s Latest Tariff Setback Looms Over China Talks The New York Times",
+      "summary_vi": "Trump’s Latest Tariff Setback Looms Over China Talks The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1xZk53NFUybTdOUDA2T0lCUUZ4bi10M3hja1N4MW9tYVgzc2dOUkdEa1dRUTc2MjNSVGpMWWF5aUd4SVJlS3p4NUIxcDJ6ODF3VEdGQk5lckpMbFl0QzFPQ2I4R3FFX09HbHV0TTJSMVpoTjd0VlVEdVBLYnBfZzQ?oc=5",
+      "published_iso": "2026-05-09T03:21:57+07:00",
+      "published_text": "09/05 03:21"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-ben-thanh-dau-gia-01-xe-o-to-con-nhan-hieu-toyota-bien-so-51a-49053-50921-50921.html",
-      "published_iso": "2026-05-10T05:56:30.662548+07:00",
-      "published_text": "10/05 05:56"
+      "published_iso": "2026-05-10T06:57:32.674457+07:00",
+      "published_text": "10/05 06:57"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/trung-tam-dich-vu-dau-gia-tai-san-quy-nhon-dau-gia-mot-so-tai-san-cong-thuoc-benh-vien-da-khoa-gia-lai-50920.html",
-      "published_iso": "2026-05-10T05:56:30.662485+07:00",
-      "published_text": "10/05 05:56"
+      "published_iso": "2026-05-10T06:57:32.674386+07:00",
+      "published_text": "10/05 06:57"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/tinh-hinh-tai-chinh-cua-9pay-truoc-khi-buoc-vao-ifc-da-nang-d144492.html",
-      "published_iso": "2026-05-10T05:56:29.407833+07:00",
-      "published_text": "10/05 05:56"
+      "published_iso": "2026-05-10T06:57:30.204008+07:00",
+      "published_text": "10/05 06:57"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/stb-lo-trinh-thanh-co-phieu-ngan-hang-dat-gia-nhat-san-chung-khoan-d144547.html",
-      "published_iso": "2026-05-10T05:56:29.407769+07:00",
-      "published_text": "10/05 05:56"
+      "published_iso": "2026-05-10T06:57:30.203935+07:00",
+      "published_text": "10/05 06:57"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/cu-nhay-vot-4-ty-usd-von-dieu-le-va-tham-vong-moi-cua-techcombank-18826050322594015.chn",
-      "published_iso": "2026-05-10T05:56:27.614865+07:00",
-      "published_text": "10/05 05:56"
+      "published_iso": "2026-05-10T06:57:28.128403+07:00",
+      "published_text": "10/05 06:57"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/dua-vao-thu-tung-bi-coi-la-rac-cung-mot-ga-gan-do-nuoc-my-tu-ke-phu-thuoc-tro-thanh-tay-choi-lon-trong-linh-vuc-then-chot-toan-cau-nhu-the-nao-18826050514383963.chn",
-      "published_iso": "2026-05-10T05:56:27.614794+07:00",
-      "published_text": "10/05 05:56"
+      "published_iso": "2026-05-10T06:57:28.128326+07:00",
+      "published_text": "10/05 06:57"
     }
   ],
   "markets": [
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 80731.0,
-      "change": 544.0,
-      "change_pct": 0.68,
+      "price": 80673.0,
+      "change": 487.0,
+      "change_pct": 0.61,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 09/05 07:00"
