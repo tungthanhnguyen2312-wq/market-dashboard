@@ -1,7 +1,17 @@
 {
-  "updated_at": "2026-05-11T03:31:28.805406+07:00",
-  "updated_at_display": "11/05/2026 • 03:31 GMT+7",
+  "updated_at": "2026-05-11T04:25:57.724084+07:00",
+  "updated_at_display": "11/05/2026 • 04:25 GMT+7",
   "war_news": [
+    {
+      "source": "Al Jazeera",
+      "title": "US Jewish leader, Israel advocate Abe Foxman dies at 86",
+      "title_vi": "Nhà lãnh đạo Do Thái Hoa Kỳ, người ủng hộ Israel Abe Foxman qua đời ở tuổi 86",
+      "summary": "Israeli officials hail Foxman, who led the ADL advocacy group for nearly three decades, as warm and passionate.",
+      "summary_vi": "Israeli officials hail Foxman, who led the ADL advocacy group for nearly three decades, as warm and passionate.",
+      "url": "https://www.aljazeera.com/news/2026/5/10/us-jewish-leader-israel-advocate-abe-foxman-dies-at-86?traffic_source=rss",
+      "published_iso": "2026-05-11T03:52:48+07:00",
+      "published_text": "11/05 03:52"
+    },
     {
       "source": "Al Jazeera",
       "title": "South Korea says ship was struck by ‘unidentified flying objects’ in Hormuz",
@@ -11,19 +21,19 @@
       "url": "https://www.aljazeera.com/video/newsfeed/2026/5/10/south-korea-says-ship-was-struck-by-unidentified-flying-objects-in-hormuz?traffic_source=rss",
       "published_iso": "2026-05-11T02:12:52+07:00",
       "published_text": "11/05 02:12"
-    },
-    {
-      "source": "Al Jazeera",
-      "title": "Gaza volunteers plant olive trees at devastated al-Shifa Hospital",
-      "title_vi": "Các tình nguyện viên Gaza trồng cây ô liu tại Bệnh viện al-Shifa bị tàn phá",
-      "summary": "Volunteers at al-Shifa Hospital cleared rubble and planted olive trees in the courtyard as a symbol of hope.",
-      "summary_vi": "Volunteers at al-Shifa Hospital cleared rubble and planted olive trees in the courtyard as a symbol of hope.",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/10/gaza-volunteers-plant-olive-trees-at-devastated-al-shifa-hospital?traffic_source=rss",
-      "published_iso": "2026-05-11T02:01:20+07:00",
-      "published_text": "11/05 02:01"
     }
   ],
   "global_news": [
+    {
+      "source": "Google News Macro",
+      "title": "Which Trump Tariffs Are in Place, in the Works or Ruled Illegal - The New York Times",
+      "title_vi": "Biểu thuế Trump nào đang được áp dụng, trong các Công trình hoặc Phán quyết bất hợp pháp - The New York Times",
+      "summary": "Which Trump Tariffs Are in Place, in the Works or Ruled Illegal The New York Times",
+      "summary_vi": "Which Trump Tariffs Are in Place, in the Works or Ruled Illegal The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNTnpXa3NxU3BVQndDLTI3Wk1acjRpSk40RldfYjhGRTVLWnJSd2FTendvSEdmanc5VWpGRnlqSFN3bWYwRUtfRV9XRmFTdElmdWd2NUU4YzRScldWT19PVkhsRjVXV0gtNGhaZGFSQVU5Q2dNc1ozQnNOTGpnYlVyQ01hZjA?oc=5",
+      "published_iso": "2026-05-11T04:03:07+07:00",
+      "published_text": "11/05 04:03"
+    },
     {
       "source": "Investing News",
       "title": "Energy inflation fuels uncertainties in a K-shaped economy",
@@ -45,24 +55,14 @@
       "published_text": "11/05 00:40"
     },
     {
-      "source": "Investing News",
-      "title": "Latvian defence minister resigns after Ukrainian drones hit oil tanks",
-      "title_vi": "Bộ trưởng Quốc phòng Latvia từ chức sau khi máy bay không người lái của Ukraine đâm vào thùng dầu",
-      "summary": "",
-      "summary_vi": "",
-      "url": "https://www.investing.com/news/world-news/latvian-defence-minister-resigns-after-ukrainian-drones-hit-oil-tanks-4674851",
-      "published_iso": "2026-05-11T00:36:32+07:00",
-      "published_text": "11/05 00:36"
-    },
-    {
       "source": "Google News Macro",
-      "title": "Which Trump Tariffs Are in Place, in the Works or Ruled Illegal - The New York Times",
-      "title_vi": "Biểu thuế Trump nào đang được áp dụng, trong các Công trình hoặc Phán quyết bất hợp pháp - The New York Times",
-      "summary": "Which Trump Tariffs Are in Place, in the Works or Ruled Illegal The New York Times",
-      "summary_vi": "Which Trump Tariffs Are in Place, in the Works or Ruled Illegal The New York Times",
-      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNTnpXa3NxU3BVQndDLTI3Wk1acjRpSk40RldfYjhGRTVLWnJSd2FTendvSEdmanc5VWpGRnlqSFN3bWYwRUtfRV9XRmFTdElmdWd2NUU4YzRScldWT19PVkhsRjVXV0gtNGhaZGFSQVU5Q2dNc1ozQnNOTGpnYlVyQ01hZjA?oc=5",
-      "published_iso": "2026-05-10T20:26:00+07:00",
-      "published_text": "10/05 20:26"
+      "title": "At the Trump-Xi Summit, China Will Have the Upper Hand - Council on Foreign Relations",
+      "title_vi": "Tại Hội nghị thượng đỉnh Trump-Xi, Trung Quốc sẽ chiếm thế thượng phong - Hội đồng Quan hệ Đối ngoại",
+      "summary": "At the Trump-Xi Summit, China Will Have the Upper Hand Council on Foreign Relations",
+      "summary_vi": "At the Trump-Xi Summit, China Will Have the Upper Hand Council on Foreign Relations",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxON2FRS0xIUXZETUlXXzlndENaZF9kdlliWlQtVWFJRzdPUjJndE5Bd3ZZRFpUVHl1R2NCSjBQMG1tZ05EOS1GN0M0cW9Idk9zMU5xQWFlSkRBeFQxa25pdXV4RkhYRWJQbWFPckRjSUh6VzdWWkNyMTJDMk5CNzNkY3BURmo0ZlJFb0E?oc=5",
+      "published_iso": "2026-05-10T16:00:00+07:00",
+      "published_text": "10/05 16:00"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-ben-thanh-dau-gia-01-xe-o-to-con-nhan-hieu-toyota-bien-so-51a-49053-50921-50921.html",
-      "published_iso": "2026-05-11T03:32:33.161592+07:00",
-      "published_text": "11/05 03:32"
+      "published_iso": "2026-05-11T04:26:50.207049+07:00",
+      "published_text": "11/05 04:26"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/trung-tam-dich-vu-dau-gia-tai-san-quy-nhon-dau-gia-mot-so-tai-san-cong-thuoc-benh-vien-da-khoa-gia-lai-50920.html",
-      "published_iso": "2026-05-11T03:32:33.161524+07:00",
-      "published_text": "11/05 03:32"
+      "published_iso": "2026-05-11T04:26:50.206985+07:00",
+      "published_text": "11/05 04:26"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/bien-mo-ca-basa-dau-an-thai-loai-thanh-xang-may-bay-the-he-moi-d144574.html",
-      "published_iso": "2026-05-11T03:32:32.095739+07:00",
-      "published_text": "11/05 03:32"
+      "published_iso": "2026-05-11T04:26:48.977955+07:00",
+      "published_text": "11/05 04:26"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/san-tien-ma-hoa-so-1-chao-dao-sap-san-lo-dam-va-sa-thai-hang-tram-nhan-vien-d144555.html",
-      "published_iso": "2026-05-11T03:32:32.095675+07:00",
-      "published_text": "11/05 03:32"
+      "published_iso": "2026-05-11T04:26:48.977886+07:00",
+      "published_text": "11/05 04:26"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/viet-nam-tu-ban-sac-van-hoa-den-nhung-bieu-tuong-toan-cau-188260508152921968.chn",
-      "published_iso": "2026-05-11T03:32:30.132419+07:00",
-      "published_text": "11/05 03:32"
+      "published_iso": "2026-05-11T04:26:46.722041+07:00",
+      "published_text": "11/05 04:26"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/jollibee-viet-nam-dat-bao-chung-quoc-te-ve-attp-de-noi-lo-nhuong-cho-cho-nhung-bua-an-tram-phan-tram-vui-ve-188260509094524105.chn",
-      "published_iso": "2026-05-11T03:32:30.132351+07:00",
-      "published_text": "11/05 03:32"
+      "published_iso": "2026-05-11T04:26:46.721969+07:00",
+      "published_text": "11/05 04:26"
     }
   ],
   "markets": [
@@ -220,9 +220,9 @@
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1767,
-      "change": 0.0036,
-      "change_pct": 0.31,
+      "price": 1.1754,
+      "change": 0.0022,
+      "change_pct": 0.19,
       "decimals": 4,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 10/05 06:00"
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 81062.0,
-      "change": 398.0,
-      "change_pct": 0.49,
+      "price": 80744.0,
+      "change": 80.0,
+      "change_pct": 0.1,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 10/05 07:00"
