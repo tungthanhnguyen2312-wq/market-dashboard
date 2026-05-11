@@ -1,7 +1,17 @@
 {
-  "updated_at": "2026-05-12T03:19:15.592019+07:00",
-  "updated_at_display": "12/05/2026 • 03:19 GMT+7",
+  "updated_at": "2026-05-12T04:43:48.733432+07:00",
+  "updated_at_display": "12/05/2026 • 04:43 GMT+7",
   "war_news": [
+    {
+      "source": "Al Jazeera",
+      "title": "EU sanctions violent Israeli settlers after months of deadlock",
+      "title_vi": "EU trừng phạt những người định cư Israel bạo lực sau nhiều tháng bế tắc",
+      "summary": "The assets of violent Israeli settlers and settler organisations are being targeted in a new EU sanctions package.",
+      "summary_vi": "The assets of violent Israeli settlers and settler organisations are being targeted in a new EU sanctions package.",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/11/eu-sanctions-violent-israeli-settlers-after-months-of-deadlock?traffic_source=rss",
+      "published_iso": "2026-05-12T03:31:54+07:00",
+      "published_text": "12/05 03:31"
+    },
     {
       "source": "Al Jazeera",
       "title": "EU agrees sanctions on Israeli West Bank settlers, Hamas leaders",
@@ -11,29 +21,9 @@
       "url": "https://www.aljazeera.com/news/2026/5/11/eu-agrees-sanctions-on-israeli-west-bank-settlers-hamas-leaders?traffic_source=rss",
       "published_iso": "2026-05-12T02:10:18+07:00",
       "published_text": "12/05 02:10"
-    },
-    {
-      "source": "Al Jazeera",
-      "title": "UK sanctions network accused of planning attacks for Iran",
-      "title_vi": "Mạng lưới trừng phạt của Anh bị cáo buộc lên kế hoạch tấn công Iran",
-      "summary": "Britain freezes assets and travel for those accused of laundering billions and plotting Iranian-backed hostile activity.",
-      "summary_vi": "Britain freezes assets and travel for those accused of laundering billions and plotting Iranian-backed hostile activity.",
-      "url": "https://www.aljazeera.com/news/2026/5/11/uk-sanctions-network-accused-of-planning-attacks-for-iran?traffic_source=rss",
-      "published_iso": "2026-05-12T01:25:10+07:00",
-      "published_text": "12/05 01:25"
     }
   ],
   "global_news": [
-    {
-      "source": "Google News Macro",
-      "title": "Trump to Be Joined by Elon Musk and Other CEOs at Xi Summit in China - The New York Times",
-      "title_vi": "Trump sẽ được Elon Musk và các CEO khác tham gia tại Hội nghị thượng đỉnh Xi ở Trung Quốc - The New York Times",
-      "summary": "Trump to Be Joined by Elon Musk and Other CEOs at Xi Summit in China The New York Times",
-      "summary_vi": "Trump to Be Joined by Elon Musk and Other CEOs at Xi Summit in China The New York Times",
-      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFB0T0FLLU15eldCQzZWQVNKQjI2LUtSbUo0amhQQWZHa09tSmFISjBtNFJHelpocEZ0dzZZcWpoMnBEX0kxVDY3dTJNMHFCUnN3RHA2LWZNdEFlaGxxbnY3ODNUTVNkM3Z1emk5OEY2SWc4N05ETzZpa01pMHFNdw?oc=5",
-      "published_iso": "2026-05-12T02:34:59+07:00",
-      "published_text": "12/05 02:34"
-    },
     {
       "source": "Google News Macro",
       "title": "Opinion | What a former CIA analyst reveals about a potential China fight - The Washington Post",
@@ -43,6 +33,16 @@
       "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOaTlZMkJxTHhzcDNQOUpiNHo2ME5lWGV0VkNPN1BseHdMaDVPY0VNc0ZKNk9ObkEtR3NGOE9TZXhrUnVZVkNBVnNjYVhzS0w4N3hwbDY1cGJsVEJiT0ZtV3BuMkNRclFmTkNUV2F3N0x6azU4Z0hNS1l6cWtqbzEzUEZqN2pjOFhNcEl2Q212eU1YMTFHY1h0X1FzTDhjcFNCSzI2cjk5RnZ1cFM5?oc=5",
       "published_iso": "2026-05-12T00:00:00+07:00",
       "published_text": "12/05 00:00"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "Chief Executives to Accompany Trump to China - The New York Times",
+      "title_vi": "Giám đốc điều hành để đồng hành cùng Trump đến Trung Quốc - The New York Times",
+      "summary": "Chief Executives to Accompany Trump to China The New York Times",
+      "summary_vi": "Chief Executives to Accompany Trump to China The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFB0T0FLLU15eldCQzZWQVNKQjI2LUtSbUo0amhQQWZHa09tSmFISjBtNFJHelpocEZ0dzZZcWpoMnBEX0kxVDY3dTJNMHFCUnN3RHA2LWZNdEFlaGxxbnY3ODNUTVNkM3Z1emk5OEY2SWc4N05ETzZpa01pMHFNdw?oc=5",
+      "published_iso": "2026-05-11T23:45:10+07:00",
+      "published_text": "11/05 23:45"
     },
     {
       "source": "Google News Macro",
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-tay-do-dong-thap-dau-gia-tai-san-tich-thu-gom-1688-phuong-tien-la-tang-vat-phuong-tien-vi-pham-hanh-chinh-cua-phong-canh-sat-giao-thong-cong-an-tinh-dong-thap-50957.html",
-      "published_iso": "2026-05-12T03:20:07.480951+07:00",
-      "published_text": "12/05 03:20"
+      "published_iso": "2026-05-12T04:44:37.697162+07:00",
+      "published_text": "12/05 04:44"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-tay-do-dong-thap-dau-gia-tai-san-tich-thu-gom-278-phuong-tien-la-tang-vat-phuong-tien-vi-pham-hanh-chinh-cua-phong-canh-sat-giao-thong-cong-an-tinh-dong-thap-50956.html",
-      "published_iso": "2026-05-12T03:20:07.480876+07:00",
-      "published_text": "12/05 03:20"
+      "published_iso": "2026-05-12T04:44:37.697089+07:00",
+      "published_text": "12/05 04:44"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/ha-noi-thong-qua-chu-truong-lam-dai-lo-canh-quan-song-hong-d144655.html",
-      "published_iso": "2026-05-12T03:20:05.424082+07:00",
-      "published_text": "12/05 03:20"
+      "published_iso": "2026-05-12T04:44:34.632346+07:00",
+      "published_text": "12/05 04:44"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/du-an-dai-lo-canh-quan-song-hong-thay-doi-ra-sao-tu-phien-ban-dau-tien-cua-deo-ca-d144652.html",
-      "published_iso": "2026-05-12T03:20:05.423989+07:00",
-      "published_text": "12/05 03:20"
+      "published_iso": "2026-05-12T04:44:34.632276+07:00",
+      "published_text": "12/05 04:44"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/jollibee-viet-nam-dat-bao-chung-quoc-te-ve-attp-de-noi-lo-nhuong-cho-cho-nhung-bua-an-tram-phan-tram-vui-ve-188260509094524105.chn",
-      "published_iso": "2026-05-12T03:20:03.249956+07:00",
-      "published_text": "12/05 03:20"
+      "published_iso": "2026-05-12T04:44:32.819974+07:00",
+      "published_text": "12/05 04:44"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/abbank-2026-vi-the-moi-voi-cu-hich-kep-hose-va-tang-von-vuot-20000-ty-188260508180021469.chn",
-      "published_iso": "2026-05-12T03:20:03.249883+07:00",
-      "published_text": "12/05 03:20"
+      "published_iso": "2026-05-12T04:44:32.819882+07:00",
+      "published_text": "12/05 04:44"
     }
   ],
   "markets": [
@@ -132,9 +132,9 @@
       "name": "WTI",
       "symbol": "CL=F",
       "category": "Energy",
-      "price": 98.32,
-      "change": 2.9,
-      "change_pct": 3.04,
+      "price": 98.25,
+      "change": 2.83,
+      "change_pct": 2.97,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 11/05 11:00"
@@ -143,9 +143,9 @@
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 104.29,
-      "change": 3.0,
-      "change_pct": 2.96,
+      "price": 104.42,
+      "change": 3.13,
+      "change_pct": 3.09,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 11/05 11:00"
@@ -154,9 +154,9 @@
       "name": "Natural Gas",
       "symbol": "NG=F",
       "category": "Energy",
-      "price": 2.92,
-      "change": 0.16,
-      "change_pct": 5.98,
+      "price": 2.93,
+      "change": 0.17,
+      "change_pct": 6.31,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 11/05 11:00"
@@ -165,9 +165,9 @@
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4744.4,
-      "change": 24.0,
-      "change_pct": 0.51,
+      "price": 4745.6,
+      "change": 25.2,
+      "change_pct": 0.53,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 11/05 11:00"
@@ -176,9 +176,9 @@
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 86.61,
-      "change": 6.22,
-      "change_pct": 7.73,
+      "price": 86.81,
+      "change": 6.41,
+      "change_pct": 7.97,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 11/05 11:00"
@@ -187,9 +187,9 @@
       "name": "Copper",
       "symbol": "HG=F",
       "category": "Metals",
-      "price": 6.48,
-      "change": 0.23,
-      "change_pct": 3.69,
+      "price": 6.49,
+      "change": 0.24,
+      "change_pct": 3.88,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 11/05 11:00"
@@ -209,9 +209,9 @@
       "name": "DXY",
       "symbol": "DX-Y.NYB",
       "category": "FX",
-      "price": 97.96,
-      "change": 0.12,
-      "change_pct": 0.13,
+      "price": 97.93,
+      "change": 0.09,
+      "change_pct": 0.09,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 11/05 11:00"
@@ -220,9 +220,9 @@
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1783,
-      "change": 0.0051,
-      "change_pct": 0.44,
+      "price": 1.1786,
+      "change": 0.0054,
+      "change_pct": 0.46,
       "decimals": 4,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 11/05 06:00"
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 81959.0,
-      "change": -180.0,
-      "change_pct": -0.22,
+      "price": 81717.0,
+      "change": -422.0,
+      "change_pct": -0.51,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 11/05 07:00"
@@ -286,9 +286,9 @@
       "name": "VIX",
       "symbol": "^VIX",
       "category": "US",
-      "price": 18.35,
-      "change": 1.16,
-      "change_pct": 6.75,
+      "price": 18.38,
+      "change": 1.19,
+      "change_pct": 6.92,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 11/05 12:00"
