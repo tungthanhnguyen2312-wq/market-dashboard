@@ -1,7 +1,17 @@
 {
-  "updated_at": "2026-05-11T06:30:00.213195+07:00",
-  "updated_at_display": "11/05/2026 • 06:30 GMT+7",
+  "updated_at": "2026-05-11T08:24:35.571736+07:00",
+  "updated_at_display": "11/05/2026 • 08:24 GMT+7",
   "war_news": [
+    {
+      "source": "Al Jazeera",
+      "title": "Iran war live: Trump slams Tehran’s reply; Israel kills 2 medics in Lebanon",
+      "title_vi": "Chiến tranh Iran trực tiếp: Trump đả kích phản ứng của Tehran; Israel giết chết 2 nhân viên y tế ở Lebanon",
+      "summary": "US president says Tehran's response 'unacceptable', as Iranian military warns it is ready if US-Israel war resumes.",
+      "summary_vi": "US president says Tehran's response 'unacceptable', as Iranian military warns it is ready if US-Israel war resumes.",
+      "url": "https://www.aljazeera.com/news/liveblog/2026/5/11/iran-war-live-trump-slams-tehrans-reply-israel-kills-2-medics-in-lebanon?traffic_source=rss",
+      "published_iso": "2026-05-11T07:00:00+07:00",
+      "published_text": "11/05 07:00"
+    },
     {
       "source": "Al Jazeera",
       "title": "Trump to discuss Iran with Xi Jinping during China visit: Officials",
@@ -11,28 +21,18 @@
       "url": "https://www.aljazeera.com/news/2026/5/10/trump-to-discuss-iran-with-xi-jinping-during-china-visit-officials?traffic_source=rss",
       "published_iso": "2026-05-11T04:12:50+07:00",
       "published_text": "11/05 04:12"
-    },
-    {
-      "source": "Al Jazeera",
-      "title": "Israeli weapon fires tiny metal cubes into people in Lebanon, like Gaza",
-      "title_vi": "Vũ khí của Israel bắn những khối kim loại nhỏ vào người dân ở Lebanon, như Gaza",
-      "summary": "Tiny tungsten cubes from Israeli bombs are causing devastating internal injuries to people in Lebanon.",
-      "summary_vi": "Tiny tungsten cubes from Israeli bombs are causing devastating internal injuries to people in Lebanon.",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/10/israeli-weapon-fires-tiny-metal-cubes-into-people-in-lebanon-like-gaza?traffic_source=rss",
-      "published_iso": "2026-05-11T04:10:46+07:00",
-      "published_text": "11/05 04:10"
     }
   ],
   "global_news": [
     {
       "source": "Investing News",
-      "title": "Share futures ease, dollar gains as Gulf talks teeter",
-      "title_vi": "Chia sẻ hợp đồng tương lai dễ dàng, đồng đô la tăng giá khi các cuộc đàm phán ở vùng Vịnh bắt đầu",
+      "title": "Gold prices slip as Trump’s Iran remark lifts oil, stokes inflation fears",
+      "title_vi": "Giá vàng giảm khi nhận xét của Trump về Iran nâng giá dầu, làm dấy lên lo ngại lạm phát",
       "summary": "",
       "summary_vi": "",
-      "url": "https://www.investing.com/news/stock-market-news/share-futures-ease-dollar-gains-as-gulf-talks-teeter-4674873",
-      "published_iso": "2026-05-11T06:06:26+07:00",
-      "published_text": "11/05 06:06"
+      "url": "https://www.investing.com/news/commodities-news/gold-prices-slip-as-trumps-iran-remark-lifts-oil-stokes-inflation-fears-4674892",
+      "published_iso": "2026-05-11T08:14:28+07:00",
+      "published_text": "11/05 08:14"
     },
     {
       "source": "Investing News",
@@ -41,28 +41,28 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://www.investing.com/news/economic-indicators/china-april-exports-rebound-strongly-trade-surplus-widens-ahead-of-trump-visit-4674872",
-      "published_iso": "2026-05-11T06:00:30+07:00",
-      "published_text": "11/05 06:00"
+      "published_iso": "2026-05-11T08:07:06+07:00",
+      "published_text": "11/05 08:07"
     },
     {
       "source": "Investing News",
-      "title": "Oil jumps as US and Iran fail to reach agreement on peace proposal",
-      "title_vi": "Giá dầu tăng vọt khi Mỹ và Iran không đạt được thỏa thuận về đề xuất hòa bình",
+      "title": "Families of two Americans jailed in China urge Trump to seek release",
+      "title_vi": "Gia đình của hai người Mỹ bị bỏ tù ở Trung Quốc thúc giục Trump tìm cách thả",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/world-news/families-of-two-americans-jailed-in-china-urge-trump-to-seek-release-4674889",
+      "published_iso": "2026-05-11T08:06:46+07:00",
+      "published_text": "11/05 08:06"
+    },
+    {
+      "source": "Investing News",
+      "title": "Oil jumps as US and Iran disagree on peace proposal",
+      "title_vi": "Giá dầu tăng vọt khi Mỹ và Iran bất đồng về đề xuất hòa bình",
       "summary": "",
       "summary_vi": "",
       "url": "https://www.investing.com/news/commodities-news/oil-jumps-as-us-and-iran-fail-to-reach-agreement-on-peace-proposal-4674871",
-      "published_iso": "2026-05-11T05:12:27+07:00",
-      "published_text": "11/05 05:12"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "Which Trump Tariffs Are in Place, in the Works or Ruled Illegal - The New York Times",
-      "title_vi": "Biểu thuế Trump nào đang được áp dụng, trong các Công trình hoặc Phán quyết bất hợp pháp - The New York Times",
-      "summary": "Which Trump Tariffs Are in Place, in the Works or Ruled Illegal The New York Times",
-      "summary_vi": "Which Trump Tariffs Are in Place, in the Works or Ruled Illegal The New York Times",
-      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNTnpXa3NxU3BVQndDLTI3Wk1acjRpSk40RldfYjhGRTVLWnJSd2FTendvSEdmanc5VWpGRnlqSFN3bWYwRUtfRV9XRmFTdElmdWd2NUU4YzRScldWT19PVkhsRjVXV0gtNGhaZGFSQVU5Q2dNc1ozQnNOTGpnYlVyQ01hZjA?oc=5",
-      "published_iso": "2026-05-10T20:26:00+07:00",
-      "published_text": "10/05 20:26"
+      "published_iso": "2026-05-11T08:01:14+07:00",
+      "published_text": "11/05 08:01"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-ben-thanh-dau-gia-01-xe-o-to-con-nhan-hieu-toyota-bien-so-51a-49053-50921-50921.html",
-      "published_iso": "2026-05-11T06:30:54.346602+07:00",
-      "published_text": "11/05 06:30"
+      "published_iso": "2026-05-11T08:25:50.056674+07:00",
+      "published_text": "11/05 08:25"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,28 +83,28 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/trung-tam-dich-vu-dau-gia-tai-san-quy-nhon-dau-gia-mot-so-tai-san-cong-thuoc-benh-vien-da-khoa-gia-lai-50920.html",
-      "published_iso": "2026-05-11T06:30:54.346542+07:00",
-      "published_text": "11/05 06:30"
+      "published_iso": "2026-05-11T08:25:50.056608+07:00",
+      "published_text": "11/05 08:25"
     },
     {
       "source": "VietnamFinance",
-      "title": "Biến mỡ cá basa, dầu ăn thải loại thành 'xăng' máy bay thế hệ mới",
-      "title_vi": "Biến mỡ cá basa, dầu ăn thải loại thành 'xăng' máy bay thế hệ mới",
+      "title": "Giá vàng hôm nay 11/5: Đón tuần mới nhiều biến động",
+      "title_vi": "Giá vàng hôm nay 11/5: Đón tuần mới nhiều biến động",
       "summary": "",
       "summary_vi": "",
-      "url": "https://vietnamfinance.vn/bien-mo-ca-basa-dau-an-thai-loai-thanh-xang-may-bay-the-he-moi-d144574.html",
-      "published_iso": "2026-05-11T06:30:53.042825+07:00",
-      "published_text": "11/05 06:30"
+      "url": "https://vietnamfinance.vn/gia-vang-hom-nay-11-5-don-tuan-moi-nhieu-bien-dong-d144622.html",
+      "published_iso": "2026-05-11T08:25:48.143821+07:00",
+      "published_text": "11/05 08:25"
     },
     {
       "source": "VietnamFinance",
-      "title": "Sàn tiền mã hóa số 1 chao đảo: Sập sàn, lỗ đậm và sa thải hàng trăm nhân viên",
-      "title_vi": "Sàn tiền mã hóa số 1 chao đảo: Sập sàn, lỗ đậm và sa thải hàng trăm nhân viên",
+      "title": "Báo động về hàng nghìn lỗ hổng bảo mật, hệ thống ngân hàng trước làn sóng tấn công mới",
+      "title_vi": "Báo động về hàng nghìn lỗ hổng bảo mật, hệ thống ngân hàng trước làn sóng tấn công mới",
       "summary": "",
       "summary_vi": "",
-      "url": "https://vietnamfinance.vn/san-tien-ma-hoa-so-1-chao-dao-sap-san-lo-dam-va-sa-thai-hang-tram-nhan-vien-d144555.html",
-      "published_iso": "2026-05-11T06:30:53.042760+07:00",
-      "published_text": "11/05 06:30"
+      "url": "https://vietnamfinance.vn/bao-dong-ve-hang-nghin-lo-hong-bao-mat-he-thong-ngan-hang-truoc-lan-song-tan-cong-moi-d144620.html",
+      "published_iso": "2026-05-11T08:25:48.143761+07:00",
+      "published_text": "11/05 08:25"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/viet-nam-tu-ban-sac-van-hoa-den-nhung-bieu-tuong-toan-cau-188260508152921968.chn",
-      "published_iso": "2026-05-11T06:30:50.914069+07:00",
-      "published_text": "11/05 06:30"
+      "published_iso": "2026-05-11T08:25:46.201804+07:00",
+      "published_text": "11/05 08:25"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/jollibee-viet-nam-dat-bao-chung-quoc-te-ve-attp-de-noi-lo-nhuong-cho-cho-nhung-bua-an-tram-phan-tram-vui-ve-188260509094524105.chn",
-      "published_iso": "2026-05-11T06:30:50.913999+07:00",
-      "published_text": "11/05 06:30"
+      "published_iso": "2026-05-11T08:25:46.201735+07:00",
+      "published_text": "11/05 08:25"
     }
   ],
   "markets": [
@@ -132,9 +132,9 @@
       "name": "WTI",
       "symbol": "CL=F",
       "category": "Energy",
-      "price": 98.22,
-      "change": 2.8,
-      "change_pct": 2.93,
+      "price": 98.95,
+      "change": 3.53,
+      "change_pct": 3.7,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 10/05 11:00"
@@ -143,9 +143,9 @@
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 104.35,
-      "change": 3.06,
-      "change_pct": 3.02,
+      "price": 104.6,
+      "change": 3.31,
+      "change_pct": 3.27,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 10/05 11:00"
@@ -154,9 +154,9 @@
       "name": "Natural Gas",
       "symbol": "NG=F",
       "category": "Energy",
-      "price": 2.8,
-      "change": 0.04,
-      "change_pct": 1.56,
+      "price": 2.82,
+      "change": 0.06,
+      "change_pct": 2.32,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 10/05 11:00"
@@ -165,9 +165,9 @@
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4704.2,
-      "change": -16.2,
-      "change_pct": -0.34,
+      "price": 4699.4,
+      "change": -21.0,
+      "change_pct": -0.44,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 10/05 11:00"
@@ -176,9 +176,9 @@
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 80.74,
-      "change": 0.34,
-      "change_pct": 0.42,
+      "price": 80.5,
+      "change": 0.11,
+      "change_pct": 0.14,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 10/05 11:00"
@@ -187,9 +187,9 @@
       "name": "Copper",
       "symbol": "HG=F",
       "category": "Metals",
-      "price": 6.29,
-      "change": 0.04,
-      "change_pct": 0.62,
+      "price": 6.31,
+      "change": 0.06,
+      "change_pct": 1.0,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 10/05 11:00"
@@ -211,7 +211,7 @@
       "category": "FX",
       "price": 98.01,
       "change": 0.17,
-      "change_pct": 0.17,
+      "change_pct": 0.18,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 10/05 11:00"
@@ -220,9 +220,9 @@
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.177,
-      "change": 0.0039,
-      "change_pct": 0.33,
+      "price": 1.1773,
+      "change": 0.0041,
+      "change_pct": 0.35,
       "decimals": 4,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 11/05 06:00"
@@ -231,12 +231,12 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 82253.0,
-      "change": 1588.0,
-      "change_pct": 1.97,
+      "price": 81688.0,
+      "change": 1024.0,
+      "change_pct": 1.27,
       "decimals": 0,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 10/05 07:00"
+      "note": "Dữ liệu gần nhất: 11/05 07:00"
     },
     {
       "name": "S&P 500",
@@ -341,23 +341,23 @@
       "name": "Nikkei 225",
       "symbol": "^N225",
       "category": "Asia",
-      "price": 62713.65,
-      "change": -120.19,
-      "change_pct": -0.19,
+      "price": 63024.12,
+      "change": 310.47,
+      "change_pct": 0.5,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 07/05 22:00"
+      "note": "Dữ liệu gần nhất: 10/05 22:00"
     },
     {
       "name": "KOSPI",
       "symbol": "^KS11",
       "category": "Asia",
-      "price": 7498.0,
-      "change": 7.95,
-      "change_pct": 0.11,
+      "price": 7752.04,
+      "change": 254.04,
+      "change_pct": 3.39,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 07/05 22:00"
+      "note": "Dữ liệu gần nhất: 10/05 22:00"
     },
     {
       "name": "Shanghai Composite",
@@ -396,12 +396,12 @@
       "name": "ASX 200",
       "symbol": "^AXJO",
       "category": "Asia",
-      "price": 8744.4,
-      "change": -133.7,
-      "change_pct": -1.51,
+      "price": 8662.2,
+      "change": -82.2,
+      "change_pct": -0.94,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 07/05 21:00"
+      "note": "Dữ liệu gần nhất: 10/05 21:00"
     }
   ]
 }
