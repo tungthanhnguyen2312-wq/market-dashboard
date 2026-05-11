@@ -1,38 +1,58 @@
 {
-  "updated_at": "2026-05-11T18:50:09.170668+07:00",
-  "updated_at_display": "11/05/2026 • 18:50 GMT+7",
+  "updated_at": "2026-05-11T23:49:11.665688+07:00",
+  "updated_at_display": "11/05/2026 • 23:49 GMT+7",
   "war_news": [
     {
       "source": "Al Jazeera",
-      "title": "Former Qatar PM: Netanyahu using Iran war to reshape Middle East",
-      "title_vi": "Cựu Thủ tướng Qatar: Netanyahu sử dụng chiến tranh Iran để định hình lại Trung Đông",
-      "summary": "Sheikh Hamad bin Jassim warns Strait of Hormuz crisis is most dangerous fallout of war on Iran, calls for 'Gulf NATO'.",
-      "summary_vi": "Sheikh Hamad bin Jassim warns Strait of Hormuz crisis is most dangerous fallout of war on Iran, calls for 'Gulf NATO'.",
-      "url": "https://www.aljazeera.com/news/2026/5/11/former-qatar-pm-netanyahu-using-iran-war-to-reshape-middle-east?traffic_source=rss",
-      "published_iso": "2026-05-11T17:37:19+07:00",
-      "published_text": "11/05 17:37"
+      "title": "Iran denies proposal sent to US contains ‘excessive demands’",
+      "title_vi": "Iran phủ nhận đề xuất gửi đến Mỹ chứa ‘yêu cầu quá mức’",
+      "summary": "Iran says Tehran’s response to the latest US proposal to end the war was “not excessive.\"",
+      "summary_vi": "Iran says Tehran’s response to the latest US proposal to end the war was “not excessive.\"",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/11/iran-denies-proposal-sent-to-us-contains-excessive-demands?traffic_source=rss",
+      "published_iso": "2026-05-11T23:00:27+07:00",
+      "published_text": "11/05 23:00"
     },
     {
       "source": "Al Jazeera",
-      "title": "Iran says US making ‘unreasonable’ demands in negotiations to end war",
-      "title_vi": "Iran nói rằng Mỹ đưa ra những yêu cầu ‘vô lý’ trong các cuộc đàm phán để chấm dứt chiến tranh",
-      "summary": "Foreign ministry spokesman Esmaeil Baghaei says Iran's proposal to end the conflict, unblock Hormuz Strait is generous.",
-      "summary_vi": "Foreign ministry spokesman Esmaeil Baghaei says Iran's proposal to end the conflict, unblock Hormuz Strait is generous.",
-      "url": "https://www.aljazeera.com/news/2026/5/11/iran-says-us-making-unreasonable-demands-in-negotiations-to-end-war?traffic_source=rss",
-      "published_iso": "2026-05-11T17:20:23+07:00",
-      "published_text": "11/05 17:20"
+      "title": "Israeli killings in Lebanon rise: Is even the pretence of a ceasefire over?",
+      "title_vi": "Các vụ giết người của Israel ở Lebanon đang gia tăng: Liệu ngay cả việc giả vờ ngừng bắn có kết thúc không?",
+      "summary": "Israel and Hezbollah have increased their attacks on each other, despite official ceasefire.",
+      "summary_vi": "Israel and Hezbollah have increased their attacks on each other, despite official ceasefire.",
+      "url": "https://www.aljazeera.com/news/2026/5/11/israeli-killings-in-lebanon-rise-is-even-the-pretence-of-a-ceasefire-over?traffic_source=rss",
+      "published_iso": "2026-05-11T22:02:07+07:00",
+      "published_text": "11/05 22:02"
     }
   ],
   "global_news": [
     {
+      "source": "Investing News",
+      "title": "Goldman lists 3 reasons why Strait closure caused only moderate economic damage",
+      "title_vi": "Goldman liệt kê 3 lý do tại sao việc đóng cửa eo biển chỉ gây ra thiệt hại kinh tế vừa phải",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/economy-news/goldman-lists-3-reasons-why-strait-closure-caused-only-moderate-economic-damage-4677481",
+      "published_iso": "2026-05-11T23:41:27+07:00",
+      "published_text": "11/05 23:41"
+    },
+    {
       "source": "Google News Macro",
-      "title": "Trump-Xi summit: Where do US-China tariffs stand? - BBC",
-      "title_vi": "Hội nghị thượng đỉnh Trump-Xi: Thuế quan giữa Mỹ và Trung Quốc đứng ở đâu? - BBC",
-      "summary": "Trump-Xi summit: Where do US-China tariffs stand? BBC",
-      "summary_vi": "Trump-Xi summit: Where do US-China tariffs stand? BBC",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFAxbjMxdzRiSC1SMEdXVzdzcmhCcC1PN2JNc1VpenBISWZKd2FtYjAyZWZLVThHSnpRdzRiZWc4aG5wTE96X1FVX3NGQUhtYU1OakhXM0hLODd1dw?oc=5",
-      "published_iso": "2026-05-11T16:26:33+07:00",
-      "published_text": "11/05 16:26"
+      "title": "Current price of oil as of May 11, 2026 - Fortune",
+      "title_vi": "Giá dầu hiện tại tính đến ngày 11 tháng 5 năm 2026 - Fortune",
+      "summary": "Current price of oil as of May 11, 2026 Fortune",
+      "summary_vi": "Current price of oil as of May 11, 2026 Fortune",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9rc0poVG9ON2xpQjc4Slh4dUhMWEgyQ2F5LWh5SmtqZFlYTmM4QlJGSm1SOHIxTGQ1MDh0T24wUXVMM0lCSnh1Y1ZpdmpfdnlHUVY1VV9nLVJKR2RCNVBObElR?oc=5",
+      "published_iso": "2026-05-11T19:56:00+07:00",
+      "published_text": "11/05 19:56"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "Trump goes to China, inflation comes to America: What to watch this week - Yahoo Finance",
+      "title_vi": "Trump đến Trung Quốc, lạm phát đến Mỹ: Những gì cần xem trong tuần này - Yahoo Finance",
+      "summary": "Trump goes to China, inflation comes to America: What to watch this week Yahoo Finance",
+      "summary_vi": "Trump goes to China, inflation comes to America: What to watch this week Yahoo Finance",
+      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNUTFIUHRqdDNHd3o3MXpsZnJiLURWcW5ic0haX1pDUG55UXlfeTVWVmVXTG90Y1lTYUhkYnA1eGU3UU1oQlpKczIyV1hQRDd3cWZMX2ZwdWk0SWdzQl81T21JMXBtakl4ZmpaS280R3ozVTkyMldncktCWllnZHo3b2N1XzBTOUUwN0NqVzhIQTJyR2MySmoybFd1VmpmTnQ4eHQ0MmxKelRpVG5oWTFLV0pXS2Rvd2lENUlWeDd2RUxrVXFxOGc?oc=5",
+      "published_iso": "2026-05-11T17:35:25+07:00",
+      "published_text": "11/05 17:35"
     },
     {
       "source": "Google News Macro",
@@ -43,48 +63,28 @@
       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE40RC1iUXFsenhZWFBISEJ5ekpOSWxNbXhqc3NHOUw0S0xJNDdadTlyXzNlZFJFSmZxaFVHRjNSV0RhRV9JbENsemhQQkI2cTVCWXdpOG4tLWViRFh1SE1aWTJyMU1oaVlsQWhCbWRWdll6YkMxNnNFdzdsU1IyQjA?oc=5",
       "published_iso": "2026-05-11T16:02:41+07:00",
       "published_text": "11/05 16:02"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "Iran war could make Trump’s trip to China a bit chillier than his first-term visit - AP News",
-      "title_vi": "Chiến tranh Iran có thể làm cho chuyến đi của Trump đến Trung Quốc lạnh hơn một chút so với chuyến thăm nhiệm kỳ đầu tiên của ông - AP News",
-      "summary": "Iran war could make Trump’s trip to China a bit chillier than his first-term visit AP News",
-      "summary_vi": "Iran war could make Trump’s trip to China a bit chillier than his first-term visit AP News",
-      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPdmEtYWRxOW04TDllN0VRNnhSUmY0U1dPZ0I3WTVmcUlFZVVnemlTS0FQN042SmdpbWdyLXotRjV1NzVEVGdhZUdMSFk0ZGxzT01OWjZ6UmtUX1NJa3pUdnpUS3ZVRXhxUXhYSXlBd0tWWDNKcmU2aHA4TS0xYUtzZzFHQ0Z6YUQzeDEwNkQ3T1N6NjFBa00wOGhOQlFBRHMzSWl3?oc=5",
-      "published_iso": "2026-05-11T15:33:00+07:00",
-      "published_text": "11/05 15:33"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "China inflation beat estimates in April as Iran war drives producer prices to three-year highs - CNBC",
-      "title_vi": "Lạm phát Trung Quốc đánh bại ước tính vào tháng 4 khi chiến tranh Iran đẩy giá sản xuất lên mức cao nhất trong ba năm - CNBC",
-      "summary": "China inflation beat estimates in April as Iran war drives producer prices to three-year highs CNBC",
-      "summary_vi": "China inflation beat estimates in April as Iran war drives producer prices to three-year highs CNBC",
-      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxONXJMbW9OS2pmdXROelFoZ19Jdzd4SXJDS1drRXpLNThNNGg5eGdRankzNnhJVExKUEFPRUdNczBlMGFvQW9rb3VPZWF2dXVDZWQ0bFU3cmROMTZocFduVE80S1dTUVdxeHppejladGZRVUZJbUxPX2dUMUpEaWJTeTQ0RWYzODVySWRaWm5iRdIBlAFBVV95cUxPTmFhVlA1X1laek96Rmd3QjRocy1wVktoblZZRVhlVTUwT3pXR2IxY2RUZERXb0dsYWhHQmxoVlZPZUQ5c3Q3eElOM3g5VVpkVEVBa1lORnpIT2paT3JhWDFZbmFDbWt0RS1hYUZLZGhBQUtSeGRYX1UzSVVOUUJ6a01qZmtZbXV5a2YyMi03X2ZQaDhN?oc=5",
-      "published_iso": "2026-05-11T08:38:00+07:00",
-      "published_text": "11/05 08:38"
     }
   ],
   "vn_news": [
     {
       "source": "Thời báo Tài chính VN",
-      "title": "Công ty đấu giá hợp danh Đông Dương: Thông báo đấu giá quyền sử dụng đất ở đối với 26 lô đất ở tại các khu tái định cư trên địa bàn xã Cát Tiến, tỉnh Gia Lai",
-      "title_vi": "Công ty đấu giá hợp danh Đông Dương: Thông báo đấu giá quyền sử dụng đất ở đối với 26 lô đất ở tại các khu tái định cư trên địa bàn xã Cát Tiến, tỉnh Gia Lai",
+      "title": "Công ty đấu giá hợp danh Tây Đô Đồng Tháp: Đấu giá tài sản tịch thu gồm 1.688 phương tiện là tang vật, phương tiện vi phạm hành chính của Phòng Cảnh sát giao thông Công an tỉnh Đồng Tháp",
+      "title_vi": "Công ty đấu giá hợp danh Tây Đô Đồng Tháp: Đấu giá tài sản tịch thu gồm 1.688 phương tiện là tang vật, phương tiện vi phạm hành chính của Phòng Cảnh sát giao thông Công an tỉnh Đồng Tháp",
       "summary": "",
       "summary_vi": "",
-      "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-dong-duong-thong-bao-dau-gia-quyen-su-dung-dat-o-doi-voi-26-lo-dat-o-tai-cac-khu-tai-dinh-cu-tren-dia-ban-xa-cat-tien-tinh-gia-lai-50932.html",
-      "published_iso": "2026-05-11T18:51:03.431461+07:00",
-      "published_text": "11/05 18:51"
+      "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-tay-do-dong-thap-dau-gia-tai-san-tich-thu-gom-1688-phuong-tien-la-tang-vat-phuong-tien-vi-pham-hanh-chinh-cua-phong-canh-sat-giao-thong-cong-an-tinh-dong-thap-50957.html",
+      "published_iso": "2026-05-11T23:50:10.644227+07:00",
+      "published_text": "11/05 23:50"
     },
     {
       "source": "Thời báo Tài chính VN",
-      "title": "Công ty Đấu giá Hợp danh Gò Công - Chi nhánh Tây Ninh: Đấu giá cho thuê mặt bằng nhà giữ xe tại Trường THCS Tân Tập",
-      "title_vi": "Công ty Đấu giá Hợp danh Gò Công - Chi nhánh Tây Ninh: Đấu giá cho thuê mặt bằng nhà giữ xe tại Trường THCS Tân Tập",
+      "title": "Công ty đấu giá hợp danh Tây Đô Đồng Tháp: Đấu giá tài sản tịch thu gồm 278 phương tiện là tang vật, phương tiện vi phạm hành chính của Phòng Cảnh sát giao thông Công an tỉnh Đồng Tháp",
+      "title_vi": "Công ty đấu giá hợp danh Tây Đô Đồng Tháp: Đấu giá tài sản tịch thu gồm 278 phương tiện là tang vật, phương tiện vi phạm hành chính của Phòng Cảnh sát giao thông Công an tỉnh Đồng Tháp",
       "summary": "",
       "summary_vi": "",
-      "url": "https://taisancong.vn/cong-ty-da-u-gia-ho-p-danh-go-cong-chi-nhanh-tay-ninh-dau-gia-cho-thue-mat-bang-nha-giu-xe-tai-truong-thcs-tan-tap-50931.html",
-      "published_iso": "2026-05-11T18:51:03.431385+07:00",
-      "published_text": "11/05 18:51"
+      "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-tay-do-dong-thap-dau-gia-tai-san-tich-thu-gom-278-phuong-tien-la-tang-vat-phuong-tien-vi-pham-hanh-chinh-cua-phong-canh-sat-giao-thong-cong-an-tinh-dong-thap-50956.html",
+      "published_iso": "2026-05-11T23:50:10.644154+07:00",
+      "published_text": "11/05 23:50"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/ha-noi-thong-qua-chu-truong-lam-dai-lo-canh-quan-song-hong-d144655.html",
-      "published_iso": "2026-05-11T18:51:01.809188+07:00",
-      "published_text": "11/05 18:51"
+      "published_iso": "2026-05-11T23:50:09.325574+07:00",
+      "published_text": "11/05 23:50"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/du-an-dai-lo-canh-quan-song-hong-thay-doi-ra-sao-tu-phien-ban-dau-tien-cua-deo-ca-d144652.html",
-      "published_iso": "2026-05-11T18:51:01.809125+07:00",
-      "published_text": "11/05 18:51"
+      "published_iso": "2026-05-11T23:50:09.325504+07:00",
+      "published_text": "11/05 23:50"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/jollibee-viet-nam-dat-bao-chung-quoc-te-ve-attp-de-noi-lo-nhuong-cho-cho-nhung-bua-an-tram-phan-tram-vui-ve-188260509094524105.chn",
-      "published_iso": "2026-05-11T18:50:59.920150+07:00",
-      "published_text": "11/05 18:50"
+      "published_iso": "2026-05-11T23:50:07.001486+07:00",
+      "published_text": "11/05 23:50"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/abbank-2026-vi-the-moi-voi-cu-hich-kep-hose-va-tang-von-vuot-20000-ty-188260508180021469.chn",
-      "published_iso": "2026-05-11T18:50:59.920078+07:00",
-      "published_text": "11/05 18:50"
+      "published_iso": "2026-05-11T23:50:07.001407+07:00",
+      "published_text": "11/05 23:50"
     }
   ],
   "markets": [
@@ -132,9 +132,9 @@
       "name": "WTI",
       "symbol": "CL=F",
       "category": "Energy",
-      "price": 97.8,
-      "change": 2.38,
-      "change_pct": 2.49,
+      "price": 98.96,
+      "change": 3.54,
+      "change_pct": 3.71,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 11/05 11:00"
@@ -143,9 +143,9 @@
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 103.85,
-      "change": 2.56,
-      "change_pct": 2.53,
+      "price": 104.86,
+      "change": 3.57,
+      "change_pct": 3.52,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 11/05 11:00"
@@ -154,9 +154,9 @@
       "name": "Natural Gas",
       "symbol": "NG=F",
       "category": "Energy",
-      "price": 2.84,
-      "change": 0.09,
-      "change_pct": 3.08,
+      "price": 2.9,
+      "change": 0.14,
+      "change_pct": 5.08,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 11/05 11:00"
@@ -165,9 +165,9 @@
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4684.0,
-      "change": -36.4,
-      "change_pct": -0.77,
+      "price": 4730.2,
+      "change": 9.8,
+      "change_pct": 0.21,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 11/05 11:00"
@@ -176,9 +176,9 @@
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 81.78,
-      "change": 1.39,
-      "change_pct": 1.72,
+      "price": 86.24,
+      "change": 5.85,
+      "change_pct": 7.27,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 11/05 11:00"
@@ -187,9 +187,9 @@
       "name": "Copper",
       "symbol": "HG=F",
       "category": "Metals",
-      "price": 6.41,
-      "change": 0.16,
-      "change_pct": 2.51,
+      "price": 6.47,
+      "change": 0.22,
+      "change_pct": 3.58,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 11/05 11:00"
@@ -199,19 +199,19 @@
       "symbol": "^TNX",
       "category": "Rates",
       "price": 0.44,
-      "change": -0.0,
-      "change_pct": -0.64,
+      "change": 0.0,
+      "change_pct": 0.73,
       "decimals": 2,
       "suffix": "%",
-      "note": "Dữ liệu gần nhất: 08/05 12:00"
+      "note": "Dữ liệu gần nhất: 11/05 12:00"
     },
     {
       "name": "DXY",
       "symbol": "DX-Y.NYB",
       "category": "FX",
-      "price": 97.97,
-      "change": 0.14,
-      "change_pct": 0.14,
+      "price": 97.9,
+      "change": 0.06,
+      "change_pct": 0.06,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 11/05 11:00"
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 81098.0,
-      "change": -1041.0,
-      "change_pct": -1.27,
+      "price": 81686.0,
+      "change": -453.0,
+      "change_pct": -0.55,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 11/05 07:00"
@@ -242,53 +242,53 @@
       "name": "S&P 500",
       "symbol": "^GSPC",
       "category": "US",
-      "price": 7398.93,
-      "change": 61.82,
-      "change_pct": 0.84,
+      "price": 7417.13,
+      "change": 18.2,
+      "change_pct": 0.25,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 08/05 11:00"
+      "note": "Dữ liệu gần nhất: 11/05 11:00"
     },
     {
       "name": "Dow Jones",
       "symbol": "^DJI",
       "category": "US",
-      "price": 49609.16,
-      "change": 12.19,
-      "change_pct": 0.02,
+      "price": 49605.04,
+      "change": -4.12,
+      "change_pct": -0.01,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 08/05 11:00"
+      "note": "Dữ liệu gần nhất: 11/05 11:00"
     },
     {
       "name": "Nasdaq",
       "symbol": "^IXIC",
       "category": "US",
-      "price": 26247.08,
-      "change": 440.88,
-      "change_pct": 1.71,
+      "price": 26296.61,
+      "change": 49.53,
+      "change_pct": 0.19,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 08/05 11:00"
+      "note": "Dữ liệu gần nhất: 11/05 11:00"
     },
     {
       "name": "Russell 2000",
       "symbol": "^RUT",
       "category": "US",
-      "price": 2861.21,
-      "change": 21.58,
-      "change_pct": 0.76,
+      "price": 2882.22,
+      "change": 21.01,
+      "change_pct": 0.73,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 08/05 11:00"
+      "note": "Dữ liệu gần nhất: 11/05 11:00"
     },
     {
       "name": "VIX",
       "symbol": "^VIX",
       "category": "US",
-      "price": 18.1,
-      "change": 0.91,
-      "change_pct": 5.29,
+      "price": 18.0,
+      "change": 0.81,
+      "change_pct": 4.71,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 11/05 12:00"
@@ -297,9 +297,9 @@
       "name": "FTSE 100",
       "symbol": "^FTSE",
       "category": "Europe",
-      "price": 10236.75,
-      "change": 3.65,
-      "change_pct": 0.04,
+      "price": 10269.43,
+      "change": 36.33,
+      "change_pct": 0.36,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 11/05 06:00"
@@ -308,9 +308,9 @@
       "name": "Euro Stoxx 50",
       "symbol": "^STOXX50E",
       "category": "Europe",
-      "price": 5886.0,
-      "change": -25.53,
-      "change_pct": -0.43,
+      "price": 5895.45,
+      "change": -16.08,
+      "change_pct": -0.27,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 11/05 05:00"
@@ -330,9 +330,9 @@
       "name": "Hang Seng",
       "symbol": "^HSI",
       "category": "Asia",
-      "price": 26406.84,
-      "change": 13.13,
-      "change_pct": 0.05,
+      "price": NaN,
+      "change": NaN,
+      "change_pct": NaN,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 10/05 23:00"
@@ -341,9 +341,9 @@
       "name": "Nikkei 225",
       "symbol": "^N225",
       "category": "Asia",
-      "price": 62417.88,
-      "change": -295.77,
-      "change_pct": -0.47,
+      "price": NaN,
+      "change": NaN,
+      "change_pct": NaN,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 10/05 22:00"
@@ -352,9 +352,9 @@
       "name": "KOSPI",
       "symbol": "^KS11",
       "category": "Asia",
-      "price": 7822.24,
-      "change": 324.24,
-      "change_pct": 4.32,
+      "price": NaN,
+      "change": NaN,
+      "change_pct": NaN,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 10/05 22:00"
@@ -363,9 +363,9 @@
       "name": "Shanghai Composite",
       "symbol": "000001.SS",
       "category": "Asia",
-      "price": 4225.02,
-      "change": 45.07,
-      "change_pct": 1.08,
+      "price": NaN,
+      "change": NaN,
+      "change_pct": NaN,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 10/05 23:00"
@@ -374,9 +374,9 @@
       "name": "Shenzhen Component",
       "symbol": "399001.SZ",
       "category": "Asia",
-      "price": 15899.3,
-      "change": 335.5,
-      "change_pct": 2.16,
+      "price": NaN,
+      "change": NaN,
+      "change_pct": NaN,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 10/05 23:00"
@@ -396,9 +396,9 @@
       "name": "ASX 200",
       "symbol": "^AXJO",
       "category": "Asia",
-      "price": 8701.8,
-      "change": -42.6,
-      "change_pct": -0.49,
+      "price": NaN,
+      "change": NaN,
+      "change_pct": NaN,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 10/05 21:00"
