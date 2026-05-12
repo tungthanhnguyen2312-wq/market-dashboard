@@ -1,38 +1,58 @@
 {
-  "updated_at": "2026-05-12T12:07:02.982136+07:00",
-  "updated_at_display": "12/05/2026 • 12:07 GMT+7",
+  "updated_at": "2026-05-12T14:52:18.463463+07:00",
+  "updated_at_display": "12/05/2026 • 14:52 GMT+7",
   "war_news": [
     {
       "source": "Al Jazeera",
-      "title": "Flotilla activist Thiago Ávila arrives in Brazil",
-      "title_vi": "Nhà hoạt động đội tàu Thiago Ávila đến Brazil",
-      "summary": "Brazilian activist Thiago Ávila returned to São Paulo after being detained and deported from Israel.",
-      "summary_vi": "Brazilian activist Thiago Ávila returned to São Paulo after being detained and deported from Israel.",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/12/aje-onl-nf_clip_flotilla-acvtivist-returns-to-brazil-110526?traffic_source=rss",
-      "published_iso": "2026-05-12T11:08:05+07:00",
-      "published_text": "12/05 11:08"
+      "title": "Palestine weekly wrap: Israeli settlers rampage through West Bank villages",
+      "title_vi": "Gói hàng tuần của Palestine: Những người định cư Israel hoành hành qua các ngôi làng ở Bờ Tây",
+      "summary": "Settlers uproot olive trees, seize land, and displace families, reflecting unchecked violence across the West Bank.",
+      "summary_vi": "Settlers uproot olive trees, seize land, and displace families, reflecting unchecked violence across the West Bank.",
+      "url": "https://www.aljazeera.com/news/2026/5/12/palestine-weekly-wrap-israeli-settlers-rampage-through-west-bank-villages?traffic_source=rss",
+      "published_iso": "2026-05-12T14:33:16+07:00",
+      "published_text": "12/05 14:33"
     },
     {
       "source": "Al Jazeera",
-      "title": "Lebanese in south refuse to flee again despite escalating Israeli strikes",
-      "title_vi": "Người Lebanon ở miền nam từ chối chạy trốn một lần nữa mặc dù các cuộc tấn công của Israel leo thang",
-      "summary": "Obaida Hitto reports from southern Lebanon, where residents say they will not leave again despite intensifying strikes.",
-      "summary_vi": "Obaida Hitto reports from southern Lebanon, where residents say they will not leave again despite intensifying strikes.",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/12/lebanese-in-south-refuse-to-flee-again-despite-escalating-israeli-strikes?traffic_source=rss",
-      "published_iso": "2026-05-12T10:26:24+07:00",
-      "published_text": "12/05 10:26"
+      "title": "Why is Israel allowed to take part in the Eurovision song contest?",
+      "title_vi": "Tại sao Israel được phép tham gia cuộc thi bài hát Eurovision?",
+      "summary": "Five countries are boycotting the 70th edition of Eurovision on May 16 in protest over Israel's genocidal war on Gaza.",
+      "summary_vi": "Five countries are boycotting the 70th edition of Eurovision on May 16 in protest over Israel's genocidal war on Gaza.",
+      "url": "https://www.aljazeera.com/news/2026/5/12/why-is-israel-allowed-to-take-part-in-the-eurovision-song-contest?traffic_source=rss",
+      "published_iso": "2026-05-12T14:03:44+07:00",
+      "published_text": "12/05 14:03"
     }
   ],
   "global_news": [
     {
       "source": "Investing News",
-      "title": "Oil prices rise as fragile US-Iran talks sustain supply worries",
-      "title_vi": "Giá dầu tăng khi các cuộc đàm phán Mỹ-Iran mong manh duy trì những lo ngại về nguồn cung",
+      "title": "Oil rises as fading hopes of quick end to Iran war reignite supply worries",
+      "title_vi": "Dầu tăng khi hy vọng chấm dứt nhanh chóng cuộc chiến Iran làm dấy lên lo ngại về nguồn cung",
       "summary": "",
       "summary_vi": "",
       "url": "https://www.investing.com/news/commodities-news/oil-prices-rise-as-fragile-usiran-talks-sustain-supply-worries-4678891",
-      "published_iso": "2026-05-12T11:18:28+07:00",
-      "published_text": "12/05 11:18"
+      "published_iso": "2026-05-12T14:36:24+07:00",
+      "published_text": "12/05 14:36"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "China Increasingly Views Trump’s America as an Empire in Decline - The New York Times",
+      "title_vi": "Trung Quốc ngày càng coi nước Mỹ của Trump là một đế chế đang suy tàn - The New York Times",
+      "summary": "China Increasingly Views Trump’s America as an Empire in Decline The New York Times",
+      "summary_vi": "China Increasingly Views Trump’s America as an Empire in Decline The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9ocGFXQXB4eVhoM1E4VWVXX3Bvcm9oVm1fWVJMRjByRlhiLTBDbGMwZkI3QzRMa2RIdTJKanVIbmk4bTdzbGZ1WHozVjBaRGY3NkF2d0tZVmN2Q2FseHFndDM1b25Lc3lxWTdMTmRmOUVfLS1EOGdjMzdNWQ?oc=5",
+      "published_iso": "2026-05-12T11:00:06+07:00",
+      "published_text": "12/05 11:00"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "Five outcomes that would make Trump’s trip to China a success - Atlantic Council",
+      "title_vi": "Năm kết quả sẽ giúp chuyến đi của Trump đến Trung Quốc thành công - Hội đồng Đại Tây Dương",
+      "summary": "Five outcomes that would make Trump’s trip to China a success Atlantic Council",
+      "summary_vi": "Five outcomes that would make Trump’s trip to China a success Atlantic Council",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPb3pRdEswQktvV2ZmZWRpQ2xKY202emhqdG9ZcDRWclRRU3JVQXFzQ1lmSmdQM0gyU2dZOEhmVE00cS1zU1V3YnFaOWpzdUNvX2Jvbk1LVlBRRjZ3dW9fVDZJaHJvaTlacmJvRTBINWp5U19QSm1sbXFHMWZBUzllbnZCRVpZWDdqSnRBd083QU8zUWNucWc2T2h4ak9qVG44RlU2Rldpbw?oc=5",
+      "published_iso": "2026-05-12T02:33:47+07:00",
+      "published_text": "12/05 02:33"
     },
     {
       "source": "Google News Macro",
@@ -43,68 +63,48 @@
       "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOQnRvMms1ZEVCdTVwZk5ZN3ZuQ1FHZVZSNng1WDVfTl9yOTNHNWs2OC1Ba1hDbXE3TzdsUFg2cm9GMEtIOVdnYmMzb3loSG90c1N0ak9rdElybW8xVDk1T2E1ZWNrV3RFRWRkcFQzTWY1SHI2X2JZLUlDWjQzVUtXQ0FFNlQyT28?oc=5",
       "published_iso": "2026-05-12T01:24:59+07:00",
       "published_text": "12/05 01:24"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "Opinion | What a former CIA analyst reveals about a potential China fight - The Washington Post",
-      "title_vi": "Ý kiến | Những gì một cựu chuyên gia phân tích của CIA tiết lộ về một cuộc chiến tiềm tàng với Trung Quốc - The Washington Post",
-      "summary": "Opinion | What a former CIA analyst reveals about a potential China fight The Washington Post",
-      "summary_vi": "Opinion | What a former CIA analyst reveals about a potential China fight The Washington Post",
-      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOaTlZMkJxTHhzcDNQOUpiNHo2ME5lWGV0VkNPN1BseHdMaDVPY0VNc0ZKNk9ObkEtR3NGOE9TZXhrUnVZVkNBVnNjYVhzS0w4N3hwbDY1cGJsVEJiT0ZtV3BuMkNRclFmTkNUV2F3N0x6azU4Z0hNS1l6cWtqbzEzUEZqN2pjOFhNcEl2Q212eU1YMTFHY1h0X1FzTDhjcFNCSzI2cjk5RnZ1cFM5?oc=5",
-      "published_iso": "2026-05-12T00:00:00+07:00",
-      "published_text": "12/05 00:00"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "Fentanyl, China, and Trump's 2025 tariffs - Peterson Institute for International Economics",
-      "title_vi": "Fentanyl, Trung Quốc và thuế quan năm 2025 của Trump - Viện Kinh tế Quốc tế Peterson",
-      "summary": "Fentanyl, China, and Trump's 2025 tariffs Peterson Institute for International Economics",
-      "summary_vi": "Fentanyl, China, and Trump's 2025 tariffs Peterson Institute for International Economics",
-      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQbjBrQVRfUk5JeDNjeXI5bGN3d0lVbU9Pbm1MWEp4cmFPUEJXbVVEWXNQaVlXd3RQUUZXTnRsZkQzTVdYa1VpVkRFVmZZc1NXSndteWJMUU9QTUNreEZjUEc3RFlsMndEYmJBZFprTERrZjIyRzlNQkQwSmsxMGVFenVqeGZkaTV5ODdEeFpRZmpXR00?oc=5",
-      "published_iso": "2026-05-11T20:00:00+07:00",
-      "published_text": "11/05 20:00"
     }
   ],
   "vn_news": [
     {
       "source": "Thời báo Tài chính VN",
-      "title": "Công ty đấu giá hợp danh Tây Đô Đồng Tháp: Đấu giá tài sản tịch thu gồm 1.688 phương tiện là tang vật, phương tiện vi phạm hành chính của Phòng Cảnh sát giao thông Công an tỉnh Đồng Tháp",
-      "title_vi": "Công ty đấu giá hợp danh Tây Đô Đồng Tháp: Đấu giá tài sản tịch thu gồm 1.688 phương tiện là tang vật, phương tiện vi phạm hành chính của Phòng Cảnh sát giao thông Công an tỉnh Đồng Tháp",
+      "title": "Công ty Đấu giá Hợp danh Bình Định: Đấu giá xe ô tô tải mui phủ hiệu JRD, biển số 77B-0836 đã qua sử dụng",
+      "title_vi": "Công ty Đấu giá Hợp danh Bình Định: Đấu giá xe ô tô tải mui phủ hiệu JRD, biển số 77B-0836 đã qua sử dụng",
       "summary": "",
       "summary_vi": "",
-      "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-tay-do-dong-thap-dau-gia-tai-san-tich-thu-gom-1688-phuong-tien-la-tang-vat-phuong-tien-vi-pham-hanh-chinh-cua-phong-canh-sat-giao-thong-cong-an-tinh-dong-thap-50957.html",
-      "published_iso": "2026-05-12T12:07:51.401588+07:00",
-      "published_text": "12/05 12:07"
+      "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-binh-dinh-dau-gia-xe-o-to-tai-mui-phu-hieu-jrd-bien-so-77b-0836-da-qua-su-dung-50963.html",
+      "published_iso": "2026-05-12T14:53:10.739708+07:00",
+      "published_text": "12/05 14:53"
     },
     {
       "source": "Thời báo Tài chính VN",
-      "title": "Công ty đấu giá hợp danh Tây Đô Đồng Tháp: Đấu giá tài sản tịch thu gồm 278 phương tiện là tang vật, phương tiện vi phạm hành chính của Phòng Cảnh sát giao thông Công an tỉnh Đồng Tháp",
-      "title_vi": "Công ty đấu giá hợp danh Tây Đô Đồng Tháp: Đấu giá tài sản tịch thu gồm 278 phương tiện là tang vật, phương tiện vi phạm hành chính của Phòng Cảnh sát giao thông Công an tỉnh Đồng Tháp",
+      "title": "Công ty đấu giá hợp danh Khải Bảo: Đấu giá quyền thuê Tòa nhà ICT1 năm 2026 là kết cấu hạ tầng thông tin tại Khu công nghệ thông tin tập trung Công viên phần mềm Đà Nẵng - Công viên phần mềm số 2 (giai đoạn 1)",
+      "title_vi": "Công ty đấu giá hợp danh Khải Bảo: Đấu giá quyền thuê Tòa nhà ICT1 năm 2026 là kết cấu hạ tầng thông tin tại Khu công nghệ thông tin tập trung Công viên phần mềm Đà Nẵng - Công viên phần mềm số 2 (giai đoạn 1)",
       "summary": "",
       "summary_vi": "",
-      "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-tay-do-dong-thap-dau-gia-tai-san-tich-thu-gom-278-phuong-tien-la-tang-vat-phuong-tien-vi-pham-hanh-chinh-cua-phong-canh-sat-giao-thong-cong-an-tinh-dong-thap-50956.html",
-      "published_iso": "2026-05-12T12:07:51.401516+07:00",
-      "published_text": "12/05 12:07"
+      "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-khai-bao-dau-gia-quyen-thue-toa-nha-ict1-nam-2026-la-ket-cau-ha-tang-thong-tin-tai-khu-cong-nghe-thong-tin-tap-trung-cong-vien-phan-mem-da-nang-cong-vien-phan-mem-so-2-giai-doan-1-50961.html",
+      "published_iso": "2026-05-12T14:53:10.739646+07:00",
+      "published_text": "12/05 14:53"
     },
     {
       "source": "VietnamFinance",
-      "title": "Loạt 'ông lớn' muốn rót vốn đầu tư, Cảng biển Đông Hồi cạnh tranh cùng Nghi Sơn, Vũng Áng",
-      "title_vi": "Loạt 'ông lớn' muốn rót vốn đầu tư, Cảng biển Đông Hồi cạnh tranh cùng Nghi Sơn, Vũng Áng",
+      "title": "Tổng Bí thư, Chủ tịch nước Tô Lâm: 'Dân là gốc - nền tảng sức mạnh của Mặt trận'",
+      "title_vi": "Tổng Bí thư, Chủ tịch nước Tô Lâm: 'Dân là gốc - nền tảng sức mạnh của Mặt trận'",
       "summary": "",
       "summary_vi": "",
-      "url": "https://vietnamfinance.vn/loat-ong-lon-muon-rot-von-dau-tu-cang-bien-dong-hoi-canh-tranh-cung-nghi-son-vung-ang-d144616.html",
-      "published_iso": "2026-05-12T12:07:50.120678+07:00",
-      "published_text": "12/05 12:07"
+      "url": "https://vietnamfinance.vn/tong-bi-thu-chu-tich-nuoc-to-lam-dan-la-goc--nen-tang-suc-manh-cua-mat-tran-d144688.html",
+      "published_iso": "2026-05-12T14:53:09.355598+07:00",
+      "published_text": "12/05 14:53"
     },
     {
       "source": "VietnamFinance",
-      "title": "Cổ phiếu HRC lại vào chuỗi tăng trần, doanh thu và lợi nhuận tăng bằng lần",
-      "title_vi": "Cổ phiếu HRC lại vào chuỗi tăng trần, doanh thu và lợi nhuận tăng bằng lần",
+      "title": "Phó Thống đốc: Ứng dụng AI không làm mờ trách nhiệm cuối cùng của con người",
+      "title_vi": "Phó Thống đốc: Ứng dụng AI không làm mờ trách nhiệm cuối cùng của con người",
       "summary": "",
       "summary_vi": "",
-      "url": "https://vietnamfinance.vn/co-phieu-hrc-lai-vao-chuoi-tang-tran-doanh-thu-va-loi-nhuan-tang-bang-lan-d144678.html",
-      "published_iso": "2026-05-12T12:07:50.120607+07:00",
-      "published_text": "12/05 12:07"
+      "url": "https://vietnamfinance.vn/pho-thong-doc-ung-dung-ai-khong-lam-mo-trach-nhiem-cuoi-cung-cua-con-nguoi-d144692.html",
+      "published_iso": "2026-05-12T14:53:09.355534+07:00",
+      "published_text": "12/05 14:53"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/jollibee-viet-nam-dat-bao-chung-quoc-te-ve-attp-de-noi-lo-nhuong-cho-cho-nhung-bua-an-tram-phan-tram-vui-ve-188260509094524105.chn",
-      "published_iso": "2026-05-12T12:07:47.940708+07:00",
-      "published_text": "12/05 12:07"
+      "published_iso": "2026-05-12T14:53:07.845381+07:00",
+      "published_text": "12/05 14:53"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/abbank-2026-vi-the-moi-voi-cu-hich-kep-hose-va-tang-von-vuot-20000-ty-188260508180021469.chn",
-      "published_iso": "2026-05-12T12:07:47.940627+07:00",
-      "published_text": "12/05 12:07"
+      "published_iso": "2026-05-12T14:53:07.845309+07:00",
+      "published_text": "12/05 14:53"
     }
   ],
   "markets": [
@@ -132,9 +132,9 @@
       "name": "WTI",
       "symbol": "CL=F",
       "category": "Energy",
-      "price": 98.89,
-      "change": 0.82,
-      "change_pct": 0.84,
+      "price": 100.47,
+      "change": 2.4,
+      "change_pct": 2.45,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 12/05 11:00"
@@ -143,9 +143,9 @@
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 104.84,
-      "change": 0.63,
-      "change_pct": 0.6,
+      "price": 106.27,
+      "change": 2.06,
+      "change_pct": 1.98,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 12/05 11:00"
@@ -154,9 +154,9 @@
       "name": "Natural Gas",
       "symbol": "NG=F",
       "category": "Energy",
-      "price": 2.93,
-      "change": 0.02,
-      "change_pct": 0.69,
+      "price": 2.92,
+      "change": 0.01,
+      "change_pct": 0.27,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 12/05 11:00"
@@ -165,9 +165,9 @@
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4725.7,
-      "change": 7.0,
-      "change_pct": 0.15,
+      "price": 4710.0,
+      "change": -8.7,
+      "change_pct": -0.18,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 12/05 11:00"
@@ -176,9 +176,9 @@
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 86.8,
-      "change": 1.32,
-      "change_pct": 1.54,
+      "price": 84.89,
+      "change": -0.6,
+      "change_pct": -0.7,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 12/05 11:00"
@@ -187,9 +187,9 @@
       "name": "Copper",
       "symbol": "HG=F",
       "category": "Metals",
-      "price": 6.49,
-      "change": 0.08,
-      "change_pct": 1.19,
+      "price": 6.46,
+      "change": 0.05,
+      "change_pct": 0.8,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 12/05 11:00"
@@ -209,9 +209,9 @@
       "name": "DXY",
       "symbol": "DX-Y.NYB",
       "category": "FX",
-      "price": 98.13,
-      "change": 0.19,
-      "change_pct": 0.2,
+      "price": 98.23,
+      "change": 0.29,
+      "change_pct": 0.3,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 12/05 11:00"
@@ -220,9 +220,9 @@
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1761,
-      "change": -0.0008,
-      "change_pct": -0.07,
+      "price": 1.1748,
+      "change": -0.0021,
+      "change_pct": -0.18,
       "decimals": 4,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 12/05 06:00"
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 81232.0,
-      "change": -907.0,
-      "change_pct": -1.1,
+      "price": 80932.0,
+      "change": -797.0,
+      "change_pct": -0.97,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 12/05 07:00"
@@ -286,40 +286,40 @@
       "name": "VIX",
       "symbol": "^VIX",
       "category": "US",
-      "price": 18.38,
-      "change": 1.19,
-      "change_pct": 6.92,
+      "price": 18.73,
+      "change": 0.35,
+      "change_pct": 1.9,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 11/05 12:00"
+      "note": "Dữ liệu gần nhất: 12/05 12:00"
     },
     {
       "name": "FTSE 100",
       "symbol": "^FTSE",
       "category": "Europe",
-      "price": 10269.4,
-      "change": 36.3,
-      "change_pct": 0.35,
+      "price": 10202.04,
+      "change": -67.36,
+      "change_pct": -0.66,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 11/05 06:00"
+      "note": "Dữ liệu gần nhất: 12/05 06:00"
     },
     {
       "name": "Euro Stoxx 50",
       "symbol": "^STOXX50E",
       "category": "Europe",
-      "price": 5895.45,
-      "change": -16.08,
-      "change_pct": -0.27,
+      "price": 5856.21,
+      "change": -39.24,
+      "change_pct": -0.67,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 11/05 05:00"
+      "note": "Dữ liệu gần nhất: 12/05 05:00"
     },
     {
       "name": "VN-Index",
       "symbol": "^VNINDEX.VN",
       "category": "Vietnam",
-      "price": 1879.82,
+      "price": 1876.79,
       "change": 0.0,
       "change_pct": 0.0,
       "decimals": 2,
@@ -330,9 +330,9 @@
       "name": "Hang Seng",
       "symbol": "^HSI",
       "category": "Asia",
-      "price": 26486.63,
-      "change": 79.79,
-      "change_pct": 0.3,
+      "price": 26374.13,
+      "change": -32.71,
+      "change_pct": -0.12,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 11/05 23:00"
@@ -341,9 +341,9 @@
       "name": "Nikkei 225",
       "symbol": "^N225",
       "category": "Asia",
-      "price": 62719.61,
-      "change": 301.73,
-      "change_pct": 0.48,
+      "price": 62742.57,
+      "change": 324.69,
+      "change_pct": 0.52,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 11/05 22:00"
@@ -352,9 +352,9 @@
       "name": "KOSPI",
       "symbol": "^KS11",
       "category": "Asia",
-      "price": 7610.14,
-      "change": -212.1,
-      "change_pct": -2.71,
+      "price": 7643.15,
+      "change": -179.09,
+      "change_pct": -2.29,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 11/05 22:00"
@@ -363,9 +363,9 @@
       "name": "Shanghai Composite",
       "symbol": "000001.SS",
       "category": "Asia",
-      "price": 4208.0,
-      "change": -17.02,
-      "change_pct": -0.4,
+      "price": 4214.49,
+      "change": -10.53,
+      "change_pct": -0.25,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 11/05 23:00"
@@ -374,9 +374,9 @@
       "name": "Shenzhen Component",
       "symbol": "399001.SZ",
       "category": "Asia",
-      "price": 15757.36,
-      "change": -141.94,
-      "change_pct": -0.89,
+      "price": 15824.92,
+      "change": -74.38,
+      "change_pct": -0.47,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 11/05 23:00"
@@ -385,9 +385,9 @@
       "name": "Nifty 50",
       "symbol": "^NSEI",
       "category": "Asia",
-      "price": 23606.15,
-      "change": -209.7,
-      "change_pct": -0.88,
+      "price": 23527.9,
+      "change": -287.95,
+      "change_pct": -1.21,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 12/05 01:30"
@@ -396,9 +396,9 @@
       "name": "ASX 200",
       "symbol": "^AXJO",
       "category": "Asia",
-      "price": 8684.4,
-      "change": -17.4,
-      "change_pct": -0.2,
+      "price": 8670.7,
+      "change": -31.1,
+      "change_pct": -0.36,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 11/05 21:00"
