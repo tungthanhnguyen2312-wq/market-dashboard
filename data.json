@@ -1,7 +1,17 @@
 {
-  "updated_at": "2026-05-13T07:14:44.682860+07:00",
-  "updated_at_display": "13/05/2026 • 07:14 GMT+7",
+  "updated_at": "2026-05-13T11:14:42.112850+07:00",
+  "updated_at_display": "13/05/2026 • 11:14 GMT+7",
   "war_news": [
+    {
+      "source": "Google News War",
+      "title": "Iran War Updates: Trump Says Iran Must Make Deal or Face Renewed Attacks - The New York Times",
+      "title_vi": "Cập nhật Chiến tranh Iran: Trump nói Iran phải thỏa thuận hoặc đối mặt với các cuộc tấn công mới - The New York Times",
+      "summary": "Iran War Updates: Trump Says Iran Must Make Deal or Face Renewed Attacks The New York Times",
+      "summary_vi": "Iran War Updates: Trump Says Iran Must Make Deal or Face Renewed Attacks The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPMXlNSERRU0xnN3FTTVppbW1ITWRjOXVROE1vNndNTXVocVdPVzljQ3Z6Y1pwRWFISm5QUVJocUtPYk5jNWRZdzBTU3pYcDVwdHBLcmV0Sm96MFo4Zm1Zd3ZQVHRiYVJWalg4TWk3a2ZUeUVMSmVfMDUyTUdLQW1GV3Zzaw?oc=5",
+      "published_iso": "2026-05-13T10:20:48+07:00",
+      "published_text": "13/05 10:20"
+    },
     {
       "source": "Al Jazeera",
       "title": "Iran war live: Trump travels to China as conflict with Tehran looms large",
@@ -11,28 +21,38 @@
       "url": "https://www.aljazeera.com/news/liveblog/2026/5/13/iran-war-live-trump-travels-to-china-as-conflict-with-tehran-looms-large?traffic_source=rss",
       "published_iso": "2026-05-13T07:00:00+07:00",
       "published_text": "13/05 07:00"
-    },
-    {
-      "source": "Al Jazeera",
-      "title": "Trump downplays US-Iran differences as he heads to Beijing to meet with Xi",
-      "title_vi": "Trump hạ thấp sự khác biệt Mỹ-Iran khi ông đến Bắc Kinh để gặp Tập Cận Bình",
-      "summary": "Trump gives conflicting messages on prominence of Iran war in upcoming talks, with his administration emphasising trade.",
-      "summary_vi": "Trump gives conflicting messages on prominence of Iran war in upcoming talks, with his administration emphasising trade.",
-      "url": "https://www.aljazeera.com/news/2026/5/12/trump-downplays-us-iran-differences-as-he-heads-to-beijing-to-meet-with-xi?traffic_source=rss",
-      "published_iso": "2026-05-13T04:02:19+07:00",
-      "published_text": "13/05 04:02"
     }
   ],
   "global_news": [
     {
+      "source": "Investing News",
+      "title": "Asia stocks dither ahead of US-China summit; KOSPI rebounds on chip gains",
+      "title_vi": "Chứng khoán châu Á dao động trước hội nghị thượng đỉnh Mỹ-Trung; KOSPI tăng trở lại nhờ lợi nhuận chip",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/stock-market-news/asia-stocks-dither-ahead-of-uschina-summit-kospi-rebounds-on-chip-gains-4683135",
+      "published_iso": "2026-05-13T10:56:44+07:00",
+      "published_text": "13/05 10:56"
+    },
+    {
+      "source": "Investing News",
+      "title": "Trump, Xi to weigh rare earth truce extension, but China’s curbs still bite",
+      "title_vi": "Trump, Xi để cân nhắc gia hạn thỏa thuận ngừng bắn đất hiếm, nhưng kiềm chế của Trung Quốc vẫn còn cắn",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/commodities-news/trump-xi-to-weigh-rare-earth-truce-extension-but-chinas-curbs-still-bite-4683132",
+      "published_iso": "2026-05-13T10:30:36+07:00",
+      "published_text": "13/05 10:30"
+    },
+    {
       "source": "Google News Macro",
-      "title": "Inflation Jumps as War-Driven Energy Costs Drive Up Prices - The New York Times",
-      "title_vi": "Lạm phát tăng vọt khi chi phí năng lượng do chiến tranh thúc đẩy tăng giá - The New York Times",
-      "summary": "Inflation Jumps as War-Driven Energy Costs Drive Up Prices The New York Times",
-      "summary_vi": "Inflation Jumps as War-Driven Energy Costs Drive Up Prices The New York Times",
-      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1NZDA3bVB6aWJPcVRfX1UzbmtXX3dycjdVMTR1cnNkQW5vWl8yZjBuenEzRmtDZ1pldnJRY1FDSThTY1RadHRsY1hoZHpEOVhVY1IxQkZ1TlpFWjJ4cTdWMVdFNFotY3F6ZUJLcExhdEx4V0taN29naUFkLVk?oc=5",
-      "published_iso": "2026-05-13T03:20:20+07:00",
-      "published_text": "13/05 03:20"
+      "title": "What’s at stake as Trump heads to China for talks with Xi - PBS",
+      "title_vi": "Điều gì đang bị đe dọa khi Trump đến Trung Quốc để đàm phán với Tập Cận Bình - PBS",
+      "summary": "What’s at stake as Trump heads to China for talks with Xi PBS",
+      "summary_vi": "What’s at stake as Trump heads to China for talks with Xi PBS",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOa1NVR3pNT1FIQTFSQS1nQUpPc1ZIeURUVy0tMGtrVkhzUmVQek5pV2VHdVl1VUVidGpxZlpUQnllNktYdUxCS0JZTzdSTkJlUzcwSUFsYVVIQUxMUnpnVEVSMWxNYnNEYVI1MTF0WE84MEdfX29zYkcteFgtMzlHaHVpMDNoeVNlci1ZVkF5U1IzaTJr?oc=5",
+      "published_iso": "2026-05-13T05:45:52+07:00",
+      "published_text": "13/05 05:45"
     },
     {
       "source": "Google News Macro",
@@ -43,78 +63,48 @@
       "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1abHYwLUlSa0VlQXlUaWxxVGsyVDNoZkhtRjAzUU1sNjZaWU5wdkdvOGFXMTc4VjNqSTZFVXpDbTFsU1ZkZ2VVSElaaVZnZnVWZVhTbXJ1YTcybFh5S0s5UGx4Z0hhWC1wRkY3NHctS05RX3Fud3lFag?oc=5",
       "published_iso": "2026-05-13T03:20:20+07:00",
       "published_text": "13/05 03:20"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "Trump and Xi appear intent on keeping Iran war from overshadowing China summit - PBS",
-      "title_vi": "Trump và Tập Cận Bình dường như có ý định giữ cho chiến tranh Iran không làm lu mờ hội nghị thượng đỉnh Trung Quốc - PBS",
-      "summary": "Trump and Xi appear intent on keeping Iran war from overshadowing China summit PBS",
-      "summary_vi": "Trump and Xi appear intent on keeping Iran war from overshadowing China summit PBS",
-      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQVU9OWlQxSlVfUmVWV05sYjUyYzVyYlI4OHppaVNDMXAtTEw0NERreWV0VzF4ckU4NF9fT2dPUm8xQ0gzZDB3cF9TWVEzcDF4WFRZb1hGaXpsNTVrVmZYYWFfZlVhNldPV2NoY21VMFJRdnNvRmp0cHZ3aGctZzdlMHpxeGs3YmdIU21WUm8tVXFmZ2ZqcHA1ZzZlTXJlOUxBcFg4bUhmYnBONHB2cXM5Q05UeGs?oc=5",
-      "published_iso": "2026-05-13T01:43:56+07:00",
-      "published_text": "13/05 01:43"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "US inflation jumps to 3.8% as energy costs surge from Iran war - BBC",
-      "title_vi": "Lạm phát của Mỹ tăng lên 3,8% khi chi phí năng lượng tăng từ chiến tranh Iran - BBC",
-      "summary": "US inflation jumps to 3.8% as energy costs surge from Iran war BBC",
-      "summary_vi": "US inflation jumps to 3.8% as energy costs surge from Iran war BBC",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5NZlJkVl9LOWV1T1F0VGRhZEJIb0wxTWZfSjVXNDN4MjhudzhueXM3V3hlcWgydjRuZEZnRzdocDFWS0hQdmY4NklZQWpqOW9DcG8zbzBVUjAzZw?oc=5",
-      "published_iso": "2026-05-13T01:36:58+07:00",
-      "published_text": "13/05 01:36"
     }
   ],
   "vn_news": [
     {
       "source": "Thời báo Tài chính VN",
-      "title": "Công ty Đấu giá hợp danh Kiểu Việt: Đấu giá quyền sử dụng đất đối với các lô đất ở còn lại tại dự án Khu dân cư dọc tuyến đường nối từ đường trục Khu kinh tế đến Khu tâm linh chùa Linh Phong tại xã Cát Tiến, tỉnh Gia Lai",
-      "title_vi": "Công ty Đấu giá hợp danh Kiểu Việt: Đấu giá quyền sử dụng đất đối với các lô đất ở còn lại tại dự án Khu dân cư dọc tuyến đường nối từ đường trục Khu kinh tế đến Khu tâm linh chùa Linh Phong tại xã Cát Tiến, tỉnh Gia Lai",
+      "title": "Công ty Đấu giá hợp danh Dũng Trung Nam: Đấu giá quyền khai thác mặt bằng căn tin của Trường THCS Nguyễn Huệ, diện tích 148 m2 tại phường Mỹ Thới, tỉnh An Giang",
+      "title_vi": "Công ty Đấu giá hợp danh Dũng Trung Nam: Đấu giá quyền khai thác mặt bằng căn tin của Trường THCS Nguyễn Huệ, diện tích 148 m2 tại phường Mỹ Thới, tỉnh An Giang",
       "summary": "",
       "summary_vi": "",
-      "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-kieu-viet-dau-gia-quyen-su-dung-dat-doi-voi-cac-lo-dat-o-con-lai-ta-i-du-an-khu-dan-cu-doc-tuyen-duong-noi-tu-duong-truc-khu-kinh-te-den-khu-tam-linh-chua-linh-phong-ta-i-xa-cat-tien-tinh-gia-lai-50969.html",
-      "published_iso": "2026-05-13T07:15:35.038049+07:00",
-      "published_text": "13/05 07:15"
+      "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-dung-trung-nam-dau-gia-quyen-khai-thac-mat-bang-can-tin-cua-truong-thcs-nguyen-hue-dien-tich-148-m2-tai-phuong-my-thoi-tinh-an-giang-50983.html",
+      "published_iso": "2026-05-13T11:15:34.694791+07:00",
+      "published_text": "13/05 11:15"
     },
     {
       "source": "Thời báo Tài chính VN",
-      "title": "Công ty Đấu giá hợp danh Kiểu Việt: Đấu giá quyền sử dụng đất đối với 35 lô đất ở tại Phân khu số 5 thuộc Khu đô thị du lịch sinh thái Nhơn Hội, Khu kinh tế Nhơn Hội, phường Quy Nhơn Đông, tỉnh Gia Lai",
-      "title_vi": "Công ty Đấu giá hợp danh Kiểu Việt: Đấu giá quyền sử dụng đất đối với 35 lô đất ở tại Phân khu số 5 thuộc Khu đô thị du lịch sinh thái Nhơn Hội, Khu kinh tế Nhơn Hội, phường Quy Nhơn Đông, tỉnh Gia Lai",
+      "title": "Công ty Đấu giá hợp danh Dũng Trung Nam: Đấu giá quyền khai thác mặt bằng văn phòng phẩm của Trường THCS Nguyễn Huệ, diện tích 42 m2 tại phường Mỹ Thới, tỉnh An Giang",
+      "title_vi": "Công ty Đấu giá hợp danh Dũng Trung Nam: Đấu giá quyền khai thác mặt bằng văn phòng phẩm của Trường THCS Nguyễn Huệ, diện tích 42 m2 tại phường Mỹ Thới, tỉnh An Giang",
       "summary": "",
       "summary_vi": "",
-      "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-kieu-viet-dau-gia-quyen-su-dung-dat-doi-voi-35-lo-dat-o-ta-i-phan-khu-so-5-thuoc-khu-do-thi-du-lich-sinh-thai-nhon-hoi-khu-kinh-te-nhon-hoi-phuong-quy-nhon-dong-tinh-gia-lai-50980.html",
-      "published_iso": "2026-05-13T07:15:35.037976+07:00",
-      "published_text": "13/05 07:15"
+      "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-dung-trung-nam-dau-gia-quyen-khai-thac-mat-bang-van-phong-pham-cua-truong-thcs-nguyen-hue-dien-tich-42-m2-tai-phuong-my-thoi-tinh-an-giang-50984.html",
+      "published_iso": "2026-05-13T11:15:34.694719+07:00",
+      "published_text": "13/05 11:15"
     },
     {
       "source": "VietnamFinance",
-      "title": "Thanh toán bằng bitcoin trên sàn giao dịch blockchain: Mua bán bất động sản đang thay đổi hoàn toàn",
-      "title_vi": "Thanh toán bằng bitcoin trên sàn giao dịch blockchain: Mua bán bất động sản đang thay đổi hoàn toàn",
+      "title": "Ngân hàng đóng cửa hàng trăm phòng giao dịch: Xu hướng ngày càng nhanh và mạnh hơn",
+      "title_vi": "Ngân hàng đóng cửa hàng trăm phòng giao dịch: Xu hướng ngày càng nhanh và mạnh hơn",
       "summary": "",
       "summary_vi": "",
-      "url": "https://vietnamfinance.vn/chuyen-giao-dich-len-blockchain-san-kieu-moi-dang-thay-doi-cach-mua-ban-bat-dong-san-d144666.html",
-      "published_iso": "2026-05-13T07:15:33.540328+07:00",
-      "published_text": "13/05 07:15"
+      "url": "https://vietnamfinance.vn/ngan-hang-dong-cua-hang-tram-phong-giao-dich-xu-huong-ngay-cang-nhanh-va-manh-hon-d144684.html",
+      "published_iso": "2026-05-13T11:15:33.086366+07:00",
+      "published_text": "13/05 11:15"
     },
     {
       "source": "VietnamFinance",
-      "title": "Giá vàng hôm nay 13/5: Vàng miếng tăng nhẹ",
-      "title_vi": "Giá vàng hôm nay 13/5: Vàng miếng tăng nhẹ",
+      "title": "Kịch bản 'bong bóng dot-com' lặp lại: Nên mua hay bán cổ phiếu công nghệ?",
+      "title_vi": "Kịch bản 'bong bóng dot-com' lặp lại: Nên mua hay bán cổ phiếu công nghệ?",
       "summary": "",
       "summary_vi": "",
-      "url": "https://vietnamfinance.vn/gia-vang-hom-nay-13-5-vang-mieng-tang-nhe-d144720.html",
-      "published_iso": "2026-05-13T07:15:33.540257+07:00",
-      "published_text": "13/05 07:15"
-    },
-    {
-      "source": "CafeF",
-      "title": "Jollibee Việt Nam đạt bảo chứng quốc tế về ATTP: Để nỗi lo nhường chỗ cho những bữa ăn trăm phần trăm vui vẻ",
-      "title_vi": "Jollibee Việt Nam đạt bảo chứng quốc tế về ATTP: Để nỗi lo nhường chỗ cho những bữa ăn trăm phần trăm vui vẻ",
-      "summary": "",
-      "summary_vi": "",
-      "url": "https://cafef.vn/jollibee-viet-nam-dat-bao-chung-quoc-te-ve-attp-de-noi-lo-nhuong-cho-cho-nhung-bua-an-tram-phan-tram-vui-ve-188260509094524105.chn",
-      "published_iso": "2026-05-13T07:15:31.587961+07:00",
-      "published_text": "13/05 07:15"
+      "url": "https://vietnamfinance.vn/kich-ban-bong-bong-dot-com-lap-lai-nen-mua-hay-ban-co-phieu-cong-nghe-d144713.html",
+      "published_iso": "2026-05-13T11:15:33.086291+07:00",
+      "published_text": "13/05 11:15"
     },
     {
       "source": "CafeF",
@@ -123,8 +113,18 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/abbank-2026-vi-the-moi-voi-cu-hich-kep-hose-va-tang-von-vuot-20000-ty-188260508180021469.chn",
-      "published_iso": "2026-05-13T07:15:31.587888+07:00",
-      "published_text": "13/05 07:15"
+      "published_iso": "2026-05-13T11:15:30.902130+07:00",
+      "published_text": "13/05 11:15"
+    },
+    {
+      "source": "CafeF",
+      "title": "Tư nhân tham gia kiến tạo hạ tầng: khi doanh nghiệp bước vào “phần khó” của nền kinh tế",
+      "title_vi": "Tư nhân tham gia kiến tạo hạ tầng: khi doanh nghiệp bước vào “phần khó” của nền kinh tế",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://cafef.vn/tu-nhan-tham-gia-kien-tao-ha-tang-khi-doanh-nghiep-buoc-vao-phan-kho-cua-nen-kinh-te-188260512080233895.chn",
+      "published_iso": "2026-05-13T11:15:30.902049+07:00",
+      "published_text": "13/05 11:15"
     }
   ],
   "markets": [
@@ -132,67 +132,67 @@
       "name": "WTI",
       "symbol": "CL=F",
       "category": "Energy",
-      "price": 101.69,
-      "change": 3.62,
-      "change_pct": 3.69,
+      "price": 100.94,
+      "change": -1.24,
+      "change_pct": -1.21,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 12/05 11:00"
+      "note": "Dữ liệu gần nhất: 13/05 11:00"
     },
     {
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 107.11,
-      "change": 2.9,
-      "change_pct": 2.78,
+      "price": 106.52,
+      "change": -1.25,
+      "change_pct": -1.16,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 12/05 11:00"
+      "note": "Dữ liệu gần nhất: 13/05 11:00"
     },
     {
       "name": "Natural Gas",
       "symbol": "NG=F",
       "category": "Energy",
       "price": 2.83,
-      "change": -0.08,
-      "change_pct": -2.82,
+      "change": -0.02,
+      "change_pct": -0.56,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 12/05 11:00"
+      "note": "Dữ liệu gần nhất: 13/05 11:00"
     },
     {
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4733.6,
-      "change": 14.9,
-      "change_pct": 0.32,
+      "price": 4705.6,
+      "change": 28.0,
+      "change_pct": 0.6,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 12/05 11:00"
+      "note": "Dữ liệu gần nhất: 13/05 11:00"
     },
     {
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 88.14,
-      "change": 2.65,
-      "change_pct": 3.11,
+      "price": 87.44,
+      "change": 2.31,
+      "change_pct": 2.71,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 12/05 11:00"
+      "note": "Dữ liệu gần nhất: 13/05 11:00"
     },
     {
       "name": "Copper",
       "symbol": "HG=F",
       "category": "Metals",
-      "price": 6.66,
-      "change": 0.25,
-      "change_pct": 3.85,
+      "price": 6.65,
+      "change": 0.16,
+      "change_pct": 2.54,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 12/05 11:00"
+      "note": "Dữ liệu gần nhất: 13/05 11:00"
     },
     {
       "name": "US 10Y",
@@ -209,20 +209,20 @@
       "name": "DXY",
       "symbol": "DX-Y.NYB",
       "category": "FX",
-      "price": 98.31,
-      "change": 0.37,
-      "change_pct": 0.37,
+      "price": 98.32,
+      "change": 0.03,
+      "change_pct": 0.03,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 12/05 11:00"
+      "note": "Dữ liệu gần nhất: 13/05 11:00"
     },
     {
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1736,
-      "change": -0.0044,
-      "change_pct": -0.38,
+      "price": 1.1738,
+      "change": -0.0041,
+      "change_pct": -0.35,
       "decimals": 4,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 13/05 06:00"
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 80457.0,
-      "change": -1271.0,
-      "change_pct": -1.56,
+      "price": 81160.0,
+      "change": -568.0,
+      "change_pct": -0.69,
       "decimals": 0,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 13/05 07:00"
@@ -297,9 +297,9 @@
       "name": "FTSE 100",
       "symbol": "^FTSE",
       "category": "Europe",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
+      "price": 10265.3,
+      "change": -4.1,
+      "change_pct": -0.04,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 12/05 06:00"
@@ -308,42 +308,42 @@
       "name": "Euro Stoxx 50",
       "symbol": "^STOXX50E",
       "category": "Europe",
-      "price": 5895.45,
-      "change": -16.08,
-      "change_pct": -0.27,
+      "price": 5808.45,
+      "change": -87.0,
+      "change_pct": -1.48,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 11/05 05:00"
+      "note": "Dữ liệu gần nhất: 12/05 05:00"
     },
     {
       "name": "VN-Index",
       "symbol": "^VNINDEX.VN",
       "category": "Vietnam",
-      "price": 1901.1,
+      "price": 1892.25,
       "change": 0.0,
       "change_pct": 0.0,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 12/05 00:00"
+      "note": "Dữ liệu gần nhất: 13/05 00:00"
     },
     {
       "name": "Hang Seng",
       "symbol": "^HSI",
       "category": "Asia",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
+      "price": 26417.22,
+      "change": 69.31,
+      "change_pct": 0.26,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 11/05 23:00"
+      "note": "Dữ liệu gần nhất: 12/05 23:00"
     },
     {
       "name": "Nikkei 225",
       "symbol": "^N225",
       "category": "Asia",
-      "price": 62392.94,
-      "change": -24.94,
-      "change_pct": -0.04,
+      "price": 63102.63,
+      "change": 360.06,
+      "change_pct": 0.57,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 12/05 22:00"
@@ -352,56 +352,56 @@
       "name": "KOSPI",
       "symbol": "^KS11",
       "category": "Asia",
-      "price": 7822.24,
-      "change": 324.24,
-      "change_pct": 4.32,
+      "price": 7776.45,
+      "change": 133.3,
+      "change_pct": 1.74,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 10/05 22:00"
+      "note": "Dữ liệu gần nhất: 12/05 22:00"
     },
     {
       "name": "Shanghai Composite",
       "symbol": "000001.SS",
       "category": "Asia",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
+      "price": 4218.22,
+      "change": 3.73,
+      "change_pct": 0.09,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 11/05 23:00"
+      "note": "Dữ liệu gần nhất: 12/05 23:00"
     },
     {
       "name": "Shenzhen Component",
       "symbol": "399001.SZ",
       "category": "Asia",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
+      "price": 15881.76,
+      "change": 56.84,
+      "change_pct": 0.36,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 11/05 23:00"
+      "note": "Dữ liệu gần nhất: 12/05 23:00"
     },
     {
       "name": "Nifty 50",
       "symbol": "^NSEI",
       "category": "Asia",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
+      "price": 23323.9,
+      "change": -55.65,
+      "change_pct": -0.24,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 12/05 01:30"
+      "note": "Dữ liệu gần nhất: 13/05 01:30"
     },
     {
       "name": "ASX 200",
       "symbol": "^AXJO",
       "category": "Asia",
-      "price": 8701.8,
-      "change": -42.6,
-      "change_pct": -0.49,
+      "price": 8641.3,
+      "change": -29.4,
+      "change_pct": -0.34,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 10/05 21:00"
+      "note": "Dữ liệu gần nhất: 12/05 21:00"
     }
   ]
 }
