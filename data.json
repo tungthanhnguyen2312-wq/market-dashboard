@@ -1,7 +1,17 @@
 {
-  "updated_at": "2026-05-13T06:08:58.024861+07:00",
-  "updated_at_display": "13/05/2026 • 06:08 GMT+7",
+  "updated_at": "2026-05-13T07:14:44.682860+07:00",
+  "updated_at_display": "13/05/2026 • 07:14 GMT+7",
   "war_news": [
+    {
+      "source": "Al Jazeera",
+      "title": "Iran war live: Trump travels to China as conflict with Tehran looms large",
+      "title_vi": "Chiến tranh Iran trực tiếp: Trump đến Trung Quốc khi xung đột với Tehran hiện ra lờ mờ",
+      "summary": "Israeli attacks on Lebanon have killed 2,883 people and injured 8,787 since March 2, Lebanon's Health Ministry says.",
+      "summary_vi": "Israeli attacks on Lebanon have killed 2,883 people and injured 8,787 since March 2, Lebanon's Health Ministry says.",
+      "url": "https://www.aljazeera.com/news/liveblog/2026/5/13/iran-war-live-trump-travels-to-china-as-conflict-with-tehran-looms-large?traffic_source=rss",
+      "published_iso": "2026-05-13T07:00:00+07:00",
+      "published_text": "13/05 07:00"
+    },
     {
       "source": "Al Jazeera",
       "title": "Trump downplays US-Iran differences as he heads to Beijing to meet with Xi",
@@ -11,29 +21,9 @@
       "url": "https://www.aljazeera.com/news/2026/5/12/trump-downplays-us-iran-differences-as-he-heads-to-beijing-to-meet-with-xi?traffic_source=rss",
       "published_iso": "2026-05-13T04:02:19+07:00",
       "published_text": "13/05 04:02"
-    },
-    {
-      "source": "Al Jazeera",
-      "title": "Cannes juror denounces Hollywood boycott of actors for Gaza war views",
-      "title_vi": "Bồi thẩm đoàn Cannes tố cáo Hollywood tẩy chay các diễn viên vì quan điểm chiến tranh Gaza",
-      "summary": "2026 Cannes Film Festival juror Paul Laverty denounced Hollywood for boycotting actors who’ve opposed the Gaza war.",
-      "summary_vi": "2026 Cannes Film Festival juror Paul Laverty denounced Hollywood for boycotting actors who’ve opposed the Gaza war.",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/12/cannes-juror-denounces-hollywood-boycott-of-actors-for-gaza-war-views?traffic_source=rss",
-      "published_iso": "2026-05-13T03:55:57+07:00",
-      "published_text": "13/05 03:55"
     }
   ],
   "global_news": [
-    {
-      "source": "Google News Macro",
-      "title": "Iran war pushed inflation to highest rate in nearly three years - The Washington Post",
-      "title_vi": "Chiến tranh Iran đã đẩy lạm phát lên mức cao nhất trong gần ba năm - The Washington Post",
-      "summary": "Iran war pushed inflation to highest rate in nearly three years The Washington Post",
-      "summary_vi": "Iran war pushed inflation to highest rate in nearly three years The Washington Post",
-      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQdVI1NzY0UVRfTWxMUWZHUGtSZld4SHFJdXpaZ1FWYllUaDNpd1RkbnNvN3JRNFkxaWwzOTRNVGNYMHE2emh0TVItUVo3Y2JaS2FnV1I4d05lXzhRYS1ZRDB6N0ZCblVic1RKc0NlT0xlcldDUVFNMXBZZllKRVh2bm1FSTVZN0VrZ0gxU0VzMlg?oc=5",
-      "published_iso": "2026-05-13T06:06:58+07:00",
-      "published_text": "13/05 06:06"
-    },
     {
       "source": "Google News Macro",
       "title": "Inflation Jumps as War-Driven Energy Costs Drive Up Prices - The New York Times",
@@ -63,6 +53,16 @@
       "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQVU9OWlQxSlVfUmVWV05sYjUyYzVyYlI4OHppaVNDMXAtTEw0NERreWV0VzF4ckU4NF9fT2dPUm8xQ0gzZDB3cF9TWVEzcDF4WFRZb1hGaXpsNTVrVmZYYWFfZlVhNldPV2NoY21VMFJRdnNvRmp0cHZ3aGctZzdlMHpxeGs3YmdIU21WUm8tVXFmZ2ZqcHA1ZzZlTXJlOUxBcFg4bUhmYnBONHB2cXM5Q05UeGs?oc=5",
       "published_iso": "2026-05-13T01:43:56+07:00",
       "published_text": "13/05 01:43"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "US inflation jumps to 3.8% as energy costs surge from Iran war - BBC",
+      "title_vi": "Lạm phát của Mỹ tăng lên 3,8% khi chi phí năng lượng tăng từ chiến tranh Iran - BBC",
+      "summary": "US inflation jumps to 3.8% as energy costs surge from Iran war BBC",
+      "summary_vi": "US inflation jumps to 3.8% as energy costs surge from Iran war BBC",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5NZlJkVl9LOWV1T1F0VGRhZEJIb0wxTWZfSjVXNDN4MjhudzhueXM3V3hlcWgydjRuZEZnRzdocDFWS0hQdmY4NklZQWpqOW9DcG8zbzBVUjAzZw?oc=5",
+      "published_iso": "2026-05-13T01:36:58+07:00",
+      "published_text": "13/05 01:36"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-kieu-viet-dau-gia-quyen-su-dung-dat-doi-voi-cac-lo-dat-o-con-lai-ta-i-du-an-khu-dan-cu-doc-tuyen-duong-noi-tu-duong-truc-khu-kinh-te-den-khu-tam-linh-chua-linh-phong-ta-i-xa-cat-tien-tinh-gia-lai-50969.html",
-      "published_iso": "2026-05-13T06:09:50.850126+07:00",
-      "published_text": "13/05 06:09"
+      "published_iso": "2026-05-13T07:15:35.038049+07:00",
+      "published_text": "13/05 07:15"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-kieu-viet-dau-gia-quyen-su-dung-dat-doi-voi-35-lo-dat-o-ta-i-phan-khu-so-5-thuoc-khu-do-thi-du-lich-sinh-thai-nhon-hoi-khu-kinh-te-nhon-hoi-phuong-quy-nhon-dong-tinh-gia-lai-50980.html",
-      "published_iso": "2026-05-13T06:09:50.850059+07:00",
-      "published_text": "13/05 06:09"
+      "published_iso": "2026-05-13T07:15:35.037976+07:00",
+      "published_text": "13/05 07:15"
     },
     {
       "source": "VietnamFinance",
@@ -93,18 +93,18 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/chuyen-giao-dich-len-blockchain-san-kieu-moi-dang-thay-doi-cach-mua-ban-bat-dong-san-d144666.html",
-      "published_iso": "2026-05-13T06:09:48.915601+07:00",
-      "published_text": "13/05 06:09"
+      "published_iso": "2026-05-13T07:15:33.540328+07:00",
+      "published_text": "13/05 07:15"
     },
     {
       "source": "VietnamFinance",
-      "title": "VietnamFinance tổ chức Tọa đàm 'Dấu ấn 1 năm thực hiện Nghị quyết 68'",
-      "title_vi": "VietnamFinance tổ chức Tọa đàm 'Dấu ấn 1 năm thực hiện Nghị quyết 68'",
+      "title": "Giá vàng hôm nay 13/5: Vàng miếng tăng nhẹ",
+      "title_vi": "Giá vàng hôm nay 13/5: Vàng miếng tăng nhẹ",
       "summary": "",
       "summary_vi": "",
-      "url": "https://vietnamfinance.vn/vietnamfinance-to-chuc-toa-dam-dau-an-1-nam-thuc-hien-nghi-quyet-68-d144698.html",
-      "published_iso": "2026-05-13T06:09:48.915541+07:00",
-      "published_text": "13/05 06:09"
+      "url": "https://vietnamfinance.vn/gia-vang-hom-nay-13-5-vang-mieng-tang-nhe-d144720.html",
+      "published_iso": "2026-05-13T07:15:33.540257+07:00",
+      "published_text": "13/05 07:15"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/jollibee-viet-nam-dat-bao-chung-quoc-te-ve-attp-de-noi-lo-nhuong-cho-cho-nhung-bua-an-tram-phan-tram-vui-ve-188260509094524105.chn",
-      "published_iso": "2026-05-13T06:09:46.851181+07:00",
-      "published_text": "13/05 06:09"
+      "published_iso": "2026-05-13T07:15:31.587961+07:00",
+      "published_text": "13/05 07:15"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/abbank-2026-vi-the-moi-voi-cu-hich-kep-hose-va-tang-von-vuot-20000-ty-188260508180021469.chn",
-      "published_iso": "2026-05-13T06:09:46.851113+07:00",
-      "published_text": "13/05 06:09"
+      "published_iso": "2026-05-13T07:15:31.587888+07:00",
+      "published_text": "13/05 07:15"
     }
   ],
   "markets": [
@@ -132,9 +132,9 @@
       "name": "WTI",
       "symbol": "CL=F",
       "category": "Energy",
-      "price": 101.92,
-      "change": 3.85,
-      "change_pct": 3.93,
+      "price": 101.69,
+      "change": 3.62,
+      "change_pct": 3.69,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 12/05 11:00"
@@ -143,9 +143,9 @@
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 107.3,
-      "change": 3.09,
-      "change_pct": 2.97,
+      "price": 107.11,
+      "change": 2.9,
+      "change_pct": 2.78,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 12/05 11:00"
@@ -156,7 +156,7 @@
       "category": "Energy",
       "price": 2.83,
       "change": -0.08,
-      "change_pct": -2.85,
+      "change_pct": -2.82,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 12/05 11:00"
@@ -165,9 +165,9 @@
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4724.9,
-      "change": 6.2,
-      "change_pct": 0.13,
+      "price": 4733.6,
+      "change": 14.9,
+      "change_pct": 0.32,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 12/05 11:00"
@@ -176,9 +176,9 @@
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 87.49,
-      "change": 2.0,
-      "change_pct": 2.35,
+      "price": 88.14,
+      "change": 2.65,
+      "change_pct": 3.11,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 12/05 11:00"
@@ -187,9 +187,9 @@
       "name": "Copper",
       "symbol": "HG=F",
       "category": "Metals",
-      "price": 6.64,
-      "change": 0.22,
-      "change_pct": 3.46,
+      "price": 6.66,
+      "change": 0.25,
+      "change_pct": 3.85,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 12/05 11:00"
@@ -209,9 +209,9 @@
       "name": "DXY",
       "symbol": "DX-Y.NYB",
       "category": "FX",
-      "price": 98.29,
-      "change": 0.35,
-      "change_pct": 0.36,
+      "price": 98.31,
+      "change": 0.37,
+      "change_pct": 0.37,
       "decimals": 2,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 12/05 11:00"
@@ -220,9 +220,9 @@
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1744,
-      "change": -0.0036,
-      "change_pct": -0.31,
+      "price": 1.1736,
+      "change": -0.0044,
+      "change_pct": -0.38,
       "decimals": 4,
       "suffix": "",
       "note": "Dữ liệu gần nhất: 13/05 06:00"
@@ -231,12 +231,12 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 80641.0,
-      "change": -1087.0,
-      "change_pct": -1.33,
+      "price": 80457.0,
+      "change": -1271.0,
+      "change_pct": -1.56,
       "decimals": 0,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 12/05 07:00"
+      "note": "Dữ liệu gần nhất: 13/05 07:00"
     },
     {
       "name": "S&P 500",
@@ -341,12 +341,12 @@
       "name": "Nikkei 225",
       "symbol": "^N225",
       "category": "Asia",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
+      "price": 62392.94,
+      "change": -24.94,
+      "change_pct": -0.04,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 11/05 22:00"
+      "note": "Dữ liệu gần nhất: 12/05 22:00"
     },
     {
       "name": "KOSPI",
@@ -396,12 +396,12 @@
       "name": "ASX 200",
       "symbol": "^AXJO",
       "category": "Asia",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
+      "price": 8701.8,
+      "change": -42.6,
+      "change_pct": -0.49,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu gần nhất: 11/05 21:00"
+      "note": "Dữ liệu gần nhất: 10/05 21:00"
     }
   ]
 }
