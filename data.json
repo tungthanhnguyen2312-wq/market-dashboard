@@ -1,29 +1,59 @@
 {
-  "updated_at": "2026-05-14T21:44:34.936166+07:00",
-  "updated_at_display": "14/05/2026 • 21:44 GMT+7",
+  "updated_at": "2026-05-14T23:34:00.255975+07:00",
+  "updated_at_display": "14/05/2026 • 23:34 GMT+7",
   "war_news": [
     {
       "source": "Al Jazeera",
-      "title": "Israeli minister blasts Barcelona’s Lamine Yamal for Palestinian flag wave",
-      "title_vi": "Bộ trưởng Israel đã cho nổ tung Lamine Yamal của Barcelona để giương cờ Palestine",
-      "summary": "Spanish international Lamine Yamal criticised for waving Palestinian flag during bus parade celebrating La Liga title.",
-      "summary_vi": "Spanish international Lamine Yamal criticised for waving Palestinian flag during bus parade celebrating La Liga title.",
-      "url": "https://www.aljazeera.com/sports/2026/5/14/israeli-minister-blasts-barcelonas-lamine-yamal-for-palestinian-flag-wave?traffic_source=rss",
-      "published_iso": "2026-05-14T21:25:02+07:00",
-      "published_text": "14/05 21:25"
+      "title": "Israel’s Netanyahu says suing New York Times over Palestinian rape article",
+      "title_vi": "Netanyahu của Israel nói kiện New York Times về bài viết hiếp dâm người Palestine",
+      "summary": "Israel launches 'defamation' suit after Nicholas Kristof article detailing alleged sexual violence by Israeli forces.",
+      "summary_vi": "Israel launches 'defamation' suit after Nicholas Kristof article detailing alleged sexual violence by Israeli forces.",
+      "url": "https://www.aljazeera.com/news/2026/5/14/israels-netanyahu-says-suing-new-york-times-over-palestinian-rape-article?traffic_source=rss",
+      "published_iso": "2026-05-14T23:16:29+07:00",
+      "published_text": "14/05 23:16"
     },
     {
-      "source": "Al Jazeera",
-      "title": "Trump, Xi discuss Strait of Hormuz as Chinese vessels transit key waterway",
-      "title_vi": "Trump, Xi thảo luận về Eo biển Hormuz khi các tàu Trung Quốc đi qua tuyến đường thủy quan trọng",
-      "summary": "White House says the two leaders agree that the strait 'must remain open to support the free flow of energy'.",
-      "summary_vi": "White House says the two leaders agree that the strait 'must remain open to support the free flow of energy'.",
-      "url": "https://www.aljazeera.com/news/2026/5/14/trump-xi-discuss-strait-of-hormuz-as-chinese-vessels-transit-key-waterway?traffic_source=rss",
-      "published_iso": "2026-05-14T21:23:21+07:00",
-      "published_text": "14/05 21:23"
+      "source": "Google News War",
+      "title": "Live Updates: Latest from Israel, Iran, and Middle East - The Jerusalem Post",
+      "title_vi": "Cập nhật trực tiếp: Mới nhất từ Israel, Iran và Trung Đông - The Jerusalem Post",
+      "summary": "Live Updates: Latest from Israel, Iran, and Middle East The Jerusalem Post",
+      "summary_vi": "Live Updates: Latest from Israel, Iran, and Middle East The Jerusalem Post",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9GdS1VLUlObWhlMHR4U2FOQjIyckJsT0h2MDc2REtxUUlxZGhiV3JZZGdYWGI2X0ttbUJheThuSGJqeVM4SzdBeUItYXpMWjFXVVZJYXlsQjdITEdmeFk0eWVyT280SmdIR2lxNVhJdVNGWlpsWjBrTGhRU3Vacjg?oc=5",
+      "published_iso": "2026-05-14T22:47:20+07:00",
+      "published_text": "14/05 22:47"
     }
   ],
   "global_news": [
+    {
+      "source": "Investing News",
+      "title": "UK to auction £4bn of treasury gilts maturing in 2036",
+      "title_vi": "Vương quốc Anh sẽ đấu giá 4 tỷ £ trái phiếu kho bạc đáo hạn vào năm 2036",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/company-news/uk-to-auction-4bn-of-treasury-gilts-maturing-in-2036-93CH-4689482",
+      "published_iso": "2026-05-14T23:27:19+07:00",
+      "published_text": "14/05 23:27"
+    },
+    {
+      "source": "Investing News",
+      "title": "Mortgage rates hold steady despite rise in inflation",
+      "title_vi": "Lãi suất thế chấp ổn định mặc dù lạm phát gia tăng",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/economy-news/mortgage-rates-hold-steady-despite-rise-in-inflation-93CH-4689481",
+      "published_iso": "2026-05-14T23:24:54+07:00",
+      "published_text": "14/05 23:24"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "Here’s How Trump’s Trade War on China Ended Up in a Stalemate - The New York Times",
+      "title_vi": "Đây là cách cuộc chiến thương mại của Trump đối với Trung Quốc kết thúc trong bế tắc - The New York Times",
+      "summary": "Here’s How Trump’s Trade War on China Ended Up in a Stalemate The New York Times",
+      "summary_vi": "Here’s How Trump’s Trade War on China Ended Up in a Stalemate The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9COEZCcUdCRXhfSTNja28waDRNTHVzX3ZfSTBIYUs1Q1dDWXRTZTZHM2JNNXVvY2x0TDd1Z3JTUzQ1NUJvbk9icUpkZFpfSmdhcGJqeFlmdFVfamtmNnpPOEtFU0liVUF5REhDWE10UGRhZkF6OHY0?oc=5",
+      "published_iso": "2026-05-14T08:29:13+07:00",
+      "published_text": "14/05 08:29"
+    },
     {
       "source": "Google News Macro",
       "title": "Trump arrives in China for high-stakes talks on trade, Taiwan and Iran war - PBS",
@@ -33,36 +63,6 @@
       "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQZGpXY2ticWgwOXQxLWp5d2N4MWwwUGlacVo0eWRWVy1SbDNZQ1A3R2RzOEhibWZ0RUx0T0pXREFvVmZJU3ZSaEpDNEN2cE1xYzZMcTNRcElmbl90My0wT2R5OGczLVRtbkNuN2FDNjNVRU5CbkJaQ2piZGZaRXJ6VXdGRFNKXzBUeThrOURCMWVlY01QREx4U2lyM2JxNjFNYmxncVRiWmtLMnc3bVdHOTVmbUxYTUhndHJUQ2F3?oc=5",
       "published_iso": "2026-05-14T05:55:41+07:00",
       "published_text": "14/05 05:55"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "The latest on Trump's tariffs - SCOTUSblog",
-      "title_vi": "Thông tin mới nhất về thuế quan của Trump - SCOTUSblog",
-      "summary": "The latest on Trump's tariffs SCOTUSblog",
-      "summary_vi": "The latest on Trump's tariffs SCOTUSblog",
-      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5pUXRzVm9SemlfdWt6ZmZlTEdoSmRVcjRqN0NTR1FVS28wbGp5dnZVa0xtaXlYNHg0SGN6dEpQQWUxRnh0VlJPSVBtcDI3SVRoc2NpZWFvVkpYRGstYmhCSmJXT2ZmaDI4TldndXVvOHg?oc=5",
-      "published_iso": "2026-05-13T20:01:20+07:00",
-      "published_text": "13/05 20:01"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "Oil Market Report - May 2026 – Analysis - IEA – International Energy Agency",
-      "title_vi": "Báo cáo thị trường dầu mỏ - Tháng 5 năm 2026 – Phân tích - IEA – Cơ quan Năng lượng Quốc tế",
-      "summary": "Oil Market Report - May 2026 – Analysis IEA – International Energy Agency",
-      "summary_vi": "Oil Market Report - May 2026 – Analysis IEA – International Energy Agency",
-      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1CaUJIRHVqd0pKMFNLcVRDc2IwSzZwRFZPU0NlbERzbG8xZ3JLVlpVS2lHS3did25MRDZZMTZkWHMwSjZsSEZ2WURDd3QwQTJQUUtlLVBPcFlHVmxIZHlTMVNyZWk?oc=5",
-      "published_iso": "2026-05-13T15:00:00+07:00",
-      "published_text": "13/05 15:00"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "Trump’s Shrinking Ambitions on China - The New York Times",
-      "title_vi": "Tham vọng thu hẹp của Trump đối với Trung Quốc - The New York Times",
-      "summary": "Trump’s Shrinking Ambitions on China The New York Times",
-      "summary_vi": "Trump’s Shrinking Ambitions on China The New York Times",
-      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBheE9zdDFtdmRoWkw1YmdyTk1GNWV2c1h5MkRxWE1FTVFoX1RqRkpJNzNCX2RtdE9TMnJaZzYtWjRwc3VFOFowLTRWd3J2WHg3SmdjM05pM0E2eU5XcDBLUml1Q3U3MzBOampwUUlQa0hXNnV6NmppamlTSjE?oc=5",
-      "published_iso": "2026-05-13T11:01:05+07:00",
-      "published_text": "13/05 11:01"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-da-u-gia-ho-p-danh-go-cong-dau-gia-thanh-ly-tai-san-cong-cu-dung-cu-cua-trung-tam-y-te-khu-vuc-go-cong-51010.html",
-      "published_iso": "2026-05-14T21:45:24.240781+07:00",
-      "published_text": "14/05 21:45"
+      "published_iso": "2026-05-14T23:34:49.017200+07:00",
+      "published_text": "14/05 23:34"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-da-u-gia-ho-p-danh-go-cong-dau-gia-quyen-khai-thac-so-giong-nam-2026-tai-san-thuoc-quan-ly-cua-phong-kinh-te-xa-tan-phu-dong-51014.html",
-      "published_iso": "2026-05-14T21:45:24.240714+07:00",
-      "published_text": "14/05 21:45"
+      "published_iso": "2026-05-14T23:34:49.017107+07:00",
+      "published_text": "14/05 23:34"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/tranh-ap-them-quy-dinh-len-hang-trieu-ho-kinh-doanh-khien-ho-kho-tuan-thu-d144786.html",
-      "published_iso": "2026-05-14T21:45:23.422126+07:00",
-      "published_text": "14/05 21:45"
+      "published_iso": "2026-05-14T23:34:47.744525+07:00",
+      "published_text": "14/05 23:34"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/muc-tieu-2-trieu-dn-kho-dat-neu-khong-doi-cach-xay-dung-moi-truong-kinh-doanh-d144758.html",
-      "published_iso": "2026-05-14T21:45:23.422052+07:00",
-      "published_text": "14/05 21:45"
+      "published_iso": "2026-05-14T23:34:47.744454+07:00",
+      "published_text": "14/05 23:34"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/muon-vi-nhan-sinh-khi-van-phu-ke-chuyen-khong-gian-tu-doi-song-con-nguoi-188260512072651823.chn",
-      "published_iso": "2026-05-14T21:45:21.772460+07:00",
-      "published_text": "14/05 21:45"
+      "published_iso": "2026-05-14T23:34:45.482372+07:00",
+      "published_text": "14/05 23:34"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/tu-nhan-tham-gia-kien-tao-ha-tang-khi-doanh-nghiep-buoc-vao-phan-kho-cua-nen-kinh-te-188260512080233895.chn",
-      "published_iso": "2026-05-14T21:45:21.772392+07:00",
-      "published_text": "14/05 21:45"
+      "published_iso": "2026-05-14T23:34:45.482297+07:00",
+      "published_text": "14/05 23:34"
     }
   ],
   "markets": [
@@ -132,9 +132,9 @@
       "name": "WTI",
       "symbol": "CL=F",
       "category": "Energy",
-      "price": 101.31,
-      "change": 0.29,
-      "change_pct": 0.29,
+      "price": 100.42,
+      "change": -0.6,
+      "change_pct": -0.59,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 14/05 11:00"
@@ -143,9 +143,9 @@
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 105.69,
-      "change": 0.06,
-      "change_pct": 0.06,
+      "price": 104.52,
+      "change": -1.11,
+      "change_pct": -1.05,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 14/05 11:00"
@@ -154,9 +154,9 @@
       "name": "Natural Gas",
       "symbol": "NG=F",
       "category": "Energy",
-      "price": 2.84,
-      "change": -0.02,
-      "change_pct": -0.8,
+      "price": 2.89,
+      "change": 0.02,
+      "change_pct": 0.84,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 14/05 11:00"
@@ -165,9 +165,9 @@
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4693.0,
-      "change": -4.7,
-      "change_pct": -0.1,
+      "price": 4684.3,
+      "change": -13.4,
+      "change_pct": -0.29,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 14/05 11:00"
@@ -176,9 +176,9 @@
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 85.29,
-      "change": -3.6,
-      "change_pct": -4.05,
+      "price": 85.33,
+      "change": -3.55,
+      "change_pct": -4.0,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 14/05 11:00"
@@ -187,9 +187,9 @@
       "name": "Copper",
       "symbol": "HG=F",
       "category": "Metals",
-      "price": 6.61,
-      "change": -0.02,
-      "change_pct": -0.37,
+      "price": 6.6,
+      "change": -0.03,
+      "change_pct": -0.49,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 14/05 11:00"
@@ -198,9 +198,9 @@
       "name": "US 10Y",
       "symbol": "^TNX",
       "category": "Rates",
-      "price": 0.45,
+      "price": 0.44,
       "change": -0.0,
-      "change_pct": -0.54,
+      "change_pct": -0.8,
       "decimals": 2,
       "suffix": "%",
       "note": "Gần nhất: 14/05 12:00"
@@ -209,9 +209,9 @@
       "name": "DXY",
       "symbol": "DX-Y.NYB",
       "category": "FX",
-      "price": 98.61,
-      "change": 0.13,
-      "change_pct": 0.13,
+      "price": 98.78,
+      "change": 0.3,
+      "change_pct": 0.3,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 14/05 11:00"
@@ -220,9 +220,9 @@
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1699,
-      "change": -0.0037,
-      "change_pct": -0.31,
+      "price": 1.1677,
+      "change": -0.0059,
+      "change_pct": -0.5,
       "decimals": 4,
       "suffix": "",
       "note": "Gần nhất: 14/05 06:00"
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 80360.0,
-      "change": 1083.0,
-      "change_pct": 1.37,
+      "price": 81471.0,
+      "change": 2194.0,
+      "change_pct": 2.77,
       "decimals": 0,
       "suffix": "",
       "note": "Gần nhất: 14/05 07:00"
@@ -242,9 +242,9 @@
       "name": "S&P 500",
       "symbol": "^GSPC",
       "category": "US",
-      "price": 7493.28,
-      "change": 49.03,
-      "change_pct": 0.66,
+      "price": 7498.44,
+      "change": 54.19,
+      "change_pct": 0.73,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 14/05 11:00"
@@ -253,9 +253,9 @@
       "name": "Dow Jones",
       "symbol": "^DJI",
       "category": "US",
-      "price": 49955.35,
-      "change": 262.15,
-      "change_pct": 0.53,
+      "price": 50062.28,
+      "change": 369.08,
+      "change_pct": 0.74,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 14/05 11:00"
@@ -264,9 +264,9 @@
       "name": "Nasdaq",
       "symbol": "^IXIC",
       "category": "US",
-      "price": 26601.96,
-      "change": 199.62,
-      "change_pct": 0.76,
+      "price": 26632.75,
+      "change": 230.41,
+      "change_pct": 0.87,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 14/05 11:00"
@@ -275,9 +275,9 @@
       "name": "Russell 2000",
       "symbol": "^RUT",
       "category": "US",
-      "price": 2846.33,
-      "change": 2.4,
-      "change_pct": 0.08,
+      "price": 2872.32,
+      "change": 28.39,
+      "change_pct": 1.0,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 14/05 11:00"
@@ -286,9 +286,9 @@
       "name": "VIX",
       "symbol": "^VIX",
       "category": "US",
-      "price": 18.04,
-      "change": 0.17,
-      "change_pct": 0.95,
+      "price": 17.83,
+      "change": -0.04,
+      "change_pct": -0.22,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 14/05 12:00"
@@ -297,9 +297,9 @@
       "name": "FTSE 100",
       "symbol": "^FTSE",
       "category": "Europe",
-      "price": 10331.14,
-      "change": 5.74,
-      "change_pct": 0.06,
+      "price": 10372.93,
+      "change": 47.53,
+      "change_pct": 0.46,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 14/05 06:00"
@@ -308,9 +308,9 @@
       "name": "Euro Stoxx 50",
       "symbol": "^STOXX50E",
       "category": "Europe",
-      "price": 5861.07,
-      "change": 0.0,
-      "change_pct": 0.0,
+      "price": 5934.96,
+      "change": 73.89,
+      "change_pct": 1.26,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 14/05 05:00"
@@ -324,15 +324,15 @@
       "change_pct": 0.0,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
+      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
     },
     {
       "name": "Hang Seng",
       "symbol": "^HSI",
       "category": "Asia",
-      "price": 26389.04,
-      "change": 0.6,
-      "change_pct": 0.0,
+      "price": NaN,
+      "change": NaN,
+      "change_pct": NaN,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 13/05 23:00"
@@ -341,9 +341,9 @@
       "name": "Nikkei 225",
       "symbol": "^N225",
       "category": "Asia",
-      "price": 62654.05,
-      "change": -618.06,
-      "change_pct": -0.98,
+      "price": NaN,
+      "change": NaN,
+      "change_pct": NaN,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 13/05 22:00"
@@ -352,9 +352,9 @@
       "name": "KOSPI",
       "symbol": "^KS11",
       "category": "Asia",
-      "price": 7981.41,
-      "change": 137.4,
-      "change_pct": 1.75,
+      "price": NaN,
+      "change": NaN,
+      "change_pct": NaN,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 13/05 22:00"
@@ -363,9 +363,9 @@
       "name": "Shanghai Composite",
       "symbol": "000001.SS",
       "category": "Asia",
-      "price": 4177.92,
-      "change": -64.65,
-      "change_pct": -1.52,
+      "price": NaN,
+      "change": NaN,
+      "change_pct": NaN,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 13/05 23:00"
@@ -374,9 +374,9 @@
       "name": "Shenzhen Component",
       "symbol": "399001.SZ",
       "category": "Asia",
-      "price": 15745.74,
-      "change": -344.01,
-      "change_pct": -2.14,
+      "price": NaN,
+      "change": NaN,
+      "change_pct": NaN,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 13/05 23:00"
