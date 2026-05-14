@@ -9,36 +9,111 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Extra styles không cần sửa style.css gốc ── */
+    .nav-section-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted-2);
+      padding: 0 4px;
+      align-self: center;
+    }
+    .nav-divider {
+      width: 1px;
+      height: 20px;
+      background: var(--border-soft);
+      align-self: center;
+    }
+    .market-card.stale-data {
+      opacity: 0.78;
+    }
+    .market-card.stale-data .market-note::before {
+      content: "⚠ ";
+      color: var(--gold);
+    }
+    .zero-flag {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--gold);
+      margin-left: 4px;
+      vertical-align: super;
+      cursor: help;
+    }
+    .countdown-bar {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted-2);
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      background: rgba(255,255,255,0.02);
+    }
+    .countdown-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    #refresh-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .nav-row {
+      align-items: center;
+    }
+  </style>
 </head>
 <body>
   <div class="page-shell">
     <header class="masthead">
       <div class="masthead-top">
-        <div class="nav-row">
-          <a class="nav-pill nav-pill-active" href="index.html">Live Dashboard</a>
-          <a class="nav-pill" href="playbook-2026-04-01.html">1/4 Playbook</a>
-          <a class="nav-pill" href="playbook-2026-04-02.html">2/4 Playbook</a>
-          <a class="nav-pill" href="playbook-2026-04-03.html">3/4 Playbook</a>
-          <a class="nav-pill" href="playbook-2026-04-09.html">9/4 Playbook</a>
-        </div>
+        <!-- Navigation tất cả các trang -->
+        <nav class="nav-row" role="navigation" aria-label="Điều hướng chính">
+          <!-- Live -->
+          <a class="nav-pill nav-pill-active" href="index.html">📡 Live</a>
+
+          <div class="nav-divider"></div>
+          <span class="nav-section-label">Playbooks</span>
+
+          <a class="nav-pill" href="playbook-2026-04-01.html">01/4</a>
+          <a class="nav-pill" href="playbook-2026-04-02.html">02/4</a>
+          <a class="nav-pill" href="playbook-2026-04-03.html">03/4</a>
+          <a class="nav-pill" href="playbook-2026-04-09.html">09/4</a>
+
+          <div class="nav-divider"></div>
+          <span class="nav-section-label">Reports</span>
+
+          <a class="nav-pill" href="vn_crosscheck_update_2026-04-08.html">08/4 VN Cross</a>
+          <a class="nav-pill" href="report-2026-04-21.html">21/4 Report</a>
+        </nav>
+
         <div class="service-line">
           <span class="service-dot"></span>
           <span>Market Intelligence Desk</span>
           <span class="divider-dot">•</span>
-          <span>Finance • Geopolitics • Vietnam</span>
+          <span>Finance · Geopolitics · Vietnam</span>
         </div>
       </div>
 
       <div class="masthead-main">
         <div class="headline-block">
           <div class="eyebrow">LIVE COVERAGE</div>
-          <h1>Vietnam & Global Market Intelligence</h1>
-          <p class="headline-subtitle">Bảng tin dark theme kiểu newsroom: chiến sự, kinh tế - chính trị Việt Nam, quốc tế vĩ mô và 24+ chỉ số thị trường trên cùng một màn hình.</p>
+          <h1>Vietnam &amp; Global Market Intelligence</h1>
+          <p class="headline-subtitle">Bảng tin dark theme kiểu newsroom: chiến sự, kinh tế - chính trị Việt Nam, quốc tế vĩ mô và 24+ chỉ số thị trường trên cùng một màn hình. Tự động làm mới mỗi 5 phút.</p>
           <div class="coverage-row">
             <span class="coverage-chip">War Desk</span>
-            <span class="coverage-chip">VN Politics & Economy</span>
+            <span class="coverage-chip">VN Politics &amp; Economy</span>
             <span class="coverage-chip">Global Macro</span>
-            <span class="coverage-chip">Energy & Metals</span>
+            <span class="coverage-chip">Energy &amp; Metals</span>
             <span class="coverage-chip">US / Asia / FX / Crypto</span>
           </div>
         </div>
@@ -74,12 +149,19 @@
             </div>
           </div>
 
-          <button id="refresh-btn" class="ghost-btn" type="button">Làm mới dữ liệu</button>
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:4px;">
+            <button id="refresh-btn" class="ghost-btn" type="button" style="flex:1;">Làm mới ngay</button>
+            <div class="countdown-bar">
+              <span class="countdown-dot"></span>
+              <span id="auto-refresh-countdown">Đang tải...</span>
+            </div>
+          </div>
         </aside>
       </div>
     </header>
 
     <main class="layout">
+      <!-- Tin tức 3 cột -->
       <section class="news-grid three-col">
         <article class="panel news-panel news-war">
           <div class="section-title-row">
@@ -98,7 +180,7 @@
               <div class="section-kicker alert-blue">GLOBAL MACRO</div>
               <h2>Quốc tế nổi bật</h2>
             </div>
-            <span class="section-chip">Vĩ mô & chính trị</span>
+            <span class="section-chip">Vĩ mô &amp; chính trị</span>
           </div>
           <div id="global-news" class="news-list loading-state">Đang tải...</div>
         </article>
@@ -115,25 +197,30 @@
         </article>
       </section>
 
+      <!-- Market snapshot -->
       <section class="panel">
         <div class="section-title-row">
           <div>
             <div class="section-kicker">MARKET SNAPSHOT</div>
             <h2>24+ chỉ số thị trường</h2>
           </div>
-          <span class="section-chip">Energy • Metals • Rates • FX • US • Asia • Crypto</span>
+          <span class="section-chip">Energy · Metals · Rates · FX · US · Asia · Crypto</span>
         </div>
+        <p style="margin:0 0 14px;font-size:12px;color:var(--muted);font-family:var(--mono);">
+          ⚠ = dữ liệu có thể cũ hơn 26h &nbsp;|&nbsp; ~ = change = 0, kiểm tra phiên giao dịch
+        </p>
         <div id="market-grid" class="market-grid">
           <div class="loading-state">Đang tải chỉ số...</div>
         </div>
       </section>
 
+      <!-- Ghi chú + Playbook links -->
       <section class="lower-grid">
         <article class="panel note-panel">
           <div class="section-title-row">
             <div>
               <div class="section-kicker">MANUAL NOTES</div>
-              <h2>Ghi chú thủ công của anh</h2>
+              <h2>Ghi chú thủ công</h2>
             </div>
             <span class="section-chip">Sửa bằng file JSON</span>
           </div>
@@ -143,10 +230,10 @@
         <article class="panel quick-link-panel">
           <div class="section-title-row">
             <div>
-              <div class="section-kicker">PLAYBOOK</div>
-              <h2>Playbook nhanh</h2>
+              <div class="section-kicker">PLAYBOOK &amp; REPORTS</div>
+              <h2>Tài liệu phân tích</h2>
             </div>
-            <span class="section-chip">01/04 - 09/04</span>
+            <span class="section-chip">01/04 – 21/04</span>
           </div>
           <div class="quick-link-grid">
             <div class="quick-link-box">
@@ -154,55 +241,70 @@
                 <div class="quick-link-title">Playbook 01/04/2026</div>
                 <div class="quick-link-text">Kịch bản, xác suất, hành động theo khung giờ cho phiên mở đầu tháng 4.</div>
               </div>
-              <a class="primary-btn" href="playbook-2026-04-01.html">Mở Playbook 01/04</a>
+              <a class="primary-btn" href="playbook-2026-04-01.html">Mở →</a>
             </div>
             <div class="quick-link-box">
               <div>
                 <div class="quick-link-title">Playbook 02/04/2026</div>
                 <div class="quick-link-text">Follow-through sau nhịp vượt 1.700, vĩ mô, xác suất và dividend radar.</div>
               </div>
-              <a class="primary-btn" href="playbook-2026-04-02.html">Mở Playbook 02/04</a>
+              <a class="primary-btn" href="playbook-2026-04-02.html">Mở →</a>
             </div>
             <div class="quick-link-box">
               <div>
                 <div class="quick-link-title">Playbook 03/04/2026</div>
-                <div class="quick-link-text">Sau khi mất lại 1.700, phân tích rung lắc và kịch bản 3 nhánh.</div>
+                <div class="quick-link-text">Sau khi mất lại 1.700, phân tích rung lắc, rủi ro vĩ mô và kịch bản 3 nhánh.</div>
               </div>
-              <a class="primary-btn" href="playbook-2026-04-03.html">Mở Playbook 03/04</a>
+              <a class="primary-btn" href="playbook-2026-04-03.html">Mở →</a>
             </div>
             <div class="quick-link-box">
               <div>
-                <div class="quick-link-title">Playbook 09/04/2026 ⭐</div>
-                <div class="quick-link-text">Sau cú bùng nổ FTSE +4.71%. Pre-positioning analysis, 4 mã, roadmap T9.</div>
+                <div class="quick-link-title">Playbook 09/04/2026</div>
+                <div class="quick-link-text">Phân tích sau FTSE announcement, kịch bản emerging market upgrade.</div>
               </div>
-              <a class="primary-btn" href="playbook-2026-04-09.html">Mở Playbook 09/04</a>
+              <a class="primary-btn" href="playbook-2026-04-09.html">Mở →</a>
+            </div>
+            <div class="quick-link-box">
+              <div>
+                <div class="quick-link-title">VN Crosscheck 08/04/2026</div>
+                <div class="quick-link-text">Cross-check dữ liệu vĩ mô và dòng tiền sau sự kiện FTSE 08/04.</div>
+              </div>
+              <a class="primary-btn" href="vn_crosscheck_update_2026-04-08.html">Mở →</a>
+            </div>
+            <div class="quick-link-box">
+              <div>
+                <div class="quick-link-title">Report 21/04/2026</div>
+                <div class="quick-link-text">Báo cáo toàn diện: Iran-US-Hormuz, hàng hóa, vĩ mô VN và kịch bản VN-Index.</div>
+              </div>
+              <a class="primary-btn" href="report-2026-04-21.html">Mở →</a>
             </div>
           </div>
         </article>
       </section>
 
+      <!-- AI Workspace -->
       <section class="panel ai-panel">
         <div class="section-title-row">
           <div>
             <div class="section-kicker">AI WORKSPACE</div>
-            <h2>Gemini prompt box</h2>
+            <h2>Gemini Prompt Box</h2>
           </div>
-          <span class="section-chip">Client-side</span>
+          <span class="section-chip">Client-side · Gemini API</span>
         </div>
 
         <div class="note-box">
-          <strong>Lưu ý:</strong> ô API key chạy ở phía trình duyệt. Chỉ nên dùng cho mục đích cá nhân.
+          <strong>Lưu ý:</strong> API key chạy phía trình duyệt (client-side). Chỉ dùng cho mục đích cá nhân. Key được lưu trong localStorage nếu bật "Ghi nhớ".
         </div>
 
         <div class="ai-grid">
           <div class="form-group">
             <label for="gemini-key">Gemini API key</label>
-            <input id="gemini-key" type="password" placeholder="Dán Gemini API key" />
+            <input id="gemini-key" type="password" placeholder="Dán Gemini API key vào đây" autocomplete="off" />
           </div>
           <div class="form-group">
             <label for="gemini-model">Model</label>
             <select id="gemini-model">
-              <option value="gemini-2.5-flash">gemini-2.5-flash</option>
+              <option value="gemini-2.5-flash">gemini-2.5-flash (khuyến nghị)</option>
               <option value="gemini-2.0-flash">gemini-2.0-flash</option>
               <option value="gemini-1.5-flash">gemini-1.5-flash</option>
             </select>
@@ -211,7 +313,7 @@
 
         <div class="form-group">
           <label for="ai-prompt">Prompt</label>
-          <textarea id="ai-prompt" rows="8" placeholder="Ví dụ: Tóm tắt rủi ro hôm nay đối với VN-Index, USD/VND và nhóm ngân hàng."></textarea>
+          <textarea id="ai-prompt" rows="8" placeholder="Ví dụ: Tóm tắt rủi ro hôm nay đối với VN-Index, USD/VND và nhóm ngân hàng dựa trên tin tức hiện tại."></textarea>
         </div>
 
         <div class="ai-actions">
@@ -219,7 +321,7 @@
             <input id="remember-key" type="checkbox" />
             <span>Ghi nhớ key trên thiết bị này</span>
           </label>
-          <button id="run-ai" class="primary-btn" type="button">Chạy AI</button>
+          <button id="run-ai" class="primary-btn" type="button">▶ Chạy AI</button>
         </div>
 
         <div id="ai-status" class="ai-status"></div>
