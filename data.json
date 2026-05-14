@@ -1,7 +1,17 @@
 {
-  "updated_at": "2026-05-14T17:28:54.951145+07:00",
-  "updated_at_display": "14/05/2026 • 17:28 GMT+7",
+  "updated_at": "2026-05-14T19:12:15.482256+07:00",
+  "updated_at_display": "14/05/2026 • 19:12 GMT+7",
   "war_news": [
+    {
+      "source": "Al Jazeera",
+      "title": "Two killed as Israel ramps up southern Lebanon attacks ahead of US talks",
+      "title_vi": "Hai người thiệt mạng khi Israel tăng cường các cuộc tấn công miền nam Lebanon trước các cuộc đàm phán của Mỹ",
+      "summary": "Lebanon and Israel are expected to hold talks on extending the ceasefire in Washington.",
+      "summary_vi": "Lebanon and Israel are expected to hold talks on extending the ceasefire in Washington.",
+      "url": "https://www.aljazeera.com/news/2026/5/14/two-killed-as-israel-ramps-up-southern-lebanon-attacks-ahead-of-us-talks?traffic_source=rss",
+      "published_iso": "2026-05-14T18:27:22+07:00",
+      "published_text": "14/05 18:27"
+    },
     {
       "source": "Al Jazeera",
       "title": "Could Iran war trigger a hunger crisis?",
@@ -11,28 +21,28 @@
       "url": "https://www.aljazeera.com/video/counting-the-cost/2026/5/14/could-iran-war-trigger-a-hunger-crisis?traffic_source=rss",
       "published_iso": "2026-05-14T16:28:05+07:00",
       "published_text": "14/05 16:28"
-    },
-    {
-      "source": "Al Jazeera",
-      "title": "Japanese snacks go black-and-white: Why Iran war is driving up ink prices",
-      "title_vi": "Đồ ăn nhẹ của Nhật Bản chuyển sang màu đen trắng: Tại sao chiến tranh Iran đang đẩy giá mực lên cao",
-      "summary": "Calbee says it would temporarily use only black and white colours on 14 of its products due to a lack of printing ink.",
-      "summary_vi": "Calbee says it would temporarily use only black and white colours on 14 of its products due to a lack of printing ink.",
-      "url": "https://www.aljazeera.com/news/2026/5/14/japanese-snacks-go-black-and-white-why-iran-war-is-driving-up-ink-prices?traffic_source=rss",
-      "published_iso": "2026-05-14T15:49:02+07:00",
-      "published_text": "14/05 15:49"
     }
   ],
   "global_news": [
     {
       "source": "Google News Macro",
-      "title": "Trump’s Shrinking Ambitions on China - The New York Times",
-      "title_vi": "Tham vọng thu hẹp của Trump đối với Trung Quốc - The New York Times",
-      "summary": "Trump’s Shrinking Ambitions on China The New York Times",
-      "summary_vi": "Trump’s Shrinking Ambitions on China The New York Times",
-      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBheE9zdDFtdmRoWkw1YmdyTk1GNWV2c1h5MkRxWE1FTVFoX1RqRkpJNzNCX2RtdE9TMnJaZzYtWjRwc3VFOFowLTRWd3J2WHg3SmdjM05pM0E2eU5XcDBLUml1Q3U3MzBOampwUUlQa0hXNnV6NmppamlTSjE?oc=5",
-      "published_iso": "2026-05-14T06:59:26+07:00",
-      "published_text": "14/05 06:59"
+      "title": "Trump downplays differences with China's Xi over Iran as he heads to Beijing for high-stakes summit - AP News",
+      "title_vi": "Trump hạ thấp sự khác biệt với Tập Cận Bình của Trung Quốc về vấn đề Iran khi ông tới Bắc Kinh dự hội nghị thượng đỉnh cấp cao - AP News",
+      "summary": "Trump downplays differences with China's Xi over Iran as he heads to Beijing for high-stakes summit AP News",
+      "summary_vi": "Trump downplays differences with China's Xi over Iran as he heads to Beijing for high-stakes summit AP News",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPTFZBVEVjTWR0WnJiM3ZLWnFId1B0eUNZMnFsYTNCdmNIV3hlc0FNdXdiUXBTOUVqTHRhSEhYYndlNHJtRGtzVEhvNE9uY0JvS0dMOExjazZsQ0tEUVA1Y2xoNEc1Y2p3dnpBeTVoc3VEVk9YTVU4RTZJSkhrTUlhOEtTdjVFRlFfdWczTmJ3QlhWX0k?oc=5",
+      "published_iso": "2026-05-14T19:11:12+07:00",
+      "published_text": "14/05 19:11"
+    },
+    {
+      "source": "Investing News",
+      "title": "U.S. dollar steady with key Trump-Xi summit in focus",
+      "title_vi": "Đô la Mỹ ổn định với trọng tâm là hội nghị thượng đỉnh Trump-Xi",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/forex-news/asia-fx-muted-as-trumpxi-summit-begins-yuan-hits-3yr-high-rupee-at-record-low-4687109",
+      "published_iso": "2026-05-14T19:05:19+07:00",
+      "published_text": "14/05 19:05"
     },
     {
       "source": "Google News Macro",
@@ -43,16 +53,6 @@
       "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQZGpXY2ticWgwOXQxLWp5d2N4MWwwUGlacVo0eWRWVy1SbDNZQ1A3R2RzOEhibWZ0RUx0T0pXREFvVmZJU3ZSaEpDNEN2cE1xYzZMcTNRcElmbl90My0wT2R5OGczLVRtbkNuN2FDNjNVRU5CbkJaQ2piZGZaRXJ6VXdGRFNKXzBUeThrOURCMWVlY01QREx4U2lyM2JxNjFNYmxncVRiWmtLMnc3bVdHOTVmbUxYTUhndHJUQ2F3?oc=5",
       "published_iso": "2026-05-14T05:55:41+07:00",
       "published_text": "14/05 05:55"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "Who was on Trump's plane to China? Elon Musk, Nvidia CEO and more - PBS",
-      "title_vi": "Ai đã có mặt trên chuyến bay của Trump đến Trung Quốc? Elon Musk, Giám đốc điều hành Nvidia và hơn thế nữa - PBS",
-      "summary": "Who was on Trump's plane to China? Elon Musk, Nvidia CEO and more PBS",
-      "summary_vi": "Who was on Trump's plane to China? Elon Musk, Nvidia CEO and more PBS",
-      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNSFUxWlA3M0J5N09GR0ZkM0p5cG13eTAxOTh0QUoyU3BtS3Y2emJLSk41a3M1dzVIeWJrZnY3V3FZOWF6NFpOQXhHbTdFNTF3RGhTNGRERm1xbXR4VHdlRGpDRmtMZG5CSTcySnBOTjliYWhuclNpNnJsNVBpRjJvMFFFYVp5WXdDZlowanJoTVdGS3E0U3ZZYXFtTzBYQdIBowFBVV95cUxPLTZ2c0tWYl8zRk1xV3BMYU9oYml5ckprVTdWWWRIVi1fQzQzdHJqbTZCU3QtTkFCN3lpU2d2RWFZWEhxSkk5WDJxczUtQUU0bXY0Z0paWkVVYWFhdjAtWURteTFqVTMtM2xBbWVlbHpCSmktRndBNHZCRXgyR25zRDlPRGRrNTRVYnZ3WlV2U2tjbVpQV25mWllzN3NSOHVOLXBr?oc=5",
-      "published_iso": "2026-05-13T23:18:17+07:00",
-      "published_text": "13/05 23:18"
     },
     {
       "source": "Google News Macro",
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-da-u-gia-ho-p-danh-go-cong-dau-gia-thanh-ly-tai-san-cong-cu-dung-cu-cua-trung-tam-y-te-khu-vuc-go-cong-51010.html",
-      "published_iso": "2026-05-14T17:29:45.970643+07:00",
-      "published_text": "14/05 17:29"
+      "published_iso": "2026-05-14T19:13:06.404095+07:00",
+      "published_text": "14/05 19:13"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-da-u-gia-ho-p-danh-go-cong-dau-gia-quyen-khai-thac-so-giong-nam-2026-tai-san-thuoc-quan-ly-cua-phong-kinh-te-xa-tan-phu-dong-51014.html",
-      "published_iso": "2026-05-14T17:29:45.970574+07:00",
-      "published_text": "14/05 17:29"
+      "published_iso": "2026-05-14T19:13:06.404029+07:00",
+      "published_text": "14/05 19:13"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/tranh-ap-them-quy-dinh-len-hang-trieu-ho-kinh-doanh-khien-ho-kho-tuan-thu-d144786.html",
-      "published_iso": "2026-05-14T17:29:42.967708+07:00",
-      "published_text": "14/05 17:29"
+      "published_iso": "2026-05-14T19:13:05.355423+07:00",
+      "published_text": "14/05 19:13"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/muc-tieu-2-trieu-dn-kho-dat-neu-khong-doi-cach-xay-dung-moi-truong-kinh-doanh-d144758.html",
-      "published_iso": "2026-05-14T17:29:42.967645+07:00",
-      "published_text": "14/05 17:29"
+      "published_iso": "2026-05-14T19:13:05.355359+07:00",
+      "published_text": "14/05 19:13"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/muon-vi-nhan-sinh-khi-van-phu-ke-chuyen-khong-gian-tu-doi-song-con-nguoi-188260512072651823.chn",
-      "published_iso": "2026-05-14T17:29:41.084321+07:00",
-      "published_text": "14/05 17:29"
+      "published_iso": "2026-05-14T19:13:03.224540+07:00",
+      "published_text": "14/05 19:13"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/tu-nhan-tham-gia-kien-tao-ha-tang-khi-doanh-nghiep-buoc-vao-phan-kho-cua-nen-kinh-te-188260512080233895.chn",
-      "published_iso": "2026-05-14T17:29:41.084255+07:00",
-      "published_text": "14/05 17:29"
+      "published_iso": "2026-05-14T19:13:03.224466+07:00",
+      "published_text": "14/05 19:13"
     }
   ],
   "markets": [
@@ -132,9 +132,9 @@
       "name": "WTI",
       "symbol": "CL=F",
       "category": "Energy",
-      "price": 100.53,
-      "change": -0.49,
-      "change_pct": -0.49,
+      "price": 100.2,
+      "change": -0.82,
+      "change_pct": -0.81,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 14/05 11:00"
@@ -143,9 +143,9 @@
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 105.39,
-      "change": -0.24,
-      "change_pct": -0.23,
+      "price": 104.76,
+      "change": -0.87,
+      "change_pct": -0.82,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 14/05 11:00"
@@ -154,9 +154,9 @@
       "name": "Natural Gas",
       "symbol": "NG=F",
       "category": "Energy",
-      "price": 2.86,
-      "change": -0.01,
-      "change_pct": -0.17,
+      "price": 2.84,
+      "change": -0.03,
+      "change_pct": -0.98,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 14/05 11:00"
@@ -165,9 +165,9 @@
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4703.9,
-      "change": 6.2,
-      "change_pct": 0.13,
+      "price": 4703.5,
+      "change": 5.8,
+      "change_pct": 0.12,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 14/05 11:00"
@@ -176,9 +176,9 @@
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 87.61,
-      "change": -1.28,
-      "change_pct": -1.44,
+      "price": 87.54,
+      "change": -1.34,
+      "change_pct": -1.51,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 14/05 11:00"
@@ -209,9 +209,9 @@
       "name": "DXY",
       "symbol": "DX-Y.NYB",
       "category": "FX",
-      "price": 98.51,
-      "change": 0.03,
-      "change_pct": 0.04,
+      "price": 98.56,
+      "change": 0.08,
+      "change_pct": 0.08,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 14/05 11:00"
@@ -220,9 +220,9 @@
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1712,
-      "change": -0.0023,
-      "change_pct": -0.2,
+      "price": 1.1705,
+      "change": -0.003,
+      "change_pct": -0.26,
       "decimals": 4,
       "suffix": "",
       "note": "Gần nhất: 14/05 06:00"
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 79650.0,
-      "change": 373.0,
-      "change_pct": 0.47,
+      "price": 79306.0,
+      "change": 29.0,
+      "change_pct": 0.04,
       "decimals": 0,
       "suffix": "",
       "note": "Gần nhất: 14/05 07:00"
@@ -286,9 +286,9 @@
       "name": "VIX",
       "symbol": "^VIX",
       "category": "US",
-      "price": 17.82,
-      "change": -0.05,
-      "change_pct": -0.28,
+      "price": 17.84,
+      "change": -0.03,
+      "change_pct": -0.17,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 14/05 12:00"
@@ -297,9 +297,9 @@
       "name": "FTSE 100",
       "symbol": "^FTSE",
       "category": "Europe",
-      "price": 10352.43,
-      "change": 27.03,
-      "change_pct": 0.26,
+      "price": 10372.55,
+      "change": 47.15,
+      "change_pct": 0.46,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 14/05 06:00"
@@ -324,7 +324,7 @@
       "change_pct": 0.0,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
+      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
     },
     {
       "name": "Hang Seng",
