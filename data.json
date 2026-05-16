@@ -1,7 +1,17 @@
 {
-  "updated_at": "2026-05-16T18:07:40.693066+07:00",
-  "updated_at_display": "16/05/2026 • 18:07 GMT+7",
+  "updated_at": "2026-05-16T19:08:00.181523+07:00",
+  "updated_at_display": "16/05/2026 • 19:08 GMT+7",
   "war_news": [
+    {
+      "source": "Al Jazeera",
+      "title": "Israel’s Image Crisis: Becoming Too Big to Spin?",
+      "title_vi": "Cuộc khủng hoảng hình ảnh của Israel: Trở nên quá lớn để quay?",
+      "summary": "Israel has never spent more on its national propaganda campaigns.",
+      "summary_vi": "Israel has never spent more on its national propaganda campaigns.",
+      "url": "https://www.aljazeera.com/video/the-listening-post/2026/5/16/israels-image-crisis-becoming-too-big-to-spin?traffic_source=rss",
+      "published_iso": "2026-05-16T18:24:43+07:00",
+      "published_text": "16/05 18:24"
+    },
     {
       "source": "Al Jazeera",
       "title": "Israeli strikes on southern Lebanon continue despite ‘ceasefire’ extension",
@@ -11,38 +21,28 @@
       "url": "https://www.aljazeera.com/news/2026/5/16/israeli-strikes-on-southern-lebanon-continue-despite-ceasefire-extension?traffic_source=rss",
       "published_iso": "2026-05-16T17:34:53+07:00",
       "published_text": "16/05 17:34"
-    },
-    {
-      "source": "Al Jazeera",
-      "title": "Israeli settler blindfolds and detains Palestinian in occupied West Bank",
-      "title_vi": "Người định cư Israel bịt mắt và giam giữ người Palestine ở Bờ Tây bị chiếm đóng",
-      "summary": "An armed Israeli settler blindfolded and detained a Palestinian man in the occupied West Bank.",
-      "summary_vi": "An armed Israeli settler blindfolded and detained a Palestinian man in the occupied West Bank.",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/16/israeli-settler-blindfolds-and-detains-palestinian-in-occupied-west-bank?traffic_source=rss",
-      "published_iso": "2026-05-16T16:37:13+07:00",
-      "published_text": "16/05 16:37"
     }
   ],
   "global_news": [
     {
-      "source": "Google News Macro",
-      "title": "Trump Touts ‘Fantastic Trade Deals’ With China, but Details Are Scarce - The New York Times",
-      "title_vi": "Trump giới thiệu ‘Thỏa thuận thương mại tuyệt vời’ với Trung Quốc, nhưng chi tiết thì hiếm - The New York Times",
-      "summary": "Trump Touts ‘Fantastic Trade Deals’ With China, but Details Are Scarce The New York Times",
-      "summary_vi": "Trump Touts ‘Fantastic Trade Deals’ With China, but Details Are Scarce The New York Times",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5WX2QxR0t1cFltaVhGcGMxd2JrdTBuQ2dCVTJ4Rkx1RGhHeUtlbDc4X0l2WVBDLWIyQXpidzl1ek54M0c5SXpNTWtDQVgzZEw4c3NpejhUbk9UeFNlR1BLbWx5WlRPc3FsbFBrMk96N0MxUGV4ZkFvTnlOWnREVGc?oc=5",
-      "published_iso": "2026-05-16T04:24:12+07:00",
-      "published_text": "16/05 04:24"
+      "source": "Investing News",
+      "title": "Trump says Xi agrees Iran must open strait, China says war should not have started",
+      "title_vi": "Trump nói rằng Tập Cận Bình đồng ý Iran phải mở eo biển, Trung Quốc nói rằng chiến tranh không nên bắt đầu",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/commodities-news/trump-says-xi-agrees-iran-must-open-strait-china-says-war-shouldnt-have-started-4694428",
+      "published_iso": "2026-05-16T18:24:29+07:00",
+      "published_text": "16/05 18:24"
     },
     {
-      "source": "Google News Macro",
-      "title": "Oil Prices Rise as Trump-Xi Summit Yields No Clear Breakthroughs on Iran War - The New York Times",
-      "title_vi": "Giá dầu tăng khi Hội nghị thượng đỉnh Trump-Xi không mang lại đột phá rõ ràng nào về Chiến tranh Iran - The New York Times",
-      "summary": "Oil Prices Rise as Trump-Xi Summit Yields No Clear Breakthroughs on Iran War The New York Times",
-      "summary_vi": "Oil Prices Rise as Trump-Xi Summit Yields No Clear Breakthroughs on Iran War The New York Times",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBuUWF2S1ZwSmNqTEZHRE5XQ1hYWjBGQ0FjbnhVcldGODBHUXRlQ0RCaEU1UDNQUExvaGhBdW5hc2pfc01SSmxQbG5jbGJ2NllhQ1g2Yk16dTRkd0d4c0hXaHppUkRpMHQxRlVPZ1NfM1FQOWRvY2xQdmFIZDFEdkU?oc=5",
-      "published_iso": "2026-05-16T03:10:44+07:00",
-      "published_text": "16/05 03:10"
+      "source": "Investing News",
+      "title": "Analysis-Trump returns from China with stability and a stalemate",
+      "title_vi": "Phân tích - Trump trở về từ Trung Quốc với sự ổn định và bế tắc",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/economic-indicators/analysistrump-returns-from-china-with-stability-and-a-stalemate-4694453",
+      "published_iso": "2026-05-16T18:12:28+07:00",
+      "published_text": "16/05 18:12"
     },
     {
       "source": "Google News Macro",
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/trung-tam-dich-vu-dau-gia-tai-san-tinh-vinh-long-dau-gia-quyen-thu-phi-dich-vu-su-dung-dien-tich-ban-hang-tai-cho-loc-thanh-va-quyen-thu-phi-dich-vu-su-dung-dien-tich-ban-hang-tai-cho-vang-quoi-tay-xa-loc-thuan-tinh-vinh-long-51035.html",
-      "published_iso": "2026-05-16T18:08:30.353284+07:00",
-      "published_text": "16/05 18:08"
+      "published_iso": "2026-05-16T19:08:51.515240+07:00",
+      "published_text": "16/05 19:08"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/trung-tam-dich-vu-dau-gia-tai-san-tinh-vinh-long-dau-gia-thanh-ly-xe-o-to-mang-bien-kiem-soat-84e-0469-do-van-phong-tinh-uy-tra-vinh-dung-ten-51036.html",
-      "published_iso": "2026-05-16T18:08:30.353198+07:00",
-      "published_text": "16/05 18:08"
+      "published_iso": "2026-05-16T19:08:51.515149+07:00",
+      "published_text": "16/05 19:08"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/chuyen-giao-the-he-tai-doanh-nghiep-lan-song-moi-tu-novaland-va-ree-d144888.html",
-      "published_iso": "2026-05-16T18:08:29.331738+07:00",
-      "published_text": "16/05 18:08"
+      "published_iso": "2026-05-16T19:08:49.677077+07:00",
+      "published_text": "16/05 19:08"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/my-pham-viet-huong-bi-thu-hoi-511-san-pham-canh-bao-tu-mot-mo-hinh-phat-trien-nong-d144876.html",
-      "published_iso": "2026-05-16T18:08:29.331668+07:00",
-      "published_text": "16/05 18:08"
+      "published_iso": "2026-05-16T19:08:49.677001+07:00",
+      "published_text": "16/05 19:08"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/muon-vi-nhan-sinh-khi-van-phu-ke-chuyen-khong-gian-tu-doi-song-con-nguoi-188260512072651823.chn",
-      "published_iso": "2026-05-16T18:08:27.393317+07:00",
-      "published_text": "16/05 18:08"
+      "published_iso": "2026-05-16T19:08:48.197287+07:00",
+      "published_text": "16/05 19:08"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/tu-nhan-tham-gia-kien-tao-ha-tang-khi-doanh-nghiep-buoc-vao-phan-kho-cua-nen-kinh-te-188260512080233895.chn",
-      "published_iso": "2026-05-16T18:08:27.393239+07:00",
-      "published_text": "16/05 18:08"
+      "published_iso": "2026-05-16T19:08:48.197206+07:00",
+      "published_text": "16/05 19:08"
     }
   ],
   "markets": [
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 78021.0,
-      "change": -1044.0,
-      "change_pct": -1.32,
+      "price": 78040.0,
+      "change": -1025.0,
+      "change_pct": -1.3,
       "decimals": 0,
       "suffix": "",
       "note": "Gần nhất: 16/05 07:00"
@@ -324,7 +324,7 @@
       "change_pct": 0.0,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
+      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
     },
     {
       "name": "Hang Seng",
