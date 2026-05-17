@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-05-18T05:27:23.589919+07:00",
-  "updated_at_display": "18/05/2026 • 05:27 GMT+7",
+  "updated_at": "2026-05-18T06:32:31.996262+07:00",
+  "updated_at_display": "18/05/2026 • 06:32 GMT+7",
   "war_news": [
     {
       "source": "Al Jazeera",
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/trung-tam-dich-vu-dau-gia-tai-san-tinh-vinh-long-dau-gia-thanh-ly-xe-o-to-mang-bien-kiem-soat-84e-0469-do-van-phong-tinh-uy-tra-vinh-dung-ten-51036.html",
-      "published_iso": "2026-05-18T05:28:16.980770+07:00",
-      "published_text": "18/05 05:28"
+      "published_iso": "2026-05-18T06:33:20.891038+07:00",
+      "published_text": "18/05 06:33"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/trung-tam-dich-vu-dau-gia-tai-san-quy-nhon-dau-gia-01-xe-o-to-da-qua-su-dung-nhan-hieu-mitsubishi-pajero-gl-bien-so-77b-1062-51037.html",
-      "published_iso": "2026-05-18T05:28:16.980699+07:00",
-      "published_text": "18/05 05:28"
+      "published_iso": "2026-05-18T06:33:20.890967+07:00",
+      "published_text": "18/05 06:33"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/chi-tiet-quy-hoach-9-truc-dong-luc-phat-trien-cua-ha-noi-d144900.html",
-      "published_iso": "2026-05-18T05:28:14.748118+07:00",
-      "published_text": "18/05 05:28"
+      "published_iso": "2026-05-18T06:33:18.705489+07:00",
+      "published_text": "18/05 06:33"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/dang-sau-bua-toi-nghin-ty-usd-cua-gioi-sieu-giau-my--trung-d144922.html",
-      "published_iso": "2026-05-18T05:28:14.748055+07:00",
-      "published_text": "18/05 05:28"
+      "published_iso": "2026-05-18T06:33:18.705420+07:00",
+      "published_text": "18/05 06:33"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/tu-nhan-tham-gia-kien-tao-ha-tang-khi-doanh-nghiep-buoc-vao-phan-kho-cua-nen-kinh-te-188260512080233895.chn",
-      "published_iso": "2026-05-18T05:28:12.844518+07:00",
-      "published_text": "18/05 05:28"
+      "published_iso": "2026-05-18T06:33:16.675765+07:00",
+      "published_text": "18/05 06:33"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/agribank-khong-con-la-nha-bang-nhieu-tien-gui-nhat-trat-tu-nganh-ngan-hang-dang-thay-doi-the-nao-188260517101313139.chn",
-      "published_iso": "2026-05-18T05:28:12.844449+07:00",
-      "published_text": "18/05 05:28"
+      "published_iso": "2026-05-18T06:33:16.675684+07:00",
+      "published_text": "18/05 06:33"
     }
   ],
   "markets": [
@@ -132,9 +132,9 @@
       "name": "WTI",
       "symbol": "CL=F",
       "category": "Energy",
-      "price": 102.3,
-      "change": -3.12,
-      "change_pct": -2.96,
+      "price": 102.55,
+      "change": -2.87,
+      "change_pct": -2.72,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 17/05 11:00"
@@ -143,9 +143,9 @@
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 110.46,
-      "change": 1.2,
-      "change_pct": 1.1,
+      "price": 110.58,
+      "change": 1.32,
+      "change_pct": 1.21,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 17/05 11:00"
@@ -154,9 +154,9 @@
       "name": "Natural Gas",
       "symbol": "NG=F",
       "category": "Energy",
-      "price": 2.98,
-      "change": 0.02,
-      "change_pct": 0.71,
+      "price": 3.0,
+      "change": 0.04,
+      "change_pct": 1.39,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 17/05 11:00"
@@ -165,9 +165,9 @@
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4551.2,
-      "change": -4.6,
-      "change_pct": -0.1,
+      "price": 4545.5,
+      "change": -10.3,
+      "change_pct": -0.23,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 17/05 11:00"
@@ -176,9 +176,9 @@
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 76.7,
-      "change": -0.46,
-      "change_pct": -0.6,
+      "price": 76.87,
+      "change": -0.29,
+      "change_pct": -0.38,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 17/05 11:00"
@@ -188,8 +188,8 @@
       "symbol": "HG=F",
       "category": "Metals",
       "price": 6.3,
-      "change": 0.05,
-      "change_pct": 0.74,
+      "change": 0.04,
+      "change_pct": 0.7,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 17/05 11:00"
@@ -209,9 +209,9 @@
       "name": "DXY",
       "symbol": "DX-Y.NYB",
       "category": "FX",
-      "price": 99.28,
-      "change": 0.01,
-      "change_pct": 0.01,
+      "price": 99.29,
+      "change": 0.02,
+      "change_pct": 0.02,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 17/05 11:00"
@@ -220,20 +220,20 @@
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1625,
-      "change": -0.0037,
-      "change_pct": -0.32,
+      "price": 1.1621,
+      "change": -0.0041,
+      "change_pct": -0.35,
       "decimals": 4,
       "suffix": "",
-      "note": "Gần nhất: 17/05 06:00"
+      "note": "Gần nhất: 18/05 06:00"
     },
     {
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 77932.0,
-      "change": -200.0,
-      "change_pct": -0.26,
+      "price": 77830.0,
+      "change": -301.0,
+      "change_pct": -0.39,
       "decimals": 0,
       "suffix": "",
       "note": "Gần nhất: 17/05 07:00"
@@ -324,7 +324,7 @@
       "change_pct": 0.0,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
+      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
     },
     {
       "name": "Hang Seng",
