@@ -1,29 +1,39 @@
 {
-  "updated_at": "2026-05-17T16:54:14.739033+07:00",
-  "updated_at_display": "17/05/2026 • 16:54 GMT+7",
+  "updated_at": "2026-05-17T18:16:21.389261+07:00",
+  "updated_at_display": "17/05/2026 • 18:16 GMT+7",
   "war_news": [
     {
       "source": "Al Jazeera",
-      "title": "Al Jazeera reports from Strait of Hormuz on Iran’s plan to manage shipping",
-      "title_vi": "Al Jazeera báo cáo từ eo biển Hormuz về kế hoạch quản lý vận chuyển của Iran",
-      "summary": "Al Jazeera’s Tohid Asadi reports from the strait and explains Tehran’s newest plan to manage shipping.",
-      "summary_vi": "Al Jazeera’s Tohid Asadi reports from the strait and explains Tehran’s newest plan to manage shipping.",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/17/al-jazeera-reports-from-strait-of-hormuz-on-irans-plan-to-manage-shipping?traffic_source=rss",
-      "published_iso": "2026-05-17T15:56:46+07:00",
-      "published_text": "17/05 15:56"
+      "title": "Javier Bardem says condemning the Gaza genocide has led to more work",
+      "title_vi": "Javier Bardem nói rằng việc lên án nạn diệt chủng ở Gaza đã dẫn đến nhiều công việc hơn",
+      "summary": "Javier Bardem says condemning the Gaza genocide has led to more work",
+      "summary_vi": "Javier Bardem says condemning the Gaza genocide has led to more work",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/17/javier-bardem-says-condemning-the-gaza-genocide-has-led-to-more-work?traffic_source=rss",
+      "published_iso": "2026-05-17T17:17:01+07:00",
+      "published_text": "17/05 17:17"
     },
     {
       "source": "Al Jazeera",
-      "title": "Bulgaria wins Eurovision for first time; Israel comes second amid boycott",
-      "title_vi": "Bulgaria giành Eurovision lần đầu tiên; Israel đứng thứ hai trong bối cảnh tẩy chay",
-      "summary": "Spain, Netherlands, Ireland, Iceland and Slovenia stage biggest political boycott in Eurovision history over Gaza war.",
-      "summary_vi": "Spain, Netherlands, Ireland, Iceland and Slovenia stage biggest political boycott in Eurovision history over Gaza war.",
-      "url": "https://www.aljazeera.com/news/2026/5/17/bulgaria-wins-eurovision-for-first-time-israel-comes-second-amid-boycott?traffic_source=rss",
-      "published_iso": "2026-05-17T15:42:47+07:00",
-      "published_text": "17/05 15:42"
+      "title": "The strike that changed the geometry of war",
+      "title_vi": "Cuộc tấn công đã thay đổi hình dạng của chiến tranh",
+      "summary": "Israel's attacks on Doha and Tehran demonstrate a new capability that may make warfare more unpredictable.",
+      "summary_vi": "Israel's attacks on Doha and Tehran demonstrate a new capability that may make warfare more unpredictable.",
+      "url": "https://www.aljazeera.com/opinions/2026/5/17/the-strike-that-changed-the-geometry-of-war?traffic_source=rss",
+      "published_iso": "2026-05-17T17:13:52+07:00",
+      "published_text": "17/05 17:13"
     }
   ],
   "global_news": [
+    {
+      "source": "Investing News",
+      "title": "Analysis-Bond yield spike is risk to unprepared equities market, investors warn",
+      "title_vi": "Phân tích - Lợi suất trái phiếu tăng đột biến là rủi ro đối với thị trường chứng khoán chưa chuẩn bị, các nhà đầu tư cảnh báo",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/stock-market-news/analysisbond-yield-spike-is-risk-to-unprepared-equities-market-investors-warn-4694516",
+      "published_iso": "2026-05-17T17:36:27+07:00",
+      "published_text": "17/05 17:36"
+    },
     {
       "source": "Investing News",
       "title": "Fed hikes on the radar: Are EMs prepared?",
@@ -35,26 +45,6 @@
       "published_text": "17/05 16:24"
     },
     {
-      "source": "Investing News",
-      "title": "Federal regulators crack down on suspicious prediction market bets - WSJ",
-      "title_vi": "Các cơ quan quản lý liên bang trấn áp các cược thị trường dự đoán đáng ngờ - WSJ",
-      "summary": "",
-      "summary_vi": "",
-      "url": "https://www.investing.com/news/economy-news/federal-regulators-crack-down-on-suspicious-prediction-market-bets--wsj-4694507",
-      "published_iso": "2026-05-17T13:09:25+07:00",
-      "published_text": "17/05 13:09"
-    },
-    {
-      "source": "Investing News",
-      "title": "Why China is positioned to capture the bulk of the economic robotic value",
-      "title_vi": "Tại sao Trung Quốc được định vị để nắm bắt phần lớn giá trị kinh tế của robot",
-      "summary": "",
-      "summary_vi": "",
-      "url": "https://www.investing.com/news/economy-news/why-china-is-positioned-to-capture-the-bulk-of-the-economic-robotic-value-4694505",
-      "published_iso": "2026-05-17T11:49:14+07:00",
-      "published_text": "17/05 11:49"
-    },
-    {
       "source": "Google News Macro",
       "title": "China Indicates Tariffs Were Discussed at Trump Summit - The New York Times",
       "title_vi": "Trung Quốc cho biết thuế quan đã được thảo luận tại Hội nghị thượng đỉnh Trump - The New York Times",
@@ -63,6 +53,16 @@
       "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPUVp3d1V2OVdGMF9TbDJ2aVN6Zk5YUFBJUDlRZ2VpdklQZF9WVjh4SmJxcnRTQldqb0tfbmJ4QTkxM2FtUU9udzlwYXBUUEpZdGcyU2w3QjlqMEo4RWlhVzcwaFdycmh5dWlFdE1jcjI0Q0NiSzBVUGdJRGtzUkJZV0xvZFI4aGJ2eHlJ?oc=5",
       "published_iso": "2026-05-17T06:25:56+07:00",
       "published_text": "17/05 06:25"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "Trump returns to the U.S. from China with pressure over rising inflation - PBS",
+      "title_vi": "Trump trở về Mỹ từ Trung Quốc với áp lực về lạm phát gia tăng - PBS",
+      "summary": "Trump returns to the U.S. from China with pressure over rising inflation PBS",
+      "summary_vi": "Trump returns to the U.S. from China with pressure over rising inflation PBS",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQTkdyLTlBRDRBQkNPUXR5bnNYNXN0OUE5bjdPV3pYcDN0ODBoS0ZQSTRKaVg3RE0wazNoQ3lnTkJzd3kyNHUxclA5UGlfRnZRSlRKTGh1ZzhhWUhTdUVTV2ZGeWFVRlFqZlhlVlcxMjV4WkZ2Z0JPQXlMY3hWQUhKUXNNQTNnZVFSVWNYNmlfRWNJcS0zb3NpVC1wN2xCY2w0amJ6OGlBVVJCNUlu?oc=5",
+      "published_iso": "2026-05-17T02:41:02+07:00",
+      "published_text": "17/05 02:41"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/trung-tam-dich-vu-dau-gia-tai-san-tinh-vinh-long-dau-gia-thanh-ly-xe-o-to-mang-bien-kiem-soat-84e-0469-do-van-phong-tinh-uy-tra-vinh-dung-ten-51036.html",
-      "published_iso": "2026-05-17T16:55:02.249873+07:00",
-      "published_text": "17/05 16:55"
+      "published_iso": "2026-05-17T18:17:09.489063+07:00",
+      "published_text": "17/05 18:17"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/trung-tam-dich-vu-dau-gia-tai-san-quy-nhon-dau-gia-01-xe-o-to-da-qua-su-dung-nhan-hieu-mitsubishi-pajero-gl-bien-so-77b-1062-51037.html",
-      "published_iso": "2026-05-17T16:55:02.249800+07:00",
-      "published_text": "17/05 16:55"
+      "published_iso": "2026-05-17T18:17:09.488996+07:00",
+      "published_text": "17/05 18:17"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/chi-tiet-quy-hoach-9-truc-dong-luc-phat-trien-cua-ha-noi-d144900.html",
-      "published_iso": "2026-05-17T16:55:00.142665+07:00",
-      "published_text": "17/05 16:55"
+      "published_iso": "2026-05-17T18:17:08.204565+07:00",
+      "published_text": "17/05 18:17"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/dang-sau-bua-toi-nghin-ty-usd-cua-gioi-sieu-giau-my--trung-d144922.html",
-      "published_iso": "2026-05-17T16:55:00.142580+07:00",
-      "published_text": "17/05 16:55"
+      "published_iso": "2026-05-17T18:17:08.204493+07:00",
+      "published_text": "17/05 18:17"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/muon-vi-nhan-sinh-khi-van-phu-ke-chuyen-khong-gian-tu-doi-song-con-nguoi-188260512072651823.chn",
-      "published_iso": "2026-05-17T16:54:58.401022+07:00",
-      "published_text": "17/05 16:54"
+      "published_iso": "2026-05-17T18:17:06.067652+07:00",
+      "published_text": "17/05 18:17"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/tu-nhan-tham-gia-kien-tao-ha-tang-khi-doanh-nghiep-buoc-vao-phan-kho-cua-nen-kinh-te-188260512080233895.chn",
-      "published_iso": "2026-05-17T16:54:58.400945+07:00",
-      "published_text": "17/05 16:54"
+      "published_iso": "2026-05-17T18:17:06.067581+07:00",
+      "published_text": "17/05 18:17"
     }
   ],
   "markets": [
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 78195.0,
-      "change": 64.0,
-      "change_pct": 0.08,
+      "price": 78303.0,
+      "change": 172.0,
+      "change_pct": 0.22,
       "decimals": 0,
       "suffix": "",
       "note": "Gần nhất: 17/05 07:00"
@@ -324,7 +324,7 @@
       "change_pct": 0.0,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
+      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
     },
     {
       "name": "Hang Seng",
