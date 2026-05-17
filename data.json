@@ -1,39 +1,29 @@
 {
-  "updated_at": "2026-05-18T02:38:36.758419+07:00",
-  "updated_at_display": "18/05/2026 • 02:38 GMT+7",
+  "updated_at": "2026-05-18T03:34:19.816143+07:00",
+  "updated_at_display": "18/05/2026 • 03:34 GMT+7",
   "war_news": [
     {
       "source": "Al Jazeera",
-      "title": "Israel kills three Palestinians in strike on an aid kitchen in Gaza",
-      "title_vi": "Israel giết chết ba người Palestine trong cuộc tấn công vào một nhà bếp viện trợ ở Gaza",
-      "summary": "Israel bombed a kitchen that provided meals to the displaced in Gaza, killing three and injuring others.",
-      "summary_vi": "Israel bombed a kitchen that provided meals to the displaced in Gaza, killing three and injuring others.",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/17/israel-kills-three-palestinians-in-strike-on-an-aid-kitchen-in-gaza?traffic_source=rss",
-      "published_iso": "2026-05-18T02:15:21+07:00",
-      "published_text": "18/05 02:15"
+      "title": "‘Won’t be anything left’: Trump issues threat to Iran amid stalled talks",
+      "title_vi": "‘Sẽ không còn lại gì’: Trump đưa ra mối đe dọa đối với Iran trong bối cảnh các cuộc đàm phán bị đình trệ",
+      "summary": "The US president has pressured Iran to concede to demands including dismantling nuclear programme and missile stocks.",
+      "summary_vi": "The US president has pressured Iran to concede to demands including dismantling nuclear programme and missile stocks.",
+      "url": "https://www.aljazeera.com/news/2026/5/17/wont-be-anything-left-trump-issues-threat-to-iran-amid-stalled-talks?traffic_source=rss",
+      "published_iso": "2026-05-18T03:16:35+07:00",
+      "published_text": "18/05 03:16"
     },
     {
       "source": "Al Jazeera",
-      "title": "Three community kitchen workers among five killed by Israel in Gaza",
-      "title_vi": "Ba nhân viên nhà bếp cộng đồng trong số năm người thiệt mạng do Israel ở Gaza",
-      "summary": "Israeli attacks on Gaza have killed at least 871 Palestinians since the so-called ceasefire started last year.",
-      "summary_vi": "Israeli attacks on Gaza have killed at least 871 Palestinians since the so-called ceasefire started last year.",
-      "url": "https://www.aljazeera.com/news/2026/5/17/three-community-kitchen-workers-among-five-killed-by-israel-in-gaza?traffic_source=rss",
-      "published_iso": "2026-05-17T23:31:20+07:00",
-      "published_text": "17/05 23:31"
+      "title": "Israel kills at least five in Lebanon after ‘ceasefire’ extended",
+      "title_vi": "Israel giết chết ít nhất 5 người ở Lebanon sau khi lệnh ‘ngừng bắn’ được kéo dài",
+      "summary": "At least five people have been killed in Israeli air attacks on several locations in southern and eastern Lebanon.",
+      "summary_vi": "At least five people have been killed in Israeli air attacks on several locations in southern and eastern Lebanon.",
+      "url": "https://www.aljazeera.com/news/2026/5/17/israel-kills-five-in-lebanon-after-ceasefire-with-hezbollah-extended?traffic_source=rss",
+      "published_iso": "2026-05-18T03:16:14+07:00",
+      "published_text": "18/05 03:16"
     }
   ],
   "global_news": [
-    {
-      "source": "Investing News",
-      "title": "China to buy at least $17 billion in US agricultural products annually, White House says",
-      "title_vi": "Nhà Trắng cho biết Trung Quốc sẽ mua ít nhất 17 tỷ $ sản phẩm nông nghiệp của Mỹ hàng năm",
-      "summary": "",
-      "summary_vi": "",
-      "url": "https://www.investing.com/news/world-news/china-to-buy-at-least-17-billion-in-us-agricultural-products-annually-white-house-says-4694553",
-      "published_iso": "2026-05-18T00:36:31+07:00",
-      "published_text": "18/05 00:36"
-    },
     {
       "source": "Google News Macro",
       "title": "China Indicates Tariffs Were Discussed at Trump Summit - The New York Times",
@@ -63,6 +53,16 @@
       "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE13RjBCdllGTHVJMDFZbjdwX1Zfa2JQRzNKQkw4Y0xZUERwa3V6QXFsNm9CTnRkYW13Z2JmX1dqTzd1dGhhQWtfNUVoZDhFMFhFZW1ucHdnS0Z6TTlYeTBTUmg2OG56RTVFb1ZEbGdhUTZ1cXVFcGFnZQ?oc=5",
       "published_iso": "2026-05-16T18:00:17+07:00",
       "published_text": "16/05 18:00"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "The U.S.-China Trade Relationship: What’s Behind the Competition? - Council on Foreign Relations",
+      "title_vi": "Mối quan hệ thương mại Mỹ-Trung: Đằng sau cuộc cạnh tranh là gì? - Hội đồng Quan hệ đối ngoại",
+      "summary": "The U.S.-China Trade Relationship: What’s Behind the Competition? Council on Foreign Relations",
+      "summary_vi": "The U.S.-China Trade Relationship: What’s Behind the Competition? Council on Foreign Relations",
+      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE85R1Rxa096czZxUGpuWjB0T0RCeWtvNzUwM2kxcHRhVXp4MjBJUXVIbC1vU2EtRGZ6c2MxQnVNamVJUHhpZU4yMVBqRUZ3YUgxNGVRT0pRSWYteGpFeW1mRlBuazdselRXZDdpaVY1NW0xS2hzSlUtb1p1VWhwdw?oc=5",
+      "published_iso": "2026-05-16T01:56:00+07:00",
+      "published_text": "16/05 01:56"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/trung-tam-dich-vu-dau-gia-tai-san-tinh-vinh-long-dau-gia-thanh-ly-xe-o-to-mang-bien-kiem-soat-84e-0469-do-van-phong-tinh-uy-tra-vinh-dung-ten-51036.html",
-      "published_iso": "2026-05-18T02:39:26.566215+07:00",
-      "published_text": "18/05 02:39"
+      "published_iso": "2026-05-18T03:35:09.935393+07:00",
+      "published_text": "18/05 03:35"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/trung-tam-dich-vu-dau-gia-tai-san-quy-nhon-dau-gia-01-xe-o-to-da-qua-su-dung-nhan-hieu-mitsubishi-pajero-gl-bien-so-77b-1062-51037.html",
-      "published_iso": "2026-05-18T02:39:26.566136+07:00",
-      "published_text": "18/05 02:39"
+      "published_iso": "2026-05-18T03:35:09.935319+07:00",
+      "published_text": "18/05 03:35"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/chi-tiet-quy-hoach-9-truc-dong-luc-phat-trien-cua-ha-noi-d144900.html",
-      "published_iso": "2026-05-18T02:39:25.186050+07:00",
-      "published_text": "18/05 02:39"
+      "published_iso": "2026-05-18T03:35:08.618832+07:00",
+      "published_text": "18/05 03:35"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/dang-sau-bua-toi-nghin-ty-usd-cua-gioi-sieu-giau-my--trung-d144922.html",
-      "published_iso": "2026-05-18T02:39:25.185975+07:00",
-      "published_text": "18/05 02:39"
+      "published_iso": "2026-05-18T03:35:08.618761+07:00",
+      "published_text": "18/05 03:35"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/tu-nhan-tham-gia-kien-tao-ha-tang-khi-doanh-nghiep-buoc-vao-phan-kho-cua-nen-kinh-te-188260512080233895.chn",
-      "published_iso": "2026-05-18T02:39:23.363761+07:00",
-      "published_text": "18/05 02:39"
+      "published_iso": "2026-05-18T03:35:06.327787+07:00",
+      "published_text": "18/05 03:35"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/agribank-khong-con-la-nha-bang-nhieu-tien-gui-nhat-trat-tu-nganh-ngan-hang-dang-thay-doi-the-nao-188260517101313139.chn",
-      "published_iso": "2026-05-18T02:39:23.363679+07:00",
-      "published_text": "18/05 02:39"
+      "published_iso": "2026-05-18T03:35:06.327706+07:00",
+      "published_text": "18/05 03:35"
     }
   ],
   "markets": [
@@ -220,9 +220,9 @@
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1623,
-      "change": -0.004,
-      "change_pct": -0.34,
+      "price": 1.1624,
+      "change": -0.0038,
+      "change_pct": -0.33,
       "decimals": 4,
       "suffix": "",
       "note": "Gần nhất: 17/05 06:00"
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 78215.0,
-      "change": 83.0,
-      "change_pct": 0.11,
+      "price": 78261.0,
+      "change": 129.0,
+      "change_pct": 0.17,
       "decimals": 0,
       "suffix": "",
       "note": "Gần nhất: 17/05 07:00"
@@ -324,7 +324,7 @@
       "change_pct": 0.0,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
+      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
     },
     {
       "name": "Hang Seng",
