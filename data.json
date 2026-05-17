@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-05-18T00:09:34.521238+07:00",
-  "updated_at_display": "18/05/2026 • 00:09 GMT+7",
+  "updated_at": "2026-05-18T01:11:25.625761+07:00",
+  "updated_at_display": "18/05/2026 • 01:11 GMT+7",
   "war_news": [
     {
       "source": "Al Jazeera",
@@ -26,13 +26,13 @@
   "global_news": [
     {
       "source": "Investing News",
-      "title": "India raised gold, silver import tariffs: The implications for Titan",
-      "title_vi": "Ấn Độ tăng thuế nhập khẩu vàng, bạc: Ý nghĩa đối với Titan",
+      "title": "China to buy at least $17 billion in US agricultural products annually, White House says",
+      "title_vi": "Nhà Trắng cho biết Trung Quốc sẽ mua ít nhất 17 tỷ $ sản phẩm nông nghiệp của Mỹ hàng năm",
       "summary": "",
       "summary_vi": "",
-      "url": "https://www.investing.com/news/stock-market-news/india-raised-gold-silver-import-tariffs-the-implications-for-titan-4694541",
-      "published_iso": "2026-05-17T20:57:17+07:00",
-      "published_text": "17/05 20:57"
+      "url": "https://www.investing.com/news/world-news/china-to-buy-at-least-17-billion-in-us-agricultural-products-annually-white-house-says-4694553",
+      "published_iso": "2026-05-18T00:36:31+07:00",
+      "published_text": "18/05 00:36"
     },
     {
       "source": "Google News Macro",
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/trung-tam-dich-vu-dau-gia-tai-san-tinh-vinh-long-dau-gia-thanh-ly-xe-o-to-mang-bien-kiem-soat-84e-0469-do-van-phong-tinh-uy-tra-vinh-dung-ten-51036.html",
-      "published_iso": "2026-05-18T00:10:24.930040+07:00",
-      "published_text": "18/05 00:10"
+      "published_iso": "2026-05-18T01:12:20.484724+07:00",
+      "published_text": "18/05 01:12"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/trung-tam-dich-vu-dau-gia-tai-san-quy-nhon-dau-gia-01-xe-o-to-da-qua-su-dung-nhan-hieu-mitsubishi-pajero-gl-bien-so-77b-1062-51037.html",
-      "published_iso": "2026-05-18T00:10:24.929964+07:00",
-      "published_text": "18/05 00:10"
+      "published_iso": "2026-05-18T01:12:20.484656+07:00",
+      "published_text": "18/05 01:12"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/chi-tiet-quy-hoach-9-truc-dong-luc-phat-trien-cua-ha-noi-d144900.html",
-      "published_iso": "2026-05-18T00:10:23.653431+07:00",
-      "published_text": "18/05 00:10"
+      "published_iso": "2026-05-18T01:12:18.642786+07:00",
+      "published_text": "18/05 01:12"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/dang-sau-bua-toi-nghin-ty-usd-cua-gioi-sieu-giau-my--trung-d144922.html",
-      "published_iso": "2026-05-18T00:10:23.653339+07:00",
-      "published_text": "18/05 00:10"
+      "published_iso": "2026-05-18T01:12:18.642710+07:00",
+      "published_text": "18/05 01:12"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/tu-nhan-tham-gia-kien-tao-ha-tang-khi-doanh-nghiep-buoc-vao-phan-kho-cua-nen-kinh-te-188260512080233895.chn",
-      "published_iso": "2026-05-18T00:10:21.402518+07:00",
-      "published_text": "18/05 00:10"
+      "published_iso": "2026-05-18T01:12:16.531114+07:00",
+      "published_text": "18/05 01:12"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/agribank-khong-con-la-nha-bang-nhieu-tien-gui-nhat-trat-tu-nganh-ngan-hang-dang-thay-doi-the-nao-188260517101313139.chn",
-      "published_iso": "2026-05-18T00:10:21.402435+07:00",
-      "published_text": "18/05 00:10"
+      "published_iso": "2026-05-18T01:12:16.531021+07:00",
+      "published_text": "18/05 01:12"
     }
   ],
   "markets": [
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 77979.0,
-      "change": -153.0,
-      "change_pct": -0.2,
+      "price": 78113.0,
+      "change": -18.0,
+      "change_pct": -0.02,
       "decimals": 0,
       "suffix": "",
       "note": "Gần nhất: 17/05 07:00"
@@ -324,7 +324,7 @@
       "change_pct": 0.0,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
+      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
     },
     {
       "name": "Hang Seng",
