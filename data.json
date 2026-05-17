@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-05-17T18:16:21.389261+07:00",
-  "updated_at_display": "17/05/2026 • 18:16 GMT+7",
+  "updated_at": "2026-05-17T19:07:03.624311+07:00",
+  "updated_at_display": "17/05/2026 • 19:07 GMT+7",
   "war_news": [
     {
       "source": "Al Jazeera",
@@ -35,16 +35,6 @@
       "published_text": "17/05 17:36"
     },
     {
-      "source": "Investing News",
-      "title": "Fed hikes on the radar: Are EMs prepared?",
-      "title_vi": "Fed tăng lãi suất trên radar: Các EM đã chuẩn bị chưa?",
-      "summary": "",
-      "summary_vi": "",
-      "url": "https://www.investing.com/news/economy-news/fed-hikes-on-the-radar-are-ems-prepared-4694513",
-      "published_iso": "2026-05-17T16:24:46+07:00",
-      "published_text": "17/05 16:24"
-    },
-    {
       "source": "Google News Macro",
       "title": "China Indicates Tariffs Were Discussed at Trump Summit - The New York Times",
       "title_vi": "Trung Quốc cho biết thuế quan đã được thảo luận tại Hội nghị thượng đỉnh Trump - The New York Times",
@@ -63,6 +53,16 @@
       "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQTkdyLTlBRDRBQkNPUXR5bnNYNXN0OUE5bjdPV3pYcDN0ODBoS0ZQSTRKaVg3RE0wazNoQ3lnTkJzd3kyNHUxclA5UGlfRnZRSlRKTGh1ZzhhWUhTdUVTV2ZGeWFVRlFqZlhlVlcxMjV4WkZ2Z0JPQXlMY3hWQUhKUXNNQTNnZVFSVWNYNmlfRWNJcS0zb3NpVC1wN2xCY2w0amJ6OGlBVVJCNUlu?oc=5",
       "published_iso": "2026-05-17T02:41:02+07:00",
       "published_text": "17/05 02:41"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "Opinion | China’s Peak Is Now - The New York Times",
+      "title_vi": "Ý kiến | Đỉnh cao của Trung Quốc là bây giờ - Thời báo New York",
+      "summary": "Opinion | China’s Peak Is Now The New York Times",
+      "summary_vi": "Opinion | China’s Peak Is Now The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE13RjBCdllGTHVJMDFZbjdwX1Zfa2JQRzNKQkw4Y0xZUERwa3V6QXFsNm9CTnRkYW13Z2JmX1dqTzd1dGhhQWtfNUVoZDhFMFhFZW1ucHdnS0Z6TTlYeTBTUmg2OG56RTVFb1ZEbGdhUTZ1cXVFcGFnZQ?oc=5",
+      "published_iso": "2026-05-16T18:00:17+07:00",
+      "published_text": "16/05 18:00"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/trung-tam-dich-vu-dau-gia-tai-san-tinh-vinh-long-dau-gia-thanh-ly-xe-o-to-mang-bien-kiem-soat-84e-0469-do-van-phong-tinh-uy-tra-vinh-dung-ten-51036.html",
-      "published_iso": "2026-05-17T18:17:09.489063+07:00",
-      "published_text": "17/05 18:17"
+      "published_iso": "2026-05-17T19:07:51.105466+07:00",
+      "published_text": "17/05 19:07"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/trung-tam-dich-vu-dau-gia-tai-san-quy-nhon-dau-gia-01-xe-o-to-da-qua-su-dung-nhan-hieu-mitsubishi-pajero-gl-bien-so-77b-1062-51037.html",
-      "published_iso": "2026-05-17T18:17:09.488996+07:00",
-      "published_text": "17/05 18:17"
+      "published_iso": "2026-05-17T19:07:51.105404+07:00",
+      "published_text": "17/05 19:07"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/chi-tiet-quy-hoach-9-truc-dong-luc-phat-trien-cua-ha-noi-d144900.html",
-      "published_iso": "2026-05-17T18:17:08.204565+07:00",
-      "published_text": "17/05 18:17"
+      "published_iso": "2026-05-17T19:07:49.745542+07:00",
+      "published_text": "17/05 19:07"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/dang-sau-bua-toi-nghin-ty-usd-cua-gioi-sieu-giau-my--trung-d144922.html",
-      "published_iso": "2026-05-17T18:17:08.204493+07:00",
-      "published_text": "17/05 18:17"
+      "published_iso": "2026-05-17T19:07:49.745475+07:00",
+      "published_text": "17/05 19:07"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/muon-vi-nhan-sinh-khi-van-phu-ke-chuyen-khong-gian-tu-doi-song-con-nguoi-188260512072651823.chn",
-      "published_iso": "2026-05-17T18:17:06.067652+07:00",
-      "published_text": "17/05 18:17"
+      "published_iso": "2026-05-17T19:07:47.898279+07:00",
+      "published_text": "17/05 19:07"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/tu-nhan-tham-gia-kien-tao-ha-tang-khi-doanh-nghiep-buoc-vao-phan-kho-cua-nen-kinh-te-188260512080233895.chn",
-      "published_iso": "2026-05-17T18:17:06.067581+07:00",
-      "published_text": "17/05 18:17"
+      "published_iso": "2026-05-17T19:07:47.898209+07:00",
+      "published_text": "17/05 19:07"
     }
   ],
   "markets": [
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 78303.0,
-      "change": 172.0,
-      "change_pct": 0.22,
+      "price": 78359.0,
+      "change": 227.0,
+      "change_pct": 0.29,
       "decimals": 0,
       "suffix": "",
       "note": "Gần nhất: 17/05 07:00"
@@ -324,7 +324,7 @@
       "change_pct": 0.0,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
+      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
     },
     {
       "name": "Hang Seng",
