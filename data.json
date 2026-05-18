@@ -1,7 +1,17 @@
 {
-  "updated_at": "2026-05-19T05:16:33.239078+07:00",
-  "updated_at_display": "19/05/2026 • 05:16 GMT+7",
+  "updated_at": "2026-05-19T06:31:26.758060+07:00",
+  "updated_at_display": "19/05/2026 • 06:31 GMT+7",
   "war_news": [
+    {
+      "source": "Google News War",
+      "title": "No deal, no exit: How US-Iran standoff risks fresh conflict - Reuters",
+      "title_vi": "Không có thỏa thuận, không có lối thoát: Bế tắc Mỹ-Iran có nguy cơ xung đột mới như thế nào - Reuters",
+      "summary": "No deal, no exit: How US-Iran standoff risks fresh conflict Reuters",
+      "summary_vi": "No deal, no exit: How US-Iran standoff risks fresh conflict Reuters",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNUjJEMS1FUWxyVzZxazdHM3N2REYtTXJMdHpHWEsySk4xWXdSejNKMFlMVnI0TUhPZzhxSTUwWG92Yk9JaDF4OXltM0JNbGo3VkUyWGtvSy1Zc1JuTzQwVm5TOFU2ZVJjNFhTRmd2QkpnaW5iS1o5a2duN1VJYThMek5WUFNEVExXcTBxaldUeHJ4cG9tVDQ0UmtNSUF3NnBDa0FnajBpWHp1cmJXSGxXMQ?oc=5",
+      "published_iso": "2026-05-19T05:10:38+07:00",
+      "published_text": "19/05 05:10"
+    },
     {
       "source": "Al Jazeera",
       "title": "Protest in Greece after Israeli forces storm Gaza aid flotilla",
@@ -11,29 +21,9 @@
       "url": "https://www.aljazeera.com/video/newsfeed/2026/5/18/protest-in-greece-after-israeli-forces-storm-gaza-aid-flotilla?traffic_source=rss",
       "published_iso": "2026-05-19T04:13:24+07:00",
       "published_text": "19/05 04:13"
-    },
-    {
-      "source": "Al Jazeera",
-      "title": "Trump pauses possible Iran strike after Gulf intervention",
-      "title_vi": "Trump tạm dừng cuộc tấn công Iran có thể xảy ra sau sự can thiệp của Vùng Vịnh",
-      "summary": "US President Donald Trump has announced that he is delaying a planned attack on Iran.",
-      "summary_vi": "US President Donald Trump has announced that he is delaying a planned attack on Iran.",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/18/trump-pauses-possible-iran-strike-after-gulf-intervention?traffic_source=rss",
-      "published_iso": "2026-05-19T04:11:48+07:00",
-      "published_text": "19/05 04:11"
     }
   ],
   "global_news": [
-    {
-      "source": "Investing News",
-      "title": "US extends sanctions waiver on Russian oil to aid vulnerable countries",
-      "title_vi": "Mỹ gia hạn miễn trừ trừng phạt đối với dầu mỏ của Nga để hỗ trợ các quốc gia dễ bị tổn thương",
-      "summary": "",
-      "summary_vi": "",
-      "url": "https://www.investing.com/news/commodities-news/us-extends-sanctions-waiver-on-russian-oil-to-aid-vulnerable-countries-4697194",
-      "published_iso": "2026-05-19T05:06:32+07:00",
-      "published_text": "19/05 05:06"
-    },
     {
       "source": "Google News Macro",
       "title": "China Indicates Tariffs Were Discussed at Trump Summit - The New York Times",
@@ -63,6 +53,16 @@
       "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE13RjBCdllGTHVJMDFZbjdwX1Zfa2JQRzNKQkw4Y0xZUERwa3V6QXFsNm9CTnRkYW13Z2JmX1dqTzd1dGhhQWtfNUVoZDhFMFhFZW1ucHdnS0Z6TTlYeTBTUmg2OG56RTVFb1ZEbGdhUTZ1cXVFcGFnZQ?oc=5",
       "published_iso": "2026-05-16T18:00:17+07:00",
       "published_text": "16/05 18:00"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "The U.S.-China Trade Relationship: What’s Behind the Competition? - Council on Foreign Relations",
+      "title_vi": "Mối quan hệ thương mại Mỹ-Trung: Đằng sau cuộc cạnh tranh là gì? - Hội đồng Quan hệ đối ngoại",
+      "summary": "The U.S.-China Trade Relationship: What’s Behind the Competition? Council on Foreign Relations",
+      "summary_vi": "The U.S.-China Trade Relationship: What’s Behind the Competition? Council on Foreign Relations",
+      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE85R1Rxa096czZxUGpuWjB0T0RCeWtvNzUwM2kxcHRhVXp4MjBJUXVIbC1vU2EtRGZ6c2MxQnVNamVJUHhpZU4yMVBqRUZ3YUgxNGVRT0pRSWYteGpFeW1mRlBuazdselRXZDdpaVY1NW0xS2hzSlUtb1p1VWhwdw?oc=5",
+      "published_iso": "2026-05-16T01:56:00+07:00",
+      "published_text": "16/05 01:56"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-so-5-quoc-gia-dau-gia-lo-tai-san-la-06-xe-o-to-da-duoc-phe-duyet-thanh-ly-theo-quy-dinh-cua-phap-luat-51054.html",
-      "published_iso": "2026-05-19T05:17:23.598782+07:00",
-      "published_text": "19/05 05:17"
+      "published_iso": "2026-05-19T06:32:18.693118+07:00",
+      "published_text": "19/05 06:32"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-phu-tho-dau-gia-quyen-su-dung-dat-doi-voi-19-o-dat-o-tai-khu-quyet-thang-va-khu-dong-uan-khu-5-xa-hoang-cuong-tinh-phu-tho-51056.html",
-      "published_iso": "2026-05-19T05:17:23.598719+07:00",
-      "published_text": "19/05 05:17"
+      "published_iso": "2026-05-19T06:32:18.693047+07:00",
+      "published_text": "19/05 06:32"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/viet-nam-co-35-trieu-tan-dat-hiem-nhung-dn-nao-dang-nam-cac-mo-lon-d144954.html",
-      "published_iso": "2026-05-19T05:17:21.868148+07:00",
-      "published_text": "19/05 05:17"
+      "published_iso": "2026-05-19T06:32:16.244670+07:00",
+      "published_text": "19/05 06:32"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/tien-do-xay-dung-dai-do-thi-1-ty-usd-cua-vingroup-o-hai-phong-d144689.html",
-      "published_iso": "2026-05-19T05:17:21.868085+07:00",
-      "published_text": "19/05 05:17"
+      "published_iso": "2026-05-19T06:32:16.244598+07:00",
+      "published_text": "19/05 06:32"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/bang-xep-hang-ngan-hang-nhieu-tien-gui-nhat-thay-doi-ra-sao-sau-10-nam-188260517101313139.chn",
-      "published_iso": "2026-05-19T05:17:20.396600+07:00",
-      "published_text": "19/05 05:17"
+      "published_iso": "2026-05-19T06:32:14.299931+07:00",
+      "published_text": "19/05 06:32"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/tong-tai-ham-choi-nhat-viet-nam-tran-hung-huy-va-nuoc-co-doc-nhat-cua-acb-trong-cuoc-dua-tre-hoa-ngan-hang-khong-can-concert-trieu-do-van-thang-lon-188260517145024169.chn",
-      "published_iso": "2026-05-19T05:17:20.396530+07:00",
-      "published_text": "19/05 05:17"
+      "published_iso": "2026-05-19T06:32:14.299847+07:00",
+      "published_text": "19/05 06:32"
     }
   ],
   "markets": [
@@ -132,9 +132,9 @@
       "name": "WTI",
       "symbol": "CL=F",
       "category": "Energy",
-      "price": 102.32,
-      "change": -3.1,
-      "change_pct": -2.94,
+      "price": 102.39,
+      "change": -3.03,
+      "change_pct": -2.87,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 18/05 11:00"
@@ -143,9 +143,9 @@
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 109.06,
-      "change": -0.2,
-      "change_pct": -0.18,
+      "price": 109.3,
+      "change": 0.04,
+      "change_pct": 0.04,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 18/05 11:00"
@@ -154,9 +154,9 @@
       "name": "Natural Gas",
       "symbol": "NG=F",
       "category": "Energy",
-      "price": 3.03,
-      "change": 0.07,
-      "change_pct": 2.3,
+      "price": 3.02,
+      "change": 0.06,
+      "change_pct": 2.16,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 18/05 11:00"
@@ -165,9 +165,9 @@
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4575.3,
-      "change": 19.5,
-      "change_pct": 0.43,
+      "price": 4591.9,
+      "change": 36.1,
+      "change_pct": 0.79,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 18/05 11:00"
@@ -176,9 +176,9 @@
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 78.14,
-      "change": 0.97,
-      "change_pct": 1.26,
+      "price": 79.25,
+      "change": 2.08,
+      "change_pct": 2.7,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 18/05 11:00"
@@ -188,8 +188,8 @@
       "symbol": "HG=F",
       "category": "Metals",
       "price": 6.34,
-      "change": 0.08,
-      "change_pct": 1.34,
+      "change": 0.09,
+      "change_pct": 1.44,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 18/05 11:00"
@@ -220,20 +220,20 @@
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1663,
-      "change": 0.0001,
-      "change_pct": 0.01,
+      "price": 1.1662,
+      "change": 0.0047,
+      "change_pct": 0.41,
       "decimals": 4,
       "suffix": "",
-      "note": "Gần nhất: 18/05 06:00"
+      "note": "Gần nhất: 19/05 06:00"
     },
     {
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 77067.0,
-      "change": -362.0,
-      "change_pct": -0.47,
+      "price": 76974.0,
+      "change": -455.0,
+      "change_pct": -0.59,
       "decimals": 0,
       "suffix": "",
       "note": "Gần nhất: 18/05 07:00"
@@ -297,9 +297,9 @@
       "name": "FTSE 100",
       "symbol": "^FTSE",
       "category": "Europe",
-      "price": 10323.75,
-      "change": 128.35,
-      "change_pct": 1.26,
+      "price": NaN,
+      "change": NaN,
+      "change_pct": NaN,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 18/05 06:00"
@@ -324,7 +324,7 @@
       "change_pct": 0.0,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
+      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
     },
     {
       "name": "Hang Seng",
