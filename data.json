@@ -1,29 +1,49 @@
 {
-  "updated_at": "2026-05-18T16:00:12.484506+07:00",
-  "updated_at_display": "18/05/2026 • 16:00 GMT+7",
+  "updated_at": "2026-05-18T19:40:32.412526+07:00",
+  "updated_at_display": "18/05/2026 • 19:40 GMT+7",
   "war_news": [
     {
       "source": "Al Jazeera",
-      "title": "Netanyahu says Israel controls 60 percent of Gaza",
-      "title_vi": "Netanyahu nói Israel kiểm soát 60% Gaza",
-      "summary": "Netanyahu says Israel controls 60 percent of Gaza",
-      "summary_vi": "Netanyahu says Israel controls 60 percent of Gaza",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/18/netanyahu-says-israel-controls-60-percent-of-gaza?traffic_source=rss",
-      "published_iso": "2026-05-18T15:35:14+07:00",
-      "published_text": "18/05 15:35"
+      "title": "Iran plans to offer insurance for Hormuz transit: Will it work?",
+      "title_vi": "Iran có kế hoạch cung cấp bảo hiểm cho quá cảnh Hormuz: Liệu nó có hoạt động không?",
+      "summary": "Iran proposes Bitcoin-based ship insurance for the Strait of Hormuz, a move likely to raise global maritime concerns.",
+      "summary_vi": "Iran proposes Bitcoin-based ship insurance for the Strait of Hormuz, a move likely to raise global maritime concerns.",
+      "url": "https://www.aljazeera.com/news/2026/5/18/iran-plans-to-offer-insurance-for-hormuz-transit-will-it-work?traffic_source=rss",
+      "published_iso": "2026-05-18T18:57:45+07:00",
+      "published_text": "18/05 18:57"
     },
     {
-      "source": "Al Jazeera",
-      "title": "Al Jazeera reports from Hormuz Island as Iran says it controls the strait",
-      "title_vi": "Al Jazeera đưa tin từ đảo Hormuz khi Iran nói rằng họ kiểm soát eo biển",
-      "summary": "Al Jazeera has been given exclusive access to Iran’s Hormuz Island.",
-      "summary_vi": "Al Jazeera has been given exclusive access to Iran’s Hormuz Island.",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/18/al-jazeera-reports-from-hormuz-island-as-iran-says-it-controls-the-strait?traffic_source=rss",
-      "published_iso": "2026-05-18T15:28:05+07:00",
-      "published_text": "18/05 15:28"
+      "source": "Google News War",
+      "title": "Trump Warns Iran the ‘Clock Is Ticking’ as Tensions Surge Again in Middle East - The New York Times",
+      "title_vi": "Trump cảnh báo Iran rằng ‘đồng hồ đang điểm’ khi căng thẳng gia tăng trở lại ở Trung Đông - Thời báo New York",
+      "summary": "Trump Warns Iran the ‘Clock Is Ticking’ as Tensions Surge Again in Middle East The New York Times",
+      "summary_vi": "Trump Warns Iran the ‘Clock Is Ticking’ as Tensions Surge Again in Middle East The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOSHplQ2VjYU1qTmktV2dOUFE4cE82ZmZnSFlua2lBY05nbTNfc1JkZTFhUlZWNWZDd2tQQ3hIb2IyR1VNWVI1UzlTcXJsSW1kWFVDaUZLUXNRSGNZYWM3a2lLYUhJRU1oa1UySTQ3VWJlVnlZeG5pamoyZDBHTEstQkpFTQ?oc=5",
+      "published_iso": "2026-05-18T18:48:44+07:00",
+      "published_text": "18/05 18:48"
     }
   ],
   "global_news": [
+    {
+      "source": "Investing News",
+      "title": "Pound rises but hovers near April low amid UK political turmoil",
+      "title_vi": "Đồng bảng Anh tăng nhưng dao động gần mức thấp của tháng 4 trong bối cảnh bất ổn chính trị Vương quốc Anh",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/forex-news/pound-rises-but-hovers-near-april-low-amid-uk-political-turmoil-93CH-4695709",
+      "published_iso": "2026-05-18T19:26:27+07:00",
+      "published_text": "18/05 19:26"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "China Indicates Tariffs Were Discussed at Trump Summit - The New York Times",
+      "title_vi": "Trung Quốc cho biết thuế quan đã được thảo luận tại Hội nghị thượng đỉnh Trump - The New York Times",
+      "summary": "China Indicates Tariffs Were Discussed at Trump Summit The New York Times",
+      "summary_vi": "China Indicates Tariffs Were Discussed at Trump Summit The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPUVp3d1V2OVdGMF9TbDJ2aVN6Zk5YUFBJUDlRZ2VpdklQZF9WVjh4SmJxcnRTQldqb0tfbmJ4QTkxM2FtUU9udzlwYXBUUEpZdGcyU2w3QjlqMEo4RWlhVzcwaFdycmh5dWlFdE1jcjI0Q0NiSzBVUGdJRGtzUkJZV0xvZFI4aGJ2eHlJ?oc=5",
+      "published_iso": "2026-05-17T06:25:56+07:00",
+      "published_text": "17/05 06:25"
+    },
     {
       "source": "Google News Macro",
       "title": "Trump returns to the U.S. from China with pressure over rising inflation - PBS",
@@ -43,48 +63,28 @@
       "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE13RjBCdllGTHVJMDFZbjdwX1Zfa2JQRzNKQkw4Y0xZUERwa3V6QXFsNm9CTnRkYW13Z2JmX1dqTzd1dGhhQWtfNUVoZDhFMFhFZW1ucHdnS0Z6TTlYeTBTUmg2OG56RTVFb1ZEbGdhUTZ1cXVFcGFnZQ?oc=5",
       "published_iso": "2026-05-16T18:00:17+07:00",
       "published_text": "16/05 18:00"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "The U.S.-China Trade Relationship: What’s Behind the Competition? - Council on Foreign Relations",
-      "title_vi": "Mối quan hệ thương mại Mỹ-Trung: Đằng sau cuộc cạnh tranh là gì? - Hội đồng Quan hệ đối ngoại",
-      "summary": "The U.S.-China Trade Relationship: What’s Behind the Competition? Council on Foreign Relations",
-      "summary_vi": "The U.S.-China Trade Relationship: What’s Behind the Competition? Council on Foreign Relations",
-      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE85R1Rxa096czZxUGpuWjB0T0RCeWtvNzUwM2kxcHRhVXp4MjBJUXVIbC1vU2EtRGZ6c2MxQnVNamVJUHhpZU4yMVBqRUZ3YUgxNGVRT0pRSWYteGpFeW1mRlBuazdselRXZDdpaVY1NW0xS2hzSlUtb1p1VWhwdw?oc=5",
-      "published_iso": "2026-05-16T01:56:00+07:00",
-      "published_text": "16/05 01:56"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "Unpacking President Trump’s Visit to China | State of Play - CSIS | Center for Strategic and International Studies",
-      "title_vi": "Mở ra chuyến thăm Trung Quốc của Tổng thống Trump | State of Play - CSIS | Trung tâm Nghiên cứu Chiến lược và Quốc tế",
-      "summary": "Unpacking President Trump’s Visit to China | State of Play CSIS | Center for Strategic and International Studies",
-      "summary_vi": "Unpacking President Trump’s Visit to China | State of Play CSIS | Center for Strategic and International Studies",
-      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOQjFHeEdNVFYxcGtuX2xPeGhfNGRlZWR4RlA2YmVMSEdKZ2Z4MXN1YWxoOXBEZWF4ZlFOd01KOVN5cEtybDhUa0JnY2ZpMDd0Z293ZW1Tc1dzWm5nZkh2NTQyZ3hSUGFoTTJNZ2xJdG5KQ2ljR2F5R0JMbks2NmNDUVVxSnhPZw?oc=5",
-      "published_iso": "2026-05-15T23:02:06+07:00",
-      "published_text": "15/05 23:02"
     }
   ],
   "vn_news": [
     {
       "source": "Thời báo Tài chính VN",
-      "title": "Công ty đấu giá hợp danh Khải Bảo: Đấu giá lô phế liệu là sắt thép, kim loại màu và vật tư LDA không có nhu cầu sử dụng, được bán nguyên lô",
-      "title_vi": "Công ty đấu giá hợp danh Khải Bảo: Đấu giá lô phế liệu là sắt thép, kim loại màu và vật tư LDA không có nhu cầu sử dụng, được bán nguyên lô",
+      "title": "Công ty Đấu giá Hợp danh Đông Nam: Đấu giá 01 xe ô tô con đã qua sử dụng, nhãn hiệu TOYOTA, biển kiểm soát 70A-010.80 của ăn phòng Hội đồng nhân dân và Ủy ban nhân dân xã Vĩnh Thạnh, Tây Ninh",
+      "title_vi": "Công ty Đấu giá Hợp danh Đông Nam: Đấu giá 01 xe ô tô con đã qua sử dụng, nhãn hiệu TOYOTA, biển kiểm soát 70A-010.80 của ăn phòng Hội đồng nhân dân và Ủy ban nhân dân xã Vĩnh Thạnh, Tây Ninh",
       "summary": "",
       "summary_vi": "",
-      "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-khai-bao-dau-gia-lo-phe-lieu-la-sat-thep-kim-loai-mau-va-vat-tu-lda-khong-co-nhu-cau-su-dung-duoc-ban-nguyen-lo-51044.html",
-      "published_iso": "2026-05-18T16:01:03.553538+07:00",
-      "published_text": "18/05 16:01"
+      "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-dong-nam-dau-gia-01-xe-o-to-con-da-qua-su-dung-nhan-hieu-toyota-bien-kiem-soat-70a-01080-cua-an-phong-hoi-dong-nhan-dan-va-uy-ban-nhan-dan-xa-vinh-thanh-tay-ninh-51051.html",
+      "published_iso": "2026-05-18T19:41:28.426271+07:00",
+      "published_text": "18/05 19:41"
     },
     {
       "source": "Thời báo Tài chính VN",
-      "title": "Công ty Đấu giá Hợp danh Vạn Thành An – Chi nhánh Hà Nội: Đấu giá quyền thuê một phần diện tích, cụ thể 2468,6m² tầng 1 (phía phải) và các tầng 2,3,4 tại tòa nhà Báo Lao động",
-      "title_vi": "Công ty Đấu giá Hợp danh Vạn Thành An – Chi nhánh Hà Nội: Đấu giá quyền thuê một phần diện tích, cụ thể 2468,6m² tầng 1 (phía phải) và các tầng 2,3,4 tại tòa nhà Báo Lao động",
+      "title": "Công ty Đấu giá Hợp danh Số 5 – Quốc gia: Đấu giá lô tài sản là 06 xe ô tô đã được phê duyệt thanh lý theo quy định của pháp luật",
+      "title_vi": "Công ty Đấu giá Hợp danh Số 5 – Quốc gia: Đấu giá lô tài sản là 06 xe ô tô đã được phê duyệt thanh lý theo quy định của pháp luật",
       "summary": "",
       "summary_vi": "",
-      "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-van-thanh-an-chi-nhanh-ha-noi-dau-gia-quyen-thue-mot-phan-dien-tich-cu-the-24686m-tang-1-phia-phai-va-cac-tang-234-tai-toa-nha-bao-lao-dong-51050.html",
-      "published_iso": "2026-05-18T16:01:03.553462+07:00",
-      "published_text": "18/05 16:01"
+      "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-so-5-quoc-gia-dau-gia-lo-tai-san-la-06-xe-o-to-da-duoc-phe-duyet-thanh-ly-theo-quy-dinh-cua-phap-luat-51054.html",
+      "published_iso": "2026-05-18T19:41:28.426194+07:00",
+      "published_text": "18/05 19:41"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/viet-nam-co-35-trieu-tan-dat-hiem-nhung-dn-nao-dang-nam-cac-mo-lon-d144954.html",
-      "published_iso": "2026-05-18T16:01:02.257404+07:00",
-      "published_text": "18/05 16:01"
+      "published_iso": "2026-05-18T19:41:26.981379+07:00",
+      "published_text": "18/05 19:41"
     },
     {
       "source": "VietnamFinance",
@@ -103,18 +103,18 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/tien-do-xay-dung-dai-do-thi-1-ty-usd-cua-vingroup-o-hai-phong-d144689.html",
-      "published_iso": "2026-05-18T16:01:02.257315+07:00",
-      "published_text": "18/05 16:01"
+      "published_iso": "2026-05-18T19:41:26.981311+07:00",
+      "published_text": "18/05 19:41"
     },
     {
       "source": "CafeF",
-      "title": "Nội thất Việt: Bùng nổ tiềm năng từ “Made by Vietnam”",
-      "title_vi": "Nội thất Việt: Bùng nổ tiềm năng từ “Made by Vietnam”",
+      "title": "Bảng xếp hạng ngân hàng nhiều tiền gửi nhất thay đổi ra sao sau 10 năm?",
+      "title_vi": "Bảng xếp hạng ngân hàng nhiều tiền gửi nhất thay đổi ra sao sau 10 năm?",
       "summary": "",
       "summary_vi": "",
-      "url": "https://cafef.vn/noi-that-viet-bung-no-tiem-nang-tu-made-by-vietnam-18826051313090675.chn",
-      "published_iso": "2026-05-18T16:00:59.972545+07:00",
-      "published_text": "18/05 16:00"
+      "url": "https://cafef.vn/bang-xep-hang-ngan-hang-nhieu-tien-gui-nhat-thay-doi-ra-sao-sau-10-nam-188260517101313139.chn",
+      "published_iso": "2026-05-18T19:41:25.060267+07:00",
+      "published_text": "18/05 19:41"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/tong-tai-ham-choi-nhat-viet-nam-tran-hung-huy-va-nuoc-co-doc-nhat-cua-acb-trong-cuoc-dua-tre-hoa-ngan-hang-khong-can-concert-trieu-do-van-thang-lon-188260517145024169.chn",
-      "published_iso": "2026-05-18T16:00:59.972465+07:00",
-      "published_text": "18/05 16:00"
+      "published_iso": "2026-05-18T19:41:25.060190+07:00",
+      "published_text": "18/05 19:41"
     }
   ],
   "markets": [
@@ -132,9 +132,9 @@
       "name": "WTI",
       "symbol": "CL=F",
       "category": "Energy",
-      "price": 101.76,
-      "change": -3.66,
-      "change_pct": -3.47,
+      "price": 100.95,
+      "change": -4.47,
+      "change_pct": -4.24,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 18/05 11:00"
@@ -143,9 +143,9 @@
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 110.06,
-      "change": 0.8,
-      "change_pct": 0.73,
+      "price": 109.3,
+      "change": 0.04,
+      "change_pct": 0.04,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 18/05 11:00"
@@ -154,9 +154,9 @@
       "name": "Natural Gas",
       "symbol": "NG=F",
       "category": "Energy",
-      "price": 3.05,
-      "change": 0.09,
-      "change_pct": 3.01,
+      "price": 3.09,
+      "change": 0.13,
+      "change_pct": 4.26,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 18/05 11:00"
@@ -165,9 +165,9 @@
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4559.6,
-      "change": 3.8,
-      "change_pct": 0.08,
+      "price": 4556.9,
+      "change": 1.1,
+      "change_pct": 0.02,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 18/05 11:00"
@@ -176,9 +176,9 @@
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 76.64,
-      "change": -0.52,
-      "change_pct": -0.67,
+      "price": 77.11,
+      "change": -0.06,
+      "change_pct": -0.07,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 18/05 11:00"
@@ -189,7 +189,7 @@
       "category": "Metals",
       "price": 6.26,
       "change": 0.01,
-      "change_pct": 0.2,
+      "change_pct": 0.15,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 18/05 11:00"
@@ -199,19 +199,19 @@
       "symbol": "^TNX",
       "category": "Rates",
       "price": 0.46,
-      "change": 0.01,
-      "change_pct": 3.0,
+      "change": 0.0,
+      "change_pct": 0.0,
       "decimals": 2,
       "suffix": "%",
-      "note": "Gần nhất: 15/05 12:00"
+      "note": "Gần nhất: 18/05 12:00"
     },
     {
       "name": "DXY",
       "symbol": "DX-Y.NYB",
       "category": "FX",
-      "price": 99.1,
-      "change": -0.17,
-      "change_pct": -0.17,
+      "price": 99.08,
+      "change": -0.19,
+      "change_pct": -0.19,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 18/05 11:00"
@@ -220,9 +220,9 @@
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1646,
-      "change": -0.0017,
-      "change_pct": -0.14,
+      "price": 1.1654,
+      "change": -0.0008,
+      "change_pct": -0.07,
       "decimals": 4,
       "suffix": "",
       "note": "Gần nhất: 18/05 06:00"
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 76985.0,
-      "change": -444.0,
-      "change_pct": -0.57,
+      "price": 77650.0,
+      "change": 221.0,
+      "change_pct": 0.29,
       "decimals": 0,
       "suffix": "",
       "note": "Gần nhất: 18/05 07:00"
@@ -286,9 +286,9 @@
       "name": "VIX",
       "symbol": "^VIX",
       "category": "US",
-      "price": 18.92,
-      "change": 0.49,
-      "change_pct": 2.66,
+      "price": 18.58,
+      "change": 0.15,
+      "change_pct": 0.81,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 18/05 12:00"
@@ -297,9 +297,9 @@
       "name": "FTSE 100",
       "symbol": "^FTSE",
       "category": "Europe",
-      "price": 10209.78,
-      "change": 14.38,
-      "change_pct": 0.14,
+      "price": 10242.48,
+      "change": 47.08,
+      "change_pct": 0.46,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 18/05 06:00"
@@ -308,9 +308,9 @@
       "name": "Euro Stoxx 50",
       "symbol": "^STOXX50E",
       "category": "Europe",
-      "price": 5799.19,
-      "change": -28.57,
-      "change_pct": -0.49,
+      "price": 5827.97,
+      "change": 0.21,
+      "change_pct": 0.0,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 18/05 05:00"
@@ -324,7 +324,7 @@
       "change_pct": 0.0,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
+      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
     },
     {
       "name": "Hang Seng",
@@ -385,9 +385,9 @@
       "name": "Nifty 50",
       "symbol": "^NSEI",
       "category": "Asia",
-      "price": 23607.15,
-      "change": -36.35,
-      "change_pct": -0.15,
+      "price": 23649.95,
+      "change": 6.45,
+      "change_pct": 0.03,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 18/05 01:30"
