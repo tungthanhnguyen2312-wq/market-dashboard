@@ -1,29 +1,59 @@
 {
-  "updated_at": "2026-05-20T21:09:32.107476+07:00",
-  "updated_at_display": "20/05/2026 • 21:09 GMT+7",
+  "updated_at": "2026-05-21T00:37:01.662211+07:00",
+  "updated_at_display": "21/05/2026 • 00:37 GMT+7",
   "war_news": [
     {
       "source": "Al Jazeera",
-      "title": "Israel’s ambassador to Christians gives rose-coloured spiel",
-      "title_vi": "Đại sứ Israel tại Cơ đốc giáo trao tặng chiến lợi phẩm màu hồng",
-      "summary": "George Deek, Israel’s ‘ambassador to Christians’ released a statement on X, to Christians in the region and globally.",
-      "summary_vi": "George Deek, Israel’s ‘ambassador to Christians’ released a statement on X, to Christians in the region and globally.",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/20/israels-ambassador-to-christians-gives-rose-coloured-spiel?traffic_source=rss",
-      "published_iso": "2026-05-20T20:46:45+07:00",
-      "published_text": "20/05 20:46"
+      "title": "Trump jokes about running for Israeli prime minister",
+      "title_vi": "Trump nói đùa về việc tranh cử thủ tướng Israel",
+      "summary": "Donald Trump joked that he could run for Israeli prime minister after claiming he enjoys ‘99%’ support in Israel.",
+      "summary_vi": "Donald Trump joked that he could run for Israeli prime minister after claiming he enjoys ‘99%’ support in Israel.",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/20/trump-jokes-about-running-for-israeli-prime-minister?traffic_source=rss",
+      "published_iso": "2026-05-20T23:51:56+07:00",
+      "published_text": "20/05 23:51"
     },
     {
       "source": "Al Jazeera",
-      "title": "Israel’s Ben-Gvir publishes video taunting detained flotilla activists",
-      "title_vi": "Ben-Gvir của Israel xuất bản video chế giễu các nhà hoạt động đội tàu bị giam giữ",
-      "summary": "Israel’s Ben-Gvir publishes video taunting detained flotilla activists",
-      "summary_vi": "Israel’s Ben-Gvir publishes video taunting detained flotilla activists",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/20/israels-ben-gvir-publishes-video-taunting-detained-flotilla-activists?traffic_source=rss",
-      "published_iso": "2026-05-20T20:44:12+07:00",
-      "published_text": "20/05 20:44"
+      "title": "Iran claims it coordinated passage of 26 vessels out of Hormuz in 24 hours",
+      "title_vi": "Iran tuyên bố đã phối hợp đưa 26 tàu ra khỏi Hormuz trong 24 giờ",
+      "summary": "The IRGC claims to maintain control over the Strait of Hormuz despite the US blockade on Iran's ports.",
+      "summary_vi": "The IRGC claims to maintain control over the Strait of Hormuz despite the US blockade on Iran's ports.",
+      "url": "https://www.aljazeera.com/news/2026/5/20/iran-says-it-coordinated-crossing-of-26-vessels-out-of-strait-of-hormuz?traffic_source=rss",
+      "published_iso": "2026-05-20T23:29:58+07:00",
+      "published_text": "20/05 23:29"
     }
   ],
   "global_news": [
+    {
+      "source": "Investing News",
+      "title": "USTR welcomes EU progress on trade deal, says Brussels must also address non-tariff barriers",
+      "title_vi": "USTR hoan nghênh tiến bộ của EU về thỏa thuận thương mại, cho biết Brussels cũng phải giải quyết các rào cản phi thuế quan",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/economy-news/ustr-welcomes-eu-progress-on-trade-deal-says-brussels-must-also-address-nontariff-barriers-4701970",
+      "published_iso": "2026-05-21T00:24:39+07:00",
+      "published_text": "21/05 00:24"
+    },
+    {
+      "source": "Investing News",
+      "title": "Dollar slips as yields stabilize, risk sentiment gets a boost on Iran peace hopes",
+      "title_vi": "Đô la trượt giá khi lợi suất ổn định, tâm lý rủi ro được thúc đẩy bởi hy vọng hòa bình của Iran",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/forex-news/asia-fx-dithers-amid-rate-hike-fears-iran-uncertainty-dollar-near-6week-high-4700164",
+      "published_iso": "2026-05-21T00:24:32+07:00",
+      "published_text": "21/05 00:24"
+    },
+    {
+      "source": "Investing News",
+      "title": "U.S. welcomes EU tariff removal plan, flags remaining concerns",
+      "title_vi": "Hoa Kỳ hoan nghênh kế hoạch xóa bỏ thuế quan của EU, đánh dấu những lo ngại còn lại",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/economy-news/us-welcomes-eu-tariff-removal-plan-flags-remaining-concerns-93CH-4701969",
+      "published_iso": "2026-05-21T00:24:25+07:00",
+      "published_text": "21/05 00:24"
+    },
     {
       "source": "Google News Macro",
       "title": "China and the U.S. Agreed to ‘Strategic Stability’ in Beijing. They Don’t Define It the Same Way. - Council on Foreign Relations",
@@ -33,36 +63,6 @@
       "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQZkw1cFdEZ1FuNUIwN09LX21PemVnNGFyU0tGMWtlZ1dYTnByZmdDTy0tSlRLdW80NTdtcGZQeUc3c200TG9tS29OOEhPOE92YWVCQzNEcHcyM2JzSTRBQjEwX1VYY0dtWFp4ZTNqTHdyOUZ4dWZuUzFPMjE3OU9GWFpqWGVReExRTUxwdmhKMWZCUzB6czU1YlBuVGU2eEgzRHNNMEZyZE8yZ3QtTzJIUkNobm5kLUZOaXJKMA?oc=5",
       "published_iso": "2026-05-19T03:24:16+07:00",
       "published_text": "19/05 03:24"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "President Trump’s State Visit to China Delivers Historic Deals and Greater Market Access for American Farmers, Ranchers, Workers, and Businesses - ustr.gov",
-      "title_vi": "Chuyến thăm cấp nhà nước của Tổng thống Trump tới Trung Quốc mang lại các thỏa thuận lịch sử và khả năng tiếp cận thị trường lớn hơn cho nông dân, chủ trang trại, công nhân và doanh nghiệp Mỹ - ustr.gov",
-      "summary": "President Trump’s State Visit to China Delivers Historic Deals and Greater Market Access for American Farmers, Ranchers, Workers, and Businesses ustr.gov",
-      "summary_vi": "President Trump’s State Visit to China Delivers Historic Deals and Greater Market Access for American Farmers, Ranchers, Workers, and Businesses ustr.gov",
-      "url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxNY1pRM295aHNqeVVfcTdrODFRa3JaakZ5NlBfQ3N2WmNPRGkxVE1jZ0Z4dFZ0cnRZMERfaUdjcmpzcC1iUk1IbkM2dWpBR1RKeVlOY0lHemFMMHZrSDVKMmotbmdmSFNqOGFfalV0bmI0VXc1a3AyOVVHTmhKU2I3THludWhQYnhYZURUU0tTZGZHdGZjeXl5a2c2Wjc2ZjNtWE5WZGYtcXdmb3BGSkROWll3Z0NqeXdzOWoxWkl4a3NtUloxdVc2T1BmdHVUbng3ZVpUUlRLTWlRc2NxdjFfd243a2Y4SUN0MklPVHRPTjgwbzBOTURLQlBJb1g?oc=5",
-      "published_iso": "2026-05-19T00:37:53+07:00",
-      "published_text": "19/05 00:37"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "Finding China in the U.S. TIC Data - Council on Foreign Relations",
-      "title_vi": "Tìm kiếm Trung Quốc trong Dữ liệu Tic của Hoa Kỳ - Hội đồng Quan hệ Đối ngoại",
-      "summary": "Finding China in the U.S. TIC Data Council on Foreign Relations",
-      "summary_vi": "Finding China in the U.S. TIC Data Council on Foreign Relations",
-      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE01MTdkNHpFNV9FR19adlVUYXkyRnRKN2M0V3NoWUMtaUpUQ0p1LTNVRnk3czNEdVVleFM0cXZrNzlUaXVNcUJsblFoYmVjMFZSdUc0ZkExT1dCR3p2MlFEME1ZS1hwUm9vbHJkT09nS2g?oc=5",
-      "published_iso": "2026-05-18T19:16:27+07:00",
-      "published_text": "18/05 19:16"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "China Indicates Tariffs Were Discussed at Trump Summit - The New York Times",
-      "title_vi": "Trung Quốc cho biết thuế quan đã được thảo luận tại Hội nghị thượng đỉnh Trump - The New York Times",
-      "summary": "China Indicates Tariffs Were Discussed at Trump Summit The New York Times",
-      "summary_vi": "China Indicates Tariffs Were Discussed at Trump Summit The New York Times",
-      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPUVp3d1V2OVdGMF9TbDJ2aVN6Zk5YUFBJUDlRZ2VpdklQZF9WVjh4SmJxcnRTQldqb0tfbmJ4QTkxM2FtUU9udzlwYXBUUEpZdGcyU2w3QjlqMEo4RWlhVzcwaFdycmh5dWlFdE1jcjI0Q0NiSzBVUGdJRGtzUkJZV0xvZFI4aGJ2eHlJ?oc=5",
-      "published_iso": "2026-05-17T06:25:56+07:00",
-      "published_text": "17/05 06:25"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-thanh-nam-dau-gia-vat-tu-vat-lieu-thu-hoi-tu-viec-thanh-ly-thao-do-cac-hang-muc-cong-trinh-cua-truong-ththcs-ap-bac-da-tru-chi-phi-thao-do-51092.html",
-      "published_iso": "2026-05-20T21:10:21.931146+07:00",
-      "published_text": "20/05 21:10"
+      "published_iso": "2026-05-21T00:37:59.320628+07:00",
+      "published_text": "21/05 00:37"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-van-thanh-an-dau-gia-quyen-thue-dat-va-cong-trinh-gan-lien-tren-dat-khach-san-ky-hoa-da-lat-phuong-lam-vien-da-lat-tinh-lam-dong-51096.html",
-      "published_iso": "2026-05-20T21:10:21.931070+07:00",
-      "published_text": "20/05 21:10"
+      "published_iso": "2026-05-21T00:37:59.320538+07:00",
+      "published_text": "21/05 00:37"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/arsenal-thu-gan-180-trieu-bang-sau-chuc-vo-dich-premier-league-d145066.html",
-      "published_iso": "2026-05-20T21:10:19.900272+07:00",
-      "published_text": "20/05 21:10"
+      "published_iso": "2026-05-21T00:37:58.276093+07:00",
+      "published_text": "21/05 00:37"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/dieu-gi-dang-xay-ra-ben-trong-de-che-samsung-d145083.html",
-      "published_iso": "2026-05-20T21:10:19.900207+07:00",
-      "published_text": "20/05 21:10"
+      "published_iso": "2026-05-21T00:37:58.276017+07:00",
+      "published_text": "21/05 00:37"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/tong-tai-ham-choi-nhat-viet-nam-tran-hung-huy-va-nuoc-co-doc-nhat-cua-acb-trong-cuoc-dua-tre-hoa-ngan-hang-khong-can-concert-trieu-do-van-thang-lon-188260517145024169.chn",
-      "published_iso": "2026-05-20T21:10:17.777573+07:00",
-      "published_text": "20/05 21:10"
+      "published_iso": "2026-05-21T00:37:56.167528+07:00",
+      "published_text": "21/05 00:37"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/pgs-ts-tran-dinh-thien-giai-ma-dong-luc-cua-nhung-doanh-nghiep-lon-chuyen-tu-kiem-loi-ngan-han-sang-kien-tao-tuong-lai-188260518221054153.chn",
-      "published_iso": "2026-05-20T21:10:17.777494+07:00",
-      "published_text": "20/05 21:10"
+      "published_iso": "2026-05-21T00:37:56.167438+07:00",
+      "published_text": "21/05 00:37"
     }
   ],
   "markets": [
@@ -132,9 +132,9 @@
       "name": "WTI",
       "symbol": "CL=F",
       "category": "Energy",
-      "price": 102.32,
-      "change": -5.45,
-      "change_pct": -5.06,
+      "price": 97.46,
+      "change": -10.31,
+      "change_pct": -9.57,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 20/05 11:00"
@@ -143,9 +143,9 @@
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 109.04,
-      "change": -2.24,
-      "change_pct": -2.01,
+      "price": 104.34,
+      "change": -6.94,
+      "change_pct": -6.24,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 20/05 11:00"
@@ -154,9 +154,9 @@
       "name": "Natural Gas",
       "symbol": "NG=F",
       "category": "Energy",
-      "price": 3.09,
-      "change": -0.03,
-      "change_pct": -0.9,
+      "price": 3.02,
+      "change": -0.1,
+      "change_pct": -3.15,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 20/05 11:00"
@@ -165,9 +165,9 @@
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4485.3,
-      "change": -21.0,
-      "change_pct": -0.47,
+      "price": 4539.1,
+      "change": 32.8,
+      "change_pct": 0.73,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 20/05 11:00"
@@ -176,9 +176,9 @@
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 75.15,
-      "change": 0.32,
-      "change_pct": 0.43,
+      "price": 76.25,
+      "change": 1.42,
+      "change_pct": 1.89,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 20/05 11:00"
@@ -187,9 +187,9 @@
       "name": "Copper",
       "symbol": "HG=F",
       "category": "Metals",
-      "price": 6.27,
-      "change": 0.11,
-      "change_pct": 1.78,
+      "price": 6.33,
+      "change": 0.16,
+      "change_pct": 2.67,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 20/05 11:00"
@@ -198,9 +198,9 @@
       "name": "US 10Y",
       "symbol": "^TNX",
       "category": "Rates",
-      "price": 0.47,
-      "change": -0.0,
-      "change_pct": -0.34,
+      "price": 0.46,
+      "change": -0.01,
+      "change_pct": -1.86,
       "decimals": 2,
       "suffix": "%",
       "note": "Gần nhất: 20/05 12:00"
@@ -209,9 +209,9 @@
       "name": "DXY",
       "symbol": "DX-Y.NYB",
       "category": "FX",
-      "price": 99.41,
-      "change": 0.11,
-      "change_pct": 0.11,
+      "price": 99.12,
+      "change": -0.18,
+      "change_pct": -0.18,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 20/05 11:00"
@@ -220,9 +220,9 @@
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1587,
-      "change": -0.0068,
-      "change_pct": -0.58,
+      "price": 1.1629,
+      "change": -0.0026,
+      "change_pct": -0.22,
       "decimals": 4,
       "suffix": "",
       "note": "Gần nhất: 20/05 06:00"
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 77071.0,
-      "change": 320.0,
-      "change_pct": 0.42,
+      "price": 77527.0,
+      "change": 776.0,
+      "change_pct": 1.01,
       "decimals": 0,
       "suffix": "",
       "note": "Gần nhất: 20/05 07:00"
@@ -242,9 +242,9 @@
       "name": "S&P 500",
       "symbol": "^GSPC",
       "category": "US",
-      "price": 7367.21,
-      "change": 13.6,
-      "change_pct": 0.18,
+      "price": 7423.02,
+      "change": 69.41,
+      "change_pct": 0.94,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 20/05 11:00"
@@ -253,9 +253,9 @@
       "name": "Dow Jones",
       "symbol": "^DJI",
       "category": "US",
-      "price": 49292.05,
-      "change": -71.83,
-      "change_pct": -0.15,
+      "price": 49962.37,
+      "change": 598.49,
+      "change_pct": 1.21,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 20/05 11:00"
@@ -264,9 +264,9 @@
       "name": "Nasdaq",
       "symbol": "^IXIC",
       "category": "US",
-      "price": 25979.54,
-      "change": 108.83,
-      "change_pct": 0.42,
+      "price": 26209.11,
+      "change": 338.39,
+      "change_pct": 1.31,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 20/05 11:00"
@@ -275,9 +275,9 @@
       "name": "Russell 2000",
       "symbol": "^RUT",
       "category": "US",
-      "price": 2771.09,
-      "change": 24.02,
-      "change_pct": 0.87,
+      "price": 2806.44,
+      "change": 59.37,
+      "change_pct": 2.16,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 20/05 11:00"
@@ -286,9 +286,9 @@
       "name": "VIX",
       "symbol": "^VIX",
       "category": "US",
-      "price": 17.85,
-      "change": -0.21,
-      "change_pct": -1.16,
+      "price": 17.64,
+      "change": -0.42,
+      "change_pct": -2.33,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 20/05 12:00"
@@ -297,9 +297,9 @@
       "name": "FTSE 100",
       "symbol": "^FTSE",
       "category": "Europe",
-      "price": 10384.25,
-      "change": 53.65,
-      "change_pct": 0.52,
+      "price": 10432.34,
+      "change": 101.74,
+      "change_pct": 0.98,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 20/05 06:00"
@@ -308,9 +308,9 @@
       "name": "Euro Stoxx 50",
       "symbol": "^STOXX50E",
       "category": "Europe",
-      "price": 5905.18,
-      "change": 54.02,
-      "change_pct": 0.92,
+      "price": 5976.07,
+      "change": 124.91,
+      "change_pct": 2.13,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 20/05 05:00"
@@ -324,15 +324,15 @@
       "change_pct": 0.0,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
+      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
     },
     {
       "name": "Hang Seng",
       "symbol": "^HSI",
       "category": "Asia",
-      "price": 25651.12,
-      "change": -146.73,
-      "change_pct": -0.57,
+      "price": NaN,
+      "change": NaN,
+      "change_pct": NaN,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 19/05 23:00"
@@ -341,9 +341,9 @@
       "name": "Nikkei 225",
       "symbol": "^N225",
       "category": "Asia",
-      "price": 59804.41,
-      "change": -746.18,
-      "change_pct": -1.23,
+      "price": NaN,
+      "change": NaN,
+      "change_pct": NaN,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 19/05 22:00"
@@ -352,20 +352,20 @@
       "name": "KOSPI",
       "symbol": "^KS11",
       "category": "Asia",
-      "price": 7208.95,
-      "change": -62.71,
-      "change_pct": -0.86,
+      "price": 7271.66,
+      "change": -244.38,
+      "change_pct": -3.25,
       "decimals": 2,
       "suffix": "",
-      "note": "Gần nhất: 19/05 22:00"
+      "note": "Gần nhất: 18/05 22:00"
     },
     {
       "name": "Shanghai Composite",
       "symbol": "000001.SS",
       "category": "Asia",
-      "price": 4162.18,
-      "change": -7.35,
-      "change_pct": -0.18,
+      "price": NaN,
+      "change": NaN,
+      "change_pct": NaN,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 19/05 23:00"
@@ -374,9 +374,9 @@
       "name": "Shenzhen Component",
       "symbol": "399001.SZ",
       "category": "Asia",
-      "price": 15569.98,
-      "change": 0.07,
-      "change_pct": 0.0,
+      "price": NaN,
+      "change": NaN,
+      "change_pct": NaN,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 19/05 23:00"
