@@ -1,38 +1,48 @@
 {
-  "updated_at": "2026-05-22T00:16:20.574058+07:00",
-  "updated_at_display": "22/05/2026 • 00:16 GMT+7",
+  "updated_at": "2026-05-22T02:19:10.121319+07:00",
+  "updated_at_display": "22/05/2026 • 02:19 GMT+7",
   "war_news": [
     {
-      "source": "Google News War",
-      "title": "As U.S. war redraws Middle East, Turkey braces for rivalry with Israel - The Washington Post",
-      "title_vi": "Khi chiến tranh Mỹ vẽ lại Trung Đông, Thổ Nhĩ Kỳ chuẩn bị cho sự cạnh tranh với Israel - The Washington Post",
-      "summary": "As U.S. war redraws Middle East, Turkey braces for rivalry with Israel The Washington Post",
-      "summary_vi": "As U.S. war redraws Middle East, Turkey braces for rivalry with Israel The Washington Post",
-      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQOE15TTBscFZGTW9kOWd1U3BKbVB4SHZsbDUtYk5xeVExY21VNFhpc2tRcnhMaGN2S0c2NE52d29vQzBSY1ZTaHY3WjZJVndEVzQ5TE1lYkpwNHMwZ1FyUDBrSHR0Z010d21JNUFtcmtoQ2RWeXpoNmY5RWlQTkVnMVBNVURKdG1wZHo0N3ZzbEQwNWptZ0JYYm9tc0kwWWRjeVkwbVI5WjVudkl4TFE?oc=5",
-      "published_iso": "2026-05-21T23:00:00+07:00",
-      "published_text": "21/05 23:00"
+      "source": "Al Jazeera",
+      "title": "Iran’s World Cup hopes hit US visa hurdles",
+      "title_vi": "Hy vọng World Cup của Iran đã vượt qua rào cản thị thực của Mỹ",
+      "summary": "Players from Iran’s national football team are in Turkey applying for US visas for the 2026 World Cup.",
+      "summary_vi": "Players from Iran’s national football team are in Turkey applying for US visas for the 2026 World Cup.",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/21/irans-world-cup-hopes-hit-us-visa-hurdles?traffic_source=rss",
+      "published_iso": "2026-05-22T01:19:25+07:00",
+      "published_text": "22/05 01:19"
     },
     {
       "source": "Al Jazeera",
-      "title": "US-Iran diplomacy picks up: What’s the latest?",
-      "title_vi": "Ngoại giao Mỹ-Iran bắt đầu: Mới nhất là gì?",
-      "summary": "Iranian media reported that the Pakistani interior minister is in Iran to help the US and Iran reach a peace deal.",
-      "summary_vi": "Iranian media reported that the Pakistani interior minister is in Iran to help the US and Iran reach a peace deal.",
-      "url": "https://www.aljazeera.com/news/2026/5/21/us-iran-diplomacy-picks-up-whats-the-latest?traffic_source=rss",
-      "published_iso": "2026-05-21T22:10:12+07:00",
-      "published_text": "21/05 22:10"
+      "title": "Poll finds nearly three-quarters of Democratic voters oppose aid to Israel",
+      "title_vi": "Thăm dò cho thấy gần ba phần tư cử tri Dân chủ phản đối viện trợ cho Israel",
+      "summary": "The US ally has seen support plummet in recent years amid widespread anger over its genocidal war on Gaza.",
+      "summary_vi": "The US ally has seen support plummet in recent years amid widespread anger over its genocidal war on Gaza.",
+      "url": "https://www.aljazeera.com/news/2026/5/21/poll-finds-nearly-three-quarters-of-democratic-voters-oppose-aid-to-israel?traffic_source=rss",
+      "published_iso": "2026-05-22T01:05:12+07:00",
+      "published_text": "22/05 01:05"
     }
   ],
   "global_news": [
     {
       "source": "Investing News",
-      "title": "Argentina central bank slows reserve buildup amid inflation concerns",
-      "title_vi": "Ngân hàng trung ương Argentina làm chậm sự tích tụ dự trữ trong bối cảnh lo ngại lạm phát",
+      "title": "Wall St turns modestly higher as investors bet on Mideast peace hopes, while oil prices dip",
+      "title_vi": "Wall St tăng nhẹ khi các nhà đầu tư đặt cược vào hy vọng hòa bình Trung Đông, trong khi giá dầu giảm",
       "summary": "",
       "summary_vi": "",
-      "url": "https://www.investing.com/news/economy-news/argentina-central-bank-slows-reserve-buildup-amid-inflation-concerns-93CH-4704689",
-      "published_iso": "2026-05-21T23:56:07+07:00",
-      "published_text": "21/05 23:56"
+      "url": "https://www.investing.com/news/economy-news/us-stock-futures-muted-after-nvidia-results-retail-earnings-data-in-focus-4703462",
+      "published_iso": "2026-05-22T02:13:53+07:00",
+      "published_text": "22/05 02:13"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "Warsh to be sworn in as Fed Chair on May 22 - Consumer Finance Monitor",
+      "title_vi": "Warsh sẽ tuyên thệ nhậm chức Chủ tịch Fed vào ngày 22 tháng 5 - Giám sát Tài chính Người tiêu dùng",
+      "summary": "Warsh to be sworn in as Fed Chair on May 22 Consumer Finance Monitor",
+      "summary_vi": "Warsh to be sworn in as Fed Chair on May 22 Consumer Finance Monitor",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPUGR2bkRmM1g0OHd0MVVBU1JyR1VBQUkzWllpbUFoZnhqRUh0VnBYcTMxWkNCN2g5eDczU2RTLVZxNEF1UTBBSFZISmJQcGpLamhBTy1jYmhLSDZYSHFqVmRhUUJEaXFrZWxXZllUbGZ0VDVnRFctQjlSQi1FZTBBV25jdE04WmN4VmxvbGI0VnkzRkRsb1BHdnlR?oc=5",
+      "published_iso": "2026-05-21T23:40:57+07:00",
+      "published_text": "21/05 23:40"
     },
     {
       "source": "Google News Macro",
@@ -53,16 +63,6 @@
       "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNb3d3b2ZIWHZMZEl1OTZTNTlWV2psVzZQMGNHMDRpVmN1dVBLczlMQVE5TzVhZ1JXMG1oYkRQNElTUHloQ3dXeDEwMW1mNUlFWnh0aFhLOU5UYk1lS191X0U3X1pJQlg2UjNURlVBNE1HMENGMzBFNWl3SEVkeDN0MVEzZllSUDA5eGYzUHVwUElETDlIOGJYbG9iQzM3MkNmazRLSW1uTzBqdlZFalZmQVo5RTA?oc=5",
       "published_iso": "2026-05-21T01:45:21+07:00",
       "published_text": "21/05 01:45"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "Current price of oil as of May 20, 2026 - Fortune",
-      "title_vi": "Giá dầu hiện tại tính đến ngày 20 tháng 5 năm 2026 - Fortune",
-      "summary": "Current price of oil as of May 20, 2026 Fortune",
-      "summary_vi": "Current price of oil as of May 20, 2026 Fortune",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBsb0cyVkIxRW5Kekx6N1haYURVeTBvMVFSeU52aVdBUEF3dDN0RmZSZ3FnN3RXd0IwUWQyakFXZEJGS0w1ZTB1b0dYX0dPeWhYOHR0N0N3RWtJNktvVG9kanZR?oc=5",
-      "published_iso": "2026-05-20T20:29:00+07:00",
-      "published_text": "20/05 20:29"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/chi-nhanh-ha-noi-cong-ty-dau-gia-hop-danh-ben-thanh-dau-gia-01-xe-o-to-con-05-cho-nhan-hieu-toyota-bien-kiem-soat-31a-5823-51119.html",
-      "published_iso": "2026-05-22T00:17:07.833241+07:00",
-      "published_text": "22/05 00:17"
+      "published_iso": "2026-05-22T02:20:01.042480+07:00",
+      "published_text": "22/05 02:20"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-dau-gia-viet-nam-dau-gia-may-bien-ap-va-vat-tu-thiet-bi-thanh-ly-dot-1-nam-2026-thuoc-chat-thai-nguy-hai-51120.html",
-      "published_iso": "2026-05-22T00:17:07.833177+07:00",
-      "published_text": "22/05 00:17"
+      "published_iso": "2026-05-22T02:20:01.042396+07:00",
+      "published_text": "22/05 02:20"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/co-phieu-phr-thu-thach-dinh-lich-su-khi-co-tin-nhan-3500-ty-dong-tien-den-bu-d145120.html",
-      "published_iso": "2026-05-22T00:17:06.477183+07:00",
-      "published_text": "22/05 00:17"
+      "published_iso": "2026-05-22T02:19:58.198150+07:00",
+      "published_text": "22/05 02:19"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/nhan-dan-te-don-thoi-co-vang-d145133.html",
-      "published_iso": "2026-05-22T00:17:06.477119+07:00",
-      "published_text": "22/05 00:17"
+      "published_iso": "2026-05-22T02:19:58.198078+07:00",
+      "published_text": "22/05 02:19"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/tong-tai-ham-choi-nhat-viet-nam-tran-hung-huy-va-nuoc-co-doc-nhat-cua-acb-trong-cuoc-dua-tre-hoa-ngan-hang-khong-can-concert-trieu-do-van-thang-lon-188260517145024169.chn",
-      "published_iso": "2026-05-22T00:17:04.182934+07:00",
-      "published_text": "22/05 00:17"
+      "published_iso": "2026-05-22T02:19:56.071833+07:00",
+      "published_text": "22/05 02:19"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/pgs-ts-tran-dinh-thien-giai-ma-dong-luc-cua-nhung-doanh-nghiep-lon-chuyen-tu-kiem-loi-ngan-han-sang-kien-tao-tuong-lai-188260518221054153.chn",
-      "published_iso": "2026-05-22T00:17:04.182858+07:00",
-      "published_text": "22/05 00:17"
+      "published_iso": "2026-05-22T02:19:56.071756+07:00",
+      "published_text": "22/05 02:19"
     }
   ],
   "markets": [
@@ -132,9 +132,9 @@
       "name": "WTI",
       "symbol": "CL=F",
       "category": "Energy",
-      "price": 100.33,
-      "change": 2.07,
-      "change_pct": 2.11,
+      "price": 97.51,
+      "change": -0.75,
+      "change_pct": -0.76,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 21/05 11:00"
@@ -143,9 +143,9 @@
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 106.73,
-      "change": 1.71,
-      "change_pct": 1.63,
+      "price": 104.14,
+      "change": -0.88,
+      "change_pct": -0.84,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 21/05 11:00"
@@ -154,9 +154,9 @@
       "name": "Natural Gas",
       "symbol": "NG=F",
       "category": "Energy",
-      "price": 3.16,
-      "change": 0.15,
-      "change_pct": 5.13,
+      "price": 3.13,
+      "change": 0.13,
+      "change_pct": 4.36,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 21/05 11:00"
@@ -165,9 +165,9 @@
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4516.8,
-      "change": -14.5,
-      "change_pct": -0.32,
+      "price": 4537.8,
+      "change": 6.5,
+      "change_pct": 0.14,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 21/05 11:00"
@@ -176,9 +176,9 @@
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 76.29,
-      "change": 0.44,
-      "change_pct": 0.59,
+      "price": 76.76,
+      "change": 0.91,
+      "change_pct": 1.2,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 21/05 11:00"
@@ -187,9 +187,9 @@
       "name": "Copper",
       "symbol": "HG=F",
       "category": "Metals",
-      "price": 6.29,
-      "change": 0.0,
-      "change_pct": 0.06,
+      "price": 6.34,
+      "change": 0.05,
+      "change_pct": 0.72,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 21/05 11:00"
@@ -200,7 +200,7 @@
       "category": "Rates",
       "price": 0.46,
       "change": 0.0,
-      "change_pct": 0.59,
+      "change_pct": 0.31,
       "decimals": 2,
       "suffix": "%",
       "note": "Gần nhất: 21/05 12:00"
@@ -209,9 +209,9 @@
       "name": "DXY",
       "symbol": "DX-Y.NYB",
       "category": "FX",
-      "price": 99.38,
-      "change": 0.27,
-      "change_pct": 0.28,
+      "price": 99.22,
+      "change": 0.11,
+      "change_pct": 0.11,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 21/05 11:00"
@@ -220,9 +220,9 @@
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1616,
-      "change": 0.0009,
-      "change_pct": 0.07,
+      "price": 1.1621,
+      "change": 0.0014,
+      "change_pct": 0.12,
       "decimals": 4,
       "suffix": "",
       "note": "Gần nhất: 21/05 06:00"
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 77761.0,
-      "change": 303.0,
-      "change_pct": 0.39,
+      "price": 77533.0,
+      "change": 75.0,
+      "change_pct": 0.1,
       "decimals": 0,
       "suffix": "",
       "note": "Gần nhất: 21/05 07:00"
@@ -242,9 +242,9 @@
       "name": "S&P 500",
       "symbol": "^GSPC",
       "category": "US",
-      "price": 7439.72,
-      "change": 6.75,
-      "change_pct": 0.09,
+      "price": 7445.84,
+      "change": 12.87,
+      "change_pct": 0.17,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 21/05 11:00"
@@ -253,9 +253,9 @@
       "name": "Dow Jones",
       "symbol": "^DJI",
       "category": "US",
-      "price": 50129.65,
-      "change": 120.3,
-      "change_pct": 0.24,
+      "price": 50286.45,
+      "change": 277.1,
+      "change_pct": 0.55,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 21/05 11:00"
@@ -264,8 +264,8 @@
       "name": "Nasdaq",
       "symbol": "^IXIC",
       "category": "US",
-      "price": 26293.75,
-      "change": 23.39,
+      "price": 26293.44,
+      "change": 23.08,
       "change_pct": 0.09,
       "decimals": 2,
       "suffix": "",
@@ -275,9 +275,9 @@
       "name": "Russell 2000",
       "symbol": "^RUT",
       "category": "US",
-      "price": 2818.04,
-      "change": 0.67,
-      "change_pct": 0.02,
+      "price": 2839.8,
+      "change": 22.43,
+      "change_pct": 0.8,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 21/05 11:00"
@@ -286,9 +286,9 @@
       "name": "VIX",
       "symbol": "^VIX",
       "category": "US",
-      "price": 17.07,
-      "change": -0.37,
-      "change_pct": -2.12,
+      "price": 17.01,
+      "change": -0.43,
+      "change_pct": -2.47,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 21/05 12:00"
@@ -324,7 +324,7 @@
       "change_pct": 0.0,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
+      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
     },
     {
       "name": "Hang Seng",
@@ -352,12 +352,12 @@
       "name": "KOSPI",
       "symbol": "^KS11",
       "category": "Asia",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
+      "price": 7208.95,
+      "change": -62.71,
+      "change_pct": -0.86,
       "decimals": 2,
       "suffix": "",
-      "note": "Gần nhất: 20/05 22:00"
+      "note": "Gần nhất: 19/05 22:00"
     },
     {
       "name": "Shanghai Composite",
@@ -385,9 +385,9 @@
       "name": "Nifty 50",
       "symbol": "^NSEI",
       "category": "Asia",
-      "price": 23654.7,
-      "change": -4.3,
-      "change_pct": -0.02,
+      "price": NaN,
+      "change": NaN,
+      "change_pct": NaN,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 21/05 01:30"
