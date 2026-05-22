@@ -1,48 +1,58 @@
 {
-  "updated_at": "2026-05-22T06:36:07.212660+07:00",
-  "updated_at_display": "22/05/2026 • 06:36 GMT+7",
+  "updated_at": "2026-05-22T08:32:05.182741+07:00",
+  "updated_at_display": "22/05/2026 • 08:32 GMT+7",
   "war_news": [
     {
-      "source": "Google News War",
-      "title": "Live Updates: Latest from Israel, Iran, and Middle East - The Jerusalem Post",
-      "title_vi": "Cập nhật trực tiếp: Mới nhất từ Israel, Iran và Trung Đông - The Jerusalem Post",
-      "summary": "Live Updates: Latest from Israel, Iran, and Middle East The Jerusalem Post",
-      "summary_vi": "Live Updates: Latest from Israel, Iran, and Middle East The Jerusalem Post",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE91RGltZFptZzA4SWJCY2h5RWxIWVdkN0U4dzFidmlfS3ZRU1BVU29VWHVacG80M3NKZ2NvMnVVOFZkQlFqZDVzbzMwbXNsM2h2LTk4SDF4UFgyR2VyUzM5cTNtNWlaZmdzQm5yMWxRZVVNMEJSVXlYMlQwLTdGc0E?oc=5",
-      "published_iso": "2026-05-22T06:18:29+07:00",
-      "published_text": "22/05 06:18"
+      "source": "Al Jazeera",
+      "title": "Iran war live: Signs of progress amid efforts to reach US-Iran peace deal",
+      "title_vi": "Chiến tranh Iran trực tiếp: Dấu hiệu tiến bộ trong nỗ lực đạt được thỏa thuận hòa bình Mỹ-Iran",
+      "summary": "A new opinion poll in the US suggests that 60 percent of Americans now oppose President Donald Trump's war on Iran.",
+      "summary_vi": "A new opinion poll in the US suggests that 60 percent of Americans now oppose President Donald Trump's war on Iran.",
+      "url": "https://www.aljazeera.com/news/liveblog/2026/5/22/iran-war-live-signs-of-progress-amid-efforts-to-reach-us-iran-peace-deal?traffic_source=rss",
+      "published_iso": "2026-05-22T07:00:00+07:00",
+      "published_text": "22/05 07:00"
     },
     {
       "source": "Al Jazeera",
-      "title": "Board of Peace envoy warns ‘permanent’ Gaza divide under current status quo",
-      "title_vi": "Đặc phái viên của Hội đồng Hòa bình cảnh báo sự phân chia Gaza ‘vĩnh viễn’ theo hiện trạng hiện tại",
-      "summary": "UN Security Council urged to press for Israeli obligations and Hamas disarmament under Gaza 'ceasefire' roadmap.",
-      "summary_vi": "UN Security Council urged to press for Israeli obligations and Hamas disarmament under Gaza 'ceasefire' roadmap.",
-      "url": "https://www.aljazeera.com/news/2026/5/21/board-of-peace-envoy-warns-permanent-gaza-divide-under-current-status-quo?traffic_source=rss",
-      "published_iso": "2026-05-22T04:10:02+07:00",
-      "published_text": "22/05 04:10"
+      "title": "US says it has not changed its stance on sanctioning Francesca Albanese",
+      "title_vi": "Hoa Kỳ cho biết họ không thay đổi lập trường của mình về việc xử phạt Francesca Albanese",
+      "summary": "The Trump administration had sanctioned the UN expert for her criticism of Israel's policies towards Palestinians.",
+      "summary_vi": "The Trump administration had sanctioned the UN expert for her criticism of Israel's policies towards Palestinians.",
+      "url": "https://www.aljazeera.com/news/2026/5/21/us-says-it-has-not-changed-its-stance-on-sanctioning-francesca-albanese?traffic_source=rss",
+      "published_iso": "2026-05-22T06:39:24+07:00",
+      "published_text": "22/05 06:39"
     }
   ],
   "global_news": [
     {
       "source": "Investing News",
-      "title": "Oil falls, stocks climb as investors hope for progress in Iran war talks",
-      "title_vi": "Giá dầu giảm, cổ phiếu tăng khi các nhà đầu tư hy vọng có tiến triển trong các cuộc đàm phán chiến tranh Iran",
+      "title": "Oil prices gain as investors doubt breakthrough in US-Iran peace talks",
+      "title_vi": "Giá dầu tăng khi các nhà đầu tư nghi ngờ về bước đột phá trong các cuộc đàm phán hòa bình Mỹ-Iran",
       "summary": "",
       "summary_vi": "",
-      "url": "https://www.investing.com/news/economy-news/shares-rally-on-nvidia-earnings-samsung-strike-suspension-4702897",
-      "published_iso": "2026-05-22T06:18:37+07:00",
-      "published_text": "22/05 06:18"
+      "url": "https://www.investing.com/news/commodities-news/us-oil-prices-rise-as-investors-doubt-breakthrough-in-usiran-peace-talks-4705545",
+      "published_iso": "2026-05-22T08:12:30+07:00",
+      "published_text": "22/05 08:12"
+    },
+    {
+      "source": "Investing News",
+      "title": "China’s top diplomat touts Moldova ties after Putin visit despite differences over Ukraine war",
+      "title_vi": "Nhà ngoại giao hàng đầu của Trung Quốc chào mời các mối quan hệ với Moldova sau chuyến thăm của Putin bất chấp những khác biệt về cuộc chiến Ukraine",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/economy-news/chinas-top-diplomat-touts-moldova-ties-after-putin-visit-despite-differences-over-ukraine-war-4705679",
+      "published_iso": "2026-05-22T08:07:50+07:00",
+      "published_text": "22/05 08:07"
     },
     {
       "source": "Google News Macro",
-      "title": "Warsh to be sworn in as Fed Chair on May 22 - Consumer Finance Monitor",
-      "title_vi": "Warsh sẽ tuyên thệ nhậm chức Chủ tịch Fed vào ngày 22 tháng 5 - Giám sát Tài chính Người tiêu dùng",
-      "summary": "Warsh to be sworn in as Fed Chair on May 22 Consumer Finance Monitor",
-      "summary_vi": "Warsh to be sworn in as Fed Chair on May 22 Consumer Finance Monitor",
-      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPUGR2bkRmM1g0OHd0MVVBU1JyR1VBQUkzWllpbUFoZnhqRUh0VnBYcTMxWkNCN2g5eDczU2RTLVZxNEF1UTBBSFZISmJQcGpLamhBTy1jYmhLSDZYSHFqVmRhUUJEaXFrZWxXZllUbGZ0VDVnRFctQjlSQi1FZTBBV25jdE04WmN4VmxvbGI0VnkzRkRsb1BHdnlR?oc=5",
-      "published_iso": "2026-05-21T23:40:57+07:00",
-      "published_text": "21/05 23:40"
+      "title": "From Tesla to Visa, C.E.O.s on Trump’s China Trip Sought Relief - The New York Times",
+      "title_vi": "Từ Tesla đến Visa, C.E.O.s trong chuyến đi Trung Quốc của Trump đã tìm kiếm sự cứu trợ - The New York Times",
+      "summary": "From Tesla to Visa, C.E.O.s on Trump’s China Trip Sought Relief The New York Times",
+      "summary_vi": "From Tesla to Visa, C.E.O.s on Trump’s China Trip Sought Relief The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPSWFSa1JLUHhaMXVsQkx5QVo2OHZpMFp6SkR0TzRibWVSUjVHNllGb3hmTEVlbzRoUU0xdkZIWGU3Zlhkb3ZaOWJqdldmSWxScUJhSVhTUXBMT0xabHhER1JrcWxZR18yWVQ1cWx5RVMtcGdKX2FtTTRadVNCdnpJUkVybUktLWNYNDBqT1lGTUcyYnM?oc=5",
+      "published_iso": "2026-05-22T05:31:07+07:00",
+      "published_text": "22/05 05:31"
     },
     {
       "source": "Google News Macro",
@@ -53,16 +63,6 @@
       "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOQ254NDFab25xYmMxMVJ0TkpudFVibXdzVmdsMkhOSGhkU2t3VV9rZG9HelVPcThndHZUTUJiN2d4RThsWGF0ekxBVHM2RHppNGtSdnR2bXM4bERLVHZNQ1B1ME1ka2JzRzh0ZW5PYzByd0g1a3VYRzBKQjVhQkxhcVI4ZHJ5WWQ2ZHlHM0VCNWhuc0FUd3RFb3JYaG1FQ1RJd2daMlBsSnJXYjQ0U3Vz?oc=5",
       "published_iso": "2026-05-21T05:35:49+07:00",
       "published_text": "21/05 05:35"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "Department of the Interior Oil and Gas Lease Sale in New Mexico and Texas Generates Over $4 Billion - U.S. Department of the Interior (.gov)",
-      "title_vi": "Bộ phận cho thuê dầu khí nội địa ở New Mexico và Texas tạo ra hơn 4 tỷ $ - Bộ Nội vụ Hoa Kỳ (.gov)",
-      "summary": "Department of the Interior Oil and Gas Lease Sale in New Mexico and Texas Generates Over $4 Billion U.S. Department of the Interior (.gov)",
-      "summary_vi": "Department of the Interior Oil and Gas Lease Sale in New Mexico and Texas Generates Over $4 Billion U.S. Department of the Interior (.gov)",
-      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNb3d3b2ZIWHZMZEl1OTZTNTlWV2psVzZQMGNHMDRpVmN1dVBLczlMQVE5TzVhZ1JXMG1oYkRQNElTUHloQ3dXeDEwMW1mNUlFWnh0aFhLOU5UYk1lS191X0U3X1pJQlg2UjNURlVBNE1HMENGMzBFNWl3SEVkeDN0MVEzZllSUDA5eGYzUHVwUElETDlIOGJYbG9iQzM3MkNmazRLSW1uTzBqdlZFalZmQVo5RTA?oc=5",
-      "published_iso": "2026-05-21T01:45:21+07:00",
-      "published_text": "21/05 01:45"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/chi-nhanh-ha-noi-cong-ty-dau-gia-hop-danh-ben-thanh-dau-gia-01-xe-o-to-con-05-cho-nhan-hieu-toyota-bien-kiem-soat-31a-5823-51119.html",
-      "published_iso": "2026-05-22T06:36:57.824346+07:00",
-      "published_text": "22/05 06:36"
+      "published_iso": "2026-05-22T08:32:56.204721+07:00",
+      "published_text": "22/05 08:32"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,28 +83,28 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-dau-gia-viet-nam-dau-gia-may-bien-ap-va-vat-tu-thiet-bi-thanh-ly-dot-1-nam-2026-thuoc-chat-thai-nguy-hai-51120.html",
-      "published_iso": "2026-05-22T06:36:57.824284+07:00",
-      "published_text": "22/05 06:36"
+      "published_iso": "2026-05-22T08:32:56.204646+07:00",
+      "published_text": "22/05 08:32"
     },
     {
       "source": "VietnamFinance",
-      "title": "Cổ phiếu PHR thử thách đỉnh lịch sử khi có tin nhận 3.500 tỷ đồng tiền đền bù",
-      "title_vi": "Cổ phiếu PHR thử thách đỉnh lịch sử khi có tin nhận 3.500 tỷ đồng tiền đền bù",
+      "title": "Startup Việt Nam được rót 395 tỷ giữa áp lực khủng hoảng năng lượng",
+      "title_vi": "Startup Việt Nam được rót 395 tỷ giữa áp lực khủng hoảng năng lượng",
       "summary": "",
       "summary_vi": "",
-      "url": "https://vietnamfinance.vn/co-phieu-phr-thu-thach-dinh-lich-su-khi-co-tin-nhan-3500-ty-dong-tien-den-bu-d145120.html",
-      "published_iso": "2026-05-22T06:36:56.543271+07:00",
-      "published_text": "22/05 06:36"
+      "url": "https://vietnamfinance.vn/startup-viet-nam-duoc-rot-395-ty-giua-ap-luc-khung-hoang-nang-luong-d145106.html",
+      "published_iso": "2026-05-22T08:32:54.156775+07:00",
+      "published_text": "22/05 08:32"
     },
     {
       "source": "VietnamFinance",
-      "title": "Nhân dân tệ đón 'thời cơ vàng'",
-      "title_vi": "Nhân dân tệ đón 'thời cơ vàng'",
+      "title": "Shinhan Bank dẫn đầu ngân hàng Hàn Quốc, đầu tư lớn vào Việt Nam",
+      "title_vi": "Shinhan Bank dẫn đầu ngân hàng Hàn Quốc, đầu tư lớn vào Việt Nam",
       "summary": "",
       "summary_vi": "",
-      "url": "https://vietnamfinance.vn/nhan-dan-te-don-thoi-co-vang-d145133.html",
-      "published_iso": "2026-05-22T06:36:56.543209+07:00",
-      "published_text": "22/05 06:36"
+      "url": "https://vietnamfinance.vn/shinhan-bank-dan-dau-ngan-hang-han-quoc-dau-tu-lon-vao-viet-nam-d145127.html",
+      "published_iso": "2026-05-22T08:32:54.156701+07:00",
+      "published_text": "22/05 08:32"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/tong-tai-ham-choi-nhat-viet-nam-tran-hung-huy-va-nuoc-co-doc-nhat-cua-acb-trong-cuoc-dua-tre-hoa-ngan-hang-khong-can-concert-trieu-do-van-thang-lon-188260517145024169.chn",
-      "published_iso": "2026-05-22T06:36:54.375308+07:00",
-      "published_text": "22/05 06:36"
+      "published_iso": "2026-05-22T08:32:51.947425+07:00",
+      "published_text": "22/05 08:32"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/pgs-ts-tran-dinh-thien-giai-ma-dong-luc-cua-nhung-doanh-nghiep-lon-chuyen-tu-kiem-loi-ngan-han-sang-kien-tao-tuong-lai-188260518221054153.chn",
-      "published_iso": "2026-05-22T06:36:54.375228+07:00",
-      "published_text": "22/05 06:36"
+      "published_iso": "2026-05-22T08:32:51.947342+07:00",
+      "published_text": "22/05 08:32"
     }
   ],
   "markets": [
@@ -132,9 +132,9 @@
       "name": "WTI",
       "symbol": "CL=F",
       "category": "Energy",
-      "price": 97.74,
-      "change": -0.52,
-      "change_pct": -0.53,
+      "price": 98.11,
+      "change": -0.15,
+      "change_pct": -0.15,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 21/05 11:00"
@@ -143,9 +143,9 @@
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 104.65,
-      "change": -0.37,
-      "change_pct": -0.35,
+      "price": 104.88,
+      "change": -0.14,
+      "change_pct": -0.13,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 21/05 11:00"
@@ -154,9 +154,9 @@
       "name": "Natural Gas",
       "symbol": "NG=F",
       "category": "Energy",
-      "price": 3.14,
-      "change": 0.13,
-      "change_pct": 4.43,
+      "price": 3.13,
+      "change": 0.12,
+      "change_pct": 4.13,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 21/05 11:00"
@@ -165,9 +165,9 @@
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4540.6,
-      "change": 9.3,
-      "change_pct": 0.21,
+      "price": 4531.2,
+      "change": -0.1,
+      "change_pct": -0.0,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 21/05 11:00"
@@ -176,9 +176,9 @@
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 76.97,
-      "change": 1.12,
-      "change_pct": 1.48,
+      "price": 76.7,
+      "change": 0.85,
+      "change_pct": 1.12,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 21/05 11:00"
@@ -189,7 +189,7 @@
       "category": "Metals",
       "price": 6.34,
       "change": 0.05,
-      "change_pct": 0.83,
+      "change_pct": 0.85,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 21/05 11:00"
@@ -209,9 +209,9 @@
       "name": "DXY",
       "symbol": "DX-Y.NYB",
       "category": "FX",
-      "price": 99.19,
-      "change": 0.08,
-      "change_pct": 0.08,
+      "price": 99.24,
+      "change": 0.13,
+      "change_pct": 0.13,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 21/05 11:00"
@@ -220,9 +220,9 @@
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1621,
-      "change": -0.0004,
-      "change_pct": -0.04,
+      "price": 1.1617,
+      "change": -0.0008,
+      "change_pct": -0.07,
       "decimals": 4,
       "suffix": "",
       "note": "Gần nhất: 22/05 06:00"
@@ -231,12 +231,12 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 77639.0,
-      "change": 181.0,
-      "change_pct": 0.23,
+      "price": 77396.0,
+      "change": -62.0,
+      "change_pct": -0.08,
       "decimals": 0,
       "suffix": "",
-      "note": "Gần nhất: 21/05 07:00"
+      "note": "Gần nhất: 22/05 07:00"
     },
     {
       "name": "S&P 500",
@@ -324,62 +324,62 @@
       "change_pct": 0.0,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
+      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
     },
     {
       "name": "Hang Seng",
       "symbol": "^HSI",
       "category": "Asia",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
+      "price": 25651.12,
+      "change": -146.73,
+      "change_pct": -0.57,
       "decimals": 2,
       "suffix": "",
-      "note": "Gần nhất: 20/05 23:00"
+      "note": "Gần nhất: 19/05 23:00"
     },
     {
       "name": "Nikkei 225",
       "symbol": "^N225",
       "category": "Asia",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
+      "price": 62962.05,
+      "change": 3157.64,
+      "change_pct": 5.28,
       "decimals": 2,
       "suffix": "",
-      "note": "Gần nhất: 20/05 22:00"
+      "note": "Gần nhất: 21/05 22:00"
     },
     {
       "name": "KOSPI",
       "symbol": "^KS11",
       "category": "Asia",
-      "price": 7208.95,
-      "change": -62.71,
-      "change_pct": -0.86,
+      "price": 7826.34,
+      "change": 617.39,
+      "change_pct": 8.56,
       "decimals": 2,
       "suffix": "",
-      "note": "Gần nhất: 19/05 22:00"
+      "note": "Gần nhất: 21/05 22:00"
     },
     {
       "name": "Shanghai Composite",
       "symbol": "000001.SS",
       "category": "Asia",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
+      "price": 4162.19,
+      "change": -7.35,
+      "change_pct": -0.18,
       "decimals": 2,
       "suffix": "",
-      "note": "Gần nhất: 20/05 23:00"
+      "note": "Gần nhất: 19/05 23:00"
     },
     {
       "name": "Shenzhen Component",
       "symbol": "399001.SZ",
       "category": "Asia",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
+      "price": 15569.98,
+      "change": 0.07,
+      "change_pct": 0.0,
       "decimals": 2,
       "suffix": "",
-      "note": "Gần nhất: 20/05 23:00"
+      "note": "Gần nhất: 19/05 23:00"
     },
     {
       "name": "Nifty 50",
@@ -396,12 +396,12 @@
       "name": "ASX 200",
       "symbol": "^AXJO",
       "category": "Asia",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
+      "price": 8645.3,
+      "change": 148.7,
+      "change_pct": 1.75,
       "decimals": 2,
       "suffix": "",
-      "note": "Gần nhất: 20/05 21:00"
+      "note": "Gần nhất: 21/05 21:00"
     }
   ]
 }
