@@ -1,7 +1,17 @@
 {
-  "updated_at": "2026-05-23T05:37:14.648761+07:00",
-  "updated_at_display": "23/05/2026 • 05:37 GMT+7",
+  "updated_at": "2026-05-23T06:42:12.611046+07:00",
+  "updated_at_display": "23/05/2026 • 06:42 GMT+7",
   "war_news": [
+    {
+      "source": "Al Jazeera",
+      "title": "Israeli blockade traps would-be Hajj pilgrim in Gaza",
+      "title_vi": "Bẫy phong tỏa của Israel sẽ là người hành hương Hajj ở Gaza",
+      "summary": "For years, 64-year-old Najia Abu Lehia dreamed of performing Hajj with her husband.",
+      "summary_vi": "For years, 64-year-old Najia Abu Lehia dreamed of performing Hajj with her husband.",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/22/israeli-blockade-traps-would-be-hajj-pilgrim-in-gaza?traffic_source=rss",
+      "published_iso": "2026-05-23T05:23:44+07:00",
+      "published_text": "23/05 05:23"
+    },
     {
       "source": "Al Jazeera",
       "title": "Pakistan’s army chief in Iran as US’s Rubio says ‘slight progress’ in talks",
@@ -11,28 +21,18 @@
       "url": "https://www.aljazeera.com/news/2026/5/22/pakistans-army-chief-in-iran-as-uss-rubio-says-slight-progress-in-talks?traffic_source=rss",
       "published_iso": "2026-05-23T02:11:05+07:00",
       "published_text": "23/05 02:11"
-    },
-    {
-      "source": "Al Jazeera",
-      "title": "Decades-old photos show ‘joyful’ Gaza in happier times.",
-      "title_vi": "Những bức ảnh thập kỷ cũ cho thấy Gaza ‘vui vẻ’ trong thời gian hạnh phúc hơn.",
-      "summary": "An exhibition in Marseille is showcasing 300 photos taken in Gaza between the 1940s and the 1970s.",
-      "summary_vi": "An exhibition in Marseille is showcasing 300 photos taken in Gaza between the 1940s and the 1970s.",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/22/decades-old-photos-show-joyful-gaza-in-happier-times?traffic_source=rss",
-      "published_iso": "2026-05-23T02:10:02+07:00",
-      "published_text": "23/05 02:10"
     }
   ],
   "global_news": [
     {
       "source": "Investing News",
-      "title": "Regional Health Properties CEO Brent Morrison buys $30,469 in shares",
-      "title_vi": "Giám đốc điều hành Tài sản Y tế Khu vực Brent Morrison mua 30.469 $ cổ phiếu",
+      "title": "Drone strike ignites fire at major Russian oil export terminal in Novorossiysk",
+      "title_vi": "Tấn công bằng máy bay không người lái đốt cháy nhà ga xuất khẩu dầu lớn của Nga ở Novorossiysk",
       "summary": "",
       "summary_vi": "",
-      "url": "https://www.investing.com/news/insider-trading-news/regional-health-properties-ceo-brent-morrison-buys-30469-in-shares-93CH-4707783",
-      "published_iso": "2026-05-23T05:22:39+07:00",
-      "published_text": "23/05 05:22"
+      "url": "https://www.investing.com/news/economy-news/drone-strike-ignites-fire-at-major-russian-oil-export-terminal-in-novorossiysk-4707841",
+      "published_iso": "2026-05-23T06:27:30+07:00",
+      "published_text": "23/05 06:27"
     },
     {
       "source": "Google News Macro",
@@ -56,13 +56,13 @@
     },
     {
       "source": "Google News Macro",
-      "title": "Oil Futures Lose Ground on Hopes for U.S.-Iran Deal - WSJ",
-      "title_vi": "Hợp đồng tương lai dầu mỏ mất hy vọng cho thỏa thuận Mỹ-Iran - WSJ",
-      "summary": "Oil Futures Lose Ground on Hopes for U.S.-Iran Deal WSJ",
-      "summary_vi": "Oil Futures Lose Ground on Hopes for U.S.-Iran Deal WSJ",
-      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQVW1VZVNWQnJOeXN6Z1U5dUw4M2RnSTFVNjJDcGZJb2ZOdE1hRGZPWDdSQ2lDQmVRSmZXVl9uWmZuVGtMcTg1MHV6Nnh1dUt1Tng5NDN3dGppakJhY0prVTU1ZlFMSGZMY2w2aWFKYVdDYWh3VFJsbnVwbEtHbmxjNWN4S1ExNlczaUU2M1BZTWl5NHZIZXRMUlNWQ3BXWUdBUzYyRw?oc=5",
-      "published_iso": "2026-05-22T02:46:00+07:00",
-      "published_text": "22/05 02:46"
+      "title": "From Tesla to Visa, C.E.O.s on Trump’s China Trip Sought Relief - The New York Times",
+      "title_vi": "Từ Tesla đến Visa, C.E.O.s trong chuyến đi Trung Quốc của Trump đã tìm kiếm sự cứu trợ - The New York Times",
+      "summary": "From Tesla to Visa, C.E.O.s on Trump’s China Trip Sought Relief The New York Times",
+      "summary_vi": "From Tesla to Visa, C.E.O.s on Trump’s China Trip Sought Relief The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPSWFSa1JLUHhaMXVsQkx5QVo2OHZpMFp6SkR0TzRibWVSUjVHNllGb3hmTEVlbzRoUU0xdkZIWGU3Zlhkb3ZaOWJqdldmSWxScUJhSVhTUXBMT0xabHhER1JrcWxZR18yWVQ1cWx5RVMtcGdKX2FtTTRadVNCdnpJUkVybUktLWNYNDBqT1lGTUcyYnM?oc=5",
+      "published_iso": "2026-05-22T05:31:07+07:00",
+      "published_text": "22/05 05:31"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-ben-thanh-dau-gia-1-xe-o-to-con-8-cho-ngoi-nhan-hieu-toyota-so-loai-innova-g-bien-so-51a-45491-51132.html",
-      "published_iso": "2026-05-23T05:38:07.005519+07:00",
-      "published_text": "23/05 05:38"
+      "published_iso": "2026-05-23T06:43:02.958756+07:00",
+      "published_text": "23/05 06:43"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-dong-duong-dau-gia-33-lo-dat-o-tai-khu-7-khu-tai-dinh-cu-thuoc-du-an-ho-tro-dau-tu-xay-dung-tuyen-duong-thay-the-duong-tran-phu-phuong-tam-quan-tinh-gia-lai-51133.html",
-      "published_iso": "2026-05-23T05:38:07.005447+07:00",
-      "published_text": "23/05 05:38"
+      "published_iso": "2026-05-23T06:43:02.958674+07:00",
+      "published_text": "23/05 06:43"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/moi-gioi-bds-hai-phong-neo-nguoi-dn-hang-tram-nhan-su-chi-vai-nguoi-du-tieu-chuan-d144719.html",
-      "published_iso": "2026-05-23T05:38:04.864778+07:00",
-      "published_text": "23/05 05:38"
+      "published_iso": "2026-05-23T06:43:01.545018+07:00",
+      "published_text": "23/05 06:43"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/samsung-thoat-hiem-phut-chot-thoat-cu-soc-20-ty-usd-gia-smartphone-toan-cau-tang-vot-d145167.html",
-      "published_iso": "2026-05-23T05:38:04.864695+07:00",
-      "published_text": "23/05 05:38"
+      "published_iso": "2026-05-23T06:43:01.544948+07:00",
+      "published_text": "23/05 06:43"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/tt-group-dang-hien-dien-tren-nhung-mach-mau-kinh-te-moi-nhu-the-nao-188260522074241878.chn",
-      "published_iso": "2026-05-23T05:38:02.806719+07:00",
-      "published_text": "23/05 05:38"
+      "published_iso": "2026-05-23T06:43:00.445888+07:00",
+      "published_text": "23/05 06:43"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/tien-si-nguoi-viet-tai-google-deepmind-chi-ra-cuoc-cai-cach-viet-nam-can-thuc-hien-de-co-the-tao-ra-doi-ngu-cha-de-ai-the-he-moi-188260521132831333.chn",
-      "published_iso": "2026-05-23T05:38:02.806631+07:00",
-      "published_text": "23/05 05:38"
+      "published_iso": "2026-05-23T06:43:00.445810+07:00",
+      "published_text": "23/05 06:43"
     }
   ],
   "markets": [
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 75635.0,
-      "change": -1904.0,
-      "change_pct": -2.46,
+      "price": 75713.0,
+      "change": -1826.0,
+      "change_pct": -2.36,
       "decimals": 0,
       "suffix": "",
       "note": "Gần nhất: 22/05 07:00"
@@ -297,9 +297,9 @@
       "name": "FTSE 100",
       "symbol": "^FTSE",
       "category": "Europe",
-      "price": 10466.26,
-      "change": 22.76,
-      "change_pct": 0.22,
+      "price": NaN,
+      "change": NaN,
+      "change_pct": NaN,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 22/05 06:00"
@@ -324,7 +324,7 @@
       "change_pct": 0.0,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
+      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
     },
     {
       "name": "Hang Seng",
