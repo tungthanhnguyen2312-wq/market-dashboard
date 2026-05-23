@@ -1,17 +1,7 @@
 {
-  "updated_at": "2026-05-23T08:28:31.105640+07:00",
-  "updated_at_display": "23/05/2026 • 08:28 GMT+7",
+  "updated_at": "2026-05-23T12:08:29.684383+07:00",
+  "updated_at_display": "23/05/2026 • 12:08 GMT+7",
   "war_news": [
-    {
-      "source": "Google News War",
-      "title": "Live Updates: Latest from Israel, Iran, and Middle East - The Jerusalem Post",
-      "title_vi": "Cập nhật trực tiếp: Mới nhất từ Israel, Iran và Trung Đông - The Jerusalem Post",
-      "summary": "Live Updates: Latest from Israel, Iran, and Middle East The Jerusalem Post",
-      "summary_vi": "Live Updates: Latest from Israel, Iran, and Middle East The Jerusalem Post",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBhcUFtbERWZVdyZFJiTVBuSXg2RVoxd2xrYUN0QThXS0lfZjJtSmxQU2t3UDFOM284d2o1R2FJRXNTRTJYRE1lQ1lydDU5TzI4am9TVURES0xob3VTaDc2TXI3RElLOHJDNWZnWmhLeC10TnVRbnlJYmtvM1BpMlU?oc=5",
-      "published_iso": "2026-05-23T07:00:05+07:00",
-      "published_text": "23/05 07:00"
-    },
     {
       "source": "Al Jazeera",
       "title": "Iran war live: Tehran says diplomacy continues but no deal yet with US",
@@ -21,18 +11,38 @@
       "url": "https://www.aljazeera.com/news/liveblog/2026/5/23/iran-war-live-tehran-says-diplomacy-continues-but-no-deal-yet-with-us?traffic_source=rss",
       "published_iso": "2026-05-23T07:00:00+07:00",
       "published_text": "23/05 07:00"
+    },
+    {
+      "source": "Al Jazeera",
+      "title": "Israeli blockade traps would-be Hajj pilgrim in Gaza",
+      "title_vi": "Bẫy phong tỏa của Israel sẽ là người hành hương Hajj ở Gaza",
+      "summary": "For years, 64-year-old Najia Abu Lehia dreamed of performing Hajj with her husband.",
+      "summary_vi": "For years, 64-year-old Najia Abu Lehia dreamed of performing Hajj with her husband.",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/22/israeli-blockade-traps-would-be-hajj-pilgrim-in-gaza?traffic_source=rss",
+      "published_iso": "2026-05-23T05:23:44+07:00",
+      "published_text": "23/05 05:23"
     }
   ],
   "global_news": [
     {
       "source": "Google News Macro",
-      "title": "A Reform Agenda for New Fed Chair Kevin Warsh - Cato Institute",
-      "title_vi": "Chương trình cải cách cho Chủ tịch Fed mới Kevin Warsh - Viện Cato",
-      "summary": "A Reform Agenda for New Fed Chair Kevin Warsh Cato Institute",
-      "summary_vi": "A Reform Agenda for New Fed Chair Kevin Warsh Cato Institute",
-      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBDaF9wUXFiUTc5NTBMQWFXR2ZFU3BXX0IyZ3E1dERuY0dhUWQ4QlJNNnR3RFMzZWRDNDBFOWtMVTRzMXl1QUdweERxNG5xWEFnZGxqM3AzQm1rTFoyby1ZZ2tuLTZBSjlGaWhmbHppZEdPUk0?oc=5",
-      "published_iso": "2026-05-22T23:13:54+07:00",
-      "published_text": "22/05 23:13"
+      "title": "Trump wants new Fed chair to be 'totally independent' - BBC",
+      "title_vi": "Trump muốn chủ tịch Fed mới phải 'hoàn toàn độc lập' - BBC",
+      "summary": "Trump wants new Fed chair to be 'totally independent' BBC",
+      "summary_vi": "Trump wants new Fed chair to be 'totally independent' BBC",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1EOTF6b2pJQWF4SjhPVUFtejdJcldxVEVaWG1RMnl3ek8wSWhTZEpFWkNNMWctM3RzaXJjMUtMeXk4WlpVSFZlal9idUdXczJUZDNhcFpmZEhrZw?oc=5",
+      "published_iso": "2026-05-23T01:16:58+07:00",
+      "published_text": "23/05 01:16"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "Kevin Warsh sworn in as Fed chair, but Trump’s rate cuts look increasingly unlikely - NBC News",
+      "title_vi": "Kevin Warsh tuyên thệ nhậm chức chủ tịch Fed, nhưng việc cắt giảm lãi suất của Trump dường như ngày càng khó xảy ra - NBC News",
+      "summary": "Kevin Warsh sworn in as Fed chair, but Trump’s rate cuts look increasingly unlikely NBC News",
+      "summary_vi": "Kevin Warsh sworn in as Fed chair, but Trump’s rate cuts look increasingly unlikely NBC News",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPRGYtQUxPcWhFNEZNRl92bmo3NnN5SnVuNVFUcGFfaVFPMXhIOHE5RDJvR0Z1N0N0bzhZMDMxQW5XN2pHMzM2c001N29CQ2ZtTF9vTzFYZC1yRXNqT2VDOGpwWDJVQUV0X3YyRkN1ZW1jd2RjVnpYSmFvR3dBTzNvYTNXb3hMTG1VU2c?oc=5",
+      "published_iso": "2026-05-22T23:17:15+07:00",
+      "published_text": "22/05 23:17"
     },
     {
       "source": "Google News Macro",
@@ -46,20 +56,10 @@
     },
     {
       "source": "Google News Macro",
-      "title": "Oil Futures Lose Ground on Hopes for U.S.-Iran Deal - WSJ",
-      "title_vi": "Hợp đồng tương lai dầu mỏ mất hy vọng cho thỏa thuận Mỹ-Iran - WSJ",
-      "summary": "Oil Futures Lose Ground on Hopes for U.S.-Iran Deal WSJ",
-      "summary_vi": "Oil Futures Lose Ground on Hopes for U.S.-Iran Deal WSJ",
-      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQVW1VZVNWQnJOeXN6Z1U5dUw4M2RnSTFVNjJDcGZJb2ZOdE1hRGZPWDdSQ2lDQmVRSmZXVl9uWmZuVGtMcTg1MHV6Nnh1dUt1Tng5NDN3dGppakJhY0prVTU1ZlFMSGZMY2w2aWFKYVdDYWh3VFJsbnVwbEtHbmxjNWN4S1ExNlczaUU2M1BZTWl5NHZIZXRMUlNWQ3BXWUdBUzYyRw?oc=5",
-      "published_iso": "2026-05-22T02:46:00+07:00",
-      "published_text": "22/05 02:46"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "From Tesla to Visa, C.E.O.s on Trump’s China Trip Sought Relief - The New York Times",
-      "title_vi": "Từ Tesla đến Visa, C.E.O.s trong chuyến đi Trung Quốc của Trump đã tìm kiếm sự cứu trợ - The New York Times",
-      "summary": "From Tesla to Visa, C.E.O.s on Trump’s China Trip Sought Relief The New York Times",
-      "summary_vi": "From Tesla to Visa, C.E.O.s on Trump’s China Trip Sought Relief The New York Times",
+      "title": "Elon Musk and Other CEOs on Trump’s Trip to China Sought Relief - The New York Times",
+      "title_vi": "Elon Musk và các CEO khác trong chuyến đi của Trump đến Trung Quốc đã tìm kiếm sự cứu trợ - The New York Times",
+      "summary": "Elon Musk and Other CEOs on Trump’s Trip to China Sought Relief The New York Times",
+      "summary_vi": "Elon Musk and Other CEOs on Trump’s Trip to China Sought Relief The New York Times",
       "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPSWFSa1JLUHhaMXVsQkx5QVo2OHZpMFp6SkR0TzRibWVSUjVHNllGb3hmTEVlbzRoUU0xdkZIWGU3Zlhkb3ZaOWJqdldmSWxScUJhSVhTUXBMT0xabHhER1JrcWxZR18yWVQ1cWx5RVMtcGdKX2FtTTRadVNCdnpJUkVybUktLWNYNDBqT1lGTUcyYnM?oc=5",
       "published_iso": "2026-05-21T23:24:34+07:00",
       "published_text": "21/05 23:24"
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-ben-thanh-dau-gia-1-xe-o-to-con-8-cho-ngoi-nhan-hieu-toyota-so-loai-innova-g-bien-so-51a-45491-51132.html",
-      "published_iso": "2026-05-23T08:29:15.904658+07:00",
-      "published_text": "23/05 08:29"
+      "published_iso": "2026-05-23T12:09:19.306187+07:00",
+      "published_text": "23/05 12:09"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,28 +83,28 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-dong-duong-dau-gia-33-lo-dat-o-tai-khu-7-khu-tai-dinh-cu-thuoc-du-an-ho-tro-dau-tu-xay-dung-tuyen-duong-thay-the-duong-tran-phu-phuong-tam-quan-tinh-gia-lai-51133.html",
-      "published_iso": "2026-05-23T08:29:15.904588+07:00",
-      "published_text": "23/05 08:29"
+      "published_iso": "2026-05-23T12:09:19.306126+07:00",
+      "published_text": "23/05 12:09"
     },
     {
       "source": "VietnamFinance",
-      "title": "Fed chính thức 'bước sang chương mới'",
-      "title_vi": "Fed chính thức 'bước sang chương mới'",
+      "title": "Tham quan đô thị nghỉ dưỡng 'độc nhất vô nhị' trên đảo Hòn Thơm – Phú Quốc",
+      "title_vi": "Tham quan đô thị nghỉ dưỡng 'độc nhất vô nhị' trên đảo Hòn Thơm – Phú Quốc",
       "summary": "",
       "summary_vi": "",
-      "url": "https://vietnamfinance.vn/fed-chinh-thuc-buoc-sang-chuong-moi-d145204.html",
-      "published_iso": "2026-05-23T08:29:14.553620+07:00",
-      "published_text": "23/05 08:29"
+      "url": "https://vietnamfinance.vn/tham-quan-do-thi-nghi-duong-doc-nhat-vo-nhi-tren-dao-hon-thom-phu-quoc-d145170.html",
+      "published_iso": "2026-05-23T12:09:17.869994+07:00",
+      "published_text": "23/05 12:09"
     },
     {
       "source": "VietnamFinance",
-      "title": "Quan chức tài chính cảnh báo về 'sòng bài' và chiêu 'đánh bạc' trong tín dụng tư nhân",
-      "title_vi": "Quan chức tài chính cảnh báo về 'sòng bài' và chiêu 'đánh bạc' trong tín dụng tư nhân",
+      "title": "KB Financial Group: Tham vọng của 'ông lớn' tài chính Hàn Quốc tiến sâu vào Việt Nam",
+      "title_vi": "KB Financial Group: Tham vọng của 'ông lớn' tài chính Hàn Quốc tiến sâu vào Việt Nam",
       "summary": "",
       "summary_vi": "",
-      "url": "https://vietnamfinance.vn/quan-chuc-tai-chinh-canh-bao-ve-song-bai-va-chieu-danh-bac-trong-tin-dung-tu-nhan-d145165.html",
-      "published_iso": "2026-05-23T08:29:14.553550+07:00",
-      "published_text": "23/05 08:29"
+      "url": "https://vietnamfinance.vn/kb-financial-group-tham-vong-cua-ong-lon-tai-chinh-han-quoc-tien-sau-vao-viet-nam-d145196.html",
+      "published_iso": "2026-05-23T12:09:17.869936+07:00",
+      "published_text": "23/05 12:09"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/tt-group-dang-hien-dien-tren-nhung-mach-mau-kinh-te-moi-nhu-the-nao-188260522074241878.chn",
-      "published_iso": "2026-05-23T08:29:12.716763+07:00",
-      "published_text": "23/05 08:29"
+      "published_iso": "2026-05-23T12:09:15.936430+07:00",
+      "published_text": "23/05 12:09"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/tien-si-nguoi-viet-tai-google-deepmind-chi-ra-cuoc-cai-cach-viet-nam-can-thuc-hien-de-co-the-tao-ra-doi-ngu-cha-de-ai-the-he-moi-188260521132831333.chn",
-      "published_iso": "2026-05-23T08:29:12.716680+07:00",
-      "published_text": "23/05 08:29"
+      "published_iso": "2026-05-23T12:09:15.936367+07:00",
+      "published_text": "23/05 12:09"
     }
   ],
   "markets": [
@@ -132,9 +132,9 @@
       "name": "WTI",
       "symbol": "CL=F",
       "category": "Energy",
-      "price": 97.0,
-      "change": 0.65,
-      "change_pct": 0.67,
+      "price": 96.6,
+      "change": 0.25,
+      "change_pct": 0.26,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 22/05 11:00"
@@ -143,9 +143,9 @@
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 103.94,
-      "change": 1.36,
-      "change_pct": 1.33,
+      "price": 103.54,
+      "change": 0.96,
+      "change_pct": 0.94,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 22/05 11:00"
@@ -154,9 +154,9 @@
       "name": "Natural Gas",
       "symbol": "NG=F",
       "category": "Energy",
-      "price": 3.03,
-      "change": 0.02,
-      "change_pct": 0.53,
+      "price": 2.91,
+      "change": -0.11,
+      "change_pct": -3.68,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 22/05 11:00"
@@ -165,9 +165,9 @@
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4510.5,
-      "change": -29.3,
-      "change_pct": -0.65,
+      "price": 4521.0,
+      "change": -18.8,
+      "change_pct": -0.41,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 22/05 11:00"
@@ -176,9 +176,9 @@
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 75.92,
-      "change": -0.5,
-      "change_pct": -0.65,
+      "price": 75.89,
+      "change": -0.52,
+      "change_pct": -0.68,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 22/05 11:00"
@@ -187,9 +187,9 @@
       "name": "Copper",
       "symbol": "HG=F",
       "category": "Metals",
-      "price": 6.38,
-      "change": 0.12,
-      "change_pct": 1.97,
+      "price": 6.34,
+      "change": 0.09,
+      "change_pct": 1.36,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 22/05 11:00"
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 75359.0,
-      "change": -2180.0,
-      "change_pct": -2.81,
+      "price": 75434.0,
+      "change": -2105.0,
+      "change_pct": -2.72,
       "decimals": 0,
       "suffix": "",
       "note": "Gần nhất: 23/05 07:00"
@@ -324,7 +324,7 @@
       "change_pct": 0.0,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
+      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
     },
     {
       "name": "Hang Seng",
