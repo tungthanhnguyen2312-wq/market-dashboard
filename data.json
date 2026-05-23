@@ -1,29 +1,49 @@
 {
-  "updated_at": "2026-05-24T00:18:47.564183+07:00",
-  "updated_at_display": "24/05/2026 • 00:18 GMT+7",
+  "updated_at": "2026-05-24T01:12:44.617708+07:00",
+  "updated_at_display": "24/05/2026 • 01:12 GMT+7",
   "war_news": [
     {
       "source": "Al Jazeera",
-      "title": "Spanish police beat and detain Gaza flotilla activists at airport",
-      "title_vi": "Cảnh sát Tây Ban Nha đánh đập và giam giữ các nhà hoạt động đội tàu Gaza tại sân bay",
-      "summary": "Spanish police clashed with members of the Global Sumud Flotilla and supporters at Bilbao Airport.",
-      "summary_vi": "Spanish police clashed with members of the Global Sumud Flotilla and supporters at Bilbao Airport.",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/23/spanish-police-beat-and-detain-gaza-flotilla-activists-at-airport?traffic_source=rss",
-      "published_iso": "2026-05-23T23:38:04+07:00",
-      "published_text": "23/05 23:38"
+      "title": "‘United States of the Middle East?’: Trump posts US flag covering Iran",
+      "title_vi": "‘Hợp chủng quốc Trung Đông?’: Trump đăng cờ Mỹ bao phủ Iran",
+      "summary": "Latest Truth Social post comes amid 'delicate diplomacy', expert says, as US and Iran indicate progress in talks.",
+      "summary_vi": "Latest Truth Social post comes amid 'delicate diplomacy', expert says, as US and Iran indicate progress in talks.",
+      "url": "https://www.aljazeera.com/news/2026/5/23/united-states-of-the-middle-east-trump-posts-us-flag-covering-iran?traffic_source=rss",
+      "published_iso": "2026-05-24T00:56:27+07:00",
+      "published_text": "24/05 00:56"
     },
     {
-      "source": "Al Jazeera",
-      "title": "Iran sends ‘mixed’ messages as Pakistani mediators depart Tehran",
-      "title_vi": "Iran gửi thông điệp ‘lẫn lộn’ khi các hòa giải viên Pakistan rời Tehran",
-      "summary": "Pakistan’s army chief, Field Marshal Asim Munir, has reportedly departed Iran after holding multiple meetings.",
-      "summary_vi": "Pakistan’s army chief, Field Marshal Asim Munir, has reportedly departed Iran after holding multiple meetings.",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/23/iran-sends-mixed-messages-as-pakistani-mediators-depart-tehran?traffic_source=rss",
-      "published_iso": "2026-05-23T23:06:07+07:00",
-      "published_text": "23/05 23:06"
+      "source": "Google News War",
+      "title": "Live Updates: Latest from Israel, Iran, and Middle East - The Jerusalem Post",
+      "title_vi": "Cập nhật trực tiếp: Mới nhất từ Israel, Iran và Trung Đông - The Jerusalem Post",
+      "summary": "Live Updates: Latest from Israel, Iran, and Middle East The Jerusalem Post",
+      "summary_vi": "Live Updates: Latest from Israel, Iran, and Middle East The Jerusalem Post",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFA3MUdFX1JORXhiczJXbmZycGZRS3lqM0ZkNC1PSlpWYU5MWUNveHFfb3lUaDJzWnEzRW9zQ1A1eGUtOHdLQ3dIUDF2Mkp5ODFQS0lYOXlZdXdFV0NUTUhIS2FKVXNsVW1DYmQ0cXVEOV91c05ESG1QaFhmR0lQVDQ?oc=5",
+      "published_iso": "2026-05-24T00:00:05+07:00",
+      "published_text": "24/05 00:00"
     }
   ],
   "global_news": [
+    {
+      "source": "Investing News",
+      "title": "Nvidia says its forecast for $200 billion CPU market includes China",
+      "title_vi": "Nvidia cho biết dự báo của họ cho thị trường CPU trị giá 200 tỷ $ bao gồm Trung Quốc",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/stock-market-news/nvidia-says-its-forecast-for-200-billion-cpu-market-includes-china-4708031",
+      "published_iso": "2026-05-24T00:18:31+07:00",
+      "published_text": "24/05 00:18"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "China Eliminates Tariffs on Africa to Outmaneuver Trump - WSJ",
+      "title_vi": "Trung Quốc loại bỏ thuế quan đối với châu Phi để vượt qua Trump - WSJ",
+      "summary": "China Eliminates Tariffs on Africa to Outmaneuver Trump WSJ",
+      "summary_vi": "China Eliminates Tariffs on Africa to Outmaneuver Trump WSJ",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE82bzZZRUg1VllYVk1iWTd2SWdSZVR5T2ZmN0k2ZEdTeEtiLWZ1RFdSQ2E3bE9XR052bHluTDFmU0JlcVJkSnp4QTlxLXk2R0NrM3F1QkYzMUd5aDJ2QzBMOWN4bkpPMEZILU9NWGd0NA?oc=5",
+      "published_iso": "2026-05-23T23:00:00+07:00",
+      "published_text": "23/05 23:00"
+    },
     {
       "source": "Google News Macro",
       "title": "East Los Angeles Oil Spill - LA County Recovers (.gov)",
@@ -43,26 +63,6 @@
       "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQRHFoblFNN0NNNUc5YmtjQmxBTDB5S0o3OWVyMjVlaFd4YjFZOVZGcU5wLXpBLS02S3p3VFlsWXMxNGxWNXpabnBEeVdSSl9scTlFcmJTQ0F4VEwtYkt2UW1WdXQwbmd0WEZPR1hXdW0wSlR0UE55a2hUNlN1T1Z5dGZMclZtQm1uRkJZ?oc=5",
       "published_iso": "2026-05-23T02:13:50+07:00",
       "published_text": "23/05 02:13"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "The aftermath of Trump-Xi summit: comparing U.S. and China announcements - NPR",
-      "title_vi": "Hậu quả của hội nghị thượng đỉnh Trump-Xi: so sánh các thông báo của Hoa Kỳ và Trung Quốc - NPR",
-      "summary": "The aftermath of Trump-Xi summit: comparing U.S. and China announcements NPR",
-      "summary_vi": "The aftermath of Trump-Xi summit: comparing U.S. and China announcements NPR",
-      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNMVNrTFRWN3FRYWRoYlBYWHBUWWJ6c0ZzaGZ1eE55ZDl0dXlWSlVfYW5TQm9wdUNLN2hjTGREWWlCLW9RajJvZENicEhtX2lnSk42U2pERGRvMXdodnB5azgyWEJMbWVoTWdiaGEzQUo3NjV2NU51V3RfTXNWN3dGNlhGTWhXV3M?oc=5",
-      "published_iso": "2026-05-22T18:39:37+07:00",
-      "published_text": "22/05 18:39"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "An America adrift risks falling behind China - Brookings",
-      "title_vi": "Một nước Mỹ trôi dạt có nguy cơ tụt lại phía sau Trung Quốc - Brookings",
-      "summary": "An America adrift risks falling behind China Brookings",
-      "summary_vi": "An America adrift risks falling behind China Brookings",
-      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxONU1venE1LUlqWUNydjNnMXZERlNBR2pPQUhjYlBBS1UxNEFudjhLY0VfTkRCdkFiT1p1c1FNbzVGQk9BcWc2WjEwX18xdW9oeEtqV0ZsRjMzNzlUNVlVS21oOWJGLUtrTl9iY3hDQ0t6WHNHOXVLYnMxSmdyQUhLNHNSS2d6YVE?oc=5",
-      "published_iso": "2026-05-22T01:13:20+07:00",
-      "published_text": "22/05 01:13"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-ben-thanh-dau-gia-1-xe-o-to-con-8-cho-ngoi-nhan-hieu-toyota-so-loai-innova-g-bien-so-51a-45491-51132.html",
-      "published_iso": "2026-05-24T00:19:38.863689+07:00",
-      "published_text": "24/05 00:19"
+      "published_iso": "2026-05-24T01:13:34.816324+07:00",
+      "published_text": "24/05 01:13"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-dong-duong-dau-gia-33-lo-dat-o-tai-khu-7-khu-tai-dinh-cu-thuoc-du-an-ho-tro-dau-tu-xay-dung-tuyen-duong-thay-the-duong-tran-phu-phuong-tam-quan-tinh-gia-lai-51133.html",
-      "published_iso": "2026-05-24T00:19:38.863623+07:00",
-      "published_text": "24/05 00:19"
+      "published_iso": "2026-05-24T01:13:34.816217+07:00",
+      "published_text": "24/05 01:13"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/tham-quan-do-thi-nghi-duong-doc-nhat-vo-nhi-tren-dao-hon-thom-phu-quoc-d145170.html",
-      "published_iso": "2026-05-24T00:19:37.887015+07:00",
-      "published_text": "24/05 00:19"
+      "published_iso": "2026-05-24T01:13:33.247969+07:00",
+      "published_text": "24/05 01:13"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/kb-financial-group-tham-vong-cua-ong-lon-tai-chinh-han-quoc-tien-sau-vao-viet-nam-d145196.html",
-      "published_iso": "2026-05-24T00:19:37.886952+07:00",
-      "published_text": "24/05 00:19"
+      "published_iso": "2026-05-24T01:13:33.247892+07:00",
+      "published_text": "24/05 01:13"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/tt-group-dang-hien-dien-tren-nhung-mach-mau-kinh-te-moi-nhu-the-nao-188260522074241878.chn",
-      "published_iso": "2026-05-24T00:19:35.712497+07:00",
-      "published_text": "24/05 00:19"
+      "published_iso": "2026-05-24T01:13:31.150506+07:00",
+      "published_text": "24/05 01:13"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/tien-si-nguoi-viet-tai-google-deepmind-chi-ra-cuoc-cai-cach-viet-nam-can-thuc-hien-de-co-the-tao-ra-doi-ngu-cha-de-ai-the-he-moi-188260521132831333.chn",
-      "published_iso": "2026-05-24T00:19:35.712420+07:00",
-      "published_text": "24/05 00:19"
+      "published_iso": "2026-05-24T01:13:31.150419+07:00",
+      "published_text": "24/05 01:13"
     }
   ],
   "markets": [
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 75358.0,
-      "change": -130.0,
-      "change_pct": -0.17,
+      "price": 75619.0,
+      "change": 131.0,
+      "change_pct": 0.17,
       "decimals": 0,
       "suffix": "",
       "note": "Gần nhất: 23/05 07:00"
@@ -324,7 +324,7 @@
       "change_pct": 0.0,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
+      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
     },
     {
       "name": "Hang Seng",
