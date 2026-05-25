@@ -1,26 +1,26 @@
 {
-  "updated_at": "2026-05-26T03:39:40.514944+07:00",
-  "updated_at_display": "26/05/2026 • 03:39 GMT+7",
+  "updated_at": "2026-05-26T04:54:44.138198+07:00",
+  "updated_at_display": "26/05/2026 • 04:54 GMT+7",
   "war_news": [
     {
       "source": "Al Jazeera",
-      "title": "Trump dangles normalisation amid pro-Israel criticism of possible Iran deal",
-      "title_vi": "Trump treo lủng lẳng bình thường hóa quan hệ giữa những lời chỉ trích ủng hộ Israel về thỏa thuận Iran có thể xảy ra",
-      "summary": "US president says he is 'mandatorily requesting' that regional countries establish formal relations with Israel.",
-      "summary_vi": "US president says he is 'mandatorily requesting' that regional countries establish formal relations with Israel.",
-      "url": "https://www.aljazeera.com/news/2026/5/25/trump-dangles-normalisation-amid-pro-israel-criticism-of-possible-iran-deal?traffic_source=rss",
-      "published_iso": "2026-05-26T02:59:37+07:00",
-      "published_text": "26/05 02:59"
+      "title": "Israel to intensify Lebanon offensive to ‘crush’ Hezbollah",
+      "title_vi": "Israel tăng cường tấn công Lebanon để ‘đè bẹp’ Hezbollah",
+      "summary": "Prime Minister Netanyahu's order comes despite 'ceasefire' agreed with Lebanon last month, which was recently extended.",
+      "summary_vi": "Prime Minister Netanyahu's order comes despite 'ceasefire' agreed with Lebanon last month, which was recently extended.",
+      "url": "https://www.aljazeera.com/news/2026/5/25/israel-to-intensify-lebanon-offensive-in-bid-to-crush-hezbollah?traffic_source=rss",
+      "published_iso": "2026-05-26T03:49:28+07:00",
+      "published_text": "26/05 03:49"
     },
     {
       "source": "Al Jazeera",
-      "title": "Father mourns daughter killed in Israeli strike on Gaza",
-      "title_vi": "Người cha thương tiếc con gái bị giết trong cuộc tấn công của Israel vào Gaza",
-      "summary": "A six-year-old Palestinian girl was killed by an Israeli strike on a displacement camp in Khan Younis.",
-      "summary_vi": "A six-year-old Palestinian girl was killed by an Israeli strike on a displacement camp in Khan Younis.",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/25/father-mourns-daughter-killed-in-israeli-strike-on-gaza?traffic_source=rss",
-      "published_iso": "2026-05-26T02:12:58+07:00",
-      "published_text": "26/05 02:12"
+      "title": "Trump pays tribute to US troops killed in war on Iran on Memorial Day",
+      "title_vi": "Trump vinh danh quân đội Hoa Kỳ đã hy sinh trong cuộc chiến chống Iran vào Ngày Tưởng niệm",
+      "summary": "US President Donald Trump marked Memorial Day at Arlington National Cemetery, paying tribute to US troops killed.",
+      "summary_vi": "US President Donald Trump marked Memorial Day at Arlington National Cemetery, paying tribute to US troops killed.",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/25/trump-pays-tribute-to-us-troops-killed-in-war-on-iran-on-memorial-day?traffic_source=rss",
+      "published_iso": "2026-05-26T03:24:40+07:00",
+      "published_text": "26/05 03:24"
     }
   ],
   "global_news": [
@@ -35,16 +35,6 @@
       "published_text": "26/05 03:03"
     },
     {
-      "source": "Investing News",
-      "title": "Oil tumbles nearly 7% as US and Iran seen moving closer to deal",
-      "title_vi": "Giá dầu giảm gần 7% khi Mỹ và Iran tiến gần hơn đến thỏa thuận",
-      "summary": "",
-      "summary_vi": "",
-      "url": "https://www.investing.com/news/commodities-news/oil-falls-more-than-4-as-us-iran-remain-at-odds-over-peace-deal-4708240",
-      "published_iso": "2026-05-26T02:18:31+07:00",
-      "published_text": "26/05 02:18"
-    },
-    {
       "source": "Google News Macro",
       "title": "Oil Prices Fall Sharply on News of Possible Iran Deal - The New York Times",
       "title_vi": "Giá dầu giảm mạnh trên tin tức về thỏa thuận Iran có thể xảy ra - Thời báo New York",
@@ -53,6 +43,16 @@
       "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1HR1A4RDAyRW9DaWlGWVh4dHNUMHMtbWk0OWlNWnFBVDdaalJTOXRBZlJuV2JTZ0xtQnl0VGYtMklTc1BEVWlvOXE5YjBMMncwek1KcFVONWdrcHJXVnZfRWs2NjJkaUlBa1NhRGJhMVM?oc=5",
       "published_iso": "2026-05-26T01:54:00+07:00",
       "published_text": "26/05 01:54"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "Oil prices slide on hopes of US-Iran peace deal - BBC",
+      "title_vi": "Giá dầu giảm do hy vọng về thỏa thuận hòa bình Mỹ-Iran - BBC",
+      "summary": "Oil prices slide on hopes of US-Iran peace deal BBC",
+      "summary_vi": "Oil prices slide on hopes of US-Iran peace deal BBC",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1iTVdLWFZqazZIZGJwQjFPdE94Z3phSzI1UUNzZ29Jc3lGWGJod056UW9CVTE0QUFkd0lRVDhMYU9ZQXZVcktKU1hQSW1ENlJZOFN5c1VhYWZOdw?oc=5",
+      "published_iso": "2026-05-25T20:05:56+07:00",
+      "published_text": "25/05 20:05"
     },
     {
       "source": "Google News Macro",
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-viet-a-dau-gia-vat-tu-vat-lieu-thu-hoi-sau-pha-do-cua-du-an-cai-tao-nang-cap-nha-tap-luyen-vat-cau-may-bong-nem-bong-ban-51151.html",
-      "published_iso": "2026-05-26T03:40:32.207104+07:00",
-      "published_text": "26/05 03:40"
+      "published_iso": "2026-05-26T04:55:42.452660+07:00",
+      "published_text": "26/05 04:55"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-khai-bao-dau-gia-tram-san-xuat-be-tong-nhua-nong-va-cac-hang-muc-lien-quan-den-tram-xi-nghiep-duong-bo-1-51152.html",
-      "published_iso": "2026-05-26T03:40:32.207037+07:00",
-      "published_text": "26/05 03:40"
+      "published_iso": "2026-05-26T04:55:42.452595+07:00",
+      "published_text": "26/05 04:55"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/den-luot-tong-giam-doc-nhiet-dien-hai-phong-bi-bat-d145289.html",
-      "published_iso": "2026-05-26T03:40:29.952218+07:00",
-      "published_text": "26/05 03:40"
+      "published_iso": "2026-05-26T04:55:40.484468+07:00",
+      "published_text": "26/05 04:55"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/gia-cuoc-tang-cao-dn-van-tai-bien-duoc-dip-an-nen-lam-ra-d145270.html",
-      "published_iso": "2026-05-26T03:40:29.952123+07:00",
-      "published_text": "26/05 03:40"
+      "published_iso": "2026-05-26T04:55:40.484409+07:00",
+      "published_text": "26/05 04:55"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/tt-group-dang-hien-dien-tren-nhung-mach-mau-kinh-te-moi-nhu-the-nao-188260522074241878.chn",
-      "published_iso": "2026-05-26T03:40:27.605961+07:00",
-      "published_text": "26/05 03:40"
+      "published_iso": "2026-05-26T04:55:38.156964+07:00",
+      "published_text": "26/05 04:55"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/ban-do-13-sieu-cong-trinh-dung-top-dau-the-gioi-do-nguoi-viet-nam-tao-ra-evn-vingroup-fpt-xuan-thien-da-gop-nhung-gi-188260522025119931.chn",
-      "published_iso": "2026-05-26T03:40:27.605886+07:00",
-      "published_text": "26/05 03:40"
+      "published_iso": "2026-05-26T04:55:38.156891+07:00",
+      "published_text": "26/05 04:55"
     }
   ],
   "markets": [
@@ -220,9 +220,9 @@
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1646,
-      "change": 0.0024,
-      "change_pct": 0.21,
+      "price": 1.1644,
+      "change": 0.0023,
+      "change_pct": 0.2,
       "decimals": 4,
       "suffix": "",
       "note": "Gần nhất: 25/05 06:00"
@@ -231,8 +231,8 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 77268.0,
-      "change": 287.0,
+      "price": 77265.0,
+      "change": 283.0,
       "change_pct": 0.37,
       "decimals": 0,
       "suffix": "",
@@ -324,7 +324,7 @@
       "change_pct": 0.0,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
+      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
     },
     {
       "name": "Hang Seng",
