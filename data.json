@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-05-25T06:05:59.379614+07:00",
-  "updated_at_display": "25/05/2026 • 06:05 GMT+7",
+  "updated_at": "2026-05-25T07:10:27.494006+07:00",
+  "updated_at_display": "25/05/2026 • 07:10 GMT+7",
   "war_news": [
     {
       "source": "Al Jazeera",
@@ -26,6 +26,36 @@
   "global_news": [
     {
       "source": "Investing News",
+      "title": "Singapore economy grows 6% y/y in Q1, above advance estimate",
+      "title_vi": "Nền kinh tế Singapore tăng trưởng 6% trong quý 1, cao hơn ước tính trước",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/economy-news/singapore-economy-grows-6-yy-in-q1-above-advance-estimate-4708252",
+      "published_iso": "2026-05-25T07:06:31+07:00",
+      "published_text": "25/05 07:06"
+    },
+    {
+      "source": "Investing News",
+      "title": "Stocks rise, oil and dollar slide on Middle East peace hopes",
+      "title_vi": "Chứng khoán tăng, giá dầu và đô la giảm do hy vọng hòa bình Trung Đông",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/stock-market-news/stocks-rise-oil-and-dollar-slide-on-middle-east-peace-hopes-4708247",
+      "published_iso": "2026-05-25T06:42:30+07:00",
+      "published_text": "25/05 06:42"
+    },
+    {
+      "source": "Investing News",
+      "title": "Oil slides 5% with Brent below $100/barrel on US-Iran peace hopes",
+      "title_vi": "Dầu giảm 5% với Brent dưới $ 100/thùng với hy vọng hòa bình Mỹ-Iran",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/commodities-news/oil-slides-5-with-brent-below-100barrel-on-usiran-peace-hopes-4708246",
+      "published_iso": "2026-05-25T06:25:08+07:00",
+      "published_text": "25/05 06:25"
+    },
+    {
+      "source": "Investing News",
       "title": "Oil slips to 2-week low as US-Iran seen moving closer to peace deal",
       "title_vi": "Giá dầu giảm xuống mức thấp nhất trong 2 tuần khi Mỹ-Iran tiến gần hơn đến thỏa thuận hòa bình",
       "summary": "",
@@ -33,36 +63,6 @@
       "url": "https://www.investing.com/news/commodities-news/oil-falls-more-than-4-as-us-iran-remain-at-odds-over-peace-deal-4708240",
       "published_iso": "2026-05-25T05:48:27+07:00",
       "published_text": "25/05 05:48"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "China Eliminates Tariffs on Africa to Outmaneuver Trump - WSJ",
-      "title_vi": "Trung Quốc loại bỏ thuế quan đối với châu Phi để vượt qua Trump - WSJ",
-      "summary": "China Eliminates Tariffs on Africa to Outmaneuver Trump WSJ",
-      "summary_vi": "China Eliminates Tariffs on Africa to Outmaneuver Trump WSJ",
-      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE82bzZZRUg1VllYVk1iWTd2SWdSZVR5T2ZmN0k2ZEdTeEtiLWZ1RFdSQ2E3bE9XR052bHluTDFmU0JlcVJkSnp4QTlxLXk2R0NrM3F1QkYzMUd5aDJ2QzBMOWN4bkpPMEZILU9NWGd0NA?oc=5",
-      "published_iso": "2026-05-23T23:00:00+07:00",
-      "published_text": "23/05 23:00"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "East Los Angeles Oil Spill - LA County Recovers (.gov)",
-      "title_vi": "Sự cố tràn dầu Đông Los Angeles - Phục hồi Quận LA (.gov)",
-      "summary": "East Los Angeles Oil Spill LA County Recovers (.gov)",
-      "summary_vi": "East Los Angeles Oil Spill LA County Recovers (.gov)",
-      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9MdVpibTFxcXByQWRvQ25nMXJIb1VIazMyNldySUZoLXhhT1pTaXMwRldFaVd0aGxqVTdPZXJGMUlucFVvVjlDTldzckdxMTN5TXV5dEtweVlhZGpmSjVWMjBFa0ZraGJobkE?oc=5",
-      "published_iso": "2026-05-23T13:47:08+07:00",
-      "published_text": "23/05 13:47"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "The Northeast Home Heating Oil Reserve - Department of Energy (.gov)",
-      "title_vi": "Dự trữ dầu sưởi ấm gia đình vùng Đông Bắc - Bộ Năng lượng (.gov)",
-      "summary": "The Northeast Home Heating Oil Reserve Department of Energy (.gov)",
-      "summary_vi": "The Northeast Home Heating Oil Reserve Department of Energy (.gov)",
-      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9tcU55V25Jc2tHODBVcTNWazlOX214ZFVlMW1sVTJqdDlVZTdzU1lFUjQwSzJZSU5VazJuSGhVV3FBUldlbVhmMzRTWm1EZVRoY2YxaG01YnlrMXcyYVUzQzZqSUF6RWdZV3ZEbERtSjJMdGJY?oc=5",
-      "published_iso": "2026-05-23T04:41:03+07:00",
-      "published_text": "23/05 04:41"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-ben-thanh-dau-gia-1-xe-o-to-con-8-cho-ngoi-nhan-hieu-toyota-so-loai-innova-g-bien-so-51a-45491-51132.html",
-      "published_iso": "2026-05-25T06:06:51.783518+07:00",
-      "published_text": "25/05 06:06"
+      "published_iso": "2026-05-25T07:11:20.995484+07:00",
+      "published_text": "25/05 07:11"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,18 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-dong-duong-dau-gia-33-lo-dat-o-tai-khu-7-khu-tai-dinh-cu-thuoc-du-an-ho-tro-dau-tu-xay-dung-tuyen-duong-thay-the-duong-tran-phu-phuong-tam-quan-tinh-gia-lai-51133.html",
-      "published_iso": "2026-05-25T06:06:51.783446+07:00",
-      "published_text": "25/05 06:06"
-    },
-    {
-      "source": "VietnamFinance",
-      "title": "Thiếu tiền trả lãi lô trái phiếu 4.000 tỷ đồng, chủ đầu tư Hưng Ngân Riverside làm ăn thế nào?",
-      "title_vi": "Thiếu tiền trả lãi lô trái phiếu 4.000 tỷ đồng, chủ đầu tư Hưng Ngân Riverside làm ăn thế nào?",
-      "summary": "",
-      "summary_vi": "",
-      "url": "https://vietnamfinance.vn/chu-dau-tu-hung-ngan-riverside-cham-tra-lai-lo-trai-phieu-4000-ty-dong-d145099.html",
-      "published_iso": "2026-05-25T06:06:50.498011+07:00",
-      "published_text": "25/05 06:06"
+      "published_iso": "2026-05-25T07:11:20.995413+07:00",
+      "published_text": "25/05 07:11"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +93,18 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/cong-nghe-moi-cua-trung-quoc-dot-pha-tuong-lai-xe-dien-pin-sac-sieu-toc-trong-3-phut-d145245.html",
-      "published_iso": "2026-05-25T06:06:50.497928+07:00",
-      "published_text": "25/05 06:06"
+      "published_iso": "2026-05-25T07:11:19.734360+07:00",
+      "published_text": "25/05 07:11"
+    },
+    {
+      "source": "VietnamFinance",
+      "title": "Giá vàng hôm nay 25/5: Vàng miếng giảm nhẹ",
+      "title_vi": "Giá vàng hôm nay 25/5: Vàng miếng giảm nhẹ",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://vietnamfinance.vn/gia-vang-hom-nay-25-5-vang-mieng-giam-nhe-d145261.html",
+      "published_iso": "2026-05-25T07:11:19.734289+07:00",
+      "published_text": "25/05 07:11"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/tt-group-dang-hien-dien-tren-nhung-mach-mau-kinh-te-moi-nhu-the-nao-188260522074241878.chn",
-      "published_iso": "2026-05-25T06:06:48.026278+07:00",
-      "published_text": "25/05 06:06"
+      "published_iso": "2026-05-25T07:11:17.545883+07:00",
+      "published_text": "25/05 07:11"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/tien-si-nguoi-viet-tai-google-deepmind-chi-ra-cuoc-cai-cach-viet-nam-can-thuc-hien-de-co-the-tao-ra-doi-ngu-cha-de-ai-the-he-moi-188260521132831333.chn",
-      "published_iso": "2026-05-25T06:06:48.026182+07:00",
-      "published_text": "25/05 06:06"
+      "published_iso": "2026-05-25T07:11:17.545804+07:00",
+      "published_text": "25/05 07:11"
     }
   ],
   "markets": [
@@ -209,9 +209,9 @@
       "name": "DXY",
       "symbol": "DX-Y.NYB",
       "category": "FX",
-      "price": 99.01,
-      "change": -0.31,
-      "change_pct": -0.31,
+      "price": 99.02,
+      "change": -0.3,
+      "change_pct": -0.3,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 24/05 11:00"
@@ -220,9 +220,9 @@
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1648,
-      "change": 0.0027,
-      "change_pct": 0.23,
+      "price": 1.1644,
+      "change": 0.0023,
+      "change_pct": 0.2,
       "decimals": 4,
       "suffix": "",
       "note": "Gần nhất: 25/05 06:00"
@@ -231,12 +231,12 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 76810.0,
-      "change": 136.0,
-      "change_pct": 0.18,
+      "price": 77078.0,
+      "change": 404.0,
+      "change_pct": 0.53,
       "decimals": 0,
       "suffix": "",
-      "note": "Gần nhất: 24/05 07:00"
+      "note": "Gần nhất: 25/05 07:00"
     },
     {
       "name": "S&P 500",
@@ -324,7 +324,7 @@
       "change_pct": 0.0,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
+      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
     },
     {
       "name": "Hang Seng",
