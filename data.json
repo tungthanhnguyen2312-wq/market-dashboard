@@ -1,38 +1,48 @@
 {
-  "updated_at": "2026-05-26T07:16:29.481469+07:00",
-  "updated_at_display": "26/05/2026 • 07:16 GMT+7",
+  "updated_at": "2026-05-26T11:35:58.571774+07:00",
+  "updated_at_display": "26/05/2026 • 11:35 GMT+7",
   "war_news": [
     {
       "source": "Al Jazeera",
-      "title": "Israel to intensify Lebanon offensive to ‘crush’ Hezbollah",
-      "title_vi": "Israel tăng cường tấn công Lebanon để ‘đè bẹp’ Hezbollah",
-      "summary": "Prime Minister Netanyahu's order comes despite 'ceasefire' agreed with Lebanon last month, which was recently extended.",
-      "summary_vi": "Prime Minister Netanyahu's order comes despite 'ceasefire' agreed with Lebanon last month, which was recently extended.",
-      "url": "https://www.aljazeera.com/news/2026/5/25/israel-to-intensify-lebanon-offensive-in-bid-to-crush-hezbollah?traffic_source=rss",
-      "published_iso": "2026-05-26T03:49:28+07:00",
-      "published_text": "26/05 03:49"
+      "title": "US strikes southern Iran in ‘self defence’ targeting Iranian mine boats",
+      "title_vi": "Hoa Kỳ tấn công miền nam Iran để ‘tự vệ’ nhắm vào các tàu khai thác thủy lôi của Iran",
+      "summary": "The US military says it has launched new strikes on southern Iran, targeting Iranian missile sites and boats.",
+      "summary_vi": "The US military says it has launched new strikes on southern Iran, targeting Iranian missile sites and boats.",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/26/aje-onl-nf_reported-us-strikes-southern-iran-in-self-defence-250526?traffic_source=rss",
+      "published_iso": "2026-05-26T11:27:20+07:00",
+      "published_text": "26/05 11:27"
     },
     {
       "source": "Al Jazeera",
-      "title": "Trump pays tribute to US troops killed in war on Iran on Memorial Day",
-      "title_vi": "Trump vinh danh quân đội Hoa Kỳ đã hy sinh trong cuộc chiến chống Iran vào Ngày Tưởng niệm",
-      "summary": "US President Donald Trump marked Memorial Day at Arlington National Cemetery, paying tribute to US troops killed.",
-      "summary_vi": "US President Donald Trump marked Memorial Day at Arlington National Cemetery, paying tribute to US troops killed.",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/25/trump-pays-tribute-to-us-troops-killed-in-war-on-iran-on-memorial-day?traffic_source=rss",
-      "published_iso": "2026-05-26T03:24:40+07:00",
-      "published_text": "26/05 03:24"
+      "title": "Netanyahu vows to ‘smite’ Hezbollah with ‘overwhelming’ force",
+      "title_vi": "Netanyahu thề sẽ ‘đánh bại’ Hezbollah bằng lực lượng ‘áp đảo’",
+      "summary": "Israeli Prime Minister Benjamin Netanyahu vows to ‘smite’ Hezbollah with ‘overwhelming’ force.",
+      "summary_vi": "Israeli Prime Minister Benjamin Netanyahu vows to ‘smite’ Hezbollah with ‘overwhelming’ force.",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/26/netanyahu-vows-to-smite-hezbollah-with-overwhelming-force?traffic_source=rss",
+      "published_iso": "2026-05-26T10:12:14+07:00",
+      "published_text": "26/05 10:12"
     }
   ],
   "global_news": [
     {
+      "source": "Investing News",
+      "title": "Dollar firms after US-Iran strikes spark doubts over peace deal",
+      "title_vi": "Các công ty đô la sau khi Mỹ-Iran tấn công làm dấy lên nghi ngờ về thỏa thuận hòa bình",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/forex-news/dollar-firms-after-usiran-strikes-spark-doubts-over-peace-deal-4708706",
+      "published_iso": "2026-05-26T10:26:09+07:00",
+      "published_text": "26/05 10:26"
+    },
+    {
       "source": "Google News Macro",
-      "title": "Oil Prices Fall Sharply on News of Possible Iran Deal - The New York Times",
-      "title_vi": "Giá dầu giảm mạnh trên tin tức về thỏa thuận Iran có thể xảy ra - Thời báo New York",
-      "summary": "Oil Prices Fall Sharply on News of Possible Iran Deal The New York Times",
-      "summary_vi": "Oil Prices Fall Sharply on News of Possible Iran Deal The New York Times",
-      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1HR1A4RDAyRW9DaWlGWVh4dHNUMHMtbWk0OWlNWnFBVDdaalJTOXRBZlJuV2JTZ0xtQnl0VGYtMklTc1BEVWlvOXE5YjBMMncwek1KcFVONWdrcHJXVnZfRWs2NjJkaUlBa1NhRGJhMVM?oc=5",
-      "published_iso": "2026-05-26T04:40:00+07:00",
-      "published_text": "26/05 04:40"
+      "title": "Oil Futures Mixed as Traders Assess Middle East Developments - WSJ",
+      "title_vi": "Hợp đồng tương lai dầu hỗn hợp khi các nhà giao dịch đánh giá sự phát triển ở Trung Đông - WSJ",
+      "summary": "Oil Futures Mixed as Traders Assess Middle East Developments WSJ",
+      "summary_vi": "Oil Futures Mixed as Traders Assess Middle East Developments WSJ",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOUFVkNjQ0SFhidF90ZTJMM3ZyMEhESG5kSzVKR0ppOGJIR2RXWlc1SExNb3FkTkQ5aWk5LVBxS3Z6OTJRMU41ZTJ3dHFqU0FURVVJMHZYV0E0U1RZZEFuX3JmbzZ0MUlndm15c1NaeTNwc3NKRUNpSURTY0dxeDZlcVJQN2liTjJuN0YtTzNydXUxX3ZnNHRsZHNMdTRMZ2djWXFlSXhRT2cxYmR1cE1ncVBYQWlGWEEw?oc=5",
+      "published_iso": "2026-05-26T07:19:00+07:00",
+      "published_text": "26/05 07:19"
     },
     {
       "source": "Google News Macro",
@@ -46,21 +56,11 @@
     },
     {
       "source": "Google News Macro",
-      "title": "Oiled birds collected, being treated after pipeline rupture and oil spill in East Los Angeles - ABC7 Los Angeles",
-      "title_vi": "Chim có dầu được thu gom, đang được xử lý sau khi vỡ đường ống và tràn dầu ở Đông Los Angeles - ABC7 Los Angeles",
-      "summary": "Oiled birds collected, being treated after pipeline rupture and oil spill in East Los Angeles ABC7 Los Angeles",
-      "summary_vi": "Oiled birds collected, being treated after pipeline rupture and oil spill in East Los Angeles ABC7 Los Angeles",
-      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOM1Zwd19BMzUtVTh4d00xSGwzY1JsVTlLLUJzUUhFUUZGNmZ5bkJzeExxQ255Z1YtSnk4WEtRd2VZUGtVQ2ZJaHU4RC1uZWZkUVYwbEtTbElvVjVVdmpNek10VEhWTGJXYkM5SGlJeVhRaHBrelNNbHI1RXVjVThTUzBxT0NUMDNrWUgyS19JTjMzYWpXN1JIS1FLN0tUd1FnQjRMQVJKaFFvVzk1dTJzc9IBtgFBVV95cUxOLU45c0hmWHBpSm1pOGFDZXlJUVRDdm4xa3g1dU1kZ1BYYnZySE41YnY5YXIxY1FtUWEzSnRXMGNJaXlsSE9fRmg3SjA2RTlSb1NNVG45bFByRlhnYXMwbTNGdUFtWDZ3WHV5d2U3T0ZtMUlkRVZSOXNNSWJuWEZWNHV6WFoxdW1QbzIzVnJvY29tbnFJaWg2LUlEMEIxTmhMeUxZVC1ZdXpyNE5uNi01akwxYXAtZw?oc=5",
-      "published_iso": "2026-05-25T13:16:12+07:00",
-      "published_text": "25/05 13:16"
-    },
-    {
-      "source": "Google News Macro",
       "title": "Oil prices fall 7% after Trump says Iran talks are 'proceeding nicely' - CNBC",
       "title_vi": "Giá dầu giảm 7% sau khi Trump nói rằng các cuộc đàm phán về Iran đang 'tiến triển tốt đẹp' - CNBC",
       "summary": "Oil prices fall 7% after Trump says Iran talks are 'proceeding nicely' CNBC",
       "summary_vi": "Oil prices fall 7% after Trump says Iran talks are 'proceeding nicely' CNBC",
-      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQc2pzeTdXRElwa2VRR2wzSnc2eWhYdnpvdEFPX0lqSUpSeVdzRTgxX2MxUTgtNnhtMThaUkp6N3U5LW1jc3lTYmM3dVZKSXJwdnZoeHMtYk16UElHbFVnVWhKa1VSS1UzZUxON3cwVURRSlQ0d2xCTmRYQ1Y5MHQ3cUp6WFF2NHR4T2pORmMwaXk?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQc2pzeTdXRElwa2VRR2wzSnc2eWhYdnpvdEFPX0lqSUpSeVdzRTgxX2MxUTgtNnhtMThaUkp6N3U5LW1jc3lTYmM3dVZKSXJwdnZoeHMtYk16UElHbFVnVWhKa1VSS1UzZUxON3cwVURRSlQ0d2xCTmRYQ1Y5MHQ3cUp6WFF2NHR4T2pORmMwaXnSAZYBQVVfeXFMTWYxYXhfUmdjMkFMdlFnVzN3cWxMRC15YVgtTXRTcXZBOHk4MmJIQnpDZU9BQ0NQUFNZc0d1c0JpWEZpMXNTUERuR2YyU21WeUxjdU83X1dJZ0RSV2dBUHRLSUJmaE9vZGNTZVduS21QcEczamoydS01UXhMNWlWQ1RLQW02QVNxcFRKYnBkTlA2Z09XMzB3?oc=5",
       "published_iso": "2026-05-25T05:47:34+07:00",
       "published_text": "25/05 05:47"
     }
@@ -68,43 +68,43 @@
   "vn_news": [
     {
       "source": "Thời báo Tài chính VN",
-      "title": "Công ty Đấu giá Hợp danh Khải Hưng: Đấu giá thanh lý vật tư thu hồi 05 phòng học của Trường Mẫu giáo Tân Hưng",
-      "title_vi": "Công ty Đấu giá Hợp danh Khải Hưng: Đấu giá thanh lý vật tư thu hồi 05 phòng học của Trường Mẫu giáo Tân Hưng",
+      "title": "Công ty đấu giá hợp danh Nhất An Phú – Chi nhánh Thanh Hóa: Đấu giá 6.980 phương tiện ô tô, mô tô, xe máy, xe tự chế vi phạm hành chính",
+      "title_vi": "Công ty đấu giá hợp danh Nhất An Phú – Chi nhánh Thanh Hóa: Đấu giá 6.980 phương tiện ô tô, mô tô, xe máy, xe tự chế vi phạm hành chính",
       "summary": "",
       "summary_vi": "",
-      "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-khai-hung-dau-gia-thanh-ly-vat-tu-thu-hoi-05-phong-hoc-cua-truong-mau-giao-tan-hung-51155.html",
-      "published_iso": "2026-05-26T07:17:22.804757+07:00",
-      "published_text": "26/05 07:17"
+      "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-nhat-an-phu-chi-nhanh-thanh-hoa-dau-gia-6980-phuong-tien-o-to-mo-to-xe-may-xe-tu-che-vi-pham-hanh-chinh-51159.html",
+      "published_iso": "2026-05-26T11:46:15.778597+07:00",
+      "published_text": "26/05 11:46"
     },
     {
       "source": "Thời báo Tài chính VN",
-      "title": "Công ty Đấu giá Hợp danh Khải Hưng: Đấu giá thanh lý vật tư thu hồi của Trường Tiểu học Phước Minh A",
-      "title_vi": "Công ty Đấu giá Hợp danh Khải Hưng: Đấu giá thanh lý vật tư thu hồi của Trường Tiểu học Phước Minh A",
+      "title": "Công ty đấu giá hợp danh Nhất An Phú – Chi nhánh Thanh Hóa: Đấu giá xe ô tô BKS:14C-351.64, nhãn hiệu Ford",
+      "title_vi": "Công ty đấu giá hợp danh Nhất An Phú – Chi nhánh Thanh Hóa: Đấu giá xe ô tô BKS:14C-351.64, nhãn hiệu Ford",
       "summary": "",
       "summary_vi": "",
-      "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-khai-hung-dau-gia-thanh-ly-vat-tu-thu-hoi-cua-truong-tieu-hoc-phuoc-minh-a-51154.html",
-      "published_iso": "2026-05-26T07:17:22.804691+07:00",
-      "published_text": "26/05 07:17"
+      "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-nhat-an-phu-chi-nhanh-thanh-hoa-dau-gia-xe-o-to-bks14c-35164-nhan-hieu-ford-51160.html",
+      "published_iso": "2026-05-26T11:46:15.778521+07:00",
+      "published_text": "26/05 11:46"
     },
     {
       "source": "VietnamFinance",
-      "title": "Giá cước tăng cao, DN vận tải biển được dịp 'ăn nên làm ra'",
-      "title_vi": "Giá cước tăng cao, DN vận tải biển được dịp 'ăn nên làm ra'",
+      "title": "Nonghyup Financial Group: Từ hợp tác xã tín dụng nông nghiệp thành tập đoàn tài chính Big 5",
+      "title_vi": "Nonghyup Financial Group: Từ hợp tác xã tín dụng nông nghiệp thành tập đoàn tài chính Big 5",
       "summary": "",
       "summary_vi": "",
-      "url": "https://vietnamfinance.vn/gia-cuoc-tang-cao-dn-van-tai-bien-duoc-dip-an-nen-lam-ra-d145270.html",
-      "published_iso": "2026-05-26T07:17:21.655994+07:00",
-      "published_text": "26/05 07:17"
+      "url": "https://vietnamfinance.vn/nonghyup-financial-group-tu-hop-tac-xa-tin-dung-nong-nghiep-thanh-tap-doan-tai-chinh-big-5-d145256.html",
+      "published_iso": "2026-05-26T11:46:13.295850+07:00",
+      "published_text": "26/05 11:46"
     },
     {
       "source": "VietnamFinance",
-      "title": "Giá vàng hôm nay 26/5: Toàn thị trường 'chững lại'",
-      "title_vi": "Giá vàng hôm nay 26/5: Toàn thị trường 'chững lại'",
+      "title": "Hàng loạt tài khoản kinh doanh 'bay màu' trên Instagram: Chuyện gì đang xảy ra?",
+      "title_vi": "Hàng loạt tài khoản kinh doanh 'bay màu' trên Instagram: Chuyện gì đang xảy ra?",
       "summary": "",
       "summary_vi": "",
-      "url": "https://vietnamfinance.vn/gia-vang-hom-nay-26-5-toan-thi-truong-chung-lai-d145312.html",
-      "published_iso": "2026-05-26T07:17:21.655924+07:00",
-      "published_text": "26/05 07:17"
+      "url": "https://vietnamfinance.vn/hang-loat-tai-khoan-kinh-doanh-bay-mau-tren-instagram-chuyen-gi-dang-xay-ra-d145327.html",
+      "published_iso": "2026-05-26T11:46:13.295778+07:00",
+      "published_text": "26/05 11:46"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/tt-group-dang-hien-dien-tren-nhung-mach-mau-kinh-te-moi-nhu-the-nao-188260522074241878.chn",
-      "published_iso": "2026-05-26T07:17:19.536543+07:00",
-      "published_text": "26/05 07:17"
+      "published_iso": "2026-05-26T11:46:11.423966+07:00",
+      "published_text": "26/05 11:46"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/ban-do-13-sieu-cong-trinh-dung-top-dau-the-gioi-do-nguoi-viet-nam-tao-ra-evn-vingroup-fpt-xuan-thien-da-gop-nhung-gi-188260522025119931.chn",
-      "published_iso": "2026-05-26T07:17:19.536464+07:00",
-      "published_text": "26/05 07:17"
+      "published_iso": "2026-05-26T11:46:11.423887+07:00",
+      "published_text": "26/05 11:46"
     }
   ],
   "markets": [
@@ -132,23 +132,23 @@
       "name": "WTI",
       "symbol": "CL=F",
       "category": "Energy",
-      "price": 91.44,
-      "change": -5.16,
-      "change_pct": -5.34,
+      "price": 91.73,
+      "change": -4.87,
+      "change_pct": -5.04,
       "decimals": 2,
       "suffix": "",
-      "note": "Gần nhất: 25/05 11:00"
+      "note": "Gần nhất: 26/05 11:00"
     },
     {
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 94.92,
-      "change": -8.62,
-      "change_pct": -8.33,
+      "price": 95.14,
+      "change": -8.4,
+      "change_pct": -8.11,
       "decimals": 2,
       "suffix": "",
-      "note": "Gần nhất: 25/05 11:00"
+      "note": "Gần nhất: 26/05 11:00"
     },
     {
       "name": "Natural Gas",
@@ -156,43 +156,43 @@
       "category": "Energy",
       "price": 3.06,
       "change": 0.15,
-      "change_pct": 5.23,
+      "change_pct": 5.3,
       "decimals": 2,
       "suffix": "",
-      "note": "Gần nhất: 25/05 11:00"
+      "note": "Gần nhất: 26/05 11:00"
     },
     {
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4552.2,
-      "change": 31.2,
-      "change_pct": 0.69,
+      "price": 4530.7,
+      "change": 9.7,
+      "change_pct": 0.21,
       "decimals": 2,
       "suffix": "",
-      "note": "Gần nhất: 25/05 11:00"
+      "note": "Gần nhất: 26/05 11:00"
     },
     {
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 77.81,
-      "change": 1.92,
-      "change_pct": 2.53,
+      "price": 76.96,
+      "change": 1.07,
+      "change_pct": 1.41,
       "decimals": 2,
       "suffix": "",
-      "note": "Gần nhất: 25/05 11:00"
+      "note": "Gần nhất: 26/05 11:00"
     },
     {
       "name": "Copper",
       "symbol": "HG=F",
       "category": "Metals",
-      "price": 6.44,
-      "change": 0.09,
-      "change_pct": 1.48,
+      "price": 6.41,
+      "change": 0.06,
+      "change_pct": 1.0,
       "decimals": 2,
       "suffix": "",
-      "note": "Gần nhất: 25/05 11:00"
+      "note": "Gần nhất: 26/05 11:00"
     },
     {
       "name": "US 10Y",
@@ -209,20 +209,20 @@
       "name": "DXY",
       "symbol": "DX-Y.NYB",
       "category": "FX",
-      "price": 99.24,
+      "price": 99.05,
       "change": NaN,
       "change_pct": NaN,
       "decimals": 2,
       "suffix": "",
-      "note": "Gần nhất: 25/05 11:00"
+      "note": "Gần nhất: 26/05 11:00"
     },
     {
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1641,
-      "change": -0.0001,
-      "change_pct": -0.01,
+      "price": 1.1636,
+      "change": -0.0006,
+      "change_pct": -0.05,
       "decimals": 4,
       "suffix": "",
       "note": "Gần nhất: 26/05 06:00"
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 77126.0,
-      "change": 145.0,
-      "change_pct": 0.19,
+      "price": 76686.0,
+      "change": -295.0,
+      "change_pct": -0.38,
       "decimals": 0,
       "suffix": "",
       "note": "Gần nhất: 26/05 07:00"
@@ -324,26 +324,26 @@
       "change_pct": 0.0,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
+      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
     },
     {
       "name": "Hang Seng",
       "symbol": "^HSI",
       "category": "Asia",
-      "price": 25606.03,
-      "change": 219.51,
-      "change_pct": 0.86,
+      "price": 25742.97,
+      "change": 136.94,
+      "change_pct": 0.53,
       "decimals": 2,
       "suffix": "",
-      "note": "Gần nhất: 21/05 23:00"
+      "note": "Gần nhất: 25/05 23:00"
     },
     {
       "name": "Nikkei 225",
       "symbol": "^N225",
       "category": "Asia",
-      "price": 65066.89,
-      "change": -91.3,
-      "change_pct": -0.14,
+      "price": 65019.55,
+      "change": -138.64,
+      "change_pct": -0.21,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 25/05 22:00"
@@ -352,56 +352,56 @@
       "name": "KOSPI",
       "symbol": "^KS11",
       "category": "Asia",
-      "price": 7847.71,
-      "change": 32.12,
-      "change_pct": 0.41,
+      "price": 8104.62,
+      "change": 256.91,
+      "change_pct": 3.27,
       "decimals": 2,
       "suffix": "",
-      "note": "Gần nhất: 21/05 22:00"
+      "note": "Gần nhất: 25/05 22:00"
     },
     {
       "name": "Shanghai Composite",
       "symbol": "000001.SS",
       "category": "Asia",
-      "price": 4152.57,
-      "change": 39.67,
-      "change_pct": 0.96,
+      "price": 4117.85,
+      "change": -34.72,
+      "change_pct": -0.84,
       "decimals": 2,
       "suffix": "",
-      "note": "Gần nhất: 24/05 23:00"
+      "note": "Gần nhất: 25/05 23:00"
     },
     {
       "name": "Shenzhen Component",
       "symbol": "399001.SZ",
       "category": "Asia",
-      "price": 15856.61,
-      "change": 259.31,
-      "change_pct": 1.66,
+      "price": 15718.98,
+      "change": -137.63,
+      "change_pct": -0.87,
       "decimals": 2,
       "suffix": "",
-      "note": "Gần nhất: 24/05 23:00"
+      "note": "Gần nhất: 25/05 23:00"
     },
     {
       "name": "Nifty 50",
       "symbol": "^NSEI",
       "category": "Asia",
-      "price": 24031.7,
-      "change": 312.4,
-      "change_pct": 1.32,
+      "price": 24062.25,
+      "change": 30.55,
+      "change_pct": 0.13,
       "decimals": 2,
       "suffix": "",
-      "note": "Gần nhất: 25/05 01:30"
+      "note": "Gần nhất: 26/05 01:30"
     },
     {
       "name": "ASX 200",
       "symbol": "^AXJO",
       "category": "Asia",
-      "price": 8692.0,
-      "change": 35.0,
-      "change_pct": 0.4,
+      "price": 8660.9,
+      "change": -31.1,
+      "change_pct": -0.36,
       "decimals": 2,
       "suffix": "",
-      "note": "Gần nhất: 24/05 21:00"
+      "note": "Gần nhất: 25/05 21:00"
     }
   ]
 }
