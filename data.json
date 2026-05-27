@@ -1,29 +1,39 @@
 {
-  "updated_at": "2026-05-27T06:49:47.303134+07:00",
-  "updated_at_display": "27/05/2026 • 06:49 GMT+7",
+  "updated_at": "2026-05-27T08:53:59.588225+07:00",
+  "updated_at_display": "27/05/2026 • 08:53 GMT+7",
   "war_news": [
     {
       "source": "Al Jazeera",
-      "title": "Aftermath of deadly Israeli strikes in southern Lebanon",
-      "title_vi": "Hậu quả của các cuộc tấn công chết người của Israel ở miền nam Lebanon",
-      "summary": "New videos show widespread destruction in Maarakeh following deadly Israeli strikes across southern Lebanon.",
-      "summary_vi": "New videos show widespread destruction in Maarakeh following deadly Israeli strikes across southern Lebanon.",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/26/aftermath-of-deadly-israeli-strikes-in-southern-lebanon?traffic_source=rss",
-      "published_iso": "2026-05-27T04:22:47+07:00",
-      "published_text": "27/05 04:22"
+      "title": "How decision-making happens in Iran",
+      "title_vi": "Việc ra quyết định diễn ra như thế nào ở Iran",
+      "summary": "Iran’s negotiators follow a mandate set by the Supreme National Security Council and approved by the Supreme Leader.",
+      "summary_vi": "Iran’s negotiators follow a mandate set by the Supreme National Security Council and approved by the Supreme Leader.",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/27/aje-onl-nf_draft-3-dnrexp-260526-hashema-iran_decision_making-260526?traffic_source=rss",
+      "published_iso": "2026-05-27T07:28:03+07:00",
+      "published_text": "27/05 07:28"
     },
     {
       "source": "Al Jazeera",
-      "title": "Did Trump oversell a broken Iran ceasefire deal?",
-      "title_vi": "Có phải Trump đã vượt qua một thỏa thuận ngừng bắn Iran bị phá vỡ?",
-      "summary": "The US and Iran appear closer to a broader agreement, but disputes over sanctions relief remain.",
-      "summary_vi": "The US and Iran appear closer to a broader agreement, but disputes over sanctions relief remain.",
-      "url": "https://www.aljazeera.com/video/the-take-2/2026/5/26/aje-onl-irn_mou_av_v3-260526?traffic_source=rss",
-      "published_iso": "2026-05-27T02:50:51+07:00",
-      "published_text": "27/05 02:50"
+      "title": "Iran war live: Israel kills 31 in Lebanon; Tehran blasts US truce violation",
+      "title_vi": "Chiến tranh Iran trực tiếp: Israel giết chết 31 người ở Lebanon; Tehran làm nổ tung vi phạm thỏa thuận ngừng bắn của Mỹ",
+      "summary": "Lebanon's Health Ministry reports that Israeli attacks have killed 3,213 people and injured 9,737 since March 2.",
+      "summary_vi": "Lebanon's Health Ministry reports that Israeli attacks have killed 3,213 people and injured 9,737 since March 2.",
+      "url": "https://www.aljazeera.com/news/liveblog/2026/5/27/iran-war-live-israel-kills-31-in-lebanon-tehran-blasts-us-truce-violation?traffic_source=rss",
+      "published_iso": "2026-05-27T07:00:00+07:00",
+      "published_text": "27/05 07:00"
     }
   ],
   "global_news": [
+    {
+      "source": "Investing News",
+      "title": "Luminus Energy Partners Master Fund sells $8.6m in Battalion Oil stock",
+      "title_vi": "Luminus Energy Partners Master Fund bán 8,6 triệu $ cổ phiếu Battalion Oil",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/insider-trading-news/luminus-energy-partners-master-fund-sells-86m-in-battalion-oil-stock-93CH-4711074",
+      "published_iso": "2026-05-27T08:22:54+07:00",
+      "published_text": "27/05 08:22"
+    },
     {
       "source": "Google News Macro",
       "title": "China Eliminates Tariffs on Africa to Outmaneuver Trump - WSJ",
@@ -53,16 +63,6 @@
       "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQcjJ2ZXd6MzJPNHBWU3g5TW9MUlBnYnBRVldreHFjczBpOU00cE1ldHJDQWtZMUFNNjNHTm54bzQxVkRGWUhLWWFoU0tUbmpDdXpGRHZDQXBuUnZZZ3hPWXlJZldUOXQtdXgxMU5paURrVDNzU2JNNUFqd2J3RmExVDBUcnphdkhhYzNPTG5WX04?oc=5",
       "published_iso": "2026-05-27T02:22:03+07:00",
       "published_text": "27/05 02:22"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "Cleanup continues after 2,400 gallons of crude oil spill and spread into LA River, impacting wildlife - ABC7 Los Angeles",
-      "title_vi": "Dọn dẹp tiếp tục sau 2.400 gallon dầu thô tràn và lan ra sông LA, ảnh hưởng đến động vật hoang dã - ABC7 Los Angeles",
-      "summary": "Cleanup continues after 2,400 gallons of crude oil spill and spread into LA River, impacting wildlife ABC7 Los Angeles",
-      "summary_vi": "Cleanup continues after 2,400 gallons of crude oil spill and spread into LA River, impacting wildlife ABC7 Los Angeles",
-      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQRXlfbWM4d3gxMFNodTRRNVh2UWRiVHZueW5ZMkNLLWRmUC1rMVZJMTdMdkJBM2NsSGxMTmN3TmpSQzRaaUtaQXNLZXNfcGNndWFBVWluakdkNzlBQUhnX1RwSE9sejhxc2NtdWQwRFU0MFQ4T0RIUHBYRThTYVc2VDh0ZXpXdjRkYnVJc0VJZEN6TTVXZnFkRTdkT2o1dWZCUGIxamxOYnIySzBwWjdsb1J4a9IBuAFBVV95cUxQcGdVOVh3Vm1SejZuakVYZFNleGdYRV9sbE1lQnBUNXl6aTJ0ZVAtM2Y0cWd5VDlHM1d3RVhab0N1dkdjcXdzcnJ2Yk9XZ0FkVVlBREU2WlpNeGl4SWVZeWxPeHJLMUVwYktWREFoaTNuV2RIQVNaYTFwSjVFYkNMZjlDVk5ITG9CZXZfRW1uNF9OcWdlYVgzXzh3Z21IOGdrd3R3S3RmLTVPNm50emx1emFiNUtHdi01?oc=5",
-      "published_iso": "2026-05-26T14:55:14+07:00",
-      "published_text": "26/05 14:55"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/chi-cuc-quan-ly-thi-truong-tinh-an-giang-niem-yet-gia-quan-ao-dien-thoai-di-dong-51174.html",
-      "published_iso": "2026-05-27T06:50:38.871532+07:00",
-      "published_text": "27/05 06:50"
+      "published_iso": "2026-05-27T08:54:47.989943+07:00",
+      "published_text": "27/05 08:54"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,28 +83,28 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-khai-hung-dau-gia-quyen-khai-thac-mu-cay-cao-su-trong-tren-dien-tich-37ha-toa-lac-tai-ap-phuoc-hung-xa-phuoc-vinh-tinh-tay-ninh-51173-51173.html",
-      "published_iso": "2026-05-27T06:50:38.871468+07:00",
-      "published_text": "27/05 06:50"
+      "published_iso": "2026-05-27T08:54:47.989876+07:00",
+      "published_text": "27/05 08:54"
     },
     {
       "source": "VietnamFinance",
-      "title": "Nonghyup Financial Group: Từ hợp tác xã tín dụng nông nghiệp thành tập đoàn tài chính Big 5",
-      "title_vi": "Nonghyup Financial Group: Từ hợp tác xã tín dụng nông nghiệp thành tập đoàn tài chính Big 5",
+      "title": "AI đang viết lại bản đồ quyền lực thị trường chứng khoán toàn cầu",
+      "title_vi": "AI đang viết lại bản đồ quyền lực thị trường chứng khoán toàn cầu",
       "summary": "",
       "summary_vi": "",
-      "url": "https://vietnamfinance.vn/nonghyup-financial-group-tu-hop-tac-xa-tin-dung-nong-nghiep-thanh-tap-doan-tai-chinh-big-5-d145256.html",
-      "published_iso": "2026-05-27T06:50:37.772992+07:00",
-      "published_text": "27/05 06:50"
+      "url": "https://vietnamfinance.vn/ai-dang-viet-lai-ban-do-quyen-luc-thi-truong-chung-khoan-toan-cau-d145328.html",
+      "published_iso": "2026-05-27T08:54:46.603496+07:00",
+      "published_text": "27/05 08:54"
     },
     {
       "source": "VietnamFinance",
-      "title": "Xăng E10 tạo ra ‘miếng bánh’ mới, doanh nghiệp nào sẽ hưởng lợi lớn nhất?",
-      "title_vi": "Xăng E10 tạo ra ‘miếng bánh’ mới, doanh nghiệp nào sẽ hưởng lợi lớn nhất?",
+      "title": "Làn sóng đầu tư Thái Lan vào Việt Nam vào giai đoạn tăng trưởng mới",
+      "title_vi": "Làn sóng đầu tư Thái Lan vào Việt Nam vào giai đoạn tăng trưởng mới",
       "summary": "",
       "summary_vi": "",
-      "url": "https://vietnamfinance.vn/xang-e10-tao-ra-mieng-banh-moi-doanh-nghiep-nao-se-huong-loi-lon-nhat-d145322.html",
-      "published_iso": "2026-05-27T06:50:37.772918+07:00",
-      "published_text": "27/05 06:50"
+      "url": "https://vietnamfinance.vn/lan-song-dau-tu-thai-lan-vao-viet-nam-vao-giai-doan-tang-truong-moi-d145345.html",
+      "published_iso": "2026-05-27T08:54:46.603432+07:00",
+      "published_text": "27/05 08:54"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/tt-group-dang-hien-dien-tren-nhung-mach-mau-kinh-te-moi-nhu-the-nao-188260522074241878.chn",
-      "published_iso": "2026-05-27T06:50:35.658912+07:00",
-      "published_text": "27/05 06:50"
+      "published_iso": "2026-05-27T08:54:44.354938+07:00",
+      "published_text": "27/05 08:54"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/ban-do-13-sieu-cong-trinh-dung-top-dau-the-gioi-do-nguoi-viet-nam-tao-ra-evn-vingroup-fpt-xuan-thien-da-gop-nhung-gi-188260522025119931.chn",
-      "published_iso": "2026-05-27T06:50:35.658814+07:00",
-      "published_text": "27/05 06:50"
+      "published_iso": "2026-05-27T08:54:44.354860+07:00",
+      "published_text": "27/05 08:54"
     }
   ],
   "markets": [
@@ -132,9 +132,9 @@
       "name": "WTI",
       "symbol": "CL=F",
       "category": "Energy",
-      "price": 93.32,
-      "change": -3.28,
-      "change_pct": -3.4,
+      "price": 92.88,
+      "change": -3.72,
+      "change_pct": -3.85,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 26/05 11:00"
@@ -143,9 +143,9 @@
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 96.45,
-      "change": -7.09,
-      "change_pct": -6.85,
+      "price": 95.85,
+      "change": -7.69,
+      "change_pct": -7.43,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 26/05 11:00"
@@ -154,9 +154,9 @@
       "name": "Natural Gas",
       "symbol": "NG=F",
       "category": "Energy",
-      "price": 3.02,
-      "change": 0.11,
-      "change_pct": 3.72,
+      "price": 3.01,
+      "change": 0.1,
+      "change_pct": 3.44,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 26/05 11:00"
@@ -165,9 +165,9 @@
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4516.1,
-      "change": -4.9,
-      "change_pct": -0.11,
+      "price": 4508.6,
+      "change": -12.4,
+      "change_pct": -0.27,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 26/05 11:00"
@@ -176,9 +176,9 @@
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 77.58,
-      "change": 1.69,
-      "change_pct": 2.22,
+      "price": 77.29,
+      "change": 1.4,
+      "change_pct": 1.85,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 26/05 11:00"
@@ -187,9 +187,9 @@
       "name": "Copper",
       "symbol": "HG=F",
       "category": "Metals",
-      "price": 6.43,
-      "change": 0.09,
-      "change_pct": 1.41,
+      "price": 6.44,
+      "change": 0.1,
+      "change_pct": 1.54,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 26/05 11:00"
@@ -209,9 +209,9 @@
       "name": "DXY",
       "symbol": "DX-Y.NYB",
       "category": "FX",
-      "price": 99.14,
-      "change": NaN,
-      "change_pct": NaN,
+      "price": 99.13,
+      "change": -0.19,
+      "change_pct": -0.19,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 26/05 11:00"
@@ -220,9 +220,9 @@
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1641,
-      "change": 0.0004,
-      "change_pct": 0.03,
+      "price": 1.1637,
+      "change": 0.0,
+      "change_pct": 0.0,
       "decimals": 4,
       "suffix": "",
       "note": "Gần nhất: 27/05 06:00"
@@ -231,12 +231,12 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 75800.0,
-      "change": -1480.0,
-      "change_pct": -1.92,
+      "price": 75838.0,
+      "change": -1442.0,
+      "change_pct": -1.87,
       "decimals": 0,
       "suffix": "",
-      "note": "Gần nhất: 26/05 07:00"
+      "note": "Gần nhất: 27/05 07:00"
     },
     {
       "name": "S&P 500",
@@ -297,9 +297,9 @@
       "name": "FTSE 100",
       "symbol": "^FTSE",
       "category": "Europe",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
+      "price": 10491.4,
+      "change": 25.1,
+      "change_pct": 0.24,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 26/05 06:00"
@@ -324,70 +324,70 @@
       "change_pct": 0.0,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
+      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
     },
     {
       "name": "Hang Seng",
       "symbol": "^HSI",
       "category": "Asia",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
+      "price": 25582.61,
+      "change": -16.84,
+      "change_pct": -0.07,
       "decimals": 2,
       "suffix": "",
-      "note": "Gần nhất: 25/05 23:00"
+      "note": "Gần nhất: 26/05 23:00"
     },
     {
       "name": "Nikkei 225",
       "symbol": "^N225",
       "category": "Asia",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
+      "price": 65848.27,
+      "change": 852.18,
+      "change_pct": 1.31,
       "decimals": 2,
       "suffix": "",
-      "note": "Gần nhất: 25/05 22:00"
+      "note": "Gần nhất: 26/05 22:00"
     },
     {
       "name": "KOSPI",
       "symbol": "^KS11",
       "category": "Asia",
-      "price": 7847.71,
-      "change": 32.12,
-      "change_pct": 0.41,
+      "price": 8377.22,
+      "change": 329.71,
+      "change_pct": 4.1,
       "decimals": 2,
       "suffix": "",
-      "note": "Gần nhất: 21/05 22:00"
+      "note": "Gần nhất: 26/05 22:00"
     },
     {
       "name": "Shanghai Composite",
       "symbol": "000001.SS",
       "category": "Asia",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
+      "price": 4141.69,
+      "change": -3.69,
+      "change_pct": -0.09,
       "decimals": 2,
       "suffix": "",
-      "note": "Gần nhất: 25/05 23:00"
+      "note": "Gần nhất: 26/05 23:00"
     },
     {
       "name": "Shenzhen Component",
       "symbol": "399001.SZ",
       "category": "Asia",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
+      "price": 15942.04,
+      "change": 65.88,
+      "change_pct": 0.41,
       "decimals": 2,
       "suffix": "",
-      "note": "Gần nhất: 25/05 23:00"
+      "note": "Gần nhất: 26/05 23:00"
     },
     {
       "name": "Nifty 50",
       "symbol": "^NSEI",
       "category": "Asia",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
+      "price": 23913.7,
+      "change": -118.0,
+      "change_pct": -0.49,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 26/05 01:30"
@@ -396,12 +396,12 @@
       "name": "ASX 200",
       "symbol": "^AXJO",
       "category": "Asia",
-      "price": NaN,
-      "change": NaN,
-      "change_pct": NaN,
+      "price": 8660.6,
+      "change": 2.8,
+      "change_pct": 0.03,
       "decimals": 2,
       "suffix": "",
-      "note": "Gần nhất: 25/05 21:00"
+      "note": "Gần nhất: 26/05 21:00"
     }
   ]
 }
