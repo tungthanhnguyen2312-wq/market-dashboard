@@ -1,7 +1,17 @@
 {
-  "updated_at": "2026-05-31T02:57:27.120430+07:00",
-  "updated_at_display": "31/05/2026 • 02:57 GMT+7",
+  "updated_at": "2026-05-31T04:09:29.643992+07:00",
+  "updated_at_display": "31/05/2026 • 04:09 GMT+7",
   "war_news": [
+    {
+      "source": "Al Jazeera",
+      "title": "Iran reasserts control over Hormuz Strait as deal with US remains elusive",
+      "title_vi": "Iran tái khẳng định quyền kiểm soát eo biển Hormuz vì thỏa thuận với Mỹ vẫn còn khó nắm bắt",
+      "summary": "Pentagon chief Pete Hegseth says US 'more than capable' of restarting war if satisfactory deal not reached.",
+      "summary_vi": "Pentagon chief Pete Hegseth says US 'more than capable' of restarting war if satisfactory deal not reached.",
+      "url": "https://www.aljazeera.com/news/2026/5/30/iran-reasserts-control-over-hormuz-strait-as-deal-with-us-remains-elusive?traffic_source=rss",
+      "published_iso": "2026-05-31T02:48:13+07:00",
+      "published_text": "31/05 02:48"
+    },
     {
       "source": "Al Jazeera",
       "title": "Qatar says temporary charges ‘negotiable’",
@@ -11,19 +21,29 @@
       "url": "https://www.aljazeera.com/video/newsfeed/2026/5/30/qatar-says-temporary-charges-negotiable?traffic_source=rss",
       "published_iso": "2026-05-31T01:42:26+07:00",
       "published_text": "31/05 01:42"
-    },
-    {
-      "source": "Al Jazeera",
-      "title": "Two killed, including Palestinian doctor, in Israeli attacks on Gaza",
-      "title_vi": "Hai người thiệt mạng, bao gồm cả bác sĩ Palestine, trong các cuộc tấn công của Israel vào Gaza",
-      "summary": "Several injured in Gaza, while Israeli settlers attack Palestinian homes and property across the occupied West Bank.",
-      "summary_vi": "Several injured in Gaza, while Israeli settlers attack Palestinian homes and property across the occupied West Bank.",
-      "url": "https://www.aljazeera.com/news/2026/5/30/palestinian-doctor-killed-three-people-injured-in-israeli-attack-on-gaza?traffic_source=rss",
-      "published_iso": "2026-05-31T00:04:03+07:00",
-      "published_text": "31/05 00:04"
     }
   ],
   "global_news": [
+    {
+      "source": "Investing News",
+      "title": "Kevin Warsh 101: Is the new Fed Chair a hawk or a dove?",
+      "title_vi": "Kevin Warsh 101: Chủ tịch Fed mới là chim ưng hay chim bồ câu?",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/economy-news/kevin-warsh-101-is-the-new-fed-chair-a-hawk-or-a-dove-4717782",
+      "published_iso": "2026-05-31T03:29:25+07:00",
+      "published_text": "31/05 03:29"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "Is a Canadian Car the Answer to Trump’s Tariffs? The Bricklin Shows the Risks. - The New York Times",
+      "title_vi": "Xe Canada có phải là câu trả lời cho thuế quan của Trump không? Bricklin cho thấy những rủi ro. - The New York Times",
+      "summary": "Is a Canadian Car the Answer to Trump’s Tariffs? The Bricklin Shows the Risks. The New York Times",
+      "summary_vi": "Is a Canadian Car the Answer to Trump’s Tariffs? The Bricklin Shows the Risks. The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOUmJGZEZYeUp2RTl2LTRBdjBieVVnYTFZRXo3UEJHbkwtd2dPT0UzaXBzdnA4cU1RZ2FYSkVJWDY4M092YlZqYTYyUEFobTRoRld1SmRpTU9iTGhvQ0VWeUZDQ1dMcW1wWnlUMVp3azUzeUM3RF8wZ0JwTWZQX0VrNTVraF94Nk5fTVZzR2Rn?oc=5",
+      "published_iso": "2026-05-30T21:45:24+07:00",
+      "published_text": "30/05 21:45"
+    },
     {
       "source": "Google News Macro",
       "title": "Asia defense summit opens with China and doubts about U.S. priorities topping concerns - PBS",
@@ -43,26 +63,6 @@
       "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxONzNzdHBrTkRjY3EwN3A2amJaRGtqV0NJSERHSkZ4cHY0dlBNTEZOZmc5aExwbUtLdXFfZnNhY29NNGZ1T2NvQVc1SERobV9Od3M0ZVVHeFRkZGhQVkpEdTUxRTRlMF9HcHBxay15cXBibmZfV2FseDgycExoanFUWnZKMENTQkl2NTZF?oc=5",
       "published_iso": "2026-05-30T03:02:32+07:00",
       "published_text": "30/05 03:02"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "China Threatens to Launch Trade Probes Against the European Union - WSJ",
-      "title_vi": "Trung Quốc đe dọa sẽ khởi động các cuộc thăm dò thương mại chống lại Liên minh châu Âu - WSJ",
-      "summary": "China Threatens to Launch Trade Probes Against the European Union WSJ",
-      "summary_vi": "China Threatens to Launch Trade Probes Against the European Union WSJ",
-      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPM2xraUdURDR3cEhSWnQwSFJUQm4zaFp2NXg1OGluNVVzMXNzclFCM08teFdDai12ZThyektpdnBBNlR6SjBieExZWERwWDFheGdvX1lmUFNUTTBQQnpWZFZTajZXYWVRRmZ0ZkFGZ1RKbXRXcThmNFpsZWNyQU1Gc2d4b0c2c0IydnlTRGtEMzM2QUxQcWx1cENyQktIYUE4eFNaOFUwcl9PM3c?oc=5",
-      "published_iso": "2026-05-29T20:55:00+07:00",
-      "published_text": "29/05 20:55"
-    },
-    {
-      "source": "Google News Macro",
-      "title": "Will Trump's third attempt to impose tariffs survive in the courts? - Peterson Institute for International Economics",
-      "title_vi": "Liệu nỗ lực thứ ba của Trump để áp đặt thuế quan có tồn tại tại tại các tòa án không? - Viện Kinh tế Quốc tế Peterson",
-      "summary": "Will Trump's third attempt to impose tariffs survive in the courts? Peterson Institute for International Economics",
-      "summary_vi": "Will Trump's third attempt to impose tariffs survive in the courts? Peterson Institute for International Economics",
-      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNc2VBZ3FMT2hmVUlVU3g0SloyRTFGUXF3Y3pzLVNDYWFsZGk0WnM0Y1c3QlYxWmtCQVRHRlVXVGtLQ0xra1NoNlpxSjVfNzQzbWlNX19wdGdvd2RMYnI1cGpJVzhiSEkzLU5FbThFWmhZWHRrbXZ5THEtVjlTNklvZjdCa1g4MklnbWM5RFMzd3lzTHEtNUpfVk51YktFVEVPYlBzWlJTRGpydw?oc=5",
-      "published_iso": "2026-05-29T20:50:30+07:00",
-      "published_text": "29/05 20:50"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-phu-tho-dau-gia-quyen-su-dung-4-o-dat-o-tai-khu-cho-huong-nha-xa-hien-quan-tinh-phu-tho-51214.html",
-      "published_iso": "2026-05-31T02:58:12.587108+07:00",
-      "published_text": "31/05 02:58"
+      "published_iso": "2026-05-31T04:10:24.981069+07:00",
+      "published_text": "31/05 04:10"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-phu-tho-dau-gia-quyen-su-dung-1-o-dat-o-tai-khu-7-hung-hoa-xa-tam-nong-tinh-phu-tho-51215.html",
-      "published_iso": "2026-05-31T02:58:12.587037+07:00",
-      "published_text": "31/05 02:58"
+      "published_iso": "2026-05-31T04:10:24.980998+07:00",
+      "published_text": "31/05 04:10"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/cong-nghe-moi-noi-khien-loat-dai-bang-do-von-ty-usd-foxconn-di-dau-san-xuat-tai-viet-nam-d145487.html",
-      "published_iso": "2026-05-31T02:58:10.286833+07:00",
-      "published_text": "31/05 02:58"
+      "published_iso": "2026-05-31T04:10:23.112235+07:00",
+      "published_text": "31/05 04:10"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/huong-dan-chi-tiet-ke-khai-nop-thue-doi-voi-nguoi-co-nha-chung-cu-cho-thue-d145532.html",
-      "published_iso": "2026-05-31T02:58:10.286760+07:00",
-      "published_text": "31/05 02:58"
+      "published_iso": "2026-05-31T04:10:23.112162+07:00",
+      "published_text": "31/05 04:10"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/dong-hanh-cung-green-sm-nu-doanh-nhan-bac-giang-xay-dung-doanh-nghiep-hon-2000-xe-dien-tu-con-so-0-188260528164832685.chn",
-      "published_iso": "2026-05-31T02:58:08.455316+07:00",
-      "published_text": "31/05 02:58"
+      "published_iso": "2026-05-31T04:10:20.988672+07:00",
+      "published_text": "31/05 04:10"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/28-ngan-hang-lam-viec-ngay-dem-chuyen-khoan-100000-dong-cho-hang-trieu-nguoi-viet-toan-he-thong-vuot-qua-bai-test-chua-tung-co-sau-mot-thap-ky-so-hoa-188260529100451075.chn",
-      "published_iso": "2026-05-31T02:58:08.455225+07:00",
-      "published_text": "31/05 02:58"
+      "published_iso": "2026-05-31T04:10:20.988597+07:00",
+      "published_text": "31/05 04:10"
     }
   ],
   "markets": [
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 73906.0,
-      "change": 534.0,
-      "change_pct": 0.73,
+      "price": 73872.0,
+      "change": 499.0,
+      "change_pct": 0.68,
       "decimals": 0,
       "suffix": "",
       "note": "Gần nhất: 30/05 07:00"
@@ -324,7 +324,7 @@
       "change_pct": 0.0,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
+      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
     },
     {
       "name": "Hang Seng",
