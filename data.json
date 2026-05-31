@@ -1,7 +1,17 @@
 {
-  "updated_at": "2026-05-31T07:15:37.790091+07:00",
-  "updated_at_display": "31/05/2026 • 07:15 GMT+7",
+  "updated_at": "2026-05-31T11:53:36.565398+07:00",
+  "updated_at_display": "31/05/2026 • 11:53 GMT+7",
   "war_news": [
+    {
+      "source": "Al Jazeera",
+      "title": "Iran war live: Lebanon slams Israel’s invasion; US-Tehran deal in limbo",
+      "title_vi": "Chiến tranh Iran trực tiếp: Lebanon đóng sầm cuộc xâm lược của Israel; Thỏa thuận Mỹ-Tehran trong tình trạng lấp lửng",
+      "summary": "Lebanese PM describes Israel's attacks as collective punishment as US warns Iran of strikes if no deal is reached.",
+      "summary_vi": "Lebanese PM describes Israel's attacks as collective punishment as US warns Iran of strikes if no deal is reached.",
+      "url": "https://www.aljazeera.com/news/liveblog/2026/5/31/iran-war-live-lebanon-accuses-israel-of-scorched-earth-policy?traffic_source=rss",
+      "published_iso": "2026-05-31T07:00:50+07:00",
+      "published_text": "31/05 07:00"
+    },
     {
       "source": "Al Jazeera",
       "title": "US Congress advances American-Israeli military integration plan",
@@ -11,58 +21,48 @@
       "url": "https://www.aljazeera.com/news/2026/5/30/us-congress-advances-american-israeli-military-integration-plan?traffic_source=rss",
       "published_iso": "2026-05-31T05:28:09+07:00",
       "published_text": "31/05 05:28"
-    },
-    {
-      "source": "Al Jazeera",
-      "title": "Lebanese army ‘overly stretched’ to fight off latest Israeli invasion",
-      "title_vi": "Quân đội Lebanon ‘quá căng’ để chống lại cuộc xâm lược mới nhất của Israel",
-      "summary": "Geopolitical analyst Joe Macaron says the Lebanese army is ‘overly stretched’ as Israeli troops expand their occupation.",
-      "summary_vi": "Geopolitical analyst Joe Macaron says the Lebanese army is ‘overly stretched’ as Israeli troops expand their occupation.",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/5/30/lebanese-army-overly-stretched-to-fight-off-latest-israeli-invasion?traffic_source=rss",
-      "published_iso": "2026-05-31T04:36:42+07:00",
-      "published_text": "31/05 04:36"
     }
   ],
   "global_news": [
     {
       "source": "Investing News",
-      "title": "ECB’s Pereira says inflation requires action sooner rather than later",
-      "title_vi": "Pereira của ECB cho biết lạm phát đòi hỏi phải hành động sớm hơn là muộn hơn",
+      "title": "China factory activity stalls in May as demand weakens",
+      "title_vi": "Hoạt động của nhà máy ở Trung Quốc bị đình trệ trong tháng 5 do nhu cầu suy yếu",
       "summary": "",
       "summary_vi": "",
-      "url": "https://www.investing.com/news/economy-news/ecbs-pereira-says-inflation-requires-action-sooner-rather-than-later-4717790",
-      "published_iso": "2026-05-31T06:15:41+07:00",
-      "published_text": "31/05 06:15"
+      "url": "https://www.investing.com/news/economy-news/china-factory-activity-stalls-in-may-as-demand-weakens-4717812",
+      "published_iso": "2026-05-31T11:30:31+07:00",
+      "published_text": "31/05 11:30"
     },
     {
       "source": "Investing News",
-      "title": "ECB must act on inflation sooner rather than later, policymaker Pereira says",
-      "title_vi": "Nhà hoạch định chính sách Pereira nói rằng ECB phải hành động sớm hơn là muộn hơn đối với lạm phát",
+      "title": "Japan rejects China’s ’new militarism’ criticism, defense minister says",
+      "title_vi": "Bộ trưởng Quốc phòng Nhật Bản nói rằng Nhật Bản bác bỏ những lời chỉ trích ’chủ nghĩa quân phiệt mới' của Trung Quốc",
       "summary": "",
       "summary_vi": "",
-      "url": "https://www.investing.com/news/economy-news/ecb-must-act-on-inflation-sooner-rather-than-later-policymaker-pereira-says-4717787",
-      "published_iso": "2026-05-31T05:06:28+07:00",
-      "published_text": "31/05 05:06"
+      "url": "https://www.investing.com/news/economy-news/japan-rejects-chinas-new-militarism-criticism-defense-minister-says-4717816",
+      "published_iso": "2026-05-31T10:57:06+07:00",
+      "published_text": "31/05 10:57"
     },
     {
       "source": "Investing News",
-      "title": "What lies ahead for the Indian rupee in a higher oil price environment?",
-      "title_vi": "Điều gì đang chờ đợi đồng rupee Ấn Độ trong môi trường giá dầu cao hơn?",
+      "title": "Japan refutes ’new militarism’, accuses China of rapidly arming",
+      "title_vi": "Nhật Bản bác bỏ ’chủ nghĩa quân phiệt mới’, cáo buộc Trung Quốc vũ trang nhanh chóng",
       "summary": "",
       "summary_vi": "",
-      "url": "https://www.investing.com/news/forex-news/what-lies-ahead-for-the-indian-rupee-in-a-higher-oil-price-environment-4717786",
-      "published_iso": "2026-05-31T04:28:55+07:00",
-      "published_text": "31/05 04:28"
+      "url": "https://www.investing.com/news/world-news/japan-refutes-new-militarism-accuses-china-of-rapidly-arming-4717815",
+      "published_iso": "2026-05-31T10:30:28+07:00",
+      "published_text": "31/05 10:30"
     },
     {
-      "source": "Google News Macro",
-      "title": "California just handed oil companies billions in free pollution permits - CalMatters",
-      "title_vi": "California vừa trao cho các công ty dầu mỏ hàng tỷ đô la giấy phép ô nhiễm miễn phí - CalMatters",
-      "summary": "California just handed oil companies billions in free pollution permits CalMatters",
-      "summary_vi": "California just handed oil companies billions in free pollution permits CalMatters",
-      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNVzFWZG5fMDY5LWFYRHc3Z0NkaUxSZVNod2dwbHR1ckRjRzBGaTk1VEhBcTV0Z1dRWEZKdlotb04wNHlKNmRqQXpSRzNpT25Dd3JnOHhkaV9nVS1qVWI0cFhhVFZsV2Vtd0RTRlMyWk5GWjl5Nl9Sb2s2WHYwTE5yZUJfQUgwUjUtVHdaUXMyVFBhcWx4Y0UwQ05nd29Tdw?oc=5",
-      "published_iso": "2026-05-30T09:23:06+07:00",
-      "published_text": "30/05 09:23"
+      "source": "Investing News",
+      "title": "China factory activity slips in May as economic momentum softens",
+      "title_vi": "Hoạt động của nhà máy Trung Quốc giảm trong tháng 5 khi đà tăng trưởng kinh tế dịu đi",
+      "summary": "",
+      "summary_vi": "",
+      "url": "https://www.investing.com/news/economy-news/china-factory-activity-slips-in-may-as-economic-momentum-softens-4717814",
+      "published_iso": "2026-05-31T10:29:59+07:00",
+      "published_text": "31/05 10:29"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-phu-tho-dau-gia-quyen-su-dung-4-o-dat-o-tai-khu-cho-huong-nha-xa-hien-quan-tinh-phu-tho-51214.html",
-      "published_iso": "2026-05-31T07:16:30.337329+07:00",
-      "published_text": "31/05 07:16"
+      "published_iso": "2026-05-31T11:54:32.708575+07:00",
+      "published_text": "31/05 11:54"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,48 +83,48 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-phu-tho-dau-gia-quyen-su-dung-1-o-dat-o-tai-khu-7-hung-hoa-xa-tam-nong-tinh-phu-tho-51215.html",
-      "published_iso": "2026-05-31T07:16:30.337257+07:00",
-      "published_text": "31/05 07:16"
+      "published_iso": "2026-05-31T11:54:32.708510+07:00",
+      "published_text": "31/05 11:54"
     },
     {
       "source": "VietnamFinance",
-      "title": "Hướng dẫn chi tiết kê khai, nộp thuế đối với người có nhà, chung cư cho thuê",
-      "title_vi": "Hướng dẫn chi tiết kê khai, nộp thuế đối với người có nhà, chung cư cho thuê",
+      "title": "An toàn tài chính ở tuổi 50: Xây ba lớp bảo vệ cho bạn và gia đình",
+      "title_vi": "An toàn tài chính ở tuổi 50: Xây ba lớp bảo vệ cho bạn và gia đình",
       "summary": "",
       "summary_vi": "",
-      "url": "https://vietnamfinance.vn/huong-dan-chi-tiet-ke-khai-nop-thue-doi-voi-nguoi-co-nha-chung-cu-cho-thue-d145532.html",
-      "published_iso": "2026-05-31T07:16:28.731628+07:00",
-      "published_text": "31/05 07:16"
+      "url": "https://vietnamfinance.vn/an-toan-tai-chinh-o-tuoi-50-xay-ba-lop-bao-ve-cho-ban-va-gia-dinh-d145399.html",
+      "published_iso": "2026-05-31T11:54:31.066896+07:00",
+      "published_text": "31/05 11:54"
     },
     {
       "source": "VietnamFinance",
-      "title": "Giá vàng tuần qua: Vàng nhẫn, vàng miếng 'rớt đài'",
-      "title_vi": "Giá vàng tuần qua: Vàng nhẫn, vàng miếng 'rớt đài'",
+      "title": "Ajinomoto: DN bột ngọt bất ngờ thắng lớn trong cơn sốt cổ phiếu công nghệ",
+      "title_vi": "Ajinomoto: DN bột ngọt bất ngờ thắng lớn trong cơn sốt cổ phiếu công nghệ",
       "summary": "",
       "summary_vi": "",
-      "url": "https://vietnamfinance.vn/gia-vang-tuan-qua-vang-nhan-vang-mieng-rot-dai-d145549.html",
-      "published_iso": "2026-05-31T07:16:28.731560+07:00",
-      "published_text": "31/05 07:16"
+      "url": "https://vietnamfinance.vn/ajinomoto-dn-bot-ngot-bat-ngo-la-thang-lon-trong-con-sot-co-phieu-cong-nghe-d145543.html",
+      "published_iso": "2026-05-31T11:54:31.066812+07:00",
+      "published_text": "31/05 11:54"
     },
     {
       "source": "CafeF",
-      "title": "Đồng hành cùng Green SM, nữ doanh nhân Bắc Giang xây dựng doanh nghiệp hơn 2.000 xe điện từ con số 0",
-      "title_vi": "Đồng hành cùng Green SM, nữ doanh nhân Bắc Giang xây dựng doanh nghiệp hơn 2.000 xe điện từ con số 0",
+      "title": "Từ trạm thu phí đến “hệ sinh thái giao thông” Vì sao VETC chọn cứu hộ là “mảnh ghép” tiếp theo?",
+      "title_vi": "Từ trạm thu phí đến “hệ sinh thái giao thông” Vì sao VETC chọn cứu hộ là “mảnh ghép” tiếp theo?",
       "summary": "",
       "summary_vi": "",
-      "url": "https://cafef.vn/dong-hanh-cung-green-sm-nu-doanh-nhan-bac-giang-xay-dung-doanh-nghiep-hon-2000-xe-dien-tu-con-so-0-188260528164832685.chn",
-      "published_iso": "2026-05-31T07:16:26.617542+07:00",
-      "published_text": "31/05 07:16"
+      "url": "https://cafef.vn/tu-tram-thu-phi-den-he-sinh-thai-giao-thong-vi-sao-vetc-chon-cuu-ho-la-manh-ghep-tiep-theo-188260529180014283.chn",
+      "published_iso": "2026-05-31T11:54:28.843669+07:00",
+      "published_text": "31/05 11:54"
     },
     {
       "source": "CafeF",
-      "title": "28 ngân hàng làm việc ngày đêm, chuyển khoản 100.000 đồng cho hàng triệu người Việt: Toàn hệ thống vượt qua “bài test” chưa từng có sau một thập kỷ số hóa",
-      "title_vi": "28 ngân hàng làm việc ngày đêm, chuyển khoản 100.000 đồng cho hàng triệu người Việt: Toàn hệ thống vượt qua “bài test” chưa từng có sau một thập kỷ số hóa",
+      "title": "Đặng Huỳnh Ức My: Người gieo niềm tin vào hệ sinh thái nông nghiệp bền vững",
+      "title_vi": "Đặng Huỳnh Ức My: Người gieo niềm tin vào hệ sinh thái nông nghiệp bền vững",
       "summary": "",
       "summary_vi": "",
-      "url": "https://cafef.vn/28-ngan-hang-lam-viec-ngay-dem-chuyen-khoan-100000-dong-cho-hang-trieu-nguoi-viet-toan-he-thong-vuot-qua-bai-test-chua-tung-co-sau-mot-thap-ky-so-hoa-188260529100451075.chn",
-      "published_iso": "2026-05-31T07:16:26.617450+07:00",
-      "published_text": "31/05 07:16"
+      "url": "https://cafef.vn/dang-huynh-uc-my-nguoi-gieo-niem-tin-vao-he-sinh-thai-nong-nghiep-ben-vung-18826052815212681.chn",
+      "published_iso": "2026-05-31T11:54:28.843591+07:00",
+      "published_text": "31/05 11:54"
     }
   ],
   "markets": [
@@ -143,9 +143,9 @@
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 92.05,
-      "change": -1.66,
-      "change_pct": -1.77,
+      "price": 91.12,
+      "change": -2.59,
+      "change_pct": -2.76,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 29/05 11:00"
@@ -165,9 +165,9 @@
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4560.5,
-      "change": 61.2,
-      "change_pct": 1.36,
+      "price": 4593.0,
+      "change": 93.7,
+      "change_pct": 2.08,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 29/05 11:00"
@@ -176,9 +176,9 @@
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 75.62,
-      "change": -0.03,
-      "change_pct": -0.04,
+      "price": 75.88,
+      "change": 0.23,
+      "change_pct": 0.3,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 29/05 11:00"
@@ -187,9 +187,9 @@
       "name": "Copper",
       "symbol": "HG=F",
       "category": "Metals",
-      "price": 6.36,
-      "change": -0.04,
-      "change_pct": -0.57,
+      "price": 6.39,
+      "change": -0.01,
+      "change_pct": -0.11,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 29/05 11:00"
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 73787.0,
-      "change": 415.0,
-      "change_pct": 0.57,
+      "price": 74069.0,
+      "change": 697.0,
+      "change_pct": 0.95,
       "decimals": 0,
       "suffix": "",
       "note": "Gần nhất: 31/05 07:00"
@@ -324,7 +324,7 @@
       "change_pct": 0.0,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
+      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
     },
     {
       "name": "Hang Seng",
