@@ -1,7 +1,17 @@
 {
-  "updated_at": "2026-07-03T22:15:53.935980+07:00",
-  "updated_at_display": "03/07/2026 • 22:15 GMT+7",
+  "updated_at": "2026-07-03T23:46:13.034655+07:00",
+  "updated_at_display": "03/07/2026 • 23:46 GMT+7",
   "war_news": [
+    {
+      "source": "Al Jazeera",
+      "title": "Yemen’s Houthis threaten Saudi Arabia after alleged airspace intrusion",
+      "title_vi": "Houthis của Yemen đe dọa Ả Rập Saudi sau khi bị cáo buộc xâm nhập không phận",
+      "summary": "This is a breaking news story.",
+      "summary_vi": "This is a breaking news story.",
+      "url": "https://www.aljazeera.com/news/2026/7/3/yemens-houthis-threaten-saudi-arabia-after-alleged-airspace-intrusion?traffic_source=rss",
+      "published_iso": "2026-07-03T22:44:30+07:00",
+      "published_text": "03/07 22:44"
+    },
     {
       "source": "Al Jazeera",
       "title": "Gaza sports community pledges to continue legacy of killed goalkeeper",
@@ -11,28 +21,18 @@
       "url": "https://www.aljazeera.com/sports/2026/7/3/gaza-sports-community-pledges-to-continue-legacy-of-killed-goalkeeper?traffic_source=rss",
       "published_iso": "2026-07-03T21:43:21+07:00",
       "published_text": "03/07 21:43"
-    },
-    {
-      "source": "Al Jazeera",
-      "title": "Don’t eat your greens? A diet taking Yemen by storm has doctors worried",
-      "title_vi": "Bạn không ăn rau xanh? Một chế độ ăn uống gây bão ở Yemen khiến các bác sĩ lo lắng",
-      "summary": "Hospitals in Yemen report increase in workload after struck off doctor encourages diabetes patients not to take insulin.",
-      "summary_vi": "Hospitals in Yemen report increase in workload after struck off doctor encourages diabetes patients not to take insulin.",
-      "url": "https://www.aljazeera.com/features/2026/7/3/dont-eat-your-greens-a-diet-taking-yemen-by-storm-has-doctors-worried?traffic_source=rss",
-      "published_iso": "2026-07-03T19:15:50+07:00",
-      "published_text": "03/07 19:15"
     }
   ],
   "global_news": [
     {
-      "source": "Investing News",
-      "title": "Dollar set for biggest weekly drop since April after jobs data lowers Fed hike bets",
-      "title_vi": "Đô la được thiết lập cho mức giảm hàng tuần lớn nhất kể từ tháng 4 sau khi dữ liệu việc làm giảm cược tăng của Fed",
-      "summary": "",
-      "summary_vi": "",
-      "url": "https://www.investing.com/news/economy-news/dollar-heads-for-weekly-drop-as-jobs-data-dims-fed-hike-bets-4774963",
-      "published_iso": "2026-07-03T21:06:27+07:00",
-      "published_text": "03/07 21:06"
+      "source": "Google News Macro",
+      "title": "Proposed oil pipeline to B.C. coast spurs alarm in Washington state - Washington State Standard",
+      "title_vi": "Đường ống dẫn dầu được đề xuất đến bờ biển B.C. thúc đẩy báo động ở tiểu bang Washington - Tiêu chuẩn Tiểu bang Washington",
+      "summary": "Proposed oil pipeline to B.C. coast spurs alarm in Washington state Washington State Standard",
+      "summary_vi": "Proposed oil pipeline to B.C. coast spurs alarm in Washington state Washington State Standard",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPVk9URDMzOER3THFFczJuLVZFRnNYZlNORmoxUldMS1JtbHRsb2NMcUxuSmR5V1NJZVdzVU9FaHA1MkFqWVlFc1UzMVZadDVuLVRnUGNxRlhMOFR3MUxjTTBOVXRhRDBrY05MTVg2bVk1Tlo4djBBcTNOWHBQMlpBbC1JU1hzTll0cEhBaFhuUEpiU01zZXRnZTZPMmU1b0JZelVJS2hJNkxWMUJhdDRuLWljalA?oc=5",
+      "published_iso": "2026-07-03T11:18:16+07:00",
+      "published_text": "03/07 11:18"
     },
     {
       "source": "Google News Macro",
@@ -46,16 +46,6 @@
     },
     {
       "source": "Google News Macro",
-      "title": "Europe Learns It’s Hard to Start a Trade War With China During a Heat Wave - WSJ",
-      "title_vi": "Châu Âu học được rằng thật khó để bắt đầu một cuộc chiến thương mại với Trung Quốc trong một đợt nắng nóng - WSJ",
-      "summary": "Europe Learns It’s Hard to Start a Trade War With China During a Heat Wave WSJ",
-      "summary_vi": "Europe Learns It’s Hard to Start a Trade War With China During a Heat Wave WSJ",
-      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPN05pWVpKT083d3RBdnVnYTlMR0ZSRUtucURkc2xTSFI0dWQ0cC1mODZkOEZYZlZ4VlVURmVNQjFXanRzVko1amxGZzdCWGdNcjZ2MFZWNVltVnRlbUwtc3E4ejBFQ0haQjhkQjlJMnY0eGxydXh5VFVfZlNGWUd1N0JaY0Rsb2FwZUJXY011aUNSeU5FMW5mYzhjOGl3OVNFSTJyS1dySWEySlZDMFdueFhaeFI?oc=5",
-      "published_iso": "2026-07-02T10:00:00+07:00",
-      "published_text": "02/07 10:00"
-    },
-    {
-      "source": "Google News Macro",
       "title": "Oil prices little changed after Qatar says U.S. and Iran made progress during talks - CNBC",
       "title_vi": "Giá dầu ít thay đổi sau khi Qatar cho biết Mỹ và Iran đã đạt được tiến bộ trong các cuộc đàm phán - CNBC",
       "summary": "Oil prices little changed after Qatar says U.S. and Iran made progress during talks CNBC",
@@ -63,6 +53,16 @@
       "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOeTdXcndKaXpDT1kzUUhQblRjdFRrNkpFcV9tT1ZiMFhXVGZ5bWZKblJtejlZbXIyRjc5MFgzWURET1FnakNkSzZ0OHpGcHdqbHpGNU1mU1pzVXBqTXdQV3VoMHNUNjN4SS1iVmRZUHA0b29iTDg5eHV2OFF5UGY4RnNsaEhBT0ZWOW1tMU5hamx6bGPSAZgBQVVfeXFMTUZWOUI0c3lUZXlSUXFXelJ5dUJsempZbTI2aTVvUU5fWmloUHZMaC15UXhxajdmekZvNnd5NFV2MDBoWXVjdGhLWmNEWEl4NU9ZZlJycmF3OHBkSlRQV21mX1FLQ0xma2FjVFNaWm8xWlQtZkkzRjJ4dlZ0SWtOVVVVLUZUYXdXeklaYkdCbENtV0R4TjFhYzE?oc=5",
       "published_iso": "2026-07-02T07:59:00+07:00",
       "published_text": "02/07 07:59"
+    },
+    {
+      "source": "Google News Macro",
+      "title": "Warsh Says Inflation Outlook Has Improved but Won’t Say if Fed Should Hike Rates - WSJ",
+      "title_vi": "Warsh cho biết triển vọng lạm phát đã được cải thiện nhưng sẽ không nói liệu Fed có nên tăng lãi suất hay không - WSJ",
+      "summary": "Warsh Says Inflation Outlook Has Improved but Won’t Say if Fed Should Hike Rates WSJ",
+      "summary_vi": "Warsh Says Inflation Outlook Has Improved but Won’t Say if Fed Should Hike Rates WSJ",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPbWZJM0ZuSFhEZHEwbEFMNmxrSHd5WmkzNjE5QVdoWVlaazlXUm9xbDBrdm1fdUctWkhrcndJejg1ZTFDN05pVmVFRk1MT05JanFFQ1hFanEwMDNFQjdjMmJvaFFlMDVwbVlBUHFvSVF5NlBBa0lxTVFydzE3ZFM0cVY2M3U1dw?oc=5",
+      "published_iso": "2026-07-02T01:54:00+07:00",
+      "published_text": "02/07 01:54"
     }
   ],
   "vn_news": [
@@ -73,8 +73,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/trung-tam-dich-vu-dau-gia-tai-san-pleiku-dau-gia-1-xe-o-to-nhan-hieu-toyota-inova-bien-so-81c-27449-va-1-xe-may-cay-hinomoto-e324n-xuat-xu-nhat-ban-cua-cong-ty-ca-phe-ia-sao-2-51825.html",
-      "published_iso": "2026-07-03T22:16:40.584346+07:00",
-      "published_text": "03/07 22:16"
+      "published_iso": "2026-07-03T23:47:05.300739+07:00",
+      "published_text": "03/07 23:47"
     },
     {
       "source": "Thời báo Tài chính VN",
@@ -83,8 +83,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://taisancong.vn/cong-ty-dau-gia-hop-danh-nhat-an-phu-chi-nhanh-lao-cai-2-dau-gia-quyen-khai-thac-khoang-san-doi-voi-mo-cat-soi-tren-song-hong-xa-mau-a-va-xa-xuan-ai-tinh-lao-cai-51824.html",
-      "published_iso": "2026-07-03T22:16:40.584262+07:00",
-      "published_text": "03/07 22:16"
+      "published_iso": "2026-07-03T23:47:05.300668+07:00",
+      "published_text": "03/07 23:47"
     },
     {
       "source": "VietnamFinance",
@@ -93,8 +93,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/tam-dem-an-sinh-giup-giam-tien-thue-nha-cho-hang-trieu-nguoi-o-phap-d146813.html",
-      "published_iso": "2026-07-03T22:16:38.234667+07:00",
-      "published_text": "03/07 22:16"
+      "published_iso": "2026-07-03T23:47:03.881056+07:00",
+      "published_text": "03/07 23:47"
     },
     {
       "source": "VietnamFinance",
@@ -103,8 +103,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://vietnamfinance.vn/duoc-giam-tru-chi-phi-y-te-giao-duc-toi-da-47-trieu-thu-nhap-bao-nhieu-phai-nop-thue-d147066.html",
-      "published_iso": "2026-07-03T22:16:38.234589+07:00",
-      "published_text": "03/07 22:16"
+      "published_iso": "2026-07-03T23:47:03.880994+07:00",
+      "published_text": "03/07 23:47"
     },
     {
       "source": "CafeF",
@@ -113,8 +113,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/qp-holdings-tu-tai-dinh-vi-thuong-hieu-den-hanh-trinh-tro-thanh-nha-phat-trien-bat-dong-san-dinh-huong-tap-doan-dau-tu-188260701184753288.chn",
-      "published_iso": "2026-07-03T22:16:35.786929+07:00",
-      "published_text": "03/07 22:16"
+      "published_iso": "2026-07-03T23:47:01.901402+07:00",
+      "published_text": "03/07 23:47"
     },
     {
       "source": "CafeF",
@@ -123,8 +123,8 @@
       "summary": "",
       "summary_vi": "",
       "url": "https://cafef.vn/ban-trai-nghiem-thay-vi-ban-san-pham-vib-dua-mo-hinh-hoi-vien-vao-tai-chinh-ca-nhan-188260628214225209.chn",
-      "published_iso": "2026-07-03T22:16:35.786843+07:00",
-      "published_text": "03/07 22:16"
+      "published_iso": "2026-07-03T23:47:01.901326+07:00",
+      "published_text": "03/07 23:47"
     }
   ],
   "markets": [
@@ -132,9 +132,9 @@
       "name": "WTI",
       "symbol": "CL=F",
       "category": "Energy",
-      "price": 68.63,
-      "change": -0.06,
-      "change_pct": -0.09,
+      "price": 68.64,
+      "change": -0.05,
+      "change_pct": -0.07,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 03/07 11:00"
@@ -143,9 +143,9 @@
       "name": "Brent",
       "symbol": "BZ=F",
       "category": "Energy",
-      "price": 71.93,
-      "change": 0.13,
-      "change_pct": 0.18,
+      "price": 71.97,
+      "change": 0.17,
+      "change_pct": 0.24,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 03/07 11:00"
@@ -154,9 +154,9 @@
       "name": "Natural Gas",
       "symbol": "NG=F",
       "category": "Energy",
-      "price": 3.24,
-      "change": 0.04,
-      "change_pct": 1.28,
+      "price": 3.25,
+      "change": 0.05,
+      "change_pct": 1.63,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 03/07 11:00"
@@ -165,9 +165,9 @@
       "name": "Gold",
       "symbol": "GC=F",
       "category": "Metals",
-      "price": 4184.0,
-      "change": 71.3,
-      "change_pct": 1.73,
+      "price": 4180.8,
+      "change": 68.1,
+      "change_pct": 1.66,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 03/07 11:00"
@@ -176,9 +176,9 @@
       "name": "Silver",
       "symbol": "SI=F",
       "category": "Metals",
-      "price": 62.9,
-      "change": 2.26,
-      "change_pct": 3.73,
+      "price": 62.72,
+      "change": 2.08,
+      "change_pct": 3.43,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 03/07 11:00"
@@ -188,8 +188,8 @@
       "symbol": "HG=F",
       "category": "Metals",
       "price": 6.22,
-      "change": 0.11,
-      "change_pct": 1.8,
+      "change": 0.1,
+      "change_pct": 1.69,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 03/07 11:00"
@@ -209,9 +209,9 @@
       "name": "DXY",
       "symbol": "DX-Y.NYB",
       "category": "FX",
-      "price": 100.84,
-      "change": -0.02,
-      "change_pct": -0.02,
+      "price": 100.87,
+      "change": 0.01,
+      "change_pct": 0.01,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 03/07 11:00"
@@ -220,9 +220,9 @@
       "name": "EUR/USD",
       "symbol": "EURUSD=X",
       "category": "FX",
-      "price": 1.1446,
-      "change": 0.0068,
-      "change_pct": 0.59,
+      "price": 1.1439,
+      "change": 0.0061,
+      "change_pct": 0.54,
       "decimals": 4,
       "suffix": "",
       "note": "Gần nhất: 03/07 06:00"
@@ -231,9 +231,9 @@
       "name": "BTC/USD",
       "symbol": "BTC-USD",
       "category": "Crypto",
-      "price": 62044.0,
-      "change": 558.0,
-      "change_pct": 0.91,
+      "price": 61982.0,
+      "change": 497.0,
+      "change_pct": 0.81,
       "decimals": 0,
       "suffix": "",
       "note": "Gần nhất: 03/07 07:00"
@@ -286,9 +286,9 @@
       "name": "VIX",
       "symbol": "^VIX",
       "category": "US",
-      "price": 15.78,
-      "change": -0.37,
-      "change_pct": -2.29,
+      "price": 15.81,
+      "change": -0.34,
+      "change_pct": -2.11,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 03/07 12:00"
@@ -297,9 +297,9 @@
       "name": "FTSE 100",
       "symbol": "^FTSE",
       "category": "Europe",
-      "price": 10673.94,
-      "change": 21.04,
-      "change_pct": 0.2,
+      "price": 10679.03,
+      "change": 26.13,
+      "change_pct": 0.25,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 03/07 06:00"
@@ -308,9 +308,9 @@
       "name": "Euro Stoxx 50",
       "symbol": "^STOXX50E",
       "category": "Europe",
-      "price": 6419.56,
-      "change": 59.09,
-      "change_pct": 0.93,
+      "price": 6412.68,
+      "change": 52.21,
+      "change_pct": 0.82,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 03/07 05:00"
@@ -324,15 +324,15 @@
       "change_pct": 0.0,
       "decimals": 2,
       "suffix": "",
-      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
+      "note": "Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu cũ giữ lại • Dữ liệu gần nhất: 13/05 00:00"
     },
     {
       "name": "Hang Seng",
       "symbol": "^HSI",
       "category": "Asia",
-      "price": 23350.03,
-      "change": 295.0,
-      "change_pct": 1.28,
+      "price": NaN,
+      "change": NaN,
+      "change_pct": NaN,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 02/07 23:00"
@@ -363,9 +363,9 @@
       "name": "Shanghai Composite",
       "symbol": "000001.SS",
       "category": "Asia",
-      "price": 4043.64,
-      "change": 14.74,
-      "change_pct": 0.37,
+      "price": NaN,
+      "change": NaN,
+      "change_pct": NaN,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 02/07 23:00"
@@ -374,9 +374,9 @@
       "name": "Shenzhen Component",
       "symbol": "399001.SZ",
       "category": "Asia",
-      "price": 15597.51,
-      "change": 98.7,
-      "change_pct": 0.64,
+      "price": NaN,
+      "change": NaN,
+      "change_pct": NaN,
       "decimals": 2,
       "suffix": "",
       "note": "Gần nhất: 02/07 23:00"
