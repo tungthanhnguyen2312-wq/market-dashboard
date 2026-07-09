@@ -1,74 +1,463 @@
 /* ============================================================
  * VNSTOCK Dashboard — style.css
- * Tùy chỉnh nhẹ trên nền Bootstrap 5.
+ * Design system Dark Mode (phong cách TradingView / Koyfin)
+ * Nền Bootstrap 5 (data-bs-theme="dark") + CSS variables.
  * ============================================================ */
 
-body {
-  background-color: #f4f6f9;
+:root {
+  --bg: #0F172A;
+  --surface: #1E293B;
+  --surface-2: #253248;
+  --surface-3: #2c3b55;
+  --border: #334155;
+  --border-soft: rgba(148, 163, 184, 0.13);
+  --text: #F8FAFC;
+  --text-muted: #94A3B8;
+  --primary: #3B82F6;
+  --primary-soft: rgba(59, 130, 246, 0.15);
+  --success: #22C55E;
+  --success-soft: rgba(34, 197, 94, 0.14);
+  --warning: #F59E0B;
+  --warning-soft: rgba(245, 158, 11, 0.14);
+  --danger: #EF4444;
+  --danger-soft: rgba(239, 68, 68, 0.14);
+  --radius-lg: 16px;
+  --radius-md: 10px;
+  --radius-pill: 999px;
+  --shadow-card: 0 1px 2px rgba(2, 6, 23, 0.5), 0 8px 24px rgba(2, 6, 23, 0.35);
+  --font-sans: "Inter", -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
-/* ---------- Khu vực 1: Báo cáo AI (Markdown) ---------- */
+/* ---------- Base ---------- */
+html { scroll-behavior: smooth; }
+
+body {
+  background:
+    radial-gradient(1100px 500px at 85% -10%, rgba(59, 130, 246, 0.09), transparent 60%),
+    var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 0.925rem;
+  line-height: 1.6;
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: #475569; }
+
+h1, h2, h3, h4, h5, h6 { font-weight: 600; }
+
+/* ---------- Card / Panel ---------- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  animation: fadeInUp 0.45s ease both;
+  transition: border-color 0.2s ease;
+}
+
+.card:hover { border-color: rgba(148, 163, 184, 0.28); }
+
+.card-header {
+  background: transparent;
+  border-bottom: 1px solid var(--border-soft);
+  padding: 0.95rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-top-left-radius: var(--radius-lg) !important;
+  border-top-right-radius: var(--radius-lg) !important;
+}
+
+.card-header h5 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card-header .card-icon { font-size: 1rem; }
+
+.card-body { padding: 1.15rem 1.25rem; }
+
+.card-footer {
+  background: transparent;
+  border-top: 1px solid var(--border-soft);
+  color: var(--text-muted);
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- KPI Cards ---------- */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 0.9rem;
+}
+
+.kpi {
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 0.95rem 1.1rem;
+  animation: fadeInUp 0.45s ease both;
+  transition: transform 0.18s ease, border-color 0.18s ease;
+}
+
+.kpi:hover { transform: translateY(-2px); border-color: rgba(148, 163, 184, 0.3); }
+
+.kpi-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 0.3rem;
+}
+
+.kpi-value {
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+
+.kpi-sub {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+}
+
+.kpi-value.text-success { color: var(--success) !important; }
+.kpi-value.text-warning { color: var(--warning) !important; }
+.kpi-value.text-danger { color: var(--danger) !important; }
+
+.kpi-bar {
+  height: 4px;
+  border-radius: 2px;
+  background: var(--border);
+  margin-top: 0.55rem;
+  overflow: hidden;
+}
+
+.kpi-bar > span {
+  display: block;
+  height: 100%;
+  border-radius: 2px;
+  background: var(--primary);
+  transition: width 0.8s ease;
+}
+
+/* ---------- Badges (conditional formatting) ---------- */
+.badge-soft {
+  display: inline-block;
+  padding: 0.14rem 0.5rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.35;
+  font-variant-numeric: tabular-nums;
+}
+
+.bs-green  { background: var(--success-soft); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.3); }
+.bs-amber  { background: var(--warning-soft); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+.bs-red    { background: var(--danger-soft);  color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
+.bs-blue   { background: var(--primary-soft); color: #93c5fd; border: 1px solid rgba(59, 130, 246, 0.3); }
+.bs-gray   { background: rgba(148, 163, 184, 0.1); color: var(--text-muted); border: 1px solid var(--border-soft); }
+
+.val-pos { color: #4ade80; font-weight: 600; font-variant-numeric: tabular-nums; }
+.val-neg { color: #f87171; font-weight: 600; font-variant-numeric: tabular-nums; }
+.val-strong { color: #4ade80; font-weight: 700; font-variant-numeric: tabular-nums; }
+.val-muted { color: var(--text-muted); }
+.val-check { color: var(--success); }
+.val-dot { color: #475569; }
+
+/* ---------- Buttons ---------- */
+.btn { border-radius: var(--radius-md); font-weight: 600; transition: all 0.18s ease; }
+
+.btn-primary {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+.btn-primary:hover { background: #2563eb; border-color: #2563eb; transform: translateY(-1px); }
+
+.btn-outline-secondary {
+  color: var(--text-muted);
+  border-color: var(--border);
+}
+.btn-outline-secondary:hover { background: var(--surface-2); border-color: #475569; color: var(--text); }
+
+/* ---------- Quick filter chips ---------- */
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.chip {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  border-radius: var(--radius-pill);
+  padding: 0.32rem 0.8rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.16s ease;
+  user-select: none;
+}
+
+.chip:hover { border-color: var(--primary); color: #bfdbfe; background: rgba(59, 130, 246, 0.07); }
+
+.chip.active {
+  background: var(--primary-soft);
+  border-color: var(--primary);
+  color: #93c5fd;
+}
+
+.chip-clear { border-style: dashed; }
+.chip-clear:hover { border-color: var(--danger); color: #fca5a5; background: var(--danger-soft); }
+
+/* ---------- Forms ---------- */
+.form-select, .form-control,
+div.dt-container .dt-search input,
+div.dt-container .dt-length select {
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+}
+
+.form-select:focus, .form-control:focus,
+div.dt-container .dt-search input:focus {
+  background-color: var(--bg);
+  border-color: var(--primary);
+  color: var(--text);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.18);
+}
+
+.form-label-sm {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+}
+
+/* ---------- Bảng screener (phong cách TradingView) ---------- */
+#market-table {
+  --bs-table-bg: transparent;
+  --bs-table-color: var(--text);
+  --bs-table-striped-bg: rgba(148, 163, 184, 0.035);
+  --bs-table-striped-color: var(--text);
+  --bs-table-hover-bg: rgba(59, 130, 246, 0.09);
+  --bs-table-hover-color: var(--text);
+  --bs-table-border-color: var(--border-soft);
+  font-size: 0.8rem;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+#market-table tbody tr { transition: background-color 0.12s ease; }
+
+#market-table thead th {
+  background: #17223B;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--border);
+  padding: 0.55rem 0.75rem;
+}
+
+#market-table tbody td { padding: 0.42rem 0.75rem; border-bottom: 1px solid rgba(148, 163, 184, 0.06); }
+
+#market-table td.ticker-cell { font-weight: 700; color: #bfdbfe; }
+
+/* Header cố định khi cuộn dọc (DataTables scrollY) */
+div.dt-scroll-head { position: sticky; top: 0; z-index: 5; }
+div.dt-scroll-head table { box-shadow: 0 2px 6px rgba(2, 6, 23, 0.5); }
+div.dt-scroll-body { border-bottom: 1px solid var(--border-soft); }
+
+div.dt-container .dt-info { color: var(--text-muted); font-size: 0.78rem; padding-top: 0.8rem; }
+div.dt-container .dt-length label, div.dt-container .dt-search label { color: var(--text-muted); font-size: 0.8rem; }
+
+div.dt-container .dt-paging .dt-paging-button {
+  color: var(--text-muted) !important;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  font-size: 0.8rem;
+}
+div.dt-container .dt-paging .dt-paging-button:hover {
+  background: var(--surface-2) !important;
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+}
+div.dt-container .dt-paging .dt-paging-button.current {
+  background: var(--primary-soft) !important;
+  border-color: var(--primary) !important;
+  color: #93c5fd !important;
+}
+
+table.dataTable thead .dt-column-order:before,
+table.dataTable thead .dt-column-order:after { color: var(--primary); }
+
+/* ---------- Khu vực báo cáo AI (Markdown) ---------- */
 .report-content {
-  max-height: 620px;
-  overflow-y: auto;
-  line-height: 1.65;
+  line-height: 1.7;
+  font-size: 0.9rem;
+}
+
+.report-content.collapsed {
+  max-height: 430px;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent);
+  mask-image: linear-gradient(to bottom, #000 78%, transparent);
 }
 
 .report-content h1 {
-  font-size: 1.45rem;
-  border-bottom: 2px solid #dee2e6;
-  padding-bottom: 0.4rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-soft);
 }
 
 .report-content h2 {
-  font-size: 1.2rem;
-  margin-top: 1.25rem;
-  color: #0d6efd;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #93c5fd;
+  margin-top: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
 }
 
-.report-content h3 {
-  font-size: 1.05rem;
-  margin-top: 1rem;
-}
+.report-content h3 { font-size: 0.92rem; font-weight: 600; margin-top: 1rem; }
 
 .report-content code {
-  background-color: #eef1f5;
-  color: #b02a37;
-  padding: 0.1rem 0.35rem;
-  border-radius: 4px;
+  background: var(--primary-soft);
+  color: #93c5fd;
+  padding: 0.1rem 0.4rem;
+  border-radius: 6px;
+  font-size: 0.8em;
 }
 
 .report-content blockquote {
-  border-left: 4px solid #0d6efd;
+  border-left: 3px solid var(--primary);
   padding-left: 1rem;
-  color: #6c757d;
+  color: var(--text-muted);
 }
 
-.report-content table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 1rem;
+.report-content table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; }
+.report-content table th, .report-content table td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.65rem;
+  font-size: 0.85rem;
 }
 
-.report-content table th,
-.report-content table td {
-  border: 1px solid #dee2e6;
-  padding: 0.35rem 0.6rem;
+.report-content em { color: var(--text-muted); }
+
+/* ---------- Watchlist ---------- */
+.watch-item {
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  background: rgba(15, 23, 42, 0.45);
+  margin-bottom: 0.6rem;
+  overflow: hidden;
+  transition: border-color 0.15s ease;
 }
 
-/* ---------- Khu vực 2: Bảng dữ liệu ---------- */
-#market-table {
-  font-size: 0.82rem;
-  white-space: nowrap;
+.watch-item:hover { border-color: var(--border); }
+
+.watch-item summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.8rem;
 }
 
-.val-pos { color: #198754; font-weight: 600; }
-.val-neg { color: #dc3545; font-weight: 600; }
+.watch-item summary::-webkit-details-marker { display: none; }
 
-/* ---------- Khu vực 3: Sidebar lưu trữ ---------- */
-@media (min-width: 992px) {
-  .sidebar-sticky {
-    position: sticky;
-    top: 1rem;
-  }
+.watch-ticker { font-weight: 700; font-size: 0.95rem; letter-spacing: 0.02em; }
+
+.watch-caret { margin-left: auto; color: var(--text-muted); font-size: 0.7rem; transition: transform 0.2s ease; }
+.watch-item[open] .watch-caret { transform: rotate(180deg); }
+
+.watch-body { padding: 0 0.8rem 0.75rem; font-size: 0.8rem; color: var(--text-muted); }
+.watch-body p { margin-bottom: 0.5rem; color: #cbd5e1; }
+
+.watch-risks { margin: 0; padding-left: 1.1rem; }
+.watch-risks li { color: #fca5a5; font-size: 0.76rem; margin-bottom: 0.15rem; }
+
+/* ---------- Action plan ---------- */
+.action-list { margin: 0; padding-left: 1.25rem; }
+.action-list li {
+  margin-bottom: 0.65rem;
+  font-size: 0.83rem;
+  color: #cbd5e1;
+}
+.action-list li::marker { color: var(--primary); font-weight: 700; }
+
+/* ---------- Kho lưu trữ ---------- */
+.archive-list .list-group-item {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--border-soft);
+  color: #cbd5e1;
+  font-size: 0.83rem;
+  padding: 0.65rem 1.25rem;
+  transition: all 0.15s ease;
+}
+
+.archive-list .list-group-item:last-child { border-bottom: 0; }
+
+.archive-list .list-group-item:hover {
+  background: var(--primary-soft);
+  color: #bfdbfe;
+  padding-left: 1.5rem;
+}
+
+/* ---------- Charts ---------- */
+.chart-box { position: relative; height: 290px; }
+
+/* ---------- Alerts ---------- */
+.alert-warning {
+  background: var(--warning-soft);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  color: #fcd34d;
+  border-radius: var(--radius-md);
+}
+
+.alert-warning code { background: rgba(0, 0, 0, 0.25); color: #fde68a; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  border-top: 1px solid var(--border-soft) !important;
+}
+
+/* ---------- Spinner khu vực loading ---------- */
+.loading-box { color: var(--text-muted); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .card-body { padding: 0.9rem; }
+  .kpi-value { font-size: 1.15rem; }
+  .report-content.collapsed { max-height: 340px; }
+  .chart-box { height: 240px; }
 }
