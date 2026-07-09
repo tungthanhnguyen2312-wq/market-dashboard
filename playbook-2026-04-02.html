@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Playbook 02/04/2026 — Phân tích TTCK Việt Nam</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+body{font-family:'JetBrains Mono',monospace;background:#060a12;color:#e2e8f0}
+.tab-btn{transition:all .2s}.tab-btn.active{background:rgba(59,130,246,.15);color:#93c5fd;border:1px solid rgba(59,130,246,.3)}
+.card{background:rgba(17,24,39,.6);border:1px solid rgba(55,65,81,.4);border-radius:.5rem}
+.b-ok{background:rgba(16,185,129,.15);color:#6ee7b7;border:1px solid rgba(16,185,129,.3)}
+.b-warn{background:rgba(234,179,8,.15);color:#fde047;border:1px solid rgba(234,179,8,.3)}
+.b-err{background:rgba(220,38,38,.15);color:#fca5a5;border:1px solid rgba(220,38,38,.3)}
+.b-info{background:rgba(59,130,246,.15);color:#93c5fd;border:1px solid rgba(59,130,246,.3)}
+.fade-in{animation:fadeIn .3s ease-in}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+canvas{max-height:240px}
+.glow-green{box-shadow:0 0 15px rgba(34,197,94,.15)}.glow-red{box-shadow:0 0 15px rgba(220,38,38,.15)}
+</style>
+</head>
+<body class="min-h-screen">
+
+<!-- NAV -->
+<div class="max-w-5xl mx-auto px-4 pt-4">
+  <div class="flex gap-2 flex-wrap mb-3">
+    <a href="index.html" style="display:inline-block;padding:8px 12px;border-radius:999px;border:1px solid rgba(59,130,246,0.35);background:rgba(59,130,246,0.08);color:#dbeafe;font-size:12px;font-weight:700;text-decoration:none;">Live Dashboard</a>
+    <a href="playbook-2026-04-01.html" style="display:inline-block;padding:8px 12px;border-radius:999px;border:1px solid rgba(59,130,246,0.35);background:rgba(59,130,246,0.08);color:#dbeafe;font-size:12px;font-weight:700;text-decoration:none;">1/4 Playbook</a>
+    <a href="playbook-2026-04-02.html" style="display:inline-block;padding:8px 12px;border-radius:999px;border:1px solid rgba(59,130,246,0.35);background:rgba(59,130,246,0.18);color:#dbeafe;font-size:12px;font-weight:700;text-decoration:none;">2/4 Playbook ★</a>
+    <a href="playbook-2026-04-03.html" style="display:inline-block;padding:8px 12px;border-radius:999px;border:1px solid rgba(59,130,246,0.35);background:rgba(59,130,246,0.08);color:#dbeafe;font-size:12px;font-weight:700;text-decoration:none;">3/4 Playbook</a>
+  </div>
+</div>
+
+<header class="bg-black/70 border-b border-gray-800 px-4 py-3 sticky top-0 z-10 backdrop-blur-md">
+<div class="max-w-5xl mx-auto">
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 mb-2">
+<div>
+<h1 class="text-sm sm:text-base font-bold text-white">🔬 PLAYBOOK 02/04/2026 — TTCK Việt Nam</h1>
+<p class="text-[10px] text-gray-500">Multi-factor × Cross-asset × Geopolitical Correlation × Quant Model</p>
+</div>
+<div class="flex gap-1 flex-wrap">
+<span class="px-2 py-0.5 b-ok rounded text-[10px] font-bold">VNI: 1,703 ↑1.72%</span>
+<span class="px-2 py-0.5 b-warn rounded text-[10px] font-bold">WTI: ~$100</span>
+<span class="px-2 py-0.5 b-err rounded text-[10px] font-bold animate-pulse">⚡Trump phát biểu 8am VN</span>
+</div>
+</div>
+<div class="flex gap-1 overflow-x-auto" id="tabBar">
+<button class="tab-btn active px-3 py-1.5 text-xs rounded" onclick="switchTab(0)">Phiên 1/4</button>
+<button class="tab-btn px-3 py-1.5 text-xs rounded text-gray-500" onclick="switchTab(1)">Địa chính trị</button>
+<button class="tab-btn px-3 py-1.5 text-xs rounded text-gray-500" onclick="switchTab(2)">Tương quan</button>
+<button class="tab-btn px-3 py-1.5 text-xs rounded text-gray-500" onclick="switchTab(3)">Dự báo 2/4</button>
+<button class="tab-btn px-3 py-1.5 text-xs rounded text-gray-500" onclick="switchTab(4)">Playbook</button>
+</div>
+</div>
+</header>
+<main class="max-w-5xl mx-auto px-4 py-4">
+
+<!-- TAB 0: Session 1/4 -->
+<div id="tab0" class="space-y-3 fade-in">
+<div class="grid grid-cols-2 md:grid-cols-5 gap-2">
+<div class="card p-3 glow-green"><div class="text-[10px] text-gray-500">VN-Index</div><div class="text-lg font-bold text-emerald-400">1,702.93</div><div class="text-xs text-emerald-400">+28.44 (+1.72%)</div></div>
+<div class="card p-3"><div class="text-[10px] text-gray-500">VN30</div><div class="text-lg font-bold text-emerald-400">1,861.84</div><div class="text-xs text-emerald-400">+32.25 (+1.76%)</div><div class="text-[10px] text-gray-500">28/30 mã tăng</div></div>
+<div class="card p-3"><div class="text-[10px] text-gray-500">Thanh khoản HOSE</div><div class="text-lg font-bold text-white">29,296 tỷ</div><div class="text-[10px] text-emerald-400">+17.5% vs phiên trước</div><div class="text-[10px] text-orange-400">Vẫn -6.3% vs TB20</div></div>
+<div class="card p-3 glow-red"><div class="text-[10px] text-gray-500">Khối ngoại HOSE</div><div class="text-lg font-bold text-red-400">-867 tỷ</div><div class="text-[10px] text-red-300">15 phiên bán ròng liên tiếp</div></div>
+<div class="card p-3"><div class="text-[10px] text-gray-500">Độ rộng</div><div class="text-lg font-bold text-emerald-400">14/21</div><div class="text-[10px] text-gray-400">ngành tăng điểm</div></div>
+</div>
+
+<div class="card p-4">
+<h3 class="text-sm font-bold text-white mb-2">📊 Điểm nhấn phiên 1/4</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+<div class="space-y-1.5 text-[10px] text-gray-300">
+<p><strong class="text-emerald-400">✅ Tích cực:</strong></p>
+<p>• VHM tăng trần sau tin cổ tức 60% tiền mặt + 100% cổ phiếu — VIC/VHM/VRE dẫn dắt</p>
+<p>• VJC tăng trần, SSI +3.5%, BID +2.2%, VCB +1.6%, MSN +1.9%</p>
+<p>• HPG được ngoại mua ròng +196 tỷ, SSI +127 tỷ, MSN +200 tỷ</p>
+<p>• Thanh khoản cải thiện, gap tăng giá đầu phiên</p>
+<p>• Phái sinh: VN30F1M premium +14 điểm vs cơ sở = kỳ vọng tăng tiếp</p>
+</div>
+<div class="space-y-1.5 text-[10px] text-gray-300">
+<p><strong class="text-red-400">⚠ Cảnh báo:</strong></p>
+<p>• Đà tăng thu hẹp cuối phiên — chưa bùng nổ theo đà</p>
+<p>• Tăng bị chi phối bởi nhóm Vin (VIC đóng góp 9.7 điểm cho VN30)</p>
+<p>• Khối ngoại vẫn bán ròng -867 tỷ (phần lớn VIC -1,192 tỷ thỏa thuận)</p>
+<p>• Chuyên gia: "chưa đủ tín hiệu xác nhận phiên bùng nổ thiết lập xu hướng tăng mới"</p>
+<p>• Nhóm phân bón, dệt may, đường vẫn giảm</p>
+</div>
+</div>
+</div>
+
+<div class="card p-4">
+<h3 class="text-sm font-bold text-white mb-2">🇺🇸 Thị trường Mỹ phiên 31/3 (đã phản ánh vào VN 1/4)</h3>
+<div class="grid grid-cols-4 gap-2 mb-2">
+<div class="bg-emerald-950/30 rounded p-2 text-center"><div class="text-[10px] text-gray-400">S&P 500</div><div class="text-sm font-bold text-emerald-400">+3.0%</div></div>
+<div class="bg-emerald-950/30 rounded p-2 text-center"><div class="text-[10px] text-gray-400">Nasdaq</div><div class="text-sm font-bold text-emerald-400">+3.0%</div></div>
+<div class="bg-emerald-950/30 rounded p-2 text-center"><div class="text-[10px] text-gray-400">Dow</div><div class="text-sm font-bold text-emerald-400">+1,000 pts</div></div>
+<div class="bg-yellow-950/30 rounded p-2 text-center"><div class="text-[10px] text-gray-400">Mỹ phiên 1/4</div><div class="text-sm font-bold text-emerald-400">+1.1-1.5%</div><div class="text-[10px] text-gray-500">đang diễn ra</div></div>
+</div>
+<p class="text-[10px] text-gray-400"><strong class="text-yellow-300">⚡ BIẾN SỐ LỚN NHẤT:</strong> Trump sẽ phát biểu quốc gia lúc 9pm ET ngày 1/4 (= 8am sáng 2/4 VN) về "cập nhật quan trọng về Iran". Đây là biến số quyết định phiên 2/4.</p>
+</div>
+</div>
+
+<!-- TAB 1: Geopolitics -->
+<div id="tab1" class="space-y-3 fade-in hidden">
+<div class="card p-4 border-red-900/30" style="border-color:rgba(220,38,38,.3)">
+<h3 class="text-sm font-bold text-red-300 mb-2">🔥 Bản đồ rủi ro địa chính trị (cập nhật 1/4/2026)</h3>
+<div class="space-y-2">
+<div class="flex gap-2 items-start"><span class="b-err text-[10px] px-1.5 py-0.5 rounded font-bold">CRITICAL</span><div><span class="text-xs font-bold text-white">Trump phát biểu quốc gia 9pm ET (8am VN 2/4): </span><span class="text-xs text-gray-400">"Cập nhật quan trọng về Iran". Có thể tuyên bố ngừng bắn HOẶC leo thang. Biến số #1 cho phiên 2/4.</span></div></div>
+<div class="flex gap-2 items-start"><span class="b-err text-[10px] px-1.5 py-0.5 rounded font-bold">CRITICAL</span><div><span class="text-xs font-bold text-white">Iran IRGC tuyên bố tấn công 18 công ty Mỹ: </span><span class="text-xs text-gray-400">Google, Microsoft, Apple, Tesla, Boeing... từ ngày 1/4. Nếu thực hiện → risk-off toàn cầu.</span></div></div>
+<div class="flex gap-2 items-start"><span class="b-err text-[10px] px-1.5 py-0.5 rounded font-bold">CRITICAL</span><div><span class="text-xs font-bold text-white">Dầu thô: </span><span class="text-xs text-gray-400">WTI ~$100.21 (-1.15%), Brent ~$104. Brent tăng 55% trong T3 — kỷ lục kể từ 1988. Goldman dự báo WTI $105 tháng 4. Nếu Hormuz vẫn đóng 10 tuần → Brent vượt kỷ lục 2008 ($147).</span></div></div>
+<div class="flex gap-2 items-start"><span class="b-warn text-[10px] px-1.5 py-0.5 rounded font-bold">HIGH</span><div><span class="text-xs font-bold text-white">Trump nói rút quân 2-3 tuần: </span><span class="text-xs text-gray-400">Tuyên bố "chiến thắng", muốn rút — nhưng Gulf states muốn tiếp tục. Iran phủ nhận đàm phán. Tạm dừng tấn công hạ tầng năng lượng Iran đến 6/4.</span></div></div>
+<div class="flex gap-2 items-start"><span class="b-warn text-[10px] px-1.5 py-0.5 rounded font-bold">HIGH</span><div><span class="text-xs font-bold text-white">SPR cạn dần: </span><span class="text-xs text-gray-400">400 triệu thùng dự trữ chiến lược đã xả — lớn nhất lịch sử. Phân tích: chỉ đủ offset ~20 ngày blockade. Đầu-giữa T4 hiệu quả giảm dần → giá dầu paper sẽ hội tụ với giá physical (Dubai $126).</span></div></div>
+<div class="flex gap-2 items-start"><span class="b-warn text-[10px] px-1.5 py-0.5 rounded font-bold">HIGH</span><div><span class="text-xs font-bold text-white">Thuế quan Mỹ: </span><span class="text-xs text-gray-400">Liberation Day 2/4 — các mức thuế mới có thể áp dụng. Rủi ro cho xuất khẩu VN.</span></div></div>
+<div class="flex gap-2 items-start"><span class="b-warn text-[10px] px-1.5 py-0.5 rounded font-bold">HIGH</span><div><span class="text-xs font-bold text-white">LS liên NH VN 12%: </span><span class="text-xs text-gray-400">Đầu Q2 — cần xem hạ nhiệt hay neo. NHNN bơm OMO. Margin lên 14%/năm ở nhiều CTCK.</span></div></div>
+<div class="flex gap-2 items-start"><span class="b-info text-[10px] px-1.5 py-0.5 rounded font-bold">MEDIUM</span><div><span class="text-xs font-bold text-white">Phân bón toàn cầu: </span><span class="text-xs text-gray-400">Tăng 40% từ đầu chiến sự. Sulfur từ Vùng Vịnh (45% toàn cầu) bị gián đoạn → tác động CPI lương thực.</span></div></div>
+</div>
+</div>
+
+<div class="card p-4">
+<h3 class="text-sm font-bold text-white mb-2">📰 ĐHCĐ & Tin doanh nghiệp VN đáng chú ý</h3>
+<div class="space-y-1 text-[10px] text-gray-300">
+<p>• <strong class="text-emerald-300">VHM:</strong> Cổ tức 60% tiền mặt (6,000đ/cp) + 100% cổ phiếu. Catalyst tăng trần phiên 1/4.</p>
+<p>• <strong class="text-white">HPG:</strong> Target LNST 22,000 tỷ (+42%). Ngoại mua ròng +196 tỷ phiên 1/4.</p>
+<p>• <strong class="text-white">GELEX:</strong> ĐHCĐ ngày 1/4 — 5 năm tăng trưởng ấn tượng.</p>
+<p>• <strong class="text-white">REE:</strong> DT 12,200 tỷ, LNST 2,800 tỷ (+11.3%). Mục tiêu công suất 3GW 2030.</p>
+<p>• <strong class="text-white">SSI Research:</strong> Ước tính Q1/2026 — Masan, HPG, PNJ, MWG lãi đột biến.</p>
+<p>• <strong class="text-orange-400">BSC:</strong> Hạ dự báo VN-Index 2026 xuống 1,750 (từ 1,954). LN DN giảm còn tăng 11-12%.</p>
+<p>• <strong class="text-emerald-400">MASVN:</strong> Vẫn kỳ vọng VN-Index 2,300. LN toàn TT tăng ~20%.</p>
+</div>
+</div>
+</div>
+
+<!-- TAB 2: Correlation -->
+<div id="tab2" class="space-y-3 fade-in hidden">
+<div class="card p-4">
+<h3 class="text-sm font-bold text-white mb-3">Ma trận tương quan: Biến số toàn cầu → VN-Index</h3>
+<canvas id="chartCorr"></canvas>
+</div>
+
+<div class="card p-4">
+<h3 class="text-sm font-bold text-white mb-2">Truyền dẫn rủi ro: Iran War → VN qua 5 kênh</h3>
+<div class="space-y-2">
+<div class="bg-red-950/20 rounded p-3 border-l-4 border-red-600">
+<div class="text-xs font-bold text-red-300">1. Kênh Năng lượng (Tác động: ★★★★★)</div>
+<p class="text-[10px] text-gray-400 mt-1">Dầu tăng 55% T3 → Xăng VN 32,957đ/lít → CPI tăng → SBV siết tiền tệ → Chi phí DN tăng → Biên LN co hẹp (HPG, PAN bị ảnh hưởng trực tiếp)</p>
+</div>
+<div class="bg-orange-950/20 rounded p-3 border-l-4 border-orange-600">
+<div class="text-xs font-bold text-orange-300">2. Kênh Tỷ giá (Tác động: ★★★★☆)</div>
+<p class="text-[10px] text-gray-400 mt-1">DXY 100.41 (cao 10 tháng) → USD/VND áp lực → NHNN bảo vệ tỷ giá = hút thanh khoản VND → LS liên NH 12% → Margin đắt → Equity bị áp lực</p>
+</div>
+<div class="bg-yellow-950/20 rounded p-3 border-l-4 border-yellow-600">
+<div class="text-xs font-bold text-yellow-300">3. Kênh Dòng vốn (Tác động: ★★★★☆)</div>
+<p class="text-[10px] text-gray-400 mt-1">Risk-off toàn cầu → Ngoại bán ròng 15 phiên liên tiếp → Rút vốn EM → VNM ETF giảm tỷ trọng HPG, SSI → Áp lực supply thực tế</p>
+</div>
+<div class="bg-blue-950/20 rounded p-3 border-l-4 border-blue-600">
+<div class="text-xs font-bold text-blue-300">4. Kênh Lãi suất (Tác động: ★★★☆☆)</div>
+<p class="text-[10px] text-gray-400 mt-1">Fed giữ LS, CME: 0 lần cắt 2026 → SBV khó nới lỏng → 18 NH tăng huy động → Tiền chảy về gửi tiết kiệm 7% → Equity kém hấp dẫn tương đối</p>
+</div>
+<div class="bg-purple-950/20 rounded p-3 border-l-4 border-purple-600">
+<div class="text-xs font-bold text-purple-300">5. Kênh Tâm lý (Tác động: ★★★☆☆)</div>
+<p class="text-[10px] text-gray-400 mt-1">VIX >28 → NĐT cá nhân Mỹ bán ròng lần đầu từ 2023 → NĐT VN thận trọng, thanh khoản giảm 3 tuần liên tiếp → Chỉ mua selective</p>
+</div>
+</div>
+</div>
+
+<div class="card p-4">
+<h3 class="text-sm font-bold text-white mb-2">⏰ Timeline rủi ro tháng 4/2026</h3>
+<div class="space-y-1.5">
+<div class="flex items-center gap-2"><span class="b-err text-[10px] px-1.5 py-0.5 rounded font-bold">2/4 8AM</span><span class="text-xs text-gray-300 font-bold">Trump phát biểu quốc gia về Iran — BIẾN SỐ #1</span></div>
+<div class="flex items-center gap-2"><span class="b-err text-[10px] px-1.5 py-0.5 rounded font-bold">2/4</span><span class="text-xs text-gray-300">"Liberation Day" — Thuế quan mới Mỹ có thể áp dụng</span></div>
+<div class="flex items-center gap-2"><span class="b-err text-[10px] px-1.5 py-0.5 rounded font-bold">6/4</span><span class="text-xs text-gray-300">Hết hạn tạm dừng tấn công hạ tầng năng lượng Iran</span></div>
+<div class="flex items-center gap-2"><span class="b-err text-[10px] px-1.5 py-0.5 rounded font-bold">7/4</span><span class="text-xs text-gray-300">FTSE Russell Interim Review kết quả</span></div>
+<div class="flex items-center gap-2"><span class="b-err text-[10px] px-1.5 py-0.5 rounded font-bold">10/4</span><span class="text-xs text-gray-300">US CPI + FOMC Minutes</span></div>
+<div class="flex items-center gap-2"><span class="b-warn text-[10px] px-1.5 py-0.5 rounded font-bold">Đầu-giữa T4</span><span class="text-xs text-gray-300">SPR hết hiệu quả → giá dầu paper hội tụ physical ($126)</span></div>
+<div class="flex items-center gap-2"><span class="b-info text-[10px] px-1.5 py-0.5 rounded font-bold">16-17/4</span><span class="text-xs text-gray-300">KQKD Q1: HPG, SSI — catalyst từng mã</span></div>
+</div>
+</div>
+</div>
+
+<!-- TAB 3: Forecast -->
+<div id="tab3" class="space-y-3 fade-in hidden">
+<div class="card p-4" style="border-color:rgba(234,179,8,.3)">
+<h3 class="text-sm font-bold text-yellow-300 mb-2">⚡ Phiên 2/4 phụ thuộc gần như hoàn toàn vào Trump 8am</h3>
+<p class="text-xs text-gray-300">Do Trump phát biểu quốc gia lúc 9pm ET (= 8am VN 2/4), thị trường Mỹ sẽ phản ứng ngay và VN sẽ nhận signal trực tiếp khi mở cửa. Mô hình xác suất phải tính 2 nhánh.</p>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+<div class="card p-4 glow-green">
+<h4 class="text-xs font-bold text-emerald-300 mb-2">Nhánh A: Trump tuyên bố de-escalation / ceasefire (P ≈ 45%)</h4>
+<div class="space-y-1 text-[10px] text-gray-300">
+<p>→ Dầu giảm 5-10% ngay, Mỹ futures rally mạnh</p>
+<p>→ VN-Index gap up 1.5-2.5%, có thể test 1,730-1,750</p>
+<p>→ HPG, SSI, ngân hàng rally mạnh</p>
+<p>→ Khối ngoại có thể chuyển mua ròng</p>
+<p>→ <strong class="text-emerald-400">Hành động:</strong> Giải ngân 30-40% cash vào bluechip sau xác nhận 30 phút đầu</p>
+</div>
+</div>
+<div class="card p-4 glow-red">
+<h4 class="text-xs font-bold text-red-300 mb-2">Nhánh B: Trump leo thang / không rõ ràng (P ≈ 55%)</h4>
+<div class="space-y-1 text-[10px] text-gray-300">
+<p>→ Dầu tăng lại >$105, Mỹ futures giảm</p>
+<p>→ VN-Index có thể gap down hoặc mở xanh rồi quay đầu</p>
+<p>→ Test lại 1,680-1,690 hoặc thấp hơn nếu tin rất xấu</p>
+<p>→ Khối ngoại tiếp tục xả</p>
+<p>→ <strong class="text-red-400">Hành động:</strong> Giữ cash 100%. Nếu VNI mất 1,680 → check stoploss</p>
+</div>
+</div>
+</div>
+
+<div class="card p-4">
+<h4 class="text-xs font-bold text-white mb-2">Mô hình xác suất phiên 2/4 (Weighted)</h4>
+<canvas id="chartForecast"></canvas>
+<div class="grid grid-cols-5 gap-1 mt-2 text-center text-[10px]">
+<div><div class="h-2 bg-emerald-500 rounded"></div><span class="text-emerald-400">Tăng mạnh >2%: 20%</span></div>
+<div><div class="h-2 bg-emerald-300 rounded"></div><span class="text-emerald-300">Tăng nhẹ 0-2%: 25%</span></div>
+<div><div class="h-2 bg-gray-500 rounded"></div><span class="text-gray-400">Đi ngang: 15%</span></div>
+<div><div class="h-2 bg-orange-400 rounded"></div><span class="text-orange-400">Giảm nhẹ 0-1.5%: 25%</span></div>
+<div><div class="h-2 bg-red-500 rounded"></div><span class="text-red-400">Giảm mạnh >1.5%: 15%</span></div>
+</div>
+<p class="text-[10px] text-gray-500 mt-2">P(tăng) ≈ 45% | P(giảm) ≈ 40% | Bimodal distribution — phụ thuộc Trump speech</p>
+</div>
+
+<div class="card p-4">
+<h4 class="text-xs font-bold text-white mb-2">Dự báo 1-2 tuần tới (cập nhật sau 1/4)</h4>
+<canvas id="chartWeeks"></canvas>
+<div class="grid grid-cols-3 gap-2 mt-2 text-center text-[10px]">
+<div class="text-emerald-400">Tăng tiếp: 30%</div>
+<div class="text-gray-400">Sideway 1,680-1,730: 30%</div>
+<div class="text-red-400">Retest 1,600-1,650: 40%</div>
+</div>
+<p class="text-[10px] text-gray-500 mt-1">Rủi ro tháng 4 vẫn cao: SPR cạn dần, thuế quan 2/4, CPI 10/4, LS liên NH, pattern lịch sử T4</p>
+</div>
+</div>
+
+<!-- TAB 4: Playbook -->
+<div id="tab4" class="space-y-3 fade-in hidden">
+<div class="card p-4" style="background:linear-gradient(135deg,rgba(30,58,138,.15),rgba(17,24,39,.6))">
+<h3 class="text-sm font-bold text-white mb-1">📋 Playbook phiên 02/04/2026</h3>
+<p class="text-[10px] text-gray-400">Quy tắc IF-THEN theo timeline • Trump speech 8am VN là biến số quyết định</p>
+</div>
+
+<div class="card p-4 border-yellow-800/30" style="border-color:rgba(234,179,8,.3)">
+<h4 class="text-xs font-bold text-yellow-300 mb-2">🌅 7:00 - 8:30 | PRE-MARKET — CRITICAL</h4>
+<div class="space-y-1 text-[10px] text-gray-300">
+<p>• <strong>7:00-8:00:</strong> Check Mỹ futures, dầu, vàng — phản ứng trước speech</p>
+<p>• <strong>8:00 (9pm ET):</strong> Trump phát biểu quốc gia về Iran</p>
+<p>• <strong>IF ceasefire/rút quân:</strong> Futures rally, dầu giảm → chuẩn bị giải ngân VN</p>
+<p>• <strong>IF leo thang/mơ hồ:</strong> Futures giảm, dầu tăng → mode phòng thủ</p>
+<p>• <strong>IF Iran IRGC tấn công công ty Mỹ đêm qua:</strong> Risk-off cực mạnh, KHÔNG giải ngân</p>
+</div>
+</div>
+
+<div class="card p-4"><h4 class="text-xs font-bold text-emerald-300 mb-2">⏱ 9:00 - 9:30 | ATO + 30 phút đầu</h4><div class="space-y-1 text-[10px] text-gray-300">
+<p>• IF speech tích cực + VNI gap up >1%: Chờ 30p xác nhận, nếu giữ → giải ngân 25% cash</p>
+<p>• IF speech tích cực nhưng VNI chỉ tăng nhẹ <0.5%: Thị trường đã discount → chờ thêm</p>
+<p>• IF speech tiêu cực + VNI gap down: KHÔNG hành động, chờ hết phiên sáng</p>
+<p>• Ưu tiên giải ngân: HPG (ngoại đang mua ròng) > SSI (ngoại mua ròng 1/4) > PAN</p>
+</div></div>
+
+<div class="card p-4"><h4 class="text-xs font-bold text-yellow-300 mb-2">🕐 10:30 - 14:30 | Giữa phiên → đóng cửa</h4><div class="space-y-1 text-[10px] text-gray-300">
+<p>• Monitor: Thanh khoản vs TB20 (cần >28,000 tỷ để confirm trend)</p>
+<p>• Monitor: Khối ngoại — nếu chuyển mua ròng = upgrade signal mạnh</p>
+<p>• Nếu xanh bền + vol tăng: Có thể thêm 10-15% cash cuối phiên</p>
+<p>• Nếu xanh rồi quay đầu (Kịch bản B 31/3 lặp lại): Giữ cash, KHÔNG đuổi</p>
+<p>• 14:30: Check ngoại mua/bán tổng phiên → dữ liệu quan trọng nhất</p>
+</div></div>
+
+<div class="card p-4 border-red-800/30" style="border-color:rgba(220,38,38,.3)">
+<h4 class="text-xs font-bold text-red-300 mb-2">⚠ Liberation Day 2/4 — Rủi ro thuế quan</h4>
+<div class="space-y-1 text-[10px] text-gray-300">
+<p>• Trump có thể công bố thuế quan mới trong cùng ngày — double catalyst risk</p>
+<p>• Nếu thuế quan ảnh hưởng VN xuất khẩu → nhóm dệt may, thủy sản, gỗ giảm</p>
+<p>• Cần theo dõi sát tin từ 2pm EST trở đi (= sáng 3/4 VN)</p>
+</div>
+</div>
+
+<div class="bg-red-950/20 border border-red-800/30 rounded-lg p-3"><h4 class="text-xs font-bold text-red-300 mb-1">🔒 Quy tắc quản trị rủi ro</h4><div class="space-y-1 text-[10px] text-gray-200">
+<p><strong>1.</strong> KHÔNG dùng margin. LS margin đã lên 14%/năm ở nhiều CTCK.</p>
+<p><strong>2.</strong> Max giải ngân/phiên: 25% cash. Luôn giữ buffer ≥50%.</p>
+<p><strong>3.</strong> Stoploss: HPG 25,000 | SSI 25,500 | PAN 29,000 (giá gốc) | EVF 11,000</p>
+<p><strong>4.</strong> Nếu Trump speech tiêu cực + dầu >$110: Full defensive, không mua, check SL.</p>
+<p><strong>5.</strong> Biến số then chốt tuần này: Trump speech → Thuế quan → LS liên NH → Dầu</p>
+</div></div>
+
+<div class="card p-3 text-center">
+<p class="text-xs text-white font-bold">Phiên 2/4 là phiên BIMODAL — kết quả phụ thuộc gần 100% vào Trump 8am.</p>
+<p class="text-xs text-yellow-400">Không dự đoán speech → quản trị xác suất cả hai nhánh.</p>
+<p class="text-[10px] text-gray-600 mt-1">Phân tích cá nhân, không phải khuyến nghị đầu tư. Nguồn: CNBC, TradingEconomics, Vietstock, VNDIRECT, DNSE.</p>
+</div>
+</div>
+
+</main>
+<footer class="border-t border-gray-800 py-3 px-4 text-center">
+<p class="text-[10px] text-gray-600">Cập nhật: 01/04/2026 20:00 ICT | AI-assisted analysis (Claude) + market data</p>
+</footer>
+<script>
+function switchTab(idx){for(let i=0;i<5;i++){document.getElementById('tab'+i).classList.add('hidden');document.querySelectorAll('#tabBar button')[i].classList.remove('active');document.querySelectorAll('#tabBar button')[i].classList.add('text-gray-500')}document.getElementById('tab'+idx).classList.remove('hidden');document.querySelectorAll('#tabBar button')[idx].classList.add('active');document.querySelectorAll('#tabBar button')[idx].classList.remove('text-gray-500');if(idx===2)initCorr();if(idx===3)initForecast()}
+let ci={c:false,f:false};
+function initCorr(){if(ci.c)return;ci.c=true;
+new Chart(document.getElementById('chartCorr'),{type:'bar',data:{labels:['Dầu→CPI VN','USD/VND→Ngoại bán','LS LNH→Margin','S&P500→VNI','FTSE→Dòng vốn','Iran→Tâm lý'],datasets:[{label:'Mức ảnh hưởng T4/2026 (thang -10 đến +10)',data:[-8,-7,-7,4,3,-9],backgroundColor:['#dc2626','#dc2626','#dc2626','#22c55e','#22c55e','#dc2626'],borderRadius:3}]},options:{indexAxis:'y',responsive:true,plugins:{legend:{labels:{color:'#94a3b8',font:{size:9}}}},scales:{x:{ticks:{color:'#94a3b8',font:{size:9}},grid:{color:'#1e293b'},min:-10,max:10},y:{ticks:{color:'#e2e8f0',font:{size:9}},grid:{color:'#1e293b'}}}}});}
+function initForecast(){if(ci.f)return;ci.f=true;
+new Chart(document.getElementById('chartForecast'),{type:'doughnut',data:{labels:['Tăng mạnh >2%','Tăng nhẹ 0-2%','Đi ngang','Giảm nhẹ','Giảm mạnh >1.5%'],datasets:[{data:[20,25,15,25,15],backgroundColor:['#22c55e','#86efac','#64748b','#fca5a5','#dc2626'],borderWidth:0}]},options:{responsive:true,plugins:{legend:{position:'bottom',labels:{color:'#94a3b8',font:{size:8}}}}}});
+new Chart(document.getElementById('chartWeeks'),{type:'doughnut',data:{labels:['Tăng tiếp','Sideway','Retest vùng thấp'],datasets:[{data:[30,30,40],backgroundColor:['#22c55e','#64748b','#dc2626'],borderWidth:0}]},options:{responsive:true,plugins:{legend:{position:'bottom',labels:{color:'#94a3b8',font:{size:9}}}}}});}
+</script>
+</body>
+</html>
