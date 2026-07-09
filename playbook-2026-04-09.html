@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Playbook Phiên 09/04/2026 — Phân tích TTCK Việt Nam</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+  body { font-family: 'JetBrains Mono', monospace; background: #060a12; color: #e2e8f0; }
+  .tab-btn { transition: all 0.2s; }
+  .tab-btn.active { background: rgba(59,130,246,0.15); color: #93c5fd; border: 1px solid rgba(59,130,246,0.3); }
+  .card { background: rgba(17,24,39,0.6); border: 1px solid rgba(55,65,81,0.4); border-radius: 0.5rem; }
+  .badge-ok { background: rgba(16,185,129,0.15); color: #6ee7b7; border: 1px solid rgba(16,185,129,0.3); }
+  .badge-warn { background: rgba(234,179,8,0.15); color: #fde047; border: 1px solid rgba(234,179,8,0.3); }
+  .badge-err { background: rgba(220,38,38,0.15); color: #fca5a5; border: 1px solid rgba(220,38,38,0.3); }
+  .badge-info { background: rgba(59,130,246,0.15); color: #93c5fd; border: 1px solid rgba(59,130,246,0.3); }
+  .scenario-a { border-left: 4px solid #22c55e; }
+  .scenario-b { border-left: 4px solid #eab308; }
+  .scenario-c { border-left: 4px solid #dc2626; }
+  .fade-in { animation: fadeIn 0.3s ease-in; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  canvas { max-height: 260px; }
+</style>
+</head>
+<body class="min-h-screen">
+
+<!-- NAV -->
+<div class="max-w-5xl mx-auto px-4 pt-4">
+  <div class="flex gap-2 flex-wrap mb-3">
+    <a href="index.html" style="display:inline-block;padding:8px 12px;border-radius:999px;border:1px solid rgba(59,130,246,0.35);background:rgba(59,130,246,0.08);color:#dbeafe;font-size:12px;font-weight:700;text-decoration:none;">Live Dashboard</a>
+    <a href="playbook-2026-04-01.html" style="display:inline-block;padding:8px 12px;border-radius:999px;border:1px solid rgba(59,130,246,0.35);background:rgba(59,130,246,0.08);color:#dbeafe;font-size:12px;font-weight:700;text-decoration:none;">1/4 Playbook</a>
+    <a href="playbook-2026-04-02.html" style="display:inline-block;padding:8px 12px;border-radius:999px;border:1px solid rgba(59,130,246,0.35);background:rgba(59,130,246,0.08);color:#dbeafe;font-size:12px;font-weight:700;text-decoration:none;">2/4 Playbook</a>
+    <a href="playbook-2026-04-03.html" style="display:inline-block;padding:8px 12px;border-radius:999px;border:1px solid rgba(59,130,246,0.35);background:rgba(59,130,246,0.08);color:#dbeafe;font-size:12px;font-weight:700;text-decoration:none;">3/4 Playbook</a>
+    <a href="playbook-2026-04-09.html" style="display:inline-block;padding:8px 12px;border-radius:999px;border:1px solid rgba(59,130,246,0.35);background:rgba(59,130,246,0.18);color:#dbeafe;font-size:12px;font-weight:700;text-decoration:none;">9/4 Playbook ★</a>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="bg-black/70 border-b border-gray-800 px-4 py-3 sticky top-0 z-10 backdrop-blur-md">
+  <div class="max-w-5xl mx-auto">
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 mb-2">
+      <div>
+        <h1 class="text-sm sm:text-base font-bold text-white">🔬 PLAYBOOK PHIÊN 09/04/2026 — TTCK Việt Nam</h1>
+        <p class="text-[10px] text-gray-500">Sau cú bùng nổ FTSE • Wyckoff Stage 2 • Pre-positioning Analysis</p>
+      </div>
+      <div class="flex gap-1 flex-wrap">
+        <span class="px-2 py-0.5 badge-ok rounded text-[10px] font-bold">VNI: 1,756.55 ↑4.71%</span>
+        <span class="px-2 py-0.5 badge-ok rounded text-[10px] font-bold">FTSE ✅</span>
+        <span class="px-2 py-0.5 badge-warn rounded text-[10px] font-bold">Bias: Cooling</span>
+      </div>
+    </div>
+    <div class="flex gap-1 overflow-x-auto" id="tabBar">
+      <button class="tab-btn active px-3 py-1.5 text-xs rounded" onclick="switchTab(0)">Tổng quan</button>
+      <button class="tab-btn px-3 py-1.5 text-xs rounded text-gray-500" onclick="switchTab(1)">Dòng tiền</button>
+      <button class="tab-btn px-3 py-1.5 text-xs rounded text-gray-500" onclick="switchTab(2)">FTSE Roadmap</button>
+      <button class="tab-btn px-3 py-1.5 text-xs rounded text-gray-500" onclick="switchTab(3)">Xác suất</button>
+      <button class="tab-btn px-3 py-1.5 text-xs rounded text-gray-500" onclick="switchTab(4)">4 Mã</button>
+      <button class="tab-btn px-3 py-1.5 text-xs rounded text-gray-500" onclick="switchTab(5)">Playbook</button>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-5xl mx-auto px-4 py-4">
+
+<!-- TAB 0: Tổng quan -->
+<div id="tab0" class="space-y-3 fade-in">
+  <div class="grid grid-cols-2 md:grid-cols-5 gap-2">
+    <div class="card p-3"><div class="text-[10px] text-gray-500">VN-Index 08/04</div><div class="text-lg font-bold text-emerald-400">1,756.55</div><div class="text-xs text-emerald-400">+79.01 (+4.71%)</div></div>
+    <div class="card p-3"><div class="text-[10px] text-gray-500">HNX-Index</div><div class="text-lg font-bold text-emerald-400">253.32</div><div class="text-xs text-emerald-400">+2.68%</div></div>
+    <div class="card p-3"><div class="text-[10px] text-gray-500">Thanh khoản HoSE</div><div class="text-lg font-bold text-white">~33-35k tỷ</div><div class="text-[10px] text-emerald-400">+120% vs 7/4</div></div>
+    <div class="card p-3"><div class="text-[10px] text-gray-500">Độ rộng</div><div class="text-lg font-bold text-emerald-400">306 / 27</div><div class="text-[10px] text-gray-400">Tăng áp đảo</div></div>
+    <div class="card p-3"><div class="text-[10px] text-gray-500">Biên độ trong ngày</div><div class="text-lg font-bold text-white">~74 điểm</div><div class="text-[10px] text-gray-400">Lớn nhất nhiều tháng</div></div>
+  </div>
+
+  <!-- Thesis -->
+  <div class="card p-4" style="background:linear-gradient(135deg,rgba(30,58,138,.15),rgba(17,24,39,.6)); border-color:rgba(59,130,246,0.3)">
+    <h3 class="text-sm font-bold text-blue-300 mb-2">🎯 Thesis một câu</h3>
+    <p class="text-xs text-gray-200 leading-relaxed">Phiên 08/04 là <strong class="text-emerald-300">cú giải nén của một lò xo đã được cuộn từ trước</strong> (FOMO + dry powder + underweight ngân hàng), được kích hoạt bởi catalyst FTSE đúng như kỳ vọng. Nhưng vì FTSE là <em>tin đã chốt</em> chứ không phải <em>tiền đã vào</em>, câu hỏi thực sự cho 1-3 phiên tới không phải "có còn tăng không", mà là <strong class="text-yellow-300">"sau khi xả áp lực FOMO, dòng tiền có ở lại để chuyển từ news rally thành trend không?"</strong></p>
+  </div>
+
+  <!-- PTKT -->
+  <div class="card p-4">
+    <h3 class="text-sm font-bold text-white mb-2">📈 Phân tích kỹ thuật VN-Index</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+      <div>
+        <h4 class="text-[11px] font-bold text-emerald-300 mb-1">Wyckoff Stage Transition</h4>
+        <ul class="text-[10px] text-gray-300 space-y-1 list-disc pl-4">
+          <li>Phiên 7/4 = Stage 1 cuối (spring tại MA200 ~1,670)</li>
+          <li>Phiên 8/4 = Stage 2 bắt đầu (mark-up với gap up + vol bùng nổ)</li>
+          <li>Cấu trúc nến: Marubozu trắng dài, close gần high</li>
+          <li>Gap up từ 1,677 → 1,714 — cần giữ không fill</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-[11px] font-bold text-yellow-300 mb-1">Indicators (suy luận)</h4>
+        <ul class="text-[10px] text-gray-300 space-y-1 list-disc pl-4">
+          <li>RSI(14): ~62-65, strong but not overbought</li>
+          <li>MACD: Histogram flip dương sau 4 tuần âm</li>
+          <li>Bollinger: Phá Upper Band — "walking the band" hoặc "blow-off"</li>
+          <li>MA20/MA50 đều đã vượt, trở thành support</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Key levels -->
+  <div class="card p-4">
+    <h3 class="text-sm font-bold text-white mb-2">🎚 Vùng giá then chốt 1-2 tuần</h3>
+    <div class="overflow-x-auto"><table class="w-full text-[10px]">
+      <thead><tr class="text-gray-500 border-b border-gray-800"><th class="py-1 text-left">Mức</th><th class="py-1 text-left">Ý nghĩa</th><th class="py-1">Hành động nếu vi phạm</th></tr></thead>
+      <tbody class="text-gray-300">
+        <tr class="border-b border-gray-800/50"><td class="py-1.5 font-bold text-red-400">1,918</td><td>Đỉnh lịch sử</td><td class="text-center">Target dài hạn</td></tr>
+        <tr class="border-b border-gray-800/50"><td class="py-1.5 font-bold text-orange-400">1,830-1,860</td><td>Vùng đỉnh T1/2026</td><td class="text-center">Kháng cự 2</td></tr>
+        <tr class="border-b border-gray-800/50"><td class="py-1.5 font-bold text-yellow-400">1,790</td><td>Fib 0.618 từ 1,918-1,591</td><td class="text-center">Kháng cự 1</td></tr>
+        <tr class="border-b border-gray-800/50"><td class="py-1.5 font-bold text-white bg-gray-900/50">1,756.55</td><td>Đóng cửa 8/4</td><td class="text-center">Hiện tại</td></tr>
+        <tr class="border-b border-gray-800/50"><td class="py-1.5 font-bold text-emerald-400">1,714</td><td>Gap up level (must-hold)</td><td class="text-center">Mất = exhaustion gap</td></tr>
+        <tr class="border-b border-gray-800/50"><td class="py-1.5 font-bold text-emerald-400">1,700</td><td>Tâm lý + MA20</td><td class="text-center">Hỗ trợ 2</td></tr>
+        <tr><td class="py-1.5 font-bold text-emerald-400">1,677</td><td>Đáy 7/4, MA200</td><td class="text-center">Hỗ trợ cứng</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <!-- Điều kiện đáy -->
+  <div class="card p-4">
+    <h3 class="text-sm font-bold text-white mb-2">✅ Điều kiện xác nhận đáy — cập nhật sau 8/4</h3>
+    <div class="space-y-1.5 text-[10px]">
+      <div class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✅</span><span class="text-gray-300">Thanh khoản HoSE > 20,000 tỷ — đã đạt (33,000 tỷ)</span></div>
+      <div class="flex items-center gap-2"><span class="text-yellow-400 font-bold">🟡</span><span class="text-gray-300">Khối ngoại chuyển trung tính-mua — gần đạt</span></div>
+      <div class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✅</span><span class="text-gray-300">VNI giữ > 1,700 với breadth > 60% — đã đạt (91% mã tăng)</span></div>
+      <div class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✅</span><span class="text-gray-300">Dòng tiền lan tỏa ≥4 nhóm ngành — đã đạt</span></div>
+      <div class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✅</span><span class="text-gray-300">RSI(14) > 50 — đã đạt (~62-65)</span></div>
+      <div class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✅</span><span class="text-gray-300">MACD histogram flip dương — đã đạt</span></div>
+    </div>
+    <div class="mt-2 p-2 bg-emerald-950/30 rounded">
+      <p class="text-[10px] text-emerald-200"><strong>Đạt 5/6 điều kiện cứng, 1 gần đạt.</strong> So với phiên 7/4 (0/4 đạt), đây là bước nhảy chất lượng cực lớn. Đáy ngắn hạn vùng 1,591-1,665 <strong>gần như đã xác nhận</strong>.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TAB 1: Dòng tiền -->
+<div id="tab1" class="space-y-3 fade-in hidden">
+  <!-- Thanh khoản -->
+  <div class="card p-4">
+    <h3 class="text-sm font-bold text-white mb-2">💧 Thanh khoản — Bùng nổ thật</h3>
+    <div class="overflow-x-auto"><table class="w-full text-[10px]">
+      <thead><tr class="text-gray-500 border-b border-gray-800"><th class="py-1 text-left">Phiên</th><th class="py-1">HoSE (tỷ)</th><th class="py-1 text-left">Ghi chú</th></tr></thead>
+      <tbody class="text-gray-300">
+        <tr class="border-b border-gray-800/50"><td class="py-1.5">02/04</td><td class="text-center">~24,000</td><td>Bình thường</td></tr>
+        <tr class="border-b border-gray-800/50"><td class="py-1.5">03/04</td><td class="text-center">21,128</td><td>Bán tháo, giảm</td></tr>
+        <tr class="border-b border-gray-800/50"><td class="py-1.5">06/04</td><td class="text-center">~14,000</td><td>Đáy thanh khoản</td></tr>
+        <tr class="border-b border-gray-800/50"><td class="py-1.5">07/04</td><td class="text-center">14,981</td><td>Thấp hơn đáng kể TB 20 phiên</td></tr>
+        <tr class="bg-emerald-950/20"><td class="py-1.5 font-bold">08/04</td><td class="text-center font-bold text-emerald-400">33,000-35,000</td><td class="text-emerald-300 font-bold">Bùng nổ +120% vs 7/4</td></tr>
+      </tbody>
+    </table></div>
+    <p class="text-[10px] text-gray-400 mt-2"><strong class="text-white">Insight:</strong> Đây là tiền vào THẬT, không phải tiền cũ rotate. 346,406 TK mở mới T3/2026 (cao nhất 4 năm) đã được kích hoạt — xác nhận giả thuyết "FOMO chờ đợi" từ các phân tích trước.</p>
+  </div>
+
+  <!-- Khối ngoại -->
+  <div class="card p-4">
+    <h3 class="text-sm font-bold text-white mb-2">🌍 Khối ngoại — 3 lát cắt</h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+      <div class="bg-yellow-950/20 rounded p-3 border border-yellow-900/20">
+        <div class="text-xs font-bold text-yellow-300 mb-1">Lát 1: Headline</div>
+        <p class="text-[10px] text-gray-400">Giá trị end-of-day còn có spread giữa các nguồn do block trades VIC làm méo. Headline: bán ròng nhẹ đến trung tính.</p>
+      </div>
+      <div class="bg-emerald-950/20 rounded p-3 border border-emerald-900/20">
+        <div class="text-xs font-bold text-emerald-300 mb-1">Lát 2: Theo mã</div>
+        <p class="text-[10px] text-gray-400">Mua ròng mạnh: <strong>HPG, FPT, MSN, VCK, SSI</strong>. Vẫn bán: nhóm NH (TCB, HDB, STB - de-rating cấu trúc).</p>
+      </div>
+      <div class="bg-blue-950/20 rounded p-3 border border-blue-900/20">
+        <div class="text-xs font-bold text-blue-300 mb-1">Lát 3: So 15 phiên</div>
+        <p class="text-[10px] text-gray-400">Áp lực bán ròng đã giảm rõ. ETF rút ròng hạ nhiệt. Chuyển từ "selling exhaustion" sang "re-allocation chọn lọc".</p>
+      </div>
+    </div>
+    <div class="mt-3 p-2 bg-black/30 rounded">
+      <p class="text-[10px] text-gray-300"><strong class="text-yellow-300">Bias correction quan trọng:</strong> Phân biệt (a) "đổi quan điểm" vs (b) "ngừng bán". Hiện VN đang ở (b) chuyển dần sang (a) chọn lọc. Khác biệt ở chỗ: nếu chỉ (b) thì khi tin cạn có thể bán lại; nếu (a) thì là re-allocation cấu trúc.</p>
+    </div>
+  </div>
+
+  <!-- Tổ chức nội -->
+  <div class="card p-4">
+    <h3 class="text-sm font-bold text-white mb-2">🏦 Tổ chức nội — Đã vào trước catalyst</h3>
+    <div class="space-y-1.5 text-[10px] text-gray-300">
+      <p>• Phiên 7/4 (trước FTSE): <strong class="text-emerald-300">Tự doanh mua ròng +386.3 tỷ</strong>, tổ chức nội mua ròng <strong class="text-emerald-300">+476.6 tỷ</strong></p>
+      <p>• Top mua phiên 7/4: VHM, FPT, VIC, VCK, GMD, MWG, BID, MBB, HDB, VIX</p>
+      <p>• <strong class="text-yellow-300">Insight:</strong> Trong khi ngoại còn bán phiên 7/4, tổ chức nội đã smart money positioning. Họ là những người biết FTSE sẽ confirm và đã đón đầu.</p>
+      <p>• Phiên 8/4 thanh khoản bùng nổ một phần nhờ chính các tổ chức nội này tiếp tục giữ vị thế + retail FOMO gia nhập</p>
+    </div>
+  </div>
+</div>
+
+<!-- TAB 2: FTSE Roadmap -->
+<div id="tab2" class="space-y-3 fade-in hidden">
+  <div class="card p-4" style="border-color:rgba(16,185,129,0.3)">
+    <h3 class="text-sm font-bold text-emerald-300 mb-2">🎉 FTSE Russell — Xác nhận chính thức 08/04/2026</h3>
+    <p class="text-[10px] text-gray-300 leading-relaxed">3h sáng 08/04 (giờ VN), FTSE Russell công bố kết quả rà soát giữa kỳ T3/2026, xác nhận lộ trình nâng hạng Việt Nam từ Frontier lên <strong class="text-emerald-300">Secondary Emerging Market</strong>. Hội đồng Chỉ số FTSE hài lòng với mô hình "global broker" (Thông tư 08/2026/TT-BTC) và cơ chế Non-Prefunding.</p>
+  </div>
+
+  <!-- 4 giai đoạn -->
+  <div class="card p-4">
+    <h3 class="text-sm font-bold text-white mb-3">📅 Lộ trình 4 giai đoạn phân bổ</h3>
+    <div class="space-y-2">
+      <div class="flex items-center gap-3 p-2 bg-emerald-950/20 rounded border-l-4 border-emerald-500">
+        <div class="text-xs font-bold text-emerald-300 w-24">21/09/2026</div>
+        <div class="flex-1">
+          <div class="text-[10px] font-bold text-white">Giai đoạn 1: +10%</div>
+          <div class="text-[10px] text-gray-400">Tích lũy: 10% | Dòng vốn passive ước: ~167 triệu USD</div>
+        </div>
+      </div>
+      <div class="flex items-center gap-3 p-2 bg-emerald-950/20 rounded border-l-4 border-emerald-400">
+        <div class="text-xs font-bold text-emerald-300 w-24">T3/2027</div>
+        <div class="flex-1">
+          <div class="text-[10px] font-bold text-white">Giai đoạn 2: +20%</div>
+          <div class="text-[10px] text-gray-400">Tích lũy: 30% | Dòng vốn passive ước: ~333 triệu USD</div>
+        </div>
+      </div>
+      <div class="flex items-center gap-3 p-2 bg-emerald-950/20 rounded border-l-4 border-emerald-400">
+        <div class="text-xs font-bold text-emerald-300 w-24">T6/2027</div>
+        <div class="flex-1">
+          <div class="text-[10px] font-bold text-white">Giai đoạn 3: +35%</div>
+          <div class="text-[10px] text-gray-400">Tích lũy: 65% | Dòng vốn passive ước: ~585 triệu USD</div>
+        </div>
+      </div>
+      <div class="flex items-center gap-3 p-2 bg-emerald-950/20 rounded border-l-4 border-emerald-400">
+        <div class="text-xs font-bold text-emerald-300 w-24">T9/2027</div>
+        <div class="flex-1">
+          <div class="text-[10px] font-bold text-white">Giai đoạn 4: +35% (hoàn tất)</div>
+          <div class="text-[10px] text-gray-400">Tích lũy: 100% | Dòng vốn passive ước: ~585 triệu USD</div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-3 p-2 bg-yellow-950/30 rounded">
+      <p class="text-[10px] text-yellow-200"><strong>⚠ Timing trade quan trọng:</strong> Tiền passive rải đều, nhưng <strong>peak FOMO pre-positioning</strong> sẽ rơi vào trước các mốc chốt danh sách. Mốc gần nhất: <strong>21/08/2026</strong> (FTSE chốt danh sách cuối cùng 32 mã). → Peak FOMO dự kiến <strong>T7-T8/2026</strong>.</p>
+    </div>
+  </div>
+
+  <!-- Quy mô dòng vốn -->
+  <div class="card p-4">
+    <h3 class="text-sm font-bold text-white mb-2">💰 Quy mô dòng vốn ước tính</h3>
+    <div class="overflow-x-auto"><table class="w-full text-[10px]">
+      <thead><tr class="text-gray-500 border-b border-gray-800"><th class="py-1 text-left">Nguồn ước tính</th><th class="py-1">Quy mô</th><th class="py-1 text-left">Ghi chú</th></tr></thead>
+      <tbody class="text-gray-300">
+        <tr class="border-b border-gray-800/50"><td class="py-1.5">SSI Research (passive)</td><td class="text-center text-emerald-400">~1.67 tỷ USD</td><td>Chỉ passive ETF, rải 12 tháng</td></tr>
+        <tr class="border-b border-gray-800/50"><td class="py-1.5">VPBankS (passive)</td><td class="text-center text-emerald-400">~1.7 tỷ USD</td><td>Chỉ passive tối thiểu</td></tr>
+        <tr class="border-b border-gray-800/50"><td class="py-1.5">CTCK trung bình</td><td class="text-center text-emerald-400">6-8 tỷ USD</td><td>Passive + active combined</td></tr>
+        <tr><td class="py-1.5">HSBC (bullish)</td><td class="text-center text-emerald-400">10.4 tỷ USD</td><td>Kịch bản lạc quan nhất</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <!-- 32 mã -->
+  <div class="card p-4">
+    <h3 class="text-sm font-bold text-white mb-2">🎯 32 cổ phiếu dự kiến vào rổ — Top 5 vốn hóa lớn</h3>
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-2 mb-3">
+      <div class="bg-emerald-950/30 rounded p-2 text-center border border-emerald-900/30"><div class="text-sm font-bold text-emerald-300">HPG</div><div class="text-[9px] text-gray-400">Thép</div></div>
+      <div class="bg-emerald-950/30 rounded p-2 text-center border border-emerald-900/30"><div class="text-sm font-bold text-emerald-300">VCB</div><div class="text-[9px] text-gray-400">Ngân hàng</div></div>
+      <div class="bg-emerald-950/30 rounded p-2 text-center border border-emerald-900/30"><div class="text-sm font-bold text-emerald-300">BID</div><div class="text-[9px] text-gray-400">Ngân hàng</div></div>
+      <div class="bg-emerald-950/30 rounded p-2 text-center border border-emerald-900/30"><div class="text-sm font-bold text-emerald-300">VIC</div><div class="text-[9px] text-gray-400">Vingroup</div></div>
+      <div class="bg-emerald-950/30 rounded p-2 text-center border border-emerald-900/30"><div class="text-sm font-bold text-emerald-300">VHM</div><div class="text-[9px] text-gray-400">Vinhomes</div></div>
+    </div>
+    <p class="text-[10px] text-gray-400">Tỷ trọng VN trong rổ: FTSE Global All Cap 0.037% | FTSE All-World 0.024% | FTSE Emerging All Cap 0.350% | FTSE Emerging 0.227%.</p>
+    <p class="text-[10px] text-yellow-300 mt-1"><strong>⚠ Lưu ý:</strong> Danh sách cuối cùng sẽ công bố <strong>21/08/2026</strong>. Đây là catalyst phụ trung gian quan trọng nhất.</p>
+  </div>
+
+  <!-- Catalyst kế tiếp -->
+  <div class="card p-4">
+    <h3 class="text-sm font-bold text-white mb-2">🔔 Các catalyst chính tiếp theo</h3>
+    <div class="space-y-1.5 text-[10px]">
+      <div class="flex items-center gap-2"><span class="badge-info px-1.5 py-0.5 rounded font-bold">15-17/4</span><span class="text-gray-300">KQKD Q1/2026 các mã lớn (HPG, SSI, MSN, MWG...)</span></div>
+      <div class="flex items-center gap-2"><span class="badge-warn px-1.5 py-0.5 rounded font-bold">T4-T5</span><span class="text-gray-300">Mùa ĐHCĐ — cổ tức, kế hoạch 2026</span></div>
+      <div class="flex items-center gap-2"><span class="badge-warn px-1.5 py-0.5 rounded font-bold">T6/2026</span><span class="text-gray-300">KQKD Q2, bắt đầu pre-positioning mạnh cho FTSE</span></div>
+      <div class="flex items-center gap-2"><span class="badge-err px-1.5 py-0.5 rounded font-bold">21/08/2026</span><span class="text-gray-300 font-bold">FTSE chốt danh sách cuối cùng 32 mã</span></div>
+      <div class="flex items-center gap-2"><span class="badge-err px-1.5 py-0.5 rounded font-bold">21/09/2026</span><span class="text-gray-300 font-bold">FTSE Inclusion Giai đoạn 1 effective (10%)</span></div>
+      <div class="flex items-center gap-2"><span class="badge-info px-1.5 py-0.5 rounded font-bold">T3/2027</span><span class="text-gray-300">FTSE Giai đoạn 2 (+20% = 30% tích lũy)</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB 3: Xác suất -->
+<div id="tab3" class="space-y-3 fade-in hidden">
+  <!-- Phiên 9/4 -->
+  <div class="card p-4">
+    <h3 class="text-sm font-bold text-white mb-2">Phiên 09/04/2026 — Bias cooling down</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+      <canvas id="chartSession"></canvas>
+      <div class="text-[10px] text-gray-300 space-y-1">
+        <p>• <strong class="text-emerald-300">Tăng tiếp >0.5%:</strong> 30%</p>
+        <p>• <strong class="text-gray-400">Đi ngang ±0.5%:</strong> 30%</p>
+        <p>• <strong class="text-orange-400">Giảm nhẹ 0.5-1.5%:</strong> 25%</p>
+        <p>• <strong class="text-red-400">Giảm mạnh >1.5%:</strong> 15%</p>
+        <p class="pt-2 text-yellow-300"><strong>Phiên 9/4 là "cooling day"</strong> sau spike. Một phiên tăng tiếp là bonus, không phải base case.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ngắn hạn -->
+  <div class="card p-4">
+    <h3 class="text-sm font-bold text-white mb-2">Ngắn hạn 1 tháng (đến đầu T5)</h3>
+    <div class="space-y-2">
+      <div class="flex items-center gap-2"><span class="w-24 text-[10px] text-emerald-300 font-bold">Tích cực</span><div class="flex-1 h-4 bg-gray-800 rounded"><div class="h-4 bg-emerald-500 rounded" style="width:45%"></div></div><span class="text-[10px] text-gray-400 w-12">45%</span><span class="text-[10px] text-gray-400 w-24">1,720-1,820</span></div>
+      <div class="flex items-center gap-2"><span class="w-24 text-[10px] text-yellow-300 font-bold">Sideway</span><div class="flex-1 h-4 bg-gray-800 rounded"><div class="h-4 bg-yellow-500 rounded" style="width:30%"></div></div><span class="text-[10px] text-gray-400 w-12">30%</span><span class="text-[10px] text-gray-400 w-24">1,700-1,780</span></div>
+      <div class="flex items-center gap-2"><span class="w-24 text-[10px] text-orange-300 font-bold">Pullback</span><div class="flex-1 h-4 bg-gray-800 rounded"><div class="h-4 bg-orange-500 rounded" style="width:18%"></div></div><span class="text-[10px] text-gray-400 w-12">18%</span><span class="text-[10px] text-gray-400 w-24">1,680-1,760</span></div>
+      <div class="flex items-center gap-2"><span class="w-24 text-[10px] text-red-300 font-bold">Gãy hẳn</span><div class="flex-1 h-4 bg-gray-800 rounded"><div class="h-4 bg-red-500 rounded" style="width:7%"></div></div><span class="text-[10px] text-gray-400 w-12">7%</span><span class="text-[10px] text-gray-400 w-24">&lt;1,680</span></div>
+    </div>
+    <p class="text-[10px] text-emerald-300 mt-2 font-bold">Tổng P(tích cực): 75% — mức tích cực nhất kể từ đầu T3</p>
+  </div>
+
+  <!-- Trung hạn -->
+  <div class="card p-4">
+    <h3 class="text-sm font-bold text-white mb-2">Trung hạn — đến T9/2026 (FTSE Inclusion)</h3>
+    <div class="space-y-2">
+      <div class="flex items-center gap-2"><span class="w-24 text-[10px] text-emerald-300 font-bold">Pre-pos bùng nổ</span><div class="flex-1 h-4 bg-gray-800 rounded"><div class="h-4 bg-emerald-500 rounded" style="width:35%"></div></div><span class="text-[10px] text-gray-400 w-12">35%</span><span class="text-[10px] text-gray-400 w-24">1,950-2,100</span></div>
+      <div class="flex items-center gap-2"><span class="w-24 text-[10px] text-emerald-300 font-bold">Tăng từ từ</span><div class="flex-1 h-4 bg-gray-800 rounded"><div class="h-4 bg-emerald-400 rounded" style="width:35%"></div></div><span class="text-[10px] text-gray-400 w-12">35%</span><span class="text-[10px] text-gray-400 w-24">1,820-1,950</span></div>
+      <div class="flex items-center gap-2"><span class="w-24 text-[10px] text-yellow-300 font-bold">Sideway chờ</span><div class="flex-1 h-4 bg-gray-800 rounded"><div class="h-4 bg-yellow-500 rounded" style="width:20%"></div></div><span class="text-[10px] text-gray-400 w-12">20%</span><span class="text-[10px] text-gray-400 w-24">1,720-1,820</span></div>
+      <div class="flex items-center gap-2"><span class="w-24 text-[10px] text-red-300 font-bold">Shock vĩ mô</span><div class="flex-1 h-4 bg-gray-800 rounded"><div class="h-4 bg-red-500 rounded" style="width:10%"></div></div><span class="text-[10px] text-gray-400 w-12">10%</span><span class="text-[10px] text-gray-400 w-24">&lt;1,720</span></div>
+    </div>
+    <p class="text-[10px] text-emerald-300 mt-2 font-bold">Tổng P(tích cực 1,820+): 70% | Peak FOMO dự kiến T7-T8/2026</p>
+  </div>
+
+  <!-- Dài hạn -->
+  <div class="card p-4">
+    <h3 class="text-sm font-bold text-white mb-2">Dài hạn 1 năm (đến T4/2027)</h3>
+    <div class="space-y-2">
+      <div class="flex items-center gap-2"><span class="w-32 text-[10px] text-emerald-300 font-bold">Bullish chu kỳ</span><div class="flex-1 h-4 bg-gray-800 rounded"><div class="h-4 bg-emerald-500 rounded" style="width:55%"></div></div><span class="text-[10px] text-gray-400 w-12">55%</span><span class="text-[10px] text-gray-400 w-24">2,000-2,300</span></div>
+      <div class="flex items-center gap-2"><span class="w-32 text-[10px] text-yellow-300 font-bold">Sideway đi lên</span><div class="flex-1 h-4 bg-gray-800 rounded"><div class="h-4 bg-yellow-500 rounded" style="width:25%"></div></div><span class="text-[10px] text-gray-400 w-12">25%</span><span class="text-[10px] text-gray-400 w-24">1,800-2,000</span></div>
+      <div class="flex items-center gap-2"><span class="w-32 text-[10px] text-orange-300 font-bold">Sideway giảm</span><div class="flex-1 h-4 bg-gray-800 rounded"><div class="h-4 bg-orange-500 rounded" style="width:15%"></div></div><span class="text-[10px] text-gray-400 w-12">15%</span><span class="text-[10px] text-gray-400 w-24">1,650-1,850</span></div>
+      <div class="flex items-center gap-2"><span class="w-32 text-[10px] text-red-300 font-bold">Khủng hoảng</span><div class="flex-1 h-4 bg-gray-800 rounded"><div class="h-4 bg-red-500 rounded" style="width:5%"></div></div><span class="text-[10px] text-gray-400 w-12">5%</span><span class="text-[10px] text-gray-400 w-24">&lt;1,600</span></div>
+    </div>
+    <p class="text-[10px] text-emerald-300 mt-2 font-bold">Tổng P(tăng): 80%. Định giá: P/E fwd 12.2 vs TB 10 năm 14.5x → re-rating +19% chưa tính growth</p>
+  </div>
+</div>
+
+<!-- TAB 4: 4 Mã -->
+<div id="tab4" class="space-y-3 fade-in hidden">
+  <!-- Ranking -->
+  <div class="card p-4" style="background:linear-gradient(135deg,rgba(30,58,138,.15),rgba(17,24,39,.6))">
+    <h3 class="text-sm font-bold text-white mb-2">📊 Xếp hạng 4 mã — 5 trục đánh giá</h3>
+    <div class="overflow-x-auto"><table class="w-full text-[10px]">
+      <thead><tr class="text-gray-500 border-b border-gray-800"><th class="py-1 text-left">Trục</th><th class="py-1 text-left">Thứ tự</th></tr></thead>
+      <tbody class="text-gray-300">
+        <tr class="border-b border-gray-800/50"><td class="py-1.5 font-bold">Độ tin cậy xu hướng</td><td class="text-emerald-300 font-bold">HPG > SSI > EVF > PAN</td></tr>
+        <tr class="border-b border-gray-800/50"><td class="py-1.5 font-bold">Độ ổn định (ít rung lắc)</td><td class="text-yellow-300 font-bold">PAN > HPG > EVF > SSI</td></tr>
+        <tr class="border-b border-gray-800/50"><td class="py-1.5 font-bold">Beta với FTSE catalyst</td><td class="text-emerald-300 font-bold">SSI > HPG > EVF > PAN</td></tr>
+        <tr class="border-b border-gray-800/50"><td class="py-1.5 font-bold">Upside tới T9/2026</td><td class="text-emerald-300 font-bold">SSI > HPG > EVF > PAN</td></tr>
+        <tr><td class="py-1.5 font-bold">Downside risk (ít → nhiều)</td><td class="text-red-300 font-bold">PAN < EVF < HPG < SSI</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <!-- HPG -->
+  <div class="card p-4" style="border-left: 4px solid #22c55e">
+    <div class="flex justify-between items-start mb-2">
+      <div>
+        <h3 class="text-sm font-bold text-white">🥇 HPG — Vị trí #1, Momentum cực tích cực</h3>
+        <p class="text-[10px] text-gray-500">28,000 VND (+4.48% phiên 8/4) • Vol 67.65 triệu</p>
+      </div>
+      <span class="badge-ok px-2 py-0.5 rounded text-[10px] font-bold">TOP PICK</span>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-[10px] text-gray-300">
+      <div>
+        <p class="font-bold text-emerald-300 mb-1">Cơ bản & Catalyst:</p>
+        <p>• DT 2026: 210,000 tỷ, LNST 22,000 tỷ (+41.8%)</p>
+        <p>• <strong class="text-white">Top 5 vốn hóa FTSE direct inclusion</strong></p>
+        <p>• Chu kỳ phục hồi thép Q2/2026 (đầu tư công)</p>
+        <p>• P/E fwd ~10-11x, P/B ~1.4 — rẻ vs ngành</p>
+        <p>• KQKD Q1 15-17/4 — kỳ vọng tốt</p>
+      </div>
+      <div>
+        <p class="font-bold text-yellow-300 mb-1">Kỹ thuật:</p>
+        <p>• Hỗ trợ: 27,500 / 27,000 / 26,500</p>
+        <p>• Kháng cự: 28,500 / 29,000 / 30,000</p>
+        <p>• RSI ~62, MACD dương</p>
+        <p>• Cup-and-handle đang hình thành</p>
+        <p>• <strong class="text-emerald-300">Khối ngoại mua ròng 8/4 mạnh</strong></p>
+      </div>
+    </div>
+    <div class="mt-2 grid grid-cols-3 gap-2 text-[10px]">
+      <div class="bg-emerald-950/30 rounded p-1.5 text-center"><div class="text-gray-400">1-3 phiên</div><div class="font-bold text-emerald-300">Tăng 50%</div></div>
+      <div class="bg-emerald-950/30 rounded p-1.5 text-center"><div class="text-gray-400">1 tháng</div><div class="font-bold text-emerald-300">Tăng 65%</div></div>
+      <div class="bg-emerald-950/30 rounded p-1.5 text-center"><div class="text-gray-400">Tới T9</div><div class="font-bold text-emerald-300">Tăng 75%</div></div>
+    </div>
+  </div>
+
+  <!-- SSI -->
+  <div class="card p-4" style="border-left: 4px solid #3b82f6">
+    <div class="flex justify-between items-start mb-2">
+      <div>
+        <h3 class="text-sm font-bold text-white">🥈 SSI — Beta cao nhất, đòn bẩy 2 catalyst</h3>
+        <p class="text-[10px] text-gray-500">29,400 VND (+6.91% phiên 8/4) • Vol 65.78 triệu</p>
+      </div>
+      <span class="badge-info px-2 py-0.5 rounded text-[10px] font-bold">HIGH BETA</span>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-[10px] text-gray-300">
+      <div>
+        <p class="font-bold text-emerald-300 mb-1">Cơ bản & Catalyst:</p>
+        <p>• DT 2026: 15,660 tỷ, LNTT 5,838 tỷ</p>
+        <p>• <strong class="text-white">Top 1 thị phần môi giới HOSE Q1</strong></p>
+        <p>• Direct beneficiary FTSE inclusion</p>
+        <p>• Thanh khoản TT tăng = LN broker tăng tuyến tính</p>
+        <p>• IPO pipeline 47 tỷ USD 2025-2027</p>
+      </div>
+      <div>
+        <p class="font-bold text-yellow-300 mb-1">Kỹ thuật:</p>
+        <p>• Hỗ trợ: 28,500 / 27,500-28,000</p>
+        <p>• Kháng cự: 30,500 / 32,000-33,000</p>
+        <p>• RSI ~68 — gần vùng overbought</p>
+        <p>• Vol cao nhất nhiều tháng</p>
+        <p>• <strong class="text-yellow-300">Dễ chốt lời nếu thanh khoản hụt</strong></p>
+      </div>
+    </div>
+    <div class="mt-2 grid grid-cols-3 gap-2 text-[10px]">
+      <div class="bg-blue-950/30 rounded p-1.5 text-center"><div class="text-gray-400">1-3 phiên</div><div class="font-bold text-yellow-300">Tăng 45%</div></div>
+      <div class="bg-blue-950/30 rounded p-1.5 text-center"><div class="text-gray-400">1 tháng</div><div class="font-bold text-emerald-300">Tăng 60%</div></div>
+      <div class="bg-blue-950/30 rounded p-1.5 text-center"><div class="text-gray-400">Tới T9</div><div class="font-bold text-emerald-300">Tăng 70%</div></div>
+    </div>
+  </div>
+
+  <!-- PAN -->
+  <div class="card p-4" style="border-left: 4px solid #eab308">
+    <div class="flex justify-between items-start mb-2">
+      <div>
+        <h3 class="text-sm font-bold text-white">🥉 PAN — Phòng thủ, thiếu momentum</h3>
+        <p class="text-[10px] text-gray-500">31,850 VND (+1.59% phiên 8/4) • Vol chỉ 223.8k</p>
+      </div>
+      <span class="badge-warn px-2 py-0.5 rounded text-[10px] font-bold">DEFENSIVE</span>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-[10px] text-gray-300">
+      <div>
+        <p class="font-bold text-emerald-300 mb-1">Cơ bản & Catalyst:</p>
+        <p>• DT 2026: >18,000 tỷ (có Bibica one-off Q1)</p>
+        <p>• <strong class="text-yellow-300">KHÔNG nằm trong 32 mã FTSE</strong></p>
+        <p>• Phòng thủ, ít beta macro</p>
+        <p>• Mảng nông sản, thực phẩm</p>
+        <p>• Q2-Q4 so sánh YoY sẽ kém (hết Bibica)</p>
+      </div>
+      <div>
+        <p class="font-bold text-yellow-300 mb-1">Kỹ thuật:</p>
+        <p>• Hỗ trợ: 31,000 / 30,000-30,500</p>
+        <p>• Kháng cự: 32,500-33,000 / 33,500</p>
+        <p>• RSI ~50-52, neutral</p>
+        <p>• <strong class="text-orange-300">Vol cực thấp = thiếu cầu</strong></p>
+        <p>• Không dẫn sóng pha hiện tại</p>
+      </div>
+    </div>
+    <div class="mt-2 grid grid-cols-3 gap-2 text-[10px]">
+      <div class="bg-yellow-950/30 rounded p-1.5 text-center"><div class="text-gray-400">1-3 phiên</div><div class="font-bold text-yellow-300">Ngang 45%</div></div>
+      <div class="bg-yellow-950/30 rounded p-1.5 text-center"><div class="text-gray-400">1 tháng</div><div class="font-bold text-yellow-300">Tăng 50%</div></div>
+      <div class="bg-yellow-950/30 rounded p-1.5 text-center"><div class="text-gray-400">Tới T9</div><div class="font-bold text-yellow-300">Tăng 55%</div></div>
+    </div>
+  </div>
+
+  <!-- EVF -->
+  <div class="card p-4" style="border-left: 4px solid #f97316">
+    <div class="flex justify-between items-start mb-2">
+      <div>
+        <h3 class="text-sm font-bold text-white">EVF — Cải thiện, vệ tinh</h3>
+        <p class="text-[10px] text-gray-500">14,100 VND (+4.44% phiên 8/4) • Vol 9.63 triệu</p>
+      </div>
+      <span class="badge-warn px-2 py-0.5 rounded text-[10px] font-bold">SATELLITE</span>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-[10px] text-gray-300">
+      <div>
+        <p class="font-bold text-emerald-300 mb-1">Cơ bản & Catalyst:</p>
+        <p>• Tổng tài sản 93,000 tỷ, LNTT 1,325 tỷ (+20%)</p>
+        <p>• Q1/2026 ước hoàn thành ~25% kế hoạch</p>
+        <p>• <strong class="text-yellow-300">Không FTSE wave 1</strong>, có thể wave 2 (T3/27)</p>
+        <p>• Tài chính tiêu dùng phụ thuộc chu kỳ LS</p>
+        <p>• LS hạ → NIM cải thiện</p>
+      </div>
+      <div>
+        <p class="font-bold text-yellow-300 mb-1">Kỹ thuật:</p>
+        <p>• Hỗ trợ: 13,500-13,700 / 13,000</p>
+        <p>• Kháng cự: 14,500-14,800 / 15,500</p>
+        <p>• RSI ~55, đang lên</p>
+        <p>• Vol trung bình — chưa thuyết phục</p>
+        <p>• Khối ngoại không tích cực</p>
+      </div>
+    </div>
+    <div class="mt-2 grid grid-cols-3 gap-2 text-[10px]">
+      <div class="bg-orange-950/30 rounded p-1.5 text-center"><div class="text-gray-400">1-3 phiên</div><div class="font-bold text-yellow-300">Tăng 40%</div></div>
+      <div class="bg-orange-950/30 rounded p-1.5 text-center"><div class="text-gray-400">1 tháng</div><div class="font-bold text-yellow-300">Tăng 50%</div></div>
+      <div class="bg-orange-950/30 rounded p-1.5 text-center"><div class="text-gray-400">Tới T9</div><div class="font-bold text-yellow-300">Tăng 55%</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB 5: Playbook -->
+<div id="tab5" class="space-y-3 fade-in hidden">
+  <div class="card p-4" style="background:linear-gradient(135deg,rgba(30,58,138,.15),rgba(17,24,39,.6))">
+    <h3 class="text-sm font-bold text-white mb-1">📋 Playbook hành động — 09/04/2026 và sau đó</h3>
+    <p class="text-[10px] text-gray-400">Quy tắc theo từng pha thị trường</p>
+  </div>
+
+  <!-- Phiên 9/4 -->
+  <div class="card p-4">
+    <h4 class="text-xs font-bold text-blue-300 mb-2">🌅 Phiên 09/04 — Quan sát cooling day</h4>
+    <div class="space-y-1 text-[10px] text-gray-300">
+      <p>• <strong>8:30-9:00:</strong> Check futures Mỹ, dầu Brent, Asia</p>
+      <p>• <strong>ATO:</strong> KHÔNG mua đuổi. Nếu gap down nhẹ — bình thường, không panic</p>
+      <p>• <strong>9:30-10:30:</strong> Theo dõi Volume. Nếu &gt;15,000 tỷ sáng = tốt</p>
+      <p>• <strong>Must-watch:</strong> Giá có fill gap về dưới 1,714 không?</p>
+      <p>• <strong>Chiều:</strong> Nếu giá vẫn giữ trên 1,730 với vol ổn → trend confirm</p>
+      <p>• <strong>ATC:</strong> Breadth phải giữ &gt;2:1 mã tăng/giảm</p>
+    </div>
+  </div>
+
+  <!-- 1-2 tuần -->
+  <div class="card p-4">
+    <h4 class="text-xs font-bold text-emerald-300 mb-2">📅 1-2 tuần tới</h4>
+    <div class="space-y-1 text-[10px] text-gray-300">
+      <p>• <strong>KHÔNG FOMO</strong> mua đuổi ở vùng cao 1,750-1,780</p>
+      <p>• Ưu tiên giải ngân ở nhịp pullback về 1,720-1,740</p>
+      <p>• Priority mua: <strong class="text-emerald-300">HPG > SSI</strong> (cả 2 nằm trong rổ FTSE direct)</p>
+      <p>• Theo dõi KQKD Q1 15-17/4 — confirmation fundamental</p>
+      <p>• Monitor Iran/Hormuz — biến số rủi ro chính còn lại</p>
+    </div>
+  </div>
+
+  <!-- Tới T9 -->
+  <div class="card p-4">
+    <h4 class="text-xs font-bold text-yellow-300 mb-2">🎯 Trung hạn tới T9/2026</h4>
+    <div class="space-y-1 text-[10px] text-gray-300">
+      <p>• <strong>Thesis chính:</strong> Pre-positioning cho FTSE inclusion</p>
+      <p>• Peak FOMO dự kiến <strong class="text-yellow-300">T7-T8/2026</strong> trước mốc 21/8 (chốt danh sách)</p>
+      <p>• Focus 5 large caps FTSE: HPG, VCB, BID, VIC, VHM</p>
+      <p>• Giảm tỷ trọng vào các mã non-FTSE (như PAN) dần</p>
+      <p>• Quản trị rủi ro: đặt trailing stop khi VNI &gt;1,900</p>
+      <p>• Cân nhắc chốt lời từng phần khi VNI chạm 1,950-2,000</p>
+    </div>
+  </div>
+
+  <!-- What could prove me wrong -->
+  <div class="card p-4" style="border-color:rgba(220,38,38,0.3)">
+    <h4 class="text-xs font-bold text-red-300 mb-2">⚠ "What could prove me wrong"</h4>
+    <div class="space-y-1 text-[10px] text-gray-300">
+      <p>• Phiên 9/4 fill gap về &lt;1,714 với vol cao → distribution day, scenario tích lũy yếu</p>
+      <p>• Iran tấn công cơ sở năng lượng quy mô lớn → Brent &gt;$120 → CPI VN T4 &gt;5.5%</p>
+      <p>• Khối ngoại quay lại bán mạnh ngay sau FTSE → "sell the news" fully confirmed</p>
+      <p>• ETF VNM/FUEVFVND tiếp tục rút ròng dù FTSE đã confirm → cấu trúc dòng vốn passive xấu hơn dự kiến</p>
+      <p>• Thuế quan Mỹ leo thang bất ngờ trong đàm phán phase 2</p>
+    </div>
+  </div>
+
+  <!-- Quy tắc sắt -->
+  <div class="bg-red-950/20 border border-red-800/30 rounded-lg p-3">
+    <h4 class="text-xs font-bold text-red-300 mb-1">🔒 Quy tắc sắt</h4>
+    <div class="space-y-1 text-[10px] text-gray-200">
+      <p><strong>1.</strong> KHÔNG mua đuổi ATO phiên 9/4. Chờ test gap support.</p>
+      <p><strong>2.</strong> KHÔNG dùng margin ở vùng giá cao. LS margin vẫn ~14%/năm.</p>
+      <p><strong>3.</strong> Max giải ngân mỗi nhịp: 25% cash remaining.</p>
+      <p><strong>4.</strong> Stop-loss kỹ thuật: VNI đóng cửa &lt;1,700 với vol cao.</p>
+      <p><strong>5.</strong> Ưu tiên các mã trong rổ FTSE 32 direct inclusion.</p>
+    </div>
+  </div>
+
+  <div class="card p-3 text-center">
+    <p class="text-xs text-white font-bold">Đây là phân tích chiến lược, không phải khuyến nghị đầu tư cá nhân hóa.</p>
+    <p class="text-[10px] text-gray-600 mt-1">Cập nhật: 09/04/2026 sáng ICT</p>
+  </div>
+</div>
+
+</main>
+
+<footer class="border-t border-gray-800 py-3 px-4 text-center mt-4">
+  <p class="text-[10px] text-gray-600">AI-assisted analysis + market data | Nguồn: Vietstock, CafeF, VnEconomy, Reuters, FTSE Russell</p>
+</footer>
+
+<script>
+function switchTab(idx){
+  for(let i=0;i<6;i++){
+    document.getElementById('tab'+i).classList.add('hidden');
+    document.querySelectorAll('#tabBar button')[i].classList.remove('active');
+    document.querySelectorAll('#tabBar button')[i].classList.add('text-gray-500');
+  }
+  document.getElementById('tab'+idx).classList.remove('hidden');
+  document.querySelectorAll('#tabBar button')[idx].classList.add('active');
+  document.querySelectorAll('#tabBar button')[idx].classList.remove('text-gray-500');
+  if(idx===3) initCharts();
+}
+let chartsReady=false;
+function initCharts(){
+  if(chartsReady) return; chartsReady=true;
+  new Chart(document.getElementById('chartSession'),{
+    type:'doughnut',
+    data:{
+      labels:['Tăng >0.5% (30%)','Đi ngang ±0.5% (30%)','Giảm 0.5-1.5% (25%)','Giảm >1.5% (15%)'],
+      datasets:[{data:[30,30,25,15],backgroundColor:['#22c55e','#64748b','#f97316','#dc2626'],borderWidth:0}]
+    },
+    options:{responsive:true,plugins:{legend:{position:'bottom',labels:{color:'#94a3b8',font:{size:9}}}}}
+  });
+}
+</script>
+</body>
+</html>
