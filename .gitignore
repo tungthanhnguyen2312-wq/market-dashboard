@@ -1,0 +1,52 @@
+# ==========================================================================
+# .gitignore — VNSTOCK: chỉ dashboard (index.html + data/) được đẩy lên GitHub Pages.
+# publish_dashboard.py luôn add THEO TÊN FILE cụ thể (không bao giờ `git add .`),
+# file này là lớp phòng thủ THỨ HAI phòng khi lỡ tay add bằng tay.
+# ==========================================================================
+
+# Kho dữ liệu gốc — TUYỆT ĐỐI không đẩy (nặng + là tài sản dữ liệu cá nhân)
+vn_stock.db
+*.parquet
+ohlcv_flat.csv
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Bí mật / cấu hình cục bộ (API key nằm trong biến môi trường, không có file key,
+# nhưng chặn sẵn các dạng phổ biến)
+.env
+*.key
+.claude/
+
+# Log của publish_dashboard.py (chỉ có ý nghĩa cục bộ)
+publish_log.txt
+
+# --------------------------------------------------------------------------
+# Bổ sung 2026-07-11 — nguyên tắc: chỉ đẩy CODE + UI + dữ liệu web cần.
+# Dữ liệu cá nhân / output trung gian không lên GitHub:
+blacklist.csv
+tickers.txt
+# ai_report có ngày = bản cá nhân (ignore); ai_report_latest.* là dữ liệu SITE CẦN (không ignore)
+ai_report_2*.json
+ai_report_2*.md
+ai_prompt_preview.txt
+# Code pipeline + tài liệu vận hành ở LOCAL — repo này là WEBSITE (đã dọn .py khỏi remote 10/07)
+*.py
+README_PIPELINE.md
+GIAITHICH.md
+news_latest.csv
+macro_snapshot.csv
+ta_signals.csv
+ta_signals.json
+*.xlsx
+logs/
+archive_md5_cache.json
+
+# LƯU Ý CÓ CHỦ ĐÍCH — những thứ KHÔNG ignore vì web cần:
+#   data/                -> candle_signals/sector_heatmap/screener_data (dashboard sống bằng nó)
+#   screen_snapshot.csv  -> screener.html fetch trực tiếp (~0.3MB, chấp nhận được)
+#   market_breadth.csv   -> screener.html fetch trực tiếp (~2KB)
+# File NẶNG thật đã chặn theo tên ở đầu file (vn_stock.db, *.parquet, ohlcv_flat.csv)
+# --------------------------------------------------------------------------

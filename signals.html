@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VNSTOCK — Bảng tín hiệu</title>
+<style>
+  /* Theme tối + mono theo yêu cầu. Không CDN — tự chứa 100% để mở offline */
+  :root {
+    --bg:#0d1117; --panel:#161b22; --border:#30363d; --text:#c9d1d9; --dim:#8b949e;
+    --green:#3fb950; --red:#f85149; --amber:#d29922; --blue:#58a6ff;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--text);
+         font-family:"JetBrains Mono","Cascadia Code",Consolas,monospace; font-size:14px; padding:20px; }
+  h1 { font-size:18px; margin-bottom:4px; }
+  h2 { font-size:15px; margin:26px 0 10px; color:var(--blue); }
+  .meta { color:var(--dim); font-size:12px; }
+  .warn { color:var(--amber); font-size:12px; margin-top:4px; }
+  table { border-collapse:collapse; width:100%; margin-top:6px; }
+  th,td { border:1px solid var(--border); padding:5px 9px; text-align:left; font-size:13px; }
+  th { background:var(--panel); color:var(--dim); font-weight:600; }
+  .up { color:var(--green); } .down { color:var(--red); } .flat { color:var(--dim); }
+  .empty { color:var(--dim); padding:14px; border:1px dashed var(--border); margin-top:6px; }
+  /* Watchlist cards */
+  .cards { display:flex; gap:12px; flex-wrap:wrap; margin-top:10px; }
+  .card { background:var(--panel); border:1px solid var(--border); border-radius:8px;
+          padding:12px 16px; min-width:170px; }
+  .card .tk { font-size:17px; font-weight:700; }
+  .card .px { font-size:15px; margin:4px 0; }
+  .card .tags { font-size:11px; color:var(--dim); }
+  .card.conf-bull { border-color:var(--green); animation:pulseG 1.2s infinite; }
+  .card.conf-bear { border-color:var(--red); animation:pulseR 1.2s infinite; }
+  @keyframes pulseG { 50% { box-shadow:0 0 12px 1px var(--green); } }
+  @keyframes pulseR { 50% { box-shadow:0 0 12px 1px var(--red); } }
+  /* Heatmap */
+  .heat { display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:8px; margin-top:10px; }
+  .cell { border-radius:6px; padding:10px 12px; color:#0d1117; font-weight:600; font-size:12.5px; }
+  .cell small { display:block; font-weight:400; margin-top:3px; }
+  badge { display:inline-block; }
+</style>
+</head>
+<body>
+<h1>VNSTOCK — Bảng tín hiệu kỹ thuật</h1>
+<div class="meta" id="meta">đang tải dữ liệu…</div>
+<div class="meta" style="margin-top:4px">
+  <a href="index.html" style="color:var(--blue)">← Trang chính</a> ·
+  <a href="screener.html" style="color:var(--blue)">📋 Bảng lọc đầy đủ toàn thị trường →</a>
+</div>
+<div class="warn">⚠️ Dữ liệu point-in-time cho tham khảo cá nhân — mẫu nến/SMC là trigger nhiễu cao, luôn đối chiếu nền RS + thanh khoản + margin_status.</div>
+
+<h2>📌 Watchlist</h2>
+<div class="cards" id="watchlist"><div class="empty">chưa có dữ liệu</div></div>
+
+<h2>⭐ Tín hiệu hợp lưu (nến đảo chiều + vùng SMC cùng hướng)</h2>
+<div id="confluence"><div class="empty">chưa có dữ liệu</div></div>
+
+<h2>💰 Góc tích sản cổ tức (yield ≥ 7%, margin sạch)</h2>
+<div class="meta" id="divnote"></div>
+<div id="dividend"><div class="empty">Đang chờ đồng bộ dữ liệu cổ tức</div></div>
+
+<h2>🗺️ Heatmap sức mạnh ngành</h2>
+<div class="heat" id="heatmap"><div class="empty">chưa có dữ liệu</div></div>
+
+<!-- Fallback cho file:// (fetch bị CORS chặn khi mở trực tiếp): candle_scan.py sinh kèm bản .js -->
+<script src="data/candle_signals.js"></script>
+<script src="data/sector_heatmap.js"></script>
+<script>
+// Ưu tiên fetch JSON (chạy qua http.server / GitHub Pages); lỗi thì rơi về biến global từ .js
+async function loadData(path, globalName) {
+  try {
+    const r = await fetch(path);
+    if (!r.ok) throw new Error(r.status);
+    return await r.json();
+  } catch (e) { return window[globalName] || null; }
+}
+const fmt = (v, d = 1) => (v === null || v === undefined || Number.isNaN(v)) ? "–" : Number(v).toLocaleString("vi-VN", {maximumFractionDigits: d});
+const dirCls = d => d === "bullish" ? "up" : d === "bearish" ? "down" : "flat";
+const esc = s => String(s ?? "").replace(/[&<>"]/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch]));
+
+function renderWatchlist(w) {
+  if (!w || !w.length) return;
+  document.getElementById("watchlist").innerHTML = w
+    .slice().sort((a, b) => (b.confluence - a.confluence) || (b.has_signal - a.has_signal))
+    .map(x => {
+      const cls = x.confluence ? (x.direction === "bearish" ? "conf-bear" : "conf-bull") : "";
+      const tags = [...(x.patterns || []), ...(x.smc || [])].join(" · ") || "im ắng";
+      return `<div class="card ${cls}">
+        <div class="tk">${esc(x.ticker)} ${x.confluence ? "★" : ""}</div>
+        <div class="px ${dirCls(x.direction)}">${fmt(x.close, 0)} <small>${esc(x.direction || "")}</small></div>
+        <div class="tags">${esc(tags)}</div></div>`;
+    }).join("");
+}
+function renderConfluence(signals) {
+  const rows = (signals || []).filter(s => s.confluence);
+  if (!rows.length) {
+    document.getElementById("confluence").innerHTML = '<div class="empty">Phiên này không có tín hiệu hợp lưu</div>';
+    return;
+  }
+  document.getElementById("confluence").innerHTML = `<table><tr>
+    <th>Mã</th><th>Giá</th><th>Hướng</th><th>Mẫu nến</th><th>SMC</th><th>Ngành</th><th>RS</th><th>RelVol</th><th>Cờ</th></tr>` +
+    rows.map(s => `<tr><td><b>${esc(s.ticker)}</b></td><td>${fmt(s.close, 0)}</td>
+      <td class="${dirCls(s.direction)}">${esc(s.direction)}</td>
+      <td>${esc((s.patterns || []).join(", "))}</td><td>${esc((s.smc || []).join(", "))}</td>
+      <td>${esc(s.industry || "–")}</td><td>${fmt(s.rs_rating, 0)}</td><td>${fmt(s.rel_vol, 2)}</td>
+      <td class="down">${esc(s.margin_status || "")}</td></tr>`).join("") + "</table>";
+}
+function renderDividend(list, note) {
+  document.getElementById("divnote").textContent = note || "";
+  if (!list || !list.length) return;   // giữ text "Đang chờ đồng bộ..."
+  document.getElementById("dividend").innerHTML = `<table><tr>
+    <th>Mã</th><th>Giá</th><th>Yield %</th><th>P/E</th><th>P/B</th><th>ROE %</th><th>Ngành</th></tr>` +
+    list.map(d => `<tr><td><b>${esc(d.ticker)}</b></td><td>${fmt(d.close, 0)}</td>
+      <td class="up">${fmt(d.dividend_yield, 1)}</td><td>${fmt(d.pe, 1)}</td>
+      <td>${fmt(d.pb, 2)}</td><td>${fmt(d.roe, 1)}</td><td>${esc(d.industry || "–")}</td></tr>`).join("") + "</table>";
+}
+function renderHeatmap(sectors) {
+  if (!sectors || !sectors.length) return;
+  // strength 0-100 -> đỏ (yếu) -> vàng -> xanh (mạnh)
+  const color = s => s >= 66 ? "#3fb950" : s >= 33 ? "#d29922" : "#f85149";
+  document.getElementById("heatmap").innerHTML = sectors.map(x =>
+    `<div class="cell" style="background:${color(x.strength)}">
+       ${esc(x.industry)} — ${fmt(x.strength, 0)}
+       <small>MA200: ${fmt(x.pct_above_ma200, 0)}% · 1w: ${fmt(x.ret_1w, 1)}% · 1m: ${fmt(x.ret_1m, 1)}% · tăng: ${fmt(x.pct_up_today, 0)}%</small>
+     </div>`).join("");
+}
+
+(async () => {
+  const sig = await loadData("data/candle_signals.json", "CANDLE_SIGNALS");
+  const heat = await loadData("data/sector_heatmap.json", "SECTOR_HEATMAP");
+  if (!sig && !heat) {
+    document.getElementById("meta").textContent = "Chưa có dữ liệu — chạy: python candle_scan.py";
+    return;
+  }
+  document.getElementById("meta").textContent =
+    `Phiên ${sig?.scan_date || heat?.scan_date} · sinh lúc ${sig?.generated_at || heat?.generated_at} · candle_scan.py (cục bộ, 0 API)`;
+  if (sig) { renderWatchlist(sig.watchlist); renderConfluence(sig.signals); renderDividend(sig.dividend_investing, sig.dividend_note); }
+  if (heat) renderHeatmap(heat.sectors);
+})();
+</script>
+</body>
+</html>

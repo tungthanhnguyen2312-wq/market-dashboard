@@ -1,0 +1,11752 @@
+window.CANDLE_SIGNALS = {
+  "generated_at": "2026-07-11 00:14",
+  "scan_date": "2026-07-10",
+  "watchlist": [
+    {
+      "ticker": "HPG",
+      "close": 22950.0,
+      "chg_pct": -1.08,
+      "patterns": [],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "has_signal": false
+    },
+    {
+      "ticker": "SSI",
+      "close": 26550.0,
+      "chg_pct": -1.48,
+      "patterns": [],
+      "smc": [
+        "ob_bear",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "has_signal": true
+    },
+    {
+      "ticker": "PAN",
+      "close": 22150.0,
+      "chg_pct": 0.0,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "has_signal": true
+    },
+    {
+      "ticker": "EVF",
+      "close": 12750.0,
+      "chg_pct": 0.39,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "has_signal": true
+    }
+  ],
+  "signals": [
+    {
+      "ticker": "NAF",
+      "date": "2026-07-10",
+      "close": 48750.0,
+      "volume": 238600,
+      "patterns": [
+        "bullish_engulfing"
+      ],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": true,
+      "direction": "bullish",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 92.0,
+      "rel_vol": 0.63,
+      "gtgd20_ty": 18.648,
+      "margin_status": null
+    },
+    {
+      "ticker": "LPB",
+      "date": "2026-07-10",
+      "close": 53400.0,
+      "volume": 2495600,
+      "patterns": [
+        "bullish_engulfing"
+      ],
+      "smc": [
+        "ob_bear",
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": true,
+      "direction": "neutral",
+      "industry": "Ngân hàng",
+      "rs_rating": 90.0,
+      "rel_vol": 0.91,
+      "gtgd20_ty": 145.422,
+      "margin_status": null
+    },
+    {
+      "ticker": "CAP",
+      "date": "2026-07-10",
+      "close": 48000.0,
+      "volume": 30000,
+      "patterns": [
+        "bullish_engulfing"
+      ],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": true,
+      "direction": "bullish",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 83.0,
+      "rel_vol": 0.48,
+      "gtgd20_ty": 2.935,
+      "margin_status": null
+    },
+    {
+      "ticker": "HII",
+      "date": "2026-07-10",
+      "close": 5740.0,
+      "volume": 39000,
+      "patterns": [
+        "inside_bar",
+        "bearish_engulfing"
+      ],
+      "smc": [
+        "ob_bear",
+        "fvg_bull"
+      ],
+      "confluence": true,
+      "direction": "bearish",
+      "industry": "Hóa chất",
+      "rs_rating": 82.0,
+      "rel_vol": 0.3,
+      "gtgd20_ty": 0.741,
+      "margin_status": null
+    },
+    {
+      "ticker": "TRC",
+      "date": "2026-07-10",
+      "close": 81500.0,
+      "volume": 21400,
+      "patterns": [
+        "hammer"
+      ],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": true,
+      "direction": "bullish",
+      "industry": "Hóa chất",
+      "rs_rating": 79.0,
+      "rel_vol": 0.3,
+      "gtgd20_ty": 5.745,
+      "margin_status": null
+    },
+    {
+      "ticker": "NAB",
+      "date": "2026-07-10",
+      "close": 13300.0,
+      "volume": 4247900,
+      "patterns": [
+        "bullish_engulfing"
+      ],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": true,
+      "direction": "bullish",
+      "industry": "Ngân hàng",
+      "rs_rating": 77.0,
+      "rel_vol": 1.63,
+      "gtgd20_ty": 33.947,
+      "margin_status": null
+    },
+    {
+      "ticker": "ACB",
+      "date": "2026-07-10",
+      "close": 22550.0,
+      "volume": 7372900,
+      "patterns": [
+        "inside_bar",
+        "bearish_engulfing"
+      ],
+      "smc": [
+        "ob_bull",
+        "ob_bear"
+      ],
+      "confluence": true,
+      "direction": "bearish",
+      "industry": "Ngân hàng",
+      "rs_rating": 75.0,
+      "rel_vol": 0.6,
+      "gtgd20_ty": 276.228,
+      "margin_status": null
+    },
+    {
+      "ticker": "BMP",
+      "date": "2026-07-10",
+      "close": 146100.0,
+      "volume": 43900,
+      "patterns": [
+        "bullish_engulfing"
+      ],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": true,
+      "direction": "bullish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 73.0,
+      "rel_vol": 0.28,
+      "gtgd20_ty": 23.645,
+      "margin_status": null
+    },
+    {
+      "ticker": "HSP",
+      "date": "2026-07-10",
+      "close": 14400.0,
+      "volume": 3200,
+      "patterns": [
+        "evening_star"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": true,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 72.0,
+      "rel_vol": 2.42,
+      "gtgd20_ty": 0.02,
+      "margin_status": null
+    },
+    {
+      "ticker": "KSF",
+      "date": "2026-07-10",
+      "close": 77400.0,
+      "volume": 139700,
+      "patterns": [
+        "inside_bar",
+        "bearish_engulfing"
+      ],
+      "smc": [
+        "ob_bull",
+        "fvg_bear"
+      ],
+      "confluence": true,
+      "direction": "bearish",
+      "industry": "Bất động sản",
+      "rs_rating": 71.0,
+      "rel_vol": 0.83,
+      "gtgd20_ty": 13.472,
+      "margin_status": null
+    },
+    {
+      "ticker": "MCH",
+      "date": "2026-07-10",
+      "close": 136000.0,
+      "volume": 113700,
+      "patterns": [
+        "bullish_engulfing"
+      ],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": true,
+      "direction": "bullish",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 70.0,
+      "rel_vol": 0.34,
+      "gtgd20_ty": 44.341,
+      "margin_status": null
+    },
+    {
+      "ticker": "PVS",
+      "date": "2026-07-10",
+      "close": 36200.0,
+      "volume": 1779700,
+      "patterns": [
+        "bearish_engulfing"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": true,
+      "direction": "bearish",
+      "industry": "Dầu khí",
+      "rs_rating": 69.0,
+      "rel_vol": 0.76,
+      "gtgd20_ty": 88.38,
+      "margin_status": null
+    },
+    {
+      "ticker": "SVN",
+      "date": "2026-07-10",
+      "close": 2800.0,
+      "volume": 493700,
+      "patterns": [
+        "bullish_engulfing"
+      ],
+      "smc": [
+        "ob_bull",
+        "ob_bear"
+      ],
+      "confluence": true,
+      "direction": "bullish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 54.0,
+      "rel_vol": 1.06,
+      "gtgd20_ty": 1.311,
+      "margin_status": null
+    },
+    {
+      "ticker": "PIT",
+      "date": "2026-07-10",
+      "close": 7300.0,
+      "volume": 600,
+      "patterns": [
+        "evening_star"
+      ],
+      "smc": [
+        "ob_bear",
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": true,
+      "direction": "bearish",
+      "industry": "Bán lẻ",
+      "rs_rating": 48.0,
+      "rel_vol": 0.1,
+      "gtgd20_ty": 0.044,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "PVO",
+      "date": "2026-07-10",
+      "close": 6000.0,
+      "volume": 8100,
+      "patterns": [
+        "bearish_engulfing"
+      ],
+      "smc": [
+        "ob_bull",
+        "ob_bear"
+      ],
+      "confluence": true,
+      "direction": "bearish",
+      "industry": "Hóa chất",
+      "rs_rating": 37.0,
+      "rel_vol": 0.57,
+      "gtgd20_ty": 0.085,
+      "margin_status": null
+    },
+    {
+      "ticker": "GEG",
+      "date": "2026-07-10",
+      "close": 13200.0,
+      "volume": 122100,
+      "patterns": [
+        "inside_bar",
+        "bearish_engulfing"
+      ],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": true,
+      "direction": "bearish",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 35.0,
+      "rel_vol": 0.34,
+      "gtgd20_ty": 4.995,
+      "margin_status": null
+    },
+    {
+      "ticker": "VCG",
+      "date": "2026-07-10",
+      "close": 20300.0,
+      "volume": 3846400,
+      "patterns": [
+        "bearish_engulfing"
+      ],
+      "smc": [
+        "ob_bear",
+        "fvg_bull"
+      ],
+      "confluence": true,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 35.0,
+      "rel_vol": 1.08,
+      "gtgd20_ty": 72.713,
+      "margin_status": null
+    },
+    {
+      "ticker": "BTP",
+      "date": "2026-07-10",
+      "close": 8200.0,
+      "volume": 50500,
+      "patterns": [
+        "bearish_engulfing"
+      ],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": true,
+      "direction": "bearish",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 30.0,
+      "rel_vol": 2.67,
+      "gtgd20_ty": 0.157,
+      "margin_status": null
+    },
+    {
+      "ticker": "MDC",
+      "date": "2026-07-10",
+      "close": 8800.0,
+      "volume": 500,
+      "patterns": [
+        "evening_star"
+      ],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": true,
+      "direction": "bearish",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 30.0,
+      "rel_vol": 0.18,
+      "gtgd20_ty": 0.025,
+      "margin_status": null
+    },
+    {
+      "ticker": "TNH",
+      "date": "2026-07-10",
+      "close": 8320.0,
+      "volume": 72900,
+      "patterns": [
+        "inside_bar",
+        "shooting_star"
+      ],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": true,
+      "direction": "bearish",
+      "industry": "Y tế",
+      "rs_rating": 14.0,
+      "rel_vol": 0.41,
+      "gtgd20_ty": 1.516,
+      "margin_status": null
+    },
+    {
+      "ticker": "VES",
+      "date": "2026-07-10",
+      "close": 27900.0,
+      "volume": 400,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Bất động sản",
+      "rs_rating": 99.0,
+      "rel_vol": 0.44,
+      "gtgd20_ty": 0.026,
+      "margin_status": null
+    },
+    {
+      "ticker": "THD",
+      "date": "2026-07-10",
+      "close": 150000.0,
+      "volume": 30600,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Bất động sản",
+      "rs_rating": 98.0,
+      "rel_vol": 1.03,
+      "gtgd20_ty": 4.994,
+      "margin_status": null
+    },
+    {
+      "ticker": "VVS",
+      "date": "2026-07-10",
+      "close": 82400.0,
+      "volume": 81800,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Ô tô và phụ tùng",
+      "rs_rating": 98.0,
+      "rel_vol": 0.66,
+      "gtgd20_ty": 9.895,
+      "margin_status": null
+    },
+    {
+      "ticker": "QNU",
+      "date": "2026-07-10",
+      "close": 9800.0,
+      "volume": 200,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 97.0,
+      "rel_vol": 0.01,
+      "gtgd20_ty": 0.148,
+      "margin_status": null
+    },
+    {
+      "ticker": "TT6",
+      "date": "2026-07-10",
+      "close": 11900.0,
+      "volume": 11400,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 97.0,
+      "rel_vol": 0.66,
+      "gtgd20_ty": 0.168,
+      "margin_status": null
+    },
+    {
+      "ticker": "TTD",
+      "date": "2026-07-10",
+      "close": 95000.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Y tế",
+      "rs_rating": 97.0,
+      "rel_vol": 0.14,
+      "gtgd20_ty": 0.062,
+      "margin_status": null
+    },
+    {
+      "ticker": "VIC",
+      "date": "2026-07-10",
+      "close": 223000.0,
+      "volume": 3999100,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Bất động sản",
+      "rs_rating": 97.0,
+      "rel_vol": 1.17,
+      "gtgd20_ty": 732.003,
+      "margin_status": null
+    },
+    {
+      "ticker": "C69",
+      "date": "2026-07-10",
+      "close": 19400.0,
+      "volume": 774200,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 96.0,
+      "rel_vol": 0.84,
+      "gtgd20_ty": 17.244,
+      "margin_status": null
+    },
+    {
+      "ticker": "NFC",
+      "date": "2026-07-10",
+      "close": 65000.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Hóa chất",
+      "rs_rating": 95.0,
+      "rel_vol": 0.02,
+      "gtgd20_ty": 0.25,
+      "margin_status": null
+    },
+    {
+      "ticker": "VIW",
+      "date": "2026-07-10",
+      "close": 27600.0,
+      "volume": 401700,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 95.0,
+      "rel_vol": 1.49,
+      "gtgd20_ty": 7.559,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "ASP",
+      "date": "2026-07-10",
+      "close": 9160.0,
+      "volume": 25800,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 94.0,
+      "rel_vol": 0.1,
+      "gtgd20_ty": 2.183,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "C32",
+      "date": "2026-07-10",
+      "close": 17100.0,
+      "volume": 10400,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 94.0,
+      "rel_vol": 0.52,
+      "gtgd20_ty": 0.327,
+      "margin_status": null
+    },
+    {
+      "ticker": "ONE",
+      "date": "2026-07-10",
+      "close": 11400.0,
+      "volume": 300,
+      "patterns": [],
+      "smc": [
+        "ob_bear",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Công nghệ Thông tin",
+      "rs_rating": 94.0,
+      "rel_vol": 0.13,
+      "gtgd20_ty": 0.026,
+      "margin_status": null
+    },
+    {
+      "ticker": "TH1",
+      "date": "2026-07-10",
+      "close": 5300.0,
+      "volume": 400,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "ob_bear",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Bán lẻ",
+      "rs_rating": 94.0,
+      "rel_vol": 0.17,
+      "gtgd20_ty": 0.013,
+      "margin_status": null
+    },
+    {
+      "ticker": "ABB",
+      "date": "2026-07-10",
+      "close": 17600.0,
+      "volume": 2003200,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Ngân hàng",
+      "rs_rating": 93.0,
+      "rel_vol": 1.07,
+      "gtgd20_ty": 32.468,
+      "margin_status": null
+    },
+    {
+      "ticker": "BSR",
+      "date": "2026-07-10",
+      "close": 25500.0,
+      "volume": 7831100,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "ob_bear",
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Dầu khí",
+      "rs_rating": 93.0,
+      "rel_vol": 0.81,
+      "gtgd20_ty": 244.257,
+      "margin_status": null
+    },
+    {
+      "ticker": "TIN",
+      "date": "2026-07-10",
+      "close": 108000.0,
+      "volume": 2800,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Dịch vụ tài chính",
+      "rs_rating": 93.0,
+      "rel_vol": 0.12,
+      "gtgd20_ty": 2.774,
+      "margin_status": null
+    },
+    {
+      "ticker": "TNI",
+      "date": "2026-07-10",
+      "close": 5550.0,
+      "volume": 2808300,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 93.0,
+      "rel_vol": 8.96,
+      "gtgd20_ty": 1.703,
+      "margin_status": null
+    },
+    {
+      "ticker": "TNT",
+      "date": "2026-07-10",
+      "close": 11050.0,
+      "volume": 5100,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 93.0,
+      "rel_vol": 0.22,
+      "gtgd20_ty": 0.263,
+      "margin_status": null
+    },
+    {
+      "ticker": "CDC",
+      "date": "2026-07-10",
+      "close": 18600.0,
+      "volume": 175600,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "ob_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 92.0,
+      "rel_vol": 1.58,
+      "gtgd20_ty": 2.121,
+      "margin_status": null
+    },
+    {
+      "ticker": "SHN",
+      "date": "2026-07-10",
+      "close": 7200.0,
+      "volume": 150700,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 92.0,
+      "rel_vol": 0.64,
+      "gtgd20_ty": 1.473,
+      "margin_status": null
+    },
+    {
+      "ticker": "VEC",
+      "date": "2026-07-10",
+      "close": 29200.0,
+      "volume": 2600,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Công nghệ Thông tin",
+      "rs_rating": 92.0,
+      "rel_vol": 1.03,
+      "gtgd20_ty": 0.065,
+      "margin_status": null
+    },
+    {
+      "ticker": "VGR",
+      "date": "2026-07-10",
+      "close": 93000.0,
+      "volume": 12100,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 92.0,
+      "rel_vol": 0.14,
+      "gtgd20_ty": 11.155,
+      "margin_status": null
+    },
+    {
+      "ticker": "VHM",
+      "date": "2026-07-10",
+      "close": 147000.0,
+      "volume": 3156900,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Bất động sản",
+      "rs_rating": 92.0,
+      "rel_vol": 0.63,
+      "gtgd20_ty": 737.873,
+      "margin_status": null
+    },
+    {
+      "ticker": "VIT",
+      "date": "2026-07-10",
+      "close": 27500.0,
+      "volume": 100,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 92.0,
+      "rel_vol": 0.0,
+      "gtgd20_ty": 1.204,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "BCA",
+      "date": "2026-07-10",
+      "close": 21200.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 91.0,
+      "rel_vol": 0.01,
+      "gtgd20_ty": 0.245,
+      "margin_status": null
+    },
+    {
+      "ticker": "MST",
+      "date": "2026-07-10",
+      "close": 9500.0,
+      "volume": 1971100,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 91.0,
+      "rel_vol": 1.63,
+      "gtgd20_ty": 11.093,
+      "margin_status": null
+    },
+    {
+      "ticker": "PIV",
+      "date": "2026-07-10",
+      "close": 6200.0,
+      "volume": 103200,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Bất động sản",
+      "rs_rating": 91.0,
+      "rel_vol": 0.95,
+      "gtgd20_ty": 0.724,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "TET",
+      "date": "2026-07-10",
+      "close": 45000.0,
+      "volume": 1000,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Hàng cá nhân & Gia dụng",
+      "rs_rating": 91.0,
+      "rel_vol": 1.63,
+      "gtgd20_ty": 0.026,
+      "margin_status": null
+    },
+    {
+      "ticker": "BNW",
+      "date": "2026-07-10",
+      "close": 26000.0,
+      "volume": 1000,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 90.0,
+      "rel_vol": 0.96,
+      "gtgd20_ty": 0.02,
+      "margin_status": null
+    },
+    {
+      "ticker": "CMM",
+      "date": "2026-07-10",
+      "close": 19000.0,
+      "volume": 1700,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 90.0,
+      "rel_vol": 4.59,
+      "gtgd20_ty": 0.007,
+      "margin_status": null
+    },
+    {
+      "ticker": "ILA",
+      "date": "2026-07-10",
+      "close": 7400.0,
+      "volume": 37800,
+      "patterns": [],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 90.0,
+      "rel_vol": 2.7,
+      "gtgd20_ty": 0.1,
+      "margin_status": null
+    },
+    {
+      "ticker": "LSG",
+      "date": "2026-07-10",
+      "close": 34700.0,
+      "volume": 16200,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Bất động sản",
+      "rs_rating": 90.0,
+      "rel_vol": 0.54,
+      "gtgd20_ty": 1.044,
+      "margin_status": null
+    },
+    {
+      "ticker": "VJC",
+      "date": "2026-07-10",
+      "close": 138000.0,
+      "volume": 750900,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Du lịch và Giải trí",
+      "rs_rating": 90.0,
+      "rel_vol": 0.78,
+      "gtgd20_ty": 133.437,
+      "margin_status": null
+    },
+    {
+      "ticker": "DFC",
+      "date": "2026-07-10",
+      "close": 28800.0,
+      "volume": 2200,
+      "patterns": [],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 89.0,
+      "rel_vol": 0.49,
+      "gtgd20_ty": 0.133,
+      "margin_status": null
+    },
+    {
+      "ticker": "MSB",
+      "date": "2026-07-10",
+      "close": 15800.0,
+      "volume": 2826500,
+      "patterns": [
+        "bearish_engulfing"
+      ],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Ngân hàng",
+      "rs_rating": 89.0,
+      "rel_vol": 0.33,
+      "gtgd20_ty": 133.097,
+      "margin_status": null
+    },
+    {
+      "ticker": "PSI",
+      "date": "2026-07-10",
+      "close": 10500.0,
+      "volume": 98300,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Dịch vụ tài chính",
+      "rs_rating": 89.0,
+      "rel_vol": 0.32,
+      "gtgd20_ty": 3.031,
+      "margin_status": null
+    },
+    {
+      "ticker": "CCA",
+      "date": "2026-07-10",
+      "close": 13000.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 88.0,
+      "rel_vol": 0.06,
+      "gtgd20_ty": 0.02,
+      "margin_status": null
+    },
+    {
+      "ticker": "FDC",
+      "date": "2026-07-10",
+      "close": 22550.0,
+      "volume": 300,
+      "patterns": [],
+      "smc": [
+        "ob_bear",
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Bất động sản",
+      "rs_rating": 88.0,
+      "rel_vol": 0.49,
+      "gtgd20_ty": 0.013,
+      "margin_status": null
+    },
+    {
+      "ticker": "HHP",
+      "date": "2026-07-10",
+      "close": 14500.0,
+      "volume": 967900,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 88.0,
+      "rel_vol": 1.15,
+      "gtgd20_ty": 12.315,
+      "margin_status": null
+    },
+    {
+      "ticker": "HPB",
+      "date": "2026-07-10",
+      "close": 21000.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 88.0,
+      "rel_vol": 0.21,
+      "gtgd20_ty": 0.01,
+      "margin_status": null
+    },
+    {
+      "ticker": "PRE",
+      "date": "2026-07-10",
+      "close": 27600.0,
+      "volume": 7200,
+      "patterns": [],
+      "smc": [
+        "ob_bear",
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Bảo hiểm",
+      "rs_rating": 88.0,
+      "rel_vol": 1.59,
+      "gtgd20_ty": 0.125,
+      "margin_status": null
+    },
+    {
+      "ticker": "HKT",
+      "date": "2026-07-10",
+      "close": 15100.0,
+      "volume": 12400,
+      "patterns": [
+        "inside_bar",
+        "hammer"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 87.0,
+      "rel_vol": 0.51,
+      "gtgd20_ty": 0.378,
+      "margin_status": null
+    },
+    {
+      "ticker": "ICG",
+      "date": "2026-07-10",
+      "close": 15300.0,
+      "volume": 5000,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 87.0,
+      "rel_vol": 1.48,
+      "gtgd20_ty": 0.052,
+      "margin_status": null
+    },
+    {
+      "ticker": "L40",
+      "date": "2026-07-10",
+      "close": 24200.0,
+      "volume": 266900,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 87.0,
+      "rel_vol": 2.91,
+      "gtgd20_ty": 2.431,
+      "margin_status": null
+    },
+    {
+      "ticker": "MCG",
+      "date": "2026-07-10",
+      "close": 2700.0,
+      "volume": 13000,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 87.0,
+      "rel_vol": 0.58,
+      "gtgd20_ty": 0.058,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "VC1",
+      "date": "2026-07-10",
+      "close": 13000.0,
+      "volume": 100,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 87.0,
+      "rel_vol": 0.02,
+      "gtgd20_ty": 0.106,
+      "margin_status": null
+    },
+    {
+      "ticker": "VNZ",
+      "date": "2026-07-10",
+      "close": 450000.0,
+      "volume": 700,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Truyền thông",
+      "rs_rating": 87.0,
+      "rel_vol": 0.16,
+      "gtgd20_ty": 1.784,
+      "margin_status": null
+    },
+    {
+      "ticker": "DST",
+      "date": "2026-07-10",
+      "close": 11200.0,
+      "volume": 113800,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Truyền thông",
+      "rs_rating": 86.0,
+      "rel_vol": 0.47,
+      "gtgd20_ty": 2.916,
+      "margin_status": null
+    },
+    {
+      "ticker": "MZG",
+      "date": "2026-07-10",
+      "close": 12800.0,
+      "volume": 875400,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 86.0,
+      "rel_vol": 2.12,
+      "gtgd20_ty": 5.272,
+      "margin_status": null
+    },
+    {
+      "ticker": "SBB",
+      "date": "2026-07-10",
+      "close": 20100.0,
+      "volume": 400,
+      "patterns": [],
+      "smc": [
+        "ob_bear",
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 86.0,
+      "rel_vol": 0.03,
+      "gtgd20_ty": 0.294,
+      "margin_status": null
+    },
+    {
+      "ticker": "SCL",
+      "date": "2026-07-10",
+      "close": 22000.0,
+      "volume": 111600,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 86.0,
+      "rel_vol": 1.84,
+      "gtgd20_ty": 1.2,
+      "margin_status": null
+    },
+    {
+      "ticker": "SGS",
+      "date": "2026-07-10",
+      "close": 13500.0,
+      "volume": 400,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 86.0,
+      "rel_vol": 0.12,
+      "gtgd20_ty": 0.047,
+      "margin_status": null
+    },
+    {
+      "ticker": "SMT",
+      "date": "2026-07-10",
+      "close": 11200.0,
+      "volume": 1300,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Công nghệ Thông tin",
+      "rs_rating": 86.0,
+      "rel_vol": 0.13,
+      "gtgd20_ty": 0.11,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "XMC",
+      "date": "2026-07-10",
+      "close": 10100.0,
+      "volume": 4800,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 86.0,
+      "rel_vol": 0.14,
+      "gtgd20_ty": 0.342,
+      "margin_status": null
+    },
+    {
+      "ticker": "CMC",
+      "date": "2026-07-10",
+      "close": 9100.0,
+      "volume": 800,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 85.0,
+      "rel_vol": 0.32,
+      "gtgd20_ty": 0.024,
+      "margin_status": null
+    },
+    {
+      "ticker": "HDA",
+      "date": "2026-07-10",
+      "close": 6400.0,
+      "volume": 200,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 85.0,
+      "rel_vol": 0.1,
+      "gtgd20_ty": 0.013,
+      "margin_status": null
+    },
+    {
+      "ticker": "PVD",
+      "date": "2026-07-10",
+      "close": 32500.0,
+      "volume": 3077100,
+      "patterns": [
+        "bearish_engulfing"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Dầu khí",
+      "rs_rating": 85.0,
+      "rel_vol": 0.94,
+      "gtgd20_ty": 104.523,
+      "margin_status": null
+    },
+    {
+      "ticker": "SCI",
+      "date": "2026-07-10",
+      "close": 11000.0,
+      "volume": 8500,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 85.0,
+      "rel_vol": 0.61,
+      "gtgd20_ty": 0.158,
+      "margin_status": null
+    },
+    {
+      "ticker": "AGX",
+      "date": "2026-07-10",
+      "close": 156000.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Bán lẻ",
+      "rs_rating": 84.0,
+      "rel_vol": 0.04,
+      "gtgd20_ty": 0.424,
+      "margin_status": null
+    },
+    {
+      "ticker": "CMF",
+      "date": "2026-07-10",
+      "close": 380000.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 84.0,
+      "rel_vol": 0.23,
+      "gtgd20_ty": 0.162,
+      "margin_status": null
+    },
+    {
+      "ticker": "KLB",
+      "date": "2026-07-10",
+      "close": 12800.0,
+      "volume": 492400,
+      "patterns": [
+        "shooting_star"
+      ],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Ngân hàng",
+      "rs_rating": 84.0,
+      "rel_vol": 0.56,
+      "gtgd20_ty": 10.873,
+      "margin_status": null
+    },
+    {
+      "ticker": "NHT",
+      "date": "2026-07-10",
+      "close": 11550.0,
+      "volume": 1200,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Hàng cá nhân & Gia dụng",
+      "rs_rating": 84.0,
+      "rel_vol": 0.13,
+      "gtgd20_ty": 0.103,
+      "margin_status": null
+    },
+    {
+      "ticker": "QCC",
+      "date": "2026-07-10",
+      "close": 16700.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 84.0,
+      "rel_vol": 0.02,
+      "gtgd20_ty": 0.094,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "STB",
+      "date": "2026-07-10",
+      "close": 70100.0,
+      "volume": 2145300,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Ngân hàng",
+      "rs_rating": 84.0,
+      "rel_vol": 0.51,
+      "gtgd20_ty": 304.293,
+      "margin_status": null
+    },
+    {
+      "ticker": "TNW",
+      "date": "2026-07-10",
+      "close": 13500.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 84.0,
+      "rel_vol": 0.09,
+      "gtgd20_ty": 0.014,
+      "margin_status": null
+    },
+    {
+      "ticker": "CTS",
+      "date": "2026-07-10",
+      "close": 27900.0,
+      "volume": 1879400,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Dịch vụ tài chính",
+      "rs_rating": 83.0,
+      "rel_vol": 0.68,
+      "gtgd20_ty": 73.014,
+      "margin_status": null
+    },
+    {
+      "ticker": "HCC",
+      "date": "2026-07-10",
+      "close": 26500.0,
+      "volume": 2300,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 83.0,
+      "rel_vol": 1.8,
+      "gtgd20_ty": 0.034,
+      "margin_status": null
+    },
+    {
+      "ticker": "QPH",
+      "date": "2026-07-10",
+      "close": 34000.0,
+      "volume": 300,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 83.0,
+      "rel_vol": 0.35,
+      "gtgd20_ty": 0.028,
+      "margin_status": null
+    },
+    {
+      "ticker": "TOS",
+      "date": "2026-07-10",
+      "close": 169000.0,
+      "volume": 8200,
+      "patterns": [
+        "evening_star"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Dầu khí",
+      "rs_rating": 83.0,
+      "rel_vol": 1.69,
+      "gtgd20_ty": 0.844,
+      "margin_status": null
+    },
+    {
+      "ticker": "DP3",
+      "date": "2026-07-10",
+      "close": 63600.0,
+      "volume": 4600,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Y tế",
+      "rs_rating": 82.0,
+      "rel_vol": 0.37,
+      "gtgd20_ty": 0.778,
+      "margin_status": null
+    },
+    {
+      "ticker": "LAF",
+      "date": "2026-07-10",
+      "close": 20550.0,
+      "volume": 300,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 82.0,
+      "rel_vol": 0.01,
+      "gtgd20_ty": 0.599,
+      "margin_status": null
+    },
+    {
+      "ticker": "BVS",
+      "date": "2026-07-10",
+      "close": 35900.0,
+      "volume": 970700,
+      "patterns": [
+        "doji",
+        "inside_bar"
+      ],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Dịch vụ tài chính",
+      "rs_rating": 81.0,
+      "rel_vol": 1.07,
+      "gtgd20_ty": 29.366,
+      "margin_status": null
+    },
+    {
+      "ticker": "GMD",
+      "date": "2026-07-10",
+      "close": 75300.0,
+      "volume": 2176400,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 81.0,
+      "rel_vol": 1.68,
+      "gtgd20_ty": 99.273,
+      "margin_status": null
+    },
+    {
+      "ticker": "HDB",
+      "date": "2026-07-10",
+      "close": 27000.0,
+      "volume": 11150500,
+      "patterns": [
+        "shooting_star"
+      ],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Ngân hàng",
+      "rs_rating": 81.0,
+      "rel_vol": 1.03,
+      "gtgd20_ty": 285.644,
+      "margin_status": null
+    },
+    {
+      "ticker": "BMS",
+      "date": "2026-07-10",
+      "close": 14800.0,
+      "volume": 316900,
+      "patterns": [
+        "bearish_engulfing",
+        "evening_star"
+      ],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Dịch vụ tài chính",
+      "rs_rating": 80.0,
+      "rel_vol": 1.76,
+      "gtgd20_ty": 2.62,
+      "margin_status": null
+    },
+    {
+      "ticker": "BRS",
+      "date": "2026-07-10",
+      "close": 25500.0,
+      "volume": 900,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 80.0,
+      "rel_vol": 0.34,
+      "gtgd20_ty": 0.066,
+      "margin_status": null
+    },
+    {
+      "ticker": "F88",
+      "date": "2026-07-10",
+      "close": 77600.0,
+      "volume": 66000,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Dịch vụ tài chính",
+      "rs_rating": 80.0,
+      "rel_vol": 0.41,
+      "gtgd20_ty": 12.646,
+      "margin_status": null
+    },
+    {
+      "ticker": "ORS",
+      "date": "2026-07-10",
+      "close": 13700.0,
+      "volume": 6131200,
+      "patterns": [],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Dịch vụ tài chính",
+      "rs_rating": 80.0,
+      "rel_vol": 0.91,
+      "gtgd20_ty": 94.353,
+      "margin_status": null
+    },
+    {
+      "ticker": "HCM",
+      "date": "2026-07-10",
+      "close": 27800.0,
+      "volume": 4311500,
+      "patterns": [
+        "bearish_engulfing"
+      ],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Dịch vụ tài chính",
+      "rs_rating": 79.0,
+      "rel_vol": 1.01,
+      "gtgd20_ty": 119.733,
+      "margin_status": null
+    },
+    {
+      "ticker": "ILS",
+      "date": "2026-07-10",
+      "close": 21000.0,
+      "volume": 11600,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 79.0,
+      "rel_vol": 0.66,
+      "gtgd20_ty": 0.413,
+      "margin_status": null
+    },
+    {
+      "ticker": "NCG",
+      "date": "2026-07-10",
+      "close": 12000.0,
+      "volume": 1400,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 79.0,
+      "rel_vol": 0.11,
+      "gtgd20_ty": 0.167,
+      "margin_status": null
+    },
+    {
+      "ticker": "TSA",
+      "date": "2026-07-10",
+      "close": 15350.0,
+      "volume": 69100,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "ob_bear",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 79.0,
+      "rel_vol": 0.65,
+      "gtgd20_ty": 1.661,
+      "margin_status": null
+    },
+    {
+      "ticker": "CKA",
+      "date": "2026-07-10",
+      "close": 64099.99999999999,
+      "volume": 1100,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 78.0,
+      "rel_vol": 0.36,
+      "gtgd20_ty": 0.197,
+      "margin_status": null
+    },
+    {
+      "ticker": "DHD",
+      "date": "2026-07-10",
+      "close": 27900.0,
+      "volume": 3100,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "ob_bear",
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Y tế",
+      "rs_rating": 78.0,
+      "rel_vol": 1.13,
+      "gtgd20_ty": 0.076,
+      "margin_status": null
+    },
+    {
+      "ticker": "DXP",
+      "date": "2026-07-10",
+      "close": 13200.0,
+      "volume": 176100,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 78.0,
+      "rel_vol": 1.74,
+      "gtgd20_ty": 1.326,
+      "margin_status": null
+    },
+    {
+      "ticker": "NTT",
+      "date": "2026-07-10",
+      "close": 9700.0,
+      "volume": 1000,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "ob_bear",
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng cá nhân & Gia dụng",
+      "rs_rating": 78.0,
+      "rel_vol": 0.16,
+      "gtgd20_ty": 0.064,
+      "margin_status": null
+    },
+    {
+      "ticker": "POW",
+      "date": "2026-07-10",
+      "close": 14100.0,
+      "volume": 8203900,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 78.0,
+      "rel_vol": 0.65,
+      "gtgd20_ty": 181.527,
+      "margin_status": null
+    },
+    {
+      "ticker": "PSP",
+      "date": "2026-07-10",
+      "close": 17000.0,
+      "volume": 2000,
+      "patterns": [
+        "hammer"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 78.0,
+      "rel_vol": 1.41,
+      "gtgd20_ty": 0.023,
+      "margin_status": null
+    },
+    {
+      "ticker": "TRA",
+      "date": "2026-07-10",
+      "close": 80200.0,
+      "volume": 30000,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Y tế",
+      "rs_rating": 78.0,
+      "rel_vol": 3.64,
+      "gtgd20_ty": 0.656,
+      "margin_status": null
+    },
+    {
+      "ticker": "VAF",
+      "date": "2026-07-10",
+      "close": 22500.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hóa chất",
+      "rs_rating": 78.0,
+      "rel_vol": 0.04,
+      "gtgd20_ty": 0.053,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "BBS",
+      "date": "2026-07-10",
+      "close": 12700.0,
+      "volume": 500,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 77.0,
+      "rel_vol": 0.45,
+      "gtgd20_ty": 0.013,
+      "margin_status": null
+    },
+    {
+      "ticker": "BFC",
+      "date": "2026-07-10",
+      "close": 56000.0,
+      "volume": 251000,
+      "patterns": [],
+      "smc": [
+        "ob_bear",
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hóa chất",
+      "rs_rating": 77.0,
+      "rel_vol": 1.36,
+      "gtgd20_ty": 10.567,
+      "margin_status": null
+    },
+    {
+      "ticker": "DBT",
+      "date": "2026-07-10",
+      "close": 12700.0,
+      "volume": 32100,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Y tế",
+      "rs_rating": 77.0,
+      "rel_vol": 1.53,
+      "gtgd20_ty": 0.265,
+      "margin_status": null
+    },
+    {
+      "ticker": "ICT",
+      "date": "2026-07-10",
+      "close": 17400.0,
+      "volume": 4300,
+      "patterns": [],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Công nghệ Thông tin",
+      "rs_rating": 77.0,
+      "rel_vol": 0.86,
+      "gtgd20_ty": 0.088,
+      "margin_status": null
+    },
+    {
+      "ticker": "TN1",
+      "date": "2026-07-10",
+      "close": 14400.0,
+      "volume": 200,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Bất động sản",
+      "rs_rating": 77.0,
+      "rel_vol": 0.36,
+      "gtgd20_ty": 0.008,
+      "margin_status": null
+    },
+    {
+      "ticker": "VPB",
+      "date": "2026-07-10",
+      "close": 26700.0,
+      "volume": 14081800,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Ngân hàng",
+      "rs_rating": 77.0,
+      "rel_vol": 1.08,
+      "gtgd20_ty": 352.377,
+      "margin_status": null
+    },
+    {
+      "ticker": "WSS",
+      "date": "2026-07-10",
+      "close": 6800.0,
+      "volume": 12400,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "ob_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Dịch vụ tài chính",
+      "rs_rating": 77.0,
+      "rel_vol": 0.35,
+      "gtgd20_ty": 0.242,
+      "margin_status": null
+    },
+    {
+      "ticker": "XPH",
+      "date": "2026-07-10",
+      "close": 16500.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng cá nhân & Gia dụng",
+      "rs_rating": 77.0,
+      "rel_vol": 0.03,
+      "gtgd20_ty": 0.051,
+      "margin_status": null
+    },
+    {
+      "ticker": "BAB",
+      "date": "2026-07-10",
+      "close": 12000.0,
+      "volume": 9500,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Ngân hàng",
+      "rs_rating": 76.0,
+      "rel_vol": 0.24,
+      "gtgd20_ty": 0.473,
+      "margin_status": null
+    },
+    {
+      "ticker": "PET",
+      "date": "2026-07-10",
+      "close": 37300.0,
+      "volume": 235200,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Bán lẻ",
+      "rs_rating": 76.0,
+      "rel_vol": 0.27,
+      "gtgd20_ty": 44.147,
+      "margin_status": null
+    },
+    {
+      "ticker": "PHP",
+      "date": "2026-07-10",
+      "close": 38000.0,
+      "volume": 107500,
+      "patterns": [],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 76.0,
+      "rel_vol": 0.89,
+      "gtgd20_ty": 4.582,
+      "margin_status": null
+    },
+    {
+      "ticker": "SBG",
+      "date": "2026-07-10",
+      "close": 11850.0,
+      "volume": 99400,
+      "patterns": [
+        "doji",
+        "inside_bar"
+      ],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 76.0,
+      "rel_vol": 0.42,
+      "gtgd20_ty": 2.886,
+      "margin_status": null
+    },
+    {
+      "ticker": "SP2",
+      "date": "2026-07-10",
+      "close": 23300.0,
+      "volume": 1300,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 76.0,
+      "rel_vol": 0.52,
+      "gtgd20_ty": 0.058,
+      "margin_status": null
+    },
+    {
+      "ticker": "SZB",
+      "date": "2026-07-10",
+      "close": 44200.0,
+      "volume": 1400,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Bất động sản",
+      "rs_rating": 76.0,
+      "rel_vol": 0.4,
+      "gtgd20_ty": 0.154,
+      "margin_status": null
+    },
+    {
+      "ticker": "TYA",
+      "date": "2026-07-10",
+      "close": 16750.0,
+      "volume": 5400,
+      "patterns": [
+        "bullish_engulfing"
+      ],
+      "smc": [
+        "ob_bear",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 76.0,
+      "rel_vol": 0.73,
+      "gtgd20_ty": 0.127,
+      "margin_status": null
+    },
+    {
+      "ticker": "DWS",
+      "date": "2026-07-10",
+      "close": 13900.0,
+      "volume": 200,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 75.0,
+      "rel_vol": 0.12,
+      "gtgd20_ty": 0.023,
+      "margin_status": null
+    },
+    {
+      "ticker": "NRC",
+      "date": "2026-07-10",
+      "close": 6200.0,
+      "volume": 829500,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Bất động sản",
+      "rs_rating": 75.0,
+      "rel_vol": 0.72,
+      "gtgd20_ty": 7.567,
+      "margin_status": null
+    },
+    {
+      "ticker": "OCB",
+      "date": "2026-07-10",
+      "close": 11100.0,
+      "volume": 4116900,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Ngân hàng",
+      "rs_rating": 75.0,
+      "rel_vol": 0.84,
+      "gtgd20_ty": 53.91,
+      "margin_status": null
+    },
+    {
+      "ticker": "OIL",
+      "date": "2026-07-10",
+      "close": 13700.0,
+      "volume": 1691800,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Dầu khí",
+      "rs_rating": 75.0,
+      "rel_vol": 1.16,
+      "gtgd20_ty": 19.689,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "SHS",
+      "date": "2026-07-10",
+      "close": 18500.0,
+      "volume": 17576900,
+      "patterns": [],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Dịch vụ tài chính",
+      "rs_rating": 75.0,
+      "rel_vol": 1.26,
+      "gtgd20_ty": 263.777,
+      "margin_status": null
+    },
+    {
+      "ticker": "VPI",
+      "date": "2026-07-10",
+      "close": 62400.0,
+      "volume": 671300,
+      "patterns": [
+        "shooting_star"
+      ],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Bất động sản",
+      "rs_rating": 75.0,
+      "rel_vol": 0.63,
+      "gtgd20_ty": 65.54,
+      "margin_status": null
+    },
+    {
+      "ticker": "KHW",
+      "date": "2026-07-10",
+      "close": 33500.0,
+      "volume": 300,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 74.0,
+      "rel_vol": 0.85,
+      "gtgd20_ty": 0.011,
+      "margin_status": null
+    },
+    {
+      "ticker": "PGV",
+      "date": "2026-07-10",
+      "close": 23400.0,
+      "volume": 19000,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 74.0,
+      "rel_vol": 2.43,
+      "gtgd20_ty": 0.181,
+      "margin_status": null
+    },
+    {
+      "ticker": "PIS",
+      "date": "2026-07-10",
+      "close": 11100.0,
+      "volume": 100,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 74.0,
+      "rel_vol": 0.18,
+      "gtgd20_ty": 0.006,
+      "margin_status": null
+    },
+    {
+      "ticker": "PVM",
+      "date": "2026-07-10",
+      "close": 19000.0,
+      "volume": 1000,
+      "patterns": [],
+      "smc": [
+        "ob_bear",
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 74.0,
+      "rel_vol": 0.31,
+      "gtgd20_ty": 0.062,
+      "margin_status": null
+    },
+    {
+      "ticker": "AIG",
+      "date": "2026-07-10",
+      "close": 49900.0,
+      "volume": 47200,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 73.0,
+      "rel_vol": 1.07,
+      "gtgd20_ty": 2.244,
+      "margin_status": null
+    },
+    {
+      "ticker": "C47",
+      "date": "2026-07-10",
+      "close": 9650.0,
+      "volume": 46600,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 73.0,
+      "rel_vol": 2.2,
+      "gtgd20_ty": 0.2,
+      "margin_status": null
+    },
+    {
+      "ticker": "HNG",
+      "date": "2026-07-10",
+      "close": 7000.0,
+      "volume": 2700300,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 73.0,
+      "rel_vol": 1.2,
+      "gtgd20_ty": 15.872,
+      "margin_status": null
+    },
+    {
+      "ticker": "SVD",
+      "date": "2026-07-10",
+      "close": 4210.0,
+      "volume": 1700,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Hàng cá nhân & Gia dụng",
+      "rs_rating": 73.0,
+      "rel_vol": 0.11,
+      "gtgd20_ty": 0.07,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "VLB",
+      "date": "2026-07-10",
+      "close": 50000.0,
+      "volume": 11100,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 73.0,
+      "rel_vol": 0.37,
+      "gtgd20_ty": 1.461,
+      "margin_status": null
+    },
+    {
+      "ticker": "VTZ",
+      "date": "2026-07-10",
+      "close": 20400.0,
+      "volume": 1096500,
+      "patterns": [],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hóa chất",
+      "rs_rating": 73.0,
+      "rel_vol": 1.14,
+      "gtgd20_ty": 19.58,
+      "margin_status": null
+    },
+    {
+      "ticker": "AMP",
+      "date": "2026-07-10",
+      "close": 15500.0,
+      "volume": 5400,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Y tế",
+      "rs_rating": 72.0,
+      "rel_vol": 1.17,
+      "gtgd20_ty": 0.066,
+      "margin_status": null
+    },
+    {
+      "ticker": "L12",
+      "date": "2026-07-10",
+      "close": 4800.0,
+      "volume": 1000,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 72.0,
+      "rel_vol": 0.35,
+      "gtgd20_ty": 0.013,
+      "margin_status": null
+    },
+    {
+      "ticker": "M10",
+      "date": "2026-07-10",
+      "close": 21800.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Hàng cá nhân & Gia dụng",
+      "rs_rating": 72.0,
+      "rel_vol": 0.04,
+      "gtgd20_ty": 0.053,
+      "margin_status": null
+    },
+    {
+      "ticker": "PPY",
+      "date": "2026-07-10",
+      "close": 9400.0,
+      "volume": 1700,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 72.0,
+      "rel_vol": 1.28,
+      "gtgd20_ty": 0.012,
+      "margin_status": null
+    },
+    {
+      "ticker": "SSB",
+      "date": "2026-07-10",
+      "close": 16250.0,
+      "volume": 2245900,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Ngân hàng",
+      "rs_rating": 72.0,
+      "rel_vol": 0.94,
+      "gtgd20_ty": 37.621,
+      "margin_status": null
+    },
+    {
+      "ticker": "TLD",
+      "date": "2026-07-10",
+      "close": 8480.0,
+      "volume": 114800,
+      "patterns": [
+        "hammer"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 72.0,
+      "rel_vol": 0.6,
+      "gtgd20_ty": 1.648,
+      "margin_status": null
+    },
+    {
+      "ticker": "CTB",
+      "date": "2026-07-10",
+      "close": 17600.0,
+      "volume": 200,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 71.0,
+      "rel_vol": 0.11,
+      "gtgd20_ty": 0.032,
+      "margin_status": null
+    },
+    {
+      "ticker": "FOC",
+      "date": "2026-07-10",
+      "close": 71900.0,
+      "volume": 11000,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Truyền thông",
+      "rs_rating": 71.0,
+      "rel_vol": 0.36,
+      "gtgd20_ty": 2.214,
+      "margin_status": null
+    },
+    {
+      "ticker": "PVI",
+      "date": "2026-07-10",
+      "close": 74300.0,
+      "volume": 10200,
+      "patterns": [],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Bảo hiểm",
+      "rs_rating": 71.0,
+      "rel_vol": 0.41,
+      "gtgd20_ty": 1.887,
+      "margin_status": null
+    },
+    {
+      "ticker": "QNS",
+      "date": "2026-07-10",
+      "close": 48500.0,
+      "volume": 220500,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 71.0,
+      "rel_vol": 1.67,
+      "gtgd20_ty": 6.463,
+      "margin_status": null
+    },
+    {
+      "ticker": "SHC",
+      "date": "2026-07-10",
+      "close": 12400.0,
+      "volume": 100,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 71.0,
+      "rel_vol": 0.09,
+      "gtgd20_ty": 0.013,
+      "margin_status": null
+    },
+    {
+      "ticker": "AMC",
+      "date": "2026-07-10",
+      "close": 12400.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 70.0,
+      "rel_vol": 0.27,
+      "gtgd20_ty": 0.004,
+      "margin_status": null
+    },
+    {
+      "ticker": "CLC",
+      "date": "2026-07-10",
+      "close": 52000.0,
+      "volume": 3700,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng cá nhân & Gia dụng",
+      "rs_rating": 70.0,
+      "rel_vol": 2.68,
+      "gtgd20_ty": 0.071,
+      "margin_status": null
+    },
+    {
+      "ticker": "DHA",
+      "date": "2026-07-10",
+      "close": 51000.0,
+      "volume": 18700,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 70.0,
+      "rel_vol": 0.66,
+      "gtgd20_ty": 1.443,
+      "margin_status": null
+    },
+    {
+      "ticker": "ITD",
+      "date": "2026-07-10",
+      "close": 15200.0,
+      "volume": 18600,
+      "patterns": [
+        "doji",
+        "inside_bar"
+      ],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Công nghệ Thông tin",
+      "rs_rating": 70.0,
+      "rel_vol": 0.92,
+      "gtgd20_ty": 0.314,
+      "margin_status": null
+    },
+    {
+      "ticker": "TVS",
+      "date": "2026-07-10",
+      "close": 15500.0,
+      "volume": 387600,
+      "patterns": [
+        "bearish_engulfing"
+      ],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Dịch vụ tài chính",
+      "rs_rating": 70.0,
+      "rel_vol": 0.91,
+      "gtgd20_ty": 6.402,
+      "margin_status": null
+    },
+    {
+      "ticker": "VAB",
+      "date": "2026-07-10",
+      "close": 10850.0,
+      "volume": 1701200,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Ngân hàng",
+      "rs_rating": 70.0,
+      "rel_vol": 1.59,
+      "gtgd20_ty": 12.012,
+      "margin_status": null
+    },
+    {
+      "ticker": "VNC",
+      "date": "2026-07-10",
+      "close": 35900.0,
+      "volume": 1100,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 70.0,
+      "rel_vol": 0.18,
+      "gtgd20_ty": 0.215,
+      "margin_status": null
+    },
+    {
+      "ticker": "EVF",
+      "date": "2026-07-10",
+      "close": 12750.0,
+      "volume": 2138500,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Dịch vụ tài chính",
+      "rs_rating": 69.0,
+      "rel_vol": 0.76,
+      "gtgd20_ty": 37.567,
+      "margin_status": null
+    },
+    {
+      "ticker": "KSV",
+      "date": "2026-07-10",
+      "close": 156000.0,
+      "volume": 17000,
+      "patterns": [
+        "shooting_star"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 69.0,
+      "rel_vol": 0.95,
+      "gtgd20_ty": 2.766,
+      "margin_status": null
+    },
+    {
+      "ticker": "MBS",
+      "date": "2026-07-10",
+      "close": 21800.0,
+      "volume": 10379100,
+      "patterns": [
+        "inside_bar",
+        "bearish_engulfing"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Dịch vụ tài chính",
+      "rs_rating": 69.0,
+      "rel_vol": 1.32,
+      "gtgd20_ty": 166.381,
+      "margin_status": null
+    },
+    {
+      "ticker": "NVB",
+      "date": "2026-07-10",
+      "close": 13800.0,
+      "volume": 947400,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Ngân hàng",
+      "rs_rating": 69.0,
+      "rel_vol": 1.18,
+      "gtgd20_ty": 11.332,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "PVT",
+      "date": "2026-07-10",
+      "close": 18900.0,
+      "volume": 1895700,
+      "patterns": [
+        "bearish_engulfing"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 69.0,
+      "rel_vol": 0.67,
+      "gtgd20_ty": 55.516,
+      "margin_status": null
+    },
+    {
+      "ticker": "TTA",
+      "date": "2026-07-10",
+      "close": 11500.0,
+      "volume": 195400,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 69.0,
+      "rel_vol": 0.34,
+      "gtgd20_ty": 6.543,
+      "margin_status": null
+    },
+    {
+      "ticker": "TVC",
+      "date": "2026-07-10",
+      "close": 9200.0,
+      "volume": 26600,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Dịch vụ tài chính",
+      "rs_rating": 69.0,
+      "rel_vol": 0.03,
+      "gtgd20_ty": 10.344,
+      "margin_status": null
+    },
+    {
+      "ticker": "VSM",
+      "date": "2026-07-10",
+      "close": 15400.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 69.0,
+      "rel_vol": 0.08,
+      "gtgd20_ty": 0.019,
+      "margin_status": null
+    },
+    {
+      "ticker": "AFX",
+      "date": "2026-07-10",
+      "close": 10150.0,
+      "volume": 155300,
+      "patterns": [],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Bán lẻ",
+      "rs_rating": 68.0,
+      "rel_vol": 1.76,
+      "gtgd20_ty": 0.901,
+      "margin_status": null
+    },
+    {
+      "ticker": "BBT",
+      "date": "2026-07-10",
+      "close": 13000.0,
+      "volume": 600,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Hàng cá nhân & Gia dụng",
+      "rs_rating": 68.0,
+      "rel_vol": 0.17,
+      "gtgd20_ty": 0.048,
+      "margin_status": null
+    },
+    {
+      "ticker": "BID",
+      "date": "2026-07-10",
+      "close": 41000.0,
+      "volume": 2282200,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Ngân hàng",
+      "rs_rating": 68.0,
+      "rel_vol": 0.58,
+      "gtgd20_ty": 167.273,
+      "margin_status": null
+    },
+    {
+      "ticker": "MBB",
+      "date": "2026-07-10",
+      "close": 24650.0,
+      "volume": 10507600,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Ngân hàng",
+      "rs_rating": 68.0,
+      "rel_vol": 0.85,
+      "gtgd20_ty": 310.506,
+      "margin_status": null
+    },
+    {
+      "ticker": "STH",
+      "date": "2026-07-10",
+      "close": 20600.0,
+      "volume": 86300,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Truyền thông",
+      "rs_rating": 68.0,
+      "rel_vol": 0.68,
+      "gtgd20_ty": 2.63,
+      "margin_status": null
+    },
+    {
+      "ticker": "VGI",
+      "date": "2026-07-10",
+      "close": 85300.0,
+      "volume": 269600,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Viễn thông",
+      "rs_rating": 68.0,
+      "rel_vol": 1.13,
+      "gtgd20_ty": 21.146,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "VND",
+      "date": "2026-07-10",
+      "close": 18000.0,
+      "volume": 17714300,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Dịch vụ tài chính",
+      "rs_rating": 68.0,
+      "rel_vol": 1.03,
+      "gtgd20_ty": 309.904,
+      "margin_status": null
+    },
+    {
+      "ticker": "WCS",
+      "date": "2026-07-10",
+      "close": 293100.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 68.0,
+      "rel_vol": 0.35,
+      "gtgd20_ty": 0.085,
+      "margin_status": null
+    },
+    {
+      "ticker": "ACL",
+      "date": "2026-07-10",
+      "close": 12700.0,
+      "volume": 2000,
+      "patterns": [],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 67.0,
+      "rel_vol": 0.55,
+      "gtgd20_ty": 0.045,
+      "margin_status": null
+    },
+    {
+      "ticker": "CLH",
+      "date": "2026-07-10",
+      "close": 20300.0,
+      "volume": 2500,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "ob_bear",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 67.0,
+      "rel_vol": 1.09,
+      "gtgd20_ty": 0.047,
+      "margin_status": null
+    },
+    {
+      "ticker": "DHB",
+      "date": "2026-07-10",
+      "close": 10500.0,
+      "volume": 1700,
+      "patterns": [
+        "bearish_engulfing"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hóa chất",
+      "rs_rating": 67.0,
+      "rel_vol": 0.3,
+      "gtgd20_ty": 0.061,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "GAS",
+      "date": "2026-07-10",
+      "close": 75200.0,
+      "volume": 512700,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 67.0,
+      "rel_vol": 0.48,
+      "gtgd20_ty": 84.164,
+      "margin_status": null
+    },
+    {
+      "ticker": "GND",
+      "date": "2026-07-10",
+      "close": 26000.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 67.0,
+      "rel_vol": 0.2,
+      "gtgd20_ty": 0.012,
+      "margin_status": null
+    },
+    {
+      "ticker": "MVC",
+      "date": "2026-07-10",
+      "close": 13500.0,
+      "volume": 24500,
+      "patterns": [],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 67.0,
+      "rel_vol": 2.21,
+      "gtgd20_ty": 0.149,
+      "margin_status": null
+    },
+    {
+      "ticker": "NNC",
+      "date": "2026-07-10",
+      "close": 43500.0,
+      "volume": 26000,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 67.0,
+      "rel_vol": 0.76,
+      "gtgd20_ty": 1.508,
+      "margin_status": null
+    },
+    {
+      "ticker": "PHN",
+      "date": "2026-07-10",
+      "close": 56100.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 67.0,
+      "rel_vol": 0.35,
+      "gtgd20_ty": 0.016,
+      "margin_status": null
+    },
+    {
+      "ticker": "PPP",
+      "date": "2026-07-10",
+      "close": 18000.0,
+      "volume": 200,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Y tế",
+      "rs_rating": 67.0,
+      "rel_vol": 0.31,
+      "gtgd20_ty": 0.012,
+      "margin_status": null
+    },
+    {
+      "ticker": "PPT",
+      "date": "2026-07-10",
+      "close": 15400.0,
+      "volume": 432100,
+      "patterns": [],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 67.0,
+      "rel_vol": 1.66,
+      "gtgd20_ty": 3.997,
+      "margin_status": null
+    },
+    {
+      "ticker": "VPS",
+      "date": "2026-07-10",
+      "close": 9560.0,
+      "volume": 100,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hóa chất",
+      "rs_rating": 67.0,
+      "rel_vol": 0.01,
+      "gtgd20_ty": 0.112,
+      "margin_status": null
+    },
+    {
+      "ticker": "CMN",
+      "date": "2026-07-10",
+      "close": 22700.0,
+      "volume": 2400,
+      "patterns": [
+        "hammer"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 66.0,
+      "rel_vol": 0.45,
+      "gtgd20_ty": 0.132,
+      "margin_status": null
+    },
+    {
+      "ticker": "DRI",
+      "date": "2026-07-10",
+      "close": 13300.0,
+      "volume": 142900,
+      "patterns": [],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Hóa chất",
+      "rs_rating": 66.0,
+      "rel_vol": 0.31,
+      "gtgd20_ty": 6.301,
+      "margin_status": null
+    },
+    {
+      "ticker": "DVP",
+      "date": "2026-07-10",
+      "close": 71500.0,
+      "volume": 9100,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 66.0,
+      "rel_vol": 1.18,
+      "gtgd20_ty": 0.549,
+      "margin_status": null
+    },
+    {
+      "ticker": "FIC",
+      "date": "2026-07-10",
+      "close": 16000.0,
+      "volume": 4600,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 66.0,
+      "rel_vol": 0.79,
+      "gtgd20_ty": 0.102,
+      "margin_status": null
+    },
+    {
+      "ticker": "MQN",
+      "date": "2026-07-10",
+      "close": 18900.0,
+      "volume": 200,
+      "patterns": [],
+      "smc": [
+        "ob_bear",
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 66.0,
+      "rel_vol": 0.12,
+      "gtgd20_ty": 0.033,
+      "margin_status": null
+    },
+    {
+      "ticker": "PHR",
+      "date": "2026-07-10",
+      "close": 63200.0,
+      "volume": 110600,
+      "patterns": [
+        "bearish_engulfing"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hóa chất",
+      "rs_rating": 66.0,
+      "rel_vol": 0.36,
+      "gtgd20_ty": 19.674,
+      "margin_status": null
+    },
+    {
+      "ticker": "PJT",
+      "date": "2026-07-10",
+      "close": 10200.0,
+      "volume": 208000,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 66.0,
+      "rel_vol": 13.08,
+      "gtgd20_ty": 0.16,
+      "margin_status": null
+    },
+    {
+      "ticker": "SAB",
+      "date": "2026-07-10",
+      "close": 47150.0,
+      "volume": 377800,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "ob_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 66.0,
+      "rel_vol": 0.68,
+      "gtgd20_ty": 26.735,
+      "margin_status": null
+    },
+    {
+      "ticker": "TDB",
+      "date": "2026-07-10",
+      "close": 38200.0,
+      "volume": 1200,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 66.0,
+      "rel_vol": 1.14,
+      "gtgd20_ty": 0.041,
+      "margin_status": null
+    },
+    {
+      "ticker": "USD",
+      "date": "2026-07-10",
+      "close": 16700.0,
+      "volume": 700,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 66.0,
+      "rel_vol": 0.7,
+      "gtgd20_ty": 0.017,
+      "margin_status": null
+    },
+    {
+      "ticker": "VSI",
+      "date": "2026-07-10",
+      "close": 19700.0,
+      "volume": 1700,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 66.0,
+      "rel_vol": 0.92,
+      "gtgd20_ty": 0.04,
+      "margin_status": null
+    },
+    {
+      "ticker": "DHP",
+      "date": "2026-07-10",
+      "close": 10400.0,
+      "volume": 3800,
+      "patterns": [
+        "bullish_engulfing"
+      ],
+      "smc": [
+        "ob_bear",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 65.0,
+      "rel_vol": 2.28,
+      "gtgd20_ty": 0.017,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "G36",
+      "date": "2026-07-10",
+      "close": 9900.0,
+      "volume": 34100,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 65.0,
+      "rel_vol": 0.61,
+      "gtgd20_ty": 0.563,
+      "margin_status": null
+    },
+    {
+      "ticker": "GSM",
+      "date": "2026-07-10",
+      "close": 30400.0,
+      "volume": 1300,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 65.0,
+      "rel_vol": 0.32,
+      "gtgd20_ty": 0.121,
+      "margin_status": null
+    },
+    {
+      "ticker": "NDN",
+      "date": "2026-07-10",
+      "close": 10600.0,
+      "volume": 102600,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Bất động sản",
+      "rs_rating": 65.0,
+      "rel_vol": 0.57,
+      "gtgd20_ty": 1.951,
+      "margin_status": null
+    },
+    {
+      "ticker": "SBD",
+      "date": "2026-07-10",
+      "close": 8300.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "ob_bear",
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Công nghệ Thông tin",
+      "rs_rating": 65.0,
+      "rel_vol": 0.06,
+      "gtgd20_ty": 0.012,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "APS",
+      "date": "2026-07-10",
+      "close": 6800.0,
+      "volume": 692900,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Dịch vụ tài chính",
+      "rs_rating": 64.0,
+      "rel_vol": 1.29,
+      "gtgd20_ty": 3.87,
+      "margin_status": "control"
+    },
+    {
+      "ticker": "DHM",
+      "date": "2026-07-10",
+      "close": 6400.0,
+      "volume": 10500,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 64.0,
+      "rel_vol": 0.47,
+      "gtgd20_ty": 0.14,
+      "margin_status": null
+    },
+    {
+      "ticker": "IST",
+      "date": "2026-07-10",
+      "close": 37500.0,
+      "volume": 300,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 64.0,
+      "rel_vol": 0.18,
+      "gtgd20_ty": 0.06,
+      "margin_status": null
+    },
+    {
+      "ticker": "KGM",
+      "date": "2026-07-10",
+      "close": 5400.0,
+      "volume": 7800,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Bán lẻ",
+      "rs_rating": 64.0,
+      "rel_vol": 2.55,
+      "gtgd20_ty": 0.017,
+      "margin_status": null
+    },
+    {
+      "ticker": "NVT",
+      "date": "2026-07-10",
+      "close": 7970.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Bất động sản",
+      "rs_rating": 64.0,
+      "rel_vol": 0.13,
+      "gtgd20_ty": 0.006,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "SFG",
+      "date": "2026-07-10",
+      "close": 10700.0,
+      "volume": 500,
+      "patterns": [],
+      "smc": [
+        "ob_bear",
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hóa chất",
+      "rs_rating": 64.0,
+      "rel_vol": 0.26,
+      "gtgd20_ty": 0.021,
+      "margin_status": null
+    },
+    {
+      "ticker": "VC9",
+      "date": "2026-07-10",
+      "close": 4500.0,
+      "volume": 2600,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 64.0,
+      "rel_vol": 0.25,
+      "gtgd20_ty": 0.048,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "VCF",
+      "date": "2026-07-10",
+      "close": 297400.0,
+      "volume": 600,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 64.0,
+      "rel_vol": 1.2,
+      "gtgd20_ty": 0.149,
+      "margin_status": null
+    },
+    {
+      "ticker": "HEC",
+      "date": "2026-07-10",
+      "close": 31700.0,
+      "volume": 1500,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 63.0,
+      "rel_vol": 0.91,
+      "gtgd20_ty": 0.052,
+      "margin_status": null
+    },
+    {
+      "ticker": "HID",
+      "date": "2026-07-10",
+      "close": 4070.0000000000005,
+      "volume": 133700,
+      "patterns": [
+        "doji",
+        "inside_bar"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 63.0,
+      "rel_vol": 0.5,
+      "gtgd20_ty": 1.142,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "LKW",
+      "date": "2026-07-10",
+      "close": 35400.0,
+      "volume": 900,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 63.0,
+      "rel_vol": 1.78,
+      "gtgd20_ty": 0.018,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "TCO",
+      "date": "2026-07-10",
+      "close": 10900.0,
+      "volume": 239700,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 63.0,
+      "rel_vol": 1.46,
+      "gtgd20_ty": 1.802,
+      "margin_status": null
+    },
+    {
+      "ticker": "THT",
+      "date": "2026-07-10",
+      "close": 8000.0,
+      "volume": 19000,
+      "patterns": [
+        "evening_star"
+      ],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 63.0,
+      "rel_vol": 2.54,
+      "gtgd20_ty": 0.06,
+      "margin_status": null
+    },
+    {
+      "ticker": "VPR",
+      "date": "2026-07-10",
+      "close": 8500.0,
+      "volume": 600,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Truyền thông",
+      "rs_rating": 63.0,
+      "rel_vol": 0.25,
+      "gtgd20_ty": 0.019,
+      "margin_status": null
+    },
+    {
+      "ticker": "ABR",
+      "date": "2026-07-10",
+      "close": 11300.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 62.0,
+      "rel_vol": 0.06,
+      "gtgd20_ty": 0.021,
+      "margin_status": null
+    },
+    {
+      "ticker": "DBM",
+      "date": "2026-07-10",
+      "close": 24000.0,
+      "volume": 33000,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Y tế",
+      "rs_rating": 62.0,
+      "rel_vol": 15.98,
+      "gtgd20_ty": 0.051,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "DQC",
+      "date": "2026-07-10",
+      "close": 10200.0,
+      "volume": 22400,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng cá nhân & Gia dụng",
+      "rs_rating": 62.0,
+      "rel_vol": 3.64,
+      "gtgd20_ty": 0.06,
+      "margin_status": "control"
+    },
+    {
+      "ticker": "DSE",
+      "date": "2026-07-10",
+      "close": 23050.0,
+      "volume": 648800,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Dịch vụ tài chính",
+      "rs_rating": 62.0,
+      "rel_vol": 1.04,
+      "gtgd20_ty": 14.165,
+      "margin_status": null
+    },
+    {
+      "ticker": "MEL",
+      "date": "2026-07-10",
+      "close": 7000.0,
+      "volume": 1500,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 62.0,
+      "rel_vol": 0.92,
+      "gtgd20_ty": 0.012,
+      "margin_status": null
+    },
+    {
+      "ticker": "ODE",
+      "date": "2026-07-10",
+      "close": 46600.0,
+      "volume": 15600,
+      "patterns": [],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Truyền thông",
+      "rs_rating": 62.0,
+      "rel_vol": 0.94,
+      "gtgd20_ty": 0.766,
+      "margin_status": null
+    },
+    {
+      "ticker": "PPH",
+      "date": "2026-07-10",
+      "close": 26500.0,
+      "volume": 25500,
+      "patterns": [
+        "hammer"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Hàng cá nhân & Gia dụng",
+      "rs_rating": 62.0,
+      "rel_vol": 3.02,
+      "gtgd20_ty": 0.223,
+      "margin_status": null
+    },
+    {
+      "ticker": "SAV",
+      "date": "2026-07-10",
+      "close": 13200.0,
+      "volume": 3100,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 62.0,
+      "rel_vol": 0.62,
+      "gtgd20_ty": 0.067,
+      "margin_status": null
+    },
+    {
+      "ticker": "SMB",
+      "date": "2026-07-10",
+      "close": 38700.0,
+      "volume": 2400,
+      "patterns": [],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 62.0,
+      "rel_vol": 0.45,
+      "gtgd20_ty": 0.206,
+      "margin_status": null
+    },
+    {
+      "ticker": "TCW",
+      "date": "2026-07-10",
+      "close": 29700.0,
+      "volume": 2200,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 62.0,
+      "rel_vol": 0.36,
+      "gtgd20_ty": 0.183,
+      "margin_status": null
+    },
+    {
+      "ticker": "AG1",
+      "date": "2026-07-10",
+      "close": 10900.0,
+      "volume": 3000,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng cá nhân & Gia dụng",
+      "rs_rating": 61.0,
+      "rel_vol": 0.29,
+      "gtgd20_ty": 0.111,
+      "margin_status": null
+    },
+    {
+      "ticker": "GEE",
+      "date": "2026-07-10",
+      "close": 80100.0,
+      "volume": 768500,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 61.0,
+      "rel_vol": 0.54,
+      "gtgd20_ty": 126.947,
+      "margin_status": null
+    },
+    {
+      "ticker": "LHC",
+      "date": "2026-07-10",
+      "close": 46000.0,
+      "volume": 7100,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 61.0,
+      "rel_vol": 0.45,
+      "gtgd20_ty": 0.737,
+      "margin_status": null
+    },
+    {
+      "ticker": "MHC",
+      "date": "2026-07-10",
+      "close": 9450.0,
+      "volume": 6800,
+      "patterns": [],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 61.0,
+      "rel_vol": 0.54,
+      "gtgd20_ty": 0.12,
+      "margin_status": null
+    },
+    {
+      "ticker": "MWG",
+      "date": "2026-07-10",
+      "close": 76600.0,
+      "volume": 3169000,
+      "patterns": [
+        "bearish_engulfing"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Bán lẻ",
+      "rs_rating": 61.0,
+      "rel_vol": 0.79,
+      "gtgd20_ty": 313.235,
+      "margin_status": null
+    },
+    {
+      "ticker": "SGB",
+      "date": "2026-07-10",
+      "close": 12500.0,
+      "volume": 50900,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Ngân hàng",
+      "rs_rating": 61.0,
+      "rel_vol": 3.66,
+      "gtgd20_ty": 0.178,
+      "margin_status": null
+    },
+    {
+      "ticker": "SHP",
+      "date": "2026-07-10",
+      "close": 32900.0,
+      "volume": 300,
+      "patterns": [],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 61.0,
+      "rel_vol": 0.06,
+      "gtgd20_ty": 0.156,
+      "margin_status": null
+    },
+    {
+      "ticker": "VEA",
+      "date": "2026-07-10",
+      "close": 34900.0,
+      "volume": 121700,
+      "patterns": [],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 61.0,
+      "rel_vol": 0.64,
+      "gtgd20_ty": 6.711,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "VTB",
+      "date": "2026-07-10",
+      "close": 12500.0,
+      "volume": 1100,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 61.0,
+      "rel_vol": 0.5,
+      "gtgd20_ty": 0.028,
+      "margin_status": null
+    },
+    {
+      "ticker": "VTV",
+      "date": "2026-07-10",
+      "close": 13600.0,
+      "volume": 9500,
+      "patterns": [],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 61.0,
+      "rel_vol": 0.65,
+      "gtgd20_ty": 0.199,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "AAM",
+      "date": "2026-07-10",
+      "close": 6790.0,
+      "volume": 1200,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 60.0,
+      "rel_vol": 0.35,
+      "gtgd20_ty": 0.023,
+      "margin_status": null
+    },
+    {
+      "ticker": "AGR",
+      "date": "2026-07-10",
+      "close": 15350.0,
+      "volume": 1005900,
+      "patterns": [
+        "bearish_engulfing"
+      ],
+      "smc": [
+        "ob_bull",
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Dịch vụ tài chính",
+      "rs_rating": 60.0,
+      "rel_vol": 1.19,
+      "gtgd20_ty": 13.007,
+      "margin_status": null
+    },
+    {
+      "ticker": "BDG",
+      "date": "2026-07-10",
+      "close": 39000.0,
+      "volume": 7000,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng cá nhân & Gia dụng",
+      "rs_rating": 60.0,
+      "rel_vol": 2.13,
+      "gtgd20_ty": 0.128,
+      "margin_status": null
+    },
+    {
+      "ticker": "CTG",
+      "date": "2026-07-10",
+      "close": 33700.0,
+      "volume": 5505900,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Ngân hàng",
+      "rs_rating": 60.0,
+      "rel_vol": 0.82,
+      "gtgd20_ty": 228.922,
+      "margin_status": null
+    },
+    {
+      "ticker": "HRC",
+      "date": "2026-07-10",
+      "close": 38100.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hóa chất",
+      "rs_rating": 60.0,
+      "rel_vol": 0.06,
+      "gtgd20_ty": 0.065,
+      "margin_status": null
+    },
+    {
+      "ticker": "MIG",
+      "date": "2026-07-10",
+      "close": 17750.0,
+      "volume": 125100,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Bảo hiểm",
+      "rs_rating": 60.0,
+      "rel_vol": 1.17,
+      "gtgd20_ty": 1.893,
+      "margin_status": null
+    },
+    {
+      "ticker": "SAF",
+      "date": "2026-07-10",
+      "close": 51000.0,
+      "volume": 6300,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 60.0,
+      "rel_vol": 1.14,
+      "gtgd20_ty": 0.308,
+      "margin_status": null
+    },
+    {
+      "ticker": "SAS",
+      "date": "2026-07-10",
+      "close": 37100.0,
+      "volume": 25300,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Bán lẻ",
+      "rs_rating": 60.0,
+      "rel_vol": 1.45,
+      "gtgd20_ty": 0.669,
+      "margin_status": null
+    },
+    {
+      "ticker": "TCT",
+      "date": "2026-07-10",
+      "close": 18350.0,
+      "volume": 1400,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Du lịch và Giải trí",
+      "rs_rating": 60.0,
+      "rel_vol": 0.58,
+      "gtgd20_ty": 0.046,
+      "margin_status": null
+    },
+    {
+      "ticker": "VTE",
+      "date": "2026-07-10",
+      "close": 6500.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Công nghệ Thông tin",
+      "rs_rating": 60.0,
+      "rel_vol": 0.18,
+      "gtgd20_ty": 0.004,
+      "margin_status": null
+    },
+    {
+      "ticker": "BWE",
+      "date": "2026-07-10",
+      "close": 45200.0,
+      "volume": 71800,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "ob_bull",
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 59.0,
+      "rel_vol": 1.33,
+      "gtgd20_ty": 2.425,
+      "margin_status": null
+    },
+    {
+      "ticker": "CPC",
+      "date": "2026-07-10",
+      "close": 16000.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hóa chất",
+      "rs_rating": 59.0,
+      "rel_vol": 0.1,
+      "gtgd20_ty": 0.016,
+      "margin_status": null
+    },
+    {
+      "ticker": "HPP",
+      "date": "2026-07-10",
+      "close": 78900.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "ob_bear",
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 59.0,
+      "rel_vol": 0.06,
+      "gtgd20_ty": 0.138,
+      "margin_status": null
+    },
+    {
+      "ticker": "HTG",
+      "date": "2026-07-10",
+      "close": 42000.0,
+      "volume": 1800,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng cá nhân & Gia dụng",
+      "rs_rating": 59.0,
+      "rel_vol": 0.39,
+      "gtgd20_ty": 0.193,
+      "margin_status": null
+    },
+    {
+      "ticker": "HWS",
+      "date": "2026-07-10",
+      "close": 15300.0,
+      "volume": 1200,
+      "patterns": [],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 59.0,
+      "rel_vol": 0.61,
+      "gtgd20_ty": 0.03,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "IPA",
+      "date": "2026-07-10",
+      "close": 15700.0,
+      "volume": 58600,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 59.0,
+      "rel_vol": 1.08,
+      "gtgd20_ty": 0.857,
+      "margin_status": null
+    },
+    {
+      "ticker": "PBP",
+      "date": "2026-07-10",
+      "close": 12200.0,
+      "volume": 200,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 59.0,
+      "rel_vol": 0.13,
+      "gtgd20_ty": 0.019,
+      "margin_status": null
+    },
+    {
+      "ticker": "NCT",
+      "date": "2026-07-10",
+      "close": 94900.0,
+      "volume": 10600,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 58.0,
+      "rel_vol": 0.49,
+      "gtgd20_ty": 2.04,
+      "margin_status": null
+    },
+    {
+      "ticker": "SHI",
+      "date": "2026-07-10",
+      "close": 14100.0,
+      "volume": 105600,
+      "patterns": [],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 58.0,
+      "rel_vol": 0.67,
+      "gtgd20_ty": 2.245,
+      "margin_status": null
+    },
+    {
+      "ticker": "SSI",
+      "date": "2026-07-10",
+      "close": 26550.0,
+      "volume": 15212300,
+      "patterns": [],
+      "smc": [
+        "ob_bear",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Dịch vụ tài chính",
+      "rs_rating": 58.0,
+      "rel_vol": 1.04,
+      "gtgd20_ty": 396.22,
+      "margin_status": null
+    },
+    {
+      "ticker": "TCB",
+      "date": "2026-07-10",
+      "close": 32400.0,
+      "volume": 16294000,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Ngân hàng",
+      "rs_rating": 58.0,
+      "rel_vol": 1.24,
+      "gtgd20_ty": 429.639,
+      "margin_status": null
+    },
+    {
+      "ticker": "TLG",
+      "date": "2026-07-10",
+      "close": 48700.0,
+      "volume": 32100,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Hàng cá nhân & Gia dụng",
+      "rs_rating": 58.0,
+      "rel_vol": 0.37,
+      "gtgd20_ty": 4.33,
+      "margin_status": null
+    },
+    {
+      "ticker": "VNP",
+      "date": "2026-07-10",
+      "close": 17200.0,
+      "volume": 800,
+      "patterns": [],
+      "smc": [
+        "ob_bear",
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hóa chất",
+      "rs_rating": 58.0,
+      "rel_vol": 0.05,
+      "gtgd20_ty": 0.311,
+      "margin_status": null
+    },
+    {
+      "ticker": "BWS",
+      "date": "2026-07-10",
+      "close": 33000.0,
+      "volume": 1900,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 57.0,
+      "rel_vol": 0.58,
+      "gtgd20_ty": 0.112,
+      "margin_status": null
+    },
+    {
+      "ticker": "HDM",
+      "date": "2026-07-10",
+      "close": 33100.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng cá nhân & Gia dụng",
+      "rs_rating": 57.0,
+      "rel_vol": 0.08,
+      "gtgd20_ty": 0.042,
+      "margin_status": null
+    },
+    {
+      "ticker": "HPG",
+      "date": "2026-07-10",
+      "close": 22950.0,
+      "volume": 11906800,
+      "patterns": [],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 57.0,
+      "rel_vol": 0.7,
+      "gtgd20_ty": 397.452,
+      "margin_status": null
+    },
+    {
+      "ticker": "HVN",
+      "date": "2026-07-10",
+      "close": 25400.0,
+      "volume": 1003800,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Du lịch và Giải trí",
+      "rs_rating": 57.0,
+      "rel_vol": 0.63,
+      "gtgd20_ty": 38.566,
+      "margin_status": "control"
+    },
+    {
+      "ticker": "NTP",
+      "date": "2026-07-10",
+      "close": 49000.0,
+      "volume": 20500,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 57.0,
+      "rel_vol": 0.22,
+      "gtgd20_ty": 4.664,
+      "margin_status": null
+    },
+    {
+      "ticker": "PAN",
+      "date": "2026-07-10",
+      "close": 22150.0,
+      "volume": 138500,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 57.0,
+      "rel_vol": 0.42,
+      "gtgd20_ty": 7.45,
+      "margin_status": null
+    },
+    {
+      "ticker": "VDS",
+      "date": "2026-07-10",
+      "close": 15300.0,
+      "volume": 2010300,
+      "patterns": [
+        "bearish_engulfing"
+      ],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Dịch vụ tài chính",
+      "rs_rating": 57.0,
+      "rel_vol": 1.11,
+      "gtgd20_ty": 27.694,
+      "margin_status": null
+    },
+    {
+      "ticker": "AAA",
+      "date": "2026-07-10",
+      "close": 7250.0,
+      "volume": 612500,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hóa chất",
+      "rs_rating": 56.0,
+      "rel_vol": 0.6,
+      "gtgd20_ty": 7.495,
+      "margin_status": null
+    },
+    {
+      "ticker": "BIC",
+      "date": "2026-07-10",
+      "close": 22850.0,
+      "volume": 53900,
+      "patterns": [],
+      "smc": [
+        "ob_bear",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Bảo hiểm",
+      "rs_rating": 56.0,
+      "rel_vol": 1.18,
+      "gtgd20_ty": 1.086,
+      "margin_status": null
+    },
+    {
+      "ticker": "CDP",
+      "date": "2026-07-10",
+      "close": 11800.0,
+      "volume": 2000,
+      "patterns": [],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Y tế",
+      "rs_rating": 56.0,
+      "rel_vol": 0.63,
+      "gtgd20_ty": 0.04,
+      "margin_status": null
+    },
+    {
+      "ticker": "CIG",
+      "date": "2026-07-10",
+      "close": 7380.0,
+      "volume": 136900,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 56.0,
+      "rel_vol": 2.56,
+      "gtgd20_ty": 0.387,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "EBS",
+      "date": "2026-07-10",
+      "close": 10300.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Truyền thông",
+      "rs_rating": 56.0,
+      "rel_vol": 0.04,
+      "gtgd20_ty": 0.025,
+      "margin_status": null
+    },
+    {
+      "ticker": "LAW",
+      "date": "2026-07-10",
+      "close": 27900.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 56.0,
+      "rel_vol": 0.09,
+      "gtgd20_ty": 0.029,
+      "margin_status": null
+    },
+    {
+      "ticker": "ND2",
+      "date": "2026-07-10",
+      "close": 35900.0,
+      "volume": 4300,
+      "patterns": [
+        "bullish_engulfing"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 56.0,
+      "rel_vol": 5.21,
+      "gtgd20_ty": 0.03,
+      "margin_status": null
+    },
+    {
+      "ticker": "PGB",
+      "date": "2026-07-10",
+      "close": 10700.0,
+      "volume": 22100,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Ngân hàng",
+      "rs_rating": 56.0,
+      "rel_vol": 0.63,
+      "gtgd20_ty": 0.383,
+      "margin_status": null
+    },
+    {
+      "ticker": "TVT",
+      "date": "2026-07-10",
+      "close": 15500.0,
+      "volume": 2000,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng cá nhân & Gia dụng",
+      "rs_rating": 56.0,
+      "rel_vol": 0.9,
+      "gtgd20_ty": 0.035,
+      "margin_status": null
+    },
+    {
+      "ticker": "VC3",
+      "date": "2026-07-10",
+      "close": 26500.0,
+      "volume": 1154000,
+      "patterns": [
+        "hammer"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Bất động sản",
+      "rs_rating": 56.0,
+      "rel_vol": 0.96,
+      "gtgd20_ty": 31.828,
+      "margin_status": null
+    },
+    {
+      "ticker": "VNM",
+      "date": "2026-07-10",
+      "close": 56600.0,
+      "volume": 5573700,
+      "patterns": [],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 56.0,
+      "rel_vol": 1.79,
+      "gtgd20_ty": 174.184,
+      "margin_status": null
+    },
+    {
+      "ticker": "DBD",
+      "date": "2026-07-10",
+      "close": 51300.0,
+      "volume": 2600,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Y tế",
+      "rs_rating": 55.0,
+      "rel_vol": 0.07,
+      "gtgd20_ty": 1.807,
+      "margin_status": null
+    },
+    {
+      "ticker": "DSC",
+      "date": "2026-07-10",
+      "close": 13000.0,
+      "volume": 19700,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "ob_bear",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Dịch vụ tài chính",
+      "rs_rating": 55.0,
+      "rel_vol": 0.46,
+      "gtgd20_ty": 0.575,
+      "margin_status": null
+    },
+    {
+      "ticker": "GMH",
+      "date": "2026-07-10",
+      "close": 7300.0,
+      "volume": 300,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 55.0,
+      "rel_vol": 0.3,
+      "gtgd20_ty": 0.007,
+      "margin_status": null
+    },
+    {
+      "ticker": "HAP",
+      "date": "2026-07-10",
+      "close": 7110.0,
+      "volume": 111600,
+      "patterns": [
+        "shooting_star"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 55.0,
+      "rel_vol": 1.63,
+      "gtgd20_ty": 0.475,
+      "margin_status": null
+    },
+    {
+      "ticker": "HIO",
+      "date": "2026-07-10",
+      "close": 7400.0,
+      "volume": 900,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 55.0,
+      "rel_vol": 0.25,
+      "gtgd20_ty": 0.027,
+      "margin_status": null
+    },
+    {
+      "ticker": "HSM",
+      "date": "2026-07-10",
+      "close": 6000.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng cá nhân & Gia dụng",
+      "rs_rating": 55.0,
+      "rel_vol": 0.05,
+      "gtgd20_ty": 0.013,
+      "margin_status": null
+    },
+    {
+      "ticker": "KOS",
+      "date": "2026-07-10",
+      "close": 38050.0,
+      "volume": 262500,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Bất động sản",
+      "rs_rating": 55.0,
+      "rel_vol": 0.86,
+      "gtgd20_ty": 11.413,
+      "margin_status": null
+    },
+    {
+      "ticker": "LGL",
+      "date": "2026-07-10",
+      "close": 5180.0,
+      "volume": 5300,
+      "patterns": [],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Bất động sản",
+      "rs_rating": 55.0,
+      "rel_vol": 0.06,
+      "gtgd20_ty": 0.421,
+      "margin_status": null
+    },
+    {
+      "ticker": "MCP",
+      "date": "2026-07-10",
+      "close": 27500.0,
+      "volume": 34000,
+      "patterns": [
+        "hammer"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 55.0,
+      "rel_vol": 1.56,
+      "gtgd20_ty": 0.608,
+      "margin_status": null
+    },
+    {
+      "ticker": "SD9",
+      "date": "2026-07-10",
+      "close": 10800.0,
+      "volume": 45100,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 55.0,
+      "rel_vol": 4.56,
+      "gtgd20_ty": 0.107,
+      "margin_status": null
+    },
+    {
+      "ticker": "SRF",
+      "date": "2026-07-10",
+      "close": 7590.0,
+      "volume": 100,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 55.0,
+      "rel_vol": 0.0,
+      "gtgd20_ty": 0.357,
+      "margin_status": null
+    },
+    {
+      "ticker": "VLA",
+      "date": "2026-07-10",
+      "close": 10000.0,
+      "volume": 3200,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Công nghệ Thông tin",
+      "rs_rating": 55.0,
+      "rel_vol": 1.82,
+      "gtgd20_ty": 0.015,
+      "margin_status": null
+    },
+    {
+      "ticker": "VW3",
+      "date": "2026-07-10",
+      "close": 9400.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 55.0,
+      "rel_vol": 0.03,
+      "gtgd20_ty": 0.031,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "CLL",
+      "date": "2026-07-10",
+      "close": 30100.0,
+      "volume": 6800,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 54.0,
+      "rel_vol": 1.31,
+      "gtgd20_ty": 0.157,
+      "margin_status": null
+    },
+    {
+      "ticker": "DPR",
+      "date": "2026-07-10",
+      "close": 38450.0,
+      "volume": 155900,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hóa chất",
+      "rs_rating": 54.0,
+      "rel_vol": 0.65,
+      "gtgd20_ty": 9.429,
+      "margin_status": null
+    },
+    {
+      "ticker": "GSP",
+      "date": "2026-07-10",
+      "close": 10950.0,
+      "volume": 2900,
+      "patterns": [
+        "doji",
+        "inside_bar"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 54.0,
+      "rel_vol": 0.09,
+      "gtgd20_ty": 0.34,
+      "margin_status": null
+    },
+    {
+      "ticker": "LHG",
+      "date": "2026-07-10",
+      "close": 28900.0,
+      "volume": 25500,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Bất động sản",
+      "rs_rating": 54.0,
+      "rel_vol": 0.51,
+      "gtgd20_ty": 1.442,
+      "margin_status": null
+    },
+    {
+      "ticker": "NDT",
+      "date": "2026-07-10",
+      "close": 4600.0,
+      "volume": 2100,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "ob_bull",
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng cá nhân & Gia dụng",
+      "rs_rating": 54.0,
+      "rel_vol": 0.4,
+      "gtgd20_ty": 0.024,
+      "margin_status": null
+    },
+    {
+      "ticker": "TDP",
+      "date": "2026-07-10",
+      "close": 28500.0,
+      "volume": 174400,
+      "patterns": [],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 54.0,
+      "rel_vol": 1.17,
+      "gtgd20_ty": 4.281,
+      "margin_status": null
+    },
+    {
+      "ticker": "VSF",
+      "date": "2026-07-10",
+      "close": 25600.0,
+      "volume": 24200,
+      "patterns": [],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 54.0,
+      "rel_vol": 1.11,
+      "gtgd20_ty": 0.561,
+      "margin_status": null
+    },
+    {
+      "ticker": "AAV",
+      "date": "2026-07-10",
+      "close": 6900.0,
+      "volume": 275900,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Bất động sản",
+      "rs_rating": 53.0,
+      "rel_vol": 0.45,
+      "gtgd20_ty": 4.166,
+      "margin_status": null
+    },
+    {
+      "ticker": "EVS",
+      "date": "2026-07-10",
+      "close": 5600.0,
+      "volume": 165500,
+      "patterns": [
+        "bearish_engulfing"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Dịch vụ tài chính",
+      "rs_rating": 53.0,
+      "rel_vol": 0.58,
+      "gtgd20_ty": 1.537,
+      "margin_status": null
+    },
+    {
+      "ticker": "HMC",
+      "date": "2026-07-10",
+      "close": 10900.0,
+      "volume": 400,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 53.0,
+      "rel_vol": 0.21,
+      "gtgd20_ty": 0.02,
+      "margin_status": null
+    },
+    {
+      "ticker": "HTI",
+      "date": "2026-07-10",
+      "close": 19100.0,
+      "volume": 6900,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 53.0,
+      "rel_vol": 0.32,
+      "gtgd20_ty": 0.428,
+      "margin_status": null
+    },
+    {
+      "ticker": "NT2",
+      "date": "2026-07-10",
+      "close": 21800.0,
+      "volume": 178400,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 53.0,
+      "rel_vol": 0.41,
+      "gtgd20_ty": 9.885,
+      "margin_status": null
+    },
+    {
+      "ticker": "TCX",
+      "date": "2026-07-10",
+      "close": 42200.0,
+      "volume": 2113600,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Dịch vụ tài chính",
+      "rs_rating": 53.0,
+      "rel_vol": 0.94,
+      "gtgd20_ty": 98.591,
+      "margin_status": null
+    },
+    {
+      "ticker": "TTH",
+      "date": "2026-07-10",
+      "close": 2400.0,
+      "volume": 247200,
+      "patterns": [
+        "bullish_engulfing"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 53.0,
+      "rel_vol": 1.73,
+      "gtgd20_ty": 0.336,
+      "margin_status": null
+    },
+    {
+      "ticker": "ACG",
+      "date": "2026-07-10",
+      "close": 33300.0,
+      "volume": 3200,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 52.0,
+      "rel_vol": 0.45,
+      "gtgd20_ty": 0.237,
+      "margin_status": null
+    },
+    {
+      "ticker": "ADP",
+      "date": "2026-07-10",
+      "close": 22900.0,
+      "volume": 1800,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 52.0,
+      "rel_vol": 0.42,
+      "gtgd20_ty": 0.099,
+      "margin_status": null
+    },
+    {
+      "ticker": "AGP",
+      "date": "2026-07-10",
+      "close": 33500.0,
+      "volume": 700,
+      "patterns": [
+        "hammer"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Y tế",
+      "rs_rating": 52.0,
+      "rel_vol": 0.2,
+      "gtgd20_ty": 0.122,
+      "margin_status": null
+    },
+    {
+      "ticker": "BHA",
+      "date": "2026-07-10",
+      "close": 22000.0,
+      "volume": 2200,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 52.0,
+      "rel_vol": 1.75,
+      "gtgd20_ty": 0.028,
+      "margin_status": null
+    },
+    {
+      "ticker": "DMC",
+      "date": "2026-07-10",
+      "close": 58000.0,
+      "volume": 2000,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Y tế",
+      "rs_rating": 52.0,
+      "rel_vol": 4.04,
+      "gtgd20_ty": 0.029,
+      "margin_status": null
+    },
+    {
+      "ticker": "DPM",
+      "date": "2026-07-10",
+      "close": 23400.0,
+      "volume": 3158000,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Hóa chất",
+      "rs_rating": 52.0,
+      "rel_vol": 0.92,
+      "gtgd20_ty": 80.07,
+      "margin_status": null
+    },
+    {
+      "ticker": "SGN",
+      "date": "2026-07-10",
+      "close": 55600.0,
+      "volume": 1000,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 52.0,
+      "rel_vol": 0.13,
+      "gtgd20_ty": 0.433,
+      "margin_status": null
+    },
+    {
+      "ticker": "SHA",
+      "date": "2026-07-10",
+      "close": 3830.0,
+      "volume": 101800,
+      "patterns": [
+        "bearish_engulfing"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 52.0,
+      "rel_vol": 13.8,
+      "gtgd20_ty": 0.029,
+      "margin_status": null
+    },
+    {
+      "ticker": "VSH",
+      "date": "2026-07-10",
+      "close": 42500.0,
+      "volume": 2600,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 52.0,
+      "rel_vol": 0.7,
+      "gtgd20_ty": 0.158,
+      "margin_status": null
+    },
+    {
+      "ticker": "ASG",
+      "date": "2026-07-10",
+      "close": 16800.0,
+      "volume": 700,
+      "patterns": [],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 51.0,
+      "rel_vol": 0.84,
+      "gtgd20_ty": 0.014,
+      "margin_status": null
+    },
+    {
+      "ticker": "BTN",
+      "date": "2026-07-10",
+      "close": 2900.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 51.0,
+      "rel_vol": 0.02,
+      "gtgd20_ty": 0.012,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "DHG",
+      "date": "2026-07-10",
+      "close": 93000.0,
+      "volume": 2500,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Y tế",
+      "rs_rating": 51.0,
+      "rel_vol": 0.36,
+      "gtgd20_ty": 0.642,
+      "margin_status": null
+    },
+    {
+      "ticker": "HAG",
+      "date": "2026-07-10",
+      "close": 14650.0,
+      "volume": 1238600,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 51.0,
+      "rel_vol": 0.47,
+      "gtgd20_ty": 39.539,
+      "margin_status": null
+    },
+    {
+      "ticker": "PGC",
+      "date": "2026-07-10",
+      "close": 12200.0,
+      "volume": 700,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 51.0,
+      "rel_vol": 0.03,
+      "gtgd20_ty": 0.339,
+      "margin_status": null
+    },
+    {
+      "ticker": "PVC",
+      "date": "2026-07-10",
+      "close": 12700.0,
+      "volume": 221000,
+      "patterns": [
+        "bearish_engulfing"
+      ],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Dầu khí",
+      "rs_rating": 51.0,
+      "rel_vol": 0.49,
+      "gtgd20_ty": 5.97,
+      "margin_status": null
+    },
+    {
+      "ticker": "VGP",
+      "date": "2026-07-10",
+      "close": 26500.0,
+      "volume": 24000,
+      "patterns": [
+        "hammer"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 51.0,
+      "rel_vol": 1.27,
+      "gtgd20_ty": 0.508,
+      "margin_status": null
+    },
+    {
+      "ticker": "VID",
+      "date": "2026-07-10",
+      "close": 4700.0,
+      "volume": 700,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 51.0,
+      "rel_vol": 0.43,
+      "gtgd20_ty": 0.008,
+      "margin_status": null
+    },
+    {
+      "ticker": "VNL",
+      "date": "2026-07-10",
+      "close": 18850.0,
+      "volume": 4700,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 51.0,
+      "rel_vol": 0.42,
+      "gtgd20_ty": 0.211,
+      "margin_status": null
+    },
+    {
+      "ticker": "ADG",
+      "date": "2026-07-10",
+      "close": 8700.0,
+      "volume": 1800,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Truyền thông",
+      "rs_rating": 50.0,
+      "rel_vol": 0.77,
+      "gtgd20_ty": 0.02,
+      "margin_status": null
+    },
+    {
+      "ticker": "DXV",
+      "date": "2026-07-10",
+      "close": 3800.0,
+      "volume": 500,
+      "patterns": [
+        "doji",
+        "inside_bar"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 50.0,
+      "rel_vol": 0.29,
+      "gtgd20_ty": 0.006,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "LSS",
+      "date": "2026-07-10",
+      "close": 8230.0,
+      "volume": 16100,
+      "patterns": [
+        "hammer"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 50.0,
+      "rel_vol": 0.32,
+      "gtgd20_ty": 0.412,
+      "margin_status": null
+    },
+    {
+      "ticker": "PCH",
+      "date": "2026-07-10",
+      "close": 18500.0,
+      "volume": 84300,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hóa chất",
+      "rs_rating": 50.0,
+      "rel_vol": 0.89,
+      "gtgd20_ty": 1.821,
+      "margin_status": null
+    },
+    {
+      "ticker": "SBA",
+      "date": "2026-07-10",
+      "close": 26300.0,
+      "volume": 100,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 50.0,
+      "rel_vol": 0.01,
+      "gtgd20_ty": 0.219,
+      "margin_status": null
+    },
+    {
+      "ticker": "UDJ",
+      "date": "2026-07-10",
+      "close": 6700.0,
+      "volume": 10100,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 50.0,
+      "rel_vol": 1.02,
+      "gtgd20_ty": 0.069,
+      "margin_status": null
+    },
+    {
+      "ticker": "VGC",
+      "date": "2026-07-10",
+      "close": 42000.0,
+      "volume": 267500,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 50.0,
+      "rel_vol": 0.77,
+      "gtgd20_ty": 14.971,
+      "margin_status": null
+    },
+    {
+      "ticker": "VNF",
+      "date": "2026-07-10",
+      "close": 13000.0,
+      "volume": 2600,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 50.0,
+      "rel_vol": 0.44,
+      "gtgd20_ty": 0.08,
+      "margin_status": null
+    },
+    {
+      "ticker": "VRC",
+      "date": "2026-07-10",
+      "close": 12700.0,
+      "volume": 792700,
+      "patterns": [
+        "bullish_engulfing"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Bất động sản",
+      "rs_rating": 50.0,
+      "rel_vol": 13.92,
+      "gtgd20_ty": 0.716,
+      "margin_status": null
+    },
+    {
+      "ticker": "ALC",
+      "date": "2026-07-10",
+      "close": 22200.0,
+      "volume": 8300,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 49.0,
+      "rel_vol": 0.57,
+      "gtgd20_ty": 0.335,
+      "margin_status": null
+    },
+    {
+      "ticker": "BIO",
+      "date": "2026-07-10",
+      "close": 12000.0,
+      "volume": 600,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Y tế",
+      "rs_rating": 49.0,
+      "rel_vol": 0.26,
+      "gtgd20_ty": 0.029,
+      "margin_status": null
+    },
+    {
+      "ticker": "BSI",
+      "date": "2026-07-10",
+      "close": 34450.0,
+      "volume": 1316800,
+      "patterns": [
+        "bearish_engulfing"
+      ],
+      "smc": [
+        "ob_bull",
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Dịch vụ tài chính",
+      "rs_rating": 49.0,
+      "rel_vol": 1.47,
+      "gtgd20_ty": 31.643,
+      "margin_status": null
+    },
+    {
+      "ticker": "IDV",
+      "date": "2026-07-10",
+      "close": 22000.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Bất động sản",
+      "rs_rating": 49.0,
+      "rel_vol": 0.02,
+      "gtgd20_ty": 0.106,
+      "margin_status": null
+    },
+    {
+      "ticker": "KDM",
+      "date": "2026-07-10",
+      "close": 20800.0,
+      "volume": 4000,
+      "patterns": [],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 49.0,
+      "rel_vol": 0.84,
+      "gtgd20_ty": 0.099,
+      "margin_status": null
+    },
+    {
+      "ticker": "NHH",
+      "date": "2026-07-10",
+      "close": 10100.0,
+      "volume": 14100,
+      "patterns": [
+        "bullish_engulfing"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Hóa chất",
+      "rs_rating": 49.0,
+      "rel_vol": 0.38,
+      "gtgd20_ty": 0.383,
+      "margin_status": null
+    },
+    {
+      "ticker": "CHP",
+      "date": "2026-07-10",
+      "close": 27800.0,
+      "volume": 3000,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 48.0,
+      "rel_vol": 0.31,
+      "gtgd20_ty": 0.269,
+      "margin_status": null
+    },
+    {
+      "ticker": "DAD",
+      "date": "2026-07-10",
+      "close": 15400.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Truyền thông",
+      "rs_rating": 48.0,
+      "rel_vol": 0.04,
+      "gtgd20_ty": 0.039,
+      "margin_status": null
+    },
+    {
+      "ticker": "PTB",
+      "date": "2026-07-10",
+      "close": 36500.0,
+      "volume": 14700,
+      "patterns": [],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 48.0,
+      "rel_vol": 0.23,
+      "gtgd20_ty": 2.418,
+      "margin_status": null
+    },
+    {
+      "ticker": "SCG",
+      "date": "2026-07-10",
+      "close": 61400.0,
+      "volume": 26800,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 48.0,
+      "rel_vol": 0.99,
+      "gtgd20_ty": 1.72,
+      "margin_status": null
+    },
+    {
+      "ticker": "TCL",
+      "date": "2026-07-10",
+      "close": 30050.0,
+      "volume": 4400,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 48.0,
+      "rel_vol": 0.33,
+      "gtgd20_ty": 0.402,
+      "margin_status": null
+    },
+    {
+      "ticker": "TDS",
+      "date": "2026-07-10",
+      "close": 8000.0,
+      "volume": 2800,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 48.0,
+      "rel_vol": 1.17,
+      "gtgd20_ty": 0.019,
+      "margin_status": null
+    },
+    {
+      "ticker": "VGT",
+      "date": "2026-07-10",
+      "close": 11500.0,
+      "volume": 245300,
+      "patterns": [],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng cá nhân & Gia dụng",
+      "rs_rating": 48.0,
+      "rel_vol": 0.74,
+      "gtgd20_ty": 3.81,
+      "margin_status": null
+    },
+    {
+      "ticker": "VNB",
+      "date": "2026-07-10",
+      "close": 14000.0,
+      "volume": 2800,
+      "patterns": [],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Truyền thông",
+      "rs_rating": 48.0,
+      "rel_vol": 0.23,
+      "gtgd20_ty": 0.169,
+      "margin_status": null
+    },
+    {
+      "ticker": "VPX",
+      "date": "2026-07-10",
+      "close": 27300.0,
+      "volume": 963300,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Dịch vụ tài chính",
+      "rs_rating": 48.0,
+      "rel_vol": 0.62,
+      "gtgd20_ty": 43.748,
+      "margin_status": null
+    },
+    {
+      "ticker": "DVM",
+      "date": "2026-07-10",
+      "close": 6100.0,
+      "volume": 49200,
+      "patterns": [
+        "bearish_engulfing"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Y tế",
+      "rs_rating": 47.0,
+      "rel_vol": 0.56,
+      "gtgd20_ty": 0.576,
+      "margin_status": null
+    },
+    {
+      "ticker": "EVE",
+      "date": "2026-07-10",
+      "close": 8950.0,
+      "volume": 11400,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "ob_bear",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng cá nhân & Gia dụng",
+      "rs_rating": 47.0,
+      "rel_vol": 0.71,
+      "gtgd20_ty": 0.145,
+      "margin_status": null
+    },
+    {
+      "ticker": "INN",
+      "date": "2026-07-10",
+      "close": 35600.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 47.0,
+      "rel_vol": 0.02,
+      "gtgd20_ty": 0.16,
+      "margin_status": null
+    },
+    {
+      "ticker": "PC1",
+      "date": "2026-07-10",
+      "close": 21250.0,
+      "volume": 1208900,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 47.0,
+      "rel_vol": 0.25,
+      "gtgd20_ty": 106.037,
+      "margin_status": null
+    },
+    {
+      "ticker": "PLX",
+      "date": "2026-07-10",
+      "close": 36000.0,
+      "volume": 2471800,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Dầu khí",
+      "rs_rating": 47.0,
+      "rel_vol": 1.17,
+      "gtgd20_ty": 78.384,
+      "margin_status": null
+    },
+    {
+      "ticker": "RTB",
+      "date": "2026-07-10",
+      "close": 27000.0,
+      "volume": 500,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hóa chất",
+      "rs_rating": 47.0,
+      "rel_vol": 0.25,
+      "gtgd20_ty": 0.056,
+      "margin_status": null
+    },
+    {
+      "ticker": "TBC",
+      "date": "2026-07-10",
+      "close": 32200.000000000004,
+      "volume": 1500,
+      "patterns": [],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 47.0,
+      "rel_vol": 0.88,
+      "gtgd20_ty": 0.055,
+      "margin_status": null
+    },
+    {
+      "ticker": "TEG",
+      "date": "2026-07-10",
+      "close": 5900.0,
+      "volume": 8000,
+      "patterns": [
+        "doji",
+        "hammer"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Bất động sản",
+      "rs_rating": 47.0,
+      "rel_vol": 0.16,
+      "gtgd20_ty": 0.306,
+      "margin_status": null
+    },
+    {
+      "ticker": "TVB",
+      "date": "2026-07-10",
+      "close": 7740.0,
+      "volume": 15900,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Dịch vụ tài chính",
+      "rs_rating": 47.0,
+      "rel_vol": 0.59,
+      "gtgd20_ty": 0.205,
+      "margin_status": null
+    },
+    {
+      "ticker": "VCP",
+      "date": "2026-07-10",
+      "close": 23600.0,
+      "volume": 3900,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 47.0,
+      "rel_vol": 0.29,
+      "gtgd20_ty": 0.323,
+      "margin_status": null
+    },
+    {
+      "ticker": "A32",
+      "date": "2026-07-10",
+      "close": 31300.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Hàng cá nhân & Gia dụng",
+      "rs_rating": 46.0,
+      "rel_vol": 0.02,
+      "gtgd20_ty": 0.162,
+      "margin_status": null
+    },
+    {
+      "ticker": "CKD",
+      "date": "2026-07-10",
+      "close": 22400.0,
+      "volume": 2500,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 46.0,
+      "rel_vol": 2.57,
+      "gtgd20_ty": 0.022,
+      "margin_status": null
+    },
+    {
+      "ticker": "CMS",
+      "date": "2026-07-10",
+      "close": 6500.0,
+      "volume": 27300,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 46.0,
+      "rel_vol": 0.34,
+      "gtgd20_ty": 0.57,
+      "margin_status": null
+    },
+    {
+      "ticker": "HAH",
+      "date": "2026-07-10",
+      "close": 51500.0,
+      "volume": 662500,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 46.0,
+      "rel_vol": 0.97,
+      "gtgd20_ty": 35.948,
+      "margin_status": null
+    },
+    {
+      "ticker": "RAL",
+      "date": "2026-07-10",
+      "close": 83000.0,
+      "volume": 1000,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng cá nhân & Gia dụng",
+      "rs_rating": 46.0,
+      "rel_vol": 0.03,
+      "gtgd20_ty": 2.719,
+      "margin_status": null
+    },
+    {
+      "ticker": "SHE",
+      "date": "2026-07-10",
+      "close": 6600.0,
+      "volume": 1000,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "ob_bear",
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng cá nhân & Gia dụng",
+      "rs_rating": 46.0,
+      "rel_vol": 0.11,
+      "gtgd20_ty": 0.068,
+      "margin_status": null
+    },
+    {
+      "ticker": "VHG",
+      "date": "2026-07-10",
+      "close": 1700.0,
+      "volume": 154600,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 46.0,
+      "rel_vol": 0.49,
+      "gtgd20_ty": 0.566,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "ABS",
+      "date": "2026-07-10",
+      "close": 3020.0,
+      "volume": 209600,
+      "patterns": [],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Hóa chất",
+      "rs_rating": 45.0,
+      "rel_vol": 1.27,
+      "gtgd20_ty": 0.5,
+      "margin_status": "control"
+    },
+    {
+      "ticker": "DRG",
+      "date": "2026-07-10",
+      "close": 8200.0,
+      "volume": 1300,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hóa chất",
+      "rs_rating": 45.0,
+      "rel_vol": 1.76,
+      "gtgd20_ty": 0.006,
+      "margin_status": null
+    },
+    {
+      "ticker": "DSN",
+      "date": "2026-07-10",
+      "close": 37400.0,
+      "volume": 4600,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "ob_bear",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Du lịch và Giải trí",
+      "rs_rating": 45.0,
+      "rel_vol": 1.11,
+      "gtgd20_ty": 0.155,
+      "margin_status": null
+    },
+    {
+      "ticker": "IDC",
+      "date": "2026-07-10",
+      "close": 39300.0,
+      "volume": 499200,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "ob_bear",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Bất động sản",
+      "rs_rating": 45.0,
+      "rel_vol": 0.47,
+      "gtgd20_ty": 43.702,
+      "margin_status": null
+    },
+    {
+      "ticker": "PGN",
+      "date": "2026-07-10",
+      "close": 6000.0,
+      "volume": 8900,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hóa chất",
+      "rs_rating": 45.0,
+      "rel_vol": 1.15,
+      "gtgd20_ty": 0.052,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "RIC",
+      "date": "2026-07-10",
+      "close": 6800.0,
+      "volume": 900,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Du lịch và Giải trí",
+      "rs_rating": 45.0,
+      "rel_vol": 1.18,
+      "gtgd20_ty": 0.006,
+      "margin_status": null
+    },
+    {
+      "ticker": "SBH",
+      "date": "2026-07-10",
+      "close": 40200.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "ob_bear",
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 45.0,
+      "rel_vol": 0.1,
+      "gtgd20_ty": 0.039,
+      "margin_status": null
+    },
+    {
+      "ticker": "TNG",
+      "date": "2026-07-10",
+      "close": 18600.0,
+      "volume": 325000,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng cá nhân & Gia dụng",
+      "rs_rating": 45.0,
+      "rel_vol": 0.56,
+      "gtgd20_ty": 11.27,
+      "margin_status": null
+    },
+    {
+      "ticker": "VPD",
+      "date": "2026-07-10",
+      "close": 21150.0,
+      "volume": 2700,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 45.0,
+      "rel_vol": 0.57,
+      "gtgd20_ty": 0.104,
+      "margin_status": null
+    },
+    {
+      "ticker": "BKC",
+      "date": "2026-07-10",
+      "close": 19500.0,
+      "volume": 900,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 44.0,
+      "rel_vol": 0.19,
+      "gtgd20_ty": 0.096,
+      "margin_status": null
+    },
+    {
+      "ticker": "DTD",
+      "date": "2026-07-10",
+      "close": 13900.0,
+      "volume": 193000,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Bất động sản",
+      "rs_rating": 44.0,
+      "rel_vol": 1.8,
+      "gtgd20_ty": 1.451,
+      "margin_status": null
+    },
+    {
+      "ticker": "FCM",
+      "date": "2026-07-10",
+      "close": 3300.0,
+      "volume": 5600,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "ob_bull",
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 44.0,
+      "rel_vol": 0.15,
+      "gtgd20_ty": 0.129,
+      "margin_status": null
+    },
+    {
+      "ticker": "HAN",
+      "date": "2026-07-10",
+      "close": 7900.0,
+      "volume": 10700,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 44.0,
+      "rel_vol": 4.19,
+      "gtgd20_ty": 0.021,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "HPX",
+      "date": "2026-07-10",
+      "close": 4480.0,
+      "volume": 766200,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Bất động sản",
+      "rs_rating": 44.0,
+      "rel_vol": 1.44,
+      "gtgd20_ty": 2.346,
+      "margin_status": null
+    },
+    {
+      "ticker": "HVX",
+      "date": "2026-07-10",
+      "close": 2400.0,
+      "volume": 2100,
+      "patterns": [],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 44.0,
+      "rel_vol": 0.34,
+      "gtgd20_ty": 0.015,
+      "margin_status": null
+    },
+    {
+      "ticker": "SID",
+      "date": "2026-07-10",
+      "close": 14000.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Bất động sản",
+      "rs_rating": 44.0,
+      "rel_vol": 0.15,
+      "gtgd20_ty": 0.01,
+      "margin_status": null
+    },
+    {
+      "ticker": "SVT",
+      "date": "2026-07-10",
+      "close": 10500.0,
+      "volume": 400,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Bán lẻ",
+      "rs_rating": 44.0,
+      "rel_vol": 0.05,
+      "gtgd20_ty": 0.081,
+      "margin_status": null
+    },
+    {
+      "ticker": "VC7",
+      "date": "2026-07-10",
+      "close": 8100.0,
+      "volume": 55700,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 44.0,
+      "rel_vol": 0.6,
+      "gtgd20_ty": 0.773,
+      "margin_status": null
+    },
+    {
+      "ticker": "ABT",
+      "date": "2026-07-10",
+      "close": 51400.0,
+      "volume": 22200,
+      "patterns": [],
+      "smc": [
+        "ob_bear",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 43.0,
+      "rel_vol": 2.37,
+      "gtgd20_ty": 0.504,
+      "margin_status": null
+    },
+    {
+      "ticker": "DTA",
+      "date": "2026-07-10",
+      "close": 3580.0,
+      "volume": 1700,
+      "patterns": [
+        "hammer"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Bất động sản",
+      "rs_rating": 43.0,
+      "rel_vol": 0.23,
+      "gtgd20_ty": 0.027,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "EID",
+      "date": "2026-07-10",
+      "close": 20300.0,
+      "volume": 200,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Truyền thông",
+      "rs_rating": 43.0,
+      "rel_vol": 0.07,
+      "gtgd20_ty": 0.061,
+      "margin_status": null
+    },
+    {
+      "ticker": "HPA",
+      "date": "2026-07-10",
+      "close": 33400.0,
+      "volume": 10100,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "ob_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 43.0,
+      "rel_vol": 0.27,
+      "gtgd20_ty": 1.286,
+      "margin_status": null
+    },
+    {
+      "ticker": "PAS",
+      "date": "2026-07-10",
+      "close": 2600.0,
+      "volume": 32400,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 43.0,
+      "rel_vol": 1.68,
+      "gtgd20_ty": 0.05,
+      "margin_status": null
+    },
+    {
+      "ticker": "STP",
+      "date": "2026-07-10",
+      "close": 7500.0,
+      "volume": 2800,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 43.0,
+      "rel_vol": 1.79,
+      "gtgd20_ty": 0.012,
+      "margin_status": null
+    },
+    {
+      "ticker": "TMS",
+      "date": "2026-07-10",
+      "close": 37650.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "ob_bear",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 43.0,
+      "rel_vol": 0.04,
+      "gtgd20_ty": 0.089,
+      "margin_status": null
+    },
+    {
+      "ticker": "TS3",
+      "date": "2026-07-10",
+      "close": 5300.0,
+      "volume": 5200,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 43.0,
+      "rel_vol": 0.25,
+      "gtgd20_ty": 0.113,
+      "margin_status": null
+    },
+    {
+      "ticker": "ABC",
+      "date": "2026-07-10",
+      "close": 10100.0,
+      "volume": 31200,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Viễn thông",
+      "rs_rating": 42.0,
+      "rel_vol": 4.81,
+      "gtgd20_ty": 0.066,
+      "margin_status": null
+    },
+    {
+      "ticker": "KBC",
+      "date": "2026-07-10",
+      "close": 28600.0,
+      "volume": 815200,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Bất động sản",
+      "rs_rating": 42.0,
+      "rel_vol": 0.5,
+      "gtgd20_ty": 48.229,
+      "margin_status": null
+    },
+    {
+      "ticker": "MTL",
+      "date": "2026-07-10",
+      "close": 5300.0,
+      "volume": 400,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 42.0,
+      "rel_vol": 0.08,
+      "gtgd20_ty": 0.028,
+      "margin_status": null
+    },
+    {
+      "ticker": "QTP",
+      "date": "2026-07-10",
+      "close": 11400.0,
+      "volume": 75500,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 42.0,
+      "rel_vol": 0.35,
+      "gtgd20_ty": 2.543,
+      "margin_status": null
+    },
+    {
+      "ticker": "TMT",
+      "date": "2026-07-10",
+      "close": 11100.0,
+      "volume": 9100,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Ô tô và phụ tùng",
+      "rs_rating": 42.0,
+      "rel_vol": 0.8,
+      "gtgd20_ty": 0.132,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "VGG",
+      "date": "2026-07-10",
+      "close": 39000.0,
+      "volume": 300,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng cá nhân & Gia dụng",
+      "rs_rating": 42.0,
+      "rel_vol": 0.12,
+      "gtgd20_ty": 0.097,
+      "margin_status": null
+    },
+    {
+      "ticker": "VPL",
+      "date": "2026-07-10",
+      "close": 82300.0,
+      "volume": 812500,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Du lịch và Giải trí",
+      "rs_rating": 42.0,
+      "rel_vol": 0.96,
+      "gtgd20_ty": 74.459,
+      "margin_status": null
+    },
+    {
+      "ticker": "APH",
+      "date": "2026-07-10",
+      "close": 5490.0,
+      "volume": 123900,
+      "patterns": [],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 41.0,
+      "rel_vol": 1.25,
+      "gtgd20_ty": 0.546,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "API",
+      "date": "2026-07-10",
+      "close": 6000.0,
+      "volume": 66500,
+      "patterns": [
+        "shooting_star"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Bất động sản",
+      "rs_rating": 41.0,
+      "rel_vol": 0.37,
+      "gtgd20_ty": 1.125,
+      "margin_status": "control"
+    },
+    {
+      "ticker": "DVN",
+      "date": "2026-07-10",
+      "close": 19900.0,
+      "volume": 6700,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "ob_bear",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Y tế",
+      "rs_rating": 41.0,
+      "rel_vol": 0.28,
+      "gtgd20_ty": 0.49,
+      "margin_status": null
+    },
+    {
+      "ticker": "HAS",
+      "date": "2026-07-10",
+      "close": 7810.0,
+      "volume": 7500,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 41.0,
+      "rel_vol": 1.39,
+      "gtgd20_ty": 0.044,
+      "margin_status": "control"
+    },
+    {
+      "ticker": "LCG",
+      "date": "2026-07-10",
+      "close": 8300.0,
+      "volume": 693800,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 41.0,
+      "rel_vol": 0.92,
+      "gtgd20_ty": 6.445,
+      "margin_status": null
+    },
+    {
+      "ticker": "NSC",
+      "date": "2026-07-10",
+      "close": 72000.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 41.0,
+      "rel_vol": 0.06,
+      "gtgd20_ty": 0.12,
+      "margin_status": null
+    },
+    {
+      "ticker": "VIP",
+      "date": "2026-07-10",
+      "close": 10250.0,
+      "volume": 26000,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 41.0,
+      "rel_vol": 0.22,
+      "gtgd20_ty": 1.241,
+      "margin_status": null
+    },
+    {
+      "ticker": "ANT",
+      "date": "2026-07-10",
+      "close": 25950.0,
+      "volume": 6200,
+      "patterns": [
+        "hammer"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 40.0,
+      "rel_vol": 1.11,
+      "gtgd20_ty": 0.145,
+      "margin_status": null
+    },
+    {
+      "ticker": "CMT",
+      "date": "2026-07-10",
+      "close": 12500.0,
+      "volume": 35900,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Công nghệ Thông tin",
+      "rs_rating": 40.0,
+      "rel_vol": 13.27,
+      "gtgd20_ty": 0.034,
+      "margin_status": null
+    },
+    {
+      "ticker": "DTG",
+      "date": "2026-07-10",
+      "close": 15500.0,
+      "volume": 4200,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "ob_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Y tế",
+      "rs_rating": 40.0,
+      "rel_vol": 1.36,
+      "gtgd20_ty": 0.048,
+      "margin_status": null
+    },
+    {
+      "ticker": "FTS",
+      "date": "2026-07-10",
+      "close": 26850.0,
+      "volume": 1398900,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Dịch vụ tài chính",
+      "rs_rating": 40.0,
+      "rel_vol": 0.65,
+      "gtgd20_ty": 58.265,
+      "margin_status": null
+    },
+    {
+      "ticker": "HEP",
+      "date": "2026-07-10",
+      "close": 12000.0,
+      "volume": 4600,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 40.0,
+      "rel_vol": 1.8,
+      "gtgd20_ty": 0.032,
+      "margin_status": null
+    },
+    {
+      "ticker": "MVB",
+      "date": "2026-07-10",
+      "close": 16700.0,
+      "volume": 2200,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 40.0,
+      "rel_vol": 1.26,
+      "gtgd20_ty": 0.027,
+      "margin_status": null
+    },
+    {
+      "ticker": "PEG",
+      "date": "2026-07-10",
+      "close": 3700.0,
+      "volume": 1000,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 40.0,
+      "rel_vol": 0.55,
+      "gtgd20_ty": 0.007,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "PHC",
+      "date": "2026-07-10",
+      "close": 4600.0,
+      "volume": 1000,
+      "patterns": [],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 40.0,
+      "rel_vol": 0.06,
+      "gtgd20_ty": 0.076,
+      "margin_status": null
+    },
+    {
+      "ticker": "PTI",
+      "date": "2026-07-10",
+      "close": 24800.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Bảo hiểm",
+      "rs_rating": 40.0,
+      "rel_vol": 0.08,
+      "gtgd20_ty": 0.033,
+      "margin_status": null
+    },
+    {
+      "ticker": "BHN",
+      "date": "2026-07-10",
+      "close": 29500.0,
+      "volume": 1000,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 39.0,
+      "rel_vol": 0.57,
+      "gtgd20_ty": 0.051,
+      "margin_status": null
+    },
+    {
+      "ticker": "DHT",
+      "date": "2026-07-10",
+      "close": 64500.0,
+      "volume": 3300,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Y tế",
+      "rs_rating": 39.0,
+      "rel_vol": 0.77,
+      "gtgd20_ty": 0.278,
+      "margin_status": null
+    },
+    {
+      "ticker": "GHC",
+      "date": "2026-07-10",
+      "close": 25700.0,
+      "volume": 15900,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 39.0,
+      "rel_vol": 2.96,
+      "gtgd20_ty": 0.14,
+      "margin_status": null
+    },
+    {
+      "ticker": "POV",
+      "date": "2026-07-10",
+      "close": 6800.0,
+      "volume": 4900,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 39.0,
+      "rel_vol": 2.21,
+      "gtgd20_ty": 0.015,
+      "margin_status": null
+    },
+    {
+      "ticker": "RCL",
+      "date": "2026-07-10",
+      "close": 11200.0,
+      "volume": 4300,
+      "patterns": [
+        "hammer"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Bất động sản",
+      "rs_rating": 39.0,
+      "rel_vol": 0.38,
+      "gtgd20_ty": 0.125,
+      "margin_status": null
+    },
+    {
+      "ticker": "SC5",
+      "date": "2026-07-10",
+      "close": 16149.999999999998,
+      "volume": 1300,
+      "patterns": [],
+      "smc": [
+        "ob_bear",
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 39.0,
+      "rel_vol": 0.39,
+      "gtgd20_ty": 0.053,
+      "margin_status": null
+    },
+    {
+      "ticker": "TVD",
+      "date": "2026-07-10",
+      "close": 8900.0,
+      "volume": 62800,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 39.0,
+      "rel_vol": 2.27,
+      "gtgd20_ty": 0.253,
+      "margin_status": null
+    },
+    {
+      "ticker": "VCI",
+      "date": "2026-07-10",
+      "close": 24450.0,
+      "volume": 7062200,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Dịch vụ tài chính",
+      "rs_rating": 39.0,
+      "rel_vol": 1.01,
+      "gtgd20_ty": 172.268,
+      "margin_status": null
+    },
+    {
+      "ticker": "VSA",
+      "date": "2026-07-10",
+      "close": 18200.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 39.0,
+      "rel_vol": 0.27,
+      "gtgd20_ty": 0.007,
+      "margin_status": null
+    },
+    {
+      "ticker": "CTD",
+      "date": "2026-07-10",
+      "close": 68800.0,
+      "volume": 540900,
+      "patterns": [],
+      "smc": [
+        "ob_bear",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 38.0,
+      "rel_vol": 1.06,
+      "gtgd20_ty": 36.639,
+      "margin_status": null
+    },
+    {
+      "ticker": "PBC",
+      "date": "2026-07-10",
+      "close": 5600.0,
+      "volume": 600,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Y tế",
+      "rs_rating": 38.0,
+      "rel_vol": 0.04,
+      "gtgd20_ty": 0.08,
+      "margin_status": null
+    },
+    {
+      "ticker": "SKG",
+      "date": "2026-07-10",
+      "close": 8390.0,
+      "volume": 42600,
+      "patterns": [
+        "bullish_engulfing"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Du lịch và Giải trí",
+      "rs_rating": 38.0,
+      "rel_vol": 0.99,
+      "gtgd20_ty": 0.365,
+      "margin_status": null
+    },
+    {
+      "ticker": "TV4",
+      "date": "2026-07-10",
+      "close": 13000.0,
+      "volume": 1100,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 38.0,
+      "rel_vol": 0.12,
+      "gtgd20_ty": 0.12,
+      "margin_status": null
+    },
+    {
+      "ticker": "VE1",
+      "date": "2026-07-10",
+      "close": 3000.0,
+      "volume": 1700,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 38.0,
+      "rel_vol": 0.17,
+      "gtgd20_ty": 0.03,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "VPH",
+      "date": "2026-07-10",
+      "close": 3530.0,
+      "volume": 2700,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Bất động sản",
+      "rs_rating": 38.0,
+      "rel_vol": 0.21,
+      "gtgd20_ty": 0.046,
+      "margin_status": null
+    },
+    {
+      "ticker": "PGI",
+      "date": "2026-07-10",
+      "close": 17000.0,
+      "volume": 300,
+      "patterns": [],
+      "smc": [
+        "ob_bear",
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Bảo hiểm",
+      "rs_rating": 37.0,
+      "rel_vol": 0.09,
+      "gtgd20_ty": 0.06,
+      "margin_status": null
+    },
+    {
+      "ticker": "POS",
+      "date": "2026-07-10",
+      "close": 14200.0,
+      "volume": 2500,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Dầu khí",
+      "rs_rating": 37.0,
+      "rel_vol": 0.26,
+      "gtgd20_ty": 0.135,
+      "margin_status": null
+    },
+    {
+      "ticker": "PXL",
+      "date": "2026-07-10",
+      "close": 12100.0,
+      "volume": 5200,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Bất động sản",
+      "rs_rating": 37.0,
+      "rel_vol": 0.17,
+      "gtgd20_ty": 0.386,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "SAM",
+      "date": "2026-07-10",
+      "close": 5950.0,
+      "volume": 100000,
+      "patterns": [
+        "hammer"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Công nghệ Thông tin",
+      "rs_rating": 37.0,
+      "rel_vol": 1.16,
+      "gtgd20_ty": 0.516,
+      "margin_status": null
+    },
+    {
+      "ticker": "SGI",
+      "date": "2026-07-10",
+      "close": 10800.0,
+      "volume": 400,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng cá nhân & Gia dụng",
+      "rs_rating": 37.0,
+      "rel_vol": 0.62,
+      "gtgd20_ty": 0.007,
+      "margin_status": null
+    },
+    {
+      "ticker": "TID",
+      "date": "2026-07-10",
+      "close": 20000.0,
+      "volume": 2800,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Bất động sản",
+      "rs_rating": 37.0,
+      "rel_vol": 0.2,
+      "gtgd20_ty": 0.278,
+      "margin_status": null
+    },
+    {
+      "ticker": "VOS",
+      "date": "2026-07-10",
+      "close": 11900.0,
+      "volume": 335400,
+      "patterns": [],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 37.0,
+      "rel_vol": 0.78,
+      "gtgd20_ty": 5.287,
+      "margin_status": null
+    },
+    {
+      "ticker": "AAT",
+      "date": "2026-07-10",
+      "close": 2730.0,
+      "volume": 18000,
+      "patterns": [
+        "doji",
+        "inside_bar"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng cá nhân & Gia dụng",
+      "rs_rating": 36.0,
+      "rel_vol": 0.74,
+      "gtgd20_ty": 0.068,
+      "margin_status": null
+    },
+    {
+      "ticker": "BCC",
+      "date": "2026-07-10",
+      "close": 6800.0,
+      "volume": 25600,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "ob_bull",
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 36.0,
+      "rel_vol": 0.78,
+      "gtgd20_ty": 0.232,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "BCE",
+      "date": "2026-07-10",
+      "close": 7930.0,
+      "volume": 21000,
+      "patterns": [
+        "doji",
+        "hammer"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 36.0,
+      "rel_vol": 1.67,
+      "gtgd20_ty": 0.104,
+      "margin_status": null
+    },
+    {
+      "ticker": "DTL",
+      "date": "2026-07-10",
+      "close": 10100.0,
+      "volume": 500,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 36.0,
+      "rel_vol": 0.05,
+      "gtgd20_ty": 0.102,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "NXT",
+      "date": "2026-07-10",
+      "close": 3700.0,
+      "volume": 100,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 36.0,
+      "rel_vol": 0.01,
+      "gtgd20_ty": 0.03,
+      "margin_status": null
+    },
+    {
+      "ticker": "PVG",
+      "date": "2026-07-10",
+      "close": 5900.0,
+      "volume": 3600,
+      "patterns": [],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 36.0,
+      "rel_vol": 0.08,
+      "gtgd20_ty": 0.252,
+      "margin_status": null
+    },
+    {
+      "ticker": "TDH",
+      "date": "2026-07-10",
+      "close": 3640.0,
+      "volume": 36700,
+      "patterns": [],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Bất động sản",
+      "rs_rating": 36.0,
+      "rel_vol": 0.82,
+      "gtgd20_ty": 0.167,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "VCC",
+      "date": "2026-07-10",
+      "close": 9200.0,
+      "volume": 15500,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 36.0,
+      "rel_vol": 5.21,
+      "gtgd20_ty": 0.028,
+      "margin_status": null
+    },
+    {
+      "ticker": "VLS",
+      "date": "2026-07-10",
+      "close": 14700.0,
+      "volume": 1700,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "ob_bear",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 36.0,
+      "rel_vol": 0.62,
+      "gtgd20_ty": 0.042,
+      "margin_status": null
+    },
+    {
+      "ticker": "BQB",
+      "date": "2026-07-10",
+      "close": 3500.0,
+      "volume": 400,
+      "patterns": [],
+      "smc": [
+        "ob_bear",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 35.0,
+      "rel_vol": 0.55,
+      "gtgd20_ty": 0.003,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "CBS",
+      "date": "2026-07-10",
+      "close": 24200.0,
+      "volume": 3800,
+      "patterns": [],
+      "smc": [
+        "ob_bear",
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 35.0,
+      "rel_vol": 0.8,
+      "gtgd20_ty": 0.115,
+      "margin_status": null
+    },
+    {
+      "ticker": "DDB",
+      "date": "2026-07-10",
+      "close": 9600.0,
+      "volume": 13800,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "ob_bear",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 35.0,
+      "rel_vol": 0.14,
+      "gtgd20_ty": 0.878,
+      "margin_status": null
+    },
+    {
+      "ticker": "DGW",
+      "date": "2026-07-10",
+      "close": 38500.0,
+      "volume": 422800,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Bán lẻ",
+      "rs_rating": 35.0,
+      "rel_vol": 0.59,
+      "gtgd20_ty": 28.757,
+      "margin_status": null
+    },
+    {
+      "ticker": "DLG",
+      "date": "2026-07-10",
+      "close": 2520.0,
+      "volume": 1009500,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 35.0,
+      "rel_vol": 1.18,
+      "gtgd20_ty": 2.239,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "NBC",
+      "date": "2026-07-10",
+      "close": 8500.0,
+      "volume": 10900,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 35.0,
+      "rel_vol": 0.38,
+      "gtgd20_ty": 0.25,
+      "margin_status": null
+    },
+    {
+      "ticker": "PPC",
+      "date": "2026-07-10",
+      "close": 9240.0,
+      "volume": 78400,
+      "patterns": [
+        "bearish_engulfing"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 35.0,
+      "rel_vol": 0.77,
+      "gtgd20_ty": 0.967,
+      "margin_status": null
+    },
+    {
+      "ticker": "VNS",
+      "date": "2026-07-10",
+      "close": 7970.0,
+      "volume": 2200,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Du lịch và Giải trí",
+      "rs_rating": 35.0,
+      "rel_vol": 0.59,
+      "gtgd20_ty": 0.029,
+      "margin_status": null
+    },
+    {
+      "ticker": "BLF",
+      "date": "2026-07-10",
+      "close": 2500.0,
+      "volume": 14200,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "ob_bear",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 34.0,
+      "rel_vol": 2.03,
+      "gtgd20_ty": 0.018,
+      "margin_status": null
+    },
+    {
+      "ticker": "DCM",
+      "date": "2026-07-10",
+      "close": 32800.0,
+      "volume": 2460100,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hóa chất",
+      "rs_rating": 34.0,
+      "rel_vol": 0.94,
+      "gtgd20_ty": 92.458,
+      "margin_status": null
+    },
+    {
+      "ticker": "ECO",
+      "date": "2026-07-10",
+      "close": 22400.0,
+      "volume": 300,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hóa chất",
+      "rs_rating": 34.0,
+      "rel_vol": 0.3,
+      "gtgd20_ty": 0.023,
+      "margin_status": null
+    },
+    {
+      "ticker": "HD6",
+      "date": "2026-07-10",
+      "close": 8500.0,
+      "volume": 500,
+      "patterns": [],
+      "smc": [
+        "ob_bear",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Bất động sản",
+      "rs_rating": 34.0,
+      "rel_vol": 0.11,
+      "gtgd20_ty": 0.041,
+      "margin_status": null
+    },
+    {
+      "ticker": "OPC",
+      "date": "2026-07-10",
+      "close": 20000.0,
+      "volume": 2800,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Y tế",
+      "rs_rating": 34.0,
+      "rel_vol": 1.02,
+      "gtgd20_ty": 0.064,
+      "margin_status": null
+    },
+    {
+      "ticker": "PDV",
+      "date": "2026-07-10",
+      "close": 8970.0,
+      "volume": 26900,
+      "patterns": [
+        "hammer"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 34.0,
+      "rel_vol": 0.8,
+      "gtgd20_ty": 0.306,
+      "margin_status": null
+    },
+    {
+      "ticker": "QCG",
+      "date": "2026-07-10",
+      "close": 11650.0,
+      "volume": 62000,
+      "patterns": [],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Bất động sản",
+      "rs_rating": 34.0,
+      "rel_vol": 0.34,
+      "gtgd20_ty": 2.203,
+      "margin_status": null
+    },
+    {
+      "ticker": "SDT",
+      "date": "2026-07-10",
+      "close": 4300.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 34.0,
+      "rel_vol": 0.01,
+      "gtgd20_ty": 0.085,
+      "margin_status": null
+    },
+    {
+      "ticker": "SLS",
+      "date": "2026-07-10",
+      "close": 149000.0,
+      "volume": 500,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 34.0,
+      "rel_vol": 0.24,
+      "gtgd20_ty": 0.308,
+      "margin_status": null
+    },
+    {
+      "ticker": "STG",
+      "date": "2026-07-10",
+      "close": 35350.0,
+      "volume": 700,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 34.0,
+      "rel_vol": 1.84,
+      "gtgd20_ty": 0.012,
+      "margin_status": null
+    },
+    {
+      "ticker": "VCK",
+      "date": "2026-07-10",
+      "close": 32750.0,
+      "volume": 2498300,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Dịch vụ tài chính",
+      "rs_rating": 34.0,
+      "rel_vol": 0.61,
+      "gtgd20_ty": 137.928,
+      "margin_status": null
+    },
+    {
+      "ticker": "VFG",
+      "date": "2026-07-10",
+      "close": 46600.0,
+      "volume": 3000,
+      "patterns": [],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Hóa chất",
+      "rs_rating": 34.0,
+      "rel_vol": 0.23,
+      "gtgd20_ty": 0.613,
+      "margin_status": null
+    },
+    {
+      "ticker": "VGS",
+      "date": "2026-07-10",
+      "close": 21000.0,
+      "volume": 92200,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 34.0,
+      "rel_vol": 0.63,
+      "gtgd20_ty": 3.161,
+      "margin_status": null
+    },
+    {
+      "ticker": "BLI",
+      "date": "2026-07-10",
+      "close": 8000.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Bảo hiểm",
+      "rs_rating": 33.0,
+      "rel_vol": 0.04,
+      "gtgd20_ty": 0.018,
+      "margin_status": null
+    },
+    {
+      "ticker": "EIB",
+      "date": "2026-07-10",
+      "close": 19750.0,
+      "volume": 3307400,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Ngân hàng",
+      "rs_rating": 33.0,
+      "rel_vol": 0.81,
+      "gtgd20_ty": 84.223,
+      "margin_status": null
+    },
+    {
+      "ticker": "HMS",
+      "date": "2026-07-10",
+      "close": 31700.0,
+      "volume": 5200,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "ob_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 33.0,
+      "rel_vol": 0.63,
+      "gtgd20_ty": 0.266,
+      "margin_status": null
+    },
+    {
+      "ticker": "HND",
+      "date": "2026-07-10",
+      "close": 9700.0,
+      "volume": 5900,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 33.0,
+      "rel_vol": 0.7,
+      "gtgd20_ty": 0.085,
+      "margin_status": null
+    },
+    {
+      "ticker": "MRF",
+      "date": "2026-07-10",
+      "close": 26000.0,
+      "volume": 29900,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Y tế",
+      "rs_rating": 33.0,
+      "rel_vol": 2.7,
+      "gtgd20_ty": 0.265,
+      "margin_status": null
+    },
+    {
+      "ticker": "SCJ",
+      "date": "2026-07-10",
+      "close": 2900.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 33.0,
+      "rel_vol": 0.01,
+      "gtgd20_ty": 0.02,
+      "margin_status": null
+    },
+    {
+      "ticker": "TLH",
+      "date": "2026-07-10",
+      "close": 4360.0,
+      "volume": 120000,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 33.0,
+      "rel_vol": 0.9,
+      "gtgd20_ty": 0.585,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "VLC",
+      "date": "2026-07-10",
+      "close": 12400.0,
+      "volume": 18900,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 33.0,
+      "rel_vol": 0.48,
+      "gtgd20_ty": 0.49,
+      "margin_status": null
+    },
+    {
+      "ticker": "VUA",
+      "date": "2026-07-10",
+      "close": 15200.0,
+      "volume": 500,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Dịch vụ tài chính",
+      "rs_rating": 33.0,
+      "rel_vol": 0.92,
+      "gtgd20_ty": 0.009,
+      "margin_status": null
+    },
+    {
+      "ticker": "HHV",
+      "date": "2026-07-10",
+      "close": 10700.0,
+      "volume": 3093400,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 32.0,
+      "rel_vol": 1.03,
+      "gtgd20_ty": 33.799,
+      "margin_status": null
+    },
+    {
+      "ticker": "HU1",
+      "date": "2026-07-10",
+      "close": 5500.0,
+      "volume": 200,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 32.0,
+      "rel_vol": 0.35,
+      "gtgd20_ty": 0.003,
+      "margin_status": null
+    },
+    {
+      "ticker": "KMR",
+      "date": "2026-07-10",
+      "close": 2510.0,
+      "volume": 19900,
+      "patterns": [
+        "morning_star"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Hàng cá nhân & Gia dụng",
+      "rs_rating": 32.0,
+      "rel_vol": 1.68,
+      "gtgd20_ty": 0.03,
+      "margin_status": null
+    },
+    {
+      "ticker": "MFS",
+      "date": "2026-07-10",
+      "close": 32400.0,
+      "volume": 2500,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Viễn thông",
+      "rs_rating": 32.0,
+      "rel_vol": 0.48,
+      "gtgd20_ty": 0.175,
+      "margin_status": null
+    },
+    {
+      "ticker": "MML",
+      "date": "2026-07-10",
+      "close": 28500.0,
+      "volume": 11000,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 32.0,
+      "rel_vol": 0.66,
+      "gtgd20_ty": 0.495,
+      "margin_status": null
+    },
+    {
+      "ticker": "PLP",
+      "date": "2026-07-10",
+      "close": 4100.0,
+      "volume": 10700,
+      "patterns": [
+        "hammer"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Hóa chất",
+      "rs_rating": 32.0,
+      "rel_vol": 0.24,
+      "gtgd20_ty": 0.182,
+      "margin_status": null
+    },
+    {
+      "ticker": "TDC",
+      "date": "2026-07-10",
+      "close": 9000.0,
+      "volume": 24800,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Bất động sản",
+      "rs_rating": 32.0,
+      "rel_vol": 0.39,
+      "gtgd20_ty": 0.607,
+      "margin_status": null
+    },
+    {
+      "ticker": "CTP",
+      "date": "2026-07-10",
+      "close": 8300.0,
+      "volume": 34800,
+      "patterns": [],
+      "smc": [
+        "ob_bear",
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 31.0,
+      "rel_vol": 0.3,
+      "gtgd20_ty": 1.006,
+      "margin_status": null
+    },
+    {
+      "ticker": "DDV",
+      "date": "2026-07-10",
+      "close": 22300.0,
+      "volume": 656100,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Hóa chất",
+      "rs_rating": 31.0,
+      "rel_vol": 1.57,
+      "gtgd20_ty": 9.68,
+      "margin_status": null
+    },
+    {
+      "ticker": "HMR",
+      "date": "2026-07-10",
+      "close": 9700.0,
+      "volume": 300,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 31.0,
+      "rel_vol": 0.03,
+      "gtgd20_ty": 0.091,
+      "margin_status": null
+    },
+    {
+      "ticker": "HUB",
+      "date": "2026-07-10",
+      "close": 12750.0,
+      "volume": 1800,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 31.0,
+      "rel_vol": 0.42,
+      "gtgd20_ty": 0.054,
+      "margin_status": null
+    },
+    {
+      "ticker": "LIX",
+      "date": "2026-07-10",
+      "close": 26200.0,
+      "volume": 18200,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng cá nhân & Gia dụng",
+      "rs_rating": 31.0,
+      "rel_vol": 1.03,
+      "gtgd20_ty": 0.483,
+      "margin_status": null
+    },
+    {
+      "ticker": "QNC",
+      "date": "2026-07-10",
+      "close": 5400.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 31.0,
+      "rel_vol": 0.03,
+      "gtgd20_ty": 0.015,
+      "margin_status": null
+    },
+    {
+      "ticker": "VSE",
+      "date": "2026-07-10",
+      "close": 7500.0,
+      "volume": 3300,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 31.0,
+      "rel_vol": 0.83,
+      "gtgd20_ty": 0.031,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "DP1",
+      "date": "2026-07-10",
+      "close": 29500.0,
+      "volume": 100,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "ob_bull",
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Y tế",
+      "rs_rating": 30.0,
+      "rel_vol": 0.07,
+      "gtgd20_ty": 0.043,
+      "margin_status": null
+    },
+    {
+      "ticker": "HVH",
+      "date": "2026-07-10",
+      "close": 10150.0,
+      "volume": 119800,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 30.0,
+      "rel_vol": 0.98,
+      "gtgd20_ty": 1.25,
+      "margin_status": null
+    },
+    {
+      "ticker": "IJC",
+      "date": "2026-07-10",
+      "close": 8550.0,
+      "volume": 739000,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Bất động sản",
+      "rs_rating": 30.0,
+      "rel_vol": 0.89,
+      "gtgd20_ty": 7.433,
+      "margin_status": null
+    },
+    {
+      "ticker": "IVS",
+      "date": "2026-07-10",
+      "close": 7000.0,
+      "volume": 11200,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Dịch vụ tài chính",
+      "rs_rating": 30.0,
+      "rel_vol": 0.31,
+      "gtgd20_ty": 0.251,
+      "margin_status": null
+    },
+    {
+      "ticker": "MBG",
+      "date": "2026-07-10",
+      "close": 2600.0,
+      "volume": 159100,
+      "patterns": [],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 30.0,
+      "rel_vol": 0.37,
+      "gtgd20_ty": 1.194,
+      "margin_status": null
+    },
+    {
+      "ticker": "MGC",
+      "date": "2026-07-10",
+      "close": 11200.0,
+      "volume": 700,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 30.0,
+      "rel_vol": 0.3,
+      "gtgd20_ty": 0.026,
+      "margin_status": null
+    },
+    {
+      "ticker": "NTC",
+      "date": "2026-07-10",
+      "close": 130300.00000000001,
+      "volume": 10300,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Bất động sản",
+      "rs_rating": 30.0,
+      "rel_vol": 1.0,
+      "gtgd20_ty": 1.381,
+      "margin_status": null
+    },
+    {
+      "ticker": "NTL",
+      "date": "2026-07-10",
+      "close": 15000.0,
+      "volume": 92300,
+      "patterns": [],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Bất động sản",
+      "rs_rating": 30.0,
+      "rel_vol": 0.61,
+      "gtgd20_ty": 2.305,
+      "margin_status": null
+    },
+    {
+      "ticker": "TA9",
+      "date": "2026-07-10",
+      "close": 10200.0,
+      "volume": 2300,
+      "patterns": [
+        "hammer"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 30.0,
+      "rel_vol": 0.45,
+      "gtgd20_ty": 0.056,
+      "margin_status": null
+    },
+    {
+      "ticker": "TTN",
+      "date": "2026-07-10",
+      "close": 13400.0,
+      "volume": 24400,
+      "patterns": [
+        "hammer"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Viễn thông",
+      "rs_rating": 30.0,
+      "rel_vol": 1.15,
+      "gtgd20_ty": 0.293,
+      "margin_status": null
+    },
+    {
+      "ticker": "CMX",
+      "date": "2026-07-10",
+      "close": 5490.0,
+      "volume": 30800,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 29.0,
+      "rel_vol": 0.82,
+      "gtgd20_ty": 0.212,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "DTI",
+      "date": "2026-07-10",
+      "close": 1900.0,
+      "volume": 20400,
+      "patterns": [],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Du lịch và Giải trí",
+      "rs_rating": 29.0,
+      "rel_vol": 2.15,
+      "gtgd20_ty": 0.019,
+      "margin_status": null
+    },
+    {
+      "ticker": "EIN",
+      "date": "2026-07-10",
+      "close": 2000.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Du lịch và Giải trí",
+      "rs_rating": 29.0,
+      "rel_vol": 0.02,
+      "gtgd20_ty": 0.009,
+      "margin_status": null
+    },
+    {
+      "ticker": "GCF",
+      "date": "2026-07-10",
+      "close": 19300.0,
+      "volume": 20800,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 29.0,
+      "rel_vol": 1.01,
+      "gtgd20_ty": 0.377,
+      "margin_status": null
+    },
+    {
+      "ticker": "HU4",
+      "date": "2026-07-10",
+      "close": 9300.0,
+      "volume": 2500,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 29.0,
+      "rel_vol": 0.32,
+      "gtgd20_ty": 0.073,
+      "margin_status": null
+    },
+    {
+      "ticker": "UNI",
+      "date": "2026-07-10",
+      "close": 7000.0,
+      "volume": 500,
+      "patterns": [],
+      "smc": [
+        "ob_bear",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Công nghệ Thông tin",
+      "rs_rating": 29.0,
+      "rel_vol": 0.24,
+      "gtgd20_ty": 0.015,
+      "margin_status": null
+    },
+    {
+      "ticker": "VLG",
+      "date": "2026-07-10",
+      "close": 7300.0,
+      "volume": 11800,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 29.0,
+      "rel_vol": 6.31,
+      "gtgd20_ty": 0.014,
+      "margin_status": null
+    },
+    {
+      "ticker": "VNG",
+      "date": "2026-07-10",
+      "close": 6320.0,
+      "volume": 3200,
+      "patterns": [],
+      "smc": [
+        "ob_bear",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Du lịch và Giải trí",
+      "rs_rating": 29.0,
+      "rel_vol": 1.51,
+      "gtgd20_ty": 0.014,
+      "margin_status": null
+    },
+    {
+      "ticker": "APC",
+      "date": "2026-07-10",
+      "close": 6100.0,
+      "volume": 200,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Y tế",
+      "rs_rating": 28.0,
+      "rel_vol": 0.37,
+      "gtgd20_ty": 0.003,
+      "margin_status": null
+    },
+    {
+      "ticker": "DL1",
+      "date": "2026-07-10",
+      "close": 4800.0,
+      "volume": 255700,
+      "patterns": [],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 28.0,
+      "rel_vol": 1.09,
+      "gtgd20_ty": 1.193,
+      "margin_status": null
+    },
+    {
+      "ticker": "ITC",
+      "date": "2026-07-10",
+      "close": 11450.0,
+      "volume": 38500,
+      "patterns": [
+        "hammer"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Bất động sản",
+      "rs_rating": 28.0,
+      "rel_vol": 0.5,
+      "gtgd20_ty": 0.907,
+      "margin_status": null
+    },
+    {
+      "ticker": "MDF",
+      "date": "2026-07-10",
+      "close": 4800.0,
+      "volume": 8000,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 28.0,
+      "rel_vol": 3.85,
+      "gtgd20_ty": 0.01,
+      "margin_status": null
+    },
+    {
+      "ticker": "REE",
+      "date": "2026-07-10",
+      "close": 47000.0,
+      "volume": 314100,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 28.0,
+      "rel_vol": 0.79,
+      "gtgd20_ty": 19.598,
+      "margin_status": null
+    },
+    {
+      "ticker": "SED",
+      "date": "2026-07-10",
+      "close": 15900.0,
+      "volume": 900,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Truyền thông",
+      "rs_rating": 28.0,
+      "rel_vol": 0.12,
+      "gtgd20_ty": 0.123,
+      "margin_status": null
+    },
+    {
+      "ticker": "TIG",
+      "date": "2026-07-10",
+      "close": 6200.0,
+      "volume": 281900,
+      "patterns": [],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Bất động sản",
+      "rs_rating": 28.0,
+      "rel_vol": 0.6,
+      "gtgd20_ty": 3.068,
+      "margin_status": null
+    },
+    {
+      "ticker": "VTR",
+      "date": "2026-07-10",
+      "close": 10500.0,
+      "volume": 19200,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Du lịch và Giải trí",
+      "rs_rating": 28.0,
+      "rel_vol": 0.39,
+      "gtgd20_ty": 0.556,
+      "margin_status": null
+    },
+    {
+      "ticker": "AMS",
+      "date": "2026-07-10",
+      "close": 7000.0,
+      "volume": 24600,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 27.0,
+      "rel_vol": 0.21,
+      "gtgd20_ty": 0.909,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "CAG",
+      "date": "2026-07-10",
+      "close": 6000.0,
+      "volume": 1600,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "ob_bear",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 27.0,
+      "rel_vol": 0.27,
+      "gtgd20_ty": 0.036,
+      "margin_status": null
+    },
+    {
+      "ticker": "CCS",
+      "date": "2026-07-10",
+      "close": 7900.0,
+      "volume": 1000,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "ob_bear",
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Bất động sản",
+      "rs_rating": 27.0,
+      "rel_vol": 0.31,
+      "gtgd20_ty": 0.026,
+      "margin_status": null
+    },
+    {
+      "ticker": "HLD",
+      "date": "2026-07-10",
+      "close": 14500.0,
+      "volume": 28100,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Bất động sản",
+      "rs_rating": 27.0,
+      "rel_vol": 1.58,
+      "gtgd20_ty": 0.272,
+      "margin_status": null
+    },
+    {
+      "ticker": "LDP",
+      "date": "2026-07-10",
+      "close": 8000.0,
+      "volume": 4000,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Y tế",
+      "rs_rating": 27.0,
+      "rel_vol": 0.06,
+      "gtgd20_ty": 0.565,
+      "margin_status": "control"
+    },
+    {
+      "ticker": "NBP",
+      "date": "2026-07-10",
+      "close": 7500.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 27.0,
+      "rel_vol": 0.05,
+      "gtgd20_ty": 0.016,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "NBT",
+      "date": "2026-07-10",
+      "close": 14200.0,
+      "volume": 100,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 27.0,
+      "rel_vol": 0.12,
+      "gtgd20_ty": 0.012,
+      "margin_status": null
+    },
+    {
+      "ticker": "SWC",
+      "date": "2026-07-10",
+      "close": 24100.0,
+      "volume": 800,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 27.0,
+      "rel_vol": 0.44,
+      "gtgd20_ty": 0.044,
+      "margin_status": null
+    },
+    {
+      "ticker": "ACV",
+      "date": "2026-07-10",
+      "close": 42500.0,
+      "volume": 319000,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 26.0,
+      "rel_vol": 0.56,
+      "gtgd20_ty": 25.276,
+      "margin_status": null
+    },
+    {
+      "ticker": "CNG",
+      "date": "2026-07-10",
+      "close": 21400.0,
+      "volume": 13300,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 26.0,
+      "rel_vol": 1.64,
+      "gtgd20_ty": 0.173,
+      "margin_status": null
+    },
+    {
+      "ticker": "CTI",
+      "date": "2026-07-10",
+      "close": 19850.0,
+      "volume": 608500,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 26.0,
+      "rel_vol": 2.26,
+      "gtgd20_ty": 5.395,
+      "margin_status": null
+    },
+    {
+      "ticker": "HAC",
+      "date": "2026-07-10",
+      "close": 9000.0,
+      "volume": 1200,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Dịch vụ tài chính",
+      "rs_rating": 26.0,
+      "rel_vol": 0.77,
+      "gtgd20_ty": 0.015,
+      "margin_status": null
+    },
+    {
+      "ticker": "KVC",
+      "date": "2026-07-10",
+      "close": 1200.0,
+      "volume": 106700,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 26.0,
+      "rel_vol": 0.33,
+      "gtgd20_ty": 0.405,
+      "margin_status": null
+    },
+    {
+      "ticker": "PAC",
+      "date": "2026-07-10",
+      "close": 17850.0,
+      "volume": 162900,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 26.0,
+      "rel_vol": 1.0,
+      "gtgd20_ty": 3.064,
+      "margin_status": null
+    },
+    {
+      "ticker": "PDC",
+      "date": "2026-07-10",
+      "close": 4500.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Du lịch và Giải trí",
+      "rs_rating": 26.0,
+      "rel_vol": 0.21,
+      "gtgd20_ty": 0.002,
+      "margin_status": null
+    },
+    {
+      "ticker": "PRT",
+      "date": "2026-07-10",
+      "close": 8500.0,
+      "volume": 5600,
+      "patterns": [],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Bất động sản",
+      "rs_rating": 26.0,
+      "rel_vol": 0.77,
+      "gtgd20_ty": 0.064,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "TCM",
+      "date": "2026-07-10",
+      "close": 20050.0,
+      "volume": 797000,
+      "patterns": [
+        "hammer"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Hàng cá nhân & Gia dụng",
+      "rs_rating": 26.0,
+      "rel_vol": 0.9,
+      "gtgd20_ty": 17.858,
+      "margin_status": null
+    },
+    {
+      "ticker": "VHE",
+      "date": "2026-07-10",
+      "close": 3100.0,
+      "volume": 24700,
+      "patterns": [],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Y tế",
+      "rs_rating": 26.0,
+      "rel_vol": 0.14,
+      "gtgd20_ty": 0.562,
+      "margin_status": null
+    },
+    {
+      "ticker": "YEG",
+      "date": "2026-07-10",
+      "close": 8720.0,
+      "volume": 840300,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Truyền thông",
+      "rs_rating": 26.0,
+      "rel_vol": 0.81,
+      "gtgd20_ty": 9.532,
+      "margin_status": null
+    },
+    {
+      "ticker": "CTR",
+      "date": "2026-07-10",
+      "close": 74000.0,
+      "volume": 107700,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 25.0,
+      "rel_vol": 0.38,
+      "gtgd20_ty": 23.53,
+      "margin_status": null
+    },
+    {
+      "ticker": "DXS",
+      "date": "2026-07-10",
+      "close": 7030.0,
+      "volume": 1530100,
+      "patterns": [
+        "bullish_engulfing"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Bất động sản",
+      "rs_rating": 25.0,
+      "rel_vol": 1.25,
+      "gtgd20_ty": 8.854,
+      "margin_status": null
+    },
+    {
+      "ticker": "GPC",
+      "date": "2026-07-10",
+      "close": 1900.0,
+      "volume": 2600,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Y tế",
+      "rs_rating": 25.0,
+      "rel_vol": 0.1,
+      "gtgd20_ty": 0.05,
+      "margin_status": null
+    },
+    {
+      "ticker": "HTN",
+      "date": "2026-07-10",
+      "close": 7000.0,
+      "volume": 53400,
+      "patterns": [
+        "bullish_engulfing",
+        "morning_star"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Bất động sản",
+      "rs_rating": 25.0,
+      "rel_vol": 0.58,
+      "gtgd20_ty": 0.647,
+      "margin_status": null
+    },
+    {
+      "ticker": "HU3",
+      "date": "2026-07-10",
+      "close": 2800.0,
+      "volume": 16300,
+      "patterns": [],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 25.0,
+      "rel_vol": 2.93,
+      "gtgd20_ty": 0.016,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "RYG",
+      "date": "2026-07-10",
+      "close": 9250.0,
+      "volume": 331600,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 25.0,
+      "rel_vol": 3.38,
+      "gtgd20_ty": 0.908,
+      "margin_status": null
+    },
+    {
+      "ticker": "TCR",
+      "date": "2026-07-10",
+      "close": 2390.0,
+      "volume": 200,
+      "patterns": [],
+      "smc": [
+        "ob_bear",
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 25.0,
+      "rel_vol": 0.11,
+      "gtgd20_ty": 0.004,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "VIG",
+      "date": "2026-07-10",
+      "close": 4600.0,
+      "volume": 104600,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Dịch vụ tài chính",
+      "rs_rating": 25.0,
+      "rel_vol": 0.91,
+      "gtgd20_ty": 0.54,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "C4G",
+      "date": "2026-07-10",
+      "close": 6500.0,
+      "volume": 141300,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 24.0,
+      "rel_vol": 0.7,
+      "gtgd20_ty": 1.338,
+      "margin_status": null
+    },
+    {
+      "ticker": "ELC",
+      "date": "2026-07-10",
+      "close": 16800.0,
+      "volume": 327900,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Công nghệ Thông tin",
+      "rs_rating": 24.0,
+      "rel_vol": 0.93,
+      "gtgd20_ty": 5.855,
+      "margin_status": null
+    },
+    {
+      "ticker": "HBC",
+      "date": "2026-07-10",
+      "close": 4800.0,
+      "volume": 291100,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 24.0,
+      "rel_vol": 0.51,
+      "gtgd20_ty": 2.79,
+      "margin_status": null
+    },
+    {
+      "ticker": "MCO",
+      "date": "2026-07-10",
+      "close": 5300.0,
+      "volume": 5700,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 24.0,
+      "rel_vol": 0.57,
+      "gtgd20_ty": 0.058,
+      "margin_status": null
+    },
+    {
+      "ticker": "PFL",
+      "date": "2026-07-10",
+      "close": 1900.0,
+      "volume": 33200,
+      "patterns": [],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 24.0,
+      "rel_vol": 0.78,
+      "gtgd20_ty": 0.085,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "TD6",
+      "date": "2026-07-10",
+      "close": 6500.0,
+      "volume": 23100,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 24.0,
+      "rel_vol": 0.56,
+      "gtgd20_ty": 0.284,
+      "margin_status": null
+    },
+    {
+      "ticker": "TDG",
+      "date": "2026-07-10",
+      "close": 2380.0,
+      "volume": 161700,
+      "patterns": [],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 24.0,
+      "rel_vol": 2.76,
+      "gtgd20_ty": 0.143,
+      "margin_status": null
+    },
+    {
+      "ticker": "TSB",
+      "date": "2026-07-10",
+      "close": 20400.0,
+      "volume": 300,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "ob_bear",
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 24.0,
+      "rel_vol": 0.07,
+      "gtgd20_ty": 0.093,
+      "margin_status": null
+    },
+    {
+      "ticker": "ANV",
+      "date": "2026-07-10",
+      "close": 19600.0,
+      "volume": 832400,
+      "patterns": [
+        "bearish_engulfing"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 23.0,
+      "rel_vol": 1.27,
+      "gtgd20_ty": 13.835,
+      "margin_status": null
+    },
+    {
+      "ticker": "BMI",
+      "date": "2026-07-10",
+      "close": 13900.0,
+      "volume": 60100,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Bảo hiểm",
+      "rs_rating": 23.0,
+      "rel_vol": 0.57,
+      "gtgd20_ty": 1.513,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "DNE",
+      "date": "2026-07-10",
+      "close": 7600.0,
+      "volume": 1500,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 23.0,
+      "rel_vol": 0.93,
+      "gtgd20_ty": 0.013,
+      "margin_status": null
+    },
+    {
+      "ticker": "DRC",
+      "date": "2026-07-10",
+      "close": 11500.0,
+      "volume": 278200,
+      "patterns": [],
+      "smc": [
+        "ob_bear",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Ô tô và phụ tùng",
+      "rs_rating": 23.0,
+      "rel_vol": 1.38,
+      "gtgd20_ty": 2.364,
+      "margin_status": null
+    },
+    {
+      "ticker": "GEL",
+      "date": "2026-07-10",
+      "close": 29100.0,
+      "volume": 1467200,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 23.0,
+      "rel_vol": 0.62,
+      "gtgd20_ty": 74.226,
+      "margin_status": null
+    },
+    {
+      "ticker": "KHG",
+      "date": "2026-07-10",
+      "close": 5090.0,
+      "volume": 9707600,
+      "patterns": [
+        "bullish_engulfing"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Bất động sản",
+      "rs_rating": 23.0,
+      "rel_vol": 2.76,
+      "gtgd20_ty": 17.537,
+      "margin_status": null
+    },
+    {
+      "ticker": "MLS",
+      "date": "2026-07-10",
+      "close": 16500.0,
+      "volume": 5900,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 23.0,
+      "rel_vol": 4.52,
+      "gtgd20_ty": 0.023,
+      "margin_status": null
+    },
+    {
+      "ticker": "VTP",
+      "date": "2026-07-10",
+      "close": 63200.0,
+      "volume": 205700,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 23.0,
+      "rel_vol": 0.86,
+      "gtgd20_ty": 15.291,
+      "margin_status": null
+    },
+    {
+      "ticker": "ACC",
+      "date": "2026-07-10",
+      "close": 10700.0,
+      "volume": 13600,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 22.0,
+      "rel_vol": 0.49,
+      "gtgd20_ty": 0.318,
+      "margin_status": null
+    },
+    {
+      "ticker": "BQP",
+      "date": "2026-07-10",
+      "close": 16100.000000000002,
+      "volume": 200,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hóa chất",
+      "rs_rating": 22.0,
+      "rel_vol": 0.24,
+      "gtgd20_ty": 0.013,
+      "margin_status": null
+    },
+    {
+      "ticker": "CEO",
+      "date": "2026-07-10",
+      "close": 14000.0,
+      "volume": 3167400,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Bất động sản",
+      "rs_rating": 22.0,
+      "rel_vol": 0.66,
+      "gtgd20_ty": 71.43,
+      "margin_status": null
+    },
+    {
+      "ticker": "CRV",
+      "date": "2026-07-10",
+      "close": 24050.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Bất động sản",
+      "rs_rating": 22.0,
+      "rel_vol": 0.12,
+      "gtgd20_ty": 0.023,
+      "margin_status": null
+    },
+    {
+      "ticker": "DPG",
+      "date": "2026-07-10",
+      "close": 33800.0,
+      "volume": 381900,
+      "patterns": [
+        "bullish_engulfing"
+      ],
+      "smc": [
+        "ob_bear",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 22.0,
+      "rel_vol": 0.81,
+      "gtgd20_ty": 17.267,
+      "margin_status": null
+    },
+    {
+      "ticker": "HVT",
+      "date": "2026-07-10",
+      "close": 24800.0,
+      "volume": 2500,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hóa chất",
+      "rs_rating": 22.0,
+      "rel_vol": 0.17,
+      "gtgd20_ty": 0.375,
+      "margin_status": null
+    },
+    {
+      "ticker": "ICN",
+      "date": "2026-07-10",
+      "close": 27700.0,
+      "volume": 1100,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 22.0,
+      "rel_vol": 0.55,
+      "gtgd20_ty": 0.057,
+      "margin_status": null
+    },
+    {
+      "ticker": "LAI",
+      "date": "2026-07-10",
+      "close": 11100.0,
+      "volume": 10400,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 22.0,
+      "rel_vol": 0.85,
+      "gtgd20_ty": 0.135,
+      "margin_status": null
+    },
+    {
+      "ticker": "PRC",
+      "date": "2026-07-10",
+      "close": 11000.0,
+      "volume": 1100,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 22.0,
+      "rel_vol": 0.6,
+      "gtgd20_ty": 0.02,
+      "margin_status": null
+    },
+    {
+      "ticker": "TRV",
+      "date": "2026-07-10",
+      "close": 11700.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 22.0,
+      "rel_vol": 0.02,
+      "gtgd20_ty": 0.072,
+      "margin_status": null
+    },
+    {
+      "ticker": "AVC",
+      "date": "2026-07-10",
+      "close": 41400.0,
+      "volume": 200,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "ob_bear",
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 21.0,
+      "rel_vol": 0.09,
+      "gtgd20_ty": 0.093,
+      "margin_status": null
+    },
+    {
+      "ticker": "BTH",
+      "date": "2026-07-10",
+      "close": 21500.0,
+      "volume": 2600,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 21.0,
+      "rel_vol": 1.6,
+      "gtgd20_ty": 0.035,
+      "margin_status": null
+    },
+    {
+      "ticker": "HTE",
+      "date": "2026-07-10",
+      "close": 2800.0,
+      "volume": 2200,
+      "patterns": [],
+      "smc": [
+        "ob_bear",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 21.0,
+      "rel_vol": 0.56,
+      "gtgd20_ty": 0.011,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "KCB",
+      "date": "2026-07-10",
+      "close": 10400.0,
+      "volume": 7100,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 21.0,
+      "rel_vol": 0.52,
+      "gtgd20_ty": 0.146,
+      "margin_status": null
+    },
+    {
+      "ticker": "MBT",
+      "date": "2026-07-10",
+      "close": 9000.0,
+      "volume": 2400,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Bất động sản",
+      "rs_rating": 21.0,
+      "rel_vol": 2.03,
+      "gtgd20_ty": 0.011,
+      "margin_status": null
+    },
+    {
+      "ticker": "SGT",
+      "date": "2026-07-10",
+      "close": 13050.0,
+      "volume": 3800,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Công nghệ Thông tin",
+      "rs_rating": 21.0,
+      "rel_vol": 0.24,
+      "gtgd20_ty": 0.222,
+      "margin_status": null
+    },
+    {
+      "ticker": "SSG",
+      "date": "2026-07-10",
+      "close": 7100.0,
+      "volume": 1000,
+      "patterns": [],
+      "smc": [
+        "ob_bear",
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 21.0,
+      "rel_vol": 0.88,
+      "gtgd20_ty": 0.008,
+      "margin_status": null
+    },
+    {
+      "ticker": "THG",
+      "date": "2026-07-10",
+      "close": 33050.0,
+      "volume": 15300,
+      "patterns": [
+        "hammer"
+      ],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 21.0,
+      "rel_vol": 0.92,
+      "gtgd20_ty": 0.572,
+      "margin_status": null
+    },
+    {
+      "ticker": "AGG",
+      "date": "2026-07-10",
+      "close": 11500.0,
+      "volume": 216600,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Bất động sản",
+      "rs_rating": 20.0,
+      "rel_vol": 0.82,
+      "gtgd20_ty": 3.109,
+      "margin_status": null
+    },
+    {
+      "ticker": "DGT",
+      "date": "2026-07-10",
+      "close": 3700.0,
+      "volume": 106700,
+      "patterns": [
+        "evening_star"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 20.0,
+      "rel_vol": 2.13,
+      "gtgd20_ty": 0.193,
+      "margin_status": null
+    },
+    {
+      "ticker": "FPT",
+      "date": "2026-07-10",
+      "close": 70600.0,
+      "volume": 7937300,
+      "patterns": [],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Công nghệ Thông tin",
+      "rs_rating": 20.0,
+      "rel_vol": 1.04,
+      "gtgd20_ty": 549.918,
+      "margin_status": null
+    },
+    {
+      "ticker": "HDC",
+      "date": "2026-07-10",
+      "close": 14650.0,
+      "volume": 1007800,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Bất động sản",
+      "rs_rating": 20.0,
+      "rel_vol": 0.78,
+      "gtgd20_ty": 20.098,
+      "margin_status": null
+    },
+    {
+      "ticker": "HDG",
+      "date": "2026-07-10",
+      "close": 18900.0,
+      "volume": 1265900,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Bất động sản",
+      "rs_rating": 20.0,
+      "rel_vol": 0.64,
+      "gtgd20_ty": 39.663,
+      "margin_status": null
+    },
+    {
+      "ticker": "IDI",
+      "date": "2026-07-10",
+      "close": 5450.0,
+      "volume": 166100,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 20.0,
+      "rel_vol": 0.89,
+      "gtgd20_ty": 1.057,
+      "margin_status": null
+    },
+    {
+      "ticker": "PV2",
+      "date": "2026-07-10",
+      "close": 1900.0,
+      "volume": 49300,
+      "patterns": [],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Bất động sản",
+      "rs_rating": 20.0,
+      "rel_vol": 0.36,
+      "gtgd20_ty": 0.271,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "TMP",
+      "date": "2026-07-10",
+      "close": 46500.0,
+      "volume": 400,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 20.0,
+      "rel_vol": 0.21,
+      "gtgd20_ty": 0.089,
+      "margin_status": null
+    },
+    {
+      "ticker": "TSC",
+      "date": "2026-07-10",
+      "close": 2150.0,
+      "volume": 51700,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hóa chất",
+      "rs_rating": 20.0,
+      "rel_vol": 0.34,
+      "gtgd20_ty": 0.352,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "CCL",
+      "date": "2026-07-10",
+      "close": 4180.0,
+      "volume": 12500,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Bất động sản",
+      "rs_rating": 19.0,
+      "rel_vol": 0.17,
+      "gtgd20_ty": 0.292,
+      "margin_status": null
+    },
+    {
+      "ticker": "CST",
+      "date": "2026-07-10",
+      "close": 10700.0,
+      "volume": 20400,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 19.0,
+      "rel_vol": 1.46,
+      "gtgd20_ty": 0.157,
+      "margin_status": null
+    },
+    {
+      "ticker": "FIR",
+      "date": "2026-07-10",
+      "close": 5030.0,
+      "volume": 242800,
+      "patterns": [],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Bất động sản",
+      "rs_rating": 19.0,
+      "rel_vol": 1.74,
+      "gtgd20_ty": 0.714,
+      "margin_status": null
+    },
+    {
+      "ticker": "LDG",
+      "date": "2026-07-10",
+      "close": 3030.0,
+      "volume": 800200,
+      "patterns": [],
+      "smc": [
+        "ob_bear",
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Bất động sản",
+      "rs_rating": 19.0,
+      "rel_vol": 0.58,
+      "gtgd20_ty": 4.709,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "PAT",
+      "date": "2026-07-10",
+      "close": 63200.0,
+      "volume": 18300,
+      "patterns": [
+        "bearish_engulfing"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hóa chất",
+      "rs_rating": 19.0,
+      "rel_vol": 1.42,
+      "gtgd20_ty": 0.834,
+      "margin_status": null
+    },
+    {
+      "ticker": "PIC",
+      "date": "2026-07-10",
+      "close": 15200.0,
+      "volume": 5800,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 19.0,
+      "rel_vol": 2.33,
+      "gtgd20_ty": 0.038,
+      "margin_status": null
+    },
+    {
+      "ticker": "SZE",
+      "date": "2026-07-10",
+      "close": 7800.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 19.0,
+      "rel_vol": 0.03,
+      "gtgd20_ty": 0.024,
+      "margin_status": null
+    },
+    {
+      "ticker": "DIG",
+      "date": "2026-07-10",
+      "close": 12300.0,
+      "volume": 4368200,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Bất động sản",
+      "rs_rating": 18.0,
+      "rel_vol": 1.03,
+      "gtgd20_ty": 52.858,
+      "margin_status": null
+    },
+    {
+      "ticker": "DIH",
+      "date": "2026-07-10",
+      "close": 7500.0,
+      "volume": 3400,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 18.0,
+      "rel_vol": 1.31,
+      "gtgd20_ty": 0.02,
+      "margin_status": null
+    },
+    {
+      "ticker": "KHS",
+      "date": "2026-07-10",
+      "close": 12200.0,
+      "volume": 1100,
+      "patterns": [],
+      "smc": [
+        "ob_bull",
+        "ob_bear",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 18.0,
+      "rel_vol": 0.34,
+      "gtgd20_ty": 0.04,
+      "margin_status": null
+    },
+    {
+      "ticker": "LAS",
+      "date": "2026-07-10",
+      "close": 13800.0,
+      "volume": 226600,
+      "patterns": [],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hóa chất",
+      "rs_rating": 18.0,
+      "rel_vol": 1.42,
+      "gtgd20_ty": 2.244,
+      "margin_status": null
+    },
+    {
+      "ticker": "PVB",
+      "date": "2026-07-10",
+      "close": 23600.0,
+      "volume": 24300,
+      "patterns": [
+        "bearish_engulfing"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Dầu khí",
+      "rs_rating": 18.0,
+      "rel_vol": 0.45,
+      "gtgd20_ty": 1.312,
+      "margin_status": null
+    },
+    {
+      "ticker": "SCR",
+      "date": "2026-07-10",
+      "close": 5260.0,
+      "volume": 3997500,
+      "patterns": [
+        "bullish_engulfing"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Bất động sản",
+      "rs_rating": 18.0,
+      "rel_vol": 3.13,
+      "gtgd20_ty": 6.528,
+      "margin_status": null
+    },
+    {
+      "ticker": "CSC",
+      "date": "2026-07-10",
+      "close": 12000.0,
+      "volume": 18400,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 17.0,
+      "rel_vol": 1.5,
+      "gtgd20_ty": 0.15,
+      "margin_status": null
+    },
+    {
+      "ticker": "HHG",
+      "date": "2026-07-10",
+      "close": 900.0,
+      "volume": 143700,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Du lịch và Giải trí",
+      "rs_rating": 17.0,
+      "rel_vol": 0.7,
+      "gtgd20_ty": 0.173,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "KTS",
+      "date": "2026-07-10",
+      "close": 24000.0,
+      "volume": 16000,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 17.0,
+      "rel_vol": 2.1,
+      "gtgd20_ty": 0.158,
+      "margin_status": null
+    },
+    {
+      "ticker": "TV2",
+      "date": "2026-07-10",
+      "close": 27150.0,
+      "volume": 136200,
+      "patterns": [
+        "doji",
+        "inside_bar"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 17.0,
+      "rel_vol": 0.78,
+      "gtgd20_ty": 5.005,
+      "margin_status": null
+    },
+    {
+      "ticker": "AVG",
+      "date": "2026-07-10",
+      "close": 8700.0,
+      "volume": 15900,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hóa chất",
+      "rs_rating": 16.0,
+      "rel_vol": 0.41,
+      "gtgd20_ty": 0.36,
+      "margin_status": null
+    },
+    {
+      "ticker": "CNT",
+      "date": "2026-07-10",
+      "close": 6100.0,
+      "volume": 900,
+      "patterns": [],
+      "smc": [
+        "ob_bear",
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Bất động sản",
+      "rs_rating": 16.0,
+      "rel_vol": 0.38,
+      "gtgd20_ty": 0.014,
+      "margin_status": null
+    },
+    {
+      "ticker": "KDH",
+      "date": "2026-07-10",
+      "close": 20300.0,
+      "volume": 2472700,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Bất động sản",
+      "rs_rating": 16.0,
+      "rel_vol": 0.72,
+      "gtgd20_ty": 76.126,
+      "margin_status": null
+    },
+    {
+      "ticker": "TSJ",
+      "date": "2026-07-10",
+      "close": 20000.0,
+      "volume": 400,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Du lịch và Giải trí",
+      "rs_rating": 16.0,
+      "rel_vol": 0.43,
+      "gtgd20_ty": 0.024,
+      "margin_status": null
+    },
+    {
+      "ticker": "UDC",
+      "date": "2026-07-10",
+      "close": 2900.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 16.0,
+      "rel_vol": 0.01,
+      "gtgd20_ty": 0.037,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "VC2",
+      "date": "2026-07-10",
+      "close": 4300.0,
+      "volume": 39800,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 16.0,
+      "rel_vol": 0.57,
+      "gtgd20_ty": 0.308,
+      "margin_status": "control"
+    },
+    {
+      "ticker": "VFS",
+      "date": "2026-07-10",
+      "close": 10400.0,
+      "volume": 524000,
+      "patterns": [],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Dịch vụ tài chính",
+      "rs_rating": 16.0,
+      "rel_vol": 0.54,
+      "gtgd20_ty": 10.225,
+      "margin_status": null
+    },
+    {
+      "ticker": "CSI",
+      "date": "2026-07-10",
+      "close": 16300.0,
+      "volume": 2500,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Dịch vụ tài chính",
+      "rs_rating": 15.0,
+      "rel_vol": 1.81,
+      "gtgd20_ty": 0.024,
+      "margin_status": null
+    },
+    {
+      "ticker": "DC4",
+      "date": "2026-07-10",
+      "close": 7110.0,
+      "volume": 55100,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 15.0,
+      "rel_vol": 0.64,
+      "gtgd20_ty": 0.626,
+      "margin_status": null
+    },
+    {
+      "ticker": "DRH",
+      "date": "2026-07-10",
+      "close": 1840.0,
+      "volume": 104800,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Bất động sản",
+      "rs_rating": 15.0,
+      "rel_vol": 0.62,
+      "gtgd20_ty": 0.33,
+      "margin_status": "control"
+    },
+    {
+      "ticker": "SJE",
+      "date": "2026-07-10",
+      "close": 12400.0,
+      "volume": 26600,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 15.0,
+      "rel_vol": 1.13,
+      "gtgd20_ty": 0.303,
+      "margin_status": null
+    },
+    {
+      "ticker": "TJC",
+      "date": "2026-07-10",
+      "close": 9100.0,
+      "volume": 500,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 15.0,
+      "rel_vol": 0.21,
+      "gtgd20_ty": 0.022,
+      "margin_status": null
+    },
+    {
+      "ticker": "VMC",
+      "date": "2026-07-10",
+      "close": 3900.0,
+      "volume": 2200,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 15.0,
+      "rel_vol": 0.27,
+      "gtgd20_ty": 0.033,
+      "margin_status": null
+    },
+    {
+      "ticker": "CCC",
+      "date": "2026-07-10",
+      "close": 7490.0,
+      "volume": 500,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 14.0,
+      "rel_vol": 0.18,
+      "gtgd20_ty": 0.021,
+      "margin_status": null
+    },
+    {
+      "ticker": "PTL",
+      "date": "2026-07-10",
+      "close": 2009.9999999999998,
+      "volume": 110000,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Bất động sản",
+      "rs_rating": 14.0,
+      "rel_vol": 0.88,
+      "gtgd20_ty": 0.278,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "TSD",
+      "date": "2026-07-10",
+      "close": 3500.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Du lịch và Giải trí",
+      "rs_rating": 14.0,
+      "rel_vol": 0.06,
+      "gtgd20_ty": 0.006,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "CIP",
+      "date": "2026-07-10",
+      "close": 1700.0,
+      "volume": 2600,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "ob_bear",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 13.0,
+      "rel_vol": 2.17,
+      "gtgd20_ty": 0.002,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "CQT",
+      "date": "2026-07-10",
+      "close": 6500.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 13.0,
+      "rel_vol": 0.05,
+      "gtgd20_ty": 0.014,
+      "margin_status": null
+    },
+    {
+      "ticker": "DGC",
+      "date": "2026-07-10",
+      "close": 46200.0,
+      "volume": 218800,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Hóa chất",
+      "rs_rating": 13.0,
+      "rel_vol": 0.3,
+      "gtgd20_ty": 35.751,
+      "margin_status": "control"
+    },
+    {
+      "ticker": "HGM",
+      "date": "2026-07-10",
+      "close": 146000.0,
+      "volume": 400,
+      "patterns": [],
+      "smc": [
+        "ob_bear",
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 13.0,
+      "rel_vol": 0.23,
+      "gtgd20_ty": 0.26,
+      "margin_status": null
+    },
+    {
+      "ticker": "SMN",
+      "date": "2026-07-10",
+      "close": 7000.0,
+      "volume": 500,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Truyền thông",
+      "rs_rating": 13.0,
+      "rel_vol": 0.13,
+      "gtgd20_ty": 0.029,
+      "margin_status": null
+    },
+    {
+      "ticker": "SZC",
+      "date": "2026-07-10",
+      "close": 21000.0,
+      "volume": 268400,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Bất động sản",
+      "rs_rating": 13.0,
+      "rel_vol": 0.74,
+      "gtgd20_ty": 8.197,
+      "margin_status": null
+    },
+    {
+      "ticker": "BBH",
+      "date": "2026-07-10",
+      "close": 7800.0,
+      "volume": 2500,
+      "patterns": [],
+      "smc": [
+        "ob_bear",
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 12.0,
+      "rel_vol": 0.92,
+      "gtgd20_ty": 0.021,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "GCB",
+      "date": "2026-07-10",
+      "close": 6900.0,
+      "volume": 7100,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 12.0,
+      "rel_vol": 0.51,
+      "gtgd20_ty": 0.096,
+      "margin_status": null
+    },
+    {
+      "ticker": "GMC",
+      "date": "2026-07-10",
+      "close": 4000.0,
+      "volume": 5200,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng cá nhân & Gia dụng",
+      "rs_rating": 12.0,
+      "rel_vol": 1.84,
+      "gtgd20_ty": 0.013,
+      "margin_status": null
+    },
+    {
+      "ticker": "HD2",
+      "date": "2026-07-10",
+      "close": 9300.0,
+      "volume": 100,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "ob_bear",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Bất động sản",
+      "rs_rating": 12.0,
+      "rel_vol": 0.18,
+      "gtgd20_ty": 0.006,
+      "margin_status": null
+    },
+    {
+      "ticker": "JVC",
+      "date": "2026-07-10",
+      "close": 3300.0,
+      "volume": 68700,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Y tế",
+      "rs_rating": 12.0,
+      "rel_vol": 0.69,
+      "gtgd20_ty": 0.355,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "SGR",
+      "date": "2026-07-10",
+      "close": 13200.0,
+      "volume": 19100,
+      "patterns": [
+        "bullish_engulfing"
+      ],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Bất động sản",
+      "rs_rating": 12.0,
+      "rel_vol": 0.17,
+      "gtgd20_ty": 1.479,
+      "margin_status": null
+    },
+    {
+      "ticker": "ST8",
+      "date": "2026-07-10",
+      "close": 2960.0,
+      "volume": 104400,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Công nghệ Thông tin",
+      "rs_rating": 12.0,
+      "rel_vol": 1.63,
+      "gtgd20_ty": 0.193,
+      "margin_status": null
+    },
+    {
+      "ticker": "APG",
+      "date": "2026-07-10",
+      "close": 4960.0,
+      "volume": 598700,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Dịch vụ tài chính",
+      "rs_rating": 11.0,
+      "rel_vol": 0.75,
+      "gtgd20_ty": 4.219,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "NHA",
+      "date": "2026-07-10",
+      "close": 9970.0,
+      "volume": 103000,
+      "patterns": [
+        "inside_bar"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 11.0,
+      "rel_vol": 1.25,
+      "gtgd20_ty": 0.881,
+      "margin_status": null
+    },
+    {
+      "ticker": "PTT",
+      "date": "2026-07-10",
+      "close": 7100.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "ob_bear",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 11.0,
+      "rel_vol": 0.34,
+      "gtgd20_ty": 0.003,
+      "margin_status": null
+    },
+    {
+      "ticker": "VEF",
+      "date": "2026-07-10",
+      "close": 81700.0,
+      "volume": 1300,
+      "patterns": [
+        "doji",
+        "inside_bar"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Bất động sản",
+      "rs_rating": 11.0,
+      "rel_vol": 0.33,
+      "gtgd20_ty": 0.342,
+      "margin_status": null
+    },
+    {
+      "ticker": "CRC",
+      "date": "2026-07-10",
+      "close": 6000.0,
+      "volume": 1323500,
+      "patterns": [],
+      "smc": [
+        "ob_bear",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 10.0,
+      "rel_vol": 2.9,
+      "gtgd20_ty": 2.767,
+      "margin_status": null
+    },
+    {
+      "ticker": "PCF",
+      "date": "2026-07-10",
+      "close": 3300.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "ob_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 10.0,
+      "rel_vol": 0.07,
+      "gtgd20_ty": 0.004,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "VTD",
+      "date": "2026-07-10",
+      "close": 4500.0,
+      "volume": 218600,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Du lịch và Giải trí",
+      "rs_rating": 10.0,
+      "rel_vol": 0.93,
+      "gtgd20_ty": 1.181,
+      "margin_status": null
+    },
+    {
+      "ticker": "PSL",
+      "date": "2026-07-10",
+      "close": 8000.0,
+      "volume": 1300,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Thực phẩm và đồ uống",
+      "rs_rating": 9.0,
+      "rel_vol": 1.84,
+      "gtgd20_ty": 0.006,
+      "margin_status": null
+    },
+    {
+      "ticker": "RBC",
+      "date": "2026-07-10",
+      "close": 4400.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hóa chất",
+      "rs_rating": 9.0,
+      "rel_vol": 0.09,
+      "gtgd20_ty": 0.006,
+      "margin_status": null
+    },
+    {
+      "ticker": "STK",
+      "date": "2026-07-10",
+      "close": 9050.0,
+      "volume": 6000,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng cá nhân & Gia dụng",
+      "rs_rating": 8.0,
+      "rel_vol": 0.19,
+      "gtgd20_ty": 0.32,
+      "margin_status": null
+    },
+    {
+      "ticker": "LMC",
+      "date": "2026-07-10",
+      "close": 4700.0,
+      "volume": 1200,
+      "patterns": [],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Tài nguyên Cơ bản",
+      "rs_rating": 7.0,
+      "rel_vol": 0.09,
+      "gtgd20_ty": 0.075,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "BHI",
+      "date": "2026-07-10",
+      "close": 6000.0,
+      "volume": 100,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Bảo hiểm",
+      "rs_rating": 6.0,
+      "rel_vol": 0.42,
+      "gtgd20_ty": 0.002,
+      "margin_status": null
+    },
+    {
+      "ticker": "DDG",
+      "date": "2026-07-10",
+      "close": 1300.0,
+      "volume": 1782500,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Điện, nước & xăng dầu khí đốt",
+      "rs_rating": 6.0,
+      "rel_vol": 0.66,
+      "gtgd20_ty": 2.402,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "SDA",
+      "date": "2026-07-10",
+      "close": 2100.0,
+      "volume": 191200,
+      "patterns": [],
+      "smc": [
+        "ob_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": "Hàng & Dịch vụ Công nghiệp",
+      "rs_rating": 6.0,
+      "rel_vol": 1.35,
+      "gtgd20_ty": 0.335,
+      "margin_status": "warning"
+    },
+    {
+      "ticker": "AAN",
+      "date": "2026-07-10",
+      "close": 15550.0,
+      "volume": 150800,
+      "patterns": [
+        "doji"
+      ],
+      "smc": [],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": null,
+      "rs_rating": null,
+      "rel_vol": null,
+      "gtgd20_ty": null,
+      "margin_status": null
+    },
+    {
+      "ticker": "CLI",
+      "date": "2026-07-10",
+      "close": 26400.0,
+      "volume": 53000,
+      "patterns": [
+        "shooting_star"
+      ],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": null,
+      "rs_rating": null,
+      "rel_vol": null,
+      "gtgd20_ty": null,
+      "margin_status": null
+    },
+    {
+      "ticker": "HNXINDEX",
+      "date": "2026-07-10",
+      "close": 303.76,
+      "volume": 51661823,
+      "patterns": [
+        "bearish_engulfing"
+      ],
+      "smc": [
+        "ob_bull",
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": null,
+      "rs_rating": null,
+      "rel_vol": null,
+      "gtgd20_ty": null,
+      "margin_status": null
+    },
+    {
+      "ticker": "NHD",
+      "date": "2026-07-10",
+      "close": 85500.0,
+      "volume": 500,
+      "patterns": [],
+      "smc": [
+        "fvg_bull",
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": null,
+      "rs_rating": null,
+      "rel_vol": null,
+      "gtgd20_ty": null,
+      "margin_status": null
+    },
+    {
+      "ticker": "UPCOMINDEX",
+      "date": "2026-07-10",
+      "close": 128.43,
+      "volume": 38206341,
+      "patterns": [],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "bullish",
+      "industry": null,
+      "rs_rating": null,
+      "rel_vol": null,
+      "gtgd20_ty": null,
+      "margin_status": null
+    },
+    {
+      "ticker": "VNINDEX",
+      "date": "2026-07-10",
+      "close": 1828.34,
+      "volume": 592728766,
+      "patterns": [],
+      "smc": [
+        "fvg_bear"
+      ],
+      "confluence": false,
+      "direction": "bearish",
+      "industry": null,
+      "rs_rating": null,
+      "rel_vol": null,
+      "gtgd20_ty": null,
+      "margin_status": null
+    }
+  ],
+  "dividend_note": "31/1683 mã đã có dữ liệu cổ tức — chạy `python meta_sync.py --ratio-only` để phủ nốt",
+  "dividend_investing": [
+    {
+      "ticker": "WTC",
+      "close": 9700.0,
+      "dividend_yield": 11.0,
+      "pe": 167.61,
+      "pb": 0.56,
+      "roe": 0.0,
+      "industry": "Hàng & Dịch vụ Công nghiệp"
+    },
+    {
+      "ticker": "VTO",
+      "close": 10550.0,
+      "dividend_yield": 9.0,
+      "pe": 8.13,
+      "pb": 0.77,
+      "roe": 9.7,
+      "industry": "Hàng & Dịch vụ Công nghiệp"
+    },
+    {
+      "ticker": "WSB",
+      "close": 55900.0,
+      "dividend_yield": 9.0,
+      "pe": 8.31,
+      "pb": 1.04,
+      "roe": 12.69,
+      "industry": "Thực phẩm và đồ uống"
+    },
+    {
+      "ticker": "X20",
+      "close": 11900.0,
+      "dividend_yield": 8.0,
+      "pe": 6.43,
+      "pb": 0.77,
+      "roe": 12.06,
+      "industry": "Hàng cá nhân & Gia dụng"
+    },
+    {
+      "ticker": "VTR",
+      "close": 10500.0,
+      "dividend_yield": 8.0,
+      "pe": 324.62,
+      "pb": 1.08,
+      "roe": 0.23,
+      "industry": "Du lịch và Giải trí"
+    }
+  ]
+};
