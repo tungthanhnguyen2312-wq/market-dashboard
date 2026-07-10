@@ -20,6 +20,41 @@ const SIGNED_COLUMNS = [
 /* Các cột boolean hiển thị dấu ✓ */
 const BOOL_COLUMNS = ["above_sma50", "above_sma200", "golden_cross", "near_52w_high"];
 
+/* Tên cột tiếng Việt cho bảng screener (chỉ đổi hiển thị, field gốc giữ nguyên) */
+const COLUMN_LABELS = {
+  ticker: "Mã",
+  date: "Ngày",
+  close: "Giá đóng cửa (₫)",
+  chg_today_pct: "% Phiên",
+  gtgd20_ty: "GTGD 20p (tỷ)",
+  rel_vol: "KL tương đối",
+  rsi14: "RSI 14",
+  macd_hist: "MACD Hist",
+  bb_pctb: "BB %B",
+  atr_pct: "ATR %",
+  above_sma50: "Trên MA50",
+  above_sma200: "Trên MA200",
+  golden_cross: "Golden Cross",
+  pct_from_52w_high: "% cách đỉnh 52T",
+  near_52w_high: "Gần đỉnh 52T",
+  pct_above_52w_low: "% trên đáy 52T",
+  ret_1m: "% 1 tháng",
+  ret_3m: "% 3 tháng",
+  ret_6m: "% 6 tháng",
+  ret_12m: "% 12 tháng",
+  structure: "Cấu trúc",
+  dist_swing_low_pct: "% cách Swing Low",
+  rs_rating: "RS",
+  exchange: "Sàn",
+  industry: "Ngành",
+  foreign_room_pct: "Room ngoại %",
+  pe: "P/E",
+  pb: "P/B",
+  roe: "ROE %",
+  free_float_est: "Free Float",
+  margin_status: "Margin",
+};
+
 /* Ngôn ngữ tiếng Việt cho DataTables */
 const DT_LANG_VI = {
   search: "Tìm mã / từ khóa:",
@@ -304,7 +339,7 @@ function renderCharts(rows) {
 function buildColumns(fields) {
   return fields.map((field) => ({
     data: field,
-    title: field,
+    title: COLUMN_LABELS[field] || field,
     defaultContent: "",
     createdCell:
       field === "ticker"
@@ -315,6 +350,18 @@ function buildColumns(fields) {
       if (value === null || value === undefined || value === "") return "";
 
       if (field === "ticker") return esc(value);
+
+      // Giá đóng cửa: định dạng tiền Việt (15400 → 15.400)
+      if (field === "close") {
+        const v = num(value);
+        return isNaN(v) ? esc(value) : v.toLocaleString("vi-VN");
+      }
+
+      // Ngày: hiển thị dd/mm/yyyy theo chuẩn Việt Nam
+      if (field === "date") {
+        const m = String(value).match(/^(\d{4})-(\d{2})-(\d{2})$/);
+        return m ? `${m[3]}/${m[2]}/${m[1]}` : esc(value);
+      }
 
       if (field === "rs_rating") {
         const v = num(value);

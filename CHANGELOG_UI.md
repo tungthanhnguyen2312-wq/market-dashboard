@@ -1,5 +1,13 @@
 # CHANGELOG UI — Refactor giao diện toàn dự án
 
+## Cập nhật 2026-07-10 — Việt hóa bảng screener
+
+- Toàn bộ 31 tên cột chuyển sang tiếng Việt (`Mã`, `Ngày`, `Giá đóng cửa (₫)`, `% Phiên`, `GTGD 20p (tỷ)`, `RS`, `Cấu trúc`...) qua bảng ánh xạ `COLUMN_LABELS` trong `app.js` — field gốc trong CSV giữ nguyên nên lọc/sort không đổi.
+- Giá đóng cửa định dạng tiền Việt: `15400` → `15.400` (chỉ đổi hiển thị, sort vẫn theo số).
+- Cột ngày hiển thị `dd/mm/yyyy` theo chuẩn Việt Nam.
+
+---
+
 **Ngày:** 2026-07-09
 **Phạm vi:** Toàn bộ 8 trang HTML + CSS + JS. Không thay đổi chức năng, logic xử lý, luồng dữ liệu hay liên kết giữa các trang.
 
