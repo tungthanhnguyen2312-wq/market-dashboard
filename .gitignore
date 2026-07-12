@@ -32,10 +32,12 @@ tickers.txt
 ai_report_2*.json
 ai_report_2*.md
 ai_prompt_preview.txt
-# Code pipeline + tài liệu vận hành ở LOCAL — repo này là WEBSITE (đã dọn .py khỏi remote 10/07)
+# Code pipeline ở LOCAL — repo này là WEBSITE (đã dọn .py khỏi remote 10/07).
+# Lưu ý: README.md từ 11/07 gộp cả tài liệu vận hành pipeline (TRACKED — sẽ public khi push)
 *.py
-README_PIPELINE.md
-GIAITHICH.md
+# ...trừ bộ test hồi quy (fixture bịa, không có dữ liệu thật — commit kèm repo 12/07;
+# lưu ý test cần stock_analyzer.py nằm cạnh nên chỉ chạy được trên máy local)
+!tests/**/*.py
 news_latest.csv
 macro_snapshot.csv
 ta_signals.csv
@@ -43,6 +45,13 @@ ta_signals.json
 *.xlsx
 logs/
 archive_md5_cache.json
+# Output cá nhân của stock_analyzer.py (nếu sau này dashboard cần analysis_latest.json
+# thì bỏ dòng ignore tương ứng + để publish_dashboard tự bóc whitelist)
+analysis_latest.json
+analysis_latest.md
+Focus_Analysis.md
+Market_Scan.md
+Market_Scan.csv
 
 # LƯU Ý CÓ CHỦ ĐÍCH — những thứ KHÔNG ignore vì web cần:
 #   data/                -> candle_signals/sector_heatmap/screener_data (dashboard sống bằng nó)
