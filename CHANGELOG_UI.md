@@ -1,5 +1,29 @@
 # CHANGELOG UI — Refactor giao diện toàn dự án
 
+## Cập nhật 2026-07-13 — Frontend Phase 1-5 (khung sườn Tailwind + redesign)
+
+Tóm tắt kiến trúc đầy đủ: xem [CHANGELOG.md](CHANGELOG.md) mục `[1.2.0]`. Phần này ghi riêng các
+thay đổi giao diện/UI cụ thể, theo đúng phạm vi của file này:
+
+- **Sidebar + top bar dùng chung mới** (`assets/css/shell.css`, `assets/js/shell.js`) thay `nav.css`
+  cho 7 trang chính; `nav.css` nay chỉ còn phục vụ báo cáo tĩnh lưu trữ (`playbook-*`/`report-*`).
+  Sidebar thu gọn được (icon-only), nhớ trạng thái qua `localStorage`.
+- **Tailwind CDN** thêm CHỈ cho khung sườn (Preflight tắt) — Bootstrap 5 + design system `style.css`
+  cũ vẫn nguyên vẹn cho nội dung dữ liệu bên trong (card/bảng/badge), không phải một cuộc migrate.
+- **Lucide Icons** (CDN) thay icon chữ/emoji ở khung sườn.
+- **2 component mới**: panel 2 cột kéo giãn tỷ lệ (`assets/js/resizable-panels.js`, ở `dashboard.html`/
+  `analysis.html`) và panel chi tiết mã trượt từ phải khi bấm dòng bảng (`assets/js/company-panel.js`,
+  chỉ ở `screener.html`) — 3 tab Tổng quan/Biểu đồ/Báo cáo tài chính (tab BCTC báo trạng thái
+  "đang chờ dữ liệu" trung thực, chưa có số vì `financial_snapshot.*` không public).
+- Style bảng DataTables đổi từ id riêng (`#market-table`) sang class dùng chung `.vs-datatable`.
+- Thêm `@media (prefers-reduced-motion: reduce)` áp dụng toàn site.
+- 3 trang mới: `about.html`, `archive.html` (danh sách ghi tay trong `archive.js`), `macro.html`
+  (placeholder, chưa nối `macro_snapshot.csv`).
+- `index.html` đổi vai trò: từ trang chính (Bootstrap, `nav.css`) thành redirect thuần sang
+  `dashboard.html` (trang chính mới), giữ nguyên URL gốc GitHub Pages.
+
+---
+
 ## Cập nhật 2026-07-10 — Việt hóa bảng screener
 
 - Toàn bộ 31 tên cột chuyển sang tiếng Việt (`Mã`, `Ngày`, `Giá đóng cửa (₫)`, `% Phiên`, `GTGD 20p (tỷ)`, `RS`, `Cấu trúc`...) qua bảng ánh xạ `COLUMN_LABELS` trong `app.js` — field gốc trong CSV giữ nguyên nên lọc/sort không đổi.

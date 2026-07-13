@@ -1,0 +1,130 @@
+# Kiến trúc hệ thống
+
+> Tài liệu này mô tả kiến trúc tổng thể của VNSTOCK: 2 nửa Backend/Frontend, luồng dữ liệu,
+> các tầng dữ liệu, và ranh giới rõ ràng giữa những gì chạy **local** và những gì lên
+> **GitHub Pages**. Tách ra từ README ngày 12/07/2026 khi dọn repo cho bản public.
+
+**Mục lục:** [Tổng quan](#tổng-quan) · [Sơ đồ luồng dữ liệu](#sơ-đồ-luồng-dữ-liệu) · [Nhánh BCTC](#nhánh-bctc) · [Các tầng dữ liệu](#các-tầng-dữ-liệu) · [Local ↔ Web: cái gì được đẩy](#từ-máy-local-lên-web--cái-gì-được-đẩy-cái-gì-không) · [File trong repo web](#file-trong-repo-web)
+
+---
+
+## Tổng quan
+
+Hệ thống gồm 2 nửa:
+
+**Backend (local, không lên GitHub)** — 7 chân kiềng quanh kho `vn_stock.db` (hiện **1.686 mã**, ~1,9 triệu dòng giá + metadata + macro + news + cổ đông):
+
+| Chân kiềng | Script | Ghi chú |
+|---|---|---|
+| Giá OHLCV | `vn_stock_pipeline.py` | update hằng ngày sau 15h |
+| Metadata cơ bản + luật | `meta_sync.py`, `blacklist_sync.py` | PE/PB/ROE, room ngoại, án margin |
+| Mixer chỉ báo + mẫu nến | `vn_indicators.py`, `candle_scan.py` | trộn tất cả ra snapshot + tín hiệu |
+| Vĩ mô | `macro_sync.py` | Fed, US10Y, DXY, dầu, vàng, VIX, tỷ giá, CPI/GDP |
+| Tin tức | `news_sync.py` | RSS thế giới + VN |
+| Cổ đông lớn | `shareholders_sync.py` | bảng `shareholders`/`shareholders_progress`, 1 lần/tháng |
+| Báo cáo AI | `ai_analyzer.py` | ⚠️ chân **duy nhất TỐN PHÍ** — xem [DATA_PIPELINE.md §Tiền](DATA_PIPELINE.md#tiền--ai_analyzerpy) |
+
+**Frontend (GitHub Pages)** — terminal tĩnh (sidebar + top bar dùng chung, khung `assets/`), không cần build, thư viện load qua CDN:
+- `dashboard.html` — trang chính: báo cáo AI + KPI + watchlist + bảng thị trường (`index.html` chỉ redirect sang đây để giữ URL gốc).
+- `screener.html` — bảng lọc đầy đủ, có panel chi tiết mã (`company-panel.js`).
+- `analysis.html` — Quant Engine offline (10 chiến lược, chấm điểm 0-100), đọc `analysis_latest.json`.
+- `signals.html` — tín hiệu nến / SMC theo phiên.
+- `macro.html`, `about.html`, `archive.html` — vĩ mô (đang xây dựng), giới thiệu dự án, kho lưu trữ báo cáo tĩnh.
+
+## Sơ đồ luồng dữ liệu
+
+```
+[BACKEND — local]                                      [FRONTEND — GitHub Pages]
+
+vn_stock_pipeline / meta_sync / macro_sync / news_sync / shareholders_sync
+        │ ghi vào
+        ▼
+   vn_stock.db ──► vn_indicators.py ──► screen_snapshot.csv + market_breadth.csv ─┐
+              └──► candle_scan.py  ──► ta_signals.* + data/*.json + data/*.js ────┤
+   ai_analyzer.py ──► ai_report_YYYYMMDD.md/.json ──► ai_report_latest.md/.json ──┤
+                                                                                  ▼
+                                              python publish_dashboard.py --live
+                                              (whitelist tự bóc, không git add .)
+                                                                                  ▼
+                                              git push ──► GitHub Pages (1-2 phút)
+```
+
+## Nhánh BCTC
+
+Độc lập với 7 chân kiềng trên, tần suất **quý** thay vì ngày, gộp vào VNSTOCK từ dự án
+`FINANCIAL_REPORT` riêng (12/07/2026). KHÔNG ghi vào `vn_stock.db`, KHÔNG lên GitHub Pages —
+chi tiết đầy đủ ở [FINANCIAL_REPORT.md](FINANCIAL_REPORT.md).
+
+```
+[NHÁNH BCTC — local, tần suất QUÝ, KHÔNG lên web]
+
+bctc_sync.py ──► data_bctc/*.parquet+*.csv ──► bctc_processor.py ──► financial_snapshot.csv/.parquet
+ (cào BCTC thô,      (BCĐK/KQKD/LCTT,             (chuẩn hóa item_id +      (gitignore — KHÔNG nằm
+  KBS/VCI failover)    ~650+ mã)                    audit công thức)          trong whitelist publish)
+```
+
+> *Dữ liệu sinh tự động, chỉ mang tính tham khảo — **không phải khuyến nghị đầu tư**.*
+
+## Các tầng dữ liệu
+
+Đừng trộn lẫn các tầng dữ liệu sau (nguồn phổ biến của bug khi thêm tính năng mới):
+
+| Tầng | File | Vai trò |
+|---|---|---|
+| **Kho** | `vn_stock.db` (172 MB) | Lưu trữ gốc, script ghi vào. Không mở tay, không gửi AI. Bảng: `ohlcv` (giá) · `meta` (tiến độ backfill — ĐỪNG nhầm với metadata) · `metadata` (cơ bản+luật) · `macro` · `news` |
+| **Truyền tải** | `screen_snapshot.csv` / `market_breadth.csv` / `macro_snapshot.csv` / `news_latest.csv` / `ohlcv_flat.parquet` / `financial_snapshot.csv` / `.parquet` | Script xuất ra. Gửi AI phân tích + Excel link tới. `financial_snapshot.*` ra theo **quý** (nhánh BCTC), không cập nhật hằng ngày như các file khác trong dòng này. |
+| **Nhập tay** | `blacklist.csv` | 2 lớp: dòng Auto (máy tái sinh — đừng sửa) + dòng tay (margin_cut theo quý — máy giữ nguyên, thắng khi trùng mã). |
+| **Báo cáo AI** | `ai_report_YYYYMMDD.md` / `.json` | `ai_analyzer.py` sinh qua API Claude — **TỐN PHÍ mỗi lần chạy**. `ai_prompt_preview.txt` là bản xem trước miễn phí (`--dry-run`). |
+| **Phân tích offline** | `analysis_latest.json` / `.md` + bảng `watchlist_history` trong DB | `stock_analyzer.py` sinh — MIỄN PHÍ, 0 request. Xem [STOCK_ANALYZER.md](STOCK_ANALYZER.md). |
+| **Web** | `data/*.json` + `data/*.js`, `ai_report_latest.md/.json` | `candle_scan.py` sinh cặp json+js cho `signals.html`/`screener.html`; `ai_report_latest.*` là bản copy của báo cáo AI mới nhất cho `dashboard.html`. |
+| **Xem** | `screener.xlsx` | Chỉ *link* tới file truyền tải + filter/sort. **Không chứa** data. |
+
+Nguyên tắc: dữ liệu nằm im trong parquet/db; Excel chỉ trỏ tới, nên workbook luôn nhẹ.
+
+## Từ máy local lên web — cái gì được đẩy, cái gì không
+
+- **Được đẩy** (whitelist `publish_dashboard.py` tự bóc từ các trang `.html` + `app.js`, không đoán tên): mọi trang `.html` ở gốc, các file css/js mà trang tham chiếu, `data/*.json` + `data/*.js`, `screen_snapshot.csv` (~0,3 MB), `market_breadth.csv` (~2 KB), `ai_report_latest.md/.json`.
+- **KHÔNG bao giờ lên remote** (2 lớp phòng thủ: publish chỉ add theo tên file cụ thể — không bao giờ `git add .` / `git add -A` / `push -f`; cộng `.gitignore` chặn hộ khi lỡ add tay): `vn_stock.db`, `*.parquet`, `ohlcv_flat.csv`, toàn bộ `*.py`, `blacklist.csv`, `tickers.txt`, `ai_report_2*.md/.json` (bản cá nhân có ngày), `ai_prompt_preview.txt`, `news_latest.csv`, `macro_snapshot.csv`, `ta_signals.*`, `*.xlsx`, `logs/`, `publish_log.txt`, `data_bctc/`, `financial_snapshot.csv`, `financial_snapshot.parquet`, `tickers_bctc.txt`, `config.json`, `docs/AUDIT_REPORT.md`, `docs/VALIDATION_REPORT.md` (nội bộ, không phải tài liệu vận hành công khai).
+- `data/*.json` dùng khi web chạy qua http (fetch), `data/*.js` là fallback khi mở `file://` (fetch bị CORS chặn) — `candle_scan.py` sinh cả 2, **đừng xóa file .js tưởng là thừa**.
+- `ai_report_latest.md/.json`: sau khi chạy `ai_analyzer.py`, copy bản `ai_report_YYYYMMDD.*` mới nhất đè lên tên `_latest`. **Không sửa tay** file `_latest`.
+
+## File trong repo web
+
+| File | Vai trò |
+|---|---|
+| `index.html` | CHỈ redirect (`meta refresh` + `location.replace`) sang `dashboard.html` — giữ nguyên URL gốc GitHub Pages, không còn chứa nội dung |
+| `dashboard.html` | Trang chính: báo cáo AI + KPI + watchlist + bảng thị trường + lối tắt kho lưu trữ |
+| `screener.html` | Bảng lọc SMC/nến đầy đủ (đọc `data/screener_data.*` + CSV) + panel chi tiết mã khi bấm vào dòng |
+| `analysis.html` + `analysis.js` | Quant Engine offline: đọc `analysis_latest.json` (nguồn DUY NHẤT, không có fallback `.js`) |
+| `signals.html` | Dashboard tín hiệu nến / SMC (đọc `data/candle_signals.*`, `data/sector_heatmap.*`) |
+| `macro.html` | Placeholder vĩ mô — `macro_snapshot.csv` có ở backend nhưng chưa nối vào trang |
+| `about.html` | Giới thiệu dự án, tech stack, liên kết |
+| `archive.html` + `assets/js/archive.js` | Kho lưu trữ báo cáo tĩnh — danh sách ghi tay trong `archive.js` (GitHub Pages không có API liệt kê thư mục) |
+| `app.js` | Logic trang chính: marked.js render `ai_report_latest.md`, PapaParse + DataTables cho bảng, `COLUMN_LABELS` Việt hóa 31 tên cột |
+| `style.css` | Design system dark mode bằng CSS variables — dùng chung mọi trang |
+| `assets/css/shell.css` + `assets/js/shell.js` | Khung sườn dùng chung (sidebar/top bar): CSS + hành vi (toggle mobile, active-link, thu gọn sidebar) cho cả 7 trang |
+| `assets/js/resizable-panels.js` | Kéo giãn tỷ lệ cột nội dung chính/phụ (`dashboard.html`, `analysis.html`) |
+| `assets/js/company-panel.js` | Panel trượt chi tiết mã khi bấm dòng bảng — chỉ dùng ở `screener.html` |
+| `nav.css` | **Legacy** — chỉ còn dùng bởi báo cáo tĩnh lưu trữ (`playbook-*.html`, `report-*.html`), không dùng ở 7 trang chính (đã thay bằng `assets/css/shell.css`) |
+| `publish_dashboard.py` | Script đẩy web an toàn (dry-run mặc định, whitelist tự bóc) — *chỉ nằm local, gitignore `*.py`* |
+| `sync_and_push.bat` | **Legacy** — chỉ còn dùng bước copy `ai_report_latest`; phần git đã bị `publish_dashboard.py` thay thế |
+| `ai_report_latest.md/.json` | Báo cáo AI mới nhất (bản copy, **không sửa tay**) |
+| `screen_snapshot.csv` | Snapshot thị trường (~1.500 mã) |
+| `data/` | `candle_signals` / `sector_heatmap` / `screener_data` dạng `.json` (fetch) + `.js` (fallback file://) |
+| `playbook-*.html`, `report-*.html`, `vn*.html` | Báo cáo HTML tĩnh cũ, link ở kho lưu trữ (`archive.html`) |
+
+Thư viện frontend load qua CDN (Bootstrap 5, Tailwind CDN chỉ cho khung sườn — tắt Preflight để không xung đột với Bootstrap, jQuery, DataTables, PapaParse, marked.js, Chart.js, Lucide Icons) — không cần build, không cần cài đặt gì.
+
+### Quy ước UI (giữ khi sửa giao diện)
+
+- Dark mode theo palette CSS variables trong `:root` (`style.css`): nền `#0F172A`, card `#1E293B`, border `#334155`, chữ `#F8FAFC`, phụ `#94A3B8`, primary `#3B82F6`, success `#22C55E`, warning `#F59E0B`, danger `#EF4444` — đổi theme chỉ sửa một chỗ. Font Inter, số dùng `tabular-nums`.
+- **Các ID mà `app.js` phụ thuộc, KHÔNG đổi tên:** `ai-report`, `report-date`, `last-updated`, `filter-exchange`, `filter-industry`, `market-table`, `table-status`.
+- **Khung sườn dùng chung**: mỗi trang khai `<body data-page="...">` + link sidebar khai `data-nav="..."` — `shell.js` dựa vào 2 attribute này để tô sáng trang hiện tại, KHÔNG đổi tên/xoá. Bảng DataTables style qua class dùng chung `.vs-datatable` (không phải id riêng như `#market-table` trước đây) để áp được cho mọi bảng trong site.
+- Layout 2 cột co giãn dùng `data-resizable` + `data-resize-key="..."` (đọc bởi `resizable-panels.js`) — key phải riêng biệt mỗi trang vì state lưu chung trong `localStorage`.
+- Escape HTML mọi dữ liệu động trước khi chèn DOM (chống vỡ layout/XSS từ dữ liệu).
+- Tên cột hiển thị tiếng Việt qua `COLUMN_LABELS` trong `app.js` — field gốc CSV giữ nguyên nên lọc/sort không đổi. Giá đóng cửa định dạng `15.400`, ngày `dd/mm/yyyy`.
+- Lịch sử refactor chi tiết: xem [CHANGELOG_UI.md](../CHANGELOG_UI.md).
+
+---
+
+*Xem thêm: [CLI_REFERENCE.md](CLI_REFERENCE.md) · [DATA_PIPELINE.md](DATA_PIPELINE.md) · [USER_GUIDE.md](USER_GUIDE.md)*

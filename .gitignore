@@ -33,7 +33,8 @@ ai_report_2*.json
 ai_report_2*.md
 ai_prompt_preview.txt
 # Code pipeline ở LOCAL — repo này là WEBSITE (đã dọn .py khỏi remote 10/07).
-# Lưu ý: README.md từ 11/07 gộp cả tài liệu vận hành pipeline (TRACKED — sẽ public khi push)
+# Lưu ý: tài liệu vận hành pipeline (TRACKED — public khi push) từ 12/07 nằm ở docs/
+# (README.md giờ chỉ là landing page, xem docs/USER_GUIDE.md + docs/CLI_REFERENCE.md)
 *.py
 # ...trừ bộ test hồi quy (fixture bịa, không có dữ liệu thật — commit kèm repo 12/07;
 # lưu ý test cần stock_analyzer.py nằm cạnh nên chỉ chạy được trên máy local)
@@ -45,13 +46,57 @@ ta_signals.json
 *.xlsx
 logs/
 archive_md5_cache.json
-# Output cá nhân của stock_analyzer.py (nếu sau này dashboard cần analysis_latest.json
-# thì bỏ dòng ignore tương ứng + để publish_dashboard tự bóc whitelist)
-analysis_latest.json
+# Output cá nhân của stock_analyzer.py.
+# analysis_latest.json: đã BỎ ignore (12/07/2026) — analysis.html/analysis.js dùng nó làm
+# nguồn DUY NHẤT (không có fallback .js như signals.html/screener.html), nên nó là dữ liệu
+# WEB CẦN, không phải output cá nhân; publish_dashboard.py tự bóc whitelist từ analysis.html.
+# analysis_latest.md vẫn ignore — chỉ để đọc tay, không trang nào tham chiếu.
 analysis_latest.md
 Focus_Analysis.md
 Market_Scan.md
 Market_Scan.csv
+
+# --------------------------------------------------------------------------
+# Bổ sung 2026-07-12 — gộp FINANCIAL_REPORT (nhánh BCTC) vào VNSTOCK.
+# Toàn bộ dữ liệu BCTC là tài sản dữ liệu cá nhân, KHÔNG được lên GitHub Pages,
+# y hệt nguyên tắc vn_stock.db/*.parquet ở đầu file.
+data_bctc/
+financial_snapshot.csv
+financial_snapshot.parquet
+# ^ *.parquet ở dòng 9 đã chặn financial_snapshot.parquet + toàn bộ data_bctc/*.parquet
+#   rồi, ghi rõ tên ở đây là lớp phòng thủ tường minh thêm — đừng dựa mỗi vào rule chung.
+tickers_bctc.txt
+config.json
+docs/AUDIT_REPORT.md
+docs/VALIDATION_REPORT.md
+# --------------------------------------------------------------------------
+
+# Bổ sung 2026-07-12 (b) — dọn repo trước khi public hoá trên GitHub.
+# Ghi chú làm việc cá nhân — nội dung nội bộ (quyết định đang chờ, nhật ký phiên làm việc),
+# không thuộc tài liệu vận hành công khai. KHÔNG xoá — chỉ chặn khỏi git.
+NOTES_FOR_TUNG.md
+NOTES_FOR_TUNG_SHAREHOLDERS.md
+
+# Rác IDE / hệ điều hành thường gặp (chưa phát sinh trong repo này, chặn phòng ngừa
+# cho người sau clone bằng editor/OS khác)
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+*.bak
+*.swp
+~$*
+# --------------------------------------------------------------------------
+
+# --------------------------------------------------------------------------
+# Bổ sung 2026-07-13 (c) — chặn reports/ sau khi phát hiện dữ liệu tài chính
+# thật (mã PAN) bị lọt vào lịch sử git local qua nhánh migration missing-data.
+# reports/ chứa số liệu BCTC thật trích xuất cho việc audit/rebuild snapshot
+# (EBIT/SGA/retained_earnings/OCF...) — CÙNG NGUYÊN TẮC với financial_snapshot.*
+# ở trên: dữ liệu cá nhân, KHÔNG được lên GitHub. File vẫn giữ nguyên trên đĩa
+# để dùng cục bộ, chỉ chặn khỏi git.
+reports/
+# --------------------------------------------------------------------------
 
 # LƯU Ý CÓ CHỦ ĐÍCH — những thứ KHÔNG ignore vì web cần:
 #   data/                -> candle_signals/sector_heatmap/screener_data (dashboard sống bằng nó)

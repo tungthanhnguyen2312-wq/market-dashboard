@@ -9,7 +9,10 @@ REM  Luu y: file nay dung tieng Viet khong dau de tranh loi
 REM  encoding cua cmd.exe voi file .bat
 REM ============================================================
 
-set "SRC=C:\Users\tungt\OneDrive\Desktop\DATA PYTHON\VNSTOCK"
+REM SRC = DEST = thu muc chua file .bat nay (khong hardcode ten user/duong dan
+REM tuyet doi, script chay duoc tren may nao/username nao cung duoc)
+set "SRC=%~dp0"
+set "SRC=%SRC:~0,-1%"
 set "DEST=%~dp0"
 
 cd /d "%DEST%"
