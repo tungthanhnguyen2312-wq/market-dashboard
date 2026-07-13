@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-11 18:55",
+  "generated_at": "2026-07-12 22:13",
   "scan_date": "2026-07-10",
   "watchlist": [
     {
@@ -368,26 +368,6 @@
       "rs_rating": 35.0,
       "rel_vol": 0.34,
       "gtgd20_ty": 4.995,
-      "margin_status": null
-    },
-    {
-      "ticker": "VCG",
-      "date": "2026-07-10",
-      "close": 20300.0,
-      "volume": 3846400,
-      "patterns": [
-        "bearish_engulfing"
-      ],
-      "smc": [
-        "ob_bear",
-        "fvg_bull"
-      ],
-      "confluence": true,
-      "direction": "bearish",
-      "industry": "Xây dựng và Vật liệu",
-      "rs_rating": 35.0,
-      "rel_vol": 1.08,
-      "gtgd20_ty": 72.713,
       "margin_status": null
     },
     {
@@ -2034,23 +2014,6 @@
       "rs_rating": 78.0,
       "rel_vol": 0.65,
       "gtgd20_ty": 181.527,
-      "margin_status": null
-    },
-    {
-      "ticker": "PSP",
-      "date": "2026-07-10",
-      "close": 17000.0,
-      "volume": 2000,
-      "patterns": [
-        "hammer"
-      ],
-      "smc": [],
-      "confluence": false,
-      "direction": "bullish",
-      "industry": "Hàng & Dịch vụ Công nghiệp",
-      "rs_rating": 78.0,
-      "rel_vol": 1.41,
-      "gtgd20_ty": 0.023,
       "margin_status": null
     },
     {
@@ -4023,23 +3986,6 @@
       "margin_status": "warning"
     },
     {
-      "ticker": "DQC",
-      "date": "2026-07-10",
-      "close": 10200.0,
-      "volume": 22400,
-      "patterns": [],
-      "smc": [
-        "fvg_bear"
-      ],
-      "confluence": false,
-      "direction": "bearish",
-      "industry": "Hàng cá nhân & Gia dụng",
-      "rs_rating": 62.0,
-      "rel_vol": 3.64,
-      "gtgd20_ty": 0.06,
-      "margin_status": "control"
-    },
-    {
       "ticker": "DSE",
       "date": "2026-07-10",
       "close": 23050.0,
@@ -4263,23 +4209,6 @@
       "rs_rating": 61.0,
       "rel_vol": 3.66,
       "gtgd20_ty": 0.178,
-      "margin_status": null
-    },
-    {
-      "ticker": "SHP",
-      "date": "2026-07-10",
-      "close": 32900.0,
-      "volume": 300,
-      "patterns": [],
-      "smc": [
-        "ob_bull"
-      ],
-      "confluence": false,
-      "direction": "bullish",
-      "industry": "Điện, nước & xăng dầu khí đốt",
-      "rs_rating": 61.0,
-      "rel_vol": 0.06,
-      "gtgd20_ty": 0.156,
       "margin_status": null
     },
     {
@@ -6137,11 +6066,10 @@
       "volume": 3000,
       "patterns": [],
       "smc": [
-        "ob_bull",
-        "ob_bear"
+        "ob_bull"
       ],
       "confluence": false,
-      "direction": "neutral",
+      "direction": "bullish",
       "industry": "Điện, nước & xăng dầu khí đốt",
       "rs_rating": 48.0,
       "rel_vol": 0.31,
@@ -6233,23 +6161,6 @@
       "rs_rating": 48.0,
       "rel_vol": 1.17,
       "gtgd20_ty": 0.019,
-      "margin_status": null
-    },
-    {
-      "ticker": "VGT",
-      "date": "2026-07-10",
-      "close": 11500.0,
-      "volume": 245300,
-      "patterns": [],
-      "smc": [
-        "ob_bear"
-      ],
-      "confluence": false,
-      "direction": "bearish",
-      "industry": "Hàng cá nhân & Gia dụng",
-      "rs_rating": 48.0,
-      "rel_vol": 0.74,
-      "gtgd20_ty": 3.81,
       "margin_status": null
     },
     {
@@ -6633,11 +6544,10 @@
       "patterns": [],
       "smc": [
         "ob_bull",
-        "ob_bear",
         "fvg_bear"
       ],
       "confluence": false,
-      "direction": "bearish",
+      "direction": "neutral",
       "industry": "Du lịch và Giải trí",
       "rs_rating": 45.0,
       "rel_vol": 1.11,
@@ -8148,6 +8058,25 @@
       "rs_rating": 35.0,
       "rel_vol": 0.77,
       "gtgd20_ty": 0.967,
+      "margin_status": null
+    },
+    {
+      "ticker": "VCG",
+      "date": "2026-07-10",
+      "close": 20300.0,
+      "volume": 3846400,
+      "patterns": [
+        "bearish_engulfing"
+      ],
+      "smc": [
+        "fvg_bull"
+      ],
+      "confluence": false,
+      "direction": "neutral",
+      "industry": "Xây dựng và Vật liệu",
+      "rs_rating": 35.0,
+      "rel_vol": 1.08,
+      "gtgd20_ty": 72.713,
       "margin_status": null
     },
     {
@@ -9800,23 +9729,6 @@
       "rs_rating": 24.0,
       "rel_vol": 0.51,
       "gtgd20_ty": 2.79,
-      "margin_status": null
-    },
-    {
-      "ticker": "MCO",
-      "date": "2026-07-10",
-      "close": 5300.0,
-      "volume": 5700,
-      "patterns": [],
-      "smc": [
-        "fvg_bull"
-      ],
-      "confluence": false,
-      "direction": "bullish",
-      "industry": "Xây dựng và Vật liệu",
-      "rs_rating": 24.0,
-      "rel_vol": 0.57,
-      "gtgd20_ty": 0.058,
       "margin_status": null
     },
     {
@@ -11701,8 +11613,404 @@
       "margin_status": null
     }
   ],
-  "dividend_note": "31/1683 mã đã có dữ liệu cổ tức — chạy `python meta_sync.py --ratio-only` để phủ nốt",
+  "dividend_note": "1407/1683 mã đã có dữ liệu cổ tức — chạy `python meta_sync.py --ratio-only` để phủ nốt",
   "dividend_investing": [
+    {
+      "ticker": "BTH",
+      "close": 21500.0,
+      "dividend_yield": 97.0,
+      "pe": 3.45,
+      "pb": 1.33,
+      "roe": 35.67,
+      "industry": "Hàng & Dịch vụ Công nghiệp"
+    },
+    {
+      "ticker": "VEF",
+      "close": 81700.0,
+      "dividend_yield": 58.0,
+      "pe": 1.42,
+      "pb": 3.27,
+      "roe": 138.88,
+      "industry": "Bất động sản"
+    },
+    {
+      "ticker": "SSG",
+      "close": 7100.0,
+      "dividend_yield": 44.0,
+      "pe": 77.04,
+      "pb": 0.76,
+      "roe": 0.0,
+      "industry": "Hàng & Dịch vụ Công nghiệp"
+    },
+    {
+      "ticker": "QPH",
+      "close": 34000.0,
+      "dividend_yield": 41.0,
+      "pe": 8.15,
+      "pb": 2.21,
+      "roe": 18.79,
+      "industry": "Điện, nước & xăng dầu khí đốt"
+    },
+    {
+      "ticker": "GVT",
+      "close": 78000.0,
+      "dividend_yield": 31.0,
+      "pe": 9.76,
+      "pb": 0.8,
+      "roe": 0.0,
+      "industry": "Tài nguyên Cơ bản"
+    },
+    {
+      "ticker": "ABR",
+      "close": 11300.0,
+      "dividend_yield": 31.0,
+      "pe": 16.64,
+      "pb": 1.12,
+      "roe": 5.86,
+      "industry": "Hàng & Dịch vụ Công nghiệp"
+    },
+    {
+      "ticker": "D2D",
+      "close": 30050.0,
+      "dividend_yield": 24.0,
+      "pe": 4.42,
+      "pb": 1.48,
+      "roe": 33.22,
+      "industry": "Bất động sản"
+    },
+    {
+      "ticker": "CAT",
+      "close": 14800.0,
+      "dividend_yield": 24.0,
+      "pe": 12.19,
+      "pb": 0.8,
+      "roe": 0.0,
+      "industry": "Thực phẩm và đồ uống"
+    },
+    {
+      "ticker": "VRG",
+      "close": 14400.0,
+      "dividend_yield": 19.0,
+      "pe": 12.92,
+      "pb": 1.33,
+      "roe": 9.86,
+      "industry": "Bất động sản"
+    },
+    {
+      "ticker": "LPT",
+      "close": 7700.0,
+      "dividend_yield": 17.0,
+      "pe": 7.66,
+      "pb": 0.45,
+      "roe": 5.99,
+      "industry": "Hàng & Dịch vụ Công nghiệp"
+    },
+    {
+      "ticker": "VCF",
+      "close": 297400.0,
+      "dividend_yield": 17.0,
+      "pe": 14.75,
+      "pb": 6.72,
+      "roe": 27.4,
+      "industry": "Thực phẩm và đồ uống"
+    },
+    {
+      "ticker": "VDL",
+      "close": 8900.0,
+      "dividend_yield": 16.0,
+      "pe": 17.35,
+      "pb": 0.85,
+      "roe": 4.86,
+      "industry": "Thực phẩm và đồ uống"
+    },
+    {
+      "ticker": "FOC",
+      "close": 71900.0,
+      "dividend_yield": 16.0,
+      "pe": 7.47,
+      "pb": 1.52,
+      "roe": 20.67,
+      "industry": "Truyền thông"
+    },
+    {
+      "ticker": "PVO",
+      "close": 6000.0,
+      "dividend_yield": 16.0,
+      "pe": 67.19,
+      "pb": 0.59,
+      "roe": 0.0,
+      "industry": "Hóa chất"
+    },
+    {
+      "ticker": "SFI",
+      "close": 28500.0,
+      "dividend_yield": 16.0,
+      "pe": 6.57,
+      "pb": 0.79,
+      "roe": 11.81,
+      "industry": "Hàng & Dịch vụ Công nghiệp"
+    },
+    {
+      "ticker": "ADP",
+      "close": 22900.0,
+      "dividend_yield": 15.0,
+      "pe": 6.96,
+      "pb": 2.01,
+      "roe": 27.22,
+      "industry": "Xây dựng và Vật liệu"
+    },
+    {
+      "ticker": "PAT",
+      "close": 63200.0,
+      "dividend_yield": 15.0,
+      "pe": 5.81,
+      "pb": 3.42,
+      "roe": 53.71,
+      "industry": "Hóa chất"
+    },
+    {
+      "ticker": "HPB",
+      "close": 21000.0,
+      "dividend_yield": 14.0,
+      "pe": 2.75,
+      "pb": 0.0,
+      "roe": 0.0,
+      "industry": "Hàng & Dịch vụ Công nghiệp"
+    },
+    {
+      "ticker": "VLB",
+      "close": 50000.0,
+      "dividend_yield": 14.0,
+      "pe": 7.46,
+      "pb": 3.19,
+      "roe": 41.11,
+      "industry": "Xây dựng và Vật liệu"
+    },
+    {
+      "ticker": "SMB",
+      "close": 38700.0,
+      "dividend_yield": 14.0,
+      "pe": 6.73,
+      "pb": 1.89,
+      "roe": 27.52,
+      "industry": "Thực phẩm và đồ uống"
+    },
+    {
+      "ticker": "SVT",
+      "close": 10500.0,
+      "dividend_yield": 14.0,
+      "pe": 7.11,
+      "pb": 0.81,
+      "roe": 11.38,
+      "industry": "Bán lẻ"
+    },
+    {
+      "ticker": "TOT",
+      "close": 14900.0,
+      "dividend_yield": 13.0,
+      "pe": 5.89,
+      "pb": 1.03,
+      "roe": 18.22,
+      "industry": "Hàng & Dịch vụ Công nghiệp"
+    },
+    {
+      "ticker": "PCE",
+      "close": 19500.0,
+      "dividend_yield": 13.0,
+      "pe": 7.37,
+      "pb": 0.99,
+      "roe": 12.84,
+      "industry": "Hóa chất"
+    },
+    {
+      "ticker": "DIH",
+      "close": 7500.0,
+      "dividend_yield": 13.0,
+      "pe": 4.77,
+      "pb": 0.62,
+      "roe": 12.25,
+      "industry": "Xây dựng và Vật liệu"
+    },
+    {
+      "ticker": "HTL",
+      "close": 21500.0,
+      "dividend_yield": 13.0,
+      "pe": 11.29,
+      "pb": 1.66,
+      "roe": 13.49,
+      "industry": "Ô tô và phụ tùng"
+    },
+    {
+      "ticker": "NTH",
+      "close": 54000.0,
+      "dividend_yield": 13.0,
+      "pe": 8.78,
+      "pb": 3.46,
+      "roe": 37.58,
+      "industry": "Điện, nước & xăng dầu khí đốt"
+    },
+    {
+      "ticker": "TNG",
+      "close": 18600.0,
+      "dividend_yield": 12.0,
+      "pe": 5.73,
+      "pb": 1.17,
+      "roe": 20.44,
+      "industry": "Hàng cá nhân & Gia dụng"
+    },
+    {
+      "ticker": "DVP",
+      "close": 71500.0,
+      "dividend_yield": 12.0,
+      "pe": 7.97,
+      "pb": 1.84,
+      "roe": 24.6,
+      "industry": "Hàng & Dịch vụ Công nghiệp"
+    },
+    {
+      "ticker": "GMX",
+      "close": 16300.0,
+      "dividend_yield": 12.0,
+      "pe": 7.62,
+      "pb": 1.17,
+      "roe": 14.94,
+      "industry": "Xây dựng và Vật liệu"
+    },
+    {
+      "ticker": "CTB",
+      "close": 17600.0,
+      "dividend_yield": 12.0,
+      "pe": 6.24,
+      "pb": 1.11,
+      "roe": 12.55,
+      "industry": "Hàng & Dịch vụ Công nghiệp"
+    },
+    {
+      "ticker": "ACE",
+      "close": 36300.0,
+      "dividend_yield": 12.0,
+      "pe": 7.83,
+      "pb": 0.0,
+      "roe": 0.0,
+      "industry": "Xây dựng và Vật liệu"
+    },
+    {
+      "ticker": "PPH",
+      "close": 26500.0,
+      "dividend_yield": 12.0,
+      "pe": 4.56,
+      "pb": 0.99,
+      "roe": 22.9,
+      "industry": "Hàng cá nhân & Gia dụng"
+    },
+    {
+      "ticker": "MSH",
+      "close": 31900.0,
+      "dividend_yield": 12.0,
+      "pe": 4.62,
+      "pb": 1.65,
+      "roe": 33.55,
+      "industry": "Hàng cá nhân & Gia dụng"
+    },
+    {
+      "ticker": "TA9",
+      "close": 10200.0,
+      "dividend_yield": 12.0,
+      "pe": 5.79,
+      "pb": 0.91,
+      "roe": 16.25,
+      "industry": "Xây dựng và Vật liệu"
+    },
+    {
+      "ticker": "SJD",
+      "close": 14000.0,
+      "dividend_yield": 12.0,
+      "pe": 6.04,
+      "pb": 0.91,
+      "roe": 15.82,
+      "industry": "Điện, nước & xăng dầu khí đốt"
+    },
+    {
+      "ticker": "DRL",
+      "close": 43900.0,
+      "dividend_yield": 11.0,
+      "pe": 8.88,
+      "pb": 3.97,
+      "roe": 42.86,
+      "industry": "Điện, nước & xăng dầu khí đốt"
+    },
+    {
+      "ticker": "DAD",
+      "close": 15400.0,
+      "dividend_yield": 11.0,
+      "pe": 8.17,
+      "pb": 0.88,
+      "roe": 10.9,
+      "industry": "Truyền thông"
+    },
+    {
+      "ticker": "CLH",
+      "close": 20300.0,
+      "dividend_yield": 11.0,
+      "pe": 6.23,
+      "pb": 1.28,
+      "roe": 21.77,
+      "industry": "Xây dựng và Vật liệu"
+    },
+    {
+      "ticker": "HD2",
+      "close": 9300.0,
+      "dividend_yield": 11.0,
+      "pe": 7.39,
+      "pb": 0.85,
+      "roe": 0.0,
+      "industry": "Bất động sản"
+    },
+    {
+      "ticker": "SWC",
+      "close": 24100.0,
+      "dividend_yield": 11.0,
+      "pe": 7.02,
+      "pb": 1.11,
+      "roe": 15.86,
+      "industry": "Hàng & Dịch vụ Công nghiệp"
+    },
+    {
+      "ticker": "HSP",
+      "close": 14400.0,
+      "dividend_yield": 11.0,
+      "pe": 9.55,
+      "pb": 0.87,
+      "roe": 9.29,
+      "industry": "Xây dựng và Vật liệu"
+    },
+    {
+      "ticker": "SCS",
+      "close": 48500.0,
+      "dividend_yield": 11.0,
+      "pe": 6.82,
+      "pb": 3.36,
+      "roe": 48.5,
+      "industry": "Du lịch và Giải trí"
+    },
+    {
+      "ticker": "SDK",
+      "close": 11300.0,
+      "dividend_yield": 11.0,
+      "pe": 16.57,
+      "pb": 1.78,
+      "roe": 0.0,
+      "industry": "Hàng & Dịch vụ Công nghiệp"
+    },
+    {
+      "ticker": "VNS",
+      "close": 7970.0,
+      "dividend_yield": 11.0,
+      "pe": 16.14,
+      "pb": 0.55,
+      "roe": 3.4,
+      "industry": "Du lịch và Giải trí"
+    },
     {
       "ticker": "WTC",
       "close": 9700.0,
@@ -11710,6 +12018,357 @@
       "pe": 167.61,
       "pb": 0.56,
       "roe": 0.0,
+      "industry": "Hàng & Dịch vụ Công nghiệp"
+    },
+    {
+      "ticker": "TIP",
+      "close": 17800.0,
+      "dividend_yield": 11.0,
+      "pe": 5.39,
+      "pb": 0.61,
+      "roe": 11.86,
+      "industry": "Bất động sản"
+    },
+    {
+      "ticker": "CPC",
+      "close": 16000.0,
+      "dividend_yield": 10.0,
+      "pe": 9.12,
+      "pb": 0.83,
+      "roe": 8.98,
+      "industry": "Hóa chất"
+    },
+    {
+      "ticker": "L12",
+      "close": 4800.0,
+      "dividend_yield": 10.0,
+      "pe": 14.19,
+      "pb": 0.34,
+      "roe": 0.0,
+      "industry": "Xây dựng và Vật liệu"
+    },
+    {
+      "ticker": "PIS",
+      "close": 11100.0,
+      "dividend_yield": 10.0,
+      "pe": 12.01,
+      "pb": 0.64,
+      "roe": 7.11,
+      "industry": "Tài nguyên Cơ bản"
+    },
+    {
+      "ticker": "PPS",
+      "close": 10900.0,
+      "dividend_yield": 10.0,
+      "pe": 10.32,
+      "pb": 0.82,
+      "roe": 8.13,
+      "industry": "Hàng & Dịch vụ Công nghiệp"
+    },
+    {
+      "ticker": "PTX",
+      "close": 15700.0,
+      "dividend_yield": 10.0,
+      "pe": 10.52,
+      "pb": 1.51,
+      "roe": 0.0,
+      "industry": "Điện, nước & xăng dầu khí đốt"
+    },
+    {
+      "ticker": "STP",
+      "close": 7500.0,
+      "dividend_yield": 10.0,
+      "pe": 8.2,
+      "pb": 0.46,
+      "roe": 5.64,
+      "industry": "Hàng & Dịch vụ Công nghiệp"
+    },
+    {
+      "ticker": "SMN",
+      "close": 7000.0,
+      "dividend_yield": 10.0,
+      "pe": 13.43,
+      "pb": 0.61,
+      "roe": 4.44,
+      "industry": "Truyền thông"
+    },
+    {
+      "ticker": "NAV",
+      "close": 14500.0,
+      "dividend_yield": 10.0,
+      "pe": 9.35,
+      "pb": 1.34,
+      "roe": 14.16,
+      "industry": "Xây dựng và Vật liệu"
+    },
+    {
+      "ticker": "NET",
+      "close": 66000.0,
+      "dividend_yield": 10.0,
+      "pe": 9.57,
+      "pb": 2.8,
+      "roe": 26.72,
+      "industry": "Hàng cá nhân & Gia dụng"
+    },
+    {
+      "ticker": "SED",
+      "close": 15900.0,
+      "dividend_yield": 10.0,
+      "pe": 5.34,
+      "pb": 0.56,
+      "roe": 10.49,
+      "industry": "Truyền thông"
+    },
+    {
+      "ticker": "VFG",
+      "close": 46600.0,
+      "dividend_yield": 10.0,
+      "pe": 6.51,
+      "pb": 1.28,
+      "roe": 21.05,
+      "industry": "Hóa chất"
+    },
+    {
+      "ticker": "VNF",
+      "close": 13000.0,
+      "dividend_yield": 10.0,
+      "pe": 8.31,
+      "pb": 0.78,
+      "roe": 9.98,
+      "industry": "Hàng & Dịch vụ Công nghiệp"
+    },
+    {
+      "ticker": "VID",
+      "close": 4700.0,
+      "dividend_yield": 10.0,
+      "pe": 31.68,
+      "pb": 0.32,
+      "roe": 1.31,
+      "industry": "Tài nguyên Cơ bản"
+    },
+    {
+      "ticker": "TDB",
+      "close": 38200.0,
+      "dividend_yield": 10.0,
+      "pe": 14.69,
+      "pb": 0.56,
+      "roe": 0.0,
+      "industry": "Điện, nước & xăng dầu khí đốt"
+    },
+    {
+      "ticker": "BRC",
+      "close": 12400.0,
+      "dividend_yield": 10.0,
+      "pe": 7.58,
+      "pb": 0.73,
+      "roe": 9.59,
+      "industry": "Hóa chất"
+    },
+    {
+      "ticker": "BRS",
+      "close": 25500.0,
+      "dividend_yield": 10.0,
+      "pe": -227.98,
+      "pb": 1.03,
+      "roe": 0.0,
+      "industry": "Hàng & Dịch vụ Công nghiệp"
+    },
+    {
+      "ticker": "AMC",
+      "close": 12400.0,
+      "dividend_yield": 10.0,
+      "pe": 5.77,
+      "pb": 0.68,
+      "roe": 12.03,
+      "industry": "Tài nguyên Cơ bản"
+    },
+    {
+      "ticker": "HAX",
+      "close": 9450.0,
+      "dividend_yield": 10.0,
+      "pe": 198.84,
+      "pb": 0.82,
+      "roe": 0.5,
+      "industry": "Ô tô và phụ tùng"
+    },
+    {
+      "ticker": "HGM",
+      "close": 146000.0,
+      "dividend_yield": 10.0,
+      "pe": 6.31,
+      "pb": 6.35,
+      "roe": 100.8,
+      "industry": "Tài nguyên Cơ bản"
+    },
+    {
+      "ticker": "HAT",
+      "close": 30000.0,
+      "dividend_yield": 10.0,
+      "pe": 7.47,
+      "pb": 1.29,
+      "roe": 17.87,
+      "industry": "Thực phẩm và đồ uống"
+    },
+    {
+      "ticker": "IFS",
+      "close": 19700.0,
+      "dividend_yield": 10.0,
+      "pe": 12.82,
+      "pb": 1.52,
+      "roe": 11.42,
+      "industry": "Thực phẩm và đồ uống"
+    },
+    {
+      "ticker": "NAS",
+      "close": 32000.0,
+      "dividend_yield": 10.0,
+      "pe": 38.08,
+      "pb": 1.3,
+      "roe": 0.0,
+      "industry": "Hàng & Dịch vụ Công nghiệp"
+    },
+    {
+      "ticker": "CKD",
+      "close": 22400.0,
+      "dividend_yield": 9.0,
+      "pe": 5.74,
+      "pb": 1.2,
+      "roe": 23.36,
+      "industry": "Hàng & Dịch vụ Công nghiệp"
+    },
+    {
+      "ticker": "BMC",
+      "close": 12450.0,
+      "dividend_yield": 9.0,
+      "pe": 15.87,
+      "pb": 0.8,
+      "roe": 5.05,
+      "industry": "Tài nguyên Cơ bản"
+    },
+    {
+      "ticker": "PMS",
+      "close": 35200.0,
+      "dividend_yield": 9.0,
+      "pe": 7.67,
+      "pb": 1.37,
+      "roe": 18.27,
+      "industry": "Hàng & Dịch vụ Công nghiệp"
+    },
+    {
+      "ticker": "CLL",
+      "close": 30100.0,
+      "dividend_yield": 9.0,
+      "pe": 10.43,
+      "pb": 1.65,
+      "roe": 16.63,
+      "industry": "Hàng & Dịch vụ Công nghiệp"
+    },
+    {
+      "ticker": "CCA",
+      "close": 13000.0,
+      "dividend_yield": 9.0,
+      "pe": 5.28,
+      "pb": 0.92,
+      "roe": 15.57,
+      "industry": "Thực phẩm và đồ uống"
+    },
+    {
+      "ticker": "EID",
+      "close": 20300.0,
+      "dividend_yield": 9.0,
+      "pe": 5.73,
+      "pb": 0.71,
+      "roe": 13.0,
+      "industry": "Truyền thông"
+    },
+    {
+      "ticker": "BHP",
+      "close": 6400.0,
+      "dividend_yield": 9.0,
+      "pe": -34.95,
+      "pb": 0.0,
+      "roe": 0.0,
+      "industry": "Thực phẩm và đồ uống"
+    },
+    {
+      "ticker": "NCT",
+      "close": 94900.0,
+      "dividend_yield": 9.0,
+      "pe": 6.06,
+      "pb": 3.3,
+      "roe": 55.14,
+      "industry": "Hàng & Dịch vụ Công nghiệp"
+    },
+    {
+      "ticker": "NBT",
+      "close": 14200.0,
+      "dividend_yield": 9.0,
+      "pe": 9.54,
+      "pb": 1.19,
+      "roe": 12.45,
+      "industry": "Điện, nước & xăng dầu khí đốt"
+    },
+    {
+      "ticker": "SAS",
+      "close": 37100.0,
+      "dividend_yield": 9.0,
+      "pe": 6.04,
+      "pb": 2.24,
+      "roe": 38.83,
+      "industry": "Bán lẻ"
+    },
+    {
+      "ticker": "NO1",
+      "close": 5080.0,
+      "dividend_yield": 9.0,
+      "pe": 7.27,
+      "pb": 0.47,
+      "roe": 6.68,
+      "industry": "Hàng & Dịch vụ Công nghiệp"
+    },
+    {
+      "ticker": "NST",
+      "close": 12400.0,
+      "dividend_yield": 9.0,
+      "pe": 5.34,
+      "pb": 0.67,
+      "roe": 12.8,
+      "industry": "Hàng cá nhân & Gia dụng"
+    },
+    {
+      "ticker": "QNS",
+      "close": 48500.0,
+      "dividend_yield": 9.0,
+      "pe": 8.98,
+      "pb": 1.62,
+      "roe": 18.89,
+      "industry": "Thực phẩm và đồ uống"
+    },
+    {
+      "ticker": "VCS",
+      "close": 34300.0,
+      "dividend_yield": 9.0,
+      "pe": 9.86,
+      "pb": 1.33,
+      "roe": 13.37,
+      "industry": "Xây dựng và Vật liệu"
+    },
+    {
+      "ticker": "VNP",
+      "close": 17200.0,
+      "dividend_yield": 9.0,
+      "pe": 22.2,
+      "pb": 1.5,
+      "roe": 6.57,
+      "industry": "Hóa chất"
+    },
+    {
+      "ticker": "VOS",
+      "close": 11900.0,
+      "dividend_yield": 9.0,
+      "pe": 5.67,
+      "pb": 0.82,
+      "roe": 15.8,
       "industry": "Hàng & Dịch vụ Công nghiệp"
     },
     {
@@ -11722,6 +12381,24 @@
       "industry": "Hàng & Dịch vụ Công nghiệp"
     },
     {
+      "ticker": "VLG",
+      "close": 7300.0,
+      "dividend_yield": 9.0,
+      "pe": 18.8,
+      "pb": 0.73,
+      "roe": 3.82,
+      "industry": "Hàng & Dịch vụ Công nghiệp"
+    },
+    {
+      "ticker": "VBC",
+      "close": 19000.0,
+      "dividend_yield": 9.0,
+      "pe": 5.62,
+      "pb": 0.9,
+      "roe": 16.47,
+      "industry": "Hàng & Dịch vụ Công nghiệp"
+    },
+    {
       "ticker": "WSB",
       "close": 55900.0,
       "dividend_yield": 9.0,
@@ -11729,6 +12406,78 @@
       "pb": 1.04,
       "roe": 12.69,
       "industry": "Thực phẩm và đồ uống"
+    },
+    {
+      "ticker": "BWS",
+      "close": 33000.0,
+      "dividend_yield": 9.0,
+      "pe": 12.58,
+      "pb": 3.07,
+      "roe": 23.98,
+      "industry": "Điện, nước & xăng dầu khí đốt"
+    },
+    {
+      "ticker": "PSE",
+      "close": 10900.0,
+      "dividend_yield": 9.0,
+      "pe": 8.01,
+      "pb": 0.76,
+      "roe": 9.39,
+      "industry": "Hóa chất"
+    },
+    {
+      "ticker": "MCF",
+      "close": 7100.0,
+      "dividend_yield": 9.0,
+      "pe": 7.76,
+      "pb": 0.66,
+      "roe": 8.71,
+      "industry": "Thực phẩm và đồ uống"
+    },
+    {
+      "ticker": "SD9",
+      "close": 10800.0,
+      "dividend_yield": 9.0,
+      "pe": 12.46,
+      "pb": 0.45,
+      "roe": 4.51,
+      "industry": "Xây dựng và Vật liệu"
+    },
+    {
+      "ticker": "STC",
+      "close": 13500.0,
+      "dividend_yield": 9.0,
+      "pe": 8.54,
+      "pb": 0.66,
+      "roe": 7.81,
+      "industry": "Truyền thông"
+    },
+    {
+      "ticker": "VNM",
+      "close": 56600.0,
+      "dividend_yield": 8.0,
+      "pe": 13.59,
+      "pb": 3.71,
+      "roe": 28.9,
+      "industry": "Thực phẩm và đồ uống"
+    },
+    {
+      "ticker": "VIP",
+      "close": 10250.0,
+      "dividend_yield": 8.0,
+      "pe": 9.73,
+      "pb": 0.65,
+      "roe": 6.71,
+      "industry": "Hàng & Dịch vụ Công nghiệp"
+    },
+    {
+      "ticker": "TRA",
+      "close": 80200.0,
+      "dividend_yield": 8.0,
+      "pe": 12.45,
+      "pb": 1.84,
+      "roe": 17.03,
+      "industry": "Y tế"
     },
     {
       "ticker": "X20",
@@ -11747,6 +12496,591 @@
       "pb": 1.08,
       "roe": 0.23,
       "industry": "Du lịch và Giải trí"
+    },
+    {
+      "ticker": "VNL",
+      "close": 18850.0,
+      "dividend_yield": 8.0,
+      "pe": 5.13,
+      "pb": 0.89,
+      "roe": 17.94,
+      "industry": "Hàng & Dịch vụ Công nghiệp"
+    },
+    {
+      "ticker": "MTS",
+      "close": 9000.0,
+      "dividend_yield": 8.0,
+      "pe": 6.28,
+      "pb": 0.75,
+      "roe": 12.25,
+      "industry": "Hàng & Dịch vụ Công nghiệp"
+    },
+    {
+      "ticker": "PRE",
+      "close": 27600.0,
+      "dividend_yield": 8.0,
+      "pe": 9.45,
+      "pb": 2.14,
+      "roe": 13.94,
+      "industry": "Bảo hiểm"
+    },
+    {
+      "ticker": "PGC",
+      "close": 12200.0,
+      "dividend_yield": 8.0,
+      "pe": 7.26,
+      "pb": 0.92,
+      "roe": 13.05,
+      "industry": "Điện, nước & xăng dầu khí đốt"
+    },
+    {
+      "ticker": "SEB",
+      "close": 42300.0,
+      "dividend_yield": 8.0,
+      "pe": 11.56,
+      "pb": 2.26,
+      "roe": 26.7,
+      "industry": "Điện, nước & xăng dầu khí đốt"
+    },
+    {
+      "ticker": "SZE",
+      "close": 7800.0,
+      "dividend_yield": 8.0,
+      "pe": 20.84,
+      "pb": 0.86,
+      "roe": 3.96,
+      "industry": "Hàng & Dịch vụ Công nghiệp"
+    },
+    {
+      "ticker": "SBL",
+      "close": 5000.0,
+      "dividend_yield": 8.0,
+      "pe": 120.7,
+      "pb": 0.44,
+      "roe": 0.36,
+      "industry": "Thực phẩm và đồ uống"
+    },
+    {
+      "ticker": "SD5",
+      "close": 7300.0,
+      "dividend_yield": 8.0,
+      "pe": 10.07,
+      "pb": 0.5,
+      "roe": 4.94,
+      "industry": "Xây dựng và Vật liệu"
+    },
+    {
+      "ticker": "TVD",
+      "close": 8900.0,
+      "dividend_yield": 8.0,
+      "pe": 4.87,
+      "pb": 0.69,
+      "roe": 14.34,
+      "industry": "Tài nguyên Cơ bản"
+    },
+    {
+      "ticker": "HTI",
+      "close": 19100.0,
+      "dividend_yield": 8.0,
+      "pe": 3.45,
+      "pb": 0.93,
+      "roe": 29.16,
+      "industry": "Xây dựng và Vật liệu"
+    },
+    {
+      "ticker": "IDC",
+      "close": 39300.0,
+      "dividend_yield": 8.0,
+      "pe": 6.46,
+      "pb": 1.67,
+      "roe": 31.87,
+      "industry": "Bất động sản"
+    },
+    {
+      "ticker": "ISH",
+      "close": 24200.0,
+      "dividend_yield": 8.0,
+      "pe": 13.89,
+      "pb": 1.99,
+      "roe": 14.54,
+      "industry": "Điện, nước & xăng dầu khí đốt"
+    },
+    {
+      "ticker": "LAF",
+      "close": 20550.0,
+      "dividend_yield": 8.0,
+      "pe": 7.21,
+      "pb": 1.12,
+      "roe": 16.31,
+      "industry": "Thực phẩm và đồ uống"
+    },
+    {
+      "ticker": "CST",
+      "close": 10700.0,
+      "dividend_yield": 8.0,
+      "pe": 6.65,
+      "pb": 0.54,
+      "roe": 8.2,
+      "industry": "Tài nguyên Cơ bản"
+    },
+    {
+      "ticker": "BBS",
+      "close": 12700.0,
+      "dividend_yield": 8.0,
+      "pe": 9.8,
+      "pb": 0.71,
+      "roe": 7.35,
+      "industry": "Hàng & Dịch vụ Công nghiệp"
+    },
+    {
+      "ticker": "BTT",
+      "close": 42500.0,
+      "dividend_yield": 8.0,
+      "pe": 7.37,
+      "pb": 1.18,
+      "roe": 16.52,
+      "industry": "Bán lẻ"
+    },
+    {
+      "ticker": "LAS",
+      "close": 13800.0,
+      "dividend_yield": 8.0,
+      "pe": 10.86,
+      "pb": 1.2,
+      "roe": 11.08,
+      "industry": "Hóa chất"
+    },
+    {
+      "ticker": "GTS",
+      "close": 11000.0,
+      "dividend_yield": 8.0,
+      "pe": 6.58,
+      "pb": 0.86,
+      "roe": 13.75,
+      "industry": "Xây dựng và Vật liệu"
+    },
+    {
+      "ticker": "HAD",
+      "close": 13400.0,
+      "dividend_yield": 8.0,
+      "pe": 8.35,
+      "pb": 0.78,
+      "roe": 9.28,
+      "industry": "Thực phẩm và đồ uống"
+    },
+    {
+      "ticker": "MCM",
+      "close": 28650.0,
+      "dividend_yield": 8.0,
+      "pe": 13.44,
+      "pb": 1.27,
+      "roe": 9.31,
+      "industry": "Thực phẩm và đồ uống"
+    },
+    {
+      "ticker": "FOX",
+      "close": 70600.0,
+      "dividend_yield": 8.0,
+      "pe": 11.35,
+      "pb": 4.18,
+      "roe": 33.5,
+      "industry": "Viễn thông"
+    },
+    {
+      "ticker": "KHS",
+      "close": 12200.0,
+      "dividend_yield": 8.0,
+      "pe": 4.53,
+      "pb": 1.03,
+      "roe": 21.99,
+      "industry": "Thực phẩm và đồ uống"
+    },
+    {
+      "ticker": "SZB",
+      "close": 44200.0,
+      "dividend_yield": 8.0,
+      "pe": 5.58,
+      "pb": 1.44,
+      "roe": 27.7,
+      "industry": "Bất động sản"
+    },
+    {
+      "ticker": "VSI",
+      "close": 19700.0,
+      "dividend_yield": 7.0,
+      "pe": 8.86,
+      "pb": 1.55,
+      "roe": 18.18,
+      "industry": "Xây dựng và Vật liệu"
+    },
+    {
+      "ticker": "VSA",
+      "close": 18200.0,
+      "dividend_yield": 7.0,
+      "pe": 12.31,
+      "pb": 0.84,
+      "roe": 6.85,
+      "industry": "Hàng & Dịch vụ Công nghiệp"
+    },
+    {
+      "ticker": "TCW",
+      "close": 29700.0,
+      "dividend_yield": 7.0,
+      "pe": 5.65,
+      "pb": 1.55,
+      "roe": 30.93,
+      "industry": "Hàng & Dịch vụ Công nghiệp"
+    },
+    {
+      "ticker": "TDT",
+      "close": 7100.0,
+      "dividend_yield": 7.0,
+      "pe": 8.94,
+      "pb": 0.56,
+      "roe": 6.36,
+      "industry": "Hàng cá nhân & Gia dụng"
+    },
+    {
+      "ticker": "TMC",
+      "close": 7700.0,
+      "dividend_yield": 7.0,
+      "pe": 9.35,
+      "pb": 0.47,
+      "roe": 5.11,
+      "industry": "Điện, nước & xăng dầu khí đốt"
+    },
+    {
+      "ticker": "TV4",
+      "close": 13000.0,
+      "dividend_yield": 7.0,
+      "pe": 8.03,
+      "pb": 1.08,
+      "roe": 13.74,
+      "industry": "Hàng & Dịch vụ Công nghiệp"
+    },
+    {
+      "ticker": "TVT",
+      "close": 15500.0,
+      "dividend_yield": 7.0,
+      "pe": 8.49,
+      "pb": 0.59,
+      "roe": 7.75,
+      "industry": "Hàng cá nhân & Gia dụng"
+    },
+    {
+      "ticker": "SKV",
+      "close": 23400.0,
+      "dividend_yield": 7.0,
+      "pe": 9.01,
+      "pb": 1.54,
+      "roe": 17.53,
+      "industry": "Thực phẩm và đồ uống"
+    },
+    {
+      "ticker": "SHP",
+      "close": 32900.0,
+      "dividend_yield": 7.0,
+      "pe": 11.55,
+      "pb": 2.52,
+      "roe": 23.9,
+      "industry": "Điện, nước & xăng dầu khí đốt"
+    },
+    {
+      "ticker": "PVP",
+      "close": 16800.0,
+      "dividend_yield": 7.0,
+      "pe": 7.27,
+      "pb": 0.75,
+      "roe": 10.6,
+      "industry": "Hàng & Dịch vụ Công nghiệp"
+    },
+    {
+      "ticker": "MDC",
+      "close": 8800.0,
+      "dividend_yield": 7.0,
+      "pe": 6.61,
+      "pb": 0.67,
+      "roe": 10.22,
+      "industry": "Tài nguyên Cơ bản"
+    },
+    {
+      "ticker": "NED",
+      "close": 6500.0,
+      "dividend_yield": 7.0,
+      "pe": 7.27,
+      "pb": 0.55,
+      "roe": 7.72,
+      "industry": "Xây dựng và Vật liệu"
+    },
+    {
+      "ticker": "ND2",
+      "close": 35900.0,
+      "dividend_yield": 7.0,
+      "pe": 8.35,
+      "pb": 1.93,
+      "roe": 24.23,
+      "industry": "Điện, nước & xăng dầu khí đốt"
+    },
+    {
+      "ticker": "PPY",
+      "close": 9400.0,
+      "dividend_yield": 7.0,
+      "pe": 66.69,
+      "pb": 0.59,
+      "roe": 0.87,
+      "industry": "Điện, nước & xăng dầu khí đốt"
+    },
+    {
+      "ticker": "PNP",
+      "close": 20000.0,
+      "dividend_yield": 7.0,
+      "pe": 8.47,
+      "pb": 1.56,
+      "roe": 18.41,
+      "industry": "Hàng & Dịch vụ Công nghiệp"
+    },
+    {
+      "ticker": "PMC",
+      "close": 128699.99999999999,
+      "dividend_yield": 7.0,
+      "pe": 18.73,
+      "pb": 6.4,
+      "roe": 33.26,
+      "industry": "Y tế"
+    },
+    {
+      "ticker": "PMB",
+      "close": 10900.0,
+      "dividend_yield": 7.0,
+      "pe": 5.89,
+      "pb": 0.8,
+      "roe": 13.39,
+      "industry": "Hóa chất"
+    },
+    {
+      "ticker": "PBP",
+      "close": 12200.0,
+      "dividend_yield": 7.0,
+      "pe": 7.43,
+      "pb": 0.86,
+      "roe": 11.46,
+      "industry": "Hàng & Dịch vụ Công nghiệp"
+    },
+    {
+      "ticker": "PSW",
+      "close": 7800.0,
+      "dividend_yield": 7.0,
+      "pe": 6.48,
+      "pb": 0.62,
+      "roe": 9.58,
+      "industry": "Hóa chất"
+    },
+    {
+      "ticker": "PPP",
+      "close": 18000.0,
+      "dividend_yield": 7.0,
+      "pe": 9.72,
+      "pb": 1.3,
+      "roe": 13.72,
+      "industry": "Y tế"
+    },
+    {
+      "ticker": "TCL",
+      "close": 30050.0,
+      "dividend_yield": 7.0,
+      "pe": 6.63,
+      "pb": 1.44,
+      "roe": 23.77,
+      "industry": "Hàng & Dịch vụ Công nghiệp"
+    },
+    {
+      "ticker": "SAV",
+      "close": 13200.0,
+      "dividend_yield": 7.0,
+      "pe": 36.0,
+      "pb": 1.0,
+      "roe": 2.68,
+      "industry": "Tài nguyên Cơ bản"
+    },
+    {
+      "ticker": "RTB",
+      "close": 27000.0,
+      "dividend_yield": 7.0,
+      "pe": 6.55,
+      "pb": 0.85,
+      "roe": 20.37,
+      "industry": "Hóa chất"
+    },
+    {
+      "ticker": "S4A",
+      "close": 32500.0,
+      "dividend_yield": 7.0,
+      "pe": 9.41,
+      "pb": 2.29,
+      "roe": 25.22,
+      "industry": "Điện, nước & xăng dầu khí đốt"
+    },
+    {
+      "ticker": "SAC",
+      "close": 12400.0,
+      "dividend_yield": 7.0,
+      "pe": 33.38,
+      "pb": 1.09,
+      "roe": 0.0,
+      "industry": "Hàng & Dịch vụ Công nghiệp"
+    },
+    {
+      "ticker": "HJS",
+      "close": 28900.0,
+      "dividend_yield": 7.0,
+      "pe": 14.3,
+      "pb": 1.79,
+      "roe": 13.16,
+      "industry": "Điện, nước & xăng dầu khí đốt"
+    },
+    {
+      "ticker": "EBS",
+      "close": 10300.0,
+      "dividend_yield": 7.0,
+      "pe": 8.07,
+      "pb": 0.79,
+      "roe": 10.78,
+      "industry": "Truyền thông"
+    },
+    {
+      "ticker": "GHC",
+      "close": 25700.0,
+      "dividend_yield": 7.0,
+      "pe": 8.21,
+      "pb": 1.26,
+      "roe": 15.16,
+      "industry": "Điện, nước & xăng dầu khí đốt"
+    },
+    {
+      "ticker": "HCC",
+      "close": 26500.0,
+      "dividend_yield": 7.0,
+      "pe": 6.54,
+      "pb": 1.95,
+      "roe": 31.12,
+      "industry": "Xây dựng và Vật liệu"
+    },
+    {
+      "ticker": "LBM",
+      "close": 29200.0,
+      "dividend_yield": 7.0,
+      "pe": 10.59,
+      "pb": 2.32,
+      "roe": 21.26,
+      "industry": "Xây dựng và Vật liệu"
+    },
+    {
+      "ticker": "ILB",
+      "close": 21650.0,
+      "dividend_yield": 7.0,
+      "pe": 7.36,
+      "pb": 1.01,
+      "roe": 13.73,
+      "industry": "Hàng & Dịch vụ Công nghiệp"
+    },
+    {
+      "ticker": "LHG",
+      "close": 28900.0,
+      "dividend_yield": 7.0,
+      "pe": 4.94,
+      "pb": 0.79,
+      "roe": 16.36,
+      "industry": "Bất động sản"
+    },
+    {
+      "ticker": "HMC",
+      "close": 10900.0,
+      "dividend_yield": 7.0,
+      "pe": 10.22,
+      "pb": 0.77,
+      "roe": 7.69,
+      "industry": "Tài nguyên Cơ bản"
+    },
+    {
+      "ticker": "DPM",
+      "close": 23400.0,
+      "dividend_yield": 7.0,
+      "pe": 10.03,
+      "pb": 1.31,
+      "roe": 9.5,
+      "industry": "Hóa chất"
+    },
+    {
+      "ticker": "CDP",
+      "close": 11800.0,
+      "dividend_yield": 7.0,
+      "pe": 7.87,
+      "pb": 1.0,
+      "roe": 12.73,
+      "industry": "Y tế"
+    },
+    {
+      "ticker": "CHP",
+      "close": 27800.0,
+      "dividend_yield": 7.0,
+      "pe": 9.45,
+      "pb": 2.06,
+      "roe": 22.79,
+      "industry": "Điện, nước & xăng dầu khí đốt"
+    },
+    {
+      "ticker": "CLC",
+      "close": 52000.0,
+      "dividend_yield": 7.0,
+      "pe": 8.09,
+      "pb": 1.53,
+      "roe": 19.98,
+      "industry": "Hàng cá nhân & Gia dụng"
+    },
+    {
+      "ticker": "BSL",
+      "close": 12800.0,
+      "dividend_yield": 7.0,
+      "pe": 11.08,
+      "pb": 0.91,
+      "roe": 8.51,
+      "industry": "Thực phẩm và đồ uống"
+    },
+    {
+      "ticker": "BMP",
+      "close": 146100.0,
+      "dividend_yield": 7.0,
+      "pe": 11.66,
+      "pb": 4.98,
+      "roe": 41.61,
+      "industry": "Xây dựng và Vật liệu"
+    },
+    {
+      "ticker": "BSA",
+      "close": 20400.0,
+      "dividend_yield": 7.0,
+      "pe": 9.47,
+      "pb": 1.59,
+      "roe": 16.93,
+      "industry": "Điện, nước & xăng dầu khí đốt"
+    },
+    {
+      "ticker": "BAX",
+      "close": 31700.0,
+      "dividend_yield": 7.0,
+      "pe": 7.78,
+      "pb": 1.25,
+      "roe": 16.19,
+      "industry": "Xây dựng và Vật liệu"
+    },
+    {
+      "ticker": "BIC",
+      "close": 22850.0,
+      "dividend_yield": 7.0,
+      "pe": 5.75,
+      "pb": 2.28,
+      "roe": 17.25,
+      "industry": "Bảo hiểm"
     }
   ]
 }

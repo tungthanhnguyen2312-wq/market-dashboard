@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VNSTOCK — Vĩ mô</title>
+  <meta name="description" content="Chỉ báo vĩ mô Việt Nam — sắp ra mắt.">
+  <link rel="canonical" href="https://tungthanhnguyen2312-wq.github.io/market-dashboard/macro.html">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230F172A'/%3E%3Crect x='6' y='18' width='5' height='8' rx='1' fill='%233B82F6'/%3E%3Crect x='14' y='12' width='5' height='14' rx='1' fill='%2322C55E'/%3E%3Crect x='22' y='6' width='5' height='20' rx='1' fill='%2322C55E'/%3E%3C/svg%3E">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="VNSTOCK — Vĩ mô">
+  <meta property="og:description" content="Chỉ báo vĩ mô Việt Nam — sắp ra mắt.">
+  <meta property="og:url" content="https://tungthanhnguyen2312-wq.github.io/market-dashboard/macro.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="VNSTOCK — Vĩ mô">
+  <meta name="twitter:description" content="Chỉ báo vĩ mô Việt Nam — sắp ra mắt.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      corePlugins: { preflight: false },
+      theme: { extend: {
+        colors: {
+          bg: "var(--bg)", surface: "var(--surface)", "surface-2": "var(--surface-2)",
+          border: "var(--border)", muted: "var(--text-muted)", primary: "var(--primary)",
+          success: "var(--success)", warning: "var(--warning)", danger: "var(--danger)",
+        },
+        fontFamily: { sans: ["Inter", "sans-serif"] },
+      }},
+    };
+  </script>
+  <link rel="stylesheet" href="assets/css/shell.css">
+</head>
+<body class="bg-bg text-white font-sans" data-page="macro">
+
+  <div class="vs-shell">
+    <aside class="vs-sidebar" id="sidebar">
+      <a class="vs-sidebar-brand" href="dashboard.html"><span class="vs-brand-dot"></span><span class="vs-sidebar-brand-label">VNSTOCK</span></a>
+      <button class="vs-sidebar-toggle lg:hidden ms-auto" id="sidebar-close" style="position:absolute; top:0.9rem; right:0.9rem;" aria-label="Đóng menu">
+        <i data-lucide="x"></i>
+      </button>
+      <nav class="vs-sidebar-nav">
+        <a class="vs-sidebar-link" href="dashboard.html" data-nav="dashboard" title="Dashboard"><i data-lucide="layout-dashboard"></i><span class="vs-sidebar-link-label">Dashboard</span></a>
+        <a class="vs-sidebar-link" href="screener.html" data-nav="screener" title="Screener"><i data-lucide="filter"></i><span class="vs-sidebar-link-label">Screener</span></a>
+        <a class="vs-sidebar-link" href="analysis.html" data-nav="analysis" title="Analysis"><i data-lucide="brain-circuit"></i><span class="vs-sidebar-link-label">Analysis</span></a>
+        <a class="vs-sidebar-link" href="signals.html" data-nav="signals" title="Signals"><i data-lucide="activity"></i><span class="vs-sidebar-link-label">Signals</span></a>
+        <a class="vs-sidebar-link" href="macro.html" data-nav="macro" title="Macro"><i data-lucide="globe"></i><span class="vs-sidebar-link-label">Macro</span></a>
+        <a class="vs-sidebar-link" href="about.html" data-nav="about" title="About"><i data-lucide="info"></i><span class="vs-sidebar-link-label">About</span></a>
+      </nav>
+      <button type="button" class="vs-sidebar-collapse-toggle" id="sidebar-collapse-toggle" aria-label="Thu gọn sidebar" title="Thu gọn sidebar">
+        <i data-lucide="chevrons-left"></i>
+      </button>
+      <div class="vs-sidebar-foot">VNSTOCK Terminal · v1.0</div>
+    </aside>
+    <div class="vs-sidebar-overlay" id="sidebar-overlay"></div>
+
+    <div class="vs-shell-main">
+      <header class="vs-topbar">
+        <button class="vs-sidebar-toggle" id="sidebar-toggle" aria-label="Mở menu"><i data-lucide="menu"></i></button>
+        <span class="vs-topbar-title">Vĩ mô</span>
+        <span class="vs-topbar-spacer"></span>
+        <a class="vs-topbar-link" href="archive.html"><i data-lucide="history"></i>History</a>
+      </header>
+
+      <main class="vs-content">
+        <div class="card mb-4">
+          <div class="card-header">
+            <h5><span class="card-icon">🌏</span>Vĩ mô</h5>
+            <span class="badge-soft bs-gray">Sắp ra mắt</span>
+          </div>
+          <div class="card-body">
+            <div class="vs-empty">
+              <i data-lucide="globe"></i>
+              <div class="vs-empty-title">Trang chỉ báo vĩ mô đang được xây dựng</div>
+              <div class="vs-empty-sub">Lãi suất, tỷ giá, CPI, khối ngoại và các chỉ báo vĩ mô khác
+                sẽ hiển thị tại đây ở giai đoạn kết nối dữ liệu tiếp theo.
+                <code>macro_snapshot.csv</code> đã có sẵn ở backend, chưa được nối vào trang này.</div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="vs-statusfooter">
+        <span>VNSTOCK Dashboard — dữ liệu sinh tự động bởi pipeline Python · chỉ mang tính tham khảo, không phải khuyến nghị đầu tư.</span>
+      </footer>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="assets/js/shell.js"></script>
+</body>
+</html>

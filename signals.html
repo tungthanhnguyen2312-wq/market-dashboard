@@ -4,16 +4,47 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>VNSTOCK — Bảng tín hiệu</title>
+<meta name="description" content="Tín hiệu nến/SMC, watchlist và heatmap sức mạnh ngành theo phiên.">
+<link rel="canonical" href="https://tungthanhnguyen2312-wq.github.io/market-dashboard/signals.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230F172A'/%3E%3Crect x='6' y='18' width='5' height='8' rx='1' fill='%233B82F6'/%3E%3Crect x='14' y='12' width='5' height='14' rx='1' fill='%2322C55E'/%3E%3Crect x='22' y='6' width='5' height='20' rx='1' fill='%2322C55E'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="VNSTOCK — Bảng tín hiệu">
+<meta property="og:description" content="Tín hiệu nến/SMC, watchlist và heatmap sức mạnh ngành theo phiên.">
+<meta property="og:url" content="https://tungthanhnguyen2312-wq.github.io/market-dashboard/signals.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VNSTOCK — Bảng tín hiệu">
+<meta name="twitter:description" content="Tín hiệu nến/SMC, watchlist và heatmap sức mạnh ngành theo phiên.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    corePlugins: { preflight: false },
+    theme: { extend: {
+      colors: {
+        bg: "var(--bg)", surface: "var(--surface)", "surface-2": "var(--surface-2)",
+        border: "var(--border)", muted: "var(--text-muted)", primary: "var(--primary)",
+        success: "var(--success)", warning: "var(--warning)", danger: "var(--danger)",
+      },
+      fontFamily: { sans: ["Inter", "sans-serif"] },
+    }},
+  };
+</script>
+<link rel="stylesheet" href="assets/css/shell.css">
 <style>
-  /* Theme tối + mono theo yêu cầu. Không CDN — tự chứa 100% để mở offline */
+  /* Theme cục bộ của trang — biến local trỏ sang token dùng chung của style.css
+     (không khai báo lại --bg/--border/--text vì đã có ở :root của style.css). */
   :root {
-    --bg:#0d1117; --panel:#161b22; --border:#30363d; --text:#c9d1d9; --dim:#8b949e;
-    --green:#3fb950; --red:#f85149; --amber:#d29922; --blue:#58a6ff;
+    --panel: var(--surface); --dim: var(--text-muted);
+    --green: var(--success); --red: var(--danger); --amber: var(--warning); --blue: var(--primary);
   }
   * { box-sizing:border-box; margin:0; padding:0; }
   body { background:var(--bg); color:var(--text);
-         font-family:"JetBrains Mono","Cascadia Code",Consolas,monospace; font-size:14px; padding:20px; }
-  h1 { font-size:18px; margin-bottom:4px; }
+         font-family:"Inter",-apple-system,"Segoe UI",Roboto,sans-serif; font-size:14px; }
   h2 { font-size:15px; margin:26px 0 10px; color:var(--blue); }
   .meta { color:var(--dim); font-size:12px; }
   .warn { color:var(--amber); font-size:12px; margin-top:4px; }
@@ -21,7 +52,7 @@
   th,td { border:1px solid var(--border); padding:5px 9px; text-align:left; font-size:13px; }
   th { background:var(--panel); color:var(--dim); font-weight:600; }
   .up { color:var(--green); } .down { color:var(--red); } .flat { color:var(--dim); }
-  .empty { color:var(--dim); padding:14px; border:1px dashed var(--border); margin-top:6px; }
+  .empty { color:var(--dim); padding:14px; border:1px dashed var(--border); margin-top:6px; border-radius:var(--radius-md); }
   /* Watchlist cards */
   .cards { display:flex; gap:12px; flex-wrap:wrap; margin-top:10px; }
   .card { background:var(--panel); border:1px solid var(--border); border-radius:8px;
@@ -40,28 +71,64 @@
   badge { display:inline-block; }
 </style>
 </head>
-<body>
-<h1>VNSTOCK — Bảng tín hiệu kỹ thuật</h1>
-<div class="meta" id="meta">đang tải dữ liệu…</div>
-<div class="meta" style="margin-top:4px">
-  <a href="index.html" style="color:var(--blue)">← Trang chính</a> ·
-  <a href="screener.html" style="color:var(--blue)">📋 Bảng lọc đầy đủ toàn thị trường →</a>
-</div>
-<div class="warn">⚠️ Dữ liệu point-in-time cho tham khảo cá nhân — mẫu nến/SMC là trigger nhiễu cao, luôn đối chiếu nền RS + thanh khoản + margin_status.</div>
+<body class="bg-bg text-white" data-page="signals">
 
-<h2>📌 Watchlist</h2>
-<div class="cards" id="watchlist"><div class="empty">chưa có dữ liệu</div></div>
+  <div class="vs-shell">
+    <aside class="vs-sidebar" id="sidebar">
+      <a class="vs-sidebar-brand" href="dashboard.html"><span class="vs-brand-dot"></span><span class="vs-sidebar-brand-label">VNSTOCK</span></a>
+      <button class="vs-sidebar-toggle lg:hidden ms-auto" id="sidebar-close" style="position:absolute; top:0.9rem; right:0.9rem;" aria-label="Đóng menu">
+        <i data-lucide="x"></i>
+      </button>
+      <nav class="vs-sidebar-nav">
+        <a class="vs-sidebar-link" href="dashboard.html" data-nav="dashboard" title="Dashboard"><i data-lucide="layout-dashboard"></i><span class="vs-sidebar-link-label">Dashboard</span></a>
+        <a class="vs-sidebar-link" href="screener.html" data-nav="screener" title="Screener"><i data-lucide="filter"></i><span class="vs-sidebar-link-label">Screener</span></a>
+        <a class="vs-sidebar-link" href="analysis.html" data-nav="analysis" title="Analysis"><i data-lucide="brain-circuit"></i><span class="vs-sidebar-link-label">Analysis</span></a>
+        <a class="vs-sidebar-link" href="signals.html" data-nav="signals" title="Signals"><i data-lucide="activity"></i><span class="vs-sidebar-link-label">Signals</span></a>
+        <a class="vs-sidebar-link" href="macro.html" data-nav="macro" title="Macro"><i data-lucide="globe"></i><span class="vs-sidebar-link-label">Macro</span></a>
+        <a class="vs-sidebar-link" href="about.html" data-nav="about" title="About"><i data-lucide="info"></i><span class="vs-sidebar-link-label">About</span></a>
+      </nav>
+      <button type="button" class="vs-sidebar-collapse-toggle" id="sidebar-collapse-toggle" aria-label="Thu gọn sidebar" title="Thu gọn sidebar">
+        <i data-lucide="chevrons-left"></i>
+      </button>
+      <div class="vs-sidebar-foot">VNSTOCK Terminal · v1.0</div>
+    </aside>
+    <div class="vs-sidebar-overlay" id="sidebar-overlay"></div>
 
-<h2>⭐ Tín hiệu hợp lưu (nến đảo chiều + vùng SMC cùng hướng)</h2>
-<div id="confluence"><div class="empty">chưa có dữ liệu</div></div>
+    <div class="vs-shell-main">
+      <header class="vs-topbar">
+        <button class="vs-sidebar-toggle" id="sidebar-toggle" aria-label="Mở menu"><i data-lucide="menu"></i></button>
+        <span class="vs-topbar-title">Signals</span>
+        <span class="vs-topbar-spacer"></span>
+        <a class="vs-topbar-link" href="archive.html"><i data-lucide="history"></i>History</a>
+      </header>
 
-<h2>💰 Góc tích sản cổ tức (yield ≥ 7%, margin sạch)</h2>
-<div class="meta" id="divnote"></div>
-<div id="dividend"><div class="empty">Đang chờ đồng bộ dữ liệu cổ tức</div></div>
+      <main class="vs-content">
+        <div class="meta" id="meta">đang tải dữ liệu…</div>
+        <div class="warn">⚠️ Dữ liệu point-in-time cho tham khảo cá nhân — mẫu nến/SMC là trigger nhiễu cao, luôn đối chiếu nền RS + thanh khoản + margin_status.</div>
 
-<h2>🗺️ Heatmap sức mạnh ngành</h2>
-<div class="heat" id="heatmap"><div class="empty">chưa có dữ liệu</div></div>
+        <h2>📌 Watchlist</h2>
+        <div class="cards" id="watchlist"><div class="empty">chưa có dữ liệu</div></div>
 
+        <h2>⭐ Tín hiệu hợp lưu (nến đảo chiều + vùng SMC cùng hướng)</h2>
+        <div id="confluence"><div class="empty">chưa có dữ liệu</div></div>
+
+        <h2>💰 Góc tích sản cổ tức (yield ≥ 7%, margin sạch)</h2>
+        <div class="meta" id="divnote"></div>
+        <div id="dividend"><div class="empty">Đang chờ đồng bộ dữ liệu cổ tức</div></div>
+
+        <h2>🗺️ Heatmap sức mạnh ngành</h2>
+        <div class="heat" id="heatmap"><div class="empty">chưa có dữ liệu</div></div>
+      </main>
+
+      <footer class="vs-statusfooter">
+        <span>VNSTOCK — tín hiệu sinh cục bộ, chỉ mang tính tham khảo, không phải khuyến nghị đầu tư.</span>
+        <span class="vs-status-chip is-live">Live data</span>
+      </footer>
+    </div>
+  </div>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="assets/js/shell.js"></script>
 <!-- Fallback cho file:// (fetch bị CORS chặn khi mở trực tiếp): candle_scan.py sinh kèm bản .js -->
 <script src="data/candle_signals.js"></script>
 <script src="data/sector_heatmap.js"></script>

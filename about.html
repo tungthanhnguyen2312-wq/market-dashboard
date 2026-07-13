@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VNSTOCK — Giới thiệu</title>
+  <meta name="description" content="Giới thiệu dự án VNSTOCK: kiến trúc, tech stack, tài liệu và giấy phép.">
+  <link rel="canonical" href="https://tungthanhnguyen2312-wq.github.io/market-dashboard/about.html">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230F172A'/%3E%3Crect x='6' y='18' width='5' height='8' rx='1' fill='%233B82F6'/%3E%3Crect x='14' y='12' width='5' height='14' rx='1' fill='%2322C55E'/%3E%3Crect x='22' y='6' width='5' height='20' rx='1' fill='%2322C55E'/%3E%3C/svg%3E">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="VNSTOCK — Giới thiệu">
+  <meta property="og:description" content="Giới thiệu dự án VNSTOCK: kiến trúc, tech stack, tài liệu và giấy phép.">
+  <meta property="og:url" content="https://tungthanhnguyen2312-wq.github.io/market-dashboard/about.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="VNSTOCK — Giới thiệu">
+  <meta name="twitter:description" content="Giới thiệu dự án VNSTOCK: kiến trúc, tech stack, tài liệu và giấy phép.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      corePlugins: { preflight: false },
+      theme: { extend: {
+        colors: {
+          bg: "var(--bg)", surface: "var(--surface)", "surface-2": "var(--surface-2)",
+          border: "var(--border)", muted: "var(--text-muted)", primary: "var(--primary)",
+          success: "var(--success)", warning: "var(--warning)", danger: "var(--danger)",
+        },
+        fontFamily: { sans: ["Inter", "sans-serif"] },
+      }},
+    };
+  </script>
+  <link rel="stylesheet" href="assets/css/shell.css">
+</head>
+<body class="bg-bg text-white font-sans" data-page="about">
+
+  <div class="vs-shell">
+    <aside class="vs-sidebar" id="sidebar">
+      <a class="vs-sidebar-brand" href="dashboard.html"><span class="vs-brand-dot"></span><span class="vs-sidebar-brand-label">VNSTOCK</span></a>
+      <button class="vs-sidebar-toggle lg:hidden ms-auto" id="sidebar-close" style="position:absolute; top:0.9rem; right:0.9rem;" aria-label="Đóng menu">
+        <i data-lucide="x"></i>
+      </button>
+      <nav class="vs-sidebar-nav">
+        <a class="vs-sidebar-link" href="dashboard.html" data-nav="dashboard" title="Dashboard"><i data-lucide="layout-dashboard"></i><span class="vs-sidebar-link-label">Dashboard</span></a>
+        <a class="vs-sidebar-link" href="screener.html" data-nav="screener" title="Screener"><i data-lucide="filter"></i><span class="vs-sidebar-link-label">Screener</span></a>
+        <a class="vs-sidebar-link" href="analysis.html" data-nav="analysis" title="Analysis"><i data-lucide="brain-circuit"></i><span class="vs-sidebar-link-label">Analysis</span></a>
+        <a class="vs-sidebar-link" href="signals.html" data-nav="signals" title="Signals"><i data-lucide="activity"></i><span class="vs-sidebar-link-label">Signals</span></a>
+        <a class="vs-sidebar-link" href="macro.html" data-nav="macro" title="Macro"><i data-lucide="globe"></i><span class="vs-sidebar-link-label">Macro</span></a>
+        <a class="vs-sidebar-link" href="about.html" data-nav="about" title="About"><i data-lucide="info"></i><span class="vs-sidebar-link-label">About</span></a>
+      </nav>
+      <button type="button" class="vs-sidebar-collapse-toggle" id="sidebar-collapse-toggle" aria-label="Thu gọn sidebar" title="Thu gọn sidebar">
+        <i data-lucide="chevrons-left"></i>
+      </button>
+      <div class="vs-sidebar-foot">VNSTOCK Terminal · v1.0</div>
+    </aside>
+    <div class="vs-sidebar-overlay" id="sidebar-overlay"></div>
+
+    <div class="vs-shell-main">
+      <header class="vs-topbar">
+        <button class="vs-sidebar-toggle" id="sidebar-toggle" aria-label="Mở menu"><i data-lucide="menu"></i></button>
+        <span class="vs-topbar-title">Giới thiệu</span>
+        <span class="vs-topbar-spacer"></span>
+        <a class="vs-topbar-link" href="archive.html"><i data-lucide="history"></i>History</a>
+      </header>
+
+      <main class="vs-content">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+          <div class="lg:col-span-2">
+            <div class="card mb-4">
+              <div class="card-header"><h5><span class="card-icon">📊</span>VNSTOCK — Vietnamese Stock Market Dashboard</h5></div>
+              <div class="card-body report-content">
+                <p>Dashboard chứng khoán Việt Nam kiểu TradingView, dữ liệu tổng hợp từ pipeline
+                Python chạy local (7 chân kiềng: giá, metadata, vĩ mô, tin tức, cổ đông, chỉ báo
+                kỹ thuật, báo cáo AI) cộng nhánh báo cáo tài chính quý (BCTC). Repo này là website
+                tĩnh + tài liệu công khai — pipeline dữ liệu chạy trên máy local, không nằm trong
+                repo.</p>
+                <p><strong>A personal Vietnamese stock-market analytics project.</strong> A local
+                Python pipeline (not included in this repo) collects daily OHLCV prices,
+                fundamentals, macro data, news, and quarterly financial statements for ~1,700
+                tickers, then mixes them into this static dashboard published via GitHub Pages.</p>
+                <h3>Tính năng chính</h3>
+                <ul>
+                  <li>Dashboard chính — báo cáo thị trường do AI tổng hợp, KPI, watchlist, kế hoạch hành động.</li>
+                  <li>Bảng tín hiệu nến/SMC và bảng lọc đầy đủ (CANSLIM, SMC, thanh khoản...).</li>
+                  <li>Quant engine offline — 10 chiến lược lọc + chấm điểm 0-100/mã.</li>
+                  <li>Nhánh báo cáo tài chính quý (BCTC) cho ~650 mã.</li>
+                  <li>Kho lưu trữ báo cáo/playbook tĩnh theo phiên — xem <a href="archive.html">Archive</a>.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-1">
+            <div class="card mb-4">
+              <div class="card-header"><h5><span class="card-icon">🧱</span>Tech stack</h5></div>
+              <div class="card-body">
+                <div class="chip-row">
+                  <span class="chip">HTML/CSS/JS thuần</span>
+                  <span class="chip">Tailwind CDN</span>
+                  <span class="chip">Bootstrap 5</span>
+                  <span class="chip">DataTables</span>
+                  <span class="chip">Chart.js</span>
+                  <span class="chip">Lucide Icons</span>
+                </div>
+                <p class="text-muted mt-3 mb-0" style="font-size:0.8rem;">Không build step — mở
+                trực tiếp bằng file hoặc phục vụ qua GitHub Pages, thư viện load qua CDN.</p>
+              </div>
+            </div>
+
+            <div class="card mb-4">
+              <div class="card-header"><h5><span class="card-icon">🔗</span>Liên kết</h5></div>
+              <div class="card-body pt-0">
+                <a class="vs-list-item" href="https://github.com/tungthanhnguyen2312-wq/market-dashboard" target="_blank" rel="noopener">GitHub repo</a>
+                <a class="vs-list-item" href="https://github.com/tungthanhnguyen2312-wq/market-dashboard/tree/main/docs" target="_blank" rel="noopener">Tài liệu (docs/)</a>
+                <a class="vs-list-item" href="https://github.com/tungthanhnguyen2312-wq/market-dashboard/blob/main/LICENSE" target="_blank" rel="noopener">Giấy phép MIT</a>
+                <a class="vs-list-item" href="archive.html">Kho lưu trữ báo cáo</a>
+              </div>
+            </div>
+
+            <div class="vs-alert vs-alert-warning" style="font-size:0.82rem;">
+              Dữ liệu sinh tự động, chỉ mang tính tham khảo cá nhân — <strong>không phải khuyến
+              nghị đầu tư</strong>.
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="vs-statusfooter">
+        <span>VNSTOCK Dashboard — dữ liệu sinh tự động bởi pipeline Python · chỉ mang tính tham khảo, không phải khuyến nghị đầu tư.</span>
+      </footer>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="assets/js/shell.js"></script>
+</body>
+</html>

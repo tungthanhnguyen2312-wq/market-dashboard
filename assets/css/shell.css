@@ -1,0 +1,661 @@
+/* ============================================================
+ * VNSTOCK — assets/css/shell.css
+ * Khung sườn MỚI cho toàn bộ site: sidebar + top bar + status
+ * footer + các component trạng thái (skeleton/empty/error/chip).
+ *
+ * Dùng CHUNG bộ biến màu :root khai báo trong style.css (file này
+ * luôn được load kèm style.css nên không khai báo lại biến).
+ * Đây là phần "vỏ" mới dựng bằng tiện ích Tailwind + class .vs-*
+ * ở đây; toàn bộ nội dung dữ liệu bên trong (card/bảng/badge cũ)
+ * vẫn dùng class của style.css, không đụng vào.
+ * ============================================================ */
+
+/* ---------- Shell layout ---------- */
+.vs-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.vs-shell-main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.vs-content {
+  flex: 1;
+  padding: 1.25rem 1.5rem 2rem;
+  max-width: 1500px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ---------- Sidebar ---------- */
+.vs-sidebar {
+  width: 232px;
+  flex-shrink: 0;
+  background: var(--surface);
+  border-right: 1px solid var(--border-soft);
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  z-index: 40;
+  transition: transform 0.22s ease;
+}
+
+.vs-sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.1rem 1.15rem;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  border-bottom: 1px solid var(--border-soft);
+  flex-shrink: 0;
+}
+
+.vs-sidebar-brand .vs-brand-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.7);
+  flex-shrink: 0;
+}
+
+.vs-sidebar-nav {
+  flex: 1;
+  padding: 0.85rem 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  overflow-y: auto;
+}
+
+.vs-sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none !important;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.vs-sidebar-link svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+}
+
+.vs-sidebar-link:hover {
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+.vs-sidebar-link.is-active {
+  background: var(--primary-soft);
+  color: #93c5fd;
+}
+
+.vs-sidebar-link.is-active svg {
+  color: #93c5fd;
+}
+
+.vs-sidebar-foot {
+  padding: 0.85rem 1.15rem;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-soft);
+  flex-shrink: 0;
+}
+
+/* ---------- Sidebar — thu gọn trên desktop (Phase 4) ---------- */
+.vs-sidebar-collapse-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.6rem;
+  border: 0;
+  border-top: 1px solid var(--border-soft);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.vs-sidebar-collapse-toggle:hover { background: var(--surface-2); color: var(--text); }
+.vs-sidebar-collapse-toggle svg { width: 15px; height: 15px; transition: transform 0.2s ease; }
+.vs-sidebar-collapse-toggle:focus-visible { outline: 2px solid var(--primary); outline-offset: -2px; }
+
+@media (min-width: 1024px) {
+  .vs-sidebar-collapse-toggle { display: flex; }
+}
+
+.vs-sidebar.is-collapsed { width: 64px; }
+.vs-sidebar.is-collapsed .vs-sidebar-brand { justify-content: center; padding: 1.1rem 0; }
+.vs-sidebar.is-collapsed .vs-sidebar-brand-label,
+.vs-sidebar.is-collapsed .vs-sidebar-link-label,
+.vs-sidebar.is-collapsed .vs-sidebar-foot { display: none; }
+.vs-sidebar.is-collapsed .vs-sidebar-nav { padding: 0.85rem 0.5rem; }
+.vs-sidebar.is-collapsed .vs-sidebar-link { justify-content: center; padding: 0.55rem; }
+.vs-sidebar.is-collapsed .vs-sidebar-collapse-toggle svg { transform: rotate(180deg); }
+
+/* ---------- Sidebar — mobile drawer ---------- */
+.vs-sidebar-overlay {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .vs-sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    transform: translateX(-100%);
+  }
+  .vs-sidebar.is-open {
+    transform: translateX(0);
+    box-shadow: 8px 0 32px rgba(2, 6, 23, 0.55);
+  }
+  .vs-sidebar-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(2, 6, 23, 0.6);
+    z-index: 39;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
+  .vs-sidebar-overlay.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+/* ---------- Top bar ---------- */
+.vs-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.65rem 1.25rem;
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.vs-sidebar-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  background: transparent;
+  flex-shrink: 0;
+}
+
+.vs-sidebar-toggle:hover { color: var(--text); border-color: #475569; }
+
+@media (max-width: 1023px) {
+  .vs-sidebar-toggle { display: inline-flex; }
+}
+
+.vs-topbar-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.vs-topbar-spacer { flex: 1; }
+
+.vs-topbar-link {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none !important;
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius-pill);
+  transition: all 0.15s ease;
+}
+
+.vs-topbar-link:hover { color: var(--text); background: var(--surface-2); }
+.vs-topbar-link svg { width: 14px; height: 14px; }
+
+.vs-topbar-meta {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* ---------- Status footer ---------- */
+.vs-statusfooter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-top: 1px solid var(--border-soft);
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+/* ---------- Status chip (chỉ báo tươi/cũ của dữ liệu) ---------- */
+.vs-status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.vs-status-chip::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.vs-status-chip.is-live { color: #4ade80; }
+.vs-status-chip.is-live::before { background: var(--success); box-shadow: 0 0 6px rgba(34, 197, 94, 0.7); }
+.vs-status-chip.is-stale { color: #fbbf24; }
+.vs-status-chip.is-stale::before { background: var(--warning); }
+.vs-status-chip.is-offline { color: #f87171; }
+.vs-status-chip.is-offline::before { background: var(--danger); }
+
+/* ---------- Loading skeleton ---------- */
+.vs-skeleton {
+  position: relative;
+  overflow: hidden;
+  background: var(--surface-2);
+  border-radius: var(--radius-md);
+}
+
+.vs-skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(148, 163, 184, 0.12), transparent);
+  animation: vs-shimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes vs-shimmer {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(100%); }
+}
+
+.vs-skeleton-line { height: 0.85rem; margin-bottom: 0.55rem; }
+.vs-skeleton-line:last-child { margin-bottom: 0; width: 65%; }
+
+/* ---------- Empty state ---------- */
+.vs-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 1.5rem;
+  color: var(--text-muted);
+}
+
+.vs-empty svg {
+  width: 34px;
+  height: 34px;
+  color: #475569;
+  margin-bottom: 0.85rem;
+}
+
+.vs-empty-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+}
+
+.vs-empty-sub {
+  font-size: 0.8rem;
+  max-width: 34rem;
+}
+
+/* ---------- Error state ---------- */
+.vs-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  border: 1px dashed rgba(239, 68, 68, 0.35);
+  border-radius: var(--radius-lg);
+  background: var(--danger-soft);
+}
+
+.vs-error svg { width: 30px; height: 30px; color: #f87171; margin-bottom: 0.75rem; }
+.vs-error-title { font-size: 0.9rem; font-weight: 700; color: #fca5a5; margin-bottom: 0.3rem; }
+.vs-error-sub { font-size: 0.8rem; color: var(--text-muted); max-width: 32rem; }
+
+/* ============================================================
+ * Phase 2 — component migration
+ * Thay thế các thành phần Bootstrap TĨNH (không có JS đọc theo
+ * class, chỉ theo id) bằng component riêng, cùng bộ token màu.
+ * Bảng DataTables (#market-table/#tblScreen/#tblBreadth) và mọi
+ * HTML do app.js/analysis.js sinh ra KHÔNG đụng — xem style.css.
+ * ============================================================ */
+
+/* ---------- Button ---------- */
+.vs-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: none !important;
+  transition: all 0.15s ease;
+}
+
+.vs-btn:hover { background: var(--surface-2); border-color: #475569; color: var(--text); }
+.vs-btn-sm { padding: 0.32rem 0.8rem; font-size: 0.76rem; }
+
+/* ---------- Select / Input ---------- */
+.vs-select, .vs-input {
+  display: block;
+  width: 100%;
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-family: inherit;
+  padding: 0.4rem 0.65rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.vs-select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 1.8rem;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%2394A3B8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.6rem center;
+  background-size: 12px;
+}
+
+.vs-input::placeholder { color: var(--text-muted); }
+.vs-select-sm, .vs-input-sm { padding-top: 0.28rem; padding-bottom: 0.28rem; font-size: 0.8rem; }
+
+.vs-select:focus, .vs-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.18);
+}
+
+/* ---------- Checkbox / switch ---------- */
+.vs-checkbox-row { display: flex; align-items: center; gap: 0.6rem; }
+
+.vs-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 34px;
+  height: 19px;
+  flex-shrink: 0;
+  border-radius: var(--radius-pill);
+  background: var(--border);
+  border: 1px solid var(--border);
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.vs-checkbox::before {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  transition: transform 0.15s ease;
+}
+
+.vs-checkbox:checked { background: var(--primary); border-color: var(--primary); }
+.vs-checkbox:checked::before { transform: translateX(15px); background: #fff; }
+.vs-checkbox-label { font-size: 0.83rem; color: var(--text); cursor: pointer; }
+
+/* ---------- Alert ---------- */
+.vs-alert {
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1rem;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.vs-alert-warning {
+  background: var(--warning-soft);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  color: #fcd34d;
+}
+
+.vs-alert-warning code { background: rgba(0, 0, 0, 0.25); color: #fde68a; }
+
+/* ---------- List ---------- */
+.vs-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--border-soft);
+  color: #cbd5e1;
+  font-size: 0.83rem;
+  text-decoration: none !important;
+  transition: all 0.15s ease;
+}
+
+.vs-list-item:last-child { border-bottom: 0; }
+.vs-list-item:hover { color: #bfdbfe; padding-left: 0.4rem; }
+
+/* ---------- Focus-visible (bàn phím) ---------- */
+.vs-btn:focus-visible,
+.vs-select:focus-visible,
+.vs-input:focus-visible,
+.vs-checkbox:focus-visible,
+.vs-list-item:focus-visible,
+.vs-sidebar-link:focus-visible,
+.vs-topbar-link:focus-visible,
+.vs-sidebar-toggle:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* ============================================================
+ * Phase 3 — trang dữ liệu (dashboard/screener/analysis)
+ * Icon button dùng chung (nút làm mới, nút đóng modal) + modal
+ * chi tiết mã (screener.html) — component MỚI hoàn toàn, chưa
+ * trang nào có trước đó.
+ * ============================================================ */
+
+/* ---------- Icon button (nút làm mới, nút đóng modal) ---------- */
+.vs-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.vs-icon-btn:hover { background: var(--surface-2); color: var(--text); border-color: #475569; }
+.vs-icon-btn svg { width: 15px; height: 15px; }
+.vs-icon-btn:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+
+/* ---------- Company panel (Phase 3: modal giữa màn hình -> Phase 4:
+   trượt từ bên phải, kiểu panel nghiên cứu thay vì hộp thoại trung tâm) ---------- */
+.vs-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-end;
+  background: rgba(2, 6, 23, 0.55);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease;
+}
+
+.vs-modal-backdrop.is-open { opacity: 1; pointer-events: auto; }
+
+.vs-modal {
+  width: 100%;
+  max-width: 26rem;
+  height: 100vh;
+  max-height: 100vh;
+  overflow-y: auto;
+  background: var(--surface);
+  border-left: 1px solid var(--border-soft);
+  box-shadow: -8px 0 32px rgba(2, 6, 23, 0.5);
+  transform: translateX(100%);
+  transition: transform 0.22s ease;
+}
+
+.vs-modal-backdrop.is-open .vs-modal { transform: translateX(0); }
+
+.vs-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border-soft);
+  position: sticky;
+  top: 0;
+  background: var(--surface);
+  z-index: 1;
+}
+
+.vs-modal-title { font-size: 1.1rem; font-weight: 800; letter-spacing: 0.02em; }
+.vs-modal-body { padding: 1.1rem 1.25rem; }
+
+.vs-modal-stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.85rem; }
+
+.vs-modal-stat-label {
+  font-size: 0.66rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 0.15rem;
+}
+
+.vs-modal-stat-value { font-size: 0.95rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+
+/* ---------- Tab trong panel (Tổng quan / Biểu đồ / Báo cáo tài chính) ---------- */
+.vs-panel-tabs {
+  display: flex;
+  gap: 1.1rem;
+  padding: 0 1.25rem;
+  border-bottom: 1px solid var(--border-soft);
+  position: sticky;
+  top: 57px;
+  background: var(--surface);
+  z-index: 1;
+}
+
+.vs-panel-tab {
+  padding: 0.65rem 0.1rem;
+  margin-bottom: -1px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.vs-panel-tab:hover { color: var(--text); }
+.vs-panel-tab.is-active { color: #93c5fd; border-bottom-color: var(--primary); }
+.vs-panel-tab:focus-visible { outline: 2px solid var(--primary); outline-offset: -2px; }
+
+.vs-panel-tab-content { display: none; }
+.vs-panel-tab-content.is-active { display: block; }
+
+/* ---------- Resize handle giữa 2 cột (Phase 4) ---------- */
+.vs-resize-handle {
+  display: none;
+  width: 8px;
+  margin: 0 -4px;
+  flex-shrink: 0;
+  cursor: col-resize;
+  position: relative;
+  z-index: 5;
+}
+
+.vs-resize-handle::after {
+  content: "";
+  position: absolute;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  left: 50%;
+  width: 3px;
+  transform: translateX(-50%);
+  background: var(--border);
+  border-radius: 2px;
+  transition: background-color 0.15s ease;
+}
+
+.vs-resize-handle:hover::after, .vs-resize-handle.is-dragging::after { background: var(--primary); }
+
+body.is-resizing-panel { cursor: col-resize !important; }
+body.is-resizing-panel * { user-select: none !important; }
+
+@media (min-width: 1280px) {
+  [data-resizable] > .vs-resize-handle { display: block; }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 640px) {
+  .vs-content { padding: 1rem; }
+  .vs-topbar-meta { display: none; }
+}

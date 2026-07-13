@@ -1,5 +1,5 @@
 window.SECTOR_HEATMAP = {
-  "generated_at": "2026-07-11 18:55",
+  "generated_at": "2026-07-12 22:13",
   "scan_date": "2026-07-10",
   "sectors": [
     {
@@ -60,7 +60,7 @@ window.SECTOR_HEATMAP = {
       "industry": "Hàng & Dịch vụ Công nghiệp",
       "n": 247,
       "pct_above_ma200": 34.8,
-      "ret_1w": -1.34,
+      "ret_1w": -1.38,
       "ret_1m": -0.3,
       "pct_up_today": 30.0,
       "strength": 61.8
