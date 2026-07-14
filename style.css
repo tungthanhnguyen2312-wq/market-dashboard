@@ -1,30 +1,62 @@
 /* ============================================================
  * VNSTOCK Dashboard — style.css
- * Design system Dark Mode (phong cách TradingView / Koyfin)
+ * Design system Dark Premium — graphite/xanh đen + teal/cyan accent.
  * Nền Bootstrap 5 (data-bs-theme="dark") + CSS variables.
+ * Teal/cyan (--primary) CHỈ là màu nhấn giao diện (nút, viền active,
+ * focus, link) — KHÔNG bao giờ thay thế màu xanh lá/đỏ của số liệu
+ * tăng/giảm (--success/--danger, xem .val-pos/.val-neg bên dưới).
  * ============================================================ */
 
 :root {
-  --bg: #0F172A;
-  --surface: #1E293B;
-  --surface-2: #253248;
-  --surface-3: #2c3b55;
-  --border: #334155;
-  --border-soft: rgba(148, 163, 184, 0.13);
-  --text: #F8FAFC;
-  --text-muted: #94A3B8;
-  --primary: #3B82F6;
-  --primary-soft: rgba(59, 130, 246, 0.15);
-  --success: #22C55E;
-  --success-soft: rgba(34, 197, 94, 0.14);
-  --warning: #F59E0B;
-  --warning-soft: rgba(245, 158, 11, 0.14);
-  --danger: #EF4444;
-  --danger-soft: rgba(239, 68, 68, 0.14);
-  --radius-lg: 16px;
+  /* ---------- Nền nhiều lớp (graphite → xanh đen sâu) ---------- */
+  --bg-deep: #03080A;
+  --bg: #071316;
+  --bg-rgb: 7, 19, 22;
+  --bg-elevated: #0A1B1E;
+
+  --surface: #0D2224;
+  --surface-2: #123033;
+  --surface-3: #163A3D;
+  --surface-head: #0A2224;
+
+  --border: #1C3A3D;
+  --border-soft: rgba(99, 255, 233, 0.10);
+  --border-medium: rgba(99, 255, 233, 0.18);
+  --border-active: rgba(73, 244, 220, 0.42);
+
+  /* ---------- Chữ ---------- */
+  --text: #F4FAFF;
+  --text-secondary: #C9DCE0;
+  --text-muted: #8CA3A8;
+
+  /* ---------- Accent teal/cyan (thay cho xanh dương cũ) ---------- */
+  --primary: #20E7CF;
+  --primary-rgb: 32, 231, 207;
+  --primary-hover: #17C9B4;
+  --primary-soft: rgba(32, 231, 207, 0.15);
+  --accent-text: #6FF0E0;
+  --accent-text-strong: #BFFCF2;
+
+  /* ---------- Trạng thái số liệu (dương/âm/cảnh báo) ---------- */
+  --success: #27E6A1;
+  --success-rgb: 39, 230, 161;
+  --success-soft: rgba(39, 230, 161, 0.14);
+  --positive: var(--success);
+
+  --danger: #FF5D73;
+  --danger-rgb: 255, 93, 115;
+  --danger-soft: rgba(255, 93, 115, 0.14);
+  --negative: var(--danger);
+
+  --warning: #F0C45A;
+  --warning-rgb: 240, 196, 90;
+  --warning-soft: rgba(240, 196, 90, 0.14);
+
+  --radius-lg: 20px;
   --radius-md: 10px;
   --radius-pill: 999px;
-  --shadow-card: 0 1px 2px rgba(2, 6, 23, 0.5), 0 8px 24px rgba(2, 6, 23, 0.35);
+  --shadow-card: 0 24px 60px rgba(0, 0, 0, 0.5), 0 8px 24px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  --shadow-card-hover: 0 34px 80px rgba(0, 0, 0, 0.62), 0 0 32px rgba(32, 231, 207, 0.10), inset 0 1px 0 rgba(255, 255, 255, 0.05);
   --font-sans: "Inter", -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
@@ -33,8 +65,9 @@ html { scroll-behavior: smooth; }
 
 body {
   background:
-    radial-gradient(1100px 500px at 85% -10%, rgba(59, 130, 246, 0.09), transparent 60%),
-    var(--bg);
+    radial-gradient(900px 480px at 8% 0%, rgba(32, 231, 207, 0.10), transparent 55%),
+    radial-gradient(700px 420px at 92% 12%, rgba(93, 235, 255, 0.06), transparent 55%),
+    linear-gradient(160deg, var(--bg-elevated) 0%, var(--bg) 45%, var(--bg-deep) 100%);
   color: var(--text);
   font-family: var(--font-sans);
   font-size: 0.925rem;
@@ -44,21 +77,45 @@ body {
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 5px; }
-::-webkit-scrollbar-thumb:hover { background: #475569; }
+::-webkit-scrollbar-thumb:hover { background: var(--surface-3); }
 
 h1, h2, h3, h4, h5, h6 { font-weight: 600; }
 
-/* ---------- Card / Panel ---------- */
+/* ---------- Card / Panel ----------
+ * Bề mặt bóng có chiều sâu: gradient (không phải màu phẳng) + viền
+ * mảnh trong suốt + bóng đổ nhiều lớp + 1 lằn sáng mảnh ở cạnh trên
+ * (::before). Hover nâng nhẹ + viền/glow teal rõ hơn — KHÔNG phải
+ * card nào cũng phát sáng mạnh như nhau, đây là mức nền chung; card
+ * quan trọng dùng thêm .kpi-featured (xem bên dưới). */
 .card {
-  background: var(--surface);
+  position: relative;
+  background:
+    radial-gradient(circle at 8% 0%, rgba(32, 231, 207, 0.06), transparent 38%),
+    linear-gradient(145deg, var(--surface-2) 0%, var(--surface) 100%);
   border: 1px solid var(--border-soft);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
   animation: fadeInUp 0.45s ease both;
-  transition: border-color 0.2s ease;
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
 }
 
-.card:hover { border-color: rgba(148, 163, 184, 0.28); }
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 8%;
+  width: 84%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(120, 255, 238, 0.4), transparent);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-active);
+  box-shadow: var(--shadow-card-hover);
+}
 
 .card-header {
   background: transparent;
@@ -97,6 +154,29 @@ h1, h2, h3, h4, h5, h6 { font-weight: 600; }
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* ---------- Eyebrow / nhãn nhóm section (Market Pulse...) ---------- */
+.section-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  margin-bottom: 0.6rem;
+}
+
+.section-eyebrow::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 8px rgba(var(--primary-rgb), 0.7);
+  flex-shrink: 0;
+}
+
 /* ---------- KPI Cards ---------- */
 .kpi-grid {
   display: grid;
@@ -105,21 +185,28 @@ h1, h2, h3, h4, h5, h6 { font-weight: 600; }
 }
 
 .kpi {
-  background: var(--surface);
+  position: relative;
+  background:
+    radial-gradient(circle at 8% 0%, rgba(32, 231, 207, 0.05), transparent 40%),
+    linear-gradient(145deg, var(--surface-2) 0%, var(--surface) 100%);
   border: 1px solid var(--border-soft);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
   padding: 0.95rem 1.1rem;
   animation: fadeInUp 0.45s ease both;
-  transition: transform 0.18s ease, border-color 0.18s ease;
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
 }
 
-.kpi:hover { transform: translateY(-2px); border-color: rgba(148, 163, 184, 0.3); }
+.kpi:hover { transform: translateY(-2px); border-color: var(--border-active); box-shadow: var(--shadow-card-hover); }
 
-/* Thẻ KPI quan trọng nhất (Regime) — nổi bật hơn để đọc theo thứ tự ưu tiên */
+/* Thẻ KPI quan trọng nhất (Regime, Rủi ro danh mục) — nổi bật hơn để
+   đọc theo đúng thứ tự ưu tiên: regime -> rủi ro -> breadth -> ... */
 .kpi-featured {
   border-left: 3px solid var(--primary);
-  background: linear-gradient(135deg, var(--surface) 0%, var(--primary-soft) 220%);
+  background:
+    radial-gradient(circle at 8% 0%, rgba(32, 231, 207, 0.12), transparent 45%),
+    linear-gradient(145deg, var(--surface-2) 0%, var(--surface) 130%);
+  box-shadow: var(--shadow-card), 0 0 24px rgba(var(--primary-rgb), 0.06);
 }
 
 .kpi-label {
@@ -180,18 +267,22 @@ h1, h2, h3, h4, h5, h6 { font-weight: 600; }
   font-variant-numeric: tabular-nums;
 }
 
-.bs-green  { background: var(--success-soft); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.3); }
-.bs-amber  { background: var(--warning-soft); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
-.bs-red    { background: var(--danger-soft);  color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
-.bs-blue   { background: var(--primary-soft); color: #93c5fd; border: 1px solid rgba(59, 130, 246, 0.3); }
-.bs-gray   { background: rgba(148, 163, 184, 0.1); color: var(--text-muted); border: 1px solid var(--border-soft); }
+.bs-green  { background: var(--success-soft); color: var(--success); border: 1px solid rgba(var(--success-rgb), 0.35); }
+.bs-amber  { background: var(--warning-soft); color: var(--warning); border: 1px solid rgba(var(--warning-rgb), 0.35); }
+.bs-red    { background: var(--danger-soft);  color: var(--danger);  border: 1px solid rgba(var(--danger-rgb), 0.35); }
+.bs-blue   { background: var(--primary-soft); color: var(--accent-text); border: 1px solid rgba(var(--primary-rgb), 0.35); }
+.bs-gray   { background: rgba(140, 163, 168, 0.12); color: var(--text-muted); border: 1px solid var(--border-soft); }
 
-.val-pos { color: #4ade80; font-weight: 700; font-variant-numeric: tabular-nums; }
-.val-neg { color: #f87171; font-weight: 700; font-variant-numeric: tabular-nums; }
-.val-strong { color: #4ade80; font-weight: 700; font-variant-numeric: tabular-nums; }
+/* Quy tắc màu số liệu dùng chung — xem thêm helper JS signClass() trong
+   assets/js/value-format.js: dương -> --success, âm -> --danger, bằng 0
+   -> mặc định --text (trắng), thiếu dữ liệu -> --text-muted. Áp dụng
+   thống nhất trên KPI/watchlist/bảng/tooltip, KHÔNG dùng teal cho số. */
+.val-pos { color: var(--success); font-weight: 700; font-variant-numeric: tabular-nums; }
+.val-neg { color: var(--danger); font-weight: 700; font-variant-numeric: tabular-nums; }
+.val-strong { color: var(--success); font-weight: 700; font-variant-numeric: tabular-nums; }
 .val-muted { color: var(--text-muted); }
 .val-check { color: var(--success); }
-.val-dot { color: #475569; }
+.val-dot { color: var(--text-muted); }
 
 /* ---------- Buttons ---------- */
 .btn { border-radius: var(--radius-md); font-weight: 600; transition: all 0.18s ease; }
@@ -199,14 +290,15 @@ h1, h2, h3, h4, h5, h6 { font-weight: 600; }
 .btn-primary {
   background: var(--primary);
   border-color: var(--primary);
+  color: #04211c;
 }
-.btn-primary:hover { background: #2563eb; border-color: #2563eb; transform: translateY(-1px); }
+.btn-primary:hover { background: var(--primary-hover); border-color: var(--primary-hover); transform: translateY(-1px); }
 
 .btn-outline-secondary {
   color: var(--text-muted);
   border-color: var(--border);
 }
-.btn-outline-secondary:hover { background: var(--surface-2); border-color: #475569; color: var(--text); }
+.btn-outline-secondary:hover { background: var(--surface-2); border-color: var(--surface-3); color: var(--text); }
 
 /* ---------- Quick filter chips ---------- */
 .chip-row {
@@ -228,16 +320,16 @@ h1, h2, h3, h4, h5, h6 { font-weight: 600; }
   user-select: none;
 }
 
-.chip:hover { border-color: var(--primary); color: #bfdbfe; background: rgba(59, 130, 246, 0.07); }
+.chip:hover { border-color: var(--primary); color: var(--accent-text-strong); background: rgba(var(--primary-rgb), 0.07); }
 
 .chip.active {
   background: var(--primary-soft);
   border-color: var(--primary);
-  color: #93c5fd;
+  color: var(--accent-text);
 }
 
 .chip-clear { border-style: dashed; }
-.chip-clear:hover { border-color: var(--danger); color: #fca5a5; background: var(--danger-soft); }
+.chip-clear:hover { border-color: var(--danger); color: #ffc7d0; background: var(--danger-soft); }
 
 /* ---------- Forms ---------- */
 .form-select, .form-control,
@@ -255,7 +347,7 @@ div.dt-container .dt-search input:focus {
   background-color: var(--bg);
   border-color: var(--primary);
   color: var(--text);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.18);
+  box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.18);
 }
 
 .form-label-sm {
@@ -274,9 +366,9 @@ div.dt-container .dt-search input:focus {
 .vs-datatable {
   --bs-table-bg: transparent;
   --bs-table-color: var(--text);
-  --bs-table-striped-bg: rgba(148, 163, 184, 0.035);
+  --bs-table-striped-bg: rgba(99, 255, 233, 0.035);
   --bs-table-striped-color: var(--text);
-  --bs-table-hover-bg: rgba(59, 130, 246, 0.09);
+  --bs-table-hover-bg: rgba(var(--primary-rgb), 0.09);
   --bs-table-hover-color: var(--text);
   --bs-table-border-color: var(--border-soft);
   font-size: 0.8rem;
@@ -287,7 +379,7 @@ div.dt-container .dt-search input:focus {
 .vs-datatable tbody tr { transition: background-color 0.12s ease; }
 
 .vs-datatable thead th {
-  background: #17223B;
+  background: var(--surface-head);
   color: var(--text-muted);
   font-size: 0.7rem;
   font-weight: 600;
@@ -297,13 +389,13 @@ div.dt-container .dt-search input:focus {
   padding: 0.55rem 0.75rem;
 }
 
-.vs-datatable tbody td { padding: 0.42rem 0.75rem; border-bottom: 1px solid rgba(148, 163, 184, 0.06); }
+.vs-datatable tbody td { padding: 0.42rem 0.75rem; border-bottom: 1px solid rgba(99, 255, 233, 0.06); }
 
-.vs-datatable td.ticker-cell { font-weight: 700; color: #bfdbfe; }
+.vs-datatable td.ticker-cell { font-weight: 700; color: var(--accent-text-strong); }
 
 /* Header cố định khi cuộn dọc (DataTables scrollY) */
 div.dt-scroll-head { position: sticky; top: 0; z-index: 5; }
-div.dt-scroll-head table { box-shadow: 0 2px 6px rgba(2, 6, 23, 0.5); }
+div.dt-scroll-head table { box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5); }
 div.dt-scroll-body { border-bottom: 1px solid var(--border-soft); }
 
 div.dt-container .dt-info { color: var(--text-muted); font-size: 0.78rem; padding-top: 0.8rem; }
@@ -323,7 +415,7 @@ div.dt-container .dt-paging .dt-paging-button:hover {
 div.dt-container .dt-paging .dt-paging-button.current {
   background: var(--primary-soft) !important;
   border-color: var(--primary) !important;
-  color: #93c5fd !important;
+  color: var(--accent-text) !important;
 }
 
 table.dataTable thead .dt-column-order:before,
@@ -333,6 +425,7 @@ table.dataTable thead .dt-column-order:after { color: var(--primary); }
 .report-content {
   line-height: 1.75;
   font-size: 0.92rem;
+  max-width: 90ch;
 }
 
 .report-content.collapsed {
@@ -345,6 +438,7 @@ table.dataTable thead .dt-column-order:after { color: var(--primary); }
 .report-content h1 {
   font-size: 1.25rem;
   font-weight: 700;
+  color: var(--text);
   padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--border-soft);
 }
@@ -352,17 +446,29 @@ table.dataTable thead .dt-column-order:after { color: var(--primary); }
 .report-content h2 {
   font-size: 1rem;
   font-weight: 600;
-  color: #93c5fd;
+  color: var(--accent-text);
   margin-top: 1.4rem;
   text-transform: uppercase;
   letter-spacing: 0.03em;
 }
 
-.report-content h3 { font-size: 0.92rem; font-weight: 600; margin-top: 1rem; }
+.report-content h3 { font-size: 0.92rem; font-weight: 600; color: var(--text); margin-top: 1rem; }
+
+.report-content p,
+.report-content li { color: var(--text-secondary); }
+
+.report-content strong { color: var(--text); font-weight: 700; }
+
+.report-content a {
+  color: var(--accent-text);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.report-content a:hover { color: var(--accent-text-strong); }
 
 .report-content code {
   background: var(--primary-soft);
-  color: #93c5fd;
+  color: var(--accent-text-strong);
   padding: 0.1rem 0.4rem;
   border-radius: 6px;
   font-size: 0.8em;
@@ -371,7 +477,7 @@ table.dataTable thead .dt-column-order:after { color: var(--primary); }
 .report-content blockquote {
   border-left: 3px solid var(--primary);
   padding-left: 1rem;
-  color: var(--text-muted);
+  color: var(--text-secondary);
 }
 
 .report-content table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; }
@@ -379,7 +485,9 @@ table.dataTable thead .dt-column-order:after { color: var(--primary); }
   border: 1px solid var(--border);
   padding: 0.4rem 0.65rem;
   font-size: 0.85rem;
+  color: var(--text-secondary);
 }
+.report-content table th { color: var(--text); }
 
 .report-content em { color: var(--text-muted); }
 
@@ -387,13 +495,14 @@ table.dataTable thead .dt-column-order:after { color: var(--primary); }
 .watch-item {
   border: 1px solid var(--border-soft);
   border-radius: var(--radius-md);
-  background: rgba(15, 23, 42, 0.45);
+  background: rgba(9, 25, 28, 0.55);
   margin-bottom: 0.6rem;
   overflow: hidden;
-  transition: border-color 0.15s ease;
+  transition: border-color 0.15s ease, transform 0.15s ease;
 }
 
-.watch-item:hover { border-color: var(--border); }
+.watch-item:hover { border-color: var(--border-active); transform: translateY(-1px); }
+.watch-item.is-filtered-out { display: none; }
 
 .watch-item summary {
   list-style: none;
@@ -412,17 +521,17 @@ table.dataTable thead .dt-column-order:after { color: var(--primary); }
 .watch-item[open] .watch-caret { transform: rotate(180deg); }
 
 .watch-body { padding: 0 0.8rem 0.75rem; font-size: 0.8rem; color: var(--text-muted); }
-.watch-body p { margin-bottom: 0.5rem; color: #cbd5e1; }
+.watch-body p { margin-bottom: 0.5rem; color: var(--text-secondary); }
 
 .watch-risks { margin: 0; padding-left: 1.1rem; }
-.watch-risks li { color: #fca5a5; font-size: 0.76rem; margin-bottom: 0.15rem; }
+.watch-risks li { color: var(--danger); font-size: 0.76rem; margin-bottom: 0.15rem; }
 
 /* ---------- Action plan ---------- */
 .action-list { margin: 0; padding-left: 1.25rem; }
 .action-list li {
   margin-bottom: 0.65rem;
   font-size: 0.83rem;
-  color: #cbd5e1;
+  color: var(--text-secondary);
 }
 .action-list li::marker { color: var(--primary); font-weight: 700; }
 
@@ -431,7 +540,7 @@ table.dataTable thead .dt-column-order:after { color: var(--primary); }
   background: transparent;
   border: 0;
   border-bottom: 1px solid var(--border-soft);
-  color: #cbd5e1;
+  color: var(--text-secondary);
   font-size: 0.83rem;
   padding: 0.65rem 1.25rem;
   transition: all 0.15s ease;
@@ -441,7 +550,7 @@ table.dataTable thead .dt-column-order:after { color: var(--primary); }
 
 .archive-list .list-group-item:hover {
   background: var(--primary-soft);
-  color: #bfdbfe;
+  color: var(--accent-text-strong);
   padding-left: 1.5rem;
 }
 
@@ -451,8 +560,8 @@ table.dataTable thead .dt-column-order:after { color: var(--primary); }
 /* ---------- Alerts ---------- */
 .alert-warning {
   background: var(--warning-soft);
-  border: 1px solid rgba(245, 158, 11, 0.3);
-  color: #fcd34d;
+  border: 1px solid rgba(var(--warning-rgb), 0.3);
+  color: #fbe9c2;
   border-radius: var(--radius-md);
 }
 

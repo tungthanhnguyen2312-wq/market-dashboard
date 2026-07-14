@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" data-bs-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>VNSTOCK — Bảng lọc cổ phiếu</title>
 <meta name="description" content="Bảng lọc toàn thị trường chứng khoán Việt Nam — CANSLIM, SMC, thanh khoản.">
 <link rel="canonical" href="https://tungthanhnguyen2312-wq.github.io/market-dashboard/screener.html">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230F172A'/%3E%3Crect x='6' y='18' width='5' height='8' rx='1' fill='%233B82F6'/%3E%3Crect x='14' y='12' width='5' height='14' rx='1' fill='%2322C55E'/%3E%3Crect x='22' y='6' width='5' height='20' rx='1' fill='%2322C55E'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2303080A'/%3E%3Crect x='6' y='18' width='5' height='8' rx='1' fill='%2320E7CF'/%3E%3Crect x='14' y='12' width='5' height='14' rx='1' fill='%2327E6A1'/%3E%3Crect x='22' y='6' width='5' height='20' rx='1' fill='%2327E6A1'/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:title" content="VNSTOCK — Bảng lọc cổ phiếu">
 <meta property="og:description" content="Bảng lọc toàn thị trường chứng khoán Việt Nam — CANSLIM, SMC, thanh khoản.">
@@ -47,12 +47,12 @@
   /* Lớp màu do script bảng bên dưới (giữ nguyên, không sửa) sinh ra trong HTML */
   .up { color: var(--success); }
   .down { color: var(--danger); }
-  .badge-margin { background: var(--danger); color: #0b1120; font-weight: 700;
+  .badge-margin { background: var(--danger); color: #03080A; font-weight: 700;
                   border-radius: 4px; padding: 1px 6px; font-size: 11px; }
   /* Gợi ý bấm vào dòng để xem chi tiết mã (assets/js/company-panel.js) — chỉ bảng screener,
      không áp cho #tblBreadth */
   #tblScreen tbody tr { cursor: pointer; }
-  #tblScreen tbody tr:hover { background: rgba(59, 130, 246, 0.12) !important; }
+  #tblScreen tbody tr:hover { background: rgba(var(--primary-rgb), 0.12) !important; }
 </style>
 </head>
 <body class="bg-bg text-white font-sans" data-page="screener">
@@ -154,6 +154,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js" defer></script>
 <!-- Fallback cho chế độ mở file:// (fetch CSV bị CORS chặn) — candle_scan.py sinh file này -->
 <script src="data/screener_data.js" defer></script>
+<script src="assets/js/value-format.js" defer></script>
 <script defer>
 // Ưu tiên fetch CSV thật (chạy qua http.server / GitHub Pages luôn tươi);
 // mở trực tiếp bằng double-click thì rơi về window.SCREEN_ROWS/BREADTH_ROWS trong .js
@@ -191,7 +192,7 @@ let screenTable;
   document.getElementById("tblBreadth-skeleton").style.display = "none";
 
   const pct = d => v => v === null || v === "" || v === undefined ? "–"
-    : `<span class="${v > 0 ? "up" : v < 0 ? "down" : ""}">${num(v, d)}</span>`;
+    : `<span class="${signClass(v)}">${num(v, d)}</span>`;
 
   screenTable = new DataTable("#tblScreen", {
     data: rows, language: VI, pageLength: 25, order: [[5, "desc"]],

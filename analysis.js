@@ -71,8 +71,7 @@ function cellHtml(field, v) {
     return `<span class="badge-soft ${cls}">${esc(String(v).toUpperCase())}</span>`;
   }
   if (typeof v === "number" && SIGNED_FIELDS.has(field)) {
-    const cls = v > 0 ? "val-pos" : v < 0 ? "val-neg" : "";
-    return `<span class="${cls}">${fmt(v, 2)}</span>`;
+    return `<span class="${signClass(v)}">${fmt(v, 2)}</span>`;
   }
   if (typeof v === "number") return fmt(v, 2);
   return esc(v);

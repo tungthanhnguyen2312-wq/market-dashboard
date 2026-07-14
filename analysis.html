@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" data-bs-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VNSTOCK — Phân tích Quant</title>
   <meta name="description" content="Báo cáo Quant Engine hàng ngày: điểm 0-100 toàn thị trường, 10 chiến lược lọc, gợi ý danh mục, rủi ro và xoay ngành — sinh offline bởi stock_analyzer.py.">
   <link rel="canonical" href="https://tungthanhnguyen2312-wq.github.io/market-dashboard/analysis.html">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230F172A'/%3E%3Crect x='6' y='18' width='5' height='8' rx='1' fill='%233B82F6'/%3E%3Crect x='14' y='12' width='5' height='14' rx='1' fill='%2322C55E'/%3E%3Crect x='22' y='6' width='5' height='20' rx='1' fill='%2322C55E'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2303080A'/%3E%3Crect x='6' y='18' width='5' height='8' rx='1' fill='%2320E7CF'/%3E%3Crect x='14' y='12' width='5' height='14' rx='1' fill='%2327E6A1'/%3E%3Crect x='22' y='6' width='5' height='20' rx='1' fill='%2327E6A1'/%3E%3C/svg%3E">
   <meta property="og:type" content="website">
   <meta property="og:title" content="VNSTOCK — Phân tích Quant">
   <meta property="og:description" content="Báo cáo Quant Engine hàng ngày: điểm 0-100 toàn thị trường, 10 chiến lược lọc, gợi ý danh mục, rủi ro và xoay ngành — sinh offline bởi stock_analyzer.py.">
@@ -50,13 +50,13 @@
        KHÔNG đổi so với bản gốc: analysis.js sinh HTML dùng đúng các class này. */
     .an-table { width: 100%; border-collapse: collapse; font-size: 0.82rem;
                 font-variant-numeric: tabular-nums; white-space: nowrap; }
-    .an-table thead th { background: #17223B; color: var(--text-muted); font-size: 0.68rem;
+    .an-table thead th { background: var(--surface-head); color: var(--text-muted); font-size: 0.68rem;
                          font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;
                          padding: 0.5rem 0.65rem; border-bottom: 1px solid var(--border);
                          position: sticky; top: 0; }
-    .an-table tbody td { padding: 0.42rem 0.65rem; border-bottom: 1px solid rgba(148,163,184,0.06); }
-    .an-table tbody tr:hover { background: rgba(59,130,246,0.08); }
-    .an-table td.ticker-cell { font-weight: 700; color: #bfdbfe; }
+    .an-table tbody td { padding: 0.42rem 0.65rem; border-bottom: 1px solid rgba(99,255,233,0.06); }
+    .an-table tbody tr:hover { background: rgba(var(--primary-rgb),0.08); }
+    .an-table td.ticker-cell { font-weight: 700; color: var(--accent-text-strong); }
     .an-scroll { overflow-x: auto; }
     .an-scroll--tall { max-height: 62vh; overflow-y: auto; }
 
@@ -149,8 +149,9 @@
         <div id="fatal-error" class="vs-alert vs-alert-warning" style="display:none"></div>
 
         <!-- ===== KPI: TÓM TẮT THỊ TRƯỜNG ===== -->
+        <div class="section-eyebrow">Tóm tắt thị trường</div>
         <section class="kpi-grid mb-4" id="kpi-section" aria-label="Tóm tắt Quant Engine">
-          <div class="kpi">
+          <div class="kpi kpi-featured">
             <div class="kpi-label">Chế độ thị trường</div>
             <div class="kpi-value" id="kpi-regime">—</div>
             <div class="kpi-sub" id="kpi-regime-sub">từ độ rộng thị trường</div>
@@ -279,6 +280,7 @@
   <script src="https://unpkg.com/lucide@latest"></script>
   <script src="assets/js/shell.js"></script>
   <script src="assets/js/resizable-panels.js"></script>
+  <script src="assets/js/value-format.js"></script>
   <script src="analysis.js"></script>
 </body>
 </html>

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" data-bs-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VNSTOCK Dashboard — Báo cáo thị trường hàng ngày</title>
   <meta name="description" content="Dashboard phân tích chứng khoán Việt Nam: báo cáo AI hàng ngày, screener toàn thị trường, watchlist và kế hoạch hành động.">
   <link rel="canonical" href="https://tungthanhnguyen2312-wq.github.io/market-dashboard/dashboard.html">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230F172A'/%3E%3Crect x='6' y='18' width='5' height='8' rx='1' fill='%233B82F6'/%3E%3Crect x='14' y='12' width='5' height='14' rx='1' fill='%2322C55E'/%3E%3Crect x='22' y='6' width='5' height='20' rx='1' fill='%2322C55E'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2303080A'/%3E%3Crect x='6' y='18' width='5' height='8' rx='1' fill='%2320E7CF'/%3E%3Crect x='14' y='12' width='5' height='14' rx='1' fill='%2327E6A1'/%3E%3Crect x='22' y='6' width='5' height='20' rx='1' fill='%2327E6A1'/%3E%3C/svg%3E">
   <meta property="og:type" content="website">
   <meta property="og:title" content="VNSTOCK Dashboard — Báo cáo thị trường hàng ngày">
   <meta property="og:description" content="Dashboard phân tích chứng khoán Việt Nam: báo cáo AI hàng ngày, screener toàn thị trường, watchlist và kế hoạch hành động.">
@@ -86,13 +86,14 @@
       <main class="vs-content">
 
         <!-- ===== KPI CARDS ===== -->
+        <div class="section-eyebrow">Nhịp đập thị trường</div>
         <section class="kpi-grid mb-4" aria-label="Chỉ số tổng quan">
           <div class="kpi kpi-featured">
             <div class="kpi-label"><i data-lucide="gauge"></i>Regime thị trường</div>
             <div class="kpi-value" id="kpi-regime">—</div>
             <div class="kpi-sub" id="kpi-regime-sub">từ báo cáo AI</div>
           </div>
-          <div class="kpi">
+          <div class="kpi kpi-featured">
             <div class="kpi-label"><i data-lucide="shield-alert"></i>Rủi ro danh mục</div>
             <div class="kpi-value" id="kpi-risk">—</div>
             <div class="kpi-sub">khuyến nghị tỷ trọng</div>
@@ -207,10 +208,13 @@
               <div class="card-header">
                 <h5><span class="card-icon">⭐</span>Watchlist hôm nay</h5>
               </div>
-              <div class="card-body" id="watchlist">
-                <div class="space-y-2">
-                  <div class="vs-skeleton vs-skeleton-line" style="width:75%"></div>
-                  <div class="vs-skeleton vs-skeleton-line" style="width:55%"></div>
+              <div class="card-body">
+                <div class="chip-row mb-3" id="watchlist-filters"></div>
+                <div id="watchlist">
+                  <div class="space-y-2">
+                    <div class="vs-skeleton vs-skeleton-line" style="width:75%"></div>
+                    <div class="vs-skeleton vs-skeleton-line" style="width:55%"></div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -262,6 +266,7 @@
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js" defer></script>
+  <script src="assets/js/value-format.js" defer></script>
   <script src="app.js" defer></script>
 </body>
 </html>

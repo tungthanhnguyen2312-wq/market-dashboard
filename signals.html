@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" data-bs-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>VNSTOCK — Bảng tín hiệu</title>
 <meta name="description" content="Tín hiệu nến/SMC, watchlist và heatmap sức mạnh ngành theo phiên.">
 <link rel="canonical" href="https://tungthanhnguyen2312-wq.github.io/market-dashboard/signals.html">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230F172A'/%3E%3Crect x='6' y='18' width='5' height='8' rx='1' fill='%233B82F6'/%3E%3Crect x='14' y='12' width='5' height='14' rx='1' fill='%2322C55E'/%3E%3Crect x='22' y='6' width='5' height='20' rx='1' fill='%2322C55E'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2303080A'/%3E%3Crect x='6' y='18' width='5' height='8' rx='1' fill='%2320E7CF'/%3E%3Crect x='14' y='12' width='5' height='14' rx='1' fill='%2327E6A1'/%3E%3Crect x='22' y='6' width='5' height='20' rx='1' fill='%2327E6A1'/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:title" content="VNSTOCK — Bảng tín hiệu">
 <meta property="og:description" content="Tín hiệu nến/SMC, watchlist và heatmap sức mạnh ngành theo phiên.">
@@ -184,7 +184,7 @@ function renderDividend(list, note) {
 function renderHeatmap(sectors) {
   if (!sectors || !sectors.length) return;
   // strength 0-100 -> đỏ (yếu) -> vàng -> xanh (mạnh)
-  const color = s => s >= 66 ? "#3fb950" : s >= 33 ? "#d29922" : "#f85149";
+  const color = s => s >= 66 ? "#27E6A1" : s >= 33 ? "#F0C45A" : "#FF5D73";
   document.getElementById("heatmap").innerHTML = sectors.map(x =>
     `<div class="cell" style="background:${color(x.strength)}">
        ${esc(x.industry)} — ${fmt(x.strength, 0)}

@@ -17,7 +17,6 @@
   const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const num = (v, d = 1) => (v === null || v === undefined || v === "" || Number.isNaN(v))
     ? "–" : Number(v).toLocaleString("vi-VN", { maximumFractionDigits: d });
-  const signCls = (v) => (v > 0 ? "val-pos" : v < 0 ? "val-neg" : "");
   const structCls = (s) => {
     s = String(s).toLowerCase();
     return s === "up" ? "bs-green" : s === "side" ? "bs-amber" : s === "down" ? "bs-red" : "bs-gray";
@@ -39,11 +38,11 @@
       </div>
       <div class="vs-modal-stat-grid">
         ${stat("Giá đóng cửa", num(r.close, 0))}
-        ${stat("% phiên", `<span class="${signCls(r.chg_today_pct)}">${num(r.chg_today_pct, 2)}%</span>`)}
+        ${stat("% phiên", `<span class="${signClass(r.chg_today_pct)}">${num(r.chg_today_pct, 2)}%</span>`)}
         ${stat("RS Rating", num(r.rs_rating, 0))}
         ${stat("RSI 14", num(r.rsi14, 0))}
         ${stat("Cấu trúc", `<span class="badge-soft ${structCls(r.structure)}">${esc(String(r.structure || "–").toUpperCase())}</span>`)}
-        ${stat("% từ đỉnh 52 tuần", `<span class="${signCls(r.pct_from_52w_high)}">${num(r.pct_from_52w_high, 1)}%</span>`)}
+        ${stat("% từ đỉnh 52 tuần", `<span class="${signClass(r.pct_from_52w_high)}">${num(r.pct_from_52w_high, 1)}%</span>`)}
         ${stat("GTGD 20 phiên (tỷ)", num(r.gtgd20_ty, 1))}
         ${stat("KL tương đối", num(r.rel_vol, 2))}
         ${stat("P/E", num(r.pe, 1))}
@@ -75,7 +74,7 @@
         labels: periods.map((p) => p.label),
         datasets: [{
           data: values,
-          backgroundColor: values.map((v) => (v === null ? "rgba(148,163,184,0.4)" : v >= 0 ? "rgba(34,197,94,0.75)" : "rgba(239,68,68,0.7)")),
+          backgroundColor: values.map((v) => (v === null ? CHART_COLORS.muted : v >= 0 ? CHART_COLORS.pos : CHART_COLORS.neg)),
           borderRadius: 4,
         }],
       },

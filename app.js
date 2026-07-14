@@ -174,7 +174,7 @@ async function loadJsonReport() {
             .map((r) => `<li>${esc(r)}</li>`)
             .join("");
           return `
-            <details class="watch-item">
+            <details class="watch-item" data-stance="${esc(s.stance || "")}">
               <summary>
                 <span class="watch-ticker">${esc(s.ticker)}</span>
                 <span class="badge-soft ${stance.cls}">${esc(stance.label)}</span>
@@ -187,6 +187,7 @@ async function loadJsonReport() {
             </details>`;
         })
         .join("");
+      initWatchlistFilter(data.stock_notes);
     } else {
       watchlistBox.innerHTML = `<p class="text-muted mb-0">Báo cáo hôm nay không có mã nào trong watchlist.</p>`;
     }
@@ -203,6 +204,39 @@ async function loadJsonReport() {
     watchlistBox.innerHTML = `<p class="text-muted mb-0">⚠️ Chưa tải được <code>ai_report_latest.json</code> (${esc(err.message)}).</p>`;
     actionBox.innerHTML = `<li class="text-muted">Không có dữ liệu.</li>`;
   }
+}
+
+/* Lọc watchlist theo nhóm trạng thái (chip) — chỉ hiện khi watchlist hôm
+   nay có từ 2 stance khác nhau trở lên, cùng tinh thần initQuarterChips()
+   của archive.js: không dựng UI lọc khi không có gì để lọc. */
+function initWatchlistFilter(notes) {
+  const box = document.getElementById("watchlist-filters");
+  if (!box) return;
+  box.innerHTML = "";
+  const stances = Array.from(new Set(notes.map((s) => s.stance).filter(Boolean)));
+  if (stances.length <= 1) return;
+
+  let active = "";
+  function apply() {
+    document.querySelectorAll("#watchlist .watch-item").forEach((el) => {
+      el.classList.toggle("is-filtered-out", Boolean(active) && el.dataset.stance !== active);
+    });
+  }
+  function makeChip(label, value) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "chip" + (value === "" ? " active" : "");
+    btn.textContent = label;
+    btn.addEventListener("click", () => {
+      active = value;
+      box.querySelectorAll(".chip").forEach((c) => c.classList.remove("active"));
+      btn.classList.add("active");
+      apply();
+    });
+    return btn;
+  }
+  box.appendChild(makeChip("Tất cả", ""));
+  stances.forEach((st) => box.appendChild(makeChip((STANCE_MAP[st] || { label: st }).label, st)));
 }
 
 /* ============================================================
@@ -245,10 +279,10 @@ function fillMarketKpis(rows) {
 function renderCharts(rows) {
   if (!window.Chart) return;
 
-  Chart.defaults.color = "#94A3B8";
+  Chart.defaults.color = CHART_COLORS.text;
   Chart.defaults.font.family = "'Inter', sans-serif";
   Chart.defaults.font.size = 11;
-  Chart.defaults.borderColor = "rgba(148, 163, 184, 0.1)";
+  Chart.defaults.borderColor = CHART_COLORS.grid;
 
   // --- Sector breadth: % mã trên MA200 theo ngành (ngành >= 8 mã) ---
   const byIndustry = {};
@@ -275,7 +309,7 @@ function renderCharts(rows) {
         datasets: [{
           data: sectors.map((s) => +s.pct.toFixed(1)),
           backgroundColor: sectors.map((s) =>
-            s.pct >= 50 ? "rgba(34,197,94,0.7)" : s.pct >= 30 ? "rgba(245,158,11,0.7)" : "rgba(239,68,68,0.6)"
+            s.pct >= 50 ? CHART_COLORS.pos : s.pct >= 30 ? CHART_COLORS.warn : CHART_COLORS.neg
           ),
           borderRadius: 4,
           barThickness: 14,
@@ -316,8 +350,8 @@ function renderCharts(rows) {
         labels: ["UP", "SIDE", "DOWN"],
         datasets: [{
           data: [structCount.up, structCount.side, structCount.down],
-          backgroundColor: ["rgba(34,197,94,0.75)", "rgba(245,158,11,0.75)", "rgba(239,68,68,0.7)"],
-          borderColor: "#1E293B",
+          backgroundColor: [CHART_COLORS.pos, CHART_COLORS.warn, CHART_COLORS.neg],
+          borderColor: CHART_COLORS.surface,
           borderWidth: 3,
         }],
       },
@@ -396,8 +430,7 @@ function buildColumns(fields) {
       }
 
       if (typeof value === "number" && SIGNED_COLUMNS.includes(field)) {
-        const cls = value > 0 ? "val-pos" : value < 0 ? "val-neg" : "";
-        return `<span class="${cls}">${value}</span>`;
+        return `<span class="${signClass(value)}">${value}</span>`;
       }
       return esc(value);
     },
