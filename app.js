@@ -97,9 +97,8 @@ async function loadAiReport() {
     if (toggle) toggle.style.display = "none";
     container.innerHTML = `
       <div class="alert alert-warning mb-0">
-        <strong>⚠️ Chưa tải được báo cáo AI</strong> (${esc(err.message)}).<br>
-        Kiểm tra: file <code>ai_report_latest.md</code> đã tồn tại chưa
-        (chạy <code>sync_and_push.bat</code> để copy dữ liệu sang).<br>
+        <strong>Không thể tải Báo cáo AI</strong> (${esc(err.message)}).<br>
+        Vui lòng chạy lại quy trình đồng bộ dữ liệu.<br>
         Lưu ý: khi xem local phải chạy qua web server
         (vd: <code>python -m http.server</code>), mở trực tiếp file sẽ bị chặn CORS.
       </div>`;
@@ -201,7 +200,7 @@ async function loadJsonReport() {
       actionBox.innerHTML = `<li class="text-muted">Không có kế hoạch trong báo cáo hôm nay.</li>`;
     }
   } catch (err) {
-    watchlistBox.innerHTML = `<p class="text-muted mb-0">⚠️ Chưa tải được <code>ai_report_latest.json</code> (${esc(err.message)}).</p>`;
+    watchlistBox.innerHTML = `<p class="text-muted mb-0">Chưa tải được dữ liệu Watchlist (${esc(err.message)}).</p>`;
     actionBox.innerHTML = `<li class="text-muted">Không có dữ liệu.</li>`;
   }
 }
@@ -575,9 +574,8 @@ function loadMarketTable() {
 function showTableError(message) {
   document.getElementById("table-status").innerHTML = `
     <div class="alert alert-warning mb-0 text-start">
-      <strong>⚠️ Chưa tải được bảng dữ liệu</strong> (${esc(message)}).<br>
-      Kiểm tra: file <code>screen_snapshot.csv</code> đã tồn tại chưa
-      (chạy <code>sync_and_push.bat</code> để copy dữ liệu sang).
+      <strong>Không thể tải dữ liệu Stock Screener</strong> (${esc(message)}).<br>
+      Vui lòng chạy lại quy trình đồng bộ dữ liệu.
     </div>`;
 }
 

@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VNSTOCK — Giới thiệu</title>
-  <meta name="description" content="Giới thiệu dự án VNSTOCK: kiến trúc, tech stack, tài liệu và giấy phép.">
+  <title>About | Stock Look Up</title>
+  <meta name="description" content="Giới thiệu dự án Stock Look Up: kiến trúc, tech stack, tài liệu và giấy phép.">
   <link rel="canonical" href="https://tungthanhnguyen2312-wq.github.io/market-dashboard/about.html">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2303080A'/%3E%3Crect x='6' y='18' width='5' height='8' rx='1' fill='%2320E7CF'/%3E%3Crect x='14' y='12' width='5' height='14' rx='1' fill='%2327E6A1'/%3E%3Crect x='22' y='6' width='5' height='20' rx='1' fill='%2327E6A1'/%3E%3C/svg%3E">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="VNSTOCK — Giới thiệu">
-  <meta property="og:description" content="Giới thiệu dự án VNSTOCK: kiến trúc, tech stack, tài liệu và giấy phép.">
+  <meta property="og:title" content="Stock Look Up — Giới thiệu">
+  <meta property="og:description" content="Giới thiệu dự án Stock Look Up: kiến trúc, tech stack, tài liệu và giấy phép.">
   <meta property="og:url" content="https://tungthanhnguyen2312-wq.github.io/market-dashboard/about.html">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="VNSTOCK — Giới thiệu">
-  <meta name="twitter:description" content="Giới thiệu dự án VNSTOCK: kiến trúc, tech stack, tài liệu và giấy phép.">
+  <meta name="twitter:title" content="Stock Look Up — Giới thiệu">
+  <meta name="twitter:description" content="Giới thiệu dự án Stock Look Up: kiến trúc, tech stack, tài liệu và giấy phép.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,7 +41,7 @@
 
   <div class="vs-shell">
     <aside class="vs-sidebar" id="sidebar">
-      <a class="vs-sidebar-brand" href="dashboard.html"><span class="vs-brand-dot"></span><span class="vs-sidebar-brand-label">VNSTOCK</span></a>
+      <a class="vs-sidebar-brand" href="dashboard.html"><span class="vs-brand-dot"></span><span class="vs-sidebar-brand-label">Stock Look Up</span></a>
       <button class="vs-sidebar-toggle lg:hidden ms-auto" id="sidebar-close" style="position:absolute; top:0.9rem; right:0.9rem;" aria-label="Đóng menu">
         <i data-lucide="x"></i>
       </button>
@@ -56,7 +56,7 @@
       <button type="button" class="vs-sidebar-collapse-toggle" id="sidebar-collapse-toggle" aria-label="Thu gọn sidebar" title="Thu gọn sidebar">
         <i data-lucide="chevrons-left"></i>
       </button>
-      <div class="vs-sidebar-foot">VNSTOCK Terminal · v1.0</div>
+      <div class="vs-sidebar-foot">Stock Look Up</div>
     </aside>
     <div class="vs-sidebar-overlay" id="sidebar-overlay"></div>
 
@@ -72,7 +72,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
           <div class="lg:col-span-2">
             <div class="card mb-4">
-              <div class="card-header"><h5><span class="card-icon">📊</span>VNSTOCK — Vietnamese Stock Market Dashboard</h5></div>
+              <div class="card-header"><h5><i data-lucide="layout-dashboard" class="card-icon"></i>Stock Look Up — Vietnamese Stock Market Dashboard</h5></div>
               <div class="card-body report-content">
                 <p>Dashboard chứng khoán Việt Nam kiểu TradingView, dữ liệu tổng hợp từ pipeline
                 Python chạy local (7 chân kiềng: giá, metadata, vĩ mô, tin tức, cổ đông, chỉ báo
@@ -97,7 +97,7 @@
 
           <div class="lg:col-span-1">
             <div class="card mb-4">
-              <div class="card-header"><h5><span class="card-icon">🧱</span>Tech stack</h5></div>
+              <div class="card-header"><h5><i data-lucide="layers" class="card-icon"></i>Tech stack</h5></div>
               <div class="card-body">
                 <div class="chip-row">
                   <span class="chip">HTML/CSS/JS thuần</span>
@@ -113,7 +113,7 @@
             </div>
 
             <div class="card mb-4">
-              <div class="card-header"><h5><span class="card-icon">🔗</span>Liên kết</h5></div>
+              <div class="card-header"><h5><i data-lucide="link" class="card-icon"></i>Liên kết</h5></div>
               <div class="card-body pt-0">
                 <a class="vs-list-item" href="https://github.com/tungthanhnguyen2312-wq/market-dashboard" target="_blank" rel="noopener">GitHub repo</a>
                 <a class="vs-list-item" href="https://github.com/tungthanhnguyen2312-wq/market-dashboard/tree/main/docs" target="_blank" rel="noopener">Tài liệu (docs/)</a>
@@ -123,7 +123,7 @@
             </div>
 
             <div class="vs-alert vs-alert-warning" style="font-size:0.82rem;">
-              Dữ liệu sinh tự động, chỉ mang tính tham khảo cá nhân — <strong>không phải khuyến
+              Dữ liệu tạo bởi pipeline chạy local, chỉ mang tính tham khảo cá nhân — <strong>không phải khuyến
               nghị đầu tư</strong>.
             </div>
           </div>
@@ -131,7 +131,7 @@
       </main>
 
       <footer class="vs-statusfooter">
-        <span>VNSTOCK Dashboard — dữ liệu sinh tự động bởi pipeline Python · chỉ mang tính tham khảo, không phải khuyến nghị đầu tư.</span>
+        <span>Stock Look Up — dữ liệu tạo bởi pipeline chạy local · chỉ mang tính tham khảo, không phải khuyến nghị đầu tư.</span>
       </footer>
     </div>
   </div>

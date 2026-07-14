@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VNSTOCK Dashboard — Báo cáo thị trường hàng ngày</title>
+  <title>Dashboard | Stock Look Up</title>
   <meta name="description" content="Dashboard phân tích chứng khoán Việt Nam: báo cáo AI hàng ngày, screener toàn thị trường, watchlist và kế hoạch hành động.">
   <link rel="canonical" href="https://tungthanhnguyen2312-wq.github.io/market-dashboard/dashboard.html">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2303080A'/%3E%3Crect x='6' y='18' width='5' height='8' rx='1' fill='%2320E7CF'/%3E%3Crect x='14' y='12' width='5' height='14' rx='1' fill='%2327E6A1'/%3E%3Crect x='22' y='6' width='5' height='20' rx='1' fill='%2327E6A1'/%3E%3C/svg%3E">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="VNSTOCK Dashboard — Báo cáo thị trường hàng ngày">
+  <meta property="og:title" content="Stock Look Up Dashboard — Báo cáo thị trường hàng ngày">
   <meta property="og:description" content="Dashboard phân tích chứng khoán Việt Nam: báo cáo AI hàng ngày, screener toàn thị trường, watchlist và kế hoạch hành động.">
   <meta property="og:url" content="https://tungthanhnguyen2312-wq.github.io/market-dashboard/dashboard.html">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="VNSTOCK Dashboard — Báo cáo thị trường hàng ngày">
+  <meta name="twitter:title" content="Stock Look Up Dashboard — Báo cáo thị trường hàng ngày">
   <meta name="twitter:description" content="Dashboard phân tích chứng khoán Việt Nam: báo cáo AI hàng ngày, screener toàn thị trường, watchlist và kế hoạch hành động.">
 
   <!-- Fonts -->
@@ -53,7 +53,7 @@
   <div class="vs-shell">
     <!-- ===== SIDEBAR DÙNG CHUNG ===== -->
     <aside class="vs-sidebar" id="sidebar">
-      <a class="vs-sidebar-brand" href="dashboard.html"><span class="vs-brand-dot"></span><span class="vs-sidebar-brand-label">VNSTOCK</span></a>
+      <a class="vs-sidebar-brand" href="dashboard.html"><span class="vs-brand-dot"></span><span class="vs-sidebar-brand-label">Stock Look Up</span></a>
       <button class="vs-sidebar-toggle lg:hidden ms-auto" id="sidebar-close" style="position:absolute; top:0.9rem; right:0.9rem;" aria-label="Đóng menu">
         <i data-lucide="x"></i>
       </button>
@@ -68,7 +68,7 @@
       <button type="button" class="vs-sidebar-collapse-toggle" id="sidebar-collapse-toggle" aria-label="Thu gọn sidebar" title="Thu gọn sidebar">
         <i data-lucide="chevrons-left"></i>
       </button>
-      <div class="vs-sidebar-foot">VNSTOCK Terminal · v1.0</div>
+      <div class="vs-sidebar-foot">Stock Look Up</div>
     </aside>
     <div class="vs-sidebar-overlay" id="sidebar-overlay"></div>
 
@@ -85,19 +85,12 @@
 
       <main class="vs-content">
 
-        <!-- ===== KPI CARDS ===== -->
-        <div class="section-eyebrow">Nhịp đập thị trường</div>
-        <section class="kpi-grid mb-4" aria-label="Chỉ số tổng quan">
-          <div class="kpi kpi-featured">
-            <div class="kpi-label"><i data-lucide="gauge"></i>Regime thị trường</div>
-            <div class="kpi-value" id="kpi-regime">—</div>
-            <div class="kpi-sub" id="kpi-regime-sub">từ báo cáo AI</div>
-          </div>
-          <div class="kpi kpi-featured">
-            <div class="kpi-label"><i data-lucide="shield-alert"></i>Rủi ro danh mục</div>
-            <div class="kpi-value" id="kpi-risk">—</div>
-            <div class="kpi-sub">khuyến nghị tỷ trọng</div>
-          </div>
+        <!-- ===== TẦNG 1: DỮ LIỆU THỊ TRƯỜNG (pipeline) ===== -->
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
+          <div class="section-eyebrow mb-0">Dữ liệu thị trường</div>
+          <span class="badge-soft bs-blue" title="Cập nhật mỗi khi chạy lại pipeline dữ liệu">Dữ liệu pipeline</span>
+        </div>
+        <section class="kpi-grid mb-4" aria-label="Chỉ số thị trường">
           <div class="kpi">
             <div class="kpi-label"><i data-lucide="trending-up"></i>Breadth &gt; MA200</div>
             <div class="kpi-value" id="kpi-breadth">—</div>
@@ -122,29 +115,10 @@
           <!-- ===== CỘT NỘI DUNG CHÍNH ===== -->
           <div class="xl:flex-[2] min-w-0">
 
-            <!-- KHU VỰC 1: BÁO CÁO AI MỚI NHẤT -->
-            <div class="card mb-4">
-              <div class="card-header">
-                <h5><span class="card-icon">🤖</span>Báo cáo AI mới nhất</h5>
-                <span class="badge-soft bs-blue" id="report-date"></span>
-              </div>
-              <div class="card-body report-content collapsed" id="ai-report">
-                <div class="space-y-2">
-                  <div class="vs-skeleton vs-skeleton-line" style="width:55%"></div>
-                  <div class="vs-skeleton vs-skeleton-line" style="width:92%"></div>
-                  <div class="vs-skeleton vs-skeleton-line" style="width:85%"></div>
-                  <div class="vs-skeleton vs-skeleton-line" style="width:70%"></div>
-                </div>
-              </div>
-              <div class="card-footer text-center py-2">
-                <button type="button" class="vs-btn" id="report-toggle">Xem đầy đủ ▾</button>
-              </div>
-            </div>
-
             <!-- BIỂU ĐỒ TỔNG QUAN -->
             <div class="card mb-4">
               <div class="card-header">
-                <h5><span class="card-icon">📈</span>Tổng quan ngành &amp; cấu trúc</h5>
+                <h5><i data-lucide="line-chart" class="card-icon"></i>Tổng quan ngành &amp; cấu trúc</h5>
               </div>
               <div class="card-body">
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
@@ -160,10 +134,10 @@
               </div>
             </div>
 
-            <!-- KHU VỰC 2: STOCK SCREENER -->
+            <!-- STOCK SCREENER -->
             <div class="card mb-4">
               <div class="card-header">
-                <h5><span class="card-icon">📊</span>Stock Screener <span class="text-muted fw-normal" style="font-size:.75rem">screen_snapshot.csv</span></h5>
+                <h5><i data-lucide="table" class="card-icon"></i>Stock Screener</h5>
               </div>
               <div class="card-body">
                 <!-- Lọc nhanh -->
@@ -203,10 +177,44 @@
           <!-- ===== CỘT PHẢI ===== -->
           <div class="xl:flex-1 min-w-0">
 
-            <!-- WATCHLIST TỪ BÁO CÁO AI -->
+            <!-- Lối tắt kho lưu trữ báo cáo cũ — nội dung đầy đủ nằm ở archive.html -->
             <div class="card mb-4">
               <div class="card-header">
-                <h5><span class="card-icon">⭐</span>Watchlist hôm nay</h5>
+                <h5><i data-lucide="archive" class="card-icon"></i>Báo cáo lịch sử</h5>
+              </div>
+              <div class="card-body">
+                <p class="text-muted mb-3" style="font-size:0.83rem;">Các báo cáo/playbook tĩnh theo phiên được lưu trữ riêng, có thể tìm theo tháng/năm.</p>
+                <a href="archive.html" class="vs-btn w-full">Xem kho lưu trữ →</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ===== TẦNG 2: PHÂN TÍCH AI & QUANT — LOCAL SNAPSHOT ===== -->
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2 mt-4">
+          <div class="section-eyebrow mb-0">Phân tích AI · bản local gần nhất</div>
+          <span class="badge-soft bs-amber" title="Chỉ thay đổi sau khi chạy phân tích AI cục bộ và tải lên">Local Snapshot</span>
+        </div>
+        <section class="kpi-grid mb-4" aria-label="Tóm tắt báo cáo AI">
+          <div class="kpi kpi-featured">
+            <div class="kpi-label"><i data-lucide="gauge"></i>Regime thị trường</div>
+            <div class="kpi-value" id="kpi-regime">—</div>
+            <div class="kpi-sub" id="kpi-regime-sub">từ báo cáo AI</div>
+          </div>
+          <div class="kpi kpi-featured">
+            <div class="kpi-label"><i data-lucide="shield-alert"></i>Rủi ro danh mục</div>
+            <div class="kpi-value" id="kpi-risk">—</div>
+            <div class="kpi-sub">khuyến nghị tỷ trọng</div>
+          </div>
+        </section>
+
+        <div class="flex flex-col xl:flex-row gap-4">
+          <!-- WATCHLIST TỪ BÁO CÁO AI -->
+          <div class="xl:flex-1 min-w-0">
+            <div class="card mb-4">
+              <div class="card-header">
+                <h5><i data-lucide="star" class="card-icon"></i>Watchlist hôm nay</h5>
               </div>
               <div class="card-body">
                 <div class="chip-row mb-3" id="watchlist-filters"></div>
@@ -218,11 +226,13 @@
                 </div>
               </div>
             </div>
+          </div>
 
-            <!-- KẾ HOẠCH HÀNH ĐỘNG -->
+          <!-- KẾ HOẠCH HÀNH ĐỘNG -->
+          <div class="xl:flex-1 min-w-0">
             <div class="card mb-4">
               <div class="card-header">
-                <h5><span class="card-icon">🎯</span>Kế hoạch hành động</h5>
+                <h5><i data-lucide="target" class="card-icon"></i>Kế hoạch hành động</h5>
               </div>
               <div class="card-body">
                 <ol class="action-list" id="action-plan">
@@ -230,25 +240,31 @@
                 </ol>
               </div>
             </div>
+          </div>
+        </div>
 
-            <!-- Lối tắt kho lưu trữ báo cáo cũ — nội dung đầy đủ nằm ở archive.html -->
-            <div class="card mb-4">
-              <div class="card-header">
-                <h5><span class="card-icon">🗂️</span>Báo cáo lịch sử</h5>
-              </div>
-              <div class="card-body">
-                <p class="text-muted mb-3" style="font-size:0.83rem;">Các báo cáo/playbook tĩnh theo phiên được lưu trữ riêng, có thể tìm theo tháng/năm.</p>
-                <a href="archive.html" class="vs-btn w-full">Xem kho lưu trữ →</a>
-              </div>
+        <!-- BÁO CÁO AI — full width, cuối trang -->
+        <div class="card mb-4">
+          <div class="card-header">
+            <h5><i data-lucide="bot" class="card-icon"></i>Báo cáo AI — bản local gần nhất</h5>
+            <span class="badge-soft bs-amber" id="report-date"></span>
+          </div>
+          <div class="card-body report-content collapsed" id="ai-report">
+            <div class="space-y-2">
+              <div class="vs-skeleton vs-skeleton-line" style="width:55%"></div>
+              <div class="vs-skeleton vs-skeleton-line" style="width:92%"></div>
+              <div class="vs-skeleton vs-skeleton-line" style="width:85%"></div>
+              <div class="vs-skeleton vs-skeleton-line" style="width:70%"></div>
             </div>
           </div>
-
+          <div class="card-footer text-center py-2">
+            <button type="button" class="vs-btn" id="report-toggle">Xem đầy đủ ▾</button>
+          </div>
         </div>
       </main>
 
       <footer class="vs-statusfooter">
-        <span>VNSTOCK Dashboard — dữ liệu sinh tự động bởi pipeline Python · chỉ mang tính tham khảo, không phải khuyến nghị đầu tư.</span>
-        <span class="vs-status-chip is-live">Live data</span>
+        <span>Stock Look Up — dữ liệu thị trường tạo bởi pipeline chạy local, phân tích AI/Quant là bản snapshot cục bộ · chỉ mang tính tham khảo, không phải khuyến nghị đầu tư.</span>
       </footer>
     </div>
   </div>

@@ -205,12 +205,12 @@ function renderTop20(p) {
       .map(([k, v]) => `${k} ${(v * 100).toFixed(0)}%`).join(" · ");
     document.getElementById("score-method").innerHTML = `
       <details>
-        <summary style="cursor:pointer">🧮 Cách chấm điểm (trọng số: ${esc(weights)})</summary>
+        <summary style="cursor:pointer">Cách chấm điểm (trọng số: ${esc(weights)})</summary>
         <ul class="mb-1 mt-2 ps-3">
           ${Object.entries(m.components).map(([k, v]) => `<li><b>${esc(k)}</b>: ${esc(v)}</li>`).join("")}
         </ul>
         ${m.indicator_blend ? `<div class="mt-1">${esc(m.indicator_blend)}</div>` : ""}
-        ${m.limits ? `<div class="mt-1">⚠️ ${esc(m.limits)}</div>` : ""}
+        ${m.limits ? `<div class="mt-1">${esc(m.limits)}</div>` : ""}
       </details>`;
   }
 }
@@ -355,9 +355,8 @@ function showFatal(message) {
   const box = document.getElementById("fatal-error");
   box.style.display = "block";
   box.innerHTML = `
-    <strong>⚠️ Chưa tải được báo cáo Quant</strong> (${esc(message)}).<br>
-    Kiểm tra: file <code>analysis_latest.json</code> đã tồn tại chưa
-    (chạy <code>python stock_analyzer.py --strategy all</code> để sinh).<br>
+    <strong>Chưa tải được báo cáo Quant</strong> (${esc(message)}).<br>
+    Vui lòng chạy lại phân tích Quant Engine trên máy local.<br>
     Lưu ý: khi xem local phải chạy qua web server
     (vd: <code>python -m http.server</code>), mở trực tiếp file sẽ bị chặn CORS.`;
   document.getElementById("last-updated").textContent = "Chưa có dữ liệu";

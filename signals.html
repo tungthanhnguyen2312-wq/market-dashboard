@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VNSTOCK — Bảng tín hiệu</title>
+<title>Signals | Stock Look Up</title>
 <meta name="description" content="Tín hiệu nến/SMC, watchlist và heatmap sức mạnh ngành theo phiên.">
 <link rel="canonical" href="https://tungthanhnguyen2312-wq.github.io/market-dashboard/signals.html">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2303080A'/%3E%3Crect x='6' y='18' width='5' height='8' rx='1' fill='%2320E7CF'/%3E%3Crect x='14' y='12' width='5' height='14' rx='1' fill='%2327E6A1'/%3E%3Crect x='22' y='6' width='5' height='20' rx='1' fill='%2327E6A1'/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
-<meta property="og:title" content="VNSTOCK — Bảng tín hiệu">
+<meta property="og:title" content="Stock Look Up — Bảng tín hiệu">
 <meta property="og:description" content="Tín hiệu nến/SMC, watchlist và heatmap sức mạnh ngành theo phiên.">
 <meta property="og:url" content="https://tungthanhnguyen2312-wq.github.io/market-dashboard/signals.html">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="VNSTOCK — Bảng tín hiệu">
+<meta name="twitter:title" content="Stock Look Up — Bảng tín hiệu">
 <meta name="twitter:description" content="Tín hiệu nến/SMC, watchlist và heatmap sức mạnh ngành theo phiên.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -75,7 +75,7 @@
 
   <div class="vs-shell">
     <aside class="vs-sidebar" id="sidebar">
-      <a class="vs-sidebar-brand" href="dashboard.html"><span class="vs-brand-dot"></span><span class="vs-sidebar-brand-label">VNSTOCK</span></a>
+      <a class="vs-sidebar-brand" href="dashboard.html"><span class="vs-brand-dot"></span><span class="vs-sidebar-brand-label">Stock Look Up</span></a>
       <button class="vs-sidebar-toggle lg:hidden ms-auto" id="sidebar-close" style="position:absolute; top:0.9rem; right:0.9rem;" aria-label="Đóng menu">
         <i data-lucide="x"></i>
       </button>
@@ -90,7 +90,7 @@
       <button type="button" class="vs-sidebar-collapse-toggle" id="sidebar-collapse-toggle" aria-label="Thu gọn sidebar" title="Thu gọn sidebar">
         <i data-lucide="chevrons-left"></i>
       </button>
-      <div class="vs-sidebar-foot">VNSTOCK Terminal · v1.0</div>
+      <div class="vs-sidebar-foot">Stock Look Up</div>
     </aside>
     <div class="vs-sidebar-overlay" id="sidebar-overlay"></div>
 
@@ -104,25 +104,25 @@
 
       <main class="vs-content">
         <div class="meta" id="meta">đang tải dữ liệu…</div>
-        <div class="warn">⚠️ Dữ liệu point-in-time cho tham khảo cá nhân — mẫu nến/SMC là trigger nhiễu cao, luôn đối chiếu nền RS + thanh khoản + margin_status.</div>
+        <div class="warn"><i data-lucide="triangle-alert" style="width:13px;height:13px;vertical-align:-2px"></i> Dữ liệu point-in-time cho tham khảo cá nhân — mẫu nến/SMC là trigger nhiễu cao, luôn đối chiếu nền RS + thanh khoản + margin_status.</div>
 
-        <h2>📌 Watchlist</h2>
+        <h2><i data-lucide="pin" style="width:14px;height:14px;vertical-align:-2px"></i> Watchlist</h2>
         <div class="cards" id="watchlist"><div class="empty">chưa có dữ liệu</div></div>
 
-        <h2>⭐ Tín hiệu hợp lưu (nến đảo chiều + vùng SMC cùng hướng)</h2>
+        <h2><i data-lucide="star" style="width:14px;height:14px;vertical-align:-2px"></i> Tín hiệu hợp lưu (nến đảo chiều + vùng SMC cùng hướng)</h2>
         <div id="confluence"><div class="empty">chưa có dữ liệu</div></div>
 
-        <h2>💰 Góc tích sản cổ tức (yield ≥ 7%, margin sạch)</h2>
+        <h2><i data-lucide="coins" style="width:14px;height:14px;vertical-align:-2px"></i> Góc tích sản cổ tức (yield ≥ 7%, margin sạch)</h2>
         <div class="meta" id="divnote"></div>
         <div id="dividend"><div class="empty">Đang chờ đồng bộ dữ liệu cổ tức</div></div>
 
-        <h2>🗺️ Heatmap sức mạnh ngành</h2>
+        <h2><i data-lucide="map" style="width:14px;height:14px;vertical-align:-2px"></i> Heatmap sức mạnh ngành</h2>
         <div class="heat" id="heatmap"><div class="empty">chưa có dữ liệu</div></div>
       </main>
 
       <footer class="vs-statusfooter">
-        <span>VNSTOCK — tín hiệu sinh cục bộ, chỉ mang tính tham khảo, không phải khuyến nghị đầu tư.</span>
-        <span class="vs-status-chip is-live">Live data</span>
+        <span>Stock Look Up — tín hiệu sinh cục bộ, chỉ mang tính tham khảo, không phải khuyến nghị đầu tư.</span>
+        <span class="badge-soft bs-blue">Dữ liệu pipeline</span>
       </footer>
     </div>
   </div>
@@ -196,11 +196,11 @@ function renderHeatmap(sectors) {
   const sig = await loadData("data/candle_signals.json", "CANDLE_SIGNALS");
   const heat = await loadData("data/sector_heatmap.json", "SECTOR_HEATMAP");
   if (!sig && !heat) {
-    document.getElementById("meta").textContent = "Chưa có dữ liệu — chạy: python candle_scan.py";
+    document.getElementById("meta").textContent = "Chưa có dữ liệu cho phiên này — vui lòng chạy lại pipeline tín hiệu.";
     return;
   }
   document.getElementById("meta").textContent =
-    `Phiên ${sig?.scan_date || heat?.scan_date} · sinh lúc ${sig?.generated_at || heat?.generated_at} · candle_scan.py (cục bộ, 0 API)`;
+    `Phiên ${sig?.scan_date || heat?.scan_date} · sinh lúc ${sig?.generated_at || heat?.generated_at} · nguồn: dữ liệu pipeline (cục bộ, 0 API)`;
   if (sig) { renderWatchlist(sig.watchlist); renderConfluence(sig.signals); renderDividend(sig.dividend_investing, sig.dividend_note); }
   if (heat) renderHeatmap(heat.sectors);
 })();

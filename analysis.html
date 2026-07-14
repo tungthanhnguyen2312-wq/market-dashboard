@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VNSTOCK — Phân tích Quant</title>
-  <meta name="description" content="Báo cáo Quant Engine hàng ngày: điểm 0-100 toàn thị trường, 10 chiến lược lọc, gợi ý danh mục, rủi ro và xoay ngành — sinh offline bởi stock_analyzer.py.">
+  <title>Analysis | Stock Look Up</title>
+  <meta name="description" content="Báo cáo Quant Engine hàng ngày: điểm 0-100 toàn thị trường, 10 chiến lược lọc, gợi ý danh mục, rủi ro và xoay ngành — phân tích chạy offline trên máy local.">
   <link rel="canonical" href="https://tungthanhnguyen2312-wq.github.io/market-dashboard/analysis.html">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2303080A'/%3E%3Crect x='6' y='18' width='5' height='8' rx='1' fill='%2320E7CF'/%3E%3Crect x='14' y='12' width='5' height='14' rx='1' fill='%2327E6A1'/%3E%3Crect x='22' y='6' width='5' height='20' rx='1' fill='%2327E6A1'/%3E%3C/svg%3E">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="VNSTOCK — Phân tích Quant">
-  <meta property="og:description" content="Báo cáo Quant Engine hàng ngày: điểm 0-100 toàn thị trường, 10 chiến lược lọc, gợi ý danh mục, rủi ro và xoay ngành — sinh offline bởi stock_analyzer.py.">
+  <meta property="og:title" content="Stock Look Up — Phân tích Quant">
+  <meta property="og:description" content="Báo cáo Quant Engine hàng ngày: điểm 0-100 toàn thị trường, 10 chiến lược lọc, gợi ý danh mục, rủi ro và xoay ngành — phân tích chạy offline trên máy local.">
   <meta property="og:url" content="https://tungthanhnguyen2312-wq.github.io/market-dashboard/analysis.html">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="VNSTOCK — Phân tích Quant">
-  <meta name="twitter:description" content="Báo cáo Quant Engine hàng ngày: điểm 0-100 toàn thị trường, 10 chiến lược lọc, gợi ý danh mục, rủi ro và xoay ngành — sinh offline bởi stock_analyzer.py.">
+  <meta name="twitter:title" content="Stock Look Up — Phân tích Quant">
+  <meta name="twitter:description" content="Báo cáo Quant Engine hàng ngày: điểm 0-100 toàn thị trường, 10 chiến lược lọc, gợi ý danh mục, rủi ro và xoay ngành — phân tích chạy offline trên máy local.">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -114,7 +114,7 @@
 
   <div class="vs-shell">
     <aside class="vs-sidebar" id="sidebar">
-      <a class="vs-sidebar-brand" href="dashboard.html"><span class="vs-brand-dot"></span><span class="vs-sidebar-brand-label">VNSTOCK</span></a>
+      <a class="vs-sidebar-brand" href="dashboard.html"><span class="vs-brand-dot"></span><span class="vs-sidebar-brand-label">Stock Look Up</span></a>
       <button class="vs-sidebar-toggle lg:hidden ms-auto" id="sidebar-close" style="position:absolute; top:0.9rem; right:0.9rem;" aria-label="Đóng menu">
         <i data-lucide="x"></i>
       </button>
@@ -129,7 +129,7 @@
       <button type="button" class="vs-sidebar-collapse-toggle" id="sidebar-collapse-toggle" aria-label="Thu gọn sidebar" title="Thu gọn sidebar">
         <i data-lucide="chevrons-left"></i>
       </button>
-      <div class="vs-sidebar-foot">VNSTOCK Terminal · v1.0</div>
+      <div class="vs-sidebar-foot">Stock Look Up</div>
     </aside>
     <div class="vs-sidebar-overlay" id="sidebar-overlay"></div>
 
@@ -137,6 +137,7 @@
       <header class="vs-topbar">
         <button class="vs-sidebar-toggle" id="sidebar-toggle" aria-label="Mở menu"><i data-lucide="menu"></i></button>
         <span class="vs-topbar-title">Analysis</span>
+        <span class="badge-soft bs-amber">Local Snapshot</span>
         <span class="vs-topbar-spacer"></span>
         <a class="vs-topbar-link" href="archive.html"><i data-lucide="history"></i>History</a>
         <span class="vs-topbar-meta" id="last-updated">Đang tải dữ liệu…</span>
@@ -188,7 +189,7 @@
             <!-- TOP CƠ HỘI -->
             <div class="card mb-4" id="card-opportunities">
               <div class="card-header">
-                <h5><span class="card-icon">🏆</span>Top cơ hội</h5>
+                <h5><i data-lucide="trophy" class="card-icon"></i>Top cơ hội</h5>
                 <span class="badge-soft bs-blue" id="opp-session"></span>
               </div>
               <div class="card-body">
@@ -199,7 +200,7 @@
             <!-- TOP 20 THEO ĐIỂM -->
             <div class="card mb-4" id="card-top20">
               <div class="card-header">
-                <h5><span class="card-icon">📋</span>Top 20 cổ phiếu theo điểm tổng</h5>
+                <h5><i data-lucide="list-ordered" class="card-icon"></i>Top 20 cổ phiếu theo điểm tổng</h5>
                 <span class="text-muted fw-normal" style="font-size:.75rem">bấm vào dòng để xem giải thích điểm</span>
               </div>
               <div class="card-body an-scroll an-scroll--tall p-0">
@@ -212,7 +213,7 @@
             <!-- KẾT QUẢ CHIẾN LƯỢC -->
             <div class="card mb-4" id="card-strategies">
               <div class="card-header">
-                <h5><span class="card-icon">🧭</span>Kết quả 10 chiến lược lọc</h5>
+                <h5><i data-lucide="compass" class="card-icon"></i>Kết quả 10 chiến lược lọc</h5>
               </div>
               <div class="card-body" id="strategies"></div>
             </div>
@@ -226,7 +227,7 @@
             <!-- GỢI Ý DANH MỤC -->
             <div class="card mb-4" id="card-portfolio">
               <div class="card-header">
-                <h5><span class="card-icon">💼</span>Gợi ý danh mục (cơ học)</h5>
+                <h5><i data-lucide="briefcase" class="card-icon"></i>Gợi ý danh mục (cơ học)</h5>
               </div>
               <div class="card-body" id="portfolio"></div>
             </div>
@@ -234,18 +235,18 @@
             <!-- XOAY NGÀNH -->
             <div class="card mb-4" id="card-sectors">
               <div class="card-header">
-                <h5><span class="card-icon">🔄</span>Xoay ngành — sức mạnh theo ngành</h5>
+                <h5><i data-lucide="rotate-cw" class="card-icon"></i>Xoay ngành — sức mạnh theo ngành</h5>
               </div>
               <div class="card-body an-scroll p-0">
                 <table class="an-table" id="sector-table"></table>
               </div>
-              <div class="card-footer small py-2">% mã trên MA200 của từng ngành (market_breadth).</div>
+              <div class="card-footer small py-2">% mã trên MA200 của từng ngành (dữ liệu breadth pipeline).</div>
             </div>
 
             <!-- VĨ MÔ -->
             <div class="card mb-4" id="card-macro">
               <div class="card-header">
-                <h5><span class="card-icon">🌏</span>Vĩ mô</h5>
+                <h5><i data-lucide="globe" class="card-icon"></i>Vĩ mô</h5>
               </div>
               <div class="card-body" id="macro"></div>
             </div>
@@ -253,7 +254,7 @@
             <!-- RỦI RO & CẢNH BÁO -->
             <div class="card mb-4" id="card-risks">
               <div class="card-header">
-                <h5><span class="card-icon">⚠️</span>Rủi ro &amp; cảnh báo</h5>
+                <h5><i data-lucide="triangle-alert" class="card-icon"></i>Rủi ro &amp; cảnh báo</h5>
               </div>
               <div class="card-body" id="risks"></div>
             </div>
@@ -261,7 +262,7 @@
             <!-- TÓM TẮT PHIÊN CHẠY -->
             <div class="card mb-4" id="card-summary">
               <div class="card-header">
-                <h5><span class="card-icon">🛠️</span>Phiên chạy Quant Engine</h5>
+                <h5><i data-lucide="wrench" class="card-icon"></i>Phiên chạy Quant Engine</h5>
               </div>
               <div class="card-body" id="run-summary"></div>
             </div>
@@ -271,8 +272,8 @@
       </main>
 
       <footer class="vs-statusfooter">
-        <span>VNSTOCK Dashboard — Báo cáo Quant sinh offline bởi <code>stock_analyzer.py</code> · chỉ mang tính tham khảo, không phải khuyến nghị đầu tư.</span>
-        <span class="vs-status-chip is-live">Live data</span>
+        <span>Stock Look Up — Báo cáo Quant Engine, phân tích chạy offline trên máy local · chỉ mang tính tham khảo, không phải khuyến nghị đầu tư.</span>
+        <span class="badge-soft bs-amber">Local Snapshot</span>
       </footer>
     </div>
   </div>

@@ -56,7 +56,7 @@ function render(items) {
       <div>
         ${g.items.map((it) => `
           <a href="${encodeURI(it.file)}" class="vs-list-item flex justify-between items-center">
-            <span>📄 ${esc(it.title)}</span>
+            <span>${esc(it.title)}</span>
             <span class="text-muted" style="font-size:0.75rem;">${fmtDate(it.date)}</span>
           </a>
         `).join("")}
