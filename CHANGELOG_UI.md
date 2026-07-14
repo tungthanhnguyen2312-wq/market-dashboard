@@ -1,5 +1,23 @@
 # CHANGELOG UI — Refactor giao diện toàn dự án
 
+## Cập nhật 2026-07-14 — Bảng mẫu hình nến
+
+- `signals.html` có tab “Mẫu hình nến” nhưng giữ nguyên Watchlist, hợp lưu, cổ tức và heatmap trong tab Tổng quan.
+- Thêm summary, 11 nhóm filter, sort, sticky table, trạng thái forming/completed bằng chữ, sao SVG có accessible label và điều hướng bàn phím.
+- `assets/js/candlestick-patterns.js` ưu tiên JSON, fallback global JS khi `file://`, validate schema và escape toàn bộ chuỗi động; không hiện path/file/exception trên UI.
+- Layout kiểm soát tràn ngang ở 375/768/1024/1440px, focus visible và reduced-motion; company panel được mở rộng thành API dùng chung với Screener.
+
+---
+
+## Cập nhật 2026-07-14 — Dashboard Vĩ mô
+
+- Thay nội dung khung `macro.html` bằng dashboard dữ liệu pipeline: overview, tối đa 8 KPI thật, biểu đồ Chart.js chỉ khi đủ lịch sử, empty state khối ngoại và bảng toàn bộ chỉ báo.
+- Thêm `assets/css/macro.css` và `assets/js/macro.js`; DOM động dùng `textContent`/node API, link nguồn được kiểm tra protocol và mở tab mới an toàn.
+- Responsive tại 375/768/1024/1440px, bảng cuộn ngang trên mobile, canvas có mô tả truy cập, tôn trọng `prefers-reduced-motion`.
+- Delta chỉ biểu diễn hướng tăng/giảm; không tự gắn diễn giải “tốt/xấu” cho CPI, VIX, USD/VND hay US10Y.
+
+---
+
 ## Cập nhật 2026-07-13 — Frontend Phase 1-5 (khung sườn Tailwind + redesign)
 
 Tóm tắt kiến trúc đầy đủ: xem [CHANGELOG.md](CHANGELOG.md) mục `[1.2.0]`. Phần này ghi riêng các
@@ -18,7 +36,7 @@ thay đổi giao diện/UI cụ thể, theo đúng phạm vi của file này:
 - Style bảng DataTables đổi từ id riêng (`#market-table`) sang class dùng chung `.vs-datatable`.
 - Thêm `@media (prefers-reduced-motion: reduce)` áp dụng toàn site.
 - 3 trang mới: `about.html`, `archive.html` (danh sách ghi tay trong `archive.js`), `macro.html`
-  (placeholder, chưa nối `macro_snapshot.csv`).
+  (đã được nối với web snapshot ở bản cập nhật 14/07/2026).
 - `index.html` đổi vai trò: từ trang chính (Bootstrap, `nav.css`) thành redirect thuần sang
   `dashboard.html` (trang chính mới), giữ nguyên URL gốc GitHub Pages.
 

@@ -161,10 +161,17 @@
   .vs-sidebar {
     position: fixed;
     inset: 0 auto 0 0;
-    transform: translateX(-100%);
+  }
+  /* :not(.is-open) / .is-open loại trừ lẫn nhau — tránh việc phải so đặc tả
+     giữa 2 rule !important (đã gặp cascade không thắng như kỳ vọng khi
+     dùng 2 rule cùng khớp .vs-sidebar). */
+  .vs-shell > .vs-sidebar:not(.is-open) {
+    transform: translate3d(-100%, 0, 0) !important;
+  }
+  .vs-shell > .vs-sidebar.is-open {
+    transform: translate3d(0, 0, 0) !important;
   }
   .vs-sidebar.is-open {
-    transform: translateX(0);
     box-shadow: 8px 0 32px rgba(3, 8, 10, 0.55);
   }
   .vs-sidebar-overlay {

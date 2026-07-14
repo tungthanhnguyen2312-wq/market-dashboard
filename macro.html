@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Macro | Stock Look Up</title>
-  <meta name="description" content="Chỉ báo vĩ mô Việt Nam — sắp ra mắt.">
+  <title>Vĩ mô | Stock Look Up</title>
+  <meta name="description" content="Dashboard chỉ báo vĩ mô gồm lãi suất, tỷ giá, CPI, lợi suất, DXY, dầu, vàng, VIX và trạng thái dữ liệu khối ngoại từ pipeline Stock Look Up.">
   <link rel="canonical" href="https://tungthanhnguyen2312-wq.github.io/market-dashboard/macro.html">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2303080A'/%3E%3Crect x='6' y='18' width='5' height='8' rx='1' fill='%2320E7CF'/%3E%3Crect x='14' y='12' width='5' height='14' rx='1' fill='%2327E6A1'/%3E%3Crect x='22' y='6' width='5' height='20' rx='1' fill='%2327E6A1'/%3E%3C/svg%3E">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Stock Look Up — Vĩ mô">
-  <meta property="og:description" content="Chỉ báo vĩ mô Việt Nam — sắp ra mắt.">
+  <meta property="og:description" content="Theo dõi lãi suất, tỷ giá, tăng trưởng, rủi ro và hàng hóa từ snapshot pipeline Stock Look Up.">
   <meta property="og:url" content="https://tungthanhnguyen2312-wq.github.io/market-dashboard/macro.html">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Stock Look Up — Vĩ mô">
-  <meta name="twitter:description" content="Chỉ báo vĩ mô Việt Nam — sắp ra mắt.">
+  <meta name="twitter:description" content="Dashboard vĩ mô từ local pipeline snapshot, cập nhật theo lần publish gần nhất.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="style.css">
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -36,16 +36,16 @@
     };
   </script>
   <link rel="stylesheet" href="assets/css/shell.css">
+  <link rel="stylesheet" href="assets/css/macro.css">
 </head>
 <body class="bg-bg text-white font-sans" data-page="macro">
-
   <div class="vs-shell">
     <aside class="vs-sidebar" id="sidebar">
       <a class="vs-sidebar-brand" href="dashboard.html"><span class="vs-brand-dot"></span><span class="vs-sidebar-brand-label">Stock Look Up</span></a>
       <button class="vs-sidebar-toggle lg:hidden ms-auto" id="sidebar-close" style="position:absolute; top:0.9rem; right:0.9rem;" aria-label="Đóng menu">
         <i data-lucide="x"></i>
       </button>
-      <nav class="vs-sidebar-nav">
+      <nav class="vs-sidebar-nav" aria-label="Điều hướng chính">
         <a class="vs-sidebar-link" href="dashboard.html" data-nav="dashboard" title="Dashboard"><i data-lucide="layout-dashboard"></i><span class="vs-sidebar-link-label">Dashboard</span></a>
         <a class="vs-sidebar-link" href="screener.html" data-nav="screener" title="Screener"><i data-lucide="filter"></i><span class="vs-sidebar-link-label">Screener</span></a>
         <a class="vs-sidebar-link" href="analysis.html" data-nav="analysis" title="Analysis"><i data-lucide="brain-circuit"></i><span class="vs-sidebar-link-label">Analysis</span></a>
@@ -66,33 +66,120 @@
         <span class="vs-topbar-title">Vĩ mô</span>
         <span class="vs-topbar-spacer"></span>
         <a class="vs-topbar-link" href="archive.html"><i data-lucide="history"></i>History</a>
+        <button type="button" class="vs-icon-btn" onclick="location.reload()" aria-label="Làm mới dữ liệu" title="Làm mới dữ liệu"><i data-lucide="refresh-cw"></i></button>
       </header>
 
-      <main class="vs-content">
-        <div class="card mb-4">
-          <div class="card-header">
-            <h5><i data-lucide="globe" class="card-icon"></i>Vĩ mô</h5>
-            <span class="badge-soft bs-gray">Sắp ra mắt</span>
+      <main class="vs-content macro-page" id="macro-main">
+        <section class="card macro-hero" aria-labelledby="macro-title">
+          <div class="card-body macro-hero-body">
+            <div>
+              <div class="section-eyebrow">Macro overview</div>
+              <h1 id="macro-title">Vĩ mô</h1>
+              <p class="macro-subtitle">Bối cảnh lãi suất, tiền tệ, tăng trưởng, rủi ro và hàng hóa từ dữ liệu pipeline đã được publish.</p>
+              <div class="macro-badges">
+                <span class="badge-soft bs-blue">Dữ liệu pipeline</span>
+                <span class="badge-soft bs-gray" id="macro-status" role="status" aria-live="polite">Đang tải</span>
+              </div>
+            </div>
+            <dl class="macro-meta" aria-label="Thông tin snapshot">
+              <div>
+                <dt>Ngày snapshot</dt>
+                <dd id="snapshot-date">—</dd>
+              </div>
+              <div>
+                <dt>Pipeline sinh dữ liệu</dt>
+                <dd id="pipeline-time">—</dd>
+              </div>
+              <div>
+                <dt>Nhịp cập nhật</dt>
+                <dd>Cập nhật theo lần publish gần nhất</dd>
+              </div>
+            </dl>
           </div>
-          <div class="card-body">
-            <div class="vs-empty">
-              <i data-lucide="globe"></i>
-              <div class="vs-empty-title">Trang chỉ báo vĩ mô đang được xây dựng</div>
-              <div class="vs-empty-sub">Lãi suất, tỷ giá, CPI, khối ngoại và các chỉ báo vĩ mô khác
-                sẽ hiển thị tại đây ở giai đoạn kết nối dữ liệu tiếp theo.
-                Dữ liệu vĩ mô đã có sẵn ở backend (nguồn: dữ liệu pipeline), chưa được nối vào trang này.</div>
+        </section>
+
+        <div class="macro-notice is-loading" id="macro-notice" role="status" aria-live="polite">
+          <i data-lucide="loader-circle" aria-hidden="true"></i>
+          <span id="macro-notice-text">Đang tải local pipeline snapshot…</span>
+        </div>
+
+        <section aria-labelledby="kpi-title">
+          <div class="macro-section-heading">
+            <div>
+              <div class="section-eyebrow">Chỉ báo trọng tâm</div>
+              <h2 id="kpi-title">Nhịp vĩ mô hiện tại</h2>
+            </div>
+            <p>Delta chỉ thể hiện hướng thay đổi; không tự động diễn giải là tốt hay xấu.</p>
+          </div>
+          <div class="macro-kpi-grid" id="macro-kpis" aria-live="polite">
+            <div class="kpi macro-skeleton-card" aria-hidden="true"></div>
+            <div class="kpi macro-skeleton-card" aria-hidden="true"></div>
+            <div class="kpi macro-skeleton-card" aria-hidden="true"></div>
+          </div>
+        </section>
+
+        <section aria-labelledby="charts-title">
+          <div class="macro-section-heading">
+            <div>
+              <div class="section-eyebrow">Lịch sử trong snapshot</div>
+              <h2 id="charts-title">Diễn biến theo nhóm</h2>
+            </div>
+            <p>Chỉ vẽ chuỗi có từ hai điểm dữ liệu hợp lệ. Bảng chỉ báo bên dưới là phương án đọc thay thế.</p>
+          </div>
+          <div class="macro-chart-grid" id="macro-charts"></div>
+        </section>
+
+        <section class="card macro-foreign" aria-labelledby="foreign-title">
+          <div class="card-header">
+            <h2 id="foreign-title"><i data-lucide="landmark" class="card-icon"></i>Giao dịch khối ngoại</h2>
+            <span class="badge-soft bs-gray" id="foreign-status">Đang kiểm tra</span>
+          </div>
+          <div class="card-body" id="foreign-content">
+            <p class="val-muted">Đang kiểm tra dữ liệu giao dịch khối ngoại trong snapshot…</p>
+          </div>
+        </section>
+
+        <section class="card macro-table-card" aria-labelledby="table-title">
+          <div class="card-header macro-table-header">
+            <div>
+              <h2 id="table-title"><i data-lucide="list-tree" class="card-icon"></i>Toàn bộ chỉ báo</h2>
+              <p id="table-summary">Đang tải danh mục chỉ báo…</p>
             </div>
           </div>
-        </div>
+          <div class="card-body macro-table-body">
+            <div class="macro-table-scroll" tabindex="0" aria-label="Bảng chỉ báo vĩ mô, có thể cuộn ngang trên màn hình nhỏ">
+              <table class="macro-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Chỉ báo</th>
+                    <th scope="col">Giá trị</th>
+                    <th scope="col">Thay đổi</th>
+                    <th scope="col">Kỳ dữ liệu</th>
+                    <th scope="col">Tần suất</th>
+                    <th scope="col">Nguồn</th>
+                    <th scope="col">Pipeline tải</th>
+                    <th scope="col">Trạng thái</th>
+                  </tr>
+                </thead>
+                <tbody id="macro-table-body">
+                  <tr><td colspan="8" class="macro-table-empty">Đang tải…</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
       </main>
 
       <footer class="vs-statusfooter">
-        <span>Stock Look Up — dữ liệu tạo bởi pipeline chạy local · chỉ mang tính tham khảo, không phải khuyến nghị đầu tư.</span>
+        <span>Stock Look Up — local pipeline snapshot · không phải dữ liệu real-time · chỉ mang tính tham khảo, không phải khuyến nghị đầu tư.</span>
       </footer>
     </div>
   </div>
 
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <script src="assets/js/shell.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js" defer></script>
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+  <script src="data/macro_snapshot.js" defer></script>
+  <script src="assets/js/shell.js" defer></script>
+  <script src="assets/js/macro.js" defer></script>
 </body>
 </html>

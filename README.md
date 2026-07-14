@@ -27,7 +27,7 @@ local (see [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for the full split and r
 
 **Main Features**
 - TradingView-style dashboard: AI-generated market report, KPIs, watchlist, full market table.
-- Candle/SMC signal board (`signals.html`) and a full screener with CANSLIM/SMC filters (`screener.html`).
+- Multi-timeframe candlestick/SMC signal board (`signals.html`, daily/weekly/monthly only) and a full screener with CANSLIM/SMC filters (`screener.html`).
 - Offline quant engine (10 strategies, 0-100 scoring) and a quarterly financial-report pipeline — both documented in `docs/`, code kept local.
 - No build step: static HTML/CSS/JS, libraries loaded from CDN, works opened directly as a file or served over GitHub Pages.
 
@@ -50,7 +50,7 @@ Hệ thống gồm 2 nửa — chi tiết đầy đủ + sơ đồ luồng dữ 
   - `screener.html` — bảng lọc đầy đủ (CANSLIM, SMC, thanh khoản...).
   - `analysis.html` — Quant Engine offline (10 chiến lược, chấm điểm 0-100).
   - `signals.html` — tín hiệu nến / Smart Money Concept theo phiên.
-  - `macro.html`, `about.html`, `archive.html` — vĩ mô (sắp ra mắt), giới thiệu dự án, kho lưu trữ báo cáo tĩnh.
+  - `macro.html`, `about.html`, `archive.html` — dashboard vĩ mô từ pipeline, giới thiệu dự án, kho lưu trữ báo cáo tĩnh.
 
 **Kiến trúc:**
 
@@ -82,7 +82,8 @@ flowchart LR
 ## Tính năng chính
 
 - **Dashboard chính** — báo cáo thị trường do AI tổng hợp (regime BULL/NEUTRAL/BEAR, breadth, watchlist, kế hoạch hành động), 5 KPI card, 2 biểu đồ Chart.js, lối tắt tới kho lưu trữ báo cáo cũ ([archive.html](archive.html)).
-- **Bảng tín hiệu nến/SMC** (`signals.html`) và **bảng lọc đầy đủ** (`screener.html`) — Việt hóa 31 tên cột, 10 chip lọc nhanh, conditional formatting kiểu TradingView.
+- **Bảng tín hiệu nến/SMC** (`signals.html`) — tab mẫu hình quét lịch sử 31 mẫu trên đúng 3 khung `1D/1W/1M`, có `forming/completed`, điểm 0–100, xác nhận/cảnh báo và fallback `file://`; không hỗ trợ hoặc nội suy intraday. **Bảng lọc đầy đủ** (`screener.html`) giữ nguyên CANSLIM/SMC.
+- **Dashboard vĩ mô** (`macro.html`) — lãi suất, tỷ giá, CPI/GDP đúng kỳ dữ liệu, DXY, dầu, vàng, VIX; đọc JSON khi chạy HTTP/GitHub Pages và fallback JS khi mở trực tiếp.
 - **Quant engine offline** (`stock_analyzer.py`, chạy local) — 10 chiến lược lọc + chấm điểm 0-100/mã, xem [docs/STOCK_ANALYZER.md](docs/STOCK_ANALYZER.md).
 - **Nhánh báo cáo tài chính quý (BCTC)** — chuẩn hóa BCĐKT/KQKD/LCTT cho ~650 mã, xem [docs/FINANCIAL_REPORT.md](docs/FINANCIAL_REPORT.md).
 - **Dark mode chuyên nghiệp**, responsive, không cần build/cài đặt — thư viện load qua CDN.
@@ -119,11 +120,11 @@ pip install -r requirements.txt
 VNSTOCK/
 ├── index.html                                # redirect → dashboard.html (giữ URL gốc GitHub Pages)
 ├── dashboard.html, screener.html, signals.html, analysis.html   # 4 trang dữ liệu chính (public)
-├── macro.html, about.html, archive.html      # vĩ mô (sắp ra mắt), giới thiệu, kho lưu trữ (public)
+├── macro.html, about.html, archive.html      # dashboard vĩ mô, giới thiệu, kho lưu trữ (public)
 ├── assets/css/, assets/js/                   # khung sườn Tailwind (sidebar/top bar/footer) (public)
 ├── app.js, analysis.js, style.css            # logic tải dữ liệu + design system — KHÔNG đổi (public)
 ├── nav.css                                   # chỉ còn dùng bởi báo cáo lịch sử tĩnh (playbook-*/report-*) (public)
-├── data/                                     # candle_signals / screener_data / sector_heatmap (public)
+├── data/                                     # tín hiệu/screener/heatmap/mẫu nến + macro snapshot JSON/JS (public)
 ├── docs/                                     # tài liệu (public — trừ 2 file audit nội bộ bên dưới)
 │   ├── USER_GUIDE.md          # setup lần đầu, lỗi thường gặp
 │   ├── ARCHITECTURE.md        # kiến trúc, luồng dữ liệu, quy ước UI

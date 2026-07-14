@@ -67,7 +67,7 @@ performance+GitHub Pages ở phase này) — audit riêng cho việc PUBLISH:
 `publish_dashboard.py` copy vào, KHÔNG sinh bởi frontend): `ai_report_latest.md`,
 `ai_report_latest.json`, `screen_snapshot.csv`, `market_breadth.csv`, `analysis_latest.json`,
 `data/candle_signals.json`, `data/sector_heatmap.json` (+ fallback `.js` cùng tên cho chế độ mở
-trực tiếp bằng file, không qua server).
+trực tiếp bằng file, không qua server), `data/macro_snapshot.json` + `.js` cho trang Macro.
 
 **Dữ liệu CỐ TÌNH bị chặn khỏi repo/site** (xem `.gitignore`) — không phải lỗi thiếu sót:
 `vn_stock.db`, `*.parquet`, `ohlcv_flat.csv`, `data_bctc/`, `financial_snapshot.csv/.parquet`,
@@ -76,8 +76,9 @@ trực tiếp bằng file, không qua server).
   thật nào hiển thị số liệu này; `company-panel.js`'s tab "Báo cáo tài chính" hiện trạng thái
   "đang chờ dữ liệu" một cách trung thực thay vì bịa số. Quyết định này đã xác nhận lại ở Phase 3
   và Phase 4, không đổi ở phase này.
-- **`macro.html`** — trang vĩ mô hiện là placeholder rỗng; `macro_snapshot.csv` tồn tại ở backend
-  local nhưng chưa được publish/nối vào trang này.
+- **`macro.html`** — đọc snapshot web đã chuẩn hóa; CSV vĩ mô thô và DB vẫn local. Nếu không có
+  dữ liệu mua/bán khối ngoại thật, trang hiển thị empty state và link tham khảo thay vì dùng
+  `foreign_room_pct` hoặc số 0.
 
 **Nợ kỹ thuật đã biết, KHÔNG xử lý ở các phase frontend (theo đúng giới hạn "không dùng build
 system/templating")**: sidebar + top bar lặp lại nguyên văn trong cả 7 trang `.html` (không có

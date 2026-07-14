@@ -29,7 +29,7 @@ Hệ thống gồm 2 nửa:
 - `screener.html` — bảng lọc đầy đủ, có panel chi tiết mã (`company-panel.js`).
 - `analysis.html` — Quant Engine offline (10 chiến lược, chấm điểm 0-100), đọc `analysis_latest.json`.
 - `signals.html` — tín hiệu nến / SMC theo phiên.
-- `macro.html`, `about.html`, `archive.html` — vĩ mô (đang xây dựng), giới thiệu dự án, kho lưu trữ báo cáo tĩnh.
+- `macro.html` — dashboard vĩ mô đọc web snapshot đã chuẩn hóa; `about.html`, `archive.html` — giới thiệu dự án và kho báo cáo tĩnh.
 
 ## Sơ đồ luồng dữ liệu
 
@@ -40,7 +40,9 @@ vn_stock_pipeline / meta_sync / macro_sync / news_sync / shareholders_sync
         │ ghi vào
         ▼
    vn_stock.db ──► vn_indicators.py ──► screen_snapshot.csv + market_breadth.csv ─┐
-              └──► candle_scan.py  ──► ta_signals.* + data/*.json + data/*.js ────┤
+              └──► macro_sync.py ──► data/macro_snapshot.json + .js ──────────────┤
+              └──► candle_scan.py  ──► ta_signals.* + candle_signals.* ──────────┤
+                                      + candlestick_patterns.json/.js (1D/1W/1M) ┤
    ai_analyzer.py ──► ai_report_YYYYMMDD.md/.json ──► ai_report_latest.md/.json ──┤
                                                                                   ▼
                                               python publish_dashboard.py --live
@@ -76,16 +78,16 @@ bctc_sync.py ──► data_bctc/*.parquet+*.csv ──► bctc_processor.py ─
 | **Nhập tay** | `blacklist.csv` | 2 lớp: dòng Auto (máy tái sinh — đừng sửa) + dòng tay (margin_cut theo quý — máy giữ nguyên, thắng khi trùng mã). |
 | **Báo cáo AI** | `ai_report_YYYYMMDD.md` / `.json` | `ai_analyzer.py` sinh qua API Claude — **TỐN PHÍ mỗi lần chạy**. `ai_prompt_preview.txt` là bản xem trước miễn phí (`--dry-run`). |
 | **Phân tích offline** | `analysis_latest.json` / `.md` + bảng `watchlist_history` trong DB | `stock_analyzer.py` sinh — MIỄN PHÍ, 0 request. Xem [STOCK_ANALYZER.md](STOCK_ANALYZER.md). |
-| **Web** | `data/*.json` + `data/*.js`, `ai_report_latest.md/.json` | `candle_scan.py` sinh cặp json+js cho `signals.html`/`screener.html`; `ai_report_latest.*` là bản copy của báo cáo AI mới nhất cho `dashboard.html`. |
+| **Web** | `data/*.json` + `data/*.js`, `ai_report_latest.md/.json` | `candle_scan.py` giữ output legacy và sinh riêng `candlestick_patterns.json/.js` từ cùng một object; `macro_sync.py` sinh `macro_snapshot.json/.js`; `ai_report_latest.*` phục vụ `dashboard.html`. |
 | **Xem** | `screener.xlsx` | Chỉ *link* tới file truyền tải + filter/sort. **Không chứa** data. |
 
 Nguyên tắc: dữ liệu nằm im trong parquet/db; Excel chỉ trỏ tới, nên workbook luôn nhẹ.
 
 ## Từ máy local lên web — cái gì được đẩy, cái gì không
 
-- **Được đẩy** (whitelist `publish_dashboard.py` tự bóc từ các trang `.html` + `app.js`, không đoán tên): mọi trang `.html` ở gốc, các file css/js mà trang tham chiếu, `data/*.json` + `data/*.js`, `screen_snapshot.csv` (~0,3 MB), `market_breadth.csv` (~2 KB), `ai_report_latest.md/.json`.
+- **Được đẩy** (whitelist `publish_dashboard.py` tự bóc từ web references, cộng artifact đã duyệt tay): mọi trang `.html` ở gốc, css/js được tham chiếu, `screen_snapshot.csv`, `market_breadth.csv`, `ai_report_latest.*`, hai artifact vĩ mô và `data/candlestick_patterns.json/.js`.
 - **KHÔNG bao giờ lên remote** (2 lớp phòng thủ: publish chỉ add theo tên file cụ thể — không bao giờ `git add .` / `git add -A` / `push -f`; cộng `.gitignore` chặn hộ khi lỡ add tay): `vn_stock.db`, `*.parquet`, `ohlcv_flat.csv`, toàn bộ `*.py`, `blacklist.csv`, `tickers.txt`, `ai_report_2*.md/.json` (bản cá nhân có ngày), `ai_prompt_preview.txt`, `news_latest.csv`, `macro_snapshot.csv`, `ta_signals.*`, `*.xlsx`, `logs/`, `publish_log.txt`, `data_bctc/`, `financial_snapshot.csv`, `financial_snapshot.parquet`, `tickers_bctc.txt`, `config.json`, `docs/AUDIT_REPORT.md`, `docs/VALIDATION_REPORT.md` (nội bộ, không phải tài liệu vận hành công khai).
-- `data/*.json` dùng khi web chạy qua http (fetch), `data/*.js` là fallback khi mở `file://` (fetch bị CORS chặn) — `candle_scan.py` sinh cả 2, **đừng xóa file .js tưởng là thừa**.
+- `data/*.json` dùng khi web chạy qua HTTP/GitHub Pages; file `.js` cùng tên là fallback cho `file://`. Với Macro, `macro_sync.py` serialize một object duy nhất rồi ghi nguyên tử cả hai file để schema không lệch và không để lại JSON dở dang.
 - `ai_report_latest.md/.json`: sau khi chạy `ai_analyzer.py`, copy bản `ai_report_YYYYMMDD.*` mới nhất đè lên tên `_latest`. **Không sửa tay** file `_latest`.
 
 ## File trong repo web
@@ -96,21 +98,25 @@ Nguyên tắc: dữ liệu nằm im trong parquet/db; Excel chỉ trỏ tới, n
 | `dashboard.html` | Trang chính: báo cáo AI + KPI + watchlist + bảng thị trường + lối tắt kho lưu trữ |
 | `screener.html` | Bảng lọc SMC/nến đầy đủ (đọc `data/screener_data.*` + CSV) + panel chi tiết mã khi bấm vào dòng |
 | `analysis.html` + `analysis.js` | Quant Engine offline: đọc `analysis_latest.json` (nguồn DUY NHẤT, không có fallback `.js`) |
-| `signals.html` | Dashboard tín hiệu nến / SMC (đọc `data/candle_signals.*`, `data/sector_heatmap.*`) |
-| `macro.html` | Placeholder vĩ mô — `macro_snapshot.csv` có ở backend nhưng chưa nối vào trang |
+| `signals.html` | Dashboard tín hiệu nến / SMC; tab mẫu hình đọc JSON-first + JS fallback, lọc/sort và mở panel mã |
+| `assets/js/candlestick-patterns.js` + `assets/css/candlestick-patterns.css` | Loader/validation/render và layout responsive riêng cho bảng mẫu nến |
+| `data/candlestick_patterns.json` + `.js` | Snapshot schema v1: 1D/1W/1M, lịch sử gần đây, trạng thái, confidence, confirmations/warnings; không chứa OHLCV thô/path local |
+| `macro.html` + `assets/js/macro.js` | Dashboard vĩ mô: ưu tiên fetch JSON, fallback `window.MACRO_SNAPSHOT`; chỉ vẽ chart khi chuỗi có ít nhất hai điểm |
+| `assets/css/macro.css` | Layout responsive riêng của Macro, dùng lại token/card/badge từ design system chung |
+| `data/macro_snapshot.json` + `.js` | Snapshot public đã chuẩn hóa; không chứa DB path, SQL, credential hoặc log nội bộ |
 | `about.html` | Giới thiệu dự án, tech stack, liên kết |
 | `archive.html` + `assets/js/archive.js` | Kho lưu trữ báo cáo tĩnh — danh sách ghi tay trong `archive.js` (GitHub Pages không có API liệt kê thư mục) |
 | `app.js` | Logic trang chính: marked.js render `ai_report_latest.md`, PapaParse + DataTables cho bảng, `COLUMN_LABELS` Việt hóa 31 tên cột |
 | `style.css` | Design system dark mode bằng CSS variables — dùng chung mọi trang |
 | `assets/css/shell.css` + `assets/js/shell.js` | Khung sườn dùng chung (sidebar/top bar): CSS + hành vi (toggle mobile, active-link, thu gọn sidebar) cho cả 7 trang |
 | `assets/js/resizable-panels.js` | Kéo giãn tỷ lệ cột nội dung chính/phụ (`dashboard.html`, `analysis.html`) |
-| `assets/js/company-panel.js` | Panel trượt chi tiết mã khi bấm dòng bảng — chỉ dùng ở `screener.html` |
+| `assets/js/company-panel.js` | Panel trượt chi tiết mã dùng chung cho dòng Screener và mẫu hình nến |
 | `nav.css` | **Legacy** — chỉ còn dùng bởi báo cáo tĩnh lưu trữ (`playbook-*.html`, `report-*.html`), không dùng ở 7 trang chính (đã thay bằng `assets/css/shell.css`) |
 | `publish_dashboard.py` | Script đẩy web an toàn (dry-run mặc định, whitelist tự bóc) — *chỉ nằm local, gitignore `*.py`* |
 | `sync_and_push.bat` | **Legacy** — chỉ còn dùng bước copy `ai_report_latest`; phần git đã bị `publish_dashboard.py` thay thế |
 | `ai_report_latest.md/.json` | Báo cáo AI mới nhất (bản copy, **không sửa tay**) |
 | `screen_snapshot.csv` | Snapshot thị trường (~1.500 mã) |
-| `data/` | `candle_signals` / `sector_heatmap` / `screener_data` dạng `.json` (fetch) + `.js` (fallback file://) |
+| `data/` | `candle_signals` / `candlestick_patterns` / `sector_heatmap` / `screener_data` dạng `.json` (fetch) + `.js` (fallback file://) |
 | `playbook-*.html`, `report-*.html`, `vn*.html` | Báo cáo HTML tĩnh cũ, link ở kho lưu trữ (`archive.html`) |
 
 Thư viện frontend load qua CDN (Bootstrap 5, Tailwind CDN chỉ cho khung sườn — tắt Preflight để không xung đột với Bootstrap, jQuery, DataTables, PapaParse, marked.js, Chart.js, Lucide Icons) — không cần build, không cần cài đặt gì.

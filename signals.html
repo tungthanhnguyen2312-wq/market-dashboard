@@ -35,6 +35,7 @@
   };
 </script>
 <link rel="stylesheet" href="assets/css/shell.css">
+<link rel="stylesheet" href="assets/css/candlestick-patterns.css">
 <style>
   /* Theme cục bộ của trang — biến local trỏ sang token dùng chung của style.css
      (không khai báo lại --bg/--border/--text vì đã có ở :root của style.css). */
@@ -106,6 +107,13 @@
         <div class="meta" id="meta">đang tải dữ liệu…</div>
         <div class="warn"><i data-lucide="triangle-alert" style="width:13px;height:13px;vertical-align:-2px"></i> Dữ liệu point-in-time cho tham khảo cá nhân — mẫu nến/SMC là trigger nhiễu cao, luôn đối chiếu nền RS + thanh khoản + margin_status.</div>
 
+        <div class="signal-tabs" role="tablist" aria-label="Nhóm tín hiệu">
+          <button type="button" class="signal-tab" id="signals-tab-overview" role="tab" aria-selected="true" aria-controls="signals-panel-overview" data-hash="overview">Tổng quan</button>
+          <button type="button" class="signal-tab" id="signals-tab-patterns" role="tab" aria-selected="false" aria-controls="signals-panel-patterns" data-hash="candlestick-patterns">Mẫu hình nến</button>
+        </div>
+
+        <section class="signal-tab-panel" id="signals-panel-overview" role="tabpanel" aria-labelledby="signals-tab-overview">
+
         <h2><i data-lucide="pin" style="width:14px;height:14px;vertical-align:-2px"></i> Watchlist</h2>
         <div class="cards" id="watchlist"><div class="empty">chưa có dữ liệu</div></div>
 
@@ -118,6 +126,55 @@
 
         <h2><i data-lucide="map" style="width:14px;height:14px;vertical-align:-2px"></i> Heatmap sức mạnh ngành</h2>
         <div class="heat" id="heatmap"><div class="empty">chưa có dữ liệu</div></div>
+        </section>
+
+        <section class="signal-tab-panel" id="signals-panel-patterns" role="tabpanel" aria-labelledby="signals-tab-patterns" hidden>
+          <h2>Mẫu hình nến 1D / 1W / 1M</h2>
+          <p class="meta">Mẫu nến là trigger kỹ thuật cần xác nhận thêm bằng xu hướng, thanh khoản, RS, margin, SMC và chỉ báo khác; không phải khuyến nghị mua hoặc bán.</p>
+          <div class="pattern-state" id="pattern-state" role="status" aria-live="polite">Đang tải dữ liệu mẫu hình nến…</div>
+          <div class="pattern-summary" aria-label="Tóm tắt mẫu hình nến">
+            <div class="pattern-kpi"><span>Tổng số mẫu</span><strong id="pattern-summary-total">–</strong></div>
+            <div class="pattern-kpi"><span>Bullish</span><strong id="pattern-summary-bullish">–</strong></div>
+            <div class="pattern-kpi"><span>Bearish</span><strong id="pattern-summary-bearish">–</strong></div>
+            <div class="pattern-kpi"><span>Neutral</span><strong id="pattern-summary-neutral">–</strong></div>
+            <div class="pattern-kpi"><span>Đang hình thành</span><strong id="pattern-summary-forming">–</strong></div>
+            <div class="pattern-kpi"><span>Hoàn chỉnh</span><strong id="pattern-summary-completed">–</strong></div>
+          </div>
+          <div class="meta">Pipeline sinh lúc <span id="pattern-generated">–</span></div>
+
+          <div class="pattern-filters" id="pattern-filters" aria-label="Bộ lọc mẫu hình nến">
+            <label class="pattern-filter">Tìm theo mã<input id="pattern-ticker" type="search" autocomplete="off" placeholder="VD: HPG"></label>
+            <label class="pattern-filter">Timeframe<select id="pattern-timeframe"><option value="all">Tất cả</option><option>1D</option><option>1W</option><option>1M</option></select></label>
+            <label class="pattern-filter">Hướng<select id="pattern-direction"><option value="all">Tất cả</option><option value="bullish">Bullish</option><option value="bearish">Bearish</option><option value="neutral">Neutral</option></select></label>
+            <label class="pattern-filter">Trạng thái<select id="pattern-status-filter"><option value="all">Tất cả</option><option value="completed">Completed</option><option value="forming">Forming</option></select></label>
+            <label class="pattern-filter">Độ tin cậy<select id="pattern-confidence"><option value="3">3 sao</option><option value="2" selected>Từ 2 sao</option><option value="0">Tất cả</option></select></label>
+            <label class="pattern-filter">Tối đa bars ago<input id="pattern-bars" type="number" min="0" max="120" value="12"></label>
+            <label class="pattern-filter">Sàn<select id="pattern-exchange"><option value="all">Tất cả</option></select></label>
+            <label class="pattern-filter">Ngành<select id="pattern-industry"><option value="all">Tất cả</option></select></label>
+            <div class="pattern-checks">
+              <label><input id="pattern-liquid" type="checkbox"> Chỉ mã đủ thanh khoản</label>
+              <label><input id="pattern-margin-free" type="checkbox"> Không có cảnh báo margin</label>
+              <label><input id="pattern-smc" type="checkbox"> Chỉ có hợp lưu SMC</label>
+              <button type="button" class="pattern-reset" id="pattern-reset">Đặt lại bộ lọc</button>
+            </div>
+          </div>
+
+          <div class="pattern-table-wrap" tabindex="0" aria-label="Bảng mẫu hình nến có thể cuộn ngang">
+            <table class="pattern-table">
+              <thead><tr>
+                <th><button class="pattern-sort" type="button" data-sort="ticker">Mã</button></th>
+                <th>Mẫu hình</th><th>Hướng</th>
+                <th><button class="pattern-sort" type="button" data-sort="timeframe">Khung</button></th>
+                <th><button class="pattern-sort" type="button" data-sort="confidence_score" title="Điểm gồm hình học, xu hướng, khối lượng, SMC/hỗ trợ-kháng cự, chất lượng dữ liệu và nền khung lớn">Độ tin cậy</button></th>
+                <th>Trạng thái</th>
+                <th><button class="pattern-sort" type="button" data-sort="bars_ago">Cách đây</button></th>
+                <th>Thời điểm</th><th>Giá</th><th>Biến động</th><th class="optional-sm">RS</th><th class="optional-sm">RelVol</th>
+                <th class="optional-md">GTGD20</th><th class="optional-md">Sàn / Ngành</th><th class="optional-md">Xác nhận</th><th class="optional-md">Cảnh báo</th>
+              </tr></thead>
+              <tbody id="pattern-table-body"></tbody>
+            </table>
+          </div>
+        </section>
       </main>
 
       <footer class="vs-statusfooter">
@@ -132,6 +189,9 @@
 <!-- Fallback cho file:// (fetch bị CORS chặn khi mở trực tiếp): candle_scan.py sinh kèm bản .js -->
 <script src="data/candle_signals.js"></script>
 <script src="data/sector_heatmap.js"></script>
+<script src="data/candlestick_patterns.js"></script>
+<script src="assets/js/company-panel.js"></script>
+<script src="assets/js/candlestick-patterns.js"></script>
 <script>
 // Ưu tiên fetch JSON (chạy qua http.server / GitHub Pages); lỗi thì rơi về biến global từ .js
 async function loadData(path, globalName) {

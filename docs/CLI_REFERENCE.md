@@ -26,6 +26,7 @@ python .\vn_stock_pipeline.py backfill failed
 python .\vn_stock_pipeline.py export
 python .\meta_sync.py                  # ~2-2.5 giờ, tự resume nếu đứt
 python .\macro_sync.py --full          # lấy 10 năm lịch sử Yahoo
+python .\macro_sync.py --export-web-only # chỉ sinh lại JSON/JS từ DB local, không gọi mạng
 python .\vn_indicators.py
 
 # HẰNG NGÀY (sau 15h) — ĐÚNG THỨ TỰ NÀY
@@ -33,7 +34,10 @@ python .\vn_stock_pipeline.py update
 python .\macro_sync.py
 python .\news_sync.py
 python .\vn_indicators.py
-python .\candle_scan.py                # (tùy chọn) mẫu nến + SMC + cổ tức + heatmap — cục bộ, MIỄN PHÍ, ~15 giây
+python .\candle_scan.py                # mẫu nến 1D/1W/1M + SMC + cổ tức + heatmap — cục bộ, 0 API
+python .\candle_scan.py --limit 20     # smoke test; vẫn luôn kèm watchlist
+# tùy chỉnh: --pattern-lookback-1d 90 --pattern-lookback-1w 78 --pattern-lookback-1m 36
+#             --pattern-min-confidence 40 --pattern-max-results 3 --pattern-workers 4
 # rồi mở Excel bấm Data > Refresh All; dashboard: mở dashboard.html (mở thẳng file được, đã có fallback; index.html chỉ redirect sang đây)
 
 # HẰNG TUẦN (thêm vào trước vn_indicators.py)
@@ -73,7 +77,7 @@ python .\publish_dashboard.py --live   # đẩy thật — whitelist tự bóc t
 | # | File | Thời điểm chạy | Số lần | Mất bao lâu | Ghi chú |
 |---|---|---|---|---|---|
 | 1 | `vn_stock_pipeline.py update` | Sau **15h** (VN đóng cửa) | 1 lần/ngày | ~30-45 phút | Chạy trước 15h sẽ thiếu nến hôm nay |
-| 2 | `macro_sync.py` | Sáng (sau ~7h, Mỹ đã đóng cửa) HOẶC gộp sau 15h | 1 lần/ngày | <1 phút | Nến Mỹ ngày T khớp phiên VN ngày T+1 |
+| 2 | `macro_sync.py` | Sáng (sau ~7h, Mỹ đã đóng cửa) HOẶC gộp sau 15h | 1 lần/ngày | <1 phút | Cập nhật bảng `macro`, CSV local và tự sinh JSON/JS cho trang Macro |
 | 3 | `news_sync.py` | Bất kỳ | **2-3 lần/ngày** (RSS chỉ giữ 10-60 tin gần nhất, chạy thưa là mất tin) | <1 phút | Chạy bao nhiêu lần cũng không trùng tin |
 | 4 | `blacklist_sync.py` → `meta_sync.py --blacklist-only` | Đầu tuần hoặc trước phiên lọc quan trọng | 1 lần/**tuần** | ~1 phút | 34 request, rẻ |
 | 5 | `meta_sync.py --refresh` | Sau mùa BCTC (giữa T1/T4/T7/T10) | 1 lần/**quý** | ~2-2.5 giờ | Tự resume nếu đứt mạng; PE/PB/ROE đổi chậm, chạy dày hơn là phí request |
@@ -81,7 +85,7 @@ python .\publish_dashboard.py --live   # đẩy thật — whitelist tự bóc t
 | 7 | `vn_indicators.py` | **Cuối cùng**, sau khi 1-2 (và 4 nếu có) xong | 1 lần/ngày | ~2 phút | Mixer — chạy sớm hơn là snapshot thiếu dữ liệu mới |
 | 8 | `vn_stock_pipeline.py export` | Chỉ khi cần cập nhật `ohlcv_flat.parquet` gửi AI/backtest | khi cần | ~2 phút | Không cần chạy hằng ngày |
 | 9 | `ai_analyzer.py` | SAU khi 1→7 xong (số liệu mới nhất), khi thật sự cần đọc báo cáo | **1-2 lần/TUẦN, ĐỪNG chạy hằng ngày** | ~1 phút | ⚠️ **TỐN PHÍ ~$0,10-0,15/lần**. `--dry-run` miễn phí |
-| 10 | `candle_scan.py` | Sau `update` giá + `vn_indicators` (cần snapshot mới) | hằng ngày nếu muốn | ~15 giây | Đọc DB cục bộ, 0 request, MIỄN PHÍ → `ta_signals.csv/.json` + `data/*` cho web |
+| 10 | `candle_scan.py` | Sau `update` giá + `vn_indicators` (cần snapshot mới) | hằng ngày nếu muốn | xem log runtime thực tế | Một query lịch sử, 0 request; giữ `ta_signals.*` và sinh thêm `data/candlestick_patterns.json/.js` cho đúng 1D/1W/1M |
 | 11 | `shareholders_sync.py` | Bất kỳ, không phụ thuộc chuỗi giá | 1 lần/**tháng**, hoặc ngay sau mùa ĐHCĐ (quanh Q2) | ~45-50 phút (full 1.683 mã) | Cơ cấu cổ đông đổi CHẬM — chạy dày hơn là phí request. Ghi bảng `shareholders` + `shareholders_progress`, KHÔNG đụng `metadata`. `--tickers`/`--limit` để test, `--resume` chỉ thử lại mã lỗi mạng, `--status` xem tiến độ (0 request) |
 
 **Nhịp khuyến nghị cho dòng 9** (tránh tốn tiền oan): mặc định **chiều thứ 6 sau phiên** — 1 báo cáo tổng kết tuần + kế hoạch tuần mới là đủ dùng. Chạy thêm 1 lần giữa tuần CHỈ KHI thị trường biến động mạnh (VNINDEX ±2%/phiên, tin vĩ mô lớn) hoặc trước quyết định mua/bán quan trọng. So sánh tiền: chạy hằng ngày ≈ $3/tháng (~80.000đ) trong khi 90% nội dung lặp lại; chạy 1-2 lần/tuần ≈ $1/tháng (~26.000đ) mà không mất thông tin gì.
@@ -98,7 +102,7 @@ python .\publish_dashboard.py --live   # đẩy thật — whitelist tự bóc t
         → publish_dashboard.py --live    # nếu muốn cập nhật web
 ```
 
-Lý do thứ tự: `vn_indicators.py` đọc `ohlcv` + `metadata` để trộn ra `screen_snapshot.csv` + `market_breadth.csv` — chạy nó trước khi cập nhật giá thì snapshot là số của hôm qua. `macro_sync`/`news_sync` độc lập với mixer (xuất file riêng) nhưng nên xong trước để cả bộ CSV gửi AI cùng một thời điểm.
+Lý do thứ tự: `vn_indicators.py` đọc `ohlcv` + `metadata` để trộn ra `screen_snapshot.csv` + `market_breadth.csv` — chạy nó trước khi cập nhật giá thì snapshot là số của hôm qua. `macro_sync`/`news_sync` độc lập với mixer nhưng nên xong trước để cả bộ dữ liệu cùng một lần chạy. `macro_sync.py` tự sinh `data/macro_snapshot.json` + `.js`; không có bước copy thủ công riêng.
 
 `ai_analyzer.py` **cố tình KHÔNG nằm trong chuỗi hằng ngày** — nó là bước tốn phí, chạy tay theo nhịp ở bảng trên.
 
@@ -131,6 +135,8 @@ Nguyên tắc sắt của script:
 - Không có thay đổi trong whitelist → DỪNG, không tạo commit rỗng.
 - Mọi lệnh git bọc try/except, lỗi ghi vào `publish_log.txt`, không crash.
 - OneDrive sync nền có thể gây lỗi `index.lock` → script tự chờ 3 giây thử lại 1 lần.
+- Hai artifact Macro public nằm trong allowlist tường minh: `data/macro_snapshot.json` và `data/macro_snapshot.js`. `macro_snapshot.csv`, `vn_stock.db`, script Python, config và log vẫn bị chặn.
+- Hai artifact mẫu nến public cũng nằm trong allowlist tường minh: `data/candlestick_patterns.json` và `.js`; OHLCV thô và database không được publish.
 
 **Quy trình cập nhật web hằng ngày:**
 1. Chạy chuỗi backend (mục trên): update → macro → news → indicators → candle_scan.
@@ -147,7 +153,7 @@ Nguyên tắc sắt của script:
 
 ### Xem thử ở máy local
 
-- **Mở thẳng `dashboard.html` (file://) vẫn chạy được** nhờ fallback `data/*.js` (`index.html` chỉ redirect sang đây, tự chạy theo).
+- **Mở thẳng `dashboard.html` hoặc `macro.html` (file://) vẫn chạy được** nhờ fallback `data/*.js`; qua HTTP/GitHub Pages trang ưu tiên fetch JSON với `cache: no-store`.
 - Muốn đầy đủ 100% (báo cáo AI + bảng CSV) thì chạy web server rồi mở `http://localhost:8000`:
 
 ```bash

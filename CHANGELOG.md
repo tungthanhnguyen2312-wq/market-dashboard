@@ -4,6 +4,25 @@ Lịch sử phát triển chính thức của dự án. Chi tiết riêng về g
 
 ---
 
+## [1.4.0] — 2026-07-14 · Candlestick patterns 1D/1W/1M
+
+- Thêm engine pandas/NumPy có registry 31 mẫu, context xu hướng, tolerance ATR/% giá, scan lịch sử không look-ahead và resample tuần/tháng từ OHLCV ngày.
+- Giữ nguyên `candle_signals`/SMC legacy; sinh riêng snapshot schema v1 `data/candlestick_patterns.json/.js` bằng writer atomic, JSON strict và giới hạn output cấu hình được.
+- Confidence 0–100 dựa trên sáu nhóm bằng chứng; có stars, `forming/completed`, confirmations, warnings thanh khoản/margin/xung đột.
+- Signals có tab mẫu nến, summary, filter/sort, table responsive/accessibility, JSON-first + `file://` fallback và click dòng mở company panel.
+- Thêm unit test cho 17 mẫu quan trọng, resample, tolerance, dữ liệu thiếu, status và serialization; publish whitelist chỉ nhận đúng artifact web mới.
+
+---
+
+## [1.3.0] — 2026-07-14 · Macro pipeline dashboard
+
+- Hoàn thiện `macro.html` bằng dữ liệu thật từ bảng `macro`: KPI, biểu đồ có lịch sử, bảng metadata nguồn/kỳ/tần suất, freshness theo từng nhịp cập nhật và empty state khối ngoại trung thực.
+- `macro_sync.py` tự sinh `data/macro_snapshot.json` + `.js` từ cùng một object, JSON strict không NaN/Infinity, ghi nguyên tử; có `--export-web-only` để tái sinh artifact mà không gọi mạng.
+- Loader ưu tiên JSON trên HTTP/GitHub Pages và fallback `window.MACRO_SNAPSHOT` khi mở `file://`. Không gọi snapshot là live/real-time.
+- Whitelist publish nhận đúng hai artifact Macro; DB, CSV thô, Python, config và log vẫn không publish. Local chỉ có `foreign_room_pct`, chưa có dữ liệu giao dịch khối ngoại.
+
+---
+
 ## Release Notes — GitHub Public Release
 
 > **Lưu ý về đánh số phiên bản**: các mục `[0.7.0]` → `[1.1.0]` bên dưới đánh số theo
@@ -27,7 +46,7 @@ Lịch sử phát triển chính thức của dự án. Chi tiết riêng về g
 ### Thay đổi kiến trúc
 - **Khung sườn dùng chung mới** (`assets/css/shell.css` + `assets/js/shell.js`): sidebar + top bar đồng nhất cho toàn bộ 7 trang, thay thế navbar `nav.css` cũ (nay chỉ còn dùng ở báo cáo tĩnh lưu trữ `playbook-*.html`/`report-*.html`). Tailwind CDN được thêm CHỈ cho khung sườn (Preflight tắt để không xung đột với Bootstrap 5 đang phục vụ nội dung dữ liệu bên trong — cả hai cùng tồn tại có chủ đích, không phải một cuộc "migrate" toàn bộ).
 - **`dashboard.html` thay `index.html` làm trang chính** — `index.html` giờ CHỈ còn redirect (`meta refresh` + `location.replace`) để giữ nguyên URL gốc GitHub Pages.
-- **3 trang mới**: `about.html` (giới thiệu dự án, tech stack, liên kết), `archive.html` (kho lưu trữ báo cáo tĩnh — danh sách ghi tay trong `assets/js/archive.js`, tách ra khỏi khối "KHU VỰC 3" từng nằm trong `index.html`), `macro.html` (placeholder — `macro_snapshot.csv` có ở backend, chưa nối vào trang).
+- **3 trang mới**: `about.html` (giới thiệu dự án, tech stack, liên kết), `archive.html` (kho lưu trữ báo cáo tĩnh — danh sách ghi tay trong `assets/js/archive.js`, tách ra khỏi khối "KHU VỰC 3" từng nằm trong `index.html`), `macro.html` (bản khung ở mốc này; đã hoàn thiện bằng pipeline snapshot trong bản 1.3.0).
 - **Sidebar thu gọn được** (icon-only, nhớ trạng thái qua `localStorage`), **panel 2 cột kéo giãn được** (`assets/js/resizable-panels.js`, dùng ở `dashboard.html`/`analysis.html`), **panel chi tiết mã** khi bấm dòng bảng (`assets/js/company-panel.js`, chỉ ở `screener.html`) — 3 tab Tổng quan/Biểu đồ/Báo cáo tài chính (tab BCTC hiện trạng thái "đang chờ dữ liệu" trung thực, không bịa số vì `financial_snapshot.*` chưa public).
 - Bảng DataTables đổi từ style theo id riêng (`#market-table`) sang class dùng chung `.vs-datatable` — áp style thống nhất được cho mọi bảng trong site (`market-table`, `tblScreen`, `tblBreadth`).
 - Audit performance + GitHub Pages riêng cho phase này: xác nhận cấu hình Pages (branch `main`, root, không CNAME), toàn bộ `href`/`src`/`url()` là đường dẫn tương đối (tương thích subpath project page). Chi tiết đầy đủ: [docs/RELEASE_CHECKLIST.md](docs/RELEASE_CHECKLIST.md).

@@ -1,6 +1,6 @@
 /* ============================================================
- * VNSTOCK — assets/js/company-panel.js (chỉ dùng ở screener.html)
- * Bấm vào 1 dòng trong bảng #tblScreen -> mở panel trượt từ phải,
+ * VNSTOCK — assets/js/company-panel.js (dùng ở screener.html + signals.html)
+ * Bấm vào dòng #tblScreen hoặc gọi VSCompanyPanel.open(row) -> mở panel trượt từ phải,
  * 3 tab: Tổng quan / Biểu đồ / Báo cáo tài chính.
  *
  * Lấy dữ liệu trực tiếp từ instance DataTables ĐANG CHẠY
@@ -17,6 +17,7 @@
   const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const num = (v, d = 1) => (v === null || v === undefined || v === "" || Number.isNaN(v))
     ? "–" : Number(v).toLocaleString("vi-VN", { maximumFractionDigits: d });
+  const valueSignClass = (v) => Number(v) > 0 ? "up" : Number(v) < 0 ? "down" : "flat";
   const structCls = (s) => {
     s = String(s).toLowerCase();
     return s === "up" ? "bs-green" : s === "side" ? "bs-amber" : s === "down" ? "bs-red" : "bs-gray";
@@ -38,11 +39,11 @@
       </div>
       <div class="vs-modal-stat-grid">
         ${stat("Giá đóng cửa", num(r.close, 0))}
-        ${stat("% phiên", `<span class="${signClass(r.chg_today_pct)}">${num(r.chg_today_pct, 2)}%</span>`)}
+        ${stat("% phiên", `<span class="${valueSignClass(r.chg_today_pct ?? r.change_pct)}">${num(r.chg_today_pct ?? r.change_pct, 2)}%</span>`)}
         ${stat("RS Rating", num(r.rs_rating, 0))}
         ${stat("RSI 14", num(r.rsi14, 0))}
         ${stat("Cấu trúc", `<span class="badge-soft ${structCls(r.structure)}">${esc(String(r.structure || "–").toUpperCase())}</span>`)}
-        ${stat("% từ đỉnh 52 tuần", `<span class="${signClass(r.pct_from_52w_high)}">${num(r.pct_from_52w_high, 1)}%</span>`)}
+        ${stat("% từ đỉnh 52 tuần", `<span class="${valueSignClass(r.pct_from_52w_high)}">${num(r.pct_from_52w_high, 1)}%</span>`)}
         ${stat("GTGD 20 phiên (tỷ)", num(r.gtgd20_ty, 1))}
         ${stat("KL tương đối", num(r.rel_vol, 2))}
         ${stat("P/E", num(r.pe, 1))}
@@ -166,6 +167,7 @@
   }
 
   function openPanel(row) {
+    if (!backdrop) buildPanelShell();
     backdrop._currentRow = row;
     document.getElementById("cp-title").textContent = row.ticker || "?";
     document.getElementById("cp-overview").innerHTML = renderOverview(row);
@@ -176,12 +178,13 @@
   }
 
   function closePanel() {
+    if (!backdrop) return;
     backdrop.classList.remove("is-open");
     document.body.style.overflow = "";
   }
 
   document.addEventListener("DOMContentLoaded", () => {
-    buildPanelShell();
+    if (!backdrop) buildPanelShell();
     document.addEventListener("click", (e) => {
       const tr = e.target.closest("#tblScreen tbody tr");
       if (!tr || typeof jQuery === "undefined") return;
@@ -189,4 +192,7 @@
       if (data) openPanel(data);
     });
   });
+
+  // API dùng chung cho các bảng ngoài DataTables (ví dụ bảng mẫu hình nến ở signals.html).
+  window.VSCompanyPanel = { open: openPanel, close: closePanel };
 })();

@@ -1,5 +1,5 @@
 /* ============================================================
- * VNSTOCK — assets/js/archive.js
+ * Stock Look Up — assets/js/archive.js
  * Trang archive.html: danh sách báo cáo lịch sử tĩnh (playbook/
  * report/cross-check). Tự động khám phá thư mục KHÔNG khả thi
  * trên GitHub Pages (không có API liệt kê thư mục, không có
@@ -7,19 +7,18 @@
  * theo tháng/năm + tìm kiếm vẫn chạy động ở runtime.
  * Muốn tự động hoá thật: xem đề xuất trong CHANGELOG_UI.md mục 7.4
  * (sinh reports_manifest.json từ sync_and_push.bat).
+ * Mỗi item chỉ hiển thị NGÀY (không hiện loại báo cáo) — sort theo
+ * trường `date` (ISO YYYY-MM-DD), KHÔNG sort theo chuỗi hiển thị.
  * ============================================================ */
 
-/* industry/company: field TÙY CHỌN, chưa có báo cáo nào theo mã/ngành riêng nên để trống —
-   không bịa danh mục. UI lọc theo industry/company (bên dưới) tự bật khi có ít nhất 1 mục
-   thật sự điền field này, đây là phần "sẵn sàng cho tự động hoá sau" mà không giả vờ đã có. */
 const ARCHIVE_ITEMS = [
-  { file: "report-2026-04-21.html", title: "Báo cáo thị trường", date: "2026-04-21" },
-  { file: "playbook-2026-04-09.html", title: "Playbook phiên", date: "2026-04-09" },
-  { file: "vn_crosscheck_update_2026-04-08.html", title: "Cross-check update", date: "2026-04-08" },
-  { file: "playbook-2026-04-03.html", title: "Playbook phiên", date: "2026-04-03" },
-  { file: "vnindex_playbook_2026-04-03.html", title: "VNINDEX Playbook", date: "2026-04-03" },
-  { file: "playbook-2026-04-02.html", title: "Playbook", date: "2026-04-02" },
-  { file: "playbook-2026-04-01.html", title: "Playbook", date: "2026-04-01" },
+  { file: "report-2026-04-21.html", date: "2026-04-21" },
+  { file: "playbook-2026-04-09.html", date: "2026-04-09" },
+  { file: "vn_crosscheck_update_2026-04-08.html", date: "2026-04-08" },
+  { file: "playbook-2026-04-03.html", date: "2026-04-03" },
+  { file: "vnindex_playbook_2026-04-03.html", date: "2026-04-03" },
+  { file: "playbook-2026-04-02.html", date: "2026-04-02" },
+  { file: "playbook-2026-04-01.html", date: "2026-04-01" },
 ];
 
 const MONTH_LABEL_VI = ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6",
@@ -56,8 +55,7 @@ function render(items) {
       <div>
         ${g.items.map((it) => `
           <a href="${encodeURI(it.file)}" class="vs-list-item flex justify-between items-center">
-            <span>${esc(it.title)}</span>
-            <span class="text-muted" style="font-size:0.75rem;">${fmtDate(it.date)}</span>
+            <span>${fmtDate(it.date)}</span>
           </a>
         `).join("")}
       </div>
@@ -71,7 +69,7 @@ let activeQuarter = "";
 function applyFilters() {
   const q = (document.getElementById("archive-search")?.value || "").trim().toLowerCase();
   const filtered = ARCHIVE_ITEMS.filter((it) => {
-    const matchesSearch = !q || it.title.toLowerCase().includes(q) || it.file.toLowerCase().includes(q) || it.date.includes(q);
+    const matchesSearch = !q || it.file.toLowerCase().includes(q) || it.date.includes(q) || fmtDate(it.date).includes(q);
     const matchesQuarter = !activeQuarter || quarterOf(it.date) === activeQuarter;
     return matchesSearch && matchesQuarter;
   });
