@@ -21,6 +21,31 @@ function signClass(value) {
   return v > 0 ? "val-pos" : v < 0 ? "val-neg" : "";
 }
 
+/* Chuẩn sàn dùng chung. Backend lịch sử lưu HSX (mã của nguồn VCI), còn giao diện
+   luôn dùng tên chính thức HOSE. Không sửa theo từng ticker và không rải mapping
+   ở từng màn hình. */
+const EXCHANGE_ALIASES = Object.freeze({
+  HSX: "HSX",
+  HOSE: "HSX",
+  HCM: "HSX",
+  HNX: "HNX",
+  UPCOM: "UPCOM",
+  UPCoM: "UPCOM",
+  DELISTED: "DELISTED",
+});
+
+function normalizeExchange(value) {
+  const raw = String(value ?? "").trim();
+  if (!raw) return "";
+  const upper = raw.toUpperCase();
+  return EXCHANGE_ALIASES[upper] || upper;
+}
+
+function displayExchange(value) {
+  const normalized = normalizeExchange(value);
+  return normalized === "HSX" ? "HOSE" : normalized;
+}
+
 /* Màu dùng trong canvas Chart.js (không đọc được CSS var() trong canvas) —
    khớp đúng --success/--danger/--warning/--text-muted/--border-soft hiện
    tại của style.css, tránh mỗi biểu đồ tự khai lại 1 bộ màu riêng. */

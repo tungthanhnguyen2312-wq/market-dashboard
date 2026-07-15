@@ -600,3 +600,82 @@ table.dataTable thead .dt-column-order:after { color: var(--primary); }
     scroll-behavior: auto !important;
   }
 }
+/* Dashboard screener: DataTables chỉ làm data/search/sort/paging engine; bản ghi
+   nhiều tầng là giao diện chính nên không có vùng cuộn ngang/dọc nội bộ. */
+.dashboard-screener-card,
+.dashboard-screener-card .card-body { min-width: 0; overflow: visible; }
+
+.dashboard-screener-engine,
+#market-table_wrapper .dt-layout-table { display: none !important; }
+
+.screener-toolbar {
+  display: grid;
+  grid-template-columns: minmax(9rem, 0.8fr) minmax(12rem, 1.4fr) minmax(12rem, 1fr);
+  gap: 0.65rem;
+  align-items: end;
+}
+
+.screener-records { display: grid; gap: 0.8rem; min-width: 0; }
+
+.screener-record {
+  min-width: 0;
+  padding: 0.95rem;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--surface-2) 58%, transparent);
+  cursor: pointer;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.screener-record:hover { border-color: rgba(var(--primary-rgb), 0.5); transform: translateY(-1px); }
+.screener-record:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+
+.screener-record-head {
+  display: grid;
+  grid-template-columns: minmax(9rem, 0.8fr) minmax(12rem, 1.5fr) minmax(9rem, 0.7fr) auto;
+  gap: 0.75rem;
+  align-items: center;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.screener-record-head > div:first-child { display: flex; align-items: center; gap: 0.5rem; }
+.screener-ticker { color: var(--accent-text-strong); font-size: 1.05rem; font-weight: 800; letter-spacing: 0.03em; }
+.screener-company-meta { color: var(--text-muted); font-size: 0.78rem; overflow-wrap: anywhere; }
+.screener-price { display: flex; align-items: baseline; justify-content: flex-end; gap: 0.55rem; font-variant-numeric: tabular-nums; }
+.screener-price strong { color: var(--text); font-size: 1rem; }
+
+.screener-primary-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.55rem;
+  padding: 0.75rem 0;
+}
+
+.screener-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.screener-detail-group { min-width: 0; padding: 0.65rem; border-radius: var(--radius-md); background: rgba(3, 8, 10, 0.26); }
+.screener-detail-group h6 { margin: 0 0 0.45rem; color: var(--text-muted); font-size: 0.67rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; }
+.screener-detail-group > div { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.35rem 0.7rem; }
+.screener-metric { min-width: 0; display: flex; justify-content: space-between; gap: 0.45rem; font-size: 0.75rem; }
+.screener-metric > span { color: var(--text-muted); overflow-wrap: anywhere; }
+.screener-metric > strong { color: var(--text); text-align: right; font-weight: 650; font-variant-numeric: tabular-nums; }
+
+@media (max-width: 1024px) {
+  .screener-record-head { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .screener-price { justify-content: flex-start; }
+  .screener-primary-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .screener-detail-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+  .screener-toolbar, .screener-record-head, .screener-detail-grid { grid-template-columns: 1fr; }
+  .screener-primary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .screener-detail-group > div { grid-template-columns: 1fr; }
+  #market-table_wrapper .dt-layout-row { display: flex; flex-direction: column; gap: 0.6rem; align-items: stretch; }
+  #market-table_wrapper .dt-search input { max-width: 100%; width: 100%; margin-left: 0; }
+}

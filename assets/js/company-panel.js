@@ -35,7 +35,7 @@
   function renderOverview(r) {
     return `
       <div class="mb-3" style="font-size:0.8rem; color:var(--text-muted);">
-        ${esc(r.exchange || "–")} · ${esc(r.industry || "–")}
+        ${esc(typeof displayExchange === "function" ? displayExchange(r.exchange) : (r.exchange || "–"))} · ${esc(r.industry || "–")}
       </div>
       <div class="vs-modal-stat-grid">
         ${stat("Giá đóng cửa", num(r.close, 0))}

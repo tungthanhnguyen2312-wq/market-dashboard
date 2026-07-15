@@ -10,6 +10,8 @@
 const REPORT_URL = "ai_report_latest.md";
 const REPORT_JSON_URL = "ai_report_latest.json";
 const CSV_URL = "screen_snapshot.csv";
+const BUILD_INFO_URL = "data/build_info.json";
+let currentBuildInfo = window.BUILD_INFO || null;
 
 /* Các cột hiển thị màu xanh/đỏ theo giá trị dương/âm */
 const SIGNED_COLUMNS = [
@@ -88,8 +90,6 @@ async function loadAiReport() {
     const dateMatch = md.match(/(\d{4}-\d{2}-\d{2})/);
     if (dateMatch) {
       document.getElementById("report-date").textContent = dateMatch[1];
-      document.getElementById("last-updated").textContent =
-        "Cập nhật lần cuối: " + dateMatch[1];
     }
   } catch (err) {
     container.classList.remove("collapsed");
@@ -369,6 +369,50 @@ function renderCharts(rows) {
  * ============================================================ */
 
 /* Conditional formatting cho từng ô — chỉ đổi cách hiển thị, không đổi dữ liệu */
+function formatCell(field, value) {
+  if (value === null || value === undefined || value === "") return "–";
+  if (field === "ticker") return esc(value);
+  if (field === "exchange") return esc(displayExchange(value) || "–");
+  if (field === "close") {
+    const v = num(value);
+    return isNaN(v) ? esc(value) : v.toLocaleString("vi-VN");
+  }
+  if (field === "date") {
+    const m = String(value).match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    return m ? `${m[3]}/${m[2]}/${m[1]}` : esc(value);
+  }
+  if (field === "rs_rating") {
+    const v = num(value);
+    const cls = v > 90 ? "bs-green" : v >= 80 ? "bs-amber" : "bs-gray";
+    return `<span class="badge-soft ${cls}">${esc(value)}</span>`;
+  }
+  if (field === "rsi14") {
+    const v = num(value);
+    if (v < 30) return `<span class="val-strong">${esc(value)}</span>`;
+    if (v > 70) return `<span class="val-neg">${esc(value)}</span>`;
+    return esc(value);
+  }
+  if (field === "structure") {
+    const s = String(value).toLowerCase();
+    const cls = s === "up" ? "bs-green" : s === "side" ? "bs-amber" : s === "down" ? "bs-red" : "bs-gray";
+    return `<span class="badge-soft ${cls}">${esc(String(value).toUpperCase())}</span>`;
+  }
+  if (field === "gtgd20_ty") {
+    const v = num(value);
+    if (v >= 100) return `<span class="val-strong">${esc(value)}</span>`;
+    if (v < 3) return `<span class="val-muted">${esc(value)}</span>`;
+    return esc(value);
+  }
+  if (BOOL_COLUMNS.includes(field)) {
+    return isTrue(value) ? `<span class="val-check">✓</span>` : `<span class="val-dot">·</span>`;
+  }
+  const v = num(value);
+  if (!isNaN(v) && SIGNED_COLUMNS.includes(field)) {
+    return `<span class="${signClass(v)}">${esc(value)}</span>`;
+  }
+  return esc(value);
+}
+
 function buildColumns(fields) {
   return fields.map((field) => ({
     data: field,
@@ -380,63 +424,12 @@ function buildColumns(fields) {
         : undefined,
     render: function (value, type) {
       if (type !== "display") return value;
-      if (value === null || value === undefined || value === "") return "";
-
-      if (field === "ticker") return esc(value);
-
-      // Giá đóng cửa: định dạng tiền Việt (15400 → 15.400)
-      if (field === "close") {
-        const v = num(value);
-        return isNaN(v) ? esc(value) : v.toLocaleString("vi-VN");
-      }
-
-      // Ngày: hiển thị dd/mm/yyyy theo chuẩn Việt Nam
-      if (field === "date") {
-        const m = String(value).match(/^(\d{4})-(\d{2})-(\d{2})$/);
-        return m ? `${m[3]}/${m[2]}/${m[1]}` : esc(value);
-      }
-
-      if (field === "rs_rating") {
-        const v = num(value);
-        const cls = v > 90 ? "bs-green" : v >= 80 ? "bs-amber" : "bs-gray";
-        return `<span class="badge-soft ${cls}">${esc(value)}</span>`;
-      }
-
-      if (field === "rsi14") {
-        const v = num(value);
-        if (v < 30) return `<span class="val-strong">${esc(value)}</span>`;
-        if (v > 70) return `<span class="val-neg">${esc(value)}</span>`;
-        return esc(value);
-      }
-
-      if (field === "structure") {
-        const s = String(value).toLowerCase();
-        const cls = s === "up" ? "bs-green" : s === "side" ? "bs-amber" : s === "down" ? "bs-red" : "bs-gray";
-        return `<span class="badge-soft ${cls}">${esc(String(value).toUpperCase())}</span>`;
-      }
-
-      if (field === "gtgd20_ty") {
-        const v = num(value);
-        if (v >= 100) return `<span class="val-strong">${esc(value)}</span>`;
-        if (v < 3) return `<span class="val-muted">${esc(value)}</span>`;
-        return esc(value);
-      }
-
-      if (BOOL_COLUMNS.includes(field)) {
-        return isTrue(value)
-          ? `<span class="val-check">✓</span>`
-          : `<span class="val-dot">·</span>`;
-      }
-
-      if (typeof value === "number" && SIGNED_COLUMNS.includes(field)) {
-        return `<span class="${signClass(value)}">${value}</span>`;
-      }
-      return esc(value);
+      return formatCell(field, value);
     },
   }));
 }
 
-function populateFilter(selectId, values) {
+function populateFilter(selectId, values, labeler = (v) => v) {
   const select = document.getElementById(selectId);
   [...values]
     .filter((v) => v !== null && v !== undefined && v !== "")
@@ -444,7 +437,7 @@ function populateFilter(selectId, values) {
     .forEach((v) => {
       const opt = document.createElement("option");
       opt.value = v;
-      opt.textContent = v;
+      opt.textContent = labeler(v);
       select.appendChild(opt);
     });
 }
@@ -521,19 +514,60 @@ function initMarketTable(rows, fields) {
   const table = new DataTable("#market-table", {
     data: rows,
     columns: buildColumns(fields),
-    pageLength: 25,
-    lengthMenu: [10, 25, 50, 100],
+    pageLength: 15,
+    lengthMenu: [10, 15],
     order: [[fields.indexOf("rs_rating"), "desc"]],
-    scrollX: true,
-    scrollY: "56vh",
-    scrollCollapse: true,
     language: DT_LANG_VI,
+  });
+
+  let currentCardRows = [];
+  const cardHost = document.getElementById("screener-cards");
+  const metric = (label, field, row) => `
+    <div class="screener-metric"><span>${esc(label)}</span><strong>${formatCell(field, row[field])}</strong></div>`;
+  const group = (title, pairs, row) => `
+    <section class="screener-detail-group"><h6>${esc(title)}</h6><div>${pairs.map(([label, field]) => metric(label, field, row)).join("")}</div></section>`;
+  const renderCards = () => {
+    currentCardRows = table.rows({ page: "current", search: "applied", order: "applied" }).data().toArray();
+    cardHost.innerHTML = currentCardRows.length ? currentCardRows.map((row, index) => `
+      <article class="screener-record" data-card-index="${index}" tabindex="0" role="button" aria-label="Mở hồ sơ ${esc(row.ticker)}">
+        <header class="screener-record-head">
+          <div><span class="screener-ticker">${esc(row.ticker)}</span><span class="badge-soft bs-blue">${esc(displayExchange(row.exchange) || "–")}</span></div>
+          <div class="screener-company-meta">${esc(row.industry || "Chưa rõ ngành")} · ${formatCell("date", row.date)}</div>
+          <div class="screener-price"><strong>${formatCell("close", row.close)}</strong><span class="${signClass(row.chg_today_pct)}">${formatCell("chg_today_pct", row.chg_today_pct)}%</span></div>
+          ${row.margin_status ? `<span class="badge-margin">${esc(row.margin_status)}</span>` : `<span class="badge-soft bs-green">Margin sạch</span>`}
+        </header>
+        <div class="screener-primary-grid">
+          ${metric("GTGD 20p (tỷ)", "gtgd20_ty", row)}${metric("KL tương đối", "rel_vol", row)}
+          ${metric("RS", "rs_rating", row)}${metric("RSI 14", "rsi14", row)}${metric("Cấu trúc", "structure", row)}
+        </div>
+        <div class="screener-detail-grid">
+          ${group("Momentum", [["MACD Hist", "macd_hist"], ["BB %B", "bb_pctb"], ["ATR %", "atr_pct"]], row)}
+          ${group("Xu hướng", [["Trên MA50", "above_sma50"], ["Trên MA200", "above_sma200"], ["Golden Cross", "golden_cross"]], row)}
+          ${group("Biên 52 tuần", [["Cách đỉnh 52T %", "pct_from_52w_high"], ["Gần đỉnh 52T", "near_52w_high"], ["Trên đáy 52T %", "pct_above_52w_low"], ["Cách Swing Low %", "dist_swing_low_pct"]], row)}
+          ${group("Hiệu suất", [["1 tháng %", "ret_1m"], ["3 tháng %", "ret_3m"], ["6 tháng %", "ret_6m"], ["12 tháng %", "ret_12m"]], row)}
+          ${group("Cơ bản", [["P/E", "pe"], ["P/B", "pb"], ["ROE %", "roe"], ["Room ngoại %", "foreign_room_pct"]], row)}
+          ${group("Rủi ro & sở hữu", [["Free Float", "free_float_est"], ["Cờ margin", "margin_status"]], row)}
+        </div>
+      </article>`).join("") : `<div class="vs-empty"><div class="vs-empty-title">Không có mã phù hợp</div><div class="vs-empty-sub">Hãy nới bộ lọc hoặc từ khóa tìm kiếm.</div></div>`;
+  };
+  table.on("draw", renderCards);
+  renderCards();
+  cardHost.addEventListener("click", (event) => {
+    const card = event.target.closest("[data-card-index]");
+    if (card && window.VSCompanyPanel) VSCompanyPanel.open(currentCardRows[Number(card.dataset.cardIndex)]);
+  });
+  cardHost.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    const card = event.target.closest("[data-card-index]");
+    if (!card || !window.VSCompanyPanel) return;
+    event.preventDefault();
+    VSCompanyPanel.open(currentCardRows[Number(card.dataset.cardIndex)]);
   });
 
   // Bộ lọc theo sàn và ngành (khớp chính xác giá trị của cột)
   const exchangeIdx = fields.indexOf("exchange");
   const industryIdx = fields.indexOf("industry");
-  populateFilter("filter-exchange", new Set(rows.map((r) => r.exchange)));
+  populateFilter("filter-exchange", new Set(rows.map((r) => normalizeExchange(r.exchange))), displayExchange);
   populateFilter("filter-industry", new Set(rows.map((r) => r.industry)));
 
   const escapeRegex = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -546,29 +580,68 @@ function initMarketTable(rows, fields) {
     const v = e.target.value;
     table.column(industryIdx).search(v ? `^${escapeRegex(v)}$` : "", true, false).draw();
   });
+  document.getElementById("sort-screener").addEventListener("change", (e) => {
+    const [field, direction] = e.target.value.split(":");
+    table.order([[fields.indexOf(field), direction]]).draw();
+  });
 
   initQuickFilters(table);
 }
 
-function loadMarketTable() {
-  Papa.parse(CSV_URL, {
-    download: true,
-    header: true,
-    dynamicTyping: true,
-    skipEmptyLines: true,
-    complete: function (results) {
-      if (!results.data.length) {
-        showTableError("File CSV rỗng hoặc không đọc được dữ liệu.");
-        return;
-      }
-      initMarketTable(results.data, results.meta.fields);
-      fillMarketKpis(results.data);
-      renderCharts(results.data);
-    },
-    error: function (err) {
-      showTableError(err.message || "Không tải được file CSV.");
-    },
-  });
+function activeMarketSession(rows) {
+  return rows.filter((r) => normalizeExchange(r.exchange) !== "DELISTED")
+    .map((r) => String(r.date || "")).filter(Boolean).sort().at(-1) || "?";
+}
+
+function updateMarketFreshness(rows, source) {
+  const session = currentBuildInfo?.market_session || activeMarketSession(rows);
+  const published = currentBuildInfo?.generated_at || "chưa có manifest";
+  const snapshotAt = currentBuildInfo?.files?.["screen_snapshot.csv"]?.mtime || published;
+  const buildId = currentBuildInfo?.build_id || "legacy";
+  document.getElementById("market-last-updated").textContent = `Phiên ${session} · snapshot ${snapshotAt} · pipeline local`;
+  document.getElementById("build-status").textContent = `Xuất bản ${published} · build ${buildId} · ${source}`;
+}
+
+async function loadBuildInfo() {
+  try {
+    const res = await fetch(`${BUILD_INFO_URL}?v=${Date.now()}`, {
+      cache: "no-store", headers: { "Cache-Control": "no-cache" },
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    currentBuildInfo = await res.json();
+  } catch (err) {
+    currentBuildInfo = window.BUILD_INFO || null;
+  }
+  return currentBuildInfo;
+}
+
+async function loadMarketTable() {
+  let rows, fields, source = "HTTP";
+  try {
+    const res = await fetch(`${CSV_URL}?v=${Date.now()}`, {
+      cache: "no-store", headers: { "Cache-Control": "no-cache" },
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const parsed = Papa.parse(await res.text(), { header: true, dynamicTyping: true, skipEmptyLines: true });
+    rows = parsed.data;
+    fields = parsed.meta.fields;
+    if (!rows.length) throw new Error("CSV rỗng");
+  } catch (err) {
+    rows = Array.isArray(window.SCREEN_ROWS) ? window.SCREEN_ROWS : null;
+    fields = rows?.length ? Object.keys(rows[0]) : [];
+    source = "fallback";
+    if (!rows?.length) { showTableError(err.message || "Không tải được file CSV."); return; }
+    const fallbackSession = window.SCREENER_DATA_META?.market_session || activeMarketSession(rows);
+    if (currentBuildInfo?.market_session && fallbackSession < currentBuildInfo.market_session) {
+      console.warn(`Fallback screener cũ: ${fallbackSession} < ${currentBuildInfo.market_session}`);
+      source = `fallback cũ ${fallbackSession}`;
+    }
+  }
+  rows.forEach((row) => { row.exchange = normalizeExchange(row.exchange); });
+  initMarketTable(rows, fields);
+  fillMarketKpis(rows);
+  renderCharts(rows);
+  updateMarketFreshness(rows, source);
 }
 
 function showTableError(message) {
@@ -580,9 +653,10 @@ function showTableError(message) {
 }
 
 /* ---------- KHỞI CHẠY ---------- */
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   initReportToggle();
   loadAiReport();
   loadJsonReport();
-  loadMarketTable();
+  await loadBuildInfo();
+  await loadMarketTable();
 });
