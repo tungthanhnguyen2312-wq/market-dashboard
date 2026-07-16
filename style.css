@@ -52,6 +52,13 @@
   --warning-rgb: 240, 196, 90;
   --warning-soft: rgba(240, 196, 90, 0.14);
 
+  /* Chữ/code đọc được trên nền --warning-soft/--danger-soft (không phải chính màu
+     trạng thái, chỉ dùng cho text-on-tint) + màu trung tính cho chuỗi "flat/đứng giá" */
+  --warning-text: #fbe9c2;
+  --warning-code: #fde68a;
+  --danger-text-soft: #ffd2d9;
+  --flat: #64748b;
+
   --radius-lg: 20px;
   --radius-md: 10px;
   --radius-pill: 999px;
@@ -61,9 +68,23 @@
 }
 
 /* ---------- Base ---------- */
+/* box-sizing:border-box chuẩn — Bootstrap vốn cung cấp cái này cho 4 trang có load
+   Bootstrap (dashboard/screener/analysis/signals), nhưng macro/archive/about KHÔNG
+   load Bootstrap và Tailwind Preflight cũng tắt (corePlugins.preflight:false) nên 3
+   trang đó rơi về content-box mặc định của trình duyệt — khiến padding bị CỘNG THÊM
+   vào width thay vì trừ vào, gây tràn ngang ở màn hình hẹp (vd .vs-content padding
+   1.5rem mỗi bên → dư 48px). Đặt ở đây để không phụ thuộc trang nào có Bootstrap;
+   hoàn toàn vô hại/trùng lặp trên 4 trang đã có Bootstrap (cùng giá trị). */
+*, *::before, *::after { box-sizing: border-box; }
+
 html { scroll-behavior: smooth; }
 
 body {
+  /* Reset margin mặc định của trình duyệt (8px) — trước đây chỉ Bootstrap lo việc này
+     nên macro.html/archive.html/about.html (không load Bootstrap) bị dư 16px ngang,
+     gây tràn ngang nhẹ ở màn hình hẹp (vd tablet ~768px). Đặt ở đây để không phụ
+     thuộc Bootstrap có load hay không trên từng trang. */
+  margin: 0;
   background:
     radial-gradient(900px 480px at 8% 0%, rgba(32, 231, 207, 0.10), transparent 55%),
     radial-gradient(700px 420px at 92% 12%, rgba(93, 235, 255, 0.06), transparent 55%),
@@ -323,6 +344,8 @@ h2 svg.card-icon { width: 16px; height: 16px; flex-shrink: 0; color: var(--prima
 }
 
 .chip:hover { border-color: var(--primary); color: var(--accent-text-strong); background: rgba(var(--primary-rgb), 0.07); }
+.chip:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.chip:active { transform: translateY(1px); }
 
 .chip.active {
   background: var(--primary-soft);
@@ -563,11 +586,11 @@ table.dataTable thead .dt-column-order:after { color: var(--primary); }
 .alert-warning {
   background: var(--warning-soft);
   border: 1px solid rgba(var(--warning-rgb), 0.3);
-  color: #fbe9c2;
+  color: var(--warning-text);
   border-radius: var(--radius-md);
 }
 
-.alert-warning code { background: rgba(0, 0, 0, 0.25); color: #fde68a; }
+.alert-warning code { background: rgba(0, 0, 0, 0.25); color: var(--warning-code); }
 
 /* ---------- Footer ---------- */
 .site-footer {

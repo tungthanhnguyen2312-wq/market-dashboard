@@ -26,28 +26,18 @@
 <!-- CDN: Bootstrap 5 + DataTables 2 (bản tích hợp BS5) + PapaParse — script bên dưới cần, giữ nguyên -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.min.css" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=2026-07-15-0b2f422-23bf0b532b">
+<link rel="stylesheet" href="style.css?v=2026-07-16-23bc7d6-6fccc55cb2">
 
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = {
-    corePlugins: { preflight: false },
-    theme: { extend: {
-      colors: {
-        bg: "var(--bg)", surface: "var(--surface)", "surface-2": "var(--surface-2)",
-        border: "var(--border)", muted: "var(--text-muted)", primary: "var(--primary)",
-        success: "var(--success)", warning: "var(--warning)", danger: "var(--danger)",
-      },
-      fontFamily: { sans: ["Inter", "sans-serif"] },
-    }},
-  };
-</script>
-<link rel="stylesheet" href="assets/css/shell.css?v=2026-07-15-0b2f422-23bf0b532b">
+<!-- Tailwind CSS build sẵn bằng CLI standalone (xem build_frontend.bat + tailwind.config.js)
+     — thay cho Play CDN chạy JIT trong trình duyệt. Giữ NGUYÊN behavior cũ
+     (corePlugins.preflight:false, theme.extend colors/fontFamily như cũ). -->
+<link rel="stylesheet" href="assets/css/tailwind.generated.css?v=2026-07-16-23bc7d6-6fccc55cb2">
+<link rel="stylesheet" href="assets/css/shell.css?v=2026-07-16-23bc7d6-6fccc55cb2">
 <style>
   /* Lớp màu do script bảng bên dưới (giữ nguyên, không sửa) sinh ra trong HTML */
   .up { color: var(--success); }
   .down { color: var(--danger); }
-  .badge-margin { background: var(--danger); color: #03080A; font-weight: 700;
+  .badge-margin { background: var(--danger); color: var(--bg-deep); font-weight: 700;
                   border-radius: 4px; padding: 1px 6px; font-size: 11px; }
   /* Gợi ý bấm vào dòng để xem chi tiết mã (assets/js/company-panel.js) — chỉ bảng screener,
      không áp cho #tblBreadth */
@@ -144,37 +134,43 @@
      tải-chặn-tải tuần tự từng file; defer giữ nguyên THỨ TỰ THỰC THI theo đúng
      thứ tự xuất hiện, chạy ngay trước DOMContentLoaded — same timing như trước,
      khác mỗi cách tải, nên không đổi hành vi script bên dưới -->
-<script src="https://unpkg.com/lucide@latest" defer></script>
-<script src="assets/js/shell.js?v=2026-07-15-0b2f422-23bf0b532b" defer></script>
+<script src="https://unpkg.com/lucide@1.24.0" defer></script>
+<script src="assets/js/shell.js?v=2026-07-16-23bc7d6-6fccc55cb2" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" defer></script>
 <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js" defer></script>
 <script src="https://cdn.datatables.net/2.1.8/js/dataTables.bootstrap5.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js" defer></script>
-<script src="data/build_info.js?v=2026-07-15-0b2f422-23bf0b532b" defer></script>
-<!-- Fallback cho chế độ mở file:// (fetch CSV bị CORS chặn) — candle_scan.py sinh file này -->
-<script src="data/screener_data.js?v=2026-07-15-0b2f422-23bf0b532b" defer></script>
-<script src="assets/js/value-format.js?v=2026-07-15-0b2f422-23bf0b532b" defer></script>
+<script src="data/build_info.js?v=2026-07-16-23bc7d6-6fccc55cb2" defer></script>
+<!-- data/screener_data.js (fallback file://) KHÔNG còn tải tĩnh — loadCsv() bên dưới
+     chỉ nạp động qua loadFallbackScript() khi thật sự cần (file:// hoặc fetch lỗi). -->
+<script src="assets/js/value-format.js?v=2026-07-16-23bc7d6-6fccc55cb2" defer></script>
 <script defer>
 // Ưu tiên fetch CSV thật (chạy qua http.server / GitHub Pages luôn tươi);
 // mở trực tiếp bằng double-click thì rơi về window.SCREEN_ROWS/BREADTH_ROWS trong .js
 async function loadCsv(path, globalName) {
-  try {
-    const r = await fetch(`${path}?v=${Date.now()}`, {
-      cache: "no-store", headers: { "Cache-Control": "no-cache" },
-    });
-    if (!r.ok) throw new Error(r.status);
-    const text = await r.text();
-    return Papa.parse(text, { header: true, dynamicTyping: true, skipEmptyLines: true }).data;
-  } catch (e) {
-    const fallback = window[globalName] || null;
-    const fallbackSession = window.SCREENER_DATA_META?.market_session;
-    if (fallback && window.BUILD_INFO?.market_session && fallbackSession < window.BUILD_INFO.market_session) {
-      console.warn(`Fallback ${globalName} cũ: ${fallbackSession} < ${window.BUILD_INFO.market_session}`);
-      window.SCREENER_LOAD_WARNING = `Cảnh báo: fallback ${fallbackSession} cũ hơn manifest ${window.BUILD_INFO.market_session}.`;
-    }
-    return fallback;
+  let fetchErr = null;
+  if (!isFileProtocol()) {
+    try {
+      const r = await fetch(`${path}?v=${Date.now()}`, {
+        cache: "no-store", headers: { "Cache-Control": "no-cache" },
+      });
+      if (!r.ok) throw new Error(r.status);
+      const text = await r.text();
+      const parsed = Papa.parse(text, { header: true, dynamicTyping: true, skipEmptyLines: true }).data;
+      if (parsed && parsed.length) return parsed;
+    } catch (e) { fetchErr = e; }
   }
+  // file:// hoặc fetch vừa thất bại — nạp fallback .js CHỈ lúc này.
+  await loadFallbackScript("data/screener_data.js", globalName);
+  const fallback = window[globalName] || null;
+  const fallbackSession = window.SCREENER_DATA_META?.market_session;
+  if (fallback && window.BUILD_INFO?.market_session && fallbackSession < window.BUILD_INFO.market_session) {
+    console.warn(`Fallback ${globalName} cũ: ${fallbackSession} < ${window.BUILD_INFO.market_session}`);
+    window.SCREENER_LOAD_WARNING = `Cảnh báo: fallback ${fallbackSession} cũ hơn manifest ${window.BUILD_INFO.market_session}.`;
+  }
+  if (!fallback) console.error("Không tải được dữ liệu (cả HTTP và fallback):", fetchErr);
+  return fallback;
 }
 const num = (v, d = 1) => (v === null || v === undefined || v === "" || Number.isNaN(v))
   ? "–" : Number(v).toLocaleString("vi-VN", { maximumFractionDigits: d });
@@ -215,28 +211,32 @@ document.addEventListener("DOMContentLoaded", () => {
   const pct = d => v => v === null || v === "" || v === undefined ? "–"
     : `<span class="${signClass(v)}">${num(v, d)}</span>`;
 
-  screenTable = new DataTable("#tblScreen", {
-    data: rows, language: VI, pageLength: 15, lengthMenu: [10, 15, 25], order: [[5, "desc"]],
-    columns: [
+  const screenColumns = [
       { data: "ticker", title: "Mã", render: v => `<b>${esc(v)}</b>` },
       { data: "exchange", title: "Sàn", defaultContent: "–", render: v => esc(displayExchange(v) || "–") },
       { data: "industry", title: "Ngành", defaultContent: "–" },
-      { data: "close", title: "Giá", render: v => num(v, 0) },
-      { data: "chg_today_pct", title: "%Phiên", render: pct(2) },
-      { data: "rs_rating", title: "RS", render: v => num(v, 0) },
-      { data: "rsi14", title: "RSI", render: v => num(v, 0) },
-      { data: "rel_vol", title: "RelVol", render: v => num(v, 2) },
-      { data: "gtgd20_ty", title: "GTGD(tỷ)", render: v => num(v, 1) },
-      { data: "pct_from_52w_high", title: "%từ đỉnh 52w", render: pct(1) },
+      { data: "close", title: "Giá", className: "text-end", render: v => num(v, 0) },
+      { data: "chg_today_pct", title: "%Phiên", className: "text-end", render: pct(2) },
+      { data: "rs_rating", title: "RS", className: "text-end", render: v => num(v, 0) },
+      { data: "rsi14", title: "RSI", className: "text-end", render: v => num(v, 0) },
+      { data: "rel_vol", title: "RelVol", className: "text-end", render: v => num(v, 2) },
+      { data: "gtgd20_ty", title: "GTGD(tỷ)", className: "text-end", render: v => num(v, 1) },
+      { data: "pct_from_52w_high", title: "%từ đỉnh 52w", className: "text-end", render: pct(1) },
       { data: "structure", title: "Cấu trúc", defaultContent: "–" },
-      { data: "pe", title: "P/E", render: v => num(v, 1) },
-      { data: "pb", title: "P/B", render: v => num(v, 2) },
-      { data: "roe", title: "ROE%", render: v => num(v, 1) },
-      { data: "foreign_room_pct", title: "Room%", render: v => num(v, 1) },
+      { data: "pe", title: "P/E", className: "text-end", render: v => num(v, 1) },
+      { data: "pb", title: "P/B", className: "text-end", render: v => num(v, 2) },
+      { data: "roe", title: "ROE%", className: "text-end", render: v => num(v, 1) },
+      { data: "foreign_room_pct", title: "Room%", className: "text-end", render: v => num(v, 1) },
       { data: "margin_status", title: "Cờ", defaultContent: "",
         render: v => v ? `<span class="badge-margin">${esc(v)}</span>` : "" },
-    ],
+  ];
+  screenTable = new DataTable("#tblScreen", {
+    data: rows, language: VI, pageLength: 15, lengthMenu: [10, 15, 25], order: [[5, "desc"]],
+    columns: screenColumns,
   });
+  // Tooltip header (COLUMN_HINTS) gắn SAU khi <thead> đã dựng xong — xem lý do trong
+  // value-format.js applyColumnHints() (tránh lộ HTML vào aria-label DataTables sinh ra).
+  applyColumnHints(document.getElementById("tblScreen"), screenColumns);
 
   // Bộ lọc "mã sạch": margin_status trống + GTGD >= 3 tỷ
   DataTable.ext.search.push((settings, data, idx) => {
@@ -252,19 +252,19 @@ document.addEventListener("DOMContentLoaded", () => {
       order: [[7, "desc"]],
       columns: [
         { data: "group", title: "Nhóm", render: v => `<b>${esc(v)}</b>` },
-        { data: "n_symbols", title: "Số mã" },
-        { data: "n_up", title: "Tăng", render: v => `<span class="up">${v}</span>` },
-        { data: "n_down", title: "Giảm", render: v => `<span class="down">${v}</span>` },
-        { data: "n_flat", title: "Đứng" },
-        { data: "pct_above_ma200", title: "%trên MA200", render: v => num(v, 1) },
-        { data: "avg_ret_1m", title: "TB 1 tháng %", render: pct(1) },
-        { data: "avg_rs_rating", title: "RS TB", render: v => num(v, 1) },
+        { data: "n_symbols", title: "Số mã", className: "text-end" },
+        { data: "n_up", title: "Tăng", className: "text-end", render: v => `<span class="up">${v}</span>` },
+        { data: "n_down", title: "Giảm", className: "text-end", render: v => `<span class="down">${v}</span>` },
+        { data: "n_flat", title: "Đứng", className: "text-end" },
+        { data: "pct_above_ma200", title: "%trên MA200", className: "text-end", render: v => num(v, 1) },
+        { data: "avg_ret_1m", title: "TB 1 tháng %", className: "text-end", render: pct(1) },
+        { data: "avg_rs_rating", title: "RS TB", className: "text-end", render: v => num(v, 1) },
       ],
     });
   }
 })();
 });
 </script>
-<script src="assets/js/company-panel.js?v=2026-07-15-0b2f422-23bf0b532b" defer></script>
+<script src="assets/js/company-panel.js?v=2026-07-16-23bc7d6-6fccc55cb2" defer></script>
 </body>
 </html>

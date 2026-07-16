@@ -25,20 +25,43 @@
     var closeBtn = document.getElementById("sidebar-close");
     if (!sidebar || !overlay || !openBtn) return;
 
+    // Focus trap khi drawer mở trên mobile — cùng mẫu với company-panel.js
+    // (getFocusable + chặn Tab tại 2 đầu). Trước đây mở drawer không đưa focus
+    // vào, đóng không trả focus lại nút bấm mở — bàn phím/screen reader không
+    // biết drawer đã hiện.
+    var lastFocused = null;
+
+    function getFocusable() {
+      return Array.prototype.slice.call(sidebar.querySelectorAll("a[href], button:not([disabled])"))
+        .filter(function (el) { return el.offsetParent !== null; });
+    }
+
     function open() {
+      lastFocused = document.activeElement;
       sidebar.classList.add("is-open");
       overlay.classList.add("is-open");
+      var focusable = getFocusable();
+      if (focusable.length) focusable[0].focus();
     }
     function close() {
+      if (!sidebar.classList.contains("is-open")) return;
       sidebar.classList.remove("is-open");
       overlay.classList.remove("is-open");
+      if (lastFocused && typeof lastFocused.focus === "function") lastFocused.focus();
+      lastFocused = null;
     }
 
     openBtn.addEventListener("click", open);
     overlay.addEventListener("click", close);
     if (closeBtn) closeBtn.addEventListener("click", close);
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") close();
+      if (e.key === "Escape") { close(); return; }
+      if (e.key !== "Tab" || !sidebar.classList.contains("is-open")) return;
+      var focusable = getFocusable();
+      if (!focusable.length) return;
+      var first = focusable[0], last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     });
     // Bấm vào 1 link menu trên mobile thì tự đóng drawer
     sidebar.querySelectorAll("a[data-nav]").forEach(function (link) {

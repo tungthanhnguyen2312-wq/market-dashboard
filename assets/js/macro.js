@@ -7,7 +7,6 @@
     "usdvnd_vcb", "us_fedfunds", "vn_cpi_yoy", "us_10y",
     "dxy", "vix", "brent", "gold_world",
   ];
-  var COLORS = ["#20e7cf", "#5deBff", "#27e6a1", "#f0c45a", "#ff5d73"];
   var chartInstances = [];
 
   var CHART_GROUPS = [
@@ -78,13 +77,17 @@
 
   async function loadMacroData(fetchImpl) {
     var doFetch = fetchImpl || window.fetch.bind(window);
-    try {
-      var response = await doFetch(JSON_PATH, { cache: "no-store" });
-      if (!response.ok) throw new Error("HTTP response not ok");
-      return { snapshot: await response.json(), source: "json" };
-    } catch (_) {
-      return { snapshot: window.MACRO_SNAPSHOT || null, source: "fallback" };
+    // Ưu tiên fetch JSON qua http(s); file:// (fetch luôn bị CORS chặn) hoặc fetch lỗi thì
+    // nạp fallback data/macro_snapshot.js CHỈ lúc đó, không tải song song.
+    if (!isFileProtocol()) {
+      try {
+        var response = await doFetch(JSON_PATH, { cache: "no-store" });
+        if (!response.ok) throw new Error("HTTP response not ok");
+        return { snapshot: await response.json(), source: "json" };
+      } catch (_) { /* rơi xuống fallback bên dưới */ }
     }
+    await loadFallbackScript("data/macro_snapshot.js", "MACRO_SNAPSHOT");
+    return { snapshot: window.MACRO_SNAPSHOT || null, source: "fallback" };
   }
 
   function formatNumber(value, unit) {
@@ -233,7 +236,7 @@
     var scales = {
       x: {
         grid: { color: "rgba(118, 160, 166, 0.08)" },
-        ticks: { color: "#789096", maxTicksLimit: 8, maxRotation: 0 },
+        ticks: { color: CHART_COLORS.tickText, maxTicksLimit: 8, maxRotation: 0 },
       },
     };
     axes.forEach(function (axis, index) {
@@ -242,13 +245,14 @@
         position: index % 2 === 0 ? "left" : "right",
         display: true,
         grid: { color: index === 0 ? "rgba(118, 160, 166, 0.10)" : "rgba(0,0,0,0)", drawOnChartArea: index === 0 },
-        ticks: { color: "#789096", callback: function (value) { return formatNumber(value, datasets.find(function (d) { return d.yAxisID === axis; }).unit); } },
+        ticks: { color: CHART_COLORS.tickText, callback: function (value) { return formatNumber(value, datasets.find(function (d) { return d.yAxisID === axis; }).unit); } },
       };
     });
     return scales;
   }
 
   function renderCharts(snapshot) {
+    applyChartTheme();
     chartInstances.forEach(function (instance) { instance.destroy(); });
     chartInstances = [];
     var container = byId("macro-charts");
@@ -296,8 +300,8 @@
           data: dates.map(function (date) { return values.has(date) ? values.get(date) : null; }),
           unit: entry.item.unit,
           yAxisID: "y_" + axisKey(entry.item.unit),
-          borderColor: COLORS[index % COLORS.length],
-          backgroundColor: COLORS[index % COLORS.length] + "22",
+          borderColor: CHART_COLORS.series[index % CHART_COLORS.series.length],
+          backgroundColor: CHART_COLORS.series[index % CHART_COLORS.series.length] + "22",
           borderWidth: 1.7,
           pointRadius: dates.length > 80 ? 0 : 1.5,
           pointHoverRadius: 4,
@@ -305,18 +309,17 @@
           spanGaps: true,
         };
       });
-      var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      // animation/legend màu đã theo Chart.defaults (applyChartTheme ở đầu hàm, có
+      // tôn trọng prefers-reduced-motion) — không set lại cục bộ ở đây nữa.
       chartInstances.push(new window.Chart(canvas, {
         type: "line",
         data: { labels: dates, datasets: datasets },
         options: {
           responsive: true,
           maintainAspectRatio: false,
-          animation: reduceMotion ? false : { duration: 320 },
           normalized: true,
           interaction: { mode: "index", intersect: false },
           plugins: {
-            legend: { labels: { color: "#a8bcc1", usePointStyle: true, boxWidth: 8 } },
             tooltip: {
               callbacks: {
                 label: function (context) {

@@ -22,6 +22,11 @@ const SIGNED_COLUMNS = [
 /* Các cột boolean hiển thị dấu ✓ */
 const BOOL_COLUMNS = ["above_sma50", "above_sma200", "golden_cross", "near_52w_high"];
 
+/* Cột dạng chữ (không phải số) — mọi field CSV còn lại được coi là số nên căn phải
+   cho đúng quy ước đọc bảng tài chính (dễ so sánh độ lớn theo cột dọc). */
+const TEXT_COLUMNS = new Set(["ticker", "date", "exchange", "industry", "structure", "margin_status"]);
+const isNumericField = (field) => !TEXT_COLUMNS.has(field) && !BOOL_COLUMNS.includes(field);
+
 /* Tên cột tiếng Việt cho bảng screener (chỉ đổi hiển thị, field gốc giữ nguyên) */
 const COLUMN_LABELS = {
   ticker: "Mã",
@@ -96,7 +101,7 @@ async function loadAiReport() {
     const toggle = document.getElementById("report-toggle");
     if (toggle) toggle.style.display = "none";
     container.innerHTML = `
-      <div class="alert alert-warning mb-0">
+      <div class="vs-alert vs-alert-warning mb-0">
         <strong>Không thể tải Báo cáo AI</strong> (${esc(err.message)}).<br>
         Vui lòng chạy lại quy trình đồng bộ dữ liệu.<br>
         Lưu ý: khi xem local phải chạy qua web server
@@ -277,11 +282,7 @@ function fillMarketKpis(rows) {
  * ============================================================ */
 function renderCharts(rows) {
   if (!window.Chart) return;
-
-  Chart.defaults.color = CHART_COLORS.text;
-  Chart.defaults.font.family = "'Inter', sans-serif";
-  Chart.defaults.font.size = 11;
-  Chart.defaults.borderColor = CHART_COLORS.grid;
+  applyChartTheme();
 
   // --- Sector breadth: % mã trên MA200 theo ngành (ngành >= 8 mã) ---
   const byIndustry = {};
@@ -418,6 +419,7 @@ function buildColumns(fields) {
     data: field,
     title: COLUMN_LABELS[field] || field,
     defaultContent: "",
+    className: isNumericField(field) ? "text-end" : undefined,
     createdCell:
       field === "ticker"
         ? (td) => td.classList.add("ticker-cell")
@@ -511,14 +513,16 @@ function initMarketTable(rows, fields) {
   const statusBox = document.getElementById("table-status");
   statusBox.style.display = "none";
 
+  const columns = buildColumns(fields);
   const table = new DataTable("#market-table", {
     data: rows,
-    columns: buildColumns(fields),
+    columns,
     pageLength: 15,
     lengthMenu: [10, 15],
     order: [[fields.indexOf("rs_rating"), "desc"]],
     language: DT_LANG_VI,
   });
+  applyColumnHints(document.getElementById("market-table"), columns);
 
   let currentCardRows = [];
   const cardHost = document.getElementById("screener-cards");
@@ -616,21 +620,29 @@ async function loadBuildInfo() {
 }
 
 async function loadMarketTable() {
-  let rows, fields, source = "HTTP";
-  try {
-    const res = await fetch(`${CSV_URL}?v=${Date.now()}`, {
-      cache: "no-store", headers: { "Cache-Control": "no-cache" },
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const parsed = Papa.parse(await res.text(), { header: true, dynamicTyping: true, skipEmptyLines: true });
-    rows = parsed.data;
-    fields = parsed.meta.fields;
-    if (!rows.length) throw new Error("CSV rỗng");
-  } catch (err) {
+  let rows, fields, source = "HTTP", fetchErr = null;
+  if (!isFileProtocol()) {
+    try {
+      const res = await fetch(`${CSV_URL}?v=${Date.now()}`, {
+        cache: "no-store", headers: { "Cache-Control": "no-cache" },
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const parsed = Papa.parse(await res.text(), { header: true, dynamicTyping: true, skipEmptyLines: true });
+      rows = parsed.data;
+      fields = parsed.meta.fields;
+      if (!rows.length) throw new Error("CSV rỗng");
+    } catch (err) {
+      fetchErr = err;
+    }
+  }
+  if (!rows || !rows.length) {
+    // file:// (fetch luôn bị CORS chặn) hoặc fetch primary vừa thất bại — nạp fallback
+    // .js CHỈ lúc này, không tải song song với fetch ở trên.
+    await loadFallbackScript("data/screener_data.js", "SCREEN_ROWS");
     rows = Array.isArray(window.SCREEN_ROWS) ? window.SCREEN_ROWS : null;
     fields = rows?.length ? Object.keys(rows[0]) : [];
     source = "fallback";
-    if (!rows?.length) { showTableError(err.message || "Không tải được file CSV."); return; }
+    if (!rows?.length) { showTableError((fetchErr && fetchErr.message) || "Không tải được file CSV."); return; }
     const fallbackSession = window.SCREENER_DATA_META?.market_session || activeMarketSession(rows);
     if (currentBuildInfo?.market_session && fallbackSession < currentBuildInfo.market_session) {
       console.warn(`Fallback screener cũ: ${fallbackSession} < ${currentBuildInfo.market_session}`);
@@ -646,7 +658,7 @@ async function loadMarketTable() {
 
 function showTableError(message) {
   document.getElementById("table-status").innerHTML = `
-    <div class="alert alert-warning mb-0 text-start">
+    <div class="vs-alert vs-alert-warning mb-0 text-start">
       <strong>Không thể tải dữ liệu Stock Screener</strong> (${esc(message)}).<br>
       Vui lòng chạy lại quy trình đồng bộ dữ liệu.
     </div>`;

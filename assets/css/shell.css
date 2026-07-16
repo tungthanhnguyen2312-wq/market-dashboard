@@ -393,6 +393,7 @@
 }
 
 .vs-btn:hover { background: var(--surface-2); border-color: var(--text-muted); color: var(--text); }
+.vs-btn:active { transform: translateY(1px); }
 .vs-btn-sm { padding: 0.32rem 0.8rem; font-size: 0.76rem; }
 
 /* ---------- Select / Input ---------- */
@@ -473,10 +474,10 @@
 .vs-alert-warning {
   background: var(--warning-soft);
   border: 1px solid rgba(var(--warning-rgb), 0.3);
-  color: #fbe9c2;
+  color: var(--warning-text);
 }
 
-.vs-alert-warning code { background: rgba(0, 0, 0, 0.25); color: #fde68a; }
+.vs-alert-warning code { background: rgba(0, 0, 0, 0.25); color: var(--warning-code); }
 
 /* ---------- List ---------- */
 .vs-list-item {
@@ -532,8 +533,15 @@
 }
 
 .vs-icon-btn:hover { background: var(--surface-2); color: var(--text); border-color: var(--text-muted); }
+.vs-icon-btn:active { transform: scale(0.94); }
 .vs-icon-btn svg { width: 15px; height: 15px; }
 .vs-icon-btn:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+
+/* Touch target ≥44px trên mobile/tablet (28px trên desktop là đủ vì dùng chuột) — đặt
+   SAU rule .vs-icon-btn gốc để thắng cascade (cùng specificity, sau thắng trước). */
+@media (max-width: 1023px) {
+  .vs-icon-btn { width: 44px; height: 44px; }
+}
 
 /* ---------- Company panel (Phase 3: modal giữa màn hình -> Phase 4:
    trượt từ bên phải, kiểu panel nghiên cứu thay vì hộp thoại trung tâm) ---------- */
@@ -654,6 +662,8 @@
 }
 
 .vs-resize-handle:hover::after, .vs-resize-handle.is-dragging::after { background: var(--primary); }
+.vs-resize-handle:focus-visible { outline: none; }
+.vs-resize-handle:focus-visible::after { background: var(--primary); box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.25); }
 
 body.is-resizing-panel { cursor: col-resize !important; }
 body.is-resizing-panel * { user-select: none !important; }

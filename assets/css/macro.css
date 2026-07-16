@@ -2,7 +2,14 @@
   display: grid;
   gap: 1.5rem;
   padding-bottom: 2rem;
+  min-width: 0;
 }
+
+/* Grid item mặc định min-width:auto (co theo max-content) — cùng nguyên tắc min-w-0
+   đã dùng cho cột flex ở dashboard/analysis (xl:flex-1 min-w-0), nếu không grid con
+   bên trong (.macro-kpi-grid dùng auto-fit/minmax) có thể ép toàn bộ .macro-page rộng
+   hơn viewport thay vì co lại đúng breakpoint, gây tràn ngang ở tablet (~768px). */
+.macro-page > * { min-width: 0; }
 
 .macro-hero {
   overflow: hidden;
@@ -87,8 +94,8 @@
 
 .macro-notice svg { width: 16px; height: 16px; flex: 0 0 auto; }
 .macro-notice.is-loading svg { animation: macro-spin 1.1s linear infinite; }
-.macro-notice.is-warning { border-color: rgba(var(--warning-rgb), 0.38); background: var(--warning-soft); color: #fbe9c2; }
-.macro-notice.is-error { border-color: rgba(var(--danger-rgb), 0.38); background: var(--danger-soft); color: #ffd2d9; }
+.macro-notice.is-warning { border-color: rgba(var(--warning-rgb), 0.38); background: var(--warning-soft); color: var(--warning-text); }
+.macro-notice.is-error { border-color: rgba(var(--danger-rgb), 0.38); background: var(--danger-soft); color: var(--danger-text-soft); }
 .macro-notice.is-success { border-color: rgba(var(--success-rgb), 0.28); background: var(--success-soft); color: var(--success); }
 
 @keyframes macro-spin { to { transform: rotate(360deg); } }

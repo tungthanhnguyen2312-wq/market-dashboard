@@ -18,24 +18,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=2026-07-15-0b2f422-23bf0b532b">
+<link rel="stylesheet" href="style.css?v=2026-07-16-23bc7d6-6fccc55cb2">
 
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = {
-    corePlugins: { preflight: false },
-    theme: { extend: {
-      colors: {
-        bg: "var(--bg)", surface: "var(--surface)", "surface-2": "var(--surface-2)",
-        border: "var(--border)", muted: "var(--text-muted)", primary: "var(--primary)",
-        success: "var(--success)", warning: "var(--warning)", danger: "var(--danger)",
-      },
-      fontFamily: { sans: ["Inter", "sans-serif"] },
-    }},
-  };
-</script>
-<link rel="stylesheet" href="assets/css/shell.css?v=2026-07-15-0b2f422-23bf0b532b">
-<link rel="stylesheet" href="assets/css/candlestick-patterns.css?v=2026-07-15-0b2f422-23bf0b532b">
+<!-- Tailwind CSS build sẵn bằng CLI standalone (xem build_frontend.bat + tailwind.config.js)
+     — thay cho Play CDN chạy JIT trong trình duyệt. Giữ NGUYÊN behavior cũ
+     (corePlugins.preflight:false, theme.extend colors/fontFamily như cũ). -->
+<link rel="stylesheet" href="assets/css/tailwind.generated.css?v=2026-07-16-23bc7d6-6fccc55cb2">
+<link rel="stylesheet" href="assets/css/shell.css?v=2026-07-16-23bc7d6-6fccc55cb2">
+<link rel="stylesheet" href="assets/css/candlestick-patterns.css?v=2026-07-16-23bc7d6-6fccc55cb2">
 <style>
   /* Theme cục bộ của trang — biến local trỏ sang token dùng chung của style.css
      (không khai báo lại --bg/--border/--text vì đã có ở :root của style.css). */
@@ -49,9 +39,11 @@
   h2 { font-size:15px; margin:26px 0 10px; color:var(--blue); }
   .meta { color:var(--dim); font-size:12px; }
   .warn { color:var(--amber); font-size:12px; margin-top:4px; }
-  table { border-collapse:collapse; width:100%; margin-top:6px; }
-  th,td { border:1px solid var(--border); padding:5px 9px; text-align:left; font-size:13px; }
-  th { background:var(--panel); color:var(--dim); font-weight:600; }
+  /* Border-bottom only (không viền dọc) — khớp phong cách .vs-datatable/.an-table dùng
+     chung toàn site, thay vì lưới đầy đủ như trước (khác biệt duy nhất trên trang này). */
+  table { border-collapse:collapse; width:100%; margin-top:6px; font-variant-numeric:tabular-nums; }
+  th,td { border-bottom:1px solid var(--border); padding:5px 9px; text-align:left; font-size:13px; }
+  th { background:var(--panel); color:var(--dim); font-weight:600; text-transform:uppercase; font-size:11px; letter-spacing:0.04em; }
   .up { color:var(--green); } .down { color:var(--red); } .flat { color:var(--dim); }
   .empty { color:var(--dim); padding:14px; border:1px dashed var(--border); margin-top:6px; border-radius:var(--radius-md); }
   /* Watchlist cards */
@@ -59,7 +51,7 @@
   .card { background:var(--panel); border:1px solid var(--border); border-radius:8px;
           padding:12px 16px; min-width:170px; }
   .card .tk { font-size:17px; font-weight:700; }
-  .card .px { font-size:15px; margin:4px 0; }
+  .card .px { font-size:15px; margin:4px 0; font-variant-numeric:tabular-nums; }
   .card .tags { font-size:11px; color:var(--dim); }
   .card.conf-bull { border-color:var(--green); animation:pulseG 1.2s infinite; }
   .card.conf-bear { border-color:var(--red); animation:pulseR 1.2s infinite; }
@@ -67,7 +59,7 @@
   @keyframes pulseR { 50% { box-shadow:0 0 12px 1px var(--red); } }
   /* Heatmap */
   .heat { display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:8px; margin-top:10px; }
-  .cell { border-radius:6px; padding:10px 12px; color:#0d1117; font-weight:600; font-size:12.5px; }
+  .cell { border-radius:6px; padding:10px 12px; color:var(--bg-deep); font-weight:600; font-size:12.5px; }
   .cell small { display:block; font-weight:400; margin-top:3px; }
   badge { display:inline-block; }
 </style>
@@ -101,6 +93,7 @@
         <span class="vs-topbar-title">Signals</span>
         <span class="vs-topbar-spacer"></span>
         <a class="vs-topbar-link" href="archive.html"><i data-lucide="history"></i>History</a>
+        <button type="button" class="vs-icon-btn" onclick="location.reload()" aria-label="Làm mới dữ liệu" title="Làm mới dữ liệu"><i data-lucide="refresh-cw"></i></button>
       </header>
 
       <main class="vs-content">
@@ -184,22 +177,27 @@
     </div>
   </div>
 
-<script src="https://unpkg.com/lucide@latest"></script>
-<script src="assets/js/shell.js?v=2026-07-15-0b2f422-23bf0b532b"></script>
-<!-- Fallback cho file:// (fetch bị CORS chặn khi mở trực tiếp): candle_scan.py sinh kèm bản .js -->
-<script src="data/candle_signals.js?v=2026-07-15-0b2f422-23bf0b532b"></script>
-<script src="data/sector_heatmap.js?v=2026-07-15-0b2f422-23bf0b532b"></script>
-<script src="data/candlestick_patterns.js?v=2026-07-15-0b2f422-23bf0b532b"></script>
-<script src="assets/js/company-panel.js?v=2026-07-15-0b2f422-23bf0b532b"></script>
-<script src="assets/js/candlestick-patterns.js?v=2026-07-15-0b2f422-23bf0b532b"></script>
+<script src="https://unpkg.com/lucide@1.24.0"></script>
+<script src="assets/js/shell.js?v=2026-07-16-23bc7d6-6fccc55cb2"></script>
+<!-- data/candle_signals.js, data/sector_heatmap.js, data/candlestick_patterns.js (fallback
+     file://) KHÔNG còn tải tĩnh — loadData()/candlestick-patterns.js chỉ nạp động qua
+     loadFallbackScript() khi thật sự cần. value-format.js phải load TRƯỚC 2 script dùng nó. -->
+<script src="assets/js/value-format.js?v=2026-07-16-23bc7d6-6fccc55cb2"></script>
+<script src="assets/js/company-panel.js?v=2026-07-16-23bc7d6-6fccc55cb2"></script>
+<script src="assets/js/candlestick-patterns.js?v=2026-07-16-23bc7d6-6fccc55cb2"></script>
 <script>
-// Ưu tiên fetch JSON (chạy qua http.server / GitHub Pages); lỗi thì rơi về biến global từ .js
-async function loadData(path, globalName) {
-  try {
-    const r = await fetch(path);
-    if (!r.ok) throw new Error(r.status);
-    return await r.json();
-  } catch (e) { return window[globalName] || null; }
+// Ưu tiên fetch JSON (chạy qua http.server / GitHub Pages); file:// hoặc fetch lỗi thì
+// nạp fallback .js tương ứng CHỈ lúc đó, không tải song song với fetch.
+async function loadData(path, globalName, fallbackSrc) {
+  if (!isFileProtocol()) {
+    try {
+      const r = await fetch(path);
+      if (!r.ok) throw new Error(r.status);
+      return await r.json();
+    } catch (e) { /* rơi xuống fallback bên dưới */ }
+  }
+  await loadFallbackScript(fallbackSrc, globalName);
+  return window[globalName] || null;
 }
 const fmt = (v, d = 1) => (v === null || v === undefined || Number.isNaN(v)) ? "–" : Number(v).toLocaleString("vi-VN", {maximumFractionDigits: d});
 const dirCls = d => d === "bullish" ? "up" : d === "bearish" ? "down" : "flat";
@@ -244,7 +242,7 @@ function renderDividend(list, note) {
 function renderHeatmap(sectors) {
   if (!sectors || !sectors.length) return;
   // strength 0-100 -> đỏ (yếu) -> vàng -> xanh (mạnh)
-  const color = s => s >= 66 ? "#27E6A1" : s >= 33 ? "#F0C45A" : "#FF5D73";
+  const color = s => s >= 66 ? "var(--success)" : s >= 33 ? "var(--warning)" : "var(--danger)";
   document.getElementById("heatmap").innerHTML = sectors.map(x =>
     `<div class="cell" style="background:${color(x.strength)}">
        ${esc(x.industry)} — ${fmt(x.strength, 0)}
@@ -253,8 +251,8 @@ function renderHeatmap(sectors) {
 }
 
 (async () => {
-  const sig = await loadData("data/candle_signals.json", "CANDLE_SIGNALS");
-  const heat = await loadData("data/sector_heatmap.json", "SECTOR_HEATMAP");
+  const sig = await loadData("data/candle_signals.json", "CANDLE_SIGNALS", "data/candle_signals.js");
+  const heat = await loadData("data/sector_heatmap.json", "SECTOR_HEATMAP", "data/sector_heatmap.js");
   if (!sig && !heat) {
     document.getElementById("meta").textContent = "Chưa có dữ liệu cho phiên này — vui lòng chạy lại pipeline tín hiệu.";
     return;

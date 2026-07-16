@@ -58,6 +58,9 @@
     if (chartRenderedFor === r.ticker && chartInstance) return; // đã đúng biểu đồ rồi, khỏi vẽ lại
     const canvas = document.getElementById("cp-chart-canvas");
     if (!canvas || !window.Chart) return;
+    // screener.html/signals.html KHÔNG load app.js nên Chart.defaults có thể chưa
+    // từng được set — gọi ở đây để chart luôn đúng theme dù trang nào vẽ trước.
+    if (typeof applyChartTheme === "function") applyChartTheme();
     if (chartInstance) { chartInstance.destroy(); chartInstance = null; }
     chartRenderedFor = r.ticker;
 

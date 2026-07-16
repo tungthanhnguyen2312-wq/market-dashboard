@@ -54,15 +54,20 @@
   }
 
   async function loadSnapshot() {
-    try {
-      const response = await fetch("data/candlestick_patterns.json", { cache: "no-store" });
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      return validateSnapshot(await response.json());
-    } catch (error) {
-      if (window.CANDLESTICK_PATTERNS) return validateSnapshot(window.CANDLESTICK_PATTERNS);
-      console.error("Candlestick snapshot load failed", error);
-      throw error;
+    // Ưu tiên fetch JSON qua http(s); file:// (fetch luôn bị CORS chặn) hoặc fetch lỗi thì
+    // nạp fallback data/candlestick_patterns.js (13,5MB) CHỈ lúc đó, không tải song song.
+    if (!isFileProtocol()) {
+      try {
+        const response = await fetch("data/candlestick_patterns.json", { cache: "no-store" });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return validateSnapshot(await response.json());
+      } catch (error) { /* rơi xuống fallback bên dưới */ }
     }
+    await loadFallbackScript("data/candlestick_patterns.js", "CANDLESTICK_PATTERNS");
+    if (window.CANDLESTICK_PATTERNS) return validateSnapshot(window.CANDLESTICK_PATTERNS);
+    const error = new Error("Không tải được dữ liệu mẫu hình nến (cả HTTP và fallback).");
+    console.error("Candlestick snapshot load failed", error);
+    throw error;
   }
 
   function stars(count, score) {
