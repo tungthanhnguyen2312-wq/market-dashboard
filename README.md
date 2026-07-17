@@ -2,7 +2,6 @@
 
 <p>
   <img alt="Python" src="https://img.shields.io/badge/python-3.13-blue.svg">
-  <img alt="License" src="https://img.shields.io/badge/license-MIT-green.svg">
   <img alt="Status" src="https://img.shields.io/badge/status-active-brightgreen.svg">
   <img alt="Dashboard" src="https://img.shields.io/badge/dashboard-GitHub%20Pages-181717.svg">
 </p>
@@ -18,24 +17,13 @@
 
 ## 🇬🇧 English Summary
 
-**Overview** — A personal Vietnamese stock-market analytics project. A local Python pipeline
-(not included in this repo) collects daily OHLCV prices, fundamentals, macro data, news, and
-quarterly financial statements for ~1,700 tickers, then mixes them into a static dashboard
-published here via GitHub Pages. This repository holds the **public site + documentation
-only** — the scraping/analysis code and the underlying database are personal data assets kept
-local (see [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for the full split and reasoning).
-
-**Main Features**
-- TradingView-style dashboard: AI-generated market report, KPIs, watchlist, full market table.
-- Multi-timeframe candlestick/SMC signal board (`signals.html`, daily/weekly/monthly only) and a full screener with CANSLIM/SMC filters (`screener.html`).
-- Offline quant engine (10 strategies, 0-100 scoring) and a quarterly financial-report pipeline — both documented in `docs/`, code kept local.
-- No build step: static HTML/CSS/JS, libraries loaded from CDN, works opened directly as a file or served over GitHub Pages.
-
-**Quick Start** — This repo is browsable/forkable as-is (open `dashboard.html` or visit the live
-link above — `index.html` simply redirects there to preserve the original GitHub Pages URL). To
-run the underlying data pipeline yourself, you'll need the Python scripts
-described in [docs/CLI_REFERENCE.md](docs/CLI_REFERENCE.md) — they are not distributed in this
-repo (see the architecture doc for why). Full Vietnamese instructions continue below.
+A personal Vietnamese stock-market analytics project: a local Python pipeline (not in this repo)
+collects daily OHLCV, fundamentals, macro data, news and quarterly financial statements for
+~1,700 tickers, then mixes them into the static TradingView-style dashboard published here via
+GitHub Pages. This repository holds the **public site + documentation only** — the
+scraping/analysis code and the underlying database are personal data assets kept local
+(see [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for the split and reasoning; commands in
+[docs/CLI_REFERENCE.md](docs/CLI_REFERENCE.md)). Full Vietnamese instructions continue below.
 
 ---
 
@@ -70,12 +58,9 @@ flowchart LR
     OUT -->|"fetch trực tiếp, fallback .js"| SITE
 ```
 
-**Luồng vận hành hằng ngày** (chi tiết đầy đủ: [docs/CLI_REFERENCE.md](docs/CLI_REFERENCE.md)):
-
-```mermaid
-flowchart LR
-    A["vn_stock_pipeline.py<br/>update"] --> B["macro_sync.py"] --> C["news_sync.py"] --> D["vn_indicators.py"] --> E["candle_scan.py"] --> F["publish_dashboard.py<br/>--live"] --> G["GitHub Pages<br/>~1-2 phút"]
-```
+**Luồng vận hành hằng ngày:** `vn_stock_pipeline.py update` → `macro_sync.py` → `news_sync.py`
+→ `vn_indicators.py` → `candle_scan.py` → `publish_dashboard.py --live` — toàn bộ lệnh + lịch
+chạy tuần/tháng/quý: [docs/CLI_REFERENCE.md](docs/CLI_REFERENCE.md).
 
 > *Dữ liệu sinh tự động, chỉ mang tính tham khảo — **không phải khuyến nghị đầu tư**.*
 
@@ -87,10 +72,6 @@ flowchart LR
 - **Quant engine offline** (`stock_analyzer.py`, chạy local) — 10 chiến lược lọc + chấm điểm 0-100/mã, xem [docs/STOCK_ANALYZER.md](docs/STOCK_ANALYZER.md).
 - **Nhánh báo cáo tài chính quý (BCTC)** — chuẩn hóa BCĐKT/KQKD/LCTT cho ~650 mã, xem [docs/FINANCIAL_REPORT.md](docs/FINANCIAL_REPORT.md).
 - **Dark mode chuyên nghiệp**, responsive, không cần build/cài đặt — thư viện load qua CDN.
-
-## Dashboard Preview
-
-*(Coming soon — chưa có ảnh chụp màn hình chính thức. Xem trực tiếp tại [live site](https://tungthanhnguyen2312-wq.github.io/market-dashboard/) trong lúc chờ.)*
 
 ## Quick Start
 
@@ -114,6 +95,10 @@ python -m http.server 8017
 pip install -r requirements.txt
 ```
 
+Đẩy web lên GitHub Pages: `sync_and_publish.bat` — mặc định chỉ build + kiểm tra + dry-run,
+muốn publish thật phải gọi rõ `sync_and_publish.bat --live` (`sync_and_push.bat` cũ chỉ là
+wrapper tương thích). Chi tiết: [docs/CLI_REFERENCE.md](docs/CLI_REFERENCE.md).
+
 ## Cấu trúc Repository
 
 ```
@@ -125,17 +110,7 @@ VNSTOCK/
 ├── app.js, analysis.js, style.css            # logic tải dữ liệu + design system — KHÔNG đổi (public)
 ├── nav.css                                   # chỉ còn dùng bởi báo cáo lịch sử tĩnh (playbook-*/report-*) (public)
 ├── data/                                     # tín hiệu/screener/heatmap/mẫu nến + macro snapshot JSON/JS (public)
-├── docs/                                     # tài liệu (public — trừ 2 file audit nội bộ bên dưới)
-│   ├── USER_GUIDE.md          # setup lần đầu, lỗi thường gặp
-│   ├── ARCHITECTURE.md        # kiến trúc, luồng dữ liệu, quy ước UI
-│   ├── CLI_REFERENCE.md       # toàn bộ lệnh + lịch chạy
-│   ├── DATA_PIPELINE.md       # các tầng dữ liệu + bẫy dữ liệu/vận hành
-│   ├── FINANCIAL_REPORT.md    # nhánh BCTC
-│   ├── STOCK_ANALYZER.md      # quant engine offline + thư viện chỉ báo
-│   ├── REPO_AUDIT.md          # audit dọn repo (phase này)
-│   ├── RELEASE_CHECKLIST.md   # checklist release
-│   ├── AUDIT_REPORT.md        # (nội bộ, gitignore) audit API/công thức BCTC
-│   └── VALIDATION_REPORT.md   # (nội bộ, gitignore) kiểm thử snapshot BCTC
+├── docs/                                     # tài liệu — xem bảng "Tài liệu" bên dưới (public, trừ 2 file audit nội bộ gitignore)
 ├── tests/                                    # test hồi quy cho stock_analyzer.py (public)
 ├── screen_snapshot.csv, market_breadth.csv   # snapshot dữ liệu cho web (public)
 ├── ai_report_latest.md/.json                 # báo cáo AI mới nhất (public, bản copy)
@@ -143,7 +118,10 @@ VNSTOCK/
 ├── CHANGELOG.md, CHANGELOG_UI.md             # lịch sử phát triển (public)
 ├── requirements.txt                          # dependency cho pipeline local (public)
 │
-├── *.py                                      # 12 script pipeline/phân tích — LOCAL, gitignore
+├── *.py                                      # script pipeline/phân tích — LOCAL, gitignore
+├── run.py                                    # entry point điều phối các script trên — LOCAL, gitignore
+├── AI_CONTEXT.md, .env.example               # ngữ cảnh cho AI + danh sách biến môi trường (không chứa secret)
+├── tools/build_ai_bundle.py                  # đóng gói bản sao sạch của project để gửi AI — LOCAL, gitignore
 ├── vn_stock.db, ohlcv_flat.*, data_bctc/      # kho dữ liệu gốc — LOCAL, gitignore
 └── NOTES_FOR_TUNG*.md                        # ghi chú cá nhân — LOCAL, gitignore
 ```
@@ -168,15 +146,19 @@ Xem [CHANGELOG.md](CHANGELOG.md) mục "Future Roadmap" — các hạng mục đ
 dựa trên `watchlist_history`, cột tùy chọn cho screener, lưu bộ lọc vào localStorage, PWA nhẹ cho
 dashboard, mở rộng panel chi tiết mã (`company-panel.js`) sang các bảng khác ngoài `screener.html`.
 
-## Giấy phép & Cảnh báo
+## Bản quyền & Cảnh báo
 
-Phát hành theo giấy phép [MIT](LICENSE) — **áp dụng cho mã nguồn trong repo này** (dashboard
-tĩnh + tài liệu). Dữ liệu thị trường được lấy về qua thư viện [`vnstock`](https://vnstocks.com/)
-và tuân theo giấy phép/điều khoản sử dụng riêng của `vnstock` (không phải MIT) — xem
-[docs/DATA_PIPELINE.md](docs/DATA_PIPELINE.md) để biết dữ liệu nào lấy từ đâu.
+Copyright © 2026 Nguyễn Thành Tùng. All rights reserved.
 
-> ⚠️ Dữ liệu và báo cáo trong dashboard này **sinh tự động, chỉ mang tính tham khảo** — hoàn
-> toàn **không phải khuyến nghị đầu tư**. Tự chịu trách nhiệm với quyết định đầu tư của mình.
+Repository này được công khai nhằm mục đích lưu trữ và trình bày dự án cá nhân.
+Không có giấy phép sử dụng, sao chép, sửa đổi, phân phối hoặc khai thác thương mại
+mã nguồn và tài liệu trong repository nếu chưa có sự đồng ý của tác giả.
+
+Các thư viện, nguồn dữ liệu và thành phần của bên thứ ba tiếp tục tuân theo giấy phép
+và điều khoản sử dụng riêng của từng nhà cung cấp.
+
+> Dữ liệu và báo cáo trong dashboard được sinh tự động, chỉ mang tính tham khảo,
+> không phải khuyến nghị đầu tư.
 
 ## Đóng góp & Hỗ trợ
 

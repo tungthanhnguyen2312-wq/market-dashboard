@@ -104,3 +104,19 @@ reports/
 #   market_breadth.csv   -> screener.html fetch trực tiếp (~2KB)
 # File NẶNG thật đã chặn theo tên ở đầu file (vn_stock.db, *.parquet, ohlcv_flat.csv)
 # --------------------------------------------------------------------------
+logs/
+
+# Tooling binary cục bộ (Tailwind CLI standalone) — tải về bởi build_frontend.bat,
+# không commit executable. Output CSS (assets/css/tailwind.generated.css) VẪN commit.
+tools/
+
+# --------------------------------------------------------------------------
+# Bổ sung 2026-07-17 — cache của test/lint tool (phòng ngừa, cùng tinh thần
+# rule IDE/OS ở trên). Lưu ý CÓ CHỦ ĐÍCH: run.py và tools/build_ai_bundle.py
+# là code LOCAL, đã bị chặn sẵn bởi `*.py` + `tools/` — không cần rule mới.
+# .env.example và AI_CONTEXT.md KHÔNG ignore (không chứa secret).
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+# --------------------------------------------------------------------------
