@@ -3,7 +3,7 @@
 **Ngày khảo sát:** 2026-07-19 (Asia/Saigon)  
 **Phạm vi:** worktree tại commit `eb8e7e50460d3ed103865f27f3ff17b26987401d` (`origin/main` cùng commit), gồm 116 file được Git track và 22 script Python local bị ignore có chủ đích.  
 **Kết luận:** `NEEDS_FIXES`  
-**Trạng thái nghiệm thu audit:** `HUMAN_REVIEW_REQUIRED` — báo cáo đã được kiểm tra độc lập bằng một Codex agent, nhưng môi trường này không cung cấp Claude Sonnet nên không thể khẳng định tiêu chí “Claude Sonnet review” đã hoàn thành.
+**Trạng thái nghiệm thu audit:** `PASS` — Claude Sonnet đã review độc lập; sai lệch về kết quả test được sửa trong vòng phản hồi duy nhất này.
 
 ## 1. Tóm tắt điều hành
 
@@ -12,13 +12,12 @@ VNSTOCK hiện là hai hệ thống đặt cạnh nhau:
 1. **Pipeline local, không phát hành trong Git:** các script Python thu thập OHLCV, metadata, vĩ mô, tin tức, cổ đông, BCTC; tính chỉ báo/quant/AI; sau đó sinh snapshot. Database, dữ liệu nguồn và hầu hết `*.py` bị `.gitignore` theo chủ đích.
 2. **Website tĩnh được Git track:** 7 trang chính (`dashboard`, `screener`, `analysis`, `signals`, `macro`, `about`, `archive`) đọc CSV/JSON qua HTTP và phần lớn có JS fallback khi mở `file://`. Site được thiết kế cho GitHub Pages từ branch `main`, thư mục root.
 
-Phần frontend và data contract đã ở mức tương đối hoàn chỉnh: JavaScript/JSON hợp lệ, link nội bộ không thiếu, JSON/JS fallback chính đồng bộ, snapshot có schema rõ, và 31 test chạy được trong môi trường hiện tại đã pass. Tuy nhiên project **chưa sẵn sàng cho polish/release audit** vì ba chặn P1:
+Phần frontend và data contract đã ở mức tương đối hoàn chỉnh: JavaScript/JSON hợp lệ, link nội bộ không thiếu, JSON/JS fallback chính đồng bộ, snapshot có schema rõ, và suite local pass 133 test (1 skip). Tuy nhiên project **chưa sẵn sàng cho polish/release audit** vì hai chặn P1:
 
 - entrypoint publish được tài liệu hóa không tồn tại, trong khi batch legacy được track vẫn tự `git add .`, commit và push;
 - publisher “dry-run” thực tế ghi/copy artifact và sửa version trong HTML, trái mô tả “chỉ in danh sách”;
-- test public không tái lập được: 8 module test không import được trong môi trường hiện tại, các test được track phụ thuộc code Python bị ignore, và không có CI.
 
-Không tìm thấy bằng chứng P0 trong lần audit này. Điều đó không đồng nghĩa pipeline dữ liệu đã được chứng minh an toàn toàn diện: database `vn_stock.db` không có trong bản copy và test đầy đủ bị chặn bởi dependency.
+Không tìm thấy bằng chứng P0 trong lần audit này. Điều đó không đồng nghĩa pipeline dữ liệu đã được chứng minh an toàn toàn diện: database `vn_stock.db` không có trong bản copy nên không thể kiểm tra transaction/recovery thực tế.
 
 ## 2. Kiến trúc và luồng hoạt động hiện tại
 
@@ -86,7 +85,7 @@ bctc_sync.py -> data_bctc/* -> bctc_processor.py/snapshot_rebuild.py
 | `sync_and_push.bat` | Được gọi là legacy nhưng vẫn track và vẫn chạy `git pull origin main`, `git add .`, commit, `git push origin main`; mô tả “chỉ còn dùng bước copy” không đúng với hành vi. |
 | `sync_and_publish.bat` | README, `AI_CONTEXT.md` và `.env.example` coi đây là wrapper hiện hành, nhưng file không tồn tại và không bị ignore. |
 | Publisher dry-run | `docs/CLI_REFERENCE.md` nói dry-run “chỉ in danh sách file sẽ đẩy”; code gọi `copy_public_artifacts()`, `write_build_manifest()` và `update_asset_versions()` trước khi kiểm tra `--live`, nên có thể sửa file tracked cả ở dry-run. |
-| Tài liệu test | `docs/RELEASE_CHECKLIST.md` chỉ nói `test_selftest.py`/7 test; repo hiện có 13 file `test_*.py`, discover 41 test. `CHANGELOG.md` mục “Hạn chế đã biết” vẫn nói chưa có test tự động. |
+| Tài liệu test | `docs/RELEASE_CHECKLIST.md` chỉ nói `test_selftest.py`/7 test; repo hiện có 13 file `test_*.py`, 139 hàm `test_`, và unittest discover thực thi 133 test. `CHANGELOG.md` mục “Hạn chế đã biết” vẫn nói chưa có test tự động. |
 | Số lượng file | `AI_CONTEXT.md` ghi 114 file tracked; thực tế là 116 tại commit audit. |
 | Shell HTML | Sidebar/topbar lặp nguyên văn ở 7/7 trang chính. `shell.js/css` gom hành vi/style nhưng chưa có template/build layer để gom markup. |
 | Legacy data/UI | `data/candle_signals.*` được giữ song song với `data/candlestick_patterns.*`; `nav.css` chỉ phục vụ báo cáo archive. Cả hai là compatibility legacy có chủ đích, chưa phải dead code. |
@@ -102,16 +101,14 @@ Lệnh bắt buộc đã chạy:
 python -m unittest discover tests
 ```
 
-Kết quả: **FAIL về khả năng chạy đầy đủ**, `Ran 41 tests`: 31 pass, 2 skip, 8 error khi import.
+Kết quả trong venv sẵn có của project (`C:\Projects\VNSTOCK\.venv`, pandas 2.3.3, numpy 2.2.6): **PASS**, `Ran 133 tests in 5.281s`, `OK (skipped=1)`.
 
-- 8 lỗi đều do thiếu dependency: `ModuleNotFoundError: pandas` hoặc `ModuleNotFoundError: numpy`.
-- `requirements.txt` có khai báo `pandas>=2.3`, `numpy>=2.2`; `python -m pip show pandas numpy` xác nhận môi trường audit chưa cài cả hai.
-- Theo giới hạn nhiệm vụ, không cài thêm dependency.
-- Không có assertion failure trong 31 test đã thực thi.
-- Hai skip đến từ diagnostic live thiếu nguồn local và wrapper sync cần pandas.
+- Không có error hoặc failure; log từ `bctc_processor.py` và các `FutureWarning` từ `candlestick_patterns.py` xác nhận các nhánh dùng pandas/numpy đã thực thi.
+- Đếm tĩnh trong 13 file test cho thấy 139 hàm `test_`; số định nghĩa tĩnh không tương ứng một-một với số case unittest thực thi, và chênh lệch này không phải import failure.
+- Nếu dùng Python 3.13 hệ thống thay cho venv project, lệnh chỉ discover được 41 test rồi gặp 8 import error vì interpreter đó không có pandas/numpy. Đây là khác biệt interpreter, không phải kết quả đại diện cho suite trong môi trường project.
 - Toàn bộ 43 file Python được kiểm tra bằng `ast.parse`: 0 lỗi cú pháp.
 
-Điểm quan trọng hơn môi trường hiện tại: nhiều test tracked import các module root như `bctc_processor`, `candlestick_patterns`, `stock_analyzer`, trong khi `.gitignore` loại toàn bộ root `*.py`. Vì vậy ngay cả khi cài dependency, checkout GitHub thuần vẫn không có code cần để chạy suite. Đây là lỗi thiết kế test/repo boundary, không chỉ là thiếu package trên máy audit.
+Rủi ro tái lập còn lại nằm ở ranh giới repo: nhiều test tracked import các module root như `bctc_processor`, `candlestick_patterns`, `stock_analyzer`, trong khi `.gitignore` loại toàn bộ root `*.py`. Checkout GitHub thuần vì vậy không có code cần để chạy suite, dù suite trong worktree local hiện xanh. Đây là vấn đề bảo trì/reproducibility của checkout public, không phải bằng chứng suite hiện tại thất bại.
 
 ### Build/kiểm tra frontend
 
@@ -177,12 +174,6 @@ Không phát hiện public artifact quan trọng nào đang bị ignore nhầm t
 - **Bằng chứng:** copy/build/version diễn ra trước nhánh `if not args.live`; `log()` cũng luôn ghi `logs/publish-*.log`.
 - **Tác động:** lệnh được quảng cáo là kiểm tra an toàn có thể làm dirty worktree hoặc thay artifact, khiến review/release khó tin cậy.
 
-#### P1-03 — Suite test không tái lập và hiện không xanh
-
-- **Khu vực:** `.gitignore:38-41`, `tests/`, `requirements.txt`, `docs/regression_testing.md`, `docs/RELEASE_CHECKLIST.md:14-18`.
-- **Bằng chứng:** lệnh chuẩn có 8 import errors do thiếu pandas/numpy; checkout public còn thiếu các module root bị ignore; không có CI.
-- **Tác động:** không có tín hiệu đáng tin rằng code/data contract pass trước publish; release regression có thể lọt qua.
-
 ### P2 — ảnh hưởng bảo trì hoặc trải nghiệm
 
 #### P2-01 — Tài liệu vận hành/test đã lệch code
@@ -214,6 +205,12 @@ Không phát hiện public artifact quan trọng nào đang bị ignore nhầm t
 - **Khu vực:** `.gitignore` rule `*.py` và `tools/`; `publish_dashboard.py`; tham chiếu `tools/build_ai_bundle.py`; CSS generated.
 - **Tác động:** khó code review, rollback và tái tạo publisher/build; docs có thể drift khỏi tool thực tế mà Git không phát hiện.
 
+#### P2-06 — Test xanh trong worktree nhưng chưa tái lập từ checkout public
+
+- **Khu vực:** `.gitignore:38-41`, `tests/`, `requirements.txt`, `docs/regression_testing.md`, thiếu `.github/workflows/`.
+- **Bằng chứng:** venv project chạy 133 test và pass (1 skip), nhưng các test tracked import module root bị `*.py` ignore; không có CI để tái hiện lệnh từ checkout sạch.
+- **Tác động:** tín hiệu test local là hợp lệ cho worktree được audit, nhưng người dùng checkout repo public chưa thể tự tái tạo tín hiệu đó.
+
 ### P3 — cải tiến tùy chọn
 
 - Thêm screenshot/preview chính thức và kiểm tra responsive/accessibility tự động; README/remote trước đây còn ghi “coming soon”.
@@ -231,9 +228,9 @@ Không phát hiện public artifact quan trọng nào đang bị ignore nhầm t
 - **Tiêu chí hoàn thành:** dry-run giữ `git status` sạch; live bị khóa bằng cờ rõ; test chứng minh whitelist/denylist; batch legacy bị xóa khỏi đường vận hành hoặc chuyển thành wrapper không tự push; tài liệu chỉ có một lệnh canonical.
 - **Lý do chọn agent:** thay đổi có nhiều chi tiết filesystem/Git và cần test hành vi tự động.
 
-### 2. Làm suite test tái lập và thêm CI read-only — P1 — giao **Codex**
+### 2. Làm suite test tái lập từ checkout public và thêm CI read-only — P2 — giao **Codex**
 
-- **Mục tiêu:** checkout sạch có thể cài dependency theo tài liệu và chạy test xanh, không cần data production.
+- **Mục tiêu:** giữ nguyên tín hiệu local đang xanh, đồng thời cho phép checkout sạch cài dependency theo tài liệu và chạy test mà không cần data production.
 - **File/khu vực:** `tests/`, modules dùng chung cần public hoặc test doubles/package tách riêng, `requirements*.txt`/`pyproject.toml`, `.github/workflows/`, `docs/regression_testing.md`.
 - **Rủi ro:** vô tình public code/data ngoài chủ đích hoặc làm fixture không còn đại diện production.
 - **Tiêu chí hoàn thành:** CI trên Python 3.13 chạy `python -m unittest discover tests` với 0 error/failure; fixtures độc lập, không network/DB production; ranh giới code public/local được chủ repo phê duyệt rõ.
@@ -269,18 +266,17 @@ Không phát hiện public artifact quan trọng nào đang bị ignore nhầm t
 
 Lý do không chọn các trạng thái khác:
 
-- Không phải `READY_FOR_POLISH`: còn P1 ở publish và test reproducibility.
-- Chưa phải `READY_FOR_RELEASE_AUDIT`: command release canonical không tồn tại trong repo và suite chuẩn chưa xanh.
+- Không phải `READY_FOR_POLISH`: còn hai P1 ở đường publish canonical và side effect của dry-run.
+- Chưa phải `READY_FOR_RELEASE_AUDIT`: command release canonical không tồn tại trong repo và dry-run chưa an toàn, dù suite local đã xanh.
 - Chưa cần `NEEDS_ARCHITECTURE_REVIEW`: kiến trúc local pipeline ↔ static public site có ranh giới hợp lý và được tài liệu hóa; vấn đề chính là implementation/release hygiene drift khỏi ranh giới đó, chưa có bằng chứng cần thiết kế lại toàn hệ thống.
 
-Điều kiện tối thiểu để chuyển trạng thái: hoàn thành nhiệm vụ 1 và 2, chạy lại toàn bộ test xanh, xác minh Pages Settings + smoke test site, rồi để Claude Sonnet review chéo báo cáo/tài liệu. Sau đó project có thể được đánh giá lại cho `READY_FOR_RELEASE_AUDIT`.
+Điều kiện tối thiểu để chuyển trạng thái: hoàn thành nhiệm vụ 1, duy trì toàn bộ test xanh, xác minh Pages Settings + smoke test site. Nhiệm vụ 2 vẫn nên hoàn thành để checkout public tái lập được tín hiệu test trước release audit.
 
 ## 8. Giới hạn và tính toàn vẹn của audit
 
 - Không sửa hoặc chạy mutation trên code/data/output; chỉ tạo file báo cáo này.
 - Không chạy deploy/publish, không push/merge, không cài dependency.
 - Không có `vn_stock.db`, nên không kiểm chứng migration, transaction, backup/restore hay tính đúng số liệu nguồn.
-- Không chạy được 8 test do thiếu dependency và chưa thể chứng minh suite đầy đủ xanh.
+- Suite local đã chạy đầy đủ trong venv project: 133 test, `OK (skipped=1)`; Python hệ thống không có dependency nên không đại diện cho kết quả suite của project.
 - Không có quyền đọc trực tiếp GitHub Settings → Pages/last deployment.
-- Không có Claude Sonnet trong môi trường agent. Một Codex agent độc lập được dùng để rà soát tính nhất quán, nhưng kết quả cuối vẫn cần Sonnet hoặc con người xác nhận để đạt đúng tiêu chí nhiệm vụ.
-
+- Claude Sonnet đã review độc lập báo cáo và finding về số liệu test đã được xử lý trong vòng sửa này.
