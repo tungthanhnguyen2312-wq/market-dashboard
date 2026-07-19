@@ -97,6 +97,23 @@ class RegistryMatchingTests(unittest.TestCase):
         self.assertEqual(self.registry.entity_type_for("PAN"), "corporate")
         self.assertEqual(self.registry.entity_type_for("ZZZZ"), "unknown")
 
+    def test_evf_profile_is_finance_company(self):
+        self.assertEqual(self.registry.entity_type_for("EVF"), "finance_company")
+
+    def test_finance_company_uses_bank_schema_item_ids(self):
+        interest = self.registry.map_financial_item(
+            "KBS", "finance_company", "income_statement",
+            "interest_expense_and_similar_expenses", "Chi phí lãi và các chi phí tương tự",
+        )
+        retained = self.registry.map_financial_item(
+            "VCI", "finance_company", "balance_sheet",
+            "retained_earnings", "Lợi nhuận chưa phân phối",
+        )
+        self.assertEqual(interest["canonical_metric"], "interest_expense")
+        self.assertEqual(interest["mapping_rule_id"], "interest_finance_company_income")
+        self.assertEqual(retained["canonical_metric"], "retained_earnings")
+        self.assertEqual(retained["mapping_rule_id"], "retained_finance_company")
+
     def test_sign_and_unit_multiplier_are_exposed(self):
         header = (
             "rule_id,canonical_metric,entity_type,report_type,source,item_id,source_field,"
@@ -182,6 +199,14 @@ class ProcessorRegistryIntegrationTests(unittest.TestCase):
         self.assertTrue(ssi["depreciation_and_amortization"].notna().any())
         self.assertTrue(bvh["depreciation_and_amortization"].notna().any())
         self.assertTrue(bvh["selling_expense"].isna().all())
+
+    def test_evf_finance_company_gets_bank_schema_mappings(self):
+        result = processor.process_data(tickers_filter=["EVF"])
+        latest = result[result["period"] == "2026-Q1"].iloc[0]
+        self.assertEqual(latest["entity_type"], "finance_company")
+        self.assertTrue(result["interest_expense"].notna().any())
+        self.assertTrue(result["retained_earnings"].notna().any())
+        self.assertTrue(result["selling_expense"].isna().all())
 
 
 if __name__ == "__main__":
