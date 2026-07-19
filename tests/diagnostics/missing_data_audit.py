@@ -246,6 +246,7 @@ def _financial_metric(
         "selected_value_after_normalization": latest_snapshot_value,
         "latest_non_null_snapshot": latest_non_null_snapshot,
         "context_value": context_financial.get(metric),
+        "context_meta": context_financial.get(f"{metric}_meta"),
         "snapshot_status": snapshot_status,
         "snapshot_formula": latest_snapshot.get(f"{metric}_formula") or None,
         "snapshot_source": latest_snapshot.get(f"{metric}_source") or None,

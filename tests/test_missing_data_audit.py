@@ -33,9 +33,20 @@ class TestPanMissingDataAudit(unittest.TestCase):
 
     def test_pan_latest_null_period_is_diagnosed(self):
         ocf = self.audit["metrics"]["operating_cash_flow"]
+        # 2026-Q1 (kỳ mới nhất trong snapshot) không tự có OCF -> reason vẫn đúng mô tả điều đó.
         self.assertEqual(ocf["selected_period"], "2026-Q1")
-        self.assertIsNone(ocf["context_value"])
         self.assertEqual(ocf["reason"], "latest_period_value_null_no_non_null_fallback")
+        # Nhưng context package (build_ticker_context.py) CHỦ Ý fallback về kỳ có số gần nhất
+        # thay vì null (hành vi P0-4 đã thống nhất, có provenance đầy đủ) -> context_value KHÔNG
+        # còn None. Test phải xác nhận fallback đúng giá trị/kỳ nguồn VÀ không bị giả mạo thành
+        # dữ liệu của kỳ hiện tại (2026-Q1).
+        self.assertIsNotNone(ocf["latest_non_null_snapshot"])
+        self.assertEqual(ocf["context_value"], ocf["latest_non_null_snapshot"]["value"])
+        self.assertIsNotNone(ocf["context_meta"])
+        self.assertEqual(ocf["context_meta"]["period"], ocf["latest_non_null_snapshot"]["period"])
+        self.assertNotEqual(ocf["context_meta"]["period"], ocf["selected_period"])
+        self.assertTrue(ocf["context_meta"]["details"]["selected_latest_non_null_reported"])
+        self.assertEqual(ocf["context_meta"]["details"]["financial_latest_period"], ocf["selected_period"])
 
     def test_advanced_metrics_have_specific_raw_mapping_diagnostics(self):
         for metric in ("interest_expense", "retained_earnings"):
