@@ -1,0 +1,6 @@
+/* Input cho Tailwind CLI standalone — build ra assets/css/tailwind.generated.css.
+   Xem build_frontend.bat. Không sửa tailwind.generated.css bằng tay, nó bị ghi đè
+   mỗi lần build. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
