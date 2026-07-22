@@ -25,6 +25,74 @@
 
   let backdrop;
   let chartInstance = null;
+  let corporateBundlePromise = null;
+
+  const isObject = (value) => value !== null && typeof value === "object" && !Array.isArray(value);
+  const displayValue = (value) => value === null || value === undefined || value === "" ? "-" : esc(value);
+  const displayNumber = (value, digits = 2) => value === null || value === undefined || value === ""
+    ? "-" : (Number.isFinite(Number(value)) ? num(value, digits) : esc(value));
+  const titleCase = (value) => String(value || "").replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+  const sectionState = (section) => isObject(section) && typeof section.status === "string" ? section.status.toLowerCase() : "available";
+  const sectionData = (section) => isObject(section) && Object.prototype.hasOwnProperty.call(section, "data") ? section.data : section;
+  const statusMessage = (state) => ({ missing: "Corporate Intelligence is not included in this bundle.", partial: "Data is incomplete; valid information is still shown.", malformed: "This subsection is invalid and cannot be displayed.", incomparable: "The snapshots are not comparable." }[state] || "");
+
+  function sourceBlocks(value) {
+    if (!isObject(value)) return [];
+    if (isObject(value.sources)) return Object.entries(value.sources).filter(([, item]) => isObject(item) || Array.isArray(item));
+    if (Array.isArray(value.sources)) return value.sources.filter((item) => isObject(item) || Array.isArray(item)).map((item) => [isObject(item) ? item.source || item.provider || "Source" : "Source", item]);
+    if (["owners", "items", "holders", "subsidiaries", "entities"].some((key) => Array.isArray(value[key]))) return [[value.source || value.provider || "Source", value]];
+    const ignored = new Set(["status", "data", "snapshot_date", "provenance_date", "reference", "reference_scope", "update_date"]);
+    const entries = Object.entries(value).filter(([key, item]) => !ignored.has(key) && (isObject(item) || Array.isArray(item)));
+    return entries.length ? entries : [[value.source || value.provider || "Source", value]];
+  }
+  function metadata(item) {
+    if (!isObject(item)) return "";
+    const bits = [item.source || item.provider, item.snapshot_date || item.provenance_date || item.as_of_date || item.update_date, item.reference_scope || item.reference || item.provenance].filter((value) => value !== null && value !== undefined && value !== "").map(esc);
+    return bits.length ? `<div class="cp-ci-meta">${bits.join(" · ")}</div>` : "";
+  }
+  function fieldRows(item, fields) {
+    if (!isObject(item)) return "";
+    const rows = fields.filter(({ key }) => Object.prototype.hasOwnProperty.call(item, key)).map(({ key, label, number }) => `<div class="cp-ci-field"><span>${esc(label)}</span><strong>${number ? displayNumber(item[key]) : displayValue(item[key])}</strong></div>`);
+    return rows.length ? `<div class="cp-ci-fields">${rows.join("")}</div>` : "";
+  }
+  function subsection(title, section, render) {
+    const state = sectionState(section); if (state === "missing") return "";
+    const notice = statusMessage(state), body = state === "malformed" ? "" : render(sectionData(section));
+    return body || notice ? `<section class="cp-ci-section"><h4>${esc(title)}</h4>${notice ? `<div class="cp-ci-notice cp-ci-${esc(state)}">${esc(notice)}</div>` : ""}${body}</section>` : "";
+  }
+  function renderProfile(profile) {
+    return sourceBlocks(profile).map(([source, item]) => { const values = isObject(item) ? item : {};
+      const fields = Object.entries(values).filter(([key, value]) => !["source", "provider", "snapshot_date", "provenance_date", "as_of_date", "update_date", "reference", "reference_scope", "provenance", "status", "data"].includes(key) && (typeof value === "string" || typeof value === "number" || typeof value === "boolean"));
+      return `<div class="cp-ci-source"><h5>${esc(source)}</h5>${metadata(values)}${fields.length ? `<div class="cp-ci-fields">${fields.map(([key, value]) => `<div class="cp-ci-field"><span>${esc(titleCase(key))}</span><strong>${displayValue(value)}</strong></div>`).join("")}</div>` : ""}</div>`;
+    }).join("");
+  }
+  function renderOwnership(ownership) {
+    return sourceBlocks(ownership).map(([source, item]) => { const rows = Array.isArray(item) ? item : (isObject(item) ? item.owners || item.items || item.holders || [] : []); if (!Array.isArray(rows)) return "";
+      return `<div class="cp-ci-source"><h5>${esc(source)}</h5>${metadata(item)}${rows.map((owner) => isObject(owner) ? `<div class="cp-ci-record">${fieldRows(owner, [{ key: "owner_type", label: "Owner type" }, { key: "ownership_percentage", label: "Ownership %", number: true }, { key: "shares_owned", label: "Shares owned", number: true }, { key: "update_date", label: "Update date" }])}</div>` : "").join("")}</div>`;
+    }).join("");
+  }
+  function renderMajorShareholders(value) {
+    if (!isObject(value)) return ""; const snapshot = value.latest_valid_snapshot || value.latest_snapshot || value.snapshot, delta = value.delta || value.snapshot_delta;
+    const rows = Array.isArray(snapshot) ? snapshot : (isObject(snapshot) ? (snapshot.holders || snapshot.items || []) : []);
+    const snapshotHtml = Array.isArray(rows) && rows.length ? `<div class="cp-ci-source"><h5>Latest snapshot</h5>${metadata(snapshot)}${rows.map((holder) => isObject(holder) ? `<div class="cp-ci-record">${fieldRows(holder, [{ key: "holder_name", label: "Holder" }, { key: "name", label: "Holder" }, { key: "shares_owned", label: "Shares", number: true }, { key: "ownership_percentage", label: "Ownership %", number: true }])}</div>` : "").join("")}</div>` : "";
+    if (!isObject(delta)) return snapshotHtml;
+    if (sectionState(delta) === "incomparable" || value.status === "incomparable") return `${snapshotHtml}<div class="cp-ci-notice cp-ci-incomparable">${esc(statusMessage("incomparable"))}</div>`;
+    const changes = [["New holder", delta.new_holder], ["Disappeared holder", delta.disappeared_holder], ["Shares change", delta.shares_change ?? delta.change_shares], ["Ownership % change", delta.ownership_percentage_change ?? delta.change_ownership_percentage]].filter(([, item]) => item !== undefined);
+    return `${snapshotHtml}${changes.length ? `<div class="cp-ci-source"><h5>Snapshot delta</h5>${metadata(delta)}${changes.map(([label, item]) => `<div class="cp-ci-field"><span>${esc(label)}</span><strong>${Array.isArray(item) ? item.map(displayValue).join(", ") : displayValue(item)}</strong></div>`).join("")}</div>` : ""}`;
+  }
+  function renderSubsidiaries(value) {
+    return sourceBlocks(value).map(([source, item]) => { const rows = Array.isArray(item) ? item : (isObject(item) ? item.subsidiaries || item.items || item.entities || [] : []); if (!Array.isArray(rows)) return "";
+      return `<div class="cp-ci-source"><h5>${esc(source)}</h5>${metadata(item)}${rows.map((entity) => isObject(entity) ? `<div class="cp-ci-record">${fieldRows(entity, [{ key: "entity_name", label: "Entity" }, { key: "name", label: "Entity" }, { key: "provider_local_identity", label: "Provider identity" }, { key: "relationship_type", label: "Relationship" }, { key: "ownership_percentage", label: "Ownership %", number: true }, { key: "ownership", label: "Ownership", number: true }, { key: "provenance", label: "Provenance" }])}</div>` : "").join("")}</div>`;
+    }).join("");
+  }
+  function renderCorporateIntelligence(corporate) {
+    if (!isObject(corporate)) return `<section class="cp-ci"><h3>Corporate Intelligence</h3><div class="cp-ci-notice cp-ci-missing">${esc(statusMessage("missing"))}</div></section>`;
+    const majorShareholders = corporate.major_shareholders || (corporate.major_shareholder_snapshot || corporate.major_shareholder_delta ? { latest_valid_snapshot: corporate.major_shareholder_snapshot, delta: corporate.major_shareholder_delta } : null);
+    const parts = [subsection("Company profile", corporate.company_profile, renderProfile), subsection("Ownership structure", corporate.ownership_structure, renderOwnership), subsection("Major shareholders", majorShareholders, renderMajorShareholders), subsection("Company subsidiaries", corporate.company_subsidiaries, renderSubsidiaries)].filter(Boolean);
+    return `<section class="cp-ci"><h3>Corporate Intelligence</h3>${parts.length ? parts.join("") : `<div class="cp-ci-notice cp-ci-missing">${esc(statusMessage("missing"))}</div>`}</section>`;
+  }
+  function loadCorporateBundle() { if (window.ANALYSIS_BUNDLE) return Promise.resolve(window.ANALYSIS_BUNDLE); if (!corporateBundlePromise && typeof fetch === "function") corporateBundlePromise = fetch("analysis_bundle.json", { cache: "no-store" }).then((response) => response.ok ? response.json() : null).catch(() => null); return corporateBundlePromise || Promise.resolve(null); }
+  function corporateForRow(row, bundle) { if (isObject(row && row.corporate_intelligence)) return row.corporate_intelligence; return bundle && bundle.tickers && row && bundle.tickers[row.ticker] && bundle.tickers[row.ticker].corporate_intelligence; }
   let chartRenderedFor = null; // ticker mà biểu đồ hiện đang hiển thị — tránh huỷ/tạo lại Chart.js
                                 // khi bấm lại đúng tab của cùng 1 mã (Phase 5: giảm render thừa)
 
@@ -173,7 +241,14 @@
     if (!backdrop) buildPanelShell();
     backdrop._currentRow = row;
     document.getElementById("cp-title").textContent = row.ticker || "?";
-    document.getElementById("cp-overview").innerHTML = renderOverview(row);
+    const overview = document.getElementById("cp-overview");
+    overview.innerHTML = renderOverview(row) + renderCorporateIntelligence(corporateForRow(row));
+    // Legacy bundles render a neutral missing state immediately.  A cached dashboard
+    // artifact, when present, replaces only this panel's Corporate Intelligence area.
+    loadCorporateBundle().then((bundle) => {
+      if (!backdrop || backdrop._currentRow !== row) return;
+      overview.innerHTML = renderOverview(row) + renderCorporateIntelligence(corporateForRow(row, bundle));
+    });
     switchTab("overview");
     backdrop.classList.add("is-open");
     document.body.style.overflow = "hidden";
@@ -186,7 +261,7 @@
     document.body.style.overflow = "";
   }
 
-  document.addEventListener("DOMContentLoaded", () => {
+  if (typeof document !== "undefined") document.addEventListener("DOMContentLoaded", () => {
     if (!backdrop) buildPanelShell();
     document.addEventListener("click", (e) => {
       const tr = e.target.closest("#tblScreen tbody tr");
@@ -197,5 +272,6 @@
   });
 
   // API dùng chung cho các bảng ngoài DataTables (ví dụ bảng mẫu hình nến ở signals.html).
-  window.VSCompanyPanel = { open: openPanel, close: closePanel };
+  if (typeof window !== "undefined") window.VSCompanyPanel = { open: openPanel, close: closePanel };
+  if (typeof module !== "undefined" && module.exports) module.exports = { renderCorporateIntelligence, corporateForRow };
 })();
