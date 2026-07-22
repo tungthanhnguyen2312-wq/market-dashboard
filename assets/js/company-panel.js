@@ -39,7 +39,7 @@
   function sourceBlocks(value) {
     if (!isObject(value)) return [];
     if (isObject(value.sources)) return Object.entries(value.sources).filter(([, item]) => isObject(item) || Array.isArray(item));
-    if (Array.isArray(value.sources)) return value.sources.filter((item) => isObject(item) || Array.isArray(item)).map((item) => [isObject(item) ? item.source || item.provider || "Source" : "Source", item]);
+    if (Array.isArray(value.sources)) return value.sources.filter((item) => isObject(item) || Array.isArray(item)).map((item) => [isObject(item) ? item.source_name || item.source || item.provider || "Source" : "Source", item]);
     if (["owners", "items", "holders", "subsidiaries", "entities"].some((key) => Array.isArray(value[key]))) return [[value.source || value.provider || "Source", value]];
     const ignored = new Set(["status", "data", "snapshot_date", "provenance_date", "reference", "reference_scope", "update_date"]);
     const entries = Object.entries(value).filter(([key, item]) => !ignored.has(key) && (isObject(item) || Array.isArray(item)));
@@ -47,7 +47,7 @@
   }
   function metadata(item) {
     if (!isObject(item)) return "";
-    const bits = [item.source || item.provider, item.snapshot_date || item.provenance_date || item.as_of_date || item.update_date, item.reference_scope || item.reference || item.provenance].filter((value) => value !== null && value !== undefined && value !== "").map(esc);
+    const bits = [item.source_name || item.source || item.provider, item.snapshot_date || item.provenance_date || item.as_of_date || item.update_date || item.fetched_at, item.source_reference || item.reference_scope || item.reference || item.provenance].filter((value) => value !== null && value !== undefined && value !== "").map(esc);
     return bits.length ? `<div class="cp-ci-meta">${bits.join(" · ")}</div>` : "";
   }
   function fieldRows(item, fields) {
@@ -62,17 +62,28 @@
   }
   function renderProfile(profile) {
     return sourceBlocks(profile).map(([source, item]) => { const values = isObject(item) ? item : {};
-      const fields = Object.entries(values).filter(([key, value]) => !["source", "provider", "snapshot_date", "provenance_date", "as_of_date", "update_date", "reference", "reference_scope", "provenance", "status", "data"].includes(key) && (typeof value === "string" || typeof value === "number" || typeof value === "boolean"));
+      const profileFields = isObject(values.record) && isObject(values.record.qualified_fields) ? values.record.qualified_fields : values;
+      const fields = Object.entries(profileFields).filter(([key, value]) => !["source", "source_name", "provider", "snapshot_date", "provenance_date", "as_of_date", "update_date", "fetched_at", "reference", "reference_scope", "source_reference", "provenance", "status", "data"].includes(key) && (typeof value === "string" || typeof value === "number" || typeof value === "boolean"));
       return `<div class="cp-ci-source"><h5>${esc(source)}</h5>${metadata(values)}${fields.length ? `<div class="cp-ci-fields">${fields.map(([key, value]) => `<div class="cp-ci-field"><span>${esc(titleCase(key))}</span><strong>${displayValue(value)}</strong></div>`).join("")}</div>` : ""}</div>`;
     }).join("");
   }
   function renderOwnership(ownership) {
-    return sourceBlocks(ownership).map(([source, item]) => { const rows = Array.isArray(item) ? item : (isObject(item) ? item.owners || item.items || item.holders || [] : []); if (!Array.isArray(rows)) return "";
-      return `<div class="cp-ci-source"><h5>${esc(source)}</h5>${metadata(item)}${rows.map((owner) => isObject(owner) ? `<div class="cp-ci-record">${fieldRows(owner, [{ key: "owner_type", label: "Owner type" }, { key: "ownership_percentage", label: "Ownership %", number: true }, { key: "shares_owned", label: "Shares owned", number: true }, { key: "update_date", label: "Update date" }])}</div>` : "").join("")}</div>`;
+    return sourceBlocks(ownership).map(([source, item]) => { const rows = Array.isArray(item) ? item : (isObject(item) ? item.records || item.owners || item.items || item.holders || [] : []); if (!Array.isArray(rows)) return "";
+      return `<div class="cp-ci-source"><h5>${esc(source)}</h5>${metadata(item)}${rows.map((owner) => { const fields = isObject(owner) && isObject(owner.fields) ? owner.fields : owner; return isObject(fields) ? `<div class="cp-ci-record">${fieldRows(fields, [{ key: "owner_type", label: "Owner type" }, { key: "ownership_percentage", label: "Ownership %", number: true }, { key: "shares_owned", label: "Shares owned", number: true }, { key: "update_date", label: "Update date" }])}</div>` : ""; }).join("")}</div>`;
     }).join("");
   }
   function renderMajorShareholders(value) {
-    if (!isObject(value)) return ""; const snapshot = value.latest_valid_snapshot || value.latest_snapshot || value.snapshot, delta = value.delta || value.snapshot_delta;
+    if (!isObject(value)) return "";
+    if (Array.isArray(value.sources)) return value.sources.filter(isObject).map((source) => {
+      const rows = Array.isArray(source.records) ? source.records : [];
+      const snapshot = rows.length ? `<div class="cp-ci-source"><h5>${esc(source.source_name || "Latest snapshot")}</h5>${metadata(source)}${rows.map((holder) => isObject(holder) ? `<div class="cp-ci-record">${fieldRows(holder, [{ key: "holder_name", label: "Holder" }, { key: "shares", label: "Shares", number: true }, { key: "ownership_pct", label: "Ownership %", number: true }])}</div>` : "").join("")}</div>` : "";
+      const delta = source.delta;
+      if (!isObject(delta)) return snapshot;
+      if (String(delta.status || "").startsWith("incomparable")) return `${snapshot}<div class="cp-ci-notice cp-ci-incomparable">${esc(statusMessage("incomparable"))}</div>`;
+      const changes = Array.isArray(delta.changes) ? delta.changes : [];
+      return `${snapshot}${changes.map((change) => isObject(change) ? `<div class="cp-ci-source"><h5>${esc(titleCase(change.change_type || "Shareholder change"))}</h5>${fieldRows(change, [{ key: "holder_name_after", label: "Holder" }, { key: "holder_name_before", label: "Holder" }, { key: "shares_delta", label: "Shares change", number: true }, { key: "ownership_pct_delta", label: "Ownership % change", number: true }])}</div>` : "").join("")}`;
+    }).join("");
+    const snapshot = value.latest_valid_snapshot || value.latest_snapshot || value.snapshot, delta = value.delta || value.snapshot_delta;
     const rows = Array.isArray(snapshot) ? snapshot : (isObject(snapshot) ? (snapshot.holders || snapshot.items || []) : []);
     const snapshotHtml = Array.isArray(rows) && rows.length ? `<div class="cp-ci-source"><h5>Latest snapshot</h5>${metadata(snapshot)}${rows.map((holder) => isObject(holder) ? `<div class="cp-ci-record">${fieldRows(holder, [{ key: "holder_name", label: "Holder" }, { key: "name", label: "Holder" }, { key: "shares_owned", label: "Shares", number: true }, { key: "ownership_percentage", label: "Ownership %", number: true }])}</div>` : "").join("")}</div>` : "";
     if (!isObject(delta)) return snapshotHtml;
@@ -81,8 +92,8 @@
     return `${snapshotHtml}${changes.length ? `<div class="cp-ci-source"><h5>Snapshot delta</h5>${metadata(delta)}${changes.map(([label, item]) => `<div class="cp-ci-field"><span>${esc(label)}</span><strong>${Array.isArray(item) ? item.map(displayValue).join(", ") : displayValue(item)}</strong></div>`).join("")}</div>` : ""}`;
   }
   function renderSubsidiaries(value) {
-    return sourceBlocks(value).map(([source, item]) => { const rows = Array.isArray(item) ? item : (isObject(item) ? item.subsidiaries || item.items || item.entities || [] : []); if (!Array.isArray(rows)) return "";
-      return `<div class="cp-ci-source"><h5>${esc(source)}</h5>${metadata(item)}${rows.map((entity) => isObject(entity) ? `<div class="cp-ci-record">${fieldRows(entity, [{ key: "entity_name", label: "Entity" }, { key: "name", label: "Entity" }, { key: "provider_local_identity", label: "Provider identity" }, { key: "relationship_type", label: "Relationship" }, { key: "ownership_percentage", label: "Ownership %", number: true }, { key: "ownership", label: "Ownership", number: true }, { key: "provenance", label: "Provenance" }])}</div>` : "").join("")}</div>`;
+    return sourceBlocks(value).map(([source, item]) => { const rows = Array.isArray(item) ? item : (isObject(item) ? item.records || item.subsidiaries || item.items || item.entities || [] : []); if (!Array.isArray(rows)) return "";
+      return `<div class="cp-ci-source"><h5>${esc(source)}</h5>${metadata(item)}${rows.map((entity) => { const fields = isObject(entity) && isObject(entity.fields) ? entity.fields : entity; return isObject(fields) ? `<div class="cp-ci-record">${fieldRows(fields, [{ key: "organization_name", label: "Entity" }, { key: "entity_name", label: "Entity" }, { key: "name", label: "Entity" }, { key: "provider_record_id", label: "Provider identity" }, { key: "provider_local_identity", label: "Provider identity" }, { key: "relationship_type", label: "Relationship" }, { key: "ownership_percent", label: "Ownership %", number: true }, { key: "ownership_percentage", label: "Ownership %", number: true }, { key: "ownership", label: "Ownership", number: true }, { key: "provenance", label: "Provenance" }])}</div>` : ""; }).join("")}</div>`;
     }).join("");
   }
   function renderCorporateIntelligence(corporate) {

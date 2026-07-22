@@ -36,6 +36,8 @@ ai_prompt_preview.txt
 # Lưu ý: tài liệu vận hành pipeline (TRACKED — public khi push) từ 12/07 nằm ở docs/
 # (README.md giờ chỉ là landing page, xem docs/USER_GUIDE.md + docs/CLI_REFERENCE.md)
 *.py
+# Operational publisher source; keep this one entry point visible to Git.
+!publish_dashboard.py
 # ...trừ bộ test hồi quy (fixture bịa, không có dữ liệu thật — commit kèm repo 12/07;
 # lưu ý test cần stock_analyzer.py nằm cạnh nên chỉ chạy được trên máy local)
 !tests/**/*.py

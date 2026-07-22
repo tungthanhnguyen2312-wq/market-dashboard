@@ -42,7 +42,7 @@ test("partial and malformed subsections do not block valid subsections", () => {
 });
 
 test("incomparable shareholder delta is a warning, not a change", () => {
-  const html = renderCorporateIntelligence({ major_shareholders: { latest_snapshot: { holders: [] }, delta: { status: "incomparable", shares_change: 99 } } });
+  const html = renderCorporateIntelligence({ major_shareholders: { sources: [{ source_name: "KBS", records: [], delta: { status: "incomparable_source_scope", changes: [{ change_type: "new_holder", shares_delta: 99 }] } }] } });
   assert.match(html, /not comparable/i);
   assert.doesNotMatch(html, /99/);
 });
@@ -64,4 +64,20 @@ test("empty and null source entries do not throw", () => {
     ownership_structure: { sources: [null] },
     company_subsidiaries: { sources: [null] },
   }));
+});
+
+test("renders the producer source-envelope contract without merging providers", () => {
+  const html = renderCorporateIntelligence({
+    status: "available",
+    company_profile: { status: "available", sources: [
+      { source_name: "KBS", snapshot_date: "2026-07-17", record: { qualified_fields: { sector: "Finance" } } },
+      { source_name: "VCI", snapshot_date: "2026-07-16", record: { qualified_fields: { business_model: "Brokerage" } } },
+    ] },
+    ownership_structure: { status: "available", sources: [{ source_name: "KBS", records: [{ fields: { owner_type: "State", ownership_percentage: 100.01, shares_owned: null } }] }] },
+    major_shareholders: { status: "available", sources: [{ source_name: "KBS", snapshot_date: "2026-07-17", records: [{ holder_name: "Holder A", shares: 20, ownership_pct: 1.5 }], delta: { status: "ok", changes: [{ change_type: "new_holder", holder_name_after: "Holder B", shares_delta: null, ownership_pct_delta: null }] } }] },
+    company_subsidiaries: { status: "available", sources: [{ source_name: "VCI", records: [{ fields: { organization_name: "Sub A", provider_record_id: "VCI-42", relationship_type: "Subsidiary", ownership_percent: 51 } }] }] },
+  });
+  for (const expected of ["KBS", "VCI", "Finance", "Brokerage", "Sub A", "VCI-42", "Holder A", "Holder B"]) assert.match(html, new RegExp(expected));
+  assert.match(html, /100,01/);
+  assert.match(html, /Shares owned[\s\S]*?>-</);
 });
