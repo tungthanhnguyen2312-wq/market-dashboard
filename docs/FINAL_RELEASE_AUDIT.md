@@ -1,4 +1,4 @@
-# Final Release Audit — VNSTOCK
+# Final Release Audit — Stock Look Up
 
 **Ngày kiểm tra:** 2026-07-19 (Asia/Saigon), cập nhật cùng ngày sau khi P1 được sửa và đóng project.
 **Phạm vi:** `main` @ `b12cda6433c7328788095432462dd44ee4078d88` (không đổi kể từ lần audit đầu — phiên đóng project này chỉ thêm tài liệu, không sửa code/dữ liệu public), 136 file được Git track.
@@ -118,7 +118,7 @@ Không đổi so với lần audit trước trong ngày:
 
 ## 12. Giấy phép MIT
 
-Không đổi — **nhất quán hoàn toàn**, đã xác nhận lại lần cuối trong phiên này: `LICENSE` = MIT chuẩn, `README.md` trỏ `[MIT License](LICENSE)`, `about.html:112` = "Released under the MIT License.". Quét `git grep -in "all rights reserved"` toàn bộ 136 file tracked: chỉ còn khớp trong văn bản phân tích lịch sử (`docs/WIP_BRANCH_REVIEW.md`), không phải tuyên bố hiệu lực.
+Không đổi — **nhất quán hoàn toàn**, đã xác nhận lại lần cuối trong phiên này: `LICENSE` = MIT chuẩn, `README.md` trỏ đến `LICENSE`, `about.html:112` = "Released under the MIT License.". Quét `git grep -in "all rights reserved"` toàn bộ 136 file tracked: chỉ còn khớp trong văn bản phân tích lịch sử (`docs/WIP_BRANCH_REVIEW.md`), không phải tuyên bố hiệu lực.
 
 ## 13. Cảnh báo Python
 

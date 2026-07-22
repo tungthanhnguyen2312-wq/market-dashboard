@@ -1,4 +1,4 @@
-# Project Completion — VNSTOCK
+# Project Completion — Stock Look Up
 
 **Ngày hoàn thành:** 2026-07-19
 **HEAD public repository:** `b12cda6433c7328788095432462dd44ee4078d88` (branch `main`, `C:\Projects\VNSTOCK`)

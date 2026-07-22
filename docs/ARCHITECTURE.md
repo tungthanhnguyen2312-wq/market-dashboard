@@ -1,6 +1,6 @@
 # Kiến trúc hệ thống
 
-> Tài liệu này mô tả kiến trúc tổng thể của VNSTOCK: 2 nửa Backend/Frontend, luồng dữ liệu,
+> Tài liệu này mô tả kiến trúc tổng thể của Stock Look Up: 2 nửa Backend/Frontend, luồng dữ liệu,
 > các tầng dữ liệu, và ranh giới rõ ràng giữa những gì chạy **local** và những gì lên
 > **GitHub Pages**. Tách ra từ README ngày 12/07/2026 khi dọn repo cho bản public.
 

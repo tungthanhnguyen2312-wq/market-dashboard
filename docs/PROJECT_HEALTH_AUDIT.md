@@ -1,4 +1,4 @@
-# Project Health Audit — VNSTOCK
+# Project Health Audit — Stock Look Up
 
 **Ngày khảo sát:** 2026-07-19 (Asia/Saigon)  
 **Phạm vi:** worktree tại commit `eb8e7e50460d3ed103865f27f3ff17b26987401d` (`origin/main` cùng commit), gồm 116 file được Git track và 22 script Python local bị ignore có chủ đích.  

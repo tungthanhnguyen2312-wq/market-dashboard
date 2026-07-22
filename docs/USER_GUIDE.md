@@ -1,4 +1,4 @@
-# User Guide — Bắt đầu với VNSTOCK
+# User Guide — Bắt đầu với Stock Look Up
 
 > Hướng dẫn setup lần đầu + các lỗi thường gặp khi mới chạy. Tách ra từ README ngày
 > 12/07/2026. Muốn xem toàn bộ lệnh hằng ngày/tuần/tháng → [CLI_REFERENCE.md](CLI_REFERENCE.md).
