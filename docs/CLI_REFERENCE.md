@@ -15,6 +15,7 @@
 
 ```powershell
 # Cài 1 lần
+Set-Location <dashboard-repository>
 pip install -r requirements.txt
 python -c "from vnstock import vnai; vnai.setup_api_key('KEY_CUA_BAN')"
 
@@ -112,8 +113,8 @@ Tạo 2-3 task: **(a)** 15h15 hằng ngày chạy chuỗi trên bằng file `.ba
 
 ```
 Program/script : C:\Program Files\Python313\python.exe
-Add arguments  : "C:\...\VNSTOCK\publish_dashboard.py" --live
-Start in       : C:\...\VNSTOCK
+Add arguments  : "<dashboard-repository>\publish_dashboard.py" --live
+Start in       : <dashboard-repository>
 Trigger        : Daily, đặt SAU giờ pipeline xong (pipeline chạy 15h15 mất ~45 phút
                  → publish 16h30 là an toàn), hoặc gọi ở DÒNG CUỐI file .bat pipeline
                  để bảo đảm tuần tự tuyệt đối.
@@ -126,6 +127,7 @@ Lưu ý: máy phải bật; script nào lỗi mạng cũng tự retry nên `.bat
 **Cách hiện hành — `publish_dashboard.py`** (thay thế `sync_and_push.bat` từ 11/07/2026):
 
 ```powershell
+Set-Location <dashboard-repository>
 python .\publish_dashboard.py          # DRY-RUN (mặc định): chỉ in danh sách file SẼ đẩy
 python .\publish_dashboard.py --live   # add/commit/push thật
 ```
@@ -157,6 +159,7 @@ Nguyên tắc sắt của script:
 - Muốn đầy đủ 100% (báo cáo AI + bảng CSV) thì chạy web server rồi mở `http://localhost:8000`:
 
 ```bash
+Set-Location <dashboard-repository>
 python -m http.server 8000
 ```
 

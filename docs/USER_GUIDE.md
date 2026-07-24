@@ -66,6 +66,7 @@ thư mục hiện tại", không bắt buộc, không phải nguyên nhân gây 
 **Kiểm tra `python` đã cài & vào PATH chưa:**
 
 ```powershell
+Set-Location <dashboard-repository>
 python --version
 ```
 

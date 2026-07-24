@@ -7,7 +7,7 @@
 - [x] **CHANGELOG.md** — đã có sẵn, giữ ở gốc, cần `git add` (hiện untracked)
 - [x] **.gitignore** — rà soát lại: thêm `NOTES_FOR_TUNG*.md` + rule IDE/OS phòng ngừa
 - [x] **Documentation** (`docs/`) — `USER_GUIDE.md`, `ARCHITECTURE.md`, `CLI_REFERENCE.md`,
-      `DATA_PIPELINE.md`, `FINANCIAL_REPORT.md`, `STOCK_ANALYZER.md`, `REPO_AUDIT.md`,
+      `DATA_PIPELINE.md`, `FINANCIAL_REPORT.md`, `STOCK_ANALYZER.md`, and internal review evidence,
       `RELEASE_CHECKLIST.md` (file này)
 - [x] **CONTRIBUTING.md / SECURITY.md / CODE_OF_CONDUCT.md** — mới tạo, scope đúng thực tế
       (repo chỉ chứa dashboard tĩnh + tài liệu, không phải toàn bộ pipeline)

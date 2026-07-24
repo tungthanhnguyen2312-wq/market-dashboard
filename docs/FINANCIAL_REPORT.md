@@ -3,7 +3,7 @@
 > Gộp từ dự án `FINANCIAL_REPORT` độc lập cũ vào VNSTOCK (12/07/2026). Độc lập với 7 chân
 > kiềng chính ([ARCHITECTURE.md](ARCHITECTURE.md)) — không dùng chung `vn_stock.db`, không
 > ghi vào `VNSTOCK/data/` (thư mục web). Chi tiết audit API + logic tính toán nằm trong tài
-> liệu nội bộ (không public): `docs/AUDIT_REPORT.md` + `docs/VALIDATION_REPORT.md`.
+> liệu nội bộ (không public): internal qualification evidence retained outside this repository.
 
 > ⚠️ **`FINANCIAL_REPORT/` không còn tồn tại như một dự án riêng** — đã gộp vào `VNSTOCK/`
 > ngày 12/07/2026 (xem [CHANGELOG.md](../CHANGELOG.md) mục 1.1.0). Nếu bạn đang tìm
@@ -14,6 +14,7 @@
 
 ```powershell
 # Cào BCTC thô (nguồn KBS chính, VCI dự phòng)
+Set-Location <dashboard-repository>
 python .\bctc_sync.py scrape --tickers HPG                           # 1 mã
 python .\bctc_sync.py scrape --tickers HPG FPT VNM SSI               # nhiều mã
 python .\bctc_sync.py scrape --file tickers_bctc.txt                 # từ danh sách mã (KHÔNG phải tickers.txt)
@@ -25,7 +26,7 @@ python .\bctc_sync.py failed                                         # thử l�
 
 # Chuẩn hóa -> financial_snapshot.csv/.parquet (đọc data_bctc/ cục bộ, KHÔNG gọi mạng)
 python .\bctc_processor.py           # chạy chuẩn, ghi đè financial_snapshot.csv/.parquet
-python .\bctc_processor.py --test    # audit 10 mã đại diện đủ 4 loại hình -> docs/VALIDATION_REPORT.md
+python .\bctc_processor.py --test    # audit 10 mã đại diện đủ 4 loại hình -> internal validation evidence
 ```
 
 **Tần suất:** BCTC doanh nghiệp công bố theo **quý** (~giữa T1/T4/T7/T10) — chạy `bctc_sync.py`
