@@ -147,6 +147,17 @@
       `aria-label="${esc(ariaLabel || "Xem giải thích")}">?</button>`;
   }
 
+  /* Trigger tooltip KHÔNG dùng icon "?" riêng (Objective B, Phase 4C) — chính text hiển
+   * thị (tên mẫu hình / nhãn SMC) là trigger: [data-tooltip] được initTooltips() xử lý
+   * hover/focus/click/Escape giống hệt tooltipTrigger(), không thêm phần tử hiển thị nào
+   * khác nên không nới rộng hàng. Nội dung gán qua esc() (không innerHTML từ dữ liệu). */
+  function textTrigger(label, tooltipText) {
+    const safeLabel = esc(label);
+    if (!tooltipText) return safeLabel;
+    return `<span class="vs-text-trigger" data-tooltip="${esc(tooltipText)}" ` +
+      `aria-describedby="vs-tooltip-bubble" aria-expanded="false" tabindex="0">${safeLabel}</span>`;
+  }
+
   function initTooltips() {
     ensureTooltipBubble();
     document.addEventListener("mouseover", (event) => {
@@ -267,18 +278,21 @@
     volume_confirmation: "Khối lượng giao dịch tại thời điểm hình thành mẫu hình cao hơn đáng kể so với trung bình, củng cố độ tin cậy tín hiệu.",
   };
 
-  // row=null (không tìm được dòng khớp qua join) và row có field nhưng thiếu giá trị
-  // đều PHẢI hiện "Chưa đủ dữ liệu" — không bao giờ coi thiếu dữ liệu là 0 sao
-  // (trước đây `Number(row.confidence_stars) || 0` biến undefined thành 0 sao, không
-  // phân biệt được với 1 điểm tin cậy=0 thật sự).
+  // row=null (không tìm được dòng khớp qua join), row có field nhưng thiếu giá trị, hoặc
+  // số sao làm tròn về 0 đều PHẢI không render gì (Objective C, Phase 4C — trước đây hiện
+  // text "Chưa đủ dữ liệu"; nay bỏ hẳn placeholder, để layout gọn) — không bao giờ coi
+  // thiếu dữ liệu là 0 sao (trước đây `Number(row.confidence_stars) || 0` biến undefined
+  // thành 0 sao, không phân biệt được với 1 điểm tin cậy=0 thật sự) và cũng không tự vẽ
+  // hàng "0 sao" khi giá trị thật làm tròn về 0 — chỉ 1-3 sao mới là kết quả hợp lệ.
   function stars(row) {
-    if (!row) return `<span class="pattern-stars-unknown" role="img" aria-label="Chưa đủ dữ liệu để xác định độ tin cậy">Chưa đủ dữ liệu</span>`;
+    if (!row) return "";
     const rawStars = row.confidence_stars;
     const rawScore = row.confidence_score;
     const known = rawStars !== null && rawStars !== undefined && Number.isFinite(Number(rawStars))
       && rawScore !== null && rawScore !== undefined && Number.isFinite(Number(rawScore));
-    if (!known) return `<span class="pattern-stars-unknown" role="img" aria-label="Chưa đủ dữ liệu để xác định độ tin cậy">Chưa đủ dữ liệu</span>`;
+    if (!known) return "";
     const count = Math.max(0, Math.min(3, Math.round(Number(rawStars))));
+    if (count === 0) return "";
     const filled = '<svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.8 2.8 5.7 6.3.9-4.55 4.43 1.08 6.27L12 17.14 6.37 20.1l1.08-6.27L2.9 9.4l6.3-.9L12 2.8Z"/></svg>';
     const empty = '<svg class="empty-star" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m12 2.8 2.8 5.7 6.3.9-4.55 4.43 1.08 6.27L12 17.14 6.37 20.1l1.08-6.27L2.9 9.4l6.3-.9L12 2.8Z"/></svg>';
     return `<span class="pattern-stars" role="img" aria-label="Mức độ tin cậy: ${count} trên 3 sao">${filled.repeat(count)}${empty.repeat(3 - count)}</span> ${number(rawScore, 0)}`;
@@ -287,9 +301,14 @@
   function tags(values, type) {
     return `<div class="pattern-tags">${(values || []).map((key) => {
       const label = labelFor(key, type);
-      const tipText = (smcInfo(key) || {}).tooltip || CONTEXT_TOOLTIPS[key] || "";
+      const smc = smcInfo(key);
+      const cls = `pattern-tag ${type === "warning" ? "warning" : ""}`;
+      // Nhãn SMC dùng cùng cách trình bày "text chính là trigger" như tên mẫu hình
+      // (không icon "?") — nhãn confirmation/warning thường khác vẫn giữ nguyên nút "?".
+      if (smc && smc.tooltip) return `<span class="${cls}">${textTrigger(label, smc.tooltip)}</span>`;
+      const tipText = CONTEXT_TOOLTIPS[key] || "";
       const tip = tipText ? tooltipTrigger(tipText, `Giải thích ${label}`) : "";
-      return `<span class="pattern-tag ${type === "warning" ? "warning" : ""}">${esc(label)}${tip}</span>`;
+      return `<span class="${cls}">${esc(label)}${tip}</span>`;
     }).join("") || '<span class="pattern-muted">–</span>'}</div>`;
   }
 
@@ -303,7 +322,6 @@
     const nameVi = row.pattern_name_vi || registryInfo.name_vi || row.pattern_name || row.pattern_key;
     const nameEn = row.pattern_name || registryInfo.name || row.pattern_key;
     const description = meta.description || registryInfo.description || "";
-    const nameTip = description ? tooltipTrigger(description, `Giải thích mẫu ${nameVi}`) : "";
     const statusTip = tooltipTrigger(
       row.status === "forming"
         ? "Kỳ chưa đóng — mẫu hình có thể còn thay đổi cho tới khi kỳ này kết thúc."
@@ -312,7 +330,7 @@
     );
     return `<tr class="pattern-row js-company-row" tabindex="0" data-ticker="${esc(row.ticker)}">
       <td><strong>${esc(row.ticker)}</strong></td>
-      <td><strong>${esc(nameVi)}</strong>${nameTip}<br><small class="pattern-muted">${esc(nameEn)}</small></td>
+      <td><strong>${textTrigger(nameVi, description)}</strong><br><small class="pattern-muted">${esc(nameEn)}</small></td>
       <td><span class="pattern-direction ${esc(row.direction)}">${esc(textDirection[row.direction] || row.direction)}</span></td>
       <td><strong>${esc(row.timeframe)}</strong></td>
       <td>${stars(row)}</td>
@@ -489,6 +507,7 @@
       labelFor,
       starsMarkup: stars,
       tooltipTrigger,
+      textTrigger,
     };
   }
 
@@ -500,7 +519,8 @@
   if (typeof module !== "undefined" && module.exports) {
     module.exports = {
       buildConfidenceIndex, confidenceFor, smcInfo, smcDisplayLabel, labelFor,
-      SMC_GLOSSARY, stars, tooltipTrigger, lookupPatternInfo, esc,
+      SMC_GLOSSARY, stars, tooltipTrigger, textTrigger, lookupPatternInfo, esc,
+      tags, rowHtml,
     };
   }
 }());

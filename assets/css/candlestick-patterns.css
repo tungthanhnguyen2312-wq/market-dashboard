@@ -40,7 +40,21 @@
 .pattern-negative { color:var(--danger); }
 .pattern-muted { color:var(--text-muted); }
 .pattern-mobile-key { display:none; }
-.pattern-stars-unknown { color:var(--text-muted); font-size:.72rem; font-style:italic; white-space:nowrap; }
+
+/* ---------- Text chính là trigger tooltip, không icon "?" (Objective B, Phase 4C) ----------
+   Áp dụng cho tên mẫu hình và nhãn SMC — cursor + gạch chấm mờ làm affordance, không thêm
+   phần tử/icon mới. Vẫn dùng chung .vs-tooltip-bubble/initTooltips() với .vs-info-trigger. */
+.vs-text-trigger {
+  cursor: help;
+  border-radius: 3px;
+  text-decoration: underline dotted;
+  text-decoration-color: var(--text-muted);
+  text-underline-offset: 2px;
+}
+.vs-text-trigger:hover,
+.vs-text-trigger:focus-visible,
+.vs-text-trigger[aria-expanded="true"] { color: var(--text); text-decoration-color: var(--primary); }
+.vs-text-trigger:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
 
 /* ---------- Nút mở tooltip giải thích (Objective C, Phase 4B) ---------- */
 .vs-info-trigger {

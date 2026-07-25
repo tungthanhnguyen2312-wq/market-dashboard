@@ -232,17 +232,20 @@ function patternChip(key, ticker, confidenceIndex) {
   const info = api ? api.patternInfo(key) : null;
   const label = (info && (info.name_vi || info.name)) || key;
   const match = api ? api.confidenceFor(confidenceIndex, ticker, key) : null;
-  const starsHtml = api ? api.starsMarkup(match) : '<span class="pattern-stars-unknown">Chưa đủ dữ liệu</span>';
-  const tip = info && info.description && api ? api.tooltipTrigger(info.description, `Giải thích mẫu ${label}`) : "";
-  return `<span class="signal-chip">${esc(label)}${tip}<span class="signal-chip-conf">${starsHtml}</span></span>`;
+  // Thiếu/không khớp confidence -> không render gì (Objective C) — không còn placeholder
+  // "Chưa đủ dữ liệu". Tên mẫu hình chính là trigger tooltip, không icon "?" (Objective B).
+  const starsHtml = api ? api.starsMarkup(match) : "";
+  const nameHtml = api ? api.textTrigger(label, info && info.description) : esc(label);
+  const starsWrap = starsHtml ? `<span class="signal-chip-conf">${starsHtml}</span>` : "";
+  return `<span class="signal-chip">${nameHtml}${starsWrap}</span>`;
 }
 
 function smcChip(key) {
   const api = glossaryApi();
   const label = api ? api.smcDisplayLabel(key) : key;
   const info = api ? api.smcInfo(key) : null;
-  const tip = info && info.tooltip && api ? api.tooltipTrigger(info.tooltip, `Giải thích ${label}`) : "";
-  return `<span class="signal-chip signal-chip-smc">${esc(label)}${tip}</span>`;
+  const nameHtml = api ? api.textTrigger(label, info && info.tooltip) : esc(label);
+  return `<span class="signal-chip signal-chip-smc">${nameHtml}</span>`;
 }
 
 function tagChips(ticker, patterns, smc, confidenceIndex) {

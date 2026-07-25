@@ -296,10 +296,30 @@
     return countVisible(hiddenFlags) === 1 ? hiddenFlags.indexOf(false) : -1;
   }
 
+  // Đọc trạng thái ẩn/hiện qua API công khai isDatasetVisible() (không tự suy ra từ
+  // biến JS riêng) — luôn khớp CHÍNH XÁC trạng thái Chart.js đang vẽ trên canvas.
+  function currentHiddenFlags(chart, count) {
+    var flags = [];
+    for (var i = 0; i < count; i += 1) flags.push(!chart.isDatasetVisible(i));
+    return flags;
+  }
+
+  /* Bấm 1 chỉ báo phải ẩn/hiện ĐÚNG dataset Chart.js tương ứng (Objective A, Phase 4C) —
+   * trước đây tự gán chart.getDatasetMeta(index).hidden rồi update(): API nội bộ, không
+   * phải API hiển thị công khai Chart.js khuyến nghị cho custom HTML legend. Dùng
+   * setDatasetVisibility()/isDatasetVisible() (đúng cặp API công khai) rồi update() —
+   * canvas vẽ lại đúng đường đang ẩn/hiện. Trả về false nếu bị bảo vệ "chuỗi cuối" chặn
+   * (không gọi setDatasetVisibility/update, không đổi trạng thái). */
+  function toggleDatasetVisibility(chart, count, index) {
+    var flags = currentHiddenFlags(chart, count);
+    if (wouldHideLastVisible(flags, index)) return false;
+    chart.setDatasetVisibility(index, !chart.isDatasetVisible(index));
+    chart.update();
+    return true;
+  }
+
   function buildLegend(container, chart, datasets) {
-    function hiddenFlags() {
-      return datasets.map(function (_, i) { return chart.getDatasetMeta(i).hidden === true; });
-    }
+    function hiddenFlags() { return currentHiddenFlags(chart, datasets.length); }
     function refreshLockState() {
       var locked = soleVisibleIndex(hiddenFlags());
       Array.from(container.children).forEach(function (btn, i) {
@@ -307,6 +327,13 @@
         btn.classList.toggle("is-locked", isLocked);
         btn.setAttribute("aria-disabled", String(isLocked));
       });
+    }
+    // Đồng bộ nút TỪ trạng thái Chart.js thật (isDatasetVisible) — không phải từ 1
+    // boolean UI-only riêng, nên không bao giờ lệch với đường đang vẽ trên canvas.
+    function syncButtonState(btn, index) {
+      var visible = chart.isDatasetVisible(index);
+      btn.classList.toggle("is-active", visible);
+      btn.setAttribute("aria-pressed", String(visible));
     }
     datasets.forEach(function (dataset, index) {
       var btn = element("button", "macro-legend-item is-active");
@@ -319,14 +346,8 @@
       // gốc tự phát sinh sự kiện click cho cả 3 — không cần thêm keydown riêng.
       btn.addEventListener("click", function () {
         if (btn.getAttribute("aria-disabled") === "true") return;
-        var flags = hiddenFlags();
-        if (wouldHideLastVisible(flags, index)) return;
-        var meta = chart.getDatasetMeta(index);
-        var nextHidden = !(meta.hidden === true);
-        meta.hidden = nextHidden;
-        chart.update();
-        btn.classList.toggle("is-active", !nextHidden);
-        btn.setAttribute("aria-pressed", String(!nextHidden));
+        if (!toggleDatasetVisibility(chart, datasets.length, index)) return;
+        syncButtonState(btn, index);
         refreshLockState();
       });
       container.append(btn);
@@ -590,6 +611,9 @@
       countVisible: countVisible,
       wouldHideLastVisible: wouldHideLastVisible,
       soleVisibleIndex: soleVisibleIndex,
+      currentHiddenFlags: currentHiddenFlags,
+      toggleDatasetVisibility: toggleDatasetVisibility,
+      buildLegend: buildLegend,
       INDICATOR_COLORS: INDICATOR_COLORS,
       CHART_GROUPS: CHART_GROUPS,
     };
