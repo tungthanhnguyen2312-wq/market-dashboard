@@ -30,32 +30,39 @@
 </head>
 <body class="bg-bg text-white font-sans" data-page="macro">
   <div class="vs-shell">
+    <!-- ===== MOBILE NAVIGATION DRAWER ===== -->
     <aside class="vs-sidebar" id="sidebar">
-      <a class="vs-sidebar-brand" href="dashboard.html"><span class="vs-brand-dot"></span><span class="vs-sidebar-brand-label">Stock Look Up</span></a>
-      <button class="vs-sidebar-toggle lg:hidden ms-auto" id="sidebar-close" style="position:absolute; top:0.9rem; right:0.9rem;" aria-label="Đóng menu">
+      <a class="vs-sidebar-brand" href="dashboard.html"><span class="vs-brand-dot"></span><span class="vs-sidebar-brand-label">Stock Lookup</span></a>
+      <button class="vs-sidebar-toggle ms-auto" id="sidebar-close" style="position:absolute; top:0.9rem; right:0.9rem;" aria-label="Đóng menu">
         <i data-lucide="x"></i>
       </button>
-      <nav class="vs-sidebar-nav" aria-label="Điều hướng chính">
-        <a class="vs-sidebar-link" href="dashboard.html" data-nav="dashboard" title="Dashboard"><i data-lucide="layout-dashboard"></i><span class="vs-sidebar-link-label">Dashboard</span></a>
-        <a class="vs-sidebar-link" href="screener.html" data-nav="screener" title="Screener"><i data-lucide="filter"></i><span class="vs-sidebar-link-label">Screener</span></a>
-        <a class="vs-sidebar-link" href="analysis.html" data-nav="analysis" title="Analysis"><i data-lucide="brain-circuit"></i><span class="vs-sidebar-link-label">Analysis</span></a>
-        <a class="vs-sidebar-link" href="signals.html" data-nav="signals" title="Signals"><i data-lucide="activity"></i><span class="vs-sidebar-link-label">Signals</span></a>
-        <a class="vs-sidebar-link" href="macro.html" data-nav="macro" title="Macro"><i data-lucide="globe"></i><span class="vs-sidebar-link-label">Macro</span></a>
-        <a class="vs-sidebar-link" href="about.html" data-nav="about" title="About"><i data-lucide="info"></i><span class="vs-sidebar-link-label">About</span></a>
+      <nav class="vs-sidebar-nav" aria-label="Điều hướng phụ mobile">
+        <a class="vs-sidebar-link" href="dashboard.html" data-nav="dashboard" title="Tổng quan"><i data-lucide="layout-dashboard"></i><span class="vs-sidebar-link-label">Tổng quan</span></a>
+        <a class="vs-sidebar-link" href="screener.html" data-nav="screener" title="Bộ lọc thị trường"><i data-lucide="filter"></i><span class="vs-sidebar-link-label">Bộ lọc thị trường</span></a>
+        <a class="vs-sidebar-link" href="analysis.html" data-nav="analysis" title="Phân tích"><i data-lucide="brain-circuit"></i><span class="vs-sidebar-link-label">Phân tích</span></a>
+        <a class="vs-sidebar-link" href="signals.html" data-nav="signals" title="Tín hiệu"><i data-lucide="activity"></i><span class="vs-sidebar-link-label">Tín hiệu</span></a>
+        <a class="vs-sidebar-link" href="macro.html" data-nav="macro" title="Vĩ mô & Hàng hóa"><i data-lucide="globe"></i><span class="vs-sidebar-link-label">Vĩ mô & Hàng hóa</span></a>
+        <a class="vs-sidebar-link" href="about.html" data-nav="about" title="Giới thiệu"><i data-lucide="info"></i><span class="vs-sidebar-link-label">Giới thiệu</span></a>
       </nav>
-      <button type="button" class="vs-sidebar-collapse-toggle" id="sidebar-collapse-toggle" aria-label="Thu gọn sidebar" title="Thu gọn sidebar">
-        <i data-lucide="chevrons-left"></i>
-      </button>
-      <div class="vs-sidebar-foot">Stock Look Up</div>
+      <div class="vs-sidebar-foot">Stock Lookup</div>
     </aside>
     <div class="vs-sidebar-overlay" id="sidebar-overlay"></div>
 
     <div class="vs-shell-main">
+      <!-- ===== STICKY HORIZONTAL TOPBAR ===== -->
       <header class="vs-topbar">
         <button class="vs-sidebar-toggle" id="sidebar-toggle" aria-label="Mở menu"><i data-lucide="menu"></i></button>
-        <span class="vs-topbar-title">Vĩ mô</span>
+        <a class="vs-topbar-brand" href="dashboard.html"><span class="vs-brand-dot"></span><span>Stock Lookup</span></a>
+        <nav class="vs-topbar-nav" aria-label="Điều hướng chính">
+          <a class="vs-topnav-link" href="dashboard.html" data-nav="dashboard" title="Tổng quan"><i data-lucide="layout-dashboard"></i><span>Tổng quan</span></a>
+          <a class="vs-topnav-link" href="screener.html" data-nav="screener" title="Bộ lọc thị trường"><i data-lucide="filter"></i><span>Bộ lọc thị trường</span></a>
+          <a class="vs-topnav-link" href="analysis.html" data-nav="analysis" title="Phân tích"><i data-lucide="brain-circuit"></i><span>Phân tích</span></a>
+          <a class="vs-topnav-link" href="signals.html" data-nav="signals" title="Tín hiệu"><i data-lucide="activity"></i><span>Tín hiệu</span></a>
+          <a class="vs-topnav-link" href="macro.html" data-nav="macro" title="Vĩ mô & Hàng hóa"><i data-lucide="globe"></i><span>Vĩ mô & Hàng hóa</span></a>
+          <a class="vs-topnav-link" href="about.html" data-nav="about" title="Giới thiệu"><i data-lucide="info"></i><span>Giới thiệu</span></a>
+        </nav>
         <span class="vs-topbar-spacer"></span>
-        <a class="vs-topbar-link" href="archive.html"><i data-lucide="history"></i>History</a>
+        <a class="vs-topbar-link" href="archive.html"><i data-lucide="history"></i>Lịch sử</a>
         <button type="button" class="vs-icon-btn" onclick="location.reload()" aria-label="Làm mới dữ liệu" title="Làm mới dữ liệu"><i data-lucide="refresh-cw"></i></button>
       </header>
 
