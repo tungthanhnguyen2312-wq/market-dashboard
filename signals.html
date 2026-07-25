@@ -62,6 +62,12 @@
   .cell { border-radius:6px; padding:10px 12px; color:var(--bg-deep); font-weight:600; font-size:12.5px; }
   .cell small { display:block; font-weight:400; margin-top:3px; }
   badge { display:inline-block; }
+  /* Chip mẫu nến/SMC ở tab Tổng quan — cùng glossary/tooltip với bảng chi tiết
+     (window.VSCandlestickPatterns), chỉ khác lớp bọc gọn cho card/bảng nhỏ ở đây. */
+  .signal-chip { display:inline-flex; align-items:center; gap:.3rem; border:1px solid var(--border); border-radius:999px; padding:.1rem .4rem; margin:0 .25rem .25rem 0; font-size:11px; color:var(--dim); }
+  .signal-chip-smc { color:var(--blue); }
+  .signal-chip-conf { display:inline-flex; align-items:center; gap:1px; }
+  .signal-chip-conf .pattern-stars svg { width:10px; height:10px; }
 </style>
 </head>
 <body class="bg-bg text-white" data-page="signals">
@@ -165,7 +171,7 @@
                 <th><button class="pattern-sort" type="button" data-sort="ticker">Mã</button></th>
                 <th>Mẫu hình</th><th>Hướng</th>
                 <th><button class="pattern-sort" type="button" data-sort="timeframe">Khung</button></th>
-                <th><button class="pattern-sort" type="button" data-sort="confidence_score" title="Điểm gồm hình học, xu hướng, khối lượng, SMC/hỗ trợ-kháng cự, chất lượng dữ liệu và nền khung lớn">Độ tin cậy</button></th>
+                <th><button class="pattern-sort" type="button" data-sort="confidence_score">Độ tin cậy</button><button type="button" class="vs-info-trigger" data-tooltip="Điểm gồm hình học, xu hướng, khối lượng, SMC/hỗ trợ-kháng cự, chất lượng dữ liệu và nền khung lớn." aria-describedby="vs-tooltip-bubble" aria-expanded="false" aria-label="Giải thích cách tính độ tin cậy">?</button></th>
                 <th>Trạng thái</th>
                 <th><button class="pattern-sort" type="button" data-sort="bars_ago">Cách đây</button></th>
                 <th>Thời điểm</th><th>Giá</th><th>Biến động</th><th class="optional-sm">RS</th><th class="optional-sm">RelVol</th>
@@ -210,20 +216,56 @@ const fmt = (v, d = 1) => (v === null || v === undefined || Number.isNaN(v)) ? "
 const dirCls = d => d === "bullish" ? "up" : d === "bearish" ? "down" : "flat";
 const esc = s => String(s ?? "").replace(/[&<>"]/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch]));
 
-function renderWatchlist(w) {
+// Nguồn glossary/tooltip/confidence DUY NHẤT cho toàn trang: window.VSCandlestickPatterns
+// (định nghĩa trong assets/js/candlestick-patterns.js) — tab Tổng quan tra cứu lại từ
+// đây, không tự dựng bảng dịch hay hệ thống tooltip thứ 2.
+function glossaryApi() { return window.VSCandlestickPatterns || null; }
+
+async function getConfidenceIndexSafe() {
+  const api = glossaryApi();
+  if (!api) return new Map();
+  try { return await api.getConfidenceIndex(); } catch (_) { return new Map(); }
+}
+
+function patternChip(key, ticker, confidenceIndex) {
+  const api = glossaryApi();
+  const info = api ? api.patternInfo(key) : null;
+  const label = (info && (info.name_vi || info.name)) || key;
+  const match = api ? api.confidenceFor(confidenceIndex, ticker, key) : null;
+  const starsHtml = api ? api.starsMarkup(match) : '<span class="pattern-stars-unknown">Chưa đủ dữ liệu</span>';
+  const tip = info && info.description && api ? api.tooltipTrigger(info.description, `Giải thích mẫu ${label}`) : "";
+  return `<span class="signal-chip">${esc(label)}${tip}<span class="signal-chip-conf">${starsHtml}</span></span>`;
+}
+
+function smcChip(key) {
+  const api = glossaryApi();
+  const label = api ? api.smcDisplayLabel(key) : key;
+  const info = api ? api.smcInfo(key) : null;
+  const tip = info && info.tooltip && api ? api.tooltipTrigger(info.tooltip, `Giải thích ${label}`) : "";
+  return `<span class="signal-chip signal-chip-smc">${esc(label)}${tip}</span>`;
+}
+
+function tagChips(ticker, patterns, smc, confidenceIndex) {
+  const chips = [
+    ...(patterns || []).map((key) => patternChip(key, ticker, confidenceIndex)),
+    ...(smc || []).map((key) => smcChip(key)),
+  ];
+  return chips.length ? chips.join("") : '<span class="pattern-muted">im ắng</span>';
+}
+
+function renderWatchlist(w, confidenceIndex) {
   if (!w || !w.length) return;
   document.getElementById("watchlist").innerHTML = w
     .slice().sort((a, b) => (b.confluence - a.confluence) || (b.has_signal - a.has_signal))
     .map(x => {
       const cls = x.confluence ? (x.direction === "bearish" ? "conf-bear" : "conf-bull") : "";
-      const tags = [...(x.patterns || []), ...(x.smc || [])].join(" · ") || "im ắng";
       return `<div class="card ${cls}">
         <div class="tk">${esc(x.ticker)} ${x.confluence ? "★" : ""}</div>
         <div class="px ${dirCls(x.direction)}">${fmt(x.close, 0)} <small>${esc(x.direction || "")}</small></div>
-        <div class="tags">${esc(tags)}</div></div>`;
+        <div class="tags">${tagChips(x.ticker, x.patterns, x.smc, confidenceIndex)}</div></div>`;
     }).join("");
 }
-function renderConfluence(signals) {
+function renderConfluence(signals, confidenceIndex) {
   const rows = (signals || []).filter(s => s.confluence);
   if (!rows.length) {
     document.getElementById("confluence").innerHTML = '<div class="empty">Phiên này không có tín hiệu hợp lưu</div>';
@@ -233,7 +275,8 @@ function renderConfluence(signals) {
     <th>Mã</th><th>Giá</th><th>Hướng</th><th>Mẫu nến</th><th>SMC</th><th>Ngành</th><th>RS</th><th>RelVol</th><th>Cờ</th></tr>` +
     rows.map(s => `<tr><td><b>${esc(s.ticker)}</b></td><td>${fmt(s.close, 0)}</td>
       <td class="${dirCls(s.direction)}">${esc(s.direction)}</td>
-      <td>${esc((s.patterns || []).join(", "))}</td><td>${esc((s.smc || []).join(", "))}</td>
+      <td>${(s.patterns || []).map((key) => patternChip(key, s.ticker, confidenceIndex)).join("") || "–"}</td>
+      <td>${(s.smc || []).map((key) => smcChip(key)).join("") || "–"}</td>
       <td>${esc(s.industry || "–")}</td><td>${fmt(s.rs_rating, 0)}</td><td>${fmt(s.rel_vol, 2)}</td>
       <td class="down">${esc(s.margin_status || "")}</td></tr>`).join("") + "</table>";
 }
@@ -260,13 +303,17 @@ function renderHeatmap(sectors) {
 (async () => {
   const sig = await loadData("data/candle_signals.json", "CANDLE_SIGNALS", "data/candle_signals.js");
   const heat = await loadData("data/sector_heatmap.json", "SECTOR_HEATMAP", "data/sector_heatmap.js");
+  // candlestick-patterns.js đã tự fetch data/candlestick_patterns.json từ lúc trang tải
+  // (tab Mẫu hình nến init() không phụ thuộc tab nào đang hiện) — chờ lại đúng promise
+  // đó (ready/getConfidenceIndex) thay vì fetch thêm lần nữa cho tab Tổng quan.
+  const confidenceIndex = await getConfidenceIndexSafe();
   if (!sig && !heat) {
     document.getElementById("meta").textContent = "Chưa có dữ liệu cho phiên này — vui lòng chạy lại pipeline tín hiệu.";
     return;
   }
   document.getElementById("meta").textContent =
     `Phiên ${sig?.scan_date || heat?.scan_date} · sinh lúc ${sig?.generated_at || heat?.generated_at} · nguồn: dữ liệu pipeline (cục bộ, 0 API)`;
-  if (sig) { renderWatchlist(sig.watchlist); renderConfluence(sig.signals); renderDividend(sig.dividend_investing, sig.dividend_note); }
+  if (sig) { renderWatchlist(sig.watchlist, confidenceIndex); renderConfluence(sig.signals, confidenceIndex); renderDividend(sig.dividend_investing, sig.dividend_note); }
   if (heat) renderHeatmap(heat.sectors);
 })();
 </script>

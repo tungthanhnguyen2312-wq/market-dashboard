@@ -10,9 +10,48 @@
   const number = (value, digits = 1) => value === null || value === undefined || value === "" || !Number.isFinite(Number(value))
     ? "–" : Number(value).toLocaleString("vi-VN", { maximumFractionDigits: digits });
   const textDirection = { bullish: "Tăng", bearish: "Giảm", neutral: "Trung tính" };
+
+  /* ============================================================
+   * Nguồn Vietnamese hoá SMC DUY NHẤT (Phase 4B, Objective B) — trước đây
+   * confirmationLabels ở đây dùng khoá kiểu "bullish_order_block"/"bearish_fvg"
+   * (từ candlestick_patterns.json confirmations[]) còn signals.html lại tự hiện
+   * nguyên khoá thô "ob_bull"/"fvg_bear" (từ candle_signals.json smc[]) — CÙNG một
+   * khái niệm nhưng 2 quy ước đặt tên khác nhau ở 2 file dữ liệu khác nhau. Khai báo
+   * đúng 1 lần ở đây, cả bảng chi tiết lẫn tab Tổng quan (qua window.VSCandlestickPatterns)
+   * đều tra cứu từ CÙNG nguồn này — không tự tạo hoặc đổi giá trị lưu trữ gốc. Chỉ 4
+   * khái niệm này thực sự tồn tại trong dữ liệu hiện tại — KHÔNG thêm BOS/CHoCH/liquidity
+   * sweep vì không có trong code/dữ liệu (xem phase4a_signals_macro_audit.md).
+   * ============================================================ */
+  const SMC_GLOSSARY = {
+    ob_bull: { vi: "Khối lệnh tăng", abbr: "OB Bull", direction: "bullish",
+      tooltip: "Order Block tăng: vùng giá tổ chức có thể đã mua/tích lũy trước khi giá tăng." },
+    ob_bear: { vi: "Khối lệnh giảm", abbr: "OB Bear", direction: "bearish",
+      tooltip: "Order Block giảm: vùng giá tổ chức có thể đã bán/phân phối trước khi giá giảm." },
+    fvg_bull: { vi: "Khoảng trống giá tăng", abbr: "FVG Bull", direction: "bullish",
+      tooltip: "Fair Value Gap tăng: khoảng trống giá chưa khớp lệnh đầy đủ, hình thành khi giá tăng nhanh." },
+    fvg_bear: { vi: "Khoảng trống giá giảm", abbr: "FVG Bear", direction: "bearish",
+      tooltip: "Fair Value Gap giảm: khoảng trống giá chưa khớp lệnh đầy đủ, hình thành khi giá giảm nhanh." },
+    // Alias: cùng khái niệm, khác quy ước đặt tên trong confirmations[]/warnings[] của
+    // candlestick_patterns.json — KHÔNG lặp lại nội dung, chỉ trỏ sang bản chính ở trên.
+    bullish_order_block: { alias: "ob_bull" },
+    bearish_order_block: { alias: "ob_bear" },
+    bullish_fvg: { alias: "fvg_bull" },
+    bearish_fvg: { alias: "fvg_bear" },
+  };
+
+  function smcInfo(key) {
+    const entry = SMC_GLOSSARY[key];
+    if (!entry) return null;
+    return entry.alias ? SMC_GLOSSARY[entry.alias] : entry;
+  }
+
+  function smcDisplayLabel(key) {
+    const info = smcInfo(key);
+    return info ? `${info.vi} (${info.abbr})` : key;
+  }
+
   const confirmationLabels = {
-    near_support: "Gần hỗ trợ", near_resistance: "Gần kháng cự", bullish_order_block: "OB tăng",
-    bearish_order_block: "OB giảm", bullish_fvg: "FVG tăng", bearish_fvg: "FVG giảm",
+    near_support: "Gần hỗ trợ", near_resistance: "Gần kháng cự",
     volume_confirmation: "Khối lượng xác nhận", normal_volume: "Khối lượng bình thường",
     above_sma200: "Trên SMA200", below_sma200: "Dưới SMA200", rs_strong: "RS mạnh",
     bollinger_lower_band: "Biên Bollinger dưới", bollinger_upper_band: "Biên Bollinger trên",
@@ -27,6 +66,158 @@
     zero_or_missing_volume: "Khối lượng bằng 0/thiếu",
     stale_ticker_data: "Dữ liệu mã chưa cập nhật đến phiên quét",
   };
+
+  // Tra nhãn: ưu tiên SMC_GLOSSARY (bao gồm cả 2 quy ước đặt tên) rồi mới tới map cũ —
+  // đảm bảo 1 nguồn sự thật cho 4 khái niệm SMC dù xuất hiện dưới tên nào.
+  function labelFor(key, type) {
+    const smc = smcInfo(key);
+    if (smc) return `${smc.vi} (${smc.abbr})`;
+    const map = type === "warning" ? warningLabels : confirmationLabels;
+    return map[key] || key;
+  }
+
+  /* ============================================================
+   * Registry mẫu hình nến — KHÔNG tự tạo bảng dịch thứ 2. name/name_vi/description/
+   * direction/category đã có sẵn trong data/candlestick_patterns.json (payload.registry),
+   * hàm này chỉ tra cứu lại đúng nguồn đó cho cả bảng chi tiết lẫn tab Tổng quan.
+   * ============================================================ */
+  function lookupPatternInfo(registry, key) {
+    return (registry && registry[key]) || null;
+  }
+
+  function patternInfo(key) {
+    return lookupPatternInfo(payload && payload.registry, key);
+  }
+
+  /* ============================================================
+   * Tooltip/giải thích tiếp cận dùng chung (Objective C) — 1 bubble DOM thật, không
+   * title="" (chỉ hover), mở bằng hover/focus/click, đóng bằng Escape/click ra ngoài,
+   * nội dung gán qua textContent (không innerHTML) nên không thể chèn HTML từ dữ liệu.
+   * ============================================================ */
+  let tooltipBubble = null;
+  let tooltipOwner = null;
+
+  function ensureTooltipBubble() {
+    if (tooltipBubble) return tooltipBubble;
+    tooltipBubble = document.createElement("div");
+    tooltipBubble.className = "vs-tooltip-bubble";
+    tooltipBubble.id = "vs-tooltip-bubble";
+    tooltipBubble.setAttribute("role", "tooltip");
+    tooltipBubble.hidden = true;
+    document.body.appendChild(tooltipBubble);
+    return tooltipBubble;
+  }
+
+  function positionTooltip(trigger) {
+    const bubble = ensureTooltipBubble();
+    const margin = 8;
+    const rect = trigger.getBoundingClientRect();
+    bubble.style.maxWidth = Math.min(280, window.innerWidth - margin * 2) + "px";
+    const bubbleRect = bubble.getBoundingClientRect();
+    let left = rect.left + rect.width / 2 - bubbleRect.width / 2;
+    left = Math.max(margin, Math.min(left, window.innerWidth - bubbleRect.width - margin));
+    let top = rect.bottom + 6;
+    if (top + bubbleRect.height > window.innerHeight - margin) top = rect.top - bubbleRect.height - 6;
+    bubble.style.left = `${Math.round(left)}px`;
+    bubble.style.top = `${Math.round(Math.max(margin, top))}px`;
+  }
+
+  function showTooltip(trigger) {
+    const text = trigger.getAttribute("data-tooltip");
+    if (!text) return;
+    const bubble = ensureTooltipBubble();
+    bubble.textContent = text;
+    bubble.hidden = false;
+    tooltipOwner = trigger;
+    trigger.setAttribute("aria-expanded", "true");
+    positionTooltip(trigger);
+  }
+
+  function hideTooltip(trigger) {
+    if (trigger && tooltipOwner !== trigger) return;
+    if (tooltipOwner) tooltipOwner.setAttribute("aria-expanded", "false");
+    if (tooltipBubble) tooltipBubble.hidden = true;
+    tooltipOwner = null;
+  }
+
+  function tooltipTrigger(text, ariaLabel) {
+    if (!text) return "";
+    return `<button type="button" class="vs-info-trigger" data-tooltip="${esc(text)}" ` +
+      `aria-describedby="vs-tooltip-bubble" aria-expanded="false" ` +
+      `aria-label="${esc(ariaLabel || "Xem giải thích")}">?</button>`;
+  }
+
+  function initTooltips() {
+    ensureTooltipBubble();
+    document.addEventListener("mouseover", (event) => {
+      const trigger = event.target.closest("[data-tooltip]");
+      if (trigger) showTooltip(trigger);
+    });
+    document.addEventListener("mouseout", (event) => {
+      const trigger = event.target.closest("[data-tooltip]");
+      if (trigger && !trigger.contains(event.relatedTarget)) hideTooltip(trigger);
+    });
+    document.addEventListener("focusin", (event) => {
+      const trigger = event.target.closest("[data-tooltip]");
+      if (trigger) showTooltip(trigger);
+    });
+    document.addEventListener("focusout", (event) => {
+      const trigger = event.target.closest("[data-tooltip]");
+      if (trigger) hideTooltip(trigger);
+    });
+    document.addEventListener("click", (event) => {
+      const trigger = event.target.closest("[data-tooltip]");
+      if (trigger) {
+        if (tooltipOwner === trigger) hideTooltip(trigger); else showTooltip(trigger);
+        return;
+      }
+      if (tooltipOwner && tooltipBubble && !tooltipBubble.contains(event.target)) hideTooltip(tooltipOwner);
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && tooltipOwner) {
+        const owner = tooltipOwner;
+        hideTooltip(owner);
+        owner.focus();
+      }
+    });
+    window.addEventListener("scroll", () => { if (tooltipOwner) positionTooltip(tooltipOwner); }, { passive: true, capture: true });
+    window.addEventListener("resize", () => { if (tooltipOwner) positionTooltip(tooltipOwner); });
+  }
+
+  /* ============================================================
+   * Chỉ số độ tin cậy dùng chung cho tab Tổng quan (Objective A — join xác định,
+   * không suy đoán theo tên chuỗi). Khoá ghép ticker + pattern_key, chỉ khớp phiên
+   * 1D và bars_ago===0 (nến hiện tại) — 2 trường này tồn tại thật trong cả
+   * candle_signals.json (ticker/patterns[]) lẫn candlestick_patterns.json
+   * (ticker/pattern_key/timeframe/bars_ago). Nếu >1 dòng khớp (không xảy ra trong dữ
+   * liệu hiện tại nhưng vẫn xử lý tường minh): giữ dòng có confidence_score cao hơn;
+   * bằng điểm thì giữ dòng gặp trước theo thứ tự mảng gốc (xác định, có thể test).
+   * ============================================================ */
+  function buildConfidenceIndex(snapshot) {
+    const index = new Map();
+    ((snapshot && snapshot.patterns) || []).forEach((row) => {
+      if (row.timeframe !== "1D" || row.bars_ago !== 0) return;
+      const key = `${row.ticker}|${row.pattern_key}`;
+      const existing = index.get(key);
+      if (!existing || Number(row.confidence_score) > Number(existing.confidence_score)) index.set(key, row);
+    });
+    return index;
+  }
+
+  function confidenceFor(index, ticker, patternKey) {
+    return (index && index.get(`${ticker}|${patternKey}`)) || null;
+  }
+
+  let cachedConfidenceIndex = null;
+  async function getConfidenceIndex() {
+    if (cachedConfidenceIndex) return cachedConfidenceIndex;
+    const snapshot = await ready;
+    cachedConfidenceIndex = snapshot ? buildConfidenceIndex(snapshot) : new Map();
+    return cachedConfidenceIndex;
+  }
+
+  let resolveReady;
+  const ready = new Promise((resolve) => { resolveReady = resolve; });
 
   let payload = null;
   let rows = [];
@@ -70,16 +261,35 @@
     throw error;
   }
 
-  function stars(count, score) {
+  const CONTEXT_TOOLTIPS = {
+    near_support: "Giá hiện đang ở gần một vùng hỗ trợ được xác định từ các đáy swing gần nhất.",
+    near_resistance: "Giá hiện đang ở gần một vùng kháng cự được xác định từ các đỉnh swing gần nhất.",
+    volume_confirmation: "Khối lượng giao dịch tại thời điểm hình thành mẫu hình cao hơn đáng kể so với trung bình, củng cố độ tin cậy tín hiệu.",
+  };
+
+  // row=null (không tìm được dòng khớp qua join) và row có field nhưng thiếu giá trị
+  // đều PHẢI hiện "Chưa đủ dữ liệu" — không bao giờ coi thiếu dữ liệu là 0 sao
+  // (trước đây `Number(row.confidence_stars) || 0` biến undefined thành 0 sao, không
+  // phân biệt được với 1 điểm tin cậy=0 thật sự).
+  function stars(row) {
+    if (!row) return `<span class="pattern-stars-unknown" role="img" aria-label="Chưa đủ dữ liệu để xác định độ tin cậy">Chưa đủ dữ liệu</span>`;
+    const rawStars = row.confidence_stars;
+    const rawScore = row.confidence_score;
+    const known = rawStars !== null && rawStars !== undefined && Number.isFinite(Number(rawStars))
+      && rawScore !== null && rawScore !== undefined && Number.isFinite(Number(rawScore));
+    if (!known) return `<span class="pattern-stars-unknown" role="img" aria-label="Chưa đủ dữ liệu để xác định độ tin cậy">Chưa đủ dữ liệu</span>`;
+    const count = Math.max(0, Math.min(3, Math.round(Number(rawStars))));
     const filled = '<svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.8 2.8 5.7 6.3.9-4.55 4.43 1.08 6.27L12 17.14 6.37 20.1l1.08-6.27L2.9 9.4l6.3-.9L12 2.8Z"/></svg>';
     const empty = '<svg class="empty-star" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m12 2.8 2.8 5.7 6.3.9-4.55 4.43 1.08 6.27L12 17.14 6.37 20.1l1.08-6.27L2.9 9.4l6.3-.9L12 2.8Z"/></svg>';
-    return `<span class="pattern-stars" role="img" aria-label="Độ tin cậy ${count} trên 3">${filled.repeat(count)}${empty.repeat(3 - count)}</span> ${number(score, 0)}`;
+    return `<span class="pattern-stars" role="img" aria-label="Mức độ tin cậy: ${count} trên 3 sao">${filled.repeat(count)}${empty.repeat(3 - count)}</span> ${number(rawScore, 0)}`;
   }
 
   function tags(values, type) {
     return `<div class="pattern-tags">${(values || []).map((key) => {
-      const label = type === "warning" ? (warningLabels[key] || key) : (confirmationLabels[key] || key);
-      return `<span class="pattern-tag ${type === "warning" ? "warning" : ""}">${esc(label)}</span>`;
+      const label = labelFor(key, type);
+      const tipText = (smcInfo(key) || {}).tooltip || CONTEXT_TOOLTIPS[key] || "";
+      const tip = tipText ? tooltipTrigger(tipText, `Giải thích ${label}`) : "";
+      return `<span class="pattern-tag ${type === "warning" ? "warning" : ""}">${esc(label)}${tip}</span>`;
     }).join("") || '<span class="pattern-muted">–</span>'}</div>`;
   }
 
@@ -87,13 +297,26 @@
     const changeClass = Number(row.change_pct) > 0 ? "pattern-positive" : Number(row.change_pct) < 0 ? "pattern-negative" : "";
     const statusText = row.status === "forming" ? "Đang hình thành · Chưa xác nhận" : "Hoàn chỉnh";
     const meta = row.pattern_metadata || {};
+    const registryInfo = patternInfo(row.pattern_key) || {};
+    // Việt hoá làm nổi bật (yêu cầu chính), tên gốc tiếng Anh giữ lại làm phụ — cả 2 đều
+    // lấy từ dữ liệu có sẵn (row hoặc registry), không tạo bảng dịch thủ công thứ 2.
+    const nameVi = row.pattern_name_vi || registryInfo.name_vi || row.pattern_name || row.pattern_key;
+    const nameEn = row.pattern_name || registryInfo.name || row.pattern_key;
+    const description = meta.description || registryInfo.description || "";
+    const nameTip = description ? tooltipTrigger(description, `Giải thích mẫu ${nameVi}`) : "";
+    const statusTip = tooltipTrigger(
+      row.status === "forming"
+        ? "Kỳ chưa đóng — mẫu hình có thể còn thay đổi cho tới khi kỳ này kết thúc."
+        : "Kỳ đã đóng — mẫu hình đã hoàn chỉnh theo dữ liệu hiện tại.",
+      "Giải thích trạng thái",
+    );
     return `<tr class="pattern-row js-company-row" tabindex="0" data-ticker="${esc(row.ticker)}">
       <td><strong>${esc(row.ticker)}</strong></td>
-      <td title="${esc(meta.description || "")}"><strong>${esc(row.pattern_name)}</strong><br><small class="pattern-muted">${esc(row.pattern_name_vi || "")}</small></td>
+      <td><strong>${esc(nameVi)}</strong>${nameTip}<br><small class="pattern-muted">${esc(nameEn)}</small></td>
       <td><span class="pattern-direction ${esc(row.direction)}">${esc(textDirection[row.direction] || row.direction)}</span></td>
       <td><strong>${esc(row.timeframe)}</strong></td>
-      <td>${stars(Number(row.confidence_stars) || 0, row.confidence_score)}</td>
-      <td><span class="pattern-status ${esc(row.status)}" title="${row.status === "forming" ? "Kỳ chưa đóng" : "Kỳ đã đóng"}">${statusText}</span></td>
+      <td>${stars(row)}</td>
+      <td><span class="pattern-status ${esc(row.status)}">${statusText}</span>${statusTip}</td>
       <td>${number(row.bars_ago, 0)}</td>
       <td>${esc(row.detected_at || "–")}</td>
       <td>${number(row.close, 0)}</td>
@@ -213,19 +436,25 @@
       sortDirection = sortKey === key && sortDirection === "desc" ? "asc" : "desc";
       sortKey = key; renderTable();
     }));
+    // [data-tooltip] (bao gồm .vs-info-trigger) nằm bên trong dòng nhưng KHÔNG được
+    // mở company panel — chỉ toggle tooltip qua initTooltips(); guard ở đây để tách
+    // 2 hành vi, tránh mở panel ngoài ý muốn khi bấm/gõ phím vào nút giải thích.
     $("pattern-table-body")?.addEventListener("click", (event) => {
+      if (event.target.closest("[data-tooltip]")) return;
       const tr = event.target.closest("tr[data-ticker]");
       if (!tr) return;
       openCompany(rows.find((row) => row.ticker === tr.dataset.ticker) || { ticker: tr.dataset.ticker });
     });
     $("pattern-table-body")?.addEventListener("keydown", (event) => {
       if (!["Enter", " "].includes(event.key)) return;
+      if (event.target.closest("[data-tooltip]")) return;
       const tr = event.target.closest("tr[data-ticker]"); if (!tr) return;
       event.preventDefault(); openCompany(rows.find((row) => row.ticker === tr.dataset.ticker) || { ticker: tr.dataset.ticker });
     });
   }
 
   async function init() {
+    initTooltips();
     setupTabs();
     setState("Đang tải dữ liệu mẫu hình nến…");
     try {
@@ -238,11 +467,40 @@
       const stale = scanDate && (Date.now() - scanDate.getTime()) > 7 * 86400000;
       if (missing.length) setState(`Snapshot chỉ có một phần dữ liệu; thiếu ${missing.join(", ")}.`, "is-warning");
       else if (stale) setState(`Snapshot cũ · phiên ${payload.scan_date}.`, "is-warning");
+      resolveReady(payload);
     } catch (_) {
       setState("Không thể tải dữ liệu mẫu hình nến.", "is-warning");
+      resolveReady(null);
     }
   }
 
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
-  else init();
+  // API dùng chung cho tab Tổng quan (signals.html inline script) — cùng 1 nguồn
+  // glossary/tooltip/confidence với bảng chi tiết, không tạo bản dịch/hệ thống thứ 2.
+  // Guard typeof window: cho phép require() file này trong Node để unit test các hàm
+  // thuần (buildConfidenceIndex/smcInfo/labelFor/...) mà không cần DOM giả lập.
+  if (typeof window !== "undefined") {
+    window.VSCandlestickPatterns = {
+      ready,
+      getConfidenceIndex,
+      confidenceFor,
+      patternInfo,
+      smcInfo,
+      smcDisplayLabel,
+      labelFor,
+      starsMarkup: stars,
+      tooltipTrigger,
+    };
+  }
+
+  if (typeof document !== "undefined") {
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+    else init();
+  }
+
+  if (typeof module !== "undefined" && module.exports) {
+    module.exports = {
+      buildConfidenceIndex, confidenceFor, smcInfo, smcDisplayLabel, labelFor,
+      SMC_GLOSSARY, stars, tooltipTrigger, lookupPatternInfo, esc,
+    };
+  }
 }());

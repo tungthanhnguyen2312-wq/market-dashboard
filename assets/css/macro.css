@@ -241,6 +241,35 @@
 .macro-chart-wrap canvas { max-width: 100%; }
 .macro-chart-note { margin: 0.7rem 0 0; color: var(--text-muted); font-size: 0.7rem; }
 
+/* ---------- Legend/toggle chuỗi DOM thật (Objective D, Phase 4B) — thay hoàn toàn
+   canvas legend mặc định của Chart.js (đã tắt qua plugins.legend.display:false). ---------- */
+.macro-legend { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
+
+.macro-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: 0.3rem 0.65rem;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.macro-legend-swatch { width: 9px; height: 9px; border-radius: 50%; flex: 0 0 auto; }
+
+.macro-legend-item.is-active { color: var(--text); border-color: var(--border-medium); background: var(--surface-2); }
+.macro-legend-item:not(.is-active) { text-decoration: line-through; text-decoration-color: var(--text-muted); }
+.macro-legend-item:not(.is-active) .macro-legend-swatch { opacity: 0.35; }
+.macro-legend-item:hover { border-color: var(--primary); color: var(--text); }
+.macro-legend-item:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.macro-legend-item.is-locked { cursor: not-allowed; opacity: 0.55; }
+
 .macro-empty-chart {
   display: flex;
   align-items: center;
