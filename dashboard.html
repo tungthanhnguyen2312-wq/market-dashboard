@@ -79,12 +79,27 @@
 
       <main class="vs-content">
 
-        <!-- ===== TẦNG 1: DỮ LIỆU THỊ TRƯỜNG (pipeline) ===== -->
+        <h1 class="vs-visually-hidden">Stock Lookup — Tổng quan thị trường</h1>
+
+        <!-- ===== BENTO: BĂNG KPI TỔNG QUAN (Regime/Rủi ro nổi bật + Breadth/Cấu trúc/Thanh khoản) ===== -->
         <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
-          <div class="section-eyebrow mb-0">Dữ liệu thị trường</div>
-          <span class="badge-soft bs-blue" title="Cập nhật mỗi khi chạy lại pipeline dữ liệu">Dữ liệu pipeline</span>
+          <div class="section-eyebrow mb-0">Tổng quan thị trường</div>
+          <div class="d-flex align-items-center gap-2 flex-wrap">
+            <span class="badge-soft bs-amber" title="Chỉ thay đổi sau khi chạy phân tích AI cục bộ và tải lên">Local Snapshot</span>
+            <span class="badge-soft bs-blue" title="Cập nhật mỗi khi chạy lại pipeline dữ liệu">Dữ liệu pipeline</span>
+          </div>
         </div>
-        <section class="kpi-grid mb-4" aria-label="Chỉ số thị trường">
+        <section class="kpi-grid dashboard-kpi-band mb-4" aria-label="Chỉ số tổng quan thị trường">
+          <div class="kpi kpi-featured">
+            <div class="kpi-label"><i data-lucide="gauge"></i>Regime thị trường</div>
+            <div class="kpi-value" id="kpi-regime">—</div>
+            <div class="kpi-sub" id="kpi-regime-sub">từ báo cáo AI</div>
+          </div>
+          <div class="kpi kpi-featured">
+            <div class="kpi-label"><i data-lucide="shield-alert"></i>Rủi ro danh mục</div>
+            <div class="kpi-value" id="kpi-risk">—</div>
+            <div class="kpi-sub">khuyến nghị tỷ trọng</div>
+          </div>
           <div class="kpi">
             <div class="kpi-label"><i data-lucide="trending-up"></i>Breadth &gt; MA200</div>
             <div class="kpi-value" id="kpi-breadth">—</div>
@@ -104,9 +119,9 @@
           </div>
         </section>
 
-        <div class="flex flex-col xl:flex-row gap-4" data-resizable data-resize-key="dashboard-main">
+        <div class="flex flex-col xl:flex-row gap-4 dashboard-bento-main" data-resizable data-resize-key="dashboard-main">
 
-          <!-- ===== CỘT NỘI DUNG CHÍNH ===== -->
+          <!-- ===== CỘT TRÁI: BIỂU ĐỒ NGÀNH & CẤU TRÚC ===== -->
           <div class="xl:flex-[2] min-w-0">
 
             <!-- BIỂU ĐỒ TỔNG QUAN -->
@@ -118,11 +133,11 @@
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
                   <div class="md:col-span-7">
                     <div class="form-label-sm">% mã trên MA200 theo ngành (top 10)</div>
-                    <div class="chart-box"><canvas id="chart-sector"></canvas></div>
+                    <div class="chart-box"><canvas id="chart-sector" role="img" aria-label="Biểu đồ cột: phần trăm mã cổ phiếu trên MA200 theo 10 ngành dẫn đầu"></canvas></div>
                   </div>
                   <div class="md:col-span-5">
                     <div class="form-label-sm">Phân bố cấu trúc giá toàn thị trường</div>
-                    <div class="chart-box"><canvas id="chart-structure"></canvas></div>
+                    <div class="chart-box"><canvas id="chart-structure" role="img" aria-label="Biểu đồ tròn: phân bố cấu trúc giá toàn thị trường theo UP, SIDE, DOWN"></canvas></div>
                   </div>
                 </div>
               </div>
@@ -132,17 +147,34 @@
 
           <div class="vs-resize-handle"></div>
 
-          <!-- ===== CỘT PHẢI ===== -->
+          <!-- ===== CỘT PHẢI: WATCHLIST + KẾ HOẠCH HÀNH ĐỘNG (xếp dọc) ===== -->
           <div class="xl:flex-1 min-w-0">
 
-            <!-- Lối tắt kho lưu trữ báo cáo cũ — nội dung đầy đủ nằm ở archive.html -->
+            <!-- WATCHLIST TỪ BÁO CÁO AI -->
             <div class="card mb-4">
               <div class="card-header">
-                <h5><i data-lucide="archive" class="card-icon"></i>Báo cáo lịch sử</h5>
+                <h5><i data-lucide="star" class="card-icon"></i>Watchlist hôm nay</h5>
               </div>
               <div class="card-body">
-                <p class="text-muted mb-3" style="font-size:0.83rem;">Các báo cáo/playbook tĩnh theo phiên được lưu trữ riêng, có thể tìm theo tháng/năm.</p>
-                <a href="archive.html" class="vs-btn w-full">Xem kho lưu trữ →</a>
+                <div class="chip-row mb-3" id="watchlist-filters"></div>
+                <div id="watchlist">
+                  <div class="space-y-2">
+                    <div class="vs-skeleton vs-skeleton-line" style="width:75%"></div>
+                    <div class="vs-skeleton vs-skeleton-line" style="width:55%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- KẾ HOẠCH HÀNH ĐỘNG -->
+            <div class="card mb-4">
+              <div class="card-header">
+                <h5><i data-lucide="target" class="card-icon"></i>Kế hoạch hành động</h5>
+              </div>
+              <div class="card-body">
+                <ol class="action-list" id="action-plan">
+                  <li class="text-muted">Đang tải...</li>
+                </ol>
               </div>
             </div>
           </div>
@@ -194,58 +226,6 @@
           </div>
         </div>
 
-        <!-- ===== TẦNG 2: PHÂN TÍCH AI & QUANT — LOCAL SNAPSHOT ===== -->
-        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2 mt-4">
-          <div class="section-eyebrow mb-0">Phân tích AI · bản local gần nhất</div>
-          <span class="badge-soft bs-amber" title="Chỉ thay đổi sau khi chạy phân tích AI cục bộ và tải lên">Local Snapshot</span>
-        </div>
-        <section class="kpi-grid mb-4" aria-label="Tóm tắt báo cáo AI">
-          <div class="kpi kpi-featured">
-            <div class="kpi-label"><i data-lucide="gauge"></i>Regime thị trường</div>
-            <div class="kpi-value" id="kpi-regime">—</div>
-            <div class="kpi-sub" id="kpi-regime-sub">từ báo cáo AI</div>
-          </div>
-          <div class="kpi kpi-featured">
-            <div class="kpi-label"><i data-lucide="shield-alert"></i>Rủi ro danh mục</div>
-            <div class="kpi-value" id="kpi-risk">—</div>
-            <div class="kpi-sub">khuyến nghị tỷ trọng</div>
-          </div>
-        </section>
-
-        <div class="flex flex-col xl:flex-row gap-4">
-          <!-- WATCHLIST TỪ BÁO CÁO AI -->
-          <div class="xl:flex-1 min-w-0">
-            <div class="card mb-4">
-              <div class="card-header">
-                <h5><i data-lucide="star" class="card-icon"></i>Watchlist hôm nay</h5>
-              </div>
-              <div class="card-body">
-                <div class="chip-row mb-3" id="watchlist-filters"></div>
-                <div id="watchlist">
-                  <div class="space-y-2">
-                    <div class="vs-skeleton vs-skeleton-line" style="width:75%"></div>
-                    <div class="vs-skeleton vs-skeleton-line" style="width:55%"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- KẾ HOẠCH HÀNH ĐỘNG -->
-          <div class="xl:flex-1 min-w-0">
-            <div class="card mb-4">
-              <div class="card-header">
-                <h5><i data-lucide="target" class="card-icon"></i>Kế hoạch hành động</h5>
-              </div>
-              <div class="card-body">
-                <ol class="action-list" id="action-plan">
-                  <li class="text-muted">Đang tải...</li>
-                </ol>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <!-- BÁO CÁO AI — full width, cuối trang -->
         <div class="card mb-4">
           <div class="card-header">
@@ -262,6 +242,17 @@
           </div>
           <div class="card-footer text-center py-2">
             <button type="button" class="vs-btn" id="report-toggle">Xem đầy đủ ▾</button>
+          </div>
+        </div>
+
+        <!-- ===== TIỆN ÍCH: KHO LƯU TRỮ (Bento hàng cuối, gọn) ===== -->
+        <div class="card dashboard-utility-card mb-4">
+          <div class="card-header">
+            <h5><i data-lucide="archive" class="card-icon"></i>Báo cáo lịch sử</h5>
+          </div>
+          <div class="card-body">
+            <p class="text-muted mb-0" style="font-size:0.83rem;">Các báo cáo/playbook tĩnh theo phiên được lưu trữ riêng, có thể tìm theo tháng/năm.</p>
+            <a href="archive.html" class="vs-btn">Xem kho lưu trữ →</a>
           </div>
         </div>
       </main>

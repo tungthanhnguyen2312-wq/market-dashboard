@@ -287,10 +287,18 @@
 .vs-topbar-link:hover { color: var(--text); background: var(--surface-2); }
 .vs-topbar-link svg { width: 14px; height: 14px; }
 
+/* min-width:0 + overflow:hidden phá "min-width:auto" mặc định của flex item (vốn
+   khoá độ rộng tối thiểu bằng đúng độ dài chuỗi không-wrap) — cho phép chuỗi
+   freshness dài (Phiên .. · snapshot .. · pipeline local) co lại và hiện "…" thay vì
+   đẩy tràn ngang topbar ở 1024/768px. Không đổi nav/logo/nút — chỉ mỗi span này co. */
 .vs-topbar-meta {
   font-size: 0.72rem;
   color: var(--text-muted);
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  flex-shrink: 1;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -742,4 +750,13 @@ body.is-resizing-panel * { user-select: none !important; }
 @media (max-width: 640px) {
   .vs-content { padding: 1rem; }
   .vs-topbar-meta { display: none; }
+}
+
+/* 1024–1279px: cùng 6 mục nav, cùng thứ tự/icon/nhãn/hành vi — chỉ giảm khoảng đệm để
+   vừa khít topbar (band hẹp giữa lúc drawer tắt ở 1024px và topbar rộng rãi ở ≥1280px).
+   Không ẩn/gộp/đổi thứ tự mục nào; đặt sau cùng để thắng cascade (cùng specificity,
+   sau thắng trước) trên rule .vs-topbar/.vs-topnav-link gốc phía trên. */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .vs-topbar { gap: 0.6rem; }
+  .vs-topnav-link { padding: 0.4rem 0.45rem; }
 }

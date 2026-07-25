@@ -705,3 +705,40 @@ table.dataTable thead .dt-column-order:after { color: var(--primary); }
   #market-table_wrapper .dt-layout-row { display: flex; flex-direction: column; gap: 0.6rem; align-items: stretch; }
   #market-table_wrapper .dt-search input { max-width: 100%; width: 100%; margin-left: 0; }
 }
+
+/* ---------- Bento overview layout (Phase 3B) ----------
+ * .dashboard-kpi-band / .dashboard-bento-main đánh dấu ngữ nghĩa cho băng KPI hợp
+ * nhất và vùng resize chính — layout thực tế vẫn do .kpi-grid/data-resizable đảm
+ * nhiệm như cũ, không đổi hành vi grid/resize gốc. */
+
+/* Ẩn khỏi màn hình nhưng vẫn đọc được bằng screen reader (mẫu sr-only chuẩn) —
+   dùng cho <h1> tiêu đề trang, không có trong Tailwind/Bootstrap đã build sẵn. */
+.vs-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Thẻ tiện ích cuối trang (kho lưu trữ) — gọn hơn thẻ nội dung chính: mô tả + nút
+   nằm chung 1 hàng thay vì xếp dọc chiếm toàn chiều rộng thẻ. */
+.dashboard-utility-card .card-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.dashboard-utility-card .card-body p { margin-bottom: 0; max-width: 46ch; }
+.dashboard-utility-card .vs-btn { flex-shrink: 0; }
+
+@media (max-width: 480px) {
+  .dashboard-utility-card .card-body { flex-direction: column; align-items: stretch; }
+  .dashboard-utility-card .vs-btn { text-align: center; }
+}

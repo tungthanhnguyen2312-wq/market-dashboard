@@ -82,6 +82,20 @@ const esc = (s) =>
 /* ============================================================
  * KHU VỰC 1: BÁO CÁO AI (Markdown)
  * ============================================================ */
+/* ai_report_latest.md thường bắt đầu bằng tiêu đề Markdown "# ..." — marked.parse()
+   sẽ sinh ra <h1> cho dòng đó, nhưng trang dashboard đã có đúng 1 <h1> tĩnh riêng
+   (tiêu đề trang). Hạ mọi <h1> bên trong #ai-report xuống <h2> (giữ nguyên nội dung/
+   thuộc tính) để toàn trang chỉ còn đúng 1 <h1> — không đụng tới file .md, không đổi
+   cấu hình marked (renderer/setOptions) nên các trang khác dùng marked không ảnh hưởng. */
+function demoteReportHeadings(container) {
+  container.querySelectorAll("h1").forEach((h1) => {
+    const h2 = document.createElement("h2");
+    for (const attr of h1.attributes) h2.setAttribute(attr.name, attr.value);
+    while (h1.firstChild) h2.appendChild(h1.firstChild);
+    h1.replaceWith(h2);
+  });
+}
+
 async function loadAiReport() {
   const container = document.getElementById("ai-report");
   try {
@@ -90,6 +104,7 @@ async function loadAiReport() {
     const md = await res.text();
 
     container.innerHTML = marked.parse(md);
+    demoteReportHeadings(container);
 
     // Lấy ngày báo cáo từ tiêu đề (vd: "... — 2026-07-09") để hiện lên badge
     const dateMatch = md.match(/(\d{4}-\d{2}-\d{2})/);
