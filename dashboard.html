@@ -245,6 +245,20 @@
           </div>
         </div>
 
+        <!-- KẾ HOẠCH HÀNH ĐỘNG — BÁO CÁO CŨ (app.js chỉ hiện thẻ này khi kế hoạch ở
+             panel quyết định phía trên không thuộc phiên mới nhất/không xác định được
+             độ mới — nội dung vẫn được giữ lại, không bị mất, chỉ chuyển xuống đây) -->
+        <div class="card mb-4 dashboard-action-plan-historical" id="action-plan-historical-card" hidden>
+          <div class="card-header">
+            <h5><i data-lucide="history" class="card-icon"></i>Kế hoạch hành động (báo cáo cũ)</h5>
+            <span class="badge-soft bs-gray" id="action-plan-historical-date"></span>
+          </div>
+          <div class="card-body">
+            <p class="text-muted mb-2" style="font-size:0.8rem;">Phân tích AI dưới đây không thuộc phiên giao dịch mới nhất — chỉ mang tính tham khảo lịch sử.</p>
+            <ol class="action-list" id="action-plan-historical"></ol>
+          </div>
+        </div>
+
         <!-- ===== TIỆN ÍCH: KHO LƯU TRỮ (Bento hàng cuối, gọn) ===== -->
         <div class="card dashboard-utility-card mb-4">
           <div class="card-header">

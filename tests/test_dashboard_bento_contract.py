@@ -28,6 +28,7 @@ REQUIRED_UNIQUE_IDS = [
     "kpi-liquidity",
     "chart-sector", "chart-structure",
     "watchlist", "watchlist-filters", "action-plan",
+    "action-plan-historical-card", "action-plan-historical", "action-plan-historical-date",
     "market-table", "screener-cards",
     "filter-exchange", "filter-industry", "sort-screener", "quick-filters",
     "build-status", "table-status",
@@ -85,9 +86,13 @@ class _TreeBuilder(HTMLParser):
 
 def _parse(path):
     html_text = path.read_text(encoding="utf-8")
+    return _parse_string(html_text), html_text
+
+
+def _parse_string(html_text):
     builder = _TreeBuilder()
     builder.feed(html_text)
-    return builder.root, html_text
+    return builder.root
 
 
 def _find_by_id(root, node_id):
@@ -282,6 +287,166 @@ class DashboardHardeningContractTests(unittest.TestCase):
         window = self.shell_css[idx:idx + 300]
         self.assertIn(".vs-topbar-meta", window)
         self.assertIn("display: none", window)
+
+
+class ActionPlanFreshnessContractTests(unittest.TestCase):
+    """Phase 3C — freshness-aware Action Plan placement (upper panel vs historical)."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.root, cls.html_text = _parse(DASHBOARD_PATH)
+        cls.order_list = list(cls.root.iter_all())
+        cls.app_js = APP_JS_PATH.read_text(encoding="utf-8")
+
+    def test_1_historical_container_present_hidden_by_default(self):
+        nodes = _find_by_id(self.root, "action-plan-historical-card")
+        self.assertEqual(len(nodes), 1)
+        card = nodes[0]
+        self.assertIn("hidden", card.attrs, "Historical Action Plan card must be hidden by default")
+        self.assertTrue(_find_by_id(self.root, "action-plan-historical"), "#action-plan-historical list missing")
+        self.assertTrue(_find_by_id(self.root, "action-plan-historical-date"), "#action-plan-historical-date badge missing")
+
+    def test_2_historical_container_sits_near_ai_report_and_archive(self):
+        ai_report_idx = self.order_list.index(_find_by_id(self.root, "ai-report")[0])
+        historical_idx = self.order_list.index(_find_by_id(self.root, "action-plan-historical-card")[0])
+        archive = _find_all(self.root, lambda n: n.has_class("dashboard-utility-card"))
+        self.assertEqual(len(archive), 1)
+        archive_idx = self.order_list.index(archive[0])
+        self.assertLess(ai_report_idx, historical_idx, "Historical Action Plan must come after the AI report")
+        self.assertLess(historical_idx, archive_idx, "Historical Action Plan must sit before the Archive utility card")
+
+    def test_3_upper_action_plan_stays_in_resizable_right_panel(self):
+        # Same structural guarantee as DashboardBentoContractTests.test_7, re-asserted
+        # here so this freshness feature can't silently move #action-plan out of it.
+        resizable = _find_all(
+            self.root, lambda n: "data-resizable" in n.attrs and n.attrs.get("data-resize-key") == "dashboard-main",
+        )[0]
+        right_panel = resizable.children[2]
+        self.assertTrue(
+            any(n.attrs.get("id") == "action-plan" for n in right_panel.iter_all()),
+            "#action-plan must remain in the resizable region's right panel",
+        )
+
+    def test_4_freshness_rule_compares_against_market_session_not_naive_date(self):
+        match = re.search(r"function isActionPlanCurrent\([^)]*\)\s*\{.*?\n\}\n", self.app_js, re.S)
+        self.assertIsNotNone(match, "isActionPlanCurrent() not found in app.js")
+        body = match.group(0)
+        self.assertIn("market_session", body)
+        self.assertIn("reportDate === session", body)
+        self.assertNotIn("new Date(", body, "must not use a naive calendar-date comparison")
+        self.assertNotRegex(body, r"reportDate\s*<", "must not use a naive reportDate < today comparison")
+
+    def test_5_freshness_rule_fails_safe_when_metadata_unavailable(self):
+        match = re.search(r"function isActionPlanCurrent\([^)]*\)\s*\{.*?\n\}\n", self.app_js, re.S)
+        body = match.group(0)
+        self.assertRegex(body, r"if\s*\(\s*!session\s*\|\|\s*!reportDate\s*\)\s*return false")
+
+    def test_6_report_date_shared_via_single_md_fetch_not_duplicated(self):
+        self.assertEqual(
+            self.app_js.count("fetch(REPORT_URL"), 1,
+            "ai_report_latest.md must be fetched exactly once (shared via reportDateReady), not re-fetched for freshness",
+        )
+        self.assertIn("reportDateReady", self.app_js)
+        self.assertIn("resolveReportDate(", self.app_js)
+
+    def test_7_upper_and_historical_placement_are_mutually_exclusive(self):
+        match = re.search(r"async function loadJsonReport\(\)\s*\{.*?\n\}\n", self.app_js, re.S)
+        self.assertIsNotNone(match, "loadJsonReport() not found in app.js")
+        body = match.group(0)
+        # Hidden in every path except the one stale/unknown branch that shows it.
+        self.assertGreaterEqual(body.count("historicalCard.hidden = true"), 2)
+        self.assertEqual(body.count("historicalCard.hidden = false"), 1)
+
+
+class ScreenerDisclosureContractTests(unittest.TestCase):
+    """Phase 3C — progressive-disclosure Screener cards (compact summary + detail)."""
+
+    SECONDARY_FIELDS = [
+        "rs_rating", "rsi14", "rel_vol", "macd_hist", "bb_pctb", "atr_pct",
+        "pct_from_52w_high", "near_52w_high", "pct_above_52w_low", "dist_swing_low_pct",
+        "ret_1m", "ret_3m", "ret_6m", "ret_12m",
+        "pe", "pb", "roe", "foreign_room_pct", "free_float_est",
+        "above_sma50", "above_sma200", "golden_cross",
+    ]
+    COMPACT_FIELDS = ["structure", "gtgd20_ty"]
+
+    @classmethod
+    def setUpClass(cls):
+        cls.app_js = APP_JS_PATH.read_text(encoding="utf-8")
+        match = re.search(r'currentCardRows\.map\(\(row, index\) => `([\s\S]*?)`\)\.join\(""\)', cls.app_js)
+        assert match, "screener card template literal not found in app.js"
+        cls.template = match.group(1)
+        summary_match = re.search(r"<summary[^>]*>[\s\S]*?</summary>", cls.template)
+        assert summary_match, "<summary> not found in screener card template"
+        cls.summary_html = summary_match.group(0)
+        cls.after_summary_html = cls.template[summary_match.end():]
+        cls.summary_tree = _parse_string(cls.summary_html)
+        cls.after_summary_tree = _parse_string(cls.after_summary_html)
+
+    def test_1_card_root_is_details_with_summary_head(self):
+        card_root_match = re.match(r"\s*<details\s+class=\"screener-record\"", self.template)
+        self.assertIsNotNone(card_root_match, "Screener card must be a <details class=\"screener-record\">")
+        self.assertTrue(self.summary_html.startswith('<summary class="screener-record-head"'))
+
+    def test_2_compact_summary_excludes_secondary_fields(self):
+        for field in self.SECONDARY_FIELDS:
+            self.assertNotIn(
+                f'"{field}"', self.summary_html,
+                f"Secondary field '{field}' must not be referenced in the collapsed summary",
+            )
+
+    def test_3_compact_summary_includes_required_fields(self):
+        for field in self.COMPACT_FIELDS:
+            self.assertIn(f'"{field}"', self.summary_html, f"Compact summary must show '{field}'")
+        for marker in ("screener-ticker", "screener-price", "screener-company-meta"):
+            self.assertIn(marker, self.summary_html)
+
+    def test_4_secondary_fields_present_in_expandable_body(self):
+        for field in self.SECONDARY_FIELDS:
+            self.assertIn(f'"{field}"', self.after_summary_html, f"'{field}' must still be shown in the expandable body")
+
+    def test_5_no_nested_interactive_elements_in_summary(self):
+        interactive_tags = {"button", "a", "input", "select", "textarea", "summary", "details"}
+        # summary_tree's root is a synthetic #root wrapping the real <summary> element
+        # itself; skip both so only genuine DESCENDANTS of <summary> are checked.
+        real_summary = self.summary_tree.children[0]
+        descendants = list(real_summary.iter_all())[1:]
+        offenders = [
+            n for n in descendants
+            if n.tag in interactive_tags or "tabindex" in n.attrs or n.attrs.get("role") == "button"
+        ]
+        self.assertFalse(offenders, f"Nested interactive elements found inside <summary>: {[o.tag for o in offenders]}")
+
+    def test_6_explicit_open_profile_button_exists_outside_summary(self):
+        buttons = _find_all(self.after_summary_tree, lambda n: n.tag == "button" and n.has_class("screener-open-profile"))
+        self.assertEqual(len(buttons), 1, "Exactly one explicit 'Mo ho so' button expected in the expandable body")
+
+    def test_7_click_handler_scoped_only_to_open_profile_button(self):
+        match = re.search(r'cardHost\.addEventListener\("click".*?\}\);', self.app_js, re.S)
+        self.assertIsNotNone(match, "cardHost click listener not found")
+        body = match.group(0)
+        self.assertIn('closest(".screener-open-profile")', body)
+        self.assertIn("VSCompanyPanel.open", body)
+
+    def test_8_no_separate_keydown_reimplementation_for_cards(self):
+        # Native <details>/<summary> and <button> already handle Enter/Space; a
+        # leftover manual keydown handler here would double-fire VSCompanyPanel.open.
+        self.assertNotIn('cardHost.addEventListener("keydown"', self.app_js)
+
+    def test_9_primary_grid_fully_retired(self):
+        style_css = STYLE_PATH.read_text(encoding="utf-8")
+        self.assertNotIn("screener-primary-grid", self.app_js)
+        self.assertNotIn("screener-primary-grid", style_css)
+
+    def test_10_existing_filter_sort_and_error_contracts_untouched(self):
+        for marker in (
+            "initQuickFilters", "showTableError",
+            'getElementById("filter-exchange")', 'getElementById("filter-industry")',
+            'getElementById("sort-screener")',
+        ):
+            self.assertIn(marker, self.app_js)
+        self.assertNotIn("scrollX:", self.app_js)
+        self.assertNotIn("scrollY:", self.app_js)
 
 
 if __name__ == "__main__":

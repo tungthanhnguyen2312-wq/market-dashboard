@@ -96,6 +96,14 @@ function demoteReportHeadings(container) {
   });
 }
 
+/* ai_report_latest.json không có trường ngày riêng — ngày của TOÀN BỘ báo cáo (JSON +
+   Markdown, xuất bản cùng lúc) chỉ có trong tiêu đề .md. loadJsonReport() cần đúng
+   ngày này để quyết định vị trí Kế hoạch hành động nhưng KHÔNG fetch lại .md lần 2 —
+   dùng chung promise này, được loadAiReport() resolve đúng 1 lần (giá trị hoặc null)
+   dù thành công hay lỗi, nên loadJsonReport() không bao giờ chờ vô thời hạn. */
+let resolveReportDate;
+const reportDateReady = new Promise((resolve) => { resolveReportDate = resolve; });
+
 async function loadAiReport() {
   const container = document.getElementById("ai-report");
   try {
@@ -111,6 +119,7 @@ async function loadAiReport() {
     if (dateMatch) {
       document.getElementById("report-date").textContent = dateMatch[1];
     }
+    resolveReportDate(dateMatch ? dateMatch[1] : null);
   } catch (err) {
     container.classList.remove("collapsed");
     const toggle = document.getElementById("report-toggle");
@@ -122,6 +131,7 @@ async function loadAiReport() {
         Lưu ý: khi xem local phải chạy qua web server
         (vd: <code>python -m http.server</code>), mở trực tiếp file sẽ bị chặn CORS.
       </div>`;
+    resolveReportDate(null);
   }
 }
 
@@ -159,9 +169,25 @@ const STANCE_MAP = {
   tranh: { label: "TRÁNH", cls: "bs-red" },
 };
 
+/* "Hiện tại" = ngày báo cáo TRÙNG với market_session của build_info.json — session
+   này do pipeline backend tự tính (phiên giao dịch gần nhất có dữ liệu thật, đã tự
+   né cuối tuần/lễ), nên so sánh trực tiếp với nó luôn đúng theo lịch giao dịch mà
+   KHÔNG cần dò cuối tuần/lễ thủ công ở đây — khác hẳn cách so sánh ngây thơ
+   "reportDate < hôm nay theo lịch dương". Thiếu 1 trong 2 mốc (build_info chưa có
+   market_session, hoặc không đọc được ngày báo cáo) → coi là báo cáo cũ (an toàn,
+   không bao giờ nhận nhầm 1 báo cáo không rõ tuổi là "mới"). */
+function isActionPlanCurrent(reportDate) {
+  const session = currentBuildInfo && currentBuildInfo.market_session;
+  if (!session || !reportDate) return false;
+  return reportDate === session;
+}
+
 async function loadJsonReport() {
   const watchlistBox = document.getElementById("watchlist");
   const actionBox = document.getElementById("action-plan");
+  const historicalCard = document.getElementById("action-plan-historical-card");
+  const historicalBox = document.getElementById("action-plan-historical");
+  const historicalDateBadge = document.getElementById("action-plan-historical-date");
   try {
     const res = await fetch(REPORT_JSON_URL, { cache: "no-store" });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -211,17 +237,31 @@ async function loadJsonReport() {
       watchlistBox.innerHTML = `<p class="text-muted mb-0">Báo cáo hôm nay không có mã nào trong watchlist.</p>`;
     }
 
-    // --- Kế hoạch hành động ---
-    if (Array.isArray(data.action_plan) && data.action_plan.length) {
-      actionBox.innerHTML = data.action_plan
-        .map((a) => `<li>${esc(a)}</li>`)
-        .join("");
-    } else {
+    // --- Kế hoạch hành động: hiện ở panel quyết định (trên) nếu đúng phiên mới nhất,
+    // ngược lại chuyển nguyên nội dung xuống thẻ lịch sử (không hiện đồng thời ở cả 2). ---
+    const hasPlan = Array.isArray(data.action_plan) && data.action_plan.length;
+    if (!hasPlan) {
       actionBox.innerHTML = `<li class="text-muted">Không có kế hoạch trong báo cáo hôm nay.</li>`;
+      if (historicalCard) historicalCard.hidden = true;
+    } else {
+      const reportDate = await reportDateReady;
+      const planItemsHtml = data.action_plan.map((a) => `<li>${esc(a)}</li>`).join("");
+      if (isActionPlanCurrent(reportDate)) {
+        actionBox.innerHTML = planItemsHtml;
+        if (historicalCard) historicalCard.hidden = true;
+      } else {
+        actionBox.innerHTML = `<li class="text-muted">Kế hoạch hành động thuộc báo cáo cũ hơn — xem "Kế hoạch hành động (báo cáo cũ)" bên dưới.</li>`;
+        if (historicalCard) {
+          historicalCard.hidden = false;
+          if (historicalDateBadge) historicalDateBadge.textContent = reportDate ? `Báo cáo ${reportDate}` : "Không rõ ngày báo cáo";
+          if (historicalBox) historicalBox.innerHTML = planItemsHtml;
+        }
+      }
     }
   } catch (err) {
     watchlistBox.innerHTML = `<p class="text-muted mb-0">Chưa tải được dữ liệu Watchlist (${esc(err.message)}).</p>`;
     actionBox.innerHTML = `<li class="text-muted">Không có dữ liệu.</li>`;
+    if (historicalCard) historicalCard.hidden = true;
   }
 }
 
@@ -545,42 +585,52 @@ function initMarketTable(rows, fields) {
     <div class="screener-metric"><span>${esc(label)}</span><strong>${formatCell(field, row[field])}</strong></div>`;
   const group = (title, pairs, row) => `
     <section class="screener-detail-group"><h6>${esc(title)}</h6><div>${pairs.map(([label, field]) => metric(label, field, row)).join("")}</div></section>`;
+  /* Thẻ screener dùng <details>/<summary> gốc (cùng mẫu .watch-item): tóm tắt gọn
+     (mã, sàn, ngành, ngày, giá, %, cấu trúc, thanh khoản, margin) luôn hiển thị và
+     tự có hành vi mở/đóng bằng chuột lẫn bàn phím (Enter/Space) qua semantics HTML
+     gốc — không cần JS tự viết, không cần role/tabindex thủ công. Phân tích phụ
+     (RS/RSI/KL tương đối/momentum/xu hướng/52 tuần/hiệu suất/cơ bản/rủi ro) chỉ nằm
+     trong phần mở rộng. Nút "Mở hồ sơ" nằm NGOÀI <summary> (không lồng interactive
+     control vào trong summary) nên bấm nó không đụng tới trạng thái đóng/mở thẻ. */
   const renderCards = () => {
     currentCardRows = table.rows({ page: "current", search: "applied", order: "applied" }).data().toArray();
     cardHost.innerHTML = currentCardRows.length ? currentCardRows.map((row, index) => `
-      <article class="screener-record" data-card-index="${index}" tabindex="0" role="button" aria-label="Mở hồ sơ ${esc(row.ticker)}">
-        <header class="screener-record-head">
+      <details class="screener-record" data-card-index="${index}">
+        <summary class="screener-record-head">
           <div><span class="screener-ticker">${esc(row.ticker)}</span><span class="badge-soft bs-blue">${esc(displayExchange(row.exchange) || "–")}</span></div>
           <div class="screener-company-meta">${esc(row.industry || "Chưa rõ ngành")} · ${formatCell("date", row.date)}</div>
           <div class="screener-price"><strong>${formatCell("close", row.close)}</strong><span class="${signClass(row.chg_today_pct)}">${formatCell("chg_today_pct", row.chg_today_pct)}%</span></div>
-          ${row.margin_status ? `<span class="badge-margin">${esc(row.margin_status)}</span>` : `<span class="badge-soft bs-green">Margin sạch</span>`}
-        </header>
-        <div class="screener-primary-grid">
-          ${metric("GTGD 20p (tỷ)", "gtgd20_ty", row)}${metric("KL tương đối", "rel_vol", row)}
-          ${metric("RS", "rs_rating", row)}${metric("RSI 14", "rsi14", row)}${metric("Cấu trúc", "structure", row)}
+          <div class="screener-compact-status">
+            ${formatCell("structure", row.structure)}
+            <span class="screener-compact-liquidity" title="GTGD bình quân 20 phiên (tỷ đồng)">${formatCell("gtgd20_ty", row.gtgd20_ty)} tỷ</span>
+            ${row.margin_status ? `<span class="badge-margin">${esc(row.margin_status)}</span>` : `<span class="badge-soft bs-green">Margin sạch</span>`}
+            <span class="screener-caret" aria-hidden="true">▾</span>
+          </div>
+        </summary>
+        <div class="screener-record-body">
+          <div class="screener-detail-grid">
+            ${group("Sức mạnh &amp; Momentum", [["RS", "rs_rating"], ["RSI 14", "rsi14"], ["KL tương đối", "rel_vol"], ["MACD Hist", "macd_hist"], ["BB %B", "bb_pctb"], ["ATR %", "atr_pct"]], row)}
+            ${group("Xu hướng", [["Trên MA50", "above_sma50"], ["Trên MA200", "above_sma200"], ["Golden Cross", "golden_cross"]], row)}
+            ${group("Biên 52 tuần", [["Cách đỉnh 52T %", "pct_from_52w_high"], ["Gần đỉnh 52T", "near_52w_high"], ["Trên đáy 52T %", "pct_above_52w_low"], ["Cách Swing Low %", "dist_swing_low_pct"]], row)}
+            ${group("Hiệu suất", [["1 tháng %", "ret_1m"], ["3 tháng %", "ret_3m"], ["6 tháng %", "ret_6m"], ["12 tháng %", "ret_12m"]], row)}
+            ${group("Cơ bản", [["P/E", "pe"], ["P/B", "pb"], ["ROE %", "roe"], ["Room ngoại %", "foreign_room_pct"]], row)}
+            ${group("Rủi ro & sở hữu", [["Free Float", "free_float_est"], ["Cờ margin", "margin_status"]], row)}
+          </div>
+          <div class="screener-record-actions">
+            <button type="button" class="vs-btn vs-btn-sm screener-open-profile" aria-label="Mở hồ sơ ${esc(row.ticker)}">Mở hồ sơ →</button>
+          </div>
         </div>
-        <div class="screener-detail-grid">
-          ${group("Momentum", [["MACD Hist", "macd_hist"], ["BB %B", "bb_pctb"], ["ATR %", "atr_pct"]], row)}
-          ${group("Xu hướng", [["Trên MA50", "above_sma50"], ["Trên MA200", "above_sma200"], ["Golden Cross", "golden_cross"]], row)}
-          ${group("Biên 52 tuần", [["Cách đỉnh 52T %", "pct_from_52w_high"], ["Gần đỉnh 52T", "near_52w_high"], ["Trên đáy 52T %", "pct_above_52w_low"], ["Cách Swing Low %", "dist_swing_low_pct"]], row)}
-          ${group("Hiệu suất", [["1 tháng %", "ret_1m"], ["3 tháng %", "ret_3m"], ["6 tháng %", "ret_6m"], ["12 tháng %", "ret_12m"]], row)}
-          ${group("Cơ bản", [["P/E", "pe"], ["P/B", "pb"], ["ROE %", "roe"], ["Room ngoại %", "foreign_room_pct"]], row)}
-          ${group("Rủi ro & sở hữu", [["Free Float", "free_float_est"], ["Cờ margin", "margin_status"]], row)}
-        </div>
-      </article>`).join("") : `<div class="vs-empty"><div class="vs-empty-title">Không có mã phù hợp</div><div class="vs-empty-sub">Hãy nới bộ lọc hoặc từ khóa tìm kiếm.</div></div>`;
+      </details>`).join("") : `<div class="vs-empty"><div class="vs-empty-title">Không có mã phù hợp</div><div class="vs-empty-sub">Hãy nới bộ lọc hoặc từ khóa tìm kiếm.</div></div>`;
   };
   table.on("draw", renderCards);
   renderCards();
+  // Chỉ nút "Mở hồ sơ" tường minh mới gọi company-panel — bấm/gõ phím trên phần tóm
+  // tắt (summary) chỉ đóng/mở thẻ theo đúng semantics <details> gốc, không mở panel.
   cardHost.addEventListener("click", (event) => {
-    const card = event.target.closest("[data-card-index]");
-    if (card && window.VSCompanyPanel) VSCompanyPanel.open(currentCardRows[Number(card.dataset.cardIndex)]);
-  });
-  cardHost.addEventListener("keydown", (event) => {
-    if (event.key !== "Enter" && event.key !== " ") return;
-    const card = event.target.closest("[data-card-index]");
-    if (!card || !window.VSCompanyPanel) return;
-    event.preventDefault();
-    VSCompanyPanel.open(currentCardRows[Number(card.dataset.cardIndex)]);
+    const openBtn = event.target.closest(".screener-open-profile");
+    if (!openBtn || !window.VSCompanyPanel) return;
+    const card = openBtn.closest("[data-card-index]");
+    if (card) VSCompanyPanel.open(currentCardRows[Number(card.dataset.cardIndex)]);
   });
 
   // Bộ lọc theo sàn và ngành (khớp chính xác giá trị của cột)
