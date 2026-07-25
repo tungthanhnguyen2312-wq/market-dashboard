@@ -34,12 +34,40 @@
 .pattern-stars svg { width:13px; height:13px; }
 .pattern-stars .empty-star { opacity:.3; }
 .pattern-tags { display:flex; flex-wrap:wrap; gap:.25rem; max-width:260px; }
-.pattern-tag { border:1px solid var(--border); border-radius:999px; padding:.1rem .35rem; color:var(--text-muted); font-size:.69rem; }
+.pattern-tag { display:inline-flex; align-items:center; gap:.2rem; border:1px solid var(--border); border-radius:999px; padding:.1rem .35rem; color:var(--text-muted); font-size:.69rem; }
 .pattern-tag.warning { color:var(--warning); }
 .pattern-positive { color:var(--success); }
 .pattern-negative { color:var(--danger); }
 .pattern-muted { color:var(--text-muted); }
 .pattern-mobile-key { display:none; }
+.pattern-stars-unknown { color:var(--text-muted); font-size:.72rem; font-style:italic; white-space:nowrap; }
+
+/* ---------- Nút mở tooltip giải thích (Objective C, Phase 4B) ---------- */
+.vs-info-trigger {
+  display:inline-flex; align-items:center; justify-content:center;
+  width:15px; height:15px; margin-left:.3rem; flex:0 0 auto;
+  border-radius:50%; border:1px solid var(--border); background:transparent;
+  color:var(--text-muted); font-size:.62rem; font-weight:700; line-height:1;
+  cursor:pointer; padding:0; vertical-align:middle;
+}
+.vs-info-trigger:hover,
+.vs-info-trigger:focus-visible,
+.vs-info-trigger[aria-expanded="true"] {
+  color:var(--text); border-color:var(--primary); background:var(--primary-soft);
+}
+.vs-info-trigger:focus-visible { outline:2px solid var(--primary); outline-offset:2px; }
+
+/* Bubble DÙNG CHUNG cho mọi trigger trên trang — position:fixed nên không chiếm
+   layout/không đổi bề rộng bảng/thẻ; toạ độ do JS tính lại theo trigger đang mở
+   (positionTooltip trong candlestick-patterns.js), luôn kẹp trong viewport. */
+.vs-tooltip-bubble {
+  position:fixed; z-index:1000; max-width:280px;
+  padding:.5rem .65rem; border-radius:var(--radius-md); border:1px solid var(--border);
+  background:var(--surface-2); color:var(--text); font-size:.74rem; line-height:1.45;
+  font-weight:400; text-transform:none; letter-spacing:normal;
+  box-shadow:0 8px 24px rgba(0,0,0,.45); pointer-events:none;
+}
+.vs-tooltip-bubble[hidden] { display:none; }
 @media (max-width:1024px) {
   .pattern-summary { grid-template-columns:repeat(3,1fr); }
   .pattern-filters { grid-template-columns:repeat(3,1fr); }

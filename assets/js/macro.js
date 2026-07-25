@@ -18,6 +18,32 @@
     { title: "Vàng", subtitle: "Vàng quốc tế · SJC", keys: ["gold_world", "gold_sjc"] },
   ];
 
+  /* Màu CỐ ĐỊNH theo khoá chỉ báo (Objective D, Phase 4B) — trước đây gán theo vị trí
+   * trong mảng ĐÃ LỌC (index % CHART_COLORS.series.length): nếu 1 chỉ báo trong nhóm
+   * tạm thời "unavailable" ở lần publish này, mọi chỉ báo sau nó dịch màu — cùng 1 chỉ
+   * báo (vd us_10y) có thể đổi màu giữa các lần tải tuỳ chỉ báo nào khác có mặt. Bảng
+   * dưới đây khoá màu theo CHÍNH khoá chỉ báo nên ổn định qua mọi lần tải/nhóm/thứ tự;
+   * đã chọn để phân biệt tốt trên nền dark-slate và không chỉ dựa vào đỏ/xanh lá. */
+  var INDICATOR_COLORS = {
+    us_fedfunds: "#4C9AFF", us_10y: "#FF8A3D",
+    usdvnd_vcb: "#36D399", usdvnd_mkt: "#C084FC", dxy: "#F5D547",
+    vn_cpi_yoy: "#FF6B9D", vn_gdp_yoy: "#4ADEDE", us_cpi: "#9D7FE8",
+    vix: "#E85D75",
+    brent: "#E8975D", wti: "#7DD3E8",
+    gold_world: "#E8C468", gold_sjc: "#B8935F",
+  };
+  var FALLBACK_COLOR_POOL = ["#20e7cf", "#5deBff", "#27e6a1", "#f0c45a", "#ff5d73"];
+
+  // Chỉ báo mới thêm sau này (chưa có trong INDICATOR_COLORS) vẫn có màu ổn định:
+  // hash xác định trên CHÍNH chuỗi khoá, không phụ thuộc thứ tự/số lượng chỉ báo khác
+  // đang hiển thị — khác hẳn cách cũ dùng vị trí trong mảng đã lọc.
+  function colorForIndicator(key) {
+    if (INDICATOR_COLORS[key]) return INDICATOR_COLORS[key];
+    var hash = 0;
+    for (var i = 0; i < key.length; i += 1) hash = (hash * 31 + key.charCodeAt(i)) >>> 0;
+    return FALLBACK_COLOR_POOL[hash % FALLBACK_COLOR_POOL.length];
+  }
+
   function byId(id) { return document.getElementById(id); }
 
   function element(tag, className, text) {
@@ -251,6 +277,63 @@
     return scales;
   }
 
+  /* ============================================================
+   * DOM legend / toggle chuỗi (Objective D, Phase 4B) — logic quyết định thuần (không
+   * đụng DOM/Chart.js) tách riêng để test được: cho mảng "đang ẩn" của từng dataset
+   * trong 1 nhóm, xác định còn bao nhiêu chuỗi đang hiện và bấm ẩn tiếp 1 chuỗi có bị
+   * ẩn hết (0 chuỗi hiện) hay không — nếu có thì chặn, giữ lại chuỗi cuối cùng.
+   * ============================================================ */
+  function countVisible(hiddenFlags) {
+    return hiddenFlags.filter(function (hidden) { return hidden !== true; }).length;
+  }
+
+  function wouldHideLastVisible(hiddenFlags, index) {
+    if (hiddenFlags[index] === true) return false; // đang ẩn -> bấm là để HIỆN lại, không chặn
+    return countVisible(hiddenFlags) <= 1;
+  }
+
+  function soleVisibleIndex(hiddenFlags) {
+    return countVisible(hiddenFlags) === 1 ? hiddenFlags.indexOf(false) : -1;
+  }
+
+  function buildLegend(container, chart, datasets) {
+    function hiddenFlags() {
+      return datasets.map(function (_, i) { return chart.getDatasetMeta(i).hidden === true; });
+    }
+    function refreshLockState() {
+      var locked = soleVisibleIndex(hiddenFlags());
+      Array.from(container.children).forEach(function (btn, i) {
+        var isLocked = i === locked;
+        btn.classList.toggle("is-locked", isLocked);
+        btn.setAttribute("aria-disabled", String(isLocked));
+      });
+    }
+    datasets.forEach(function (dataset, index) {
+      var btn = element("button", "macro-legend-item is-active");
+      btn.type = "button";
+      btn.setAttribute("aria-pressed", "true");
+      var swatch = element("span", "macro-legend-swatch");
+      swatch.style.backgroundColor = dataset.borderColor;
+      btn.append(swatch, element("span", "macro-legend-label", dataset.label));
+      // 1 listener "click" xử lý cả chuột, chạm và bàn phím (Enter/Space) vì <button>
+      // gốc tự phát sinh sự kiện click cho cả 3 — không cần thêm keydown riêng.
+      btn.addEventListener("click", function () {
+        if (btn.getAttribute("aria-disabled") === "true") return;
+        var flags = hiddenFlags();
+        if (wouldHideLastVisible(flags, index)) return;
+        var meta = chart.getDatasetMeta(index);
+        var nextHidden = !(meta.hidden === true);
+        meta.hidden = nextHidden;
+        chart.update();
+        btn.classList.toggle("is-active", !nextHidden);
+        btn.setAttribute("aria-pressed", String(!nextHidden));
+        refreshLockState();
+      });
+      container.append(btn);
+    });
+    refreshLockState();
+  }
+
   function renderCharts(snapshot) {
     applyChartTheme();
     chartInstances.forEach(function (instance) { instance.destroy(); });
@@ -283,7 +366,10 @@
       canvas.setAttribute("role", "img");
       canvas.setAttribute("aria-label", "Biểu đồ " + group.title + ". Dữ liệu từ " + dates[0] + " đến " + dates[dates.length - 1] + ".");
       wrap.append(canvas);
-      body.append(wrap, element("p", "macro-chart-note", "Dữ liệu từ " + dates[0] + " đến " + dates[dates.length - 1] + ". Xem bảng chỉ báo để đọc giá trị và metadata nguồn."));
+      var legend = element("div", "macro-legend");
+      legend.setAttribute("role", "group");
+      legend.setAttribute("aria-label", "Bật/tắt chỉ báo trong biểu đồ " + group.title);
+      body.append(wrap, legend, element("p", "macro-chart-note", "Dữ liệu từ " + dates[0] + " đến " + dates[dates.length - 1] + ". Xem bảng chỉ báo để đọc giá trị và metadata nguồn."));
       card.append(header, body);
       container.append(card);
 
@@ -293,15 +379,16 @@
         return;
       }
 
-      var datasets = members.map(function (entry, index) {
+      var datasets = members.map(function (entry) {
         var values = new Map(entry.points.map(function (point) { return [point.date, point.value]; }));
+        var color = colorForIndicator(entry.item.key);
         return {
           label: entry.item.label,
           data: dates.map(function (date) { return values.has(date) ? values.get(date) : null; }),
           unit: entry.item.unit,
           yAxisID: "y_" + axisKey(entry.item.unit),
-          borderColor: CHART_COLORS.series[index % CHART_COLORS.series.length],
-          backgroundColor: CHART_COLORS.series[index % CHART_COLORS.series.length] + "22",
+          borderColor: color,
+          backgroundColor: color + "22",
           borderWidth: 1.7,
           pointRadius: dates.length > 80 ? 0 : 1.5,
           pointHoverRadius: 4,
@@ -309,9 +396,10 @@
           spanGaps: true,
         };
       });
-      // animation/legend màu đã theo Chart.defaults (applyChartTheme ở đầu hàm, có
-      // tôn trọng prefers-reduced-motion) — không set lại cục bộ ở đây nữa.
-      chartInstances.push(new window.Chart(canvas, {
+      // animation màu đã theo Chart.defaults (applyChartTheme ở đầu hàm, có tôn trọng
+      // prefers-reduced-motion). Legend canvas mặc định TẮT (display:false) — chú giải
+      // DOM thật ở dưới (buildLegend) thay thế hoàn toàn, không dùng song song 2 legend.
+      var chart = new window.Chart(canvas, {
         type: "line",
         data: { labels: dates, datasets: datasets },
         options: {
@@ -320,6 +408,7 @@
           normalized: true,
           interaction: { mode: "index", intersect: false },
           plugins: {
+            legend: { display: false },
             tooltip: {
               callbacks: {
                 label: function (context) {
@@ -330,7 +419,9 @@
           },
           scales: chartScaleOptions(datasets),
         },
-      }));
+      });
+      chartInstances.push(chart);
+      buildLegend(legend, chart, datasets);
       rendered += 1;
     });
 
@@ -477,12 +568,30 @@
     renderSnapshot(result.snapshot, result.source);
   }
 
-  window.MacroPage = {
-    loadMacroData: loadMacroData,
-    validateSnapshot: validateSnapshot,
-    renderSnapshot: renderSnapshot,
-    formatPeriod: formatPeriod,
-  };
+  // Guard typeof window/document: cho phép require() file này trong Node để unit
+  // test các hàm thuần (colorForIndicator/countVisible/wouldHideLastVisible/...)
+  // mà không cần DOM/Chart.js giả lập — cùng mẫu company-panel.js đã dùng.
+  if (typeof window !== "undefined") {
+    window.MacroPage = {
+      loadMacroData: loadMacroData,
+      validateSnapshot: validateSnapshot,
+      renderSnapshot: renderSnapshot,
+      formatPeriod: formatPeriod,
+    };
+  }
 
-  document.addEventListener("DOMContentLoaded", init);
+  if (typeof document !== "undefined") {
+    document.addEventListener("DOMContentLoaded", init);
+  }
+
+  if (typeof module !== "undefined" && module.exports) {
+    module.exports = {
+      colorForIndicator: colorForIndicator,
+      countVisible: countVisible,
+      wouldHideLastVisible: wouldHideLastVisible,
+      soleVisibleIndex: soleVisibleIndex,
+      INDICATOR_COLORS: INDICATOR_COLORS,
+      CHART_GROUPS: CHART_GROUPS,
+    };
+  }
 })();
