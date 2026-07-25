@@ -42,7 +42,7 @@
   flex-direction: column;
   height: 100vh;
   z-index: 50;
-  transition: transform 0.22s ease;
+  transition: transform var(--motion-medium);
 }
 
 @media (min-width: 1024px) {
@@ -68,8 +68,8 @@
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  background: var(--success);
-  box-shadow: 0 0 8px rgba(var(--success-rgb), 0.7);
+  background: var(--primary);
+  box-shadow: 0 0 8px rgba(var(--primary-rgb), 0.6);
   flex-shrink: 0;
 }
 
@@ -92,7 +92,7 @@
   font-weight: 600;
   color: var(--text-muted);
   text-decoration: none !important;
-  transition: background-color 0.15s ease, color 0.15s ease;
+  transition: background-color var(--motion-fast), color var(--motion-fast);
 }
 
 .vs-sidebar-link svg {
@@ -151,7 +151,7 @@
     z-index: 49;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.2s ease;
+    transition: opacity var(--motion-fast);
   }
   .vs-sidebar-overlay.is-open {
     opacity: 1;
@@ -190,8 +190,8 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--success);
-  box-shadow: 0 0 8px rgba(var(--success-rgb), 0.7);
+  background: var(--primary);
+  box-shadow: 0 0 8px rgba(var(--primary-rgb), 0.6);
   flex-shrink: 0;
 }
 
@@ -218,7 +218,7 @@
   font-weight: 600;
   color: var(--text-muted);
   text-decoration: none !important;
-  transition: background-color 0.15s ease, color 0.15s ease;
+  transition: background-color var(--motion-fast), color var(--motion-fast), border-color var(--motion-fast);
   white-space: nowrap;
 }
 

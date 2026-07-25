@@ -8,28 +8,34 @@
  * ============================================================ */
 
 :root {
-  /* ---------- Nền nhiều lớp (graphite → xanh đen sâu) ---------- */
-  --bg-deep: #03080A;
-  --bg: #071316;
-  --bg-rgb: 7, 19, 22;
-  --bg-elevated: #0A1B1E;
+  /* ---------- Application Surfaces (Graphite Slate → Dark Slate) ---------- */
+  --bg-deep: #07090e;
+  --bg: #0b0e14;
+  --bg-rgb: 11, 14, 20;
+  --bg-elevated: #111722;
 
-  --surface: #0D2224;
-  --surface-2: #123033;
-  --surface-3: #163A3D;
-  --surface-head: #0A2224;
+  --surface: #151d2a;
+  --surface-2: #1b2637;
+  --surface-3: #223046;
+  --surface-head: #111722;
 
-  --border: #1C3A3D;
-  --border-soft: rgba(99, 255, 233, 0.10);
-  --border-medium: rgba(99, 255, 233, 0.18);
-  --border-active: rgba(73, 244, 220, 0.42);
+  /* Semantic surface aliases */
+  --bg-primary: var(--bg);
+  --bg-secondary: var(--surface);
+  --bg-tertiary: var(--surface-2);
 
-  /* ---------- Chữ ---------- */
-  --text: #F4FAFF;
-  --text-secondary: #C9DCE0;
-  --text-muted: #8CA3A8;
+  --border: #1e2a3b;
+  --border-soft: rgba(148, 163, 184, 0.12);
+  --border-medium: rgba(148, 163, 184, 0.22);
+  --border-active: rgba(32, 231, 207, 0.45);
 
-  /* ---------- Accent teal/cyan (thay cho xanh dương cũ) ---------- */
+  /* ---------- Typography ---------- */
+  --text: #f8fafc;
+  --text-secondary: #a5b4c7;
+  --text-muted: #64748b;
+  --text-primary: var(--text);
+
+  /* ---------- UI Control Accent (Teal/Cyan) ---------- */
   --primary: #20E7CF;
   --primary-rgb: 32, 231, 207;
   --primary-hover: #17C9B4;
@@ -37,57 +43,59 @@
   --accent-text: #6FF0E0;
   --accent-text-strong: #BFFCF2;
 
-  /* ---------- Trạng thái số liệu (dương/âm/cảnh báo) ---------- */
-  --success: #27E6A1;
-  --success-rgb: 39, 230, 161;
-  --success-soft: rgba(39, 230, 161, 0.14);
+  /* ---------- Financial Market Data Semantics (Finviz High Contrast) ---------- */
+  --success: #22c55e;
+  --success-rgb: 34, 197, 94;
+  --success-soft: rgba(34, 197, 94, 0.14);
   --positive: var(--success);
 
-  --danger: #FF5D73;
-  --danger-rgb: 255, 93, 115;
-  --danger-soft: rgba(255, 93, 115, 0.14);
+  --danger: #ef4444;
+  --danger-rgb: 239, 68, 68;
+  --danger-soft: rgba(239, 68, 68, 0.14);
   --negative: var(--danger);
 
-  --warning: #F0C45A;
-  --warning-rgb: 240, 196, 90;
-  --warning-soft: rgba(240, 196, 90, 0.14);
+  --warning: #f59e0b;
+  --warning-rgb: 245, 158, 11;
+  --warning-soft: rgba(245, 158, 11, 0.14);
 
-  /* Chữ/code đọc được trên nền --warning-soft/--danger-soft (không phải chính màu
-     trạng thái, chỉ dùng cho text-on-tint) + màu trung tính cho chuỗi "flat/đứng giá" */
-  --warning-text: #fbe9c2;
-  --warning-code: #fde68a;
-  --danger-text-soft: #ffd2d9;
+  --warning-text: #fde68a;
+  --warning-code: #fef08a;
+  --danger-text-soft: #fecdd3;
   --flat: #64748b;
 
-  --radius-lg: 20px;
+  /* Semantic financial market aliases */
+  --market-bull: var(--success);
+  --market-bull-soft: var(--success-soft);
+  --market-bear: var(--danger);
+  --market-bear-soft: var(--danger-soft);
+  --market-neutral: var(--warning);
+  --market-flat: var(--flat);
+
+  /* ---------- Motion System (Hanson GPU-friendly transitions) ---------- */
+  --motion-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --motion-medium: 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  --motion-panel: 300ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ---------- Density & Radius System ---------- */
+  --radius-sm: 6px;
   --radius-md: 10px;
+  --radius-lg: 16px;
   --radius-pill: 999px;
-  --shadow-card: 0 24px 60px rgba(0, 0, 0, 0.5), 0 8px 24px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.04);
-  --shadow-card-hover: 0 34px 80px rgba(0, 0, 0, 0.62), 0 0 32px rgba(32, 231, 207, 0.10), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  --shadow-card-hover: 0 18px 45px rgba(0, 0, 0, 0.55), 0 0 24px rgba(32, 231, 207, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.06);
   --font-sans: "Inter", -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
 /* ---------- Base ---------- */
-/* box-sizing:border-box chuẩn — Bootstrap vốn cung cấp cái này cho 4 trang có load
-   Bootstrap (dashboard/screener/analysis/signals), nhưng macro/archive/about KHÔNG
-   load Bootstrap và Tailwind Preflight cũng tắt (corePlugins.preflight:false) nên 3
-   trang đó rơi về content-box mặc định của trình duyệt — khiến padding bị CỘNG THÊM
-   vào width thay vì trừ vào, gây tràn ngang ở màn hình hẹp (vd .vs-content padding
-   1.5rem mỗi bên → dư 48px). Đặt ở đây để không phụ thuộc trang nào có Bootstrap;
-   hoàn toàn vô hại/trùng lặp trên 4 trang đã có Bootstrap (cùng giá trị). */
 *, *::before, *::after { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
 
 body {
-  /* Reset margin mặc định của trình duyệt (8px) — trước đây chỉ Bootstrap lo việc này
-     nên macro.html/archive.html/about.html (không load Bootstrap) bị dư 16px ngang,
-     gây tràn ngang nhẹ ở màn hình hẹp (vd tablet ~768px). Đặt ở đây để không phụ
-     thuộc Bootstrap có load hay không trên từng trang. */
   margin: 0;
   background:
-    radial-gradient(900px 480px at 8% 0%, rgba(32, 231, 207, 0.10), transparent 55%),
-    radial-gradient(700px 420px at 92% 12%, rgba(93, 235, 255, 0.06), transparent 55%),
+    radial-gradient(900px 480px at 8% 0%, rgba(32, 231, 207, 0.08), transparent 55%),
+    radial-gradient(700px 420px at 92% 12%, rgba(93, 235, 255, 0.05), transparent 55%),
     linear-gradient(160deg, var(--bg-elevated) 0%, var(--bg) 45%, var(--bg-deep) 100%);
   color: var(--text);
   font-family: var(--font-sans);
@@ -102,22 +110,17 @@ body {
 
 h1, h2, h3, h4, h5, h6 { font-weight: 600; }
 
-/* ---------- Card / Panel ----------
- * Bề mặt bóng có chiều sâu: gradient (không phải màu phẳng) + viền
- * mảnh trong suốt + bóng đổ nhiều lớp + 1 lằn sáng mảnh ở cạnh trên
- * (::before). Hover nâng nhẹ + viền/glow teal rõ hơn — KHÔNG phải
- * card nào cũng phát sáng mạnh như nhau, đây là mức nền chung; card
- * quan trọng dùng thêm .kpi-featured (xem bên dưới). */
+/* ---------- Card / Panel ---------- */
 .card {
   position: relative;
   background:
-    radial-gradient(circle at 8% 0%, rgba(32, 231, 207, 0.06), transparent 38%),
+    radial-gradient(circle at 8% 0%, rgba(32, 231, 207, 0.05), transparent 38%),
     linear-gradient(145deg, var(--surface-2) 0%, var(--surface) 100%);
   border: 1px solid var(--border-soft);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
-  animation: fadeInUp 0.45s ease both;
-  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+  animation: fadeInUp var(--motion-medium) ease both;
+  transition: transform var(--motion-fast), border-color var(--motion-fast), box-shadow var(--motion-fast);
 }
 
 .card::before {
@@ -127,8 +130,8 @@ h1, h2, h3, h4, h5, h6 { font-weight: 600; }
   left: 8%;
   width: 84%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(120, 255, 238, 0.4), transparent);
-  opacity: 0.6;
+  background: linear-gradient(90deg, transparent, rgba(120, 255, 238, 0.35), transparent);
+  opacity: 0.5;
   pointer-events: none;
 }
 
