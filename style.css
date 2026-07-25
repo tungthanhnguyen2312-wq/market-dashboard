@@ -656,6 +656,10 @@ table.dataTable thead .dt-column-order:after { color: var(--primary); }
 .screener-record:hover { border-color: rgba(var(--primary-rgb), 0.5); transform: translateY(-1px); }
 .screener-record:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
 
+/* .screener-record là <details> và .screener-record-head là <summary> gốc (cùng mẫu
+   .watch-item/summary) — bỏ marker tam giác mặc định của trình duyệt, tự vẽ caret
+   riêng (.screener-caret) để nhất quán giao diện; list-style:none xử lý Chrome/
+   Firefox, ::-webkit-details-marker xử lý Safari. */
 .screener-record-head {
   display: grid;
   grid-template-columns: minmax(9rem, 0.8fr) minmax(12rem, 1.5fr) minmax(9rem, 0.7fr) auto;
@@ -663,7 +667,10 @@ table.dataTable thead .dt-column-order:after { color: var(--primary); }
   align-items: center;
   padding-bottom: 0.75rem;
   border-bottom: 1px solid var(--border-soft);
+  cursor: pointer;
+  list-style: none;
 }
+.screener-record-head::-webkit-details-marker { display: none; }
 
 .screener-record-head > div:first-child { display: flex; align-items: center; gap: 0.5rem; }
 .screener-ticker { color: var(--accent-text-strong); font-size: 1.05rem; font-weight: 800; letter-spacing: 0.03em; }
@@ -671,11 +678,24 @@ table.dataTable thead .dt-column-order:after { color: var(--primary); }
 .screener-price { display: flex; align-items: baseline; justify-content: flex-end; gap: 0.55rem; font-variant-numeric: tabular-nums; }
 .screener-price strong { color: var(--text); font-size: 1rem; }
 
-.screener-primary-grid {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 0.55rem;
-  padding: 0.75rem 0;
+/* Trạng thái gọn luôn hiển thị trong summary: cấu trúc (chỉ báo tổng quan), thanh
+   khoản, cờ margin, caret — cùng nằm ở ô grid thứ 4 (auto) để không phải đổi
+   grid-template-columns/breakpoint bên dưới. */
+.screener-compact-status { display: flex; align-items: center; justify-content: flex-end; gap: 0.5rem; flex-wrap: wrap; }
+.screener-compact-liquidity { font-size: 0.72rem; color: var(--text-muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.screener-caret { color: var(--text-muted); font-size: 0.7rem; transition: transform 0.2s ease; }
+.screener-record[open] .screener-caret { transform: rotate(180deg); }
+
+/* Phần mở rộng (phân tích phụ + nút mở hồ sơ) — chỉ hiển thị khi <details open>,
+   do trình duyệt tự lo, không cần class .is-open thủ công. */
+.screener-record-body { margin-top: 0.85rem; }
+
+.screener-record-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.85rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--border-soft);
 }
 
 .screener-detail-grid {
@@ -694,14 +714,51 @@ table.dataTable thead .dt-column-order:after { color: var(--primary); }
 @media (max-width: 1024px) {
   .screener-record-head { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .screener-price { justify-content: flex-start; }
-  .screener-primary-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .screener-compact-status { justify-content: flex-start; }
   .screener-detail-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 640px) {
   .screener-toolbar, .screener-record-head, .screener-detail-grid { grid-template-columns: 1fr; }
-  .screener-primary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .screener-compact-status { justify-content: flex-start; }
   .screener-detail-group > div { grid-template-columns: 1fr; }
   #market-table_wrapper .dt-layout-row { display: flex; flex-direction: column; gap: 0.6rem; align-items: stretch; }
   #market-table_wrapper .dt-search input { max-width: 100%; width: 100%; margin-left: 0; }
+}
+
+/* ---------- Bento overview layout (Phase 3B) ----------
+ * .dashboard-kpi-band / .dashboard-bento-main đánh dấu ngữ nghĩa cho băng KPI hợp
+ * nhất và vùng resize chính — layout thực tế vẫn do .kpi-grid/data-resizable đảm
+ * nhiệm như cũ, không đổi hành vi grid/resize gốc. */
+
+/* Ẩn khỏi màn hình nhưng vẫn đọc được bằng screen reader (mẫu sr-only chuẩn) —
+   dùng cho <h1> tiêu đề trang, không có trong Tailwind/Bootstrap đã build sẵn. */
+.vs-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Thẻ tiện ích cuối trang (kho lưu trữ) — gọn hơn thẻ nội dung chính: mô tả + nút
+   nằm chung 1 hàng thay vì xếp dọc chiếm toàn chiều rộng thẻ. */
+.dashboard-utility-card .card-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.dashboard-utility-card .card-body p { margin-bottom: 0; max-width: 46ch; }
+.dashboard-utility-card .vs-btn { flex-shrink: 0; }
+
+@media (max-width: 480px) {
+  .dashboard-utility-card .card-body { flex-direction: column; align-items: stretch; }
+  .dashboard-utility-card .vs-btn { text-align: center; }
 }
