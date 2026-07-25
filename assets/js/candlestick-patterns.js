@@ -96,7 +96,6 @@
    * ============================================================ */
   let tooltipBubble = null;
   let tooltipOwner = null;
-  let tooltipSeq = 0;
 
   function ensureTooltipBubble() {
     if (tooltipBubble) return tooltipBubble;
@@ -143,7 +142,6 @@
 
   function tooltipTrigger(text, ariaLabel) {
     if (!text) return "";
-    tooltipSeq += 1;
     return `<button type="button" class="vs-info-trigger" data-tooltip="${esc(text)}" ` +
       `aria-describedby="vs-tooltip-bubble" aria-expanded="false" ` +
       `aria-label="${esc(ariaLabel || "Xem giải thích")}">?</button>`;
