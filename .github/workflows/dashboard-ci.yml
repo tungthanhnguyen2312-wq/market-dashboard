@@ -18,7 +18,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
         with:
-          fetch-depth: 2
+          fetch-depth: 0
 
       - name: Set up Node.js
         uses: actions/setup-node@v7
@@ -54,4 +54,18 @@ jobs:
       # this repo, so no additional step is added here.
 
       - name: Whitespace check (git diff --check)
-        run: git diff --check HEAD~1 HEAD
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          BEFORE_SHA: ${{ github.event.before }}
+        run: |
+          ZERO_SHA="0000000000000000000000000000000000000000"
+          if [ "$EVENT_NAME" = "pull_request" ] && [ -n "$BASE_SHA" ]; then
+            RANGE="$BASE_SHA..HEAD"
+          elif [ "$EVENT_NAME" = "push" ] && [ -n "$BEFORE_SHA" ] && [ "$BEFORE_SHA" != "$ZERO_SHA" ] && git cat-file -e "$BEFORE_SHA" 2>/dev/null; then
+            RANGE="$BEFORE_SHA..HEAD"
+          else
+            RANGE="HEAD~1..HEAD"
+          fi
+          echo "Diff range: $RANGE"
+          git diff --check "$RANGE"
