@@ -165,6 +165,13 @@
       }).join("")}</div>`;
     }).join("");
   }
+  function renderAnalysisReadiness(readiness) {
+    if (!isObject(readiness) || !isObject(readiness.domains)) return "";
+    const combined = readiness.domains.combined_ai_analysis;
+    if (!isObject(combined)) return "";
+    const state = String(combined.state || "unknown");
+    return `<div class="cp-ci-notice cp-ci-${esc(state)}">Analysis readiness: ${esc(state)}.${combined.reason ? ` ${esc(combined.reason)}` : ""}${combined.is_actionable ? "" : " Inferences are limited."}</div>`;
+  }
   function renderCorporateIntelligence(corporate) {
     if (!isObject(corporate)) return `<section class="cp-ci"><h3>Corporate Intelligence</h3><div class="cp-ci-notice cp-ci-missing">${esc(statusMessage("missing"))}</div></section>`;
     const majorShareholders = corporate.major_shareholders || (corporate.major_shareholder_snapshot || corporate.major_shareholder_delta ? { latest_valid_snapshot: corporate.major_shareholder_snapshot, delta: corporate.major_shareholder_delta } : null);
@@ -173,6 +180,7 @@
   }
   function loadCorporateBundle() { if (window.ANALYSIS_BUNDLE) return Promise.resolve(window.ANALYSIS_BUNDLE); if (!corporateBundlePromise && typeof fetch === "function") corporateBundlePromise = fetch("analysis_bundle.json", { cache: "no-store" }).then((response) => response.ok ? response.json() : null).catch(() => null); return corporateBundlePromise || Promise.resolve(null); }
   function corporateForRow(row, bundle) { if (isObject(row && row.corporate_intelligence)) return row.corporate_intelligence; return bundle && bundle.tickers && row && bundle.tickers[row.ticker] && bundle.tickers[row.ticker].corporate_intelligence; }
+  function readinessForRow(row, bundle) { return bundle && bundle.tickers && row && bundle.tickers[row.ticker] && bundle.tickers[row.ticker].analysis_readiness; }
   let chartRenderedFor = null; // ticker mà biểu đồ hiện đang hiển thị — tránh huỷ/tạo lại Chart.js
                                 // khi bấm lại đúng tab của cùng 1 mã (Phase 5: giảm render thừa)
 
@@ -352,12 +360,12 @@
     backdrop._currentRow = row;
     document.getElementById("cp-title").textContent = row.ticker || "?";
     const overview = document.getElementById("cp-overview");
-    overview.innerHTML = renderOverview(row) + renderCorporateIntelligence(corporateForRow(row));
+    overview.innerHTML = renderOverview(row) + renderAnalysisReadiness(readinessForRow(row)) + renderCorporateIntelligence(corporateForRow(row));
     // Legacy bundles render a neutral missing state immediately.  A cached dashboard
     // artifact, when present, replaces only this panel's Corporate Intelligence area.
     loadCorporateBundle().then((bundle) => {
       if (!backdrop || backdrop._currentRow !== row) return;
-      overview.innerHTML = renderOverview(row) + renderCorporateIntelligence(corporateForRow(row, bundle));
+      overview.innerHTML = renderOverview(row) + renderAnalysisReadiness(readinessForRow(row, bundle)) + renderCorporateIntelligence(corporateForRow(row, bundle));
     });
     switchTab("overview");
     backdrop.classList.add("is-open");
@@ -431,7 +439,7 @@
   }
   if (typeof module !== "undefined" && module.exports) {
     module.exports = {
-      renderCorporateIntelligence, corporateForRow, statusMessage,
+      renderCorporateIntelligence, renderAnalysisReadiness, corporateForRow, readinessForRow, statusMessage,
       normalizeTicker, tickerFromSearch, searchWithTicker, decideOpenAction, decideCloseAction,
       isScreenerPage,
     };

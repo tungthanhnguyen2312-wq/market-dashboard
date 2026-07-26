@@ -11,4 +11,7 @@ const rendered = panel.renderCorporateIntelligence({
 assert(rendered.includes("Data is stale."));
 assert(rendered.includes("Not actionable."));
 assert(!rendered.includes("<unsafe>"));
+const readiness = panel.renderAnalysisReadiness({ domains: { combined_ai_analysis: { state: "degraded", reason: "partial_unqualified_50_row_cap", is_actionable: false } } });
+assert(readiness.includes("Analysis readiness: degraded."));
+assert(readiness.includes("Inferences are limited."));
 console.log("freshness status tests passed");
