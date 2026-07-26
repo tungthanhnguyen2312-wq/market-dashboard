@@ -1,0 +1,57 @@
+name: Dashboard CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+
+      - name: Signals/macro localization tests
+        run: node --test tests/signals-macro-localization.test.js
+
+      - name: Company-panel JavaScript tests
+        run: node --test tests/company-panel.test.js
+
+      - name: Navigation contract tests
+        run: python tests/test_navigation_contract.py -v
+
+      - name: Visual-foundation contract tests
+        run: python tests/test_visual_foundation_contract.py -v
+
+      - name: JavaScript syntax checks
+        run: |
+          node --check assets/js/candlestick-patterns.js
+          node --check assets/js/macro.js
+          node --check assets/js/company-panel.js
+
+      # Navigation-contract and visual-foundation-contract above already assert
+      # HTML/CSS structure (required nav markup, design tokens, no conflict
+      # markers); no separate standalone HTML/CSS structural script exists in
+      # this repo, so no additional step is added here.
+
+      - name: Whitespace check (git diff --check)
+        run: git diff --check HEAD~1 HEAD
