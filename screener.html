@@ -245,6 +245,19 @@ document.addEventListener("DOMContentLoaded", () => {
   // value-format.js applyColumnHints() (tránh lộ HTML vào aria-label DataTables sinh ra).
   applyColumnHints(document.getElementById("tblScreen"), screenColumns);
 
+  // Phase 5A: nạp thẳng ?ticker=XXX trên URL (link chia sẻ/bookmark/back-forward) —
+  // company-panel.js tự quyết định push/bootstrap lịch sử, ở đây chỉ tìm đúng row.
+  // Tìm trong "rows" gốc (không qua bộ lọc/sort hiện tại của bảng) để mở đúng mã
+  // dù đang bị ẩn bởi bộ lọc đang áp dụng.
+  if (window.VSCompanyPanel) {
+    const urlTicker = VSCompanyPanel.tickerFromSearch(location.search);
+    if (urlTicker) {
+      const match = rows.find((r) => VSCompanyPanel.normalizeTicker(r.ticker) === urlTicker);
+      if (match) VSCompanyPanel.open(match);
+      else console.warn(`Không tìm thấy mã "${urlTicker}" từ URL trong dữ liệu phiên này.`);
+    }
+  }
+
   // Bộ lọc "mã sạch": margin_status trống + GTGD >= 3 tỷ
   DataTable.ext.search.push((settings, data, idx) => {
     if (settings.nTable.id !== "tblScreen" || !document.getElementById("cleanOnly").checked) return true;
