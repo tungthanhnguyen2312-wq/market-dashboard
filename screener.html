@@ -43,6 +43,15 @@
      không áp cho #tblBreadth */
   #tblScreen tbody tr { cursor: pointer; }
   #tblScreen tbody tr:hover { background: rgba(var(--primary-rgb), 0.12) !important; }
+  .screen-toolbar { display:flex; flex-wrap:wrap; gap:.5rem; align-items:end; padding:.65rem; border:1px solid rgba(255,255,255,.1); border-radius:.55rem; background:rgba(255,255,255,.025); }
+  .screen-toolbar label { display:grid; gap:.2rem; font-size:.68rem; color:var(--text-muted); min-width:88px; }
+  .screen-toolbar input,.screen-toolbar select { min-height:30px; font-size:.78rem; }
+  .screen-presets { display:flex; gap:.35rem; flex-wrap:wrap; margin-bottom:.55rem; }
+  .screen-preset { font-size:.72rem; padding:.24rem .5rem; border:1px solid rgba(255,255,255,.16); border-radius:999px; background:transparent; color:inherit; }
+  .screen-preset.is-active,.screen-preset:hover { border-color:var(--primary); color:var(--primary); }
+  .screen-signal { font-size:.68rem; white-space:nowrap; }
+  .screen-signal-stale { opacity:.62; }
+  @media (max-width: 700px) { .screen-toolbar label { min-width:calc(50% - .3rem); } .screen-toolbar { align-items:stretch; } }
 </style>
 </head>
 <body class="bg-bg text-white font-sans" data-page="screener">
@@ -93,6 +102,12 @@
           </div>
           <div class="card-body">
             <div class="text-muted mb-2" id="meta" style="font-size:0.78rem;">đang tải dữ liệu…</div>
+            <div class="screen-presets" aria-label="Quick screen presets">
+              <button type="button" class="screen-preset" data-screen-preset="leaders">Leaders</button><button type="button" class="screen-preset" data-screen-preset="momentum">Momentum</button><button type="button" class="screen-preset" data-screen-preset="liquid">Liquid</button><button type="button" class="screen-preset" data-screen-preset="clean">Clean</button>
+            </div>
+            <div class="screen-toolbar mb-2" id="screen-toolbar" aria-label="Detailed screener filters">
+              <label>Exchange<select id="screen-exchange"><option value="">All</option></select></label><label>Min RS<input id="screen-min-rs" type="number" min="0" max="100" inputmode="numeric"></label><label>Min RelVol<input id="screen-min-relvol" type="number" min="0" step="0.1" inputmode="decimal"></label><label>Min GTGD<input id="screen-min-liquidity" type="number" min="0" step="1" inputmode="decimal"></label><label>Max P/E<input id="screen-max-pe" type="number" min="0" step="0.1" inputmode="decimal"></label><label>Signal<select id="screen-signal-state"><option value="">All</option><option value="current">Current</option><option value="stale">Stale</option></select></label>
+            </div>
             <div class="vs-checkbox-row mb-3">
               <input class="vs-checkbox" type="checkbox" id="cleanOnly">
               <label class="vs-checkbox-label" for="cleanOnly">
@@ -152,6 +167,7 @@
 <!-- data/screener_data.js (fallback file://) KHÔNG còn tải tĩnh — loadCsv() bên dưới
      chỉ nạp động qua loadFallbackScript() khi thật sự cần (file:// hoặc fetch lỗi). -->
 <script src="assets/js/value-format.js?v=2026-07-24-757f741-e1328e9687" defer></script>
+<script src="assets/js/screener-workflow.js?v=2026-07-24-757f741-e1328e9687" defer></script>
 <script defer>
 // Ưu tiên fetch CSV thật (chạy qua http.server / GitHub Pages luôn tươi);
 // mở trực tiếp bằng double-click thì rơi về window.SCREEN_ROWS/BREADTH_ROWS trong .js
@@ -230,6 +246,7 @@ document.addEventListener("DOMContentLoaded", () => {
       { data: "gtgd20_ty", title: "GTGD(tỷ)", className: "text-end", render: v => num(v, 1) },
       { data: "pct_from_52w_high", title: "%từ đỉnh 52w", className: "text-end", render: pct(1) },
       { data: "structure", title: "Cấu trúc", defaultContent: "–" },
+      { data: null, title: "Signal", className: "text-end", render: (v, type, row) => { const signal = ScreenerPhase5B.signal(row, marketSession); const label = signal.state === "current" ? signal.momentum : (signal.state === "stale" ? "stale" : "unavailable"); return `<span class="screen-signal screen-signal-${esc(signal.state)}">${esc(label)}</span>`; } },
       { data: "pe", title: "P/E", className: "text-end", render: v => num(v, 1) },
       { data: "pb", title: "P/B", className: "text-end", render: v => num(v, 2) },
       { data: "roe", title: "ROE%", className: "text-end", render: v => num(v, 1) },
@@ -259,12 +276,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Bộ lọc "mã sạch": margin_status trống + GTGD >= 3 tỷ
-  DataTable.ext.search.push((settings, data, idx) => {
-    if (settings.nTable.id !== "tblScreen" || !document.getElementById("cleanOnly").checked) return true;
-    const row = screenTable.row(idx).data();
-    return !row.margin_status && Number(row.gtgd20_ty) >= 3;
-  });
-  document.getElementById("cleanOnly").addEventListener("change", () => screenTable.draw());
+  // Phase 5B attaches one scoped DataTables predicate; opening the drawer never redraws or rebuilds this table.
+  ScreenerPhase5B.attach({ table: screenTable, rows, marketSession, tableNode: document.getElementById("tblScreen") });
 
   if (breadth) {
     new DataTable("#tblBreadth", {
