@@ -36,6 +36,9 @@ jobs:
       - name: Company-panel JavaScript tests
         run: node --test tests/company-panel.test.js
 
+      - name: Screener state contract tests
+        run: node --test tests/screener-state.test.js
+
       - name: Navigation contract tests
         run: python tests/test_navigation_contract.py -v
 
