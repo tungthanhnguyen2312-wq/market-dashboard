@@ -23,6 +23,10 @@
 .pattern-sort { border:0; background:transparent; color:inherit; font:inherit; font-weight:700; cursor:pointer; }
 .pattern-row { cursor:pointer; }
 .pattern-row:hover { background:color-mix(in srgb,var(--primary) 8%,transparent); }
+/* Phân cấp tên mẫu hình (Phase 4D) — tên Việt hoá là danh tính chính của hàng nên
+   nổi bật hơn (~15-16px/~700), tên tiếng Anh chỉ là phụ nên nhỏ/gọn hơn hẳn. */
+.pattern-name-vi { font-size:15.5px; font-weight:700; line-height:1.2; }
+.pattern-name-en { font-size:11px; line-height:1.2; }
 .pattern-direction { display:inline-flex; gap:.3rem; align-items:center; font-weight:700; }
 .pattern-direction.bullish { color:var(--success); }
 .pattern-direction.bearish { color:var(--danger); }
@@ -40,7 +44,21 @@
 .pattern-negative { color:var(--danger); }
 .pattern-muted { color:var(--text-muted); }
 .pattern-mobile-key { display:none; }
-.pattern-stars-unknown { color:var(--text-muted); font-size:.72rem; font-style:italic; white-space:nowrap; }
+
+/* ---------- Text chính là trigger tooltip, không icon "?" (Objective B, Phase 4C) ----------
+   Áp dụng cho tên mẫu hình và nhãn SMC — cursor + gạch chấm mờ làm affordance, không thêm
+   phần tử/icon mới. Vẫn dùng chung .vs-tooltip-bubble/initTooltips() với .vs-info-trigger. */
+.vs-text-trigger {
+  cursor: help;
+  border-radius: 3px;
+  text-decoration: underline dotted;
+  text-decoration-color: var(--text-muted);
+  text-underline-offset: 2px;
+}
+.vs-text-trigger:hover,
+.vs-text-trigger:focus-visible,
+.vs-text-trigger[aria-expanded="true"] { color: var(--text); text-decoration-color: var(--primary); }
+.vs-text-trigger:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
 
 /* ---------- Nút mở tooltip giải thích (Objective C, Phase 4B) ---------- */
 .vs-info-trigger {
@@ -85,3 +103,38 @@
   .pattern-table .optional-sm { display:none; }
 }
 @media (prefers-reduced-motion:reduce) { .pattern-row { scroll-behavior:auto; } }
+
+/* ============================================================
+ * Deterministic, canonical-key-based accent colors (Phase 4D) — a restrained,
+ * fixed dark-theme palette (assets/js/candlestick-patterns.js
+ * colorTokenForPattern()/colorTokenForSmc() only ever return one of these 10
+ * token names, keyed off the canonical pattern_key/SMC key, never a per-row
+ * random color and never the raw key itself). Placed last so these accents win
+ * over the earlier .pattern-tag/.signal-chip-smc base colors at equal
+ * specificity. Direction stays conveyed via visible Vietnamese text elsewhere
+ * (.pattern-direction) — these are a secondary, non-exclusive cue, not a
+ * replacement for it.
+ * ============================================================ */
+:root {
+  --pat-emerald:#34d399; --pat-teal:#2dd4bf; --pat-cyan:#22d3ee;
+  --pat-rose:#fb7185; --pat-red:#f87171; --pat-orange:#fb923c; --pat-magenta:#e879f9;
+  --pat-amber:#fbbf24; --pat-violet:#a78bfa; --pat-slate:#94a3b8;
+}
+.pattern-color-emerald { color:var(--pat-emerald); }
+.pattern-color-teal { color:var(--pat-teal); }
+.pattern-color-cyan { color:var(--pat-cyan); }
+.pattern-color-rose { color:var(--pat-rose); }
+.pattern-color-red { color:var(--pat-red); }
+.pattern-color-orange { color:var(--pat-orange); }
+.pattern-color-magenta { color:var(--pat-magenta); }
+.pattern-color-amber { color:var(--pat-amber); }
+.pattern-color-violet { color:var(--pat-violet); }
+.pattern-color-slate { color:var(--pat-slate); }
+
+/* SMC name hierarchy (Phase 4D) — relative sizing so it stays legible inside the
+   existing compact chip/tag contexts (Overview tab pill, confirmations column
+   tag) instead of forcing the table row's absolute ~15-16px name scale into an
+   11px badge. Vietnamese term stays the (slightly) bolder/larger part; the
+   "(ABBR)" is the smaller secondary text, matching the candlestick name pattern. */
+.smc-name-vi { font-weight:600; }
+.smc-name-abbr { font-size:.85em; font-weight:400; color:var(--text-muted); margin-left:.2em; }

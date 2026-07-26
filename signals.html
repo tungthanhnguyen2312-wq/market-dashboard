@@ -44,6 +44,13 @@
   table { border-collapse:collapse; width:100%; margin-top:6px; font-variant-numeric:tabular-nums; }
   th,td { border-bottom:1px solid var(--border); padding:5px 9px; text-align:left; font-size:13px; }
   th { background:var(--panel); color:var(--dim); font-weight:600; text-transform:uppercase; font-size:11px; letter-spacing:0.04em; }
+  /* Bọc các bảng nhỏ ở tab Tổng quan (hợp lưu + cổ tức) để cuộn ngang trong khung ở
+     mobile thay vì tràn trang (chip mẫu hình/SMC + tên ngành khiến bảng rộng hơn
+     viewport nhỏ). Chỉ overflow-x, KHÔNG dùng .pattern-table-wrap (candlestick-
+     patterns.css) vì class đó có thêm max-height:70vh cho bảng mẫu hình nến dài hơn
+     nhiều — sẽ ép các bảng ngắn này vào khung cuộn dọc không cần thiết, kể cả trên
+     desktop. */
+  .overview-table-wrap { overflow-x:auto; }
   .up { color:var(--green); } .down { color:var(--red); } .flat { color:var(--dim); }
   .empty { color:var(--dim); padding:14px; border:1px dashed var(--border); margin-top:6px; border-radius:var(--radius-md); }
   /* Watchlist cards */
@@ -65,7 +72,8 @@
   /* Chip mẫu nến/SMC ở tab Tổng quan — cùng glossary/tooltip với bảng chi tiết
      (window.VSCandlestickPatterns), chỉ khác lớp bọc gọn cho card/bảng nhỏ ở đây. */
   .signal-chip { display:inline-flex; align-items:center; gap:.3rem; border:1px solid var(--border); border-radius:999px; padding:.1rem .4rem; margin:0 .25rem .25rem 0; font-size:11px; color:var(--dim); }
-  .signal-chip-smc { color:var(--blue); }
+  /* Màu SMC theo khái niệm (Phase 4D, .pattern-color-* từ candlestick-patterns.css)
+     đã thay cho màu --blue cố định trước đây — xem colorTokenForSmc() ở JS. */
   .signal-chip-conf { display:inline-flex; align-items:center; gap:1px; }
   .signal-chip-conf .pattern-stars svg { width:10px; height:10px; }
 </style>
@@ -140,9 +148,9 @@
           <div class="pattern-state" id="pattern-state" role="status" aria-live="polite">Đang tải dữ liệu mẫu hình nến…</div>
           <div class="pattern-summary" aria-label="Tóm tắt mẫu hình nến">
             <div class="pattern-kpi"><span>Tổng số mẫu</span><strong id="pattern-summary-total">–</strong></div>
-            <div class="pattern-kpi"><span>Bullish</span><strong id="pattern-summary-bullish">–</strong></div>
-            <div class="pattern-kpi"><span>Bearish</span><strong id="pattern-summary-bearish">–</strong></div>
-            <div class="pattern-kpi"><span>Neutral</span><strong id="pattern-summary-neutral">–</strong></div>
+            <div class="pattern-kpi"><span>Tăng giá</span><strong id="pattern-summary-bullish">–</strong></div>
+            <div class="pattern-kpi"><span>Giảm giá</span><strong id="pattern-summary-bearish">–</strong></div>
+            <div class="pattern-kpi"><span>Trung tính</span><strong id="pattern-summary-neutral">–</strong></div>
             <div class="pattern-kpi"><span>Đang hình thành</span><strong id="pattern-summary-forming">–</strong></div>
             <div class="pattern-kpi"><span>Hoàn chỉnh</span><strong id="pattern-summary-completed">–</strong></div>
           </div>
@@ -151,7 +159,7 @@
           <div class="pattern-filters" id="pattern-filters" aria-label="Bộ lọc mẫu hình nến">
             <label class="pattern-filter">Tìm theo mã<input id="pattern-ticker" type="search" autocomplete="off" placeholder="VD: HPG"></label>
             <label class="pattern-filter">Timeframe<select id="pattern-timeframe"><option value="all">Tất cả</option><option>1D</option><option>1W</option><option>1M</option></select></label>
-            <label class="pattern-filter">Hướng<select id="pattern-direction"><option value="all">Tất cả</option><option value="bullish">Bullish</option><option value="bearish">Bearish</option><option value="neutral">Neutral</option></select></label>
+            <label class="pattern-filter">Hướng<select id="pattern-direction"><option value="all">Tất cả</option><option value="bullish">Tăng giá</option><option value="bearish">Giảm giá</option><option value="neutral">Trung tính</option></select></label>
             <label class="pattern-filter">Trạng thái<select id="pattern-status-filter"><option value="all">Tất cả</option><option value="completed">Completed</option><option value="forming">Forming</option></select></label>
             <label class="pattern-filter">Độ tin cậy<select id="pattern-confidence"><option value="3">3 sao</option><option value="2" selected>Từ 2 sao</option><option value="0">Tất cả</option></select></label>
             <label class="pattern-filter">Tối đa bars ago<input id="pattern-bars" type="number" min="0" max="120" value="12"></label>
@@ -215,6 +223,10 @@ async function loadData(path, globalName, fallbackSrc) {
 const fmt = (v, d = 1) => (v === null || v === undefined || Number.isNaN(v)) ? "–" : Number(v).toLocaleString("vi-VN", {maximumFractionDigits: d});
 const dirCls = d => d === "bullish" ? "up" : d === "bearish" ? "down" : "flat";
 const esc = s => String(s ?? "").replace(/[&<>"]/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch]));
+// Nhãn hướng tiếng Việt (Phase 4D) — chỉ đổi CHỮ hiển thị, dirCls()/lọc/sort ở trên vẫn
+// dùng nguyên giá trị gốc "bullish"/"bearish"/"neutral". Tra cứu qua glossaryApi() để
+// không tạo bảng dịch thứ 2 (cùng nguồn với bảng mẫu hình nến chi tiết).
+const dirLabel = (d, compact) => { const api = glossaryApi(); return api ? api.directionLabel(d, compact) : (d || ""); };
 
 // Nguồn glossary/tooltip/confidence DUY NHẤT cho toàn trang: window.VSCandlestickPatterns
 // (định nghĩa trong assets/js/candlestick-patterns.js) — tab Tổng quan tra cứu lại từ
@@ -232,17 +244,22 @@ function patternChip(key, ticker, confidenceIndex) {
   const info = api ? api.patternInfo(key) : null;
   const label = (info && (info.name_vi || info.name)) || key;
   const match = api ? api.confidenceFor(confidenceIndex, ticker, key) : null;
-  const starsHtml = api ? api.starsMarkup(match) : '<span class="pattern-stars-unknown">Chưa đủ dữ liệu</span>';
-  const tip = info && info.description && api ? api.tooltipTrigger(info.description, `Giải thích mẫu ${label}`) : "";
-  return `<span class="signal-chip">${esc(label)}${tip}<span class="signal-chip-conf">${starsHtml}</span></span>`;
+  // Thiếu/không khớp confidence -> không render gì (Objective C) — không còn placeholder
+  // "Chưa đủ dữ liệu". Tên mẫu hình chính là trigger tooltip, không icon "?" (Objective B).
+  const starsHtml = api ? api.starsMarkup(match) : "";
+  const nameHtml = api ? api.textTrigger(label, info && info.description) : esc(label);
+  const starsWrap = starsHtml ? `<span class="signal-chip-conf">${starsHtml}</span>` : "";
+  // Màu theo pattern_key chuẩn hoá (Phase 4D) — bọc riêng quanh phần tên (không bọc
+  // sao tin cậy) để không đổi màu sao theo màu mẫu hình.
+  const colorToken = api ? api.colorTokenForPattern(key, info && info.direction) : "slate";
+  return `<span class="signal-chip"><span class="pattern-color-${colorToken}">${nameHtml}</span>${starsWrap}</span>`;
 }
 
 function smcChip(key) {
   const api = glossaryApi();
-  const label = api ? api.smcDisplayLabel(key) : key;
-  const info = api ? api.smcInfo(key) : null;
-  const tip = info && info.tooltip && api ? api.tooltipTrigger(info.tooltip, `Giải thích ${label}`) : "";
-  return `<span class="signal-chip signal-chip-smc">${esc(label)}${tip}</span>`;
+  const nameHtml = api ? api.smcNameTrigger(key) : esc(key);
+  const colorToken = api ? api.colorTokenForSmc(key) : "slate";
+  return `<span class="signal-chip signal-chip-smc pattern-color-${colorToken}">${nameHtml}</span>`;
 }
 
 function tagChips(ticker, patterns, smc, confidenceIndex) {
@@ -261,7 +278,7 @@ function renderWatchlist(w, confidenceIndex) {
       const cls = x.confluence ? (x.direction === "bearish" ? "conf-bear" : "conf-bull") : "";
       return `<div class="card ${cls}">
         <div class="tk">${esc(x.ticker)} ${x.confluence ? "★" : ""}</div>
-        <div class="px ${dirCls(x.direction)}">${fmt(x.close, 0)} <small>${esc(x.direction || "")}</small></div>
+        <div class="px ${dirCls(x.direction)}">${fmt(x.close, 0)} <small>${esc(dirLabel(x.direction, true))}</small></div>
         <div class="tags">${tagChips(x.ticker, x.patterns, x.smc, confidenceIndex)}</div></div>`;
     }).join("");
 }
@@ -271,23 +288,23 @@ function renderConfluence(signals, confidenceIndex) {
     document.getElementById("confluence").innerHTML = '<div class="empty">Phiên này không có tín hiệu hợp lưu</div>';
     return;
   }
-  document.getElementById("confluence").innerHTML = `<table><tr>
+  document.getElementById("confluence").innerHTML = `<div class="overview-table-wrap" tabindex="0" aria-label="Bảng tín hiệu hợp lưu có thể cuộn ngang"><table><tr>
     <th>Mã</th><th>Giá</th><th>Hướng</th><th>Mẫu nến</th><th>SMC</th><th>Ngành</th><th>RS</th><th>RelVol</th><th>Cờ</th></tr>` +
     rows.map(s => `<tr><td><b>${esc(s.ticker)}</b></td><td>${fmt(s.close, 0)}</td>
-      <td class="${dirCls(s.direction)}">${esc(s.direction)}</td>
+      <td class="${dirCls(s.direction)}">${esc(dirLabel(s.direction, true))}</td>
       <td>${(s.patterns || []).map((key) => patternChip(key, s.ticker, confidenceIndex)).join("") || "–"}</td>
       <td>${(s.smc || []).map((key) => smcChip(key)).join("") || "–"}</td>
       <td>${esc(s.industry || "–")}</td><td>${fmt(s.rs_rating, 0)}</td><td>${fmt(s.rel_vol, 2)}</td>
-      <td class="down">${esc(s.margin_status || "")}</td></tr>`).join("") + "</table>";
+      <td class="down">${esc(s.margin_status || "")}</td></tr>`).join("") + "</table></div>";
 }
 function renderDividend(list, note) {
   document.getElementById("divnote").textContent = note || "";
   if (!list || !list.length) return;   // giữ text "Đang chờ đồng bộ..."
-  document.getElementById("dividend").innerHTML = `<table><tr>
+  document.getElementById("dividend").innerHTML = `<div class="overview-table-wrap" tabindex="0" aria-label="Bảng cổ tức có thể cuộn ngang"><table><tr>
     <th>Mã</th><th>Giá</th><th>Yield %</th><th>P/E</th><th>P/B</th><th>ROE %</th><th>Ngành</th></tr>` +
     list.map(d => `<tr><td><b>${esc(d.ticker)}</b></td><td>${fmt(d.close, 0)}</td>
       <td class="up">${fmt(d.dividend_yield, 1)}</td><td>${fmt(d.pe, 1)}</td>
-      <td>${fmt(d.pb, 2)}</td><td>${fmt(d.roe, 1)}</td><td>${esc(d.industry || "–")}</td></tr>`).join("") + "</table>";
+      <td>${fmt(d.pb, 2)}</td><td>${fmt(d.roe, 1)}</td><td>${esc(d.industry || "–")}</td></tr>`).join("") + "</table></div>";
 }
 function renderHeatmap(sectors) {
   if (!sectors || !sectors.length) return;

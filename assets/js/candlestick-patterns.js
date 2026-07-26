@@ -9,7 +9,22 @@
   }[char]));
   const number = (value, digits = 1) => value === null || value === undefined || value === "" || !Number.isFinite(Number(value))
     ? "–" : Number(value).toLocaleString("vi-VN", { maximumFractionDigits: digits });
-  const textDirection = { bullish: "Tăng", bearish: "Giảm", neutral: "Trung tính" };
+
+  /* Localized signal-direction terminology (Phase 4D) — DISPLAY-ONLY. The raw
+   * "bullish"/"bearish"/"neutral" values keep flowing unchanged through filtering,
+   * sorting, analytics and CSS state classes; only the human-visible text changes.
+   * Compact form fits tight inline badges (this row's own direction cell, watchlist
+   * cards); full form reads better as a standalone label (KPI summary, filter option). */
+  const DIRECTION_VI = {
+    bullish: { full: "Tăng giá", compact: "Tăng" },
+    bearish: { full: "Giảm giá", compact: "Giảm" },
+    neutral: { full: "Trung tính", compact: "Trung tính" },
+  };
+  function directionLabel(direction, compact) {
+    const entry = DIRECTION_VI[direction];
+    if (!entry) return direction || "";
+    return compact ? entry.compact : entry.full;
+  }
 
   /* ============================================================
    * Nguồn Vietnamese hoá SMC DUY NHẤT (Phase 4B, Objective B) — trước đây
@@ -48,6 +63,62 @@
   function smcDisplayLabel(key) {
     const info = smcInfo(key);
     return info ? `${info.vi} (${info.abbr})` : key;
+  }
+
+  /* ============================================================
+   * Deterministic, canonical-key-based colors (Phase 4D) — a restrained, fixed
+   * dark-theme palette, NOT a per-row random/generated color. Both maps below key
+   * off the CANONICAL pattern_key / SMC key (data/candlestick_patterns.json
+   * registry, SMC_GLOSSARY above), so the same pattern always gets the same color
+   * everywhere on the page (Overview chips and the detail table alike). The
+   * resolver functions only ever return one of the fixed PATTERN_COLOR_TOKENS
+   * strings — never the raw key itself — so a class like `pattern-color-${token}`
+   * can never carry an attacker/producer-controlled value into HTML/CSS, even for
+   * an unrecognized key (safe predefined fallback below, direction-based when
+   * known, else slate). Direction itself is still conveyed via visible Vietnamese
+   * text (directionLabel) — these accent colors are a secondary, non-exclusive cue.
+   * ============================================================ */
+  const PATTERN_COLOR_TOKENS = new Set([
+    "emerald", "teal", "cyan", "rose", "red", "orange", "magenta", "amber", "violet", "slate",
+  ]);
+
+  const PATTERN_COLORS = {
+    // bullish family — emerald / teal / cyan
+    bullish_engulfing: "emerald", bullish_harami: "emerald", bullish_harami_cross: "emerald",
+    piercing_line: "emerald", three_white_soldiers: "emerald",
+    hammer: "teal", inverted_hammer: "teal", tweezer_bottom: "teal", marubozu_bullish: "teal",
+    morning_star: "cyan", morning_doji_star: "cyan", dragonfly_doji: "cyan", rising_three_methods: "cyan",
+    // bearish family — rose / orange / magenta
+    bearish_engulfing: "rose", bearish_harami: "rose", bearish_harami_cross: "rose",
+    dark_cloud_cover: "rose", three_black_crows: "rose", tweezer_top: "rose",
+    shooting_star: "orange", hanging_man: "orange", marubozu_bearish: "orange",
+    evening_star: "magenta", evening_doji_star: "magenta", gravestone_doji: "magenta", falling_three_methods: "magenta",
+    // neutral/indecision family — amber / violet / slate
+    doji: "amber", long_legged_doji: "amber",
+    spinning_top: "violet",
+    inside_bar: "slate", outside_bar: "slate",
+  };
+
+  const DIRECTION_FALLBACK_COLOR = { bullish: "emerald", bearish: "rose", neutral: "slate" };
+  const DEFAULT_FALLBACK_COLOR = "slate";
+
+  function colorTokenForPattern(key, direction) {
+    const mapped = PATTERN_COLORS[key];
+    if (mapped && PATTERN_COLOR_TOKENS.has(mapped)) return mapped;
+    return DIRECTION_FALLBACK_COLOR[direction] || DEFAULT_FALLBACK_COLOR;
+  }
+
+  // 4 khái niệm SMC thật sự tồn tại — màu cố định theo key chuẩn (kể cả khi tới từ
+  // alias confirmations[]/warnings[] như "bullish_order_block") để cùng 1 khái niệm
+  // luôn ra cùng 1 màu dù xuất hiện dưới quy ước đặt tên nào.
+  const SMC_COLORS = { ob_bull: "emerald", ob_bear: "rose", fvg_bull: "cyan", fvg_bear: "violet" };
+
+  function colorTokenForSmc(key) {
+    const entry = SMC_GLOSSARY[key];
+    if (!entry) return DEFAULT_FALLBACK_COLOR;
+    const canonicalKey = entry.alias || key;
+    const mapped = SMC_COLORS[canonicalKey];
+    return mapped && PATTERN_COLOR_TOKENS.has(mapped) ? mapped : DEFAULT_FALLBACK_COLOR;
   }
 
   const confirmationLabels = {
@@ -145,6 +216,34 @@
     return `<button type="button" class="vs-info-trigger" data-tooltip="${esc(text)}" ` +
       `aria-describedby="vs-tooltip-bubble" aria-expanded="false" ` +
       `aria-label="${esc(ariaLabel || "Xem giải thích")}">?</button>`;
+  }
+
+  /* Trigger tooltip KHÔNG dùng icon "?" riêng (Objective B, Phase 4C) — chính text hiển
+   * thị (tên mẫu hình / nhãn SMC) là trigger: [data-tooltip] được initTooltips() xử lý
+   * hover/focus/click/Escape giống hệt tooltipTrigger(), không thêm phần tử hiển thị nào
+   * khác nên không nới rộng hàng. Nội dung gán qua esc() (không innerHTML từ dữ liệu). */
+  function textTrigger(label, tooltipText) {
+    const safeLabel = esc(label);
+    if (!tooltipText) return safeLabel;
+    return `<span class="vs-text-trigger" data-tooltip="${esc(tooltipText)}" ` +
+      `aria-describedby="vs-tooltip-bubble" aria-expanded="false" tabindex="0">${safeLabel}</span>`;
+  }
+
+  /* SMC name hierarchy (Phase 4D) — same "text itself is the trigger" contract as
+   * textTrigger() above (same data-tooltip/aria-describedby/aria-expanded/tabindex,
+   * so initTooltips() and bindEvents()'s company-panel guard both keep working
+   * unchanged), but the Vietnamese term and the "(ABBR)" are two separately
+   * escaped/styled spans instead of one flat string, so the abbreviation can render
+   * as smaller secondary text. Both pieces still come from the fixed SMC_GLOSSARY
+   * (never raw row data), and each is escaped independently before concatenation. */
+  function smcNameTrigger(key) {
+    const info = smcInfo(key);
+    if (!info) return esc(key);
+    const inner = `<span class="smc-name-vi">${esc(info.vi)}</span> ` +
+      `<span class="smc-name-abbr">(${esc(info.abbr)})</span>`;
+    if (!info.tooltip) return inner;
+    return `<span class="vs-text-trigger" data-tooltip="${esc(info.tooltip)}" ` +
+      `aria-describedby="vs-tooltip-bubble" aria-expanded="false" tabindex="0">${inner}</span>`;
   }
 
   function initTooltips() {
@@ -267,18 +366,21 @@
     volume_confirmation: "Khối lượng giao dịch tại thời điểm hình thành mẫu hình cao hơn đáng kể so với trung bình, củng cố độ tin cậy tín hiệu.",
   };
 
-  // row=null (không tìm được dòng khớp qua join) và row có field nhưng thiếu giá trị
-  // đều PHẢI hiện "Chưa đủ dữ liệu" — không bao giờ coi thiếu dữ liệu là 0 sao
-  // (trước đây `Number(row.confidence_stars) || 0` biến undefined thành 0 sao, không
-  // phân biệt được với 1 điểm tin cậy=0 thật sự).
+  // row=null (không tìm được dòng khớp qua join), row có field nhưng thiếu giá trị, hoặc
+  // số sao làm tròn về 0 đều PHẢI không render gì (Objective C, Phase 4C — trước đây hiện
+  // text "Chưa đủ dữ liệu"; nay bỏ hẳn placeholder, để layout gọn) — không bao giờ coi
+  // thiếu dữ liệu là 0 sao (trước đây `Number(row.confidence_stars) || 0` biến undefined
+  // thành 0 sao, không phân biệt được với 1 điểm tin cậy=0 thật sự) và cũng không tự vẽ
+  // hàng "0 sao" khi giá trị thật làm tròn về 0 — chỉ 1-3 sao mới là kết quả hợp lệ.
   function stars(row) {
-    if (!row) return `<span class="pattern-stars-unknown" role="img" aria-label="Chưa đủ dữ liệu để xác định độ tin cậy">Chưa đủ dữ liệu</span>`;
+    if (!row) return "";
     const rawStars = row.confidence_stars;
     const rawScore = row.confidence_score;
     const known = rawStars !== null && rawStars !== undefined && Number.isFinite(Number(rawStars))
       && rawScore !== null && rawScore !== undefined && Number.isFinite(Number(rawScore));
-    if (!known) return `<span class="pattern-stars-unknown" role="img" aria-label="Chưa đủ dữ liệu để xác định độ tin cậy">Chưa đủ dữ liệu</span>`;
+    if (!known) return "";
     const count = Math.max(0, Math.min(3, Math.round(Number(rawStars))));
+    if (count === 0) return "";
     const filled = '<svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.8 2.8 5.7 6.3.9-4.55 4.43 1.08 6.27L12 17.14 6.37 20.1l1.08-6.27L2.9 9.4l6.3-.9L12 2.8Z"/></svg>';
     const empty = '<svg class="empty-star" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m12 2.8 2.8 5.7 6.3.9-4.55 4.43 1.08 6.27L12 17.14 6.37 20.1l1.08-6.27L2.9 9.4l6.3-.9L12 2.8Z"/></svg>';
     return `<span class="pattern-stars" role="img" aria-label="Mức độ tin cậy: ${count} trên 3 sao">${filled.repeat(count)}${empty.repeat(3 - count)}</span> ${number(rawScore, 0)}`;
@@ -287,9 +389,15 @@
   function tags(values, type) {
     return `<div class="pattern-tags">${(values || []).map((key) => {
       const label = labelFor(key, type);
-      const tipText = (smcInfo(key) || {}).tooltip || CONTEXT_TOOLTIPS[key] || "";
+      const smc = smcInfo(key);
+      const cls = `pattern-tag ${type === "warning" ? "warning" : ""}`;
+      // Nhãn SMC dùng cùng cách trình bày "text chính là trigger" như tên mẫu hình
+      // (không icon "?") — nhãn confirmation/warning thường khác vẫn giữ nguyên nút "?".
+      // Màu SMC (Phase 4D) cố định theo key chuẩn hoá qua colorTokenForSmc().
+      if (smc && smc.tooltip) return `<span class="${cls} pattern-color-${colorTokenForSmc(key)}">${smcNameTrigger(key)}</span>`;
+      const tipText = CONTEXT_TOOLTIPS[key] || "";
       const tip = tipText ? tooltipTrigger(tipText, `Giải thích ${label}`) : "";
-      return `<span class="pattern-tag ${type === "warning" ? "warning" : ""}">${esc(label)}${tip}</span>`;
+      return `<span class="${cls}">${esc(label)}${tip}</span>`;
     }).join("") || '<span class="pattern-muted">–</span>'}</div>`;
   }
 
@@ -303,7 +411,10 @@
     const nameVi = row.pattern_name_vi || registryInfo.name_vi || row.pattern_name || row.pattern_key;
     const nameEn = row.pattern_name || registryInfo.name || row.pattern_key;
     const description = meta.description || registryInfo.description || "";
-    const nameTip = description ? tooltipTrigger(description, `Giải thích mẫu ${nameVi}`) : "";
+    // Màu theo pattern_key chuẩn hoá (Phase 4D) — colorTokenForPattern() chỉ trả về 1
+    // trong các token cố định ở trên, không bao giờ lấy thẳng pattern_key/direction thô
+    // làm class, nên vẫn an toàn kể cả khi 2 trường này có giá trị lạ/không có trong registry.
+    const colorToken = colorTokenForPattern(row.pattern_key, row.direction);
     const statusTip = tooltipTrigger(
       row.status === "forming"
         ? "Kỳ chưa đóng — mẫu hình có thể còn thay đổi cho tới khi kỳ này kết thúc."
@@ -312,8 +423,8 @@
     );
     return `<tr class="pattern-row js-company-row" tabindex="0" data-ticker="${esc(row.ticker)}">
       <td><strong>${esc(row.ticker)}</strong></td>
-      <td><strong>${esc(nameVi)}</strong>${nameTip}<br><small class="pattern-muted">${esc(nameEn)}</small></td>
-      <td><span class="pattern-direction ${esc(row.direction)}">${esc(textDirection[row.direction] || row.direction)}</span></td>
+      <td><strong class="pattern-name-vi pattern-color-${colorToken}">${textTrigger(nameVi, description)}</strong><br><small class="pattern-muted pattern-name-en">${esc(nameEn)}</small></td>
+      <td><span class="pattern-direction ${esc(row.direction)}">${esc(directionLabel(row.direction, true))}</span></td>
       <td><strong>${esc(row.timeframe)}</strong></td>
       <td>${stars(row)}</td>
       <td><span class="pattern-status ${esc(row.status)}">${statusText}</span>${statusTip}</td>
@@ -489,6 +600,11 @@
       labelFor,
       starsMarkup: stars,
       tooltipTrigger,
+      textTrigger,
+      directionLabel,
+      smcNameTrigger,
+      colorTokenForPattern,
+      colorTokenForSmc,
     };
   }
 
@@ -500,7 +616,10 @@
   if (typeof module !== "undefined" && module.exports) {
     module.exports = {
       buildConfidenceIndex, confidenceFor, smcInfo, smcDisplayLabel, labelFor,
-      SMC_GLOSSARY, stars, tooltipTrigger, lookupPatternInfo, esc,
+      SMC_GLOSSARY, stars, tooltipTrigger, textTrigger, lookupPatternInfo, esc,
+      tags, rowHtml,
+      directionLabel, smcNameTrigger, colorTokenForPattern, colorTokenForSmc,
+      PATTERN_COLORS, PATTERN_COLOR_TOKENS, SMC_COLORS,
     };
   }
 }());
