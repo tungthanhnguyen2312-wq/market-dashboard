@@ -26,7 +26,22 @@ const {
   searchWithTicker,
   decideOpenAction,
   decideCloseAction,
+  isScreenerPage,
 } = require("../assets/js/company-panel.js");
+
+// company-panel.js is shared with dashboard.html and signals.html — history/URL
+// writes must stay Screener-only. Runs with a minimal fake `document` (no jsdom)
+// since Node has no `document` global; always restored, even on failure.
+function withFakeDocument(page, fn) {
+  const had = Object.prototype.hasOwnProperty.call(global, "document");
+  const prior = global.document;
+  global.document = { body: { dataset: { page } } };
+  try {
+    fn();
+  } finally {
+    if (had) global.document = prior; else delete global.document;
+  }
+}
 
 // ---------- normalizeTicker: validation / injection safety ----------
 
@@ -163,10 +178,14 @@ function makeHistorySim(initialSearch) {
     forward() { if (index < entries.length - 1) index++; },
     go(delta) { index = Math.max(0, Math.min(entries.length - 1, index + delta)); },
     length() { return entries.length; },
+    // Injects an entry with an ARBITRARY depth, simulating a stale/foreign/corrupted
+    // history entry not produced by this session's own push/bootstrap logic.
+    injectRaw(search, vsDepth) { entries.length = index + 1; entries.push({ search, vsDepth }); index++; },
   };
 }
 
-// Thin controller mirroring openPanel/closePanel's exact decision + history calls.
+// Thin controller mirroring openPanel/closePanel/hidePanelUI/handlePopState's exact
+// decision + history calls, including which of close() vs hide() each path uses.
 function makeController(sim) {
   let openTicker = null;
   let primed = false;
@@ -186,11 +205,25 @@ function makeController(sim) {
       }
       return action;
     },
+    // Mirrors closePanel(): explicit user close — the ONLY path allowed to navigate.
     close() {
       const action = decideCloseAction(sim.depth);
       if (action.history === "back") { sim.go(-action.steps); openTicker = tickerFromSearch(sim.search); return action; }
       openTicker = null;
       return action;
+    },
+    // Mirrors hidePanelUI(): hides only, NEVER touches history. Used exclusively by
+    // popstate reactions, since the browser has already finished navigating by then.
+    hide() { openTicker = null; },
+    // Mirrors handlePopState(): must call hide(), never close(), on every branch.
+    reactToPopState(cache) {
+      const ticker = tickerFromSearch(sim.search);
+      if (ticker === openTicker) return "noop";
+      if (!ticker) { this.hide(); return "hidden"; }
+      const row = cache.get(ticker);
+      if (row) { this.open(ticker); return "reopened"; }
+      this.hide();
+      return "hidden-unresolvable";
     },
   };
 }
@@ -271,10 +304,86 @@ test("forward after back reopens the correct ticker", () => {
   assert.equal(tickerFromSearch(sim.search), "HPG", "forward restores the ticker URL");
 });
 
+// ---------- popstate reactions must never trigger a further history.go() ----------
+// Regression: handlePopState's fallbacks originally called the full close() (i.e.
+// closePanel), which re-reads the CURRENT entry's depth and re-navigates. A stale/
+// foreign entry landed on via Back/Forward can carry an arbitrary depth (e.g. an
+// entry this session never pushed), and blindly acting on it caused a SECOND,
+// wrong history.go() — in the real browser this produced a visible bug: the panel
+// stayed stuck open because history.go(-99) was out of range and silently did
+// nothing, leaving the UI out of sync with a URL that already showed no ticker.
+// Caught via live browser testing; reproduced here without a real DOM/history.
+
+test("landing on a no-ticker entry with a stale non-zero depth just hides, no further navigation", () => {
+  const sim = makeHistorySim("");
+  const c = makeController(sim);
+  c.open("HPG");
+  sim.injectRaw("", 99); // foreign/corrupted entry: no ticker, but depth=99
+  const positionBefore = { search: sim.search, depth: sim.depth, length: sim.length() };
+
+  const result = c.reactToPopState(new Map());
+
+  assert.equal(result, "hidden");
+  assert.equal(c.openTicker, null);
+  assert.deepEqual({ search: sim.search, depth: sim.depth, length: sim.length() }, positionBefore,
+    "reacting to popstate must not move the history pointer or change entry count");
+});
+
+test("landing on an unresolvable (uncached) ticker just hides, no further navigation", () => {
+  const sim = makeHistorySim("");
+  const c = makeController(sim);
+  c.open("HPG");
+  sim.injectRaw(searchWithTicker("", "ZZZ"), 42); // ticker never opened this session
+  const positionBefore = { search: sim.search, depth: sim.depth, length: sim.length() };
+
+  const result = c.reactToPopState(new Map()); // empty cache — ZZZ is unresolvable
+
+  assert.equal(result, "hidden-unresolvable");
+  assert.equal(c.openTicker, null);
+  assert.deepEqual({ search: sim.search, depth: sim.depth, length: sim.length() }, positionBefore,
+    "an unresolvable ticker must degrade to hidden in place, never a blind history.go()");
+});
+
+test("landing on a cached ticker via popstate reopens it without pushing a new entry", () => {
+  const sim = makeHistorySim("");
+  const c = makeController(sim);
+  c.open("HPG");
+  const cache = new Map([["HPG", "HPG"]]);
+  const lengthBefore = sim.length();
+
+  sim.back(); // real Back button: browser navigates first, then popstate fires
+  const closeResult = c.reactToPopState(cache);
+  assert.equal(closeResult, "hidden", "URL now shows no ticker — reaction closes the panel");
+  assert.equal(c.openTicker, null);
+
+  sim.forward(); // real Forward button
+  const reopenResult = c.reactToPopState(cache);
+  assert.equal(reopenResult, "reopened");
+  assert.equal(c.openTicker, "HPG");
+  assert.equal(sim.length(), lengthBefore, "restoring a cached ticker via popstate must never grow history");
+});
+
 // ---------- No raw ticker injection ----------
 
 test("an unresolvable/invalid ticker never reaches a truthy render decision", () => {
   const hostile = tickerFromSearch("?ticker=" + encodeURIComponent("<img src=x onerror=alert(1)>"));
   assert.equal(hostile, null);
   assert.deepEqual(decideOpenAction(hostile, null, hostile, true), { render: false });
+});
+
+// ---------- Shared-module isolation (dashboard.html / signals.html) ----------
+// Regression: company-panel.js is shared with dashboard.html and signals.html.
+// Caught via live browser testing — clicking a watchlist card or a candlestick
+// pattern row was adding ?ticker= and pushing history on those pages too. The
+// ?ticker= URL/history contract must be exclusive to screener.html.
+
+test("isScreenerPage is true only when body data-page is exactly 'screener'", () => {
+  withFakeDocument("screener", () => assert.equal(isScreenerPage(), true));
+  withFakeDocument("dashboard", () => assert.equal(isScreenerPage(), false));
+  withFakeDocument("signals", () => assert.equal(isScreenerPage(), false));
+  withFakeDocument("", () => assert.equal(isScreenerPage(), false));
+});
+
+test("isScreenerPage is false with no document (Node/module load context)", () => {
+  assert.equal(isScreenerPage(), false);
 });

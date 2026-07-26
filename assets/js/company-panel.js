@@ -291,6 +291,13 @@
     });
   }
 
+  // company-panel.js is shared with dashboard.html and signals.html — the ?ticker=
+  // URL/history contract is a Screener-specific feature (Phase 5A), so every write
+  // to history/location below is gated on this. Rendering, caching, and focus
+  // restoration stay page-agnostic; only the URL/history side effects are scoped.
+  function isScreenerPage() {
+    return typeof document !== "undefined" && document.body && document.body.dataset.page === "screener";
+  }
   function currentUrlTicker() {
     return typeof location === "undefined" ? null : tickerFromSearch(location.search);
   }
@@ -301,9 +308,12 @@
   function currentDepth() {
     return (typeof history !== "undefined" && history.state && history.state.vsDepth) || 0;
   }
+  function urlForTicker(ticker) {
+    return location.pathname + searchWithTicker(location.search, ticker) + location.hash;
+  }
   function pushUrlForTicker(ticker) {
     const depth = currentDepth() + 1;
-    history.pushState({ vsTicker: ticker, vsDepth: depth }, "", location.pathname + searchWithTicker(location.search, ticker) + location.hash);
+    history.pushState({ vsTicker: ticker, vsDepth: depth }, "", urlForTicker(ticker));
   }
 
   function openPanel(row) {
@@ -329,32 +339,51 @@
     backdrop.querySelector("#cp-close").focus();
 
     if (ticker) tickerRowCache.set(ticker, row);
-    if (action.history === "bootstrap") {
-      history.replaceState({ vsTicker: null, vsDepth: 0 }, "", location.pathname + searchWithTicker(location.search, null) + location.hash);
-      pushUrlForTicker(ticker);
-      historyPrimed = true;
-    } else if (action.history === "push") {
-      pushUrlForTicker(ticker);
-      historyPrimed = true;
+    if (isScreenerPage()) {
+      if (action.history === "bootstrap") {
+        history.replaceState({ vsTicker: null, vsDepth: 0 }, "", urlForTicker(null));
+        pushUrlForTicker(ticker);
+        historyPrimed = true;
+      } else if (action.history === "push") {
+        pushUrlForTicker(ticker);
+        historyPrimed = true;
+      }
     }
   }
 
-  function closePanel() {
+  // Hides the panel with no history side effect at all. This is the only thing
+  // handlePopState may ever do to close — the browser has ALREADY finished
+  // navigating by the time popstate fires, so reacting to it with another
+  // history.go() (as closePanel() below does) would double-navigate. A stale or
+  // foreign vsDepth on the landed-on entry (external history entry, corrupted
+  // state) must never trigger a further jump — see the regression test.
+  function hidePanelUI() {
     if (!backdrop || !backdrop.classList.contains("is-open")) return;
-    const action = decideCloseAction(currentDepth());
-    if (action.history === "back") { history.go(-action.steps); return; }
     backdrop.classList.remove("is-open");
     document.body.style.overflow = "";
     if (lastFocused && typeof lastFocused.focus === "function" && document.contains(lastFocused)) lastFocused.focus();
     lastFocused = null;
   }
 
+  // Public/explicit close (X button, Escape, backdrop click). Only this path is
+  // allowed to navigate history, since only here do we know the URL still shows
+  // the ticker we're actively dismissing.
+  function closePanel() {
+    if (!backdrop || !backdrop.classList.contains("is-open")) return;
+    if (isScreenerPage()) {
+      const action = decideCloseAction(currentDepth());
+      if (action.history === "back") { history.go(-action.steps); return; }
+    }
+    hidePanelUI();
+  }
+
   function handlePopState() {
+    if (!isScreenerPage()) return;
     const ticker = currentUrlTicker();
     if (ticker === currentOpenTicker()) return;
-    if (!ticker) { closePanel(); return; }
+    if (!ticker) { hidePanelUI(); return; }
     const row = tickerRowCache.get(ticker);
-    if (row) openPanel(row); else closePanel();
+    if (row) openPanel(row); else hidePanelUI();
   }
 
   if (typeof document !== "undefined") document.addEventListener("DOMContentLoaded", () => {
@@ -378,6 +407,7 @@
     module.exports = {
       renderCorporateIntelligence, corporateForRow,
       normalizeTicker, tickerFromSearch, searchWithTicker, decideOpenAction, decideCloseAction,
+      isScreenerPage,
     };
   }
 })();
