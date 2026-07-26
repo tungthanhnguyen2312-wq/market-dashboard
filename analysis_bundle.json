@@ -283,7 +283,7 @@
     }
   ],
   "market_breadth_freshness": {
-    "generated_at": "2026-07-25T07:38:08+07:00",
+    "generated_at": "2026-07-24T00:00:00+00:00",
     "as_of_date": "2026-07-24",
     "source": "market_breadth.csv",
     "freshness_status": "current",
@@ -3994,7 +3994,7 @@
       },
       "freshness": {
         "daily_prices": {
-          "generated_at": "2026-07-25T07:38:08+07:00",
+          "generated_at": "2026-07-24T00:00:00+00:00",
           "as_of_date": "2026-07-24",
           "source": "screen_snapshot_live.csv",
           "freshness_status": "current",
@@ -4003,7 +4003,7 @@
           "is_actionable": true
         },
         "technical_signals": {
-          "generated_at": "2026-07-25T07:44:11+07:00",
+          "generated_at": "2026-07-24T00:00:00+00:00",
           "as_of_date": "2026-07-24",
           "source": "ta_signals.csv",
           "freshness_status": "current",
@@ -7964,7 +7964,7 @@
       },
       "freshness": {
         "daily_prices": {
-          "generated_at": "2026-07-25T07:38:08+07:00",
+          "generated_at": "2026-07-24T00:00:00+00:00",
           "as_of_date": "2026-07-24",
           "source": "screen_snapshot_live.csv",
           "freshness_status": "current",
@@ -7973,7 +7973,7 @@
           "is_actionable": true
         },
         "technical_signals": {
-          "generated_at": "2026-07-25T07:44:11+07:00",
+          "generated_at": "2026-07-24T00:00:00+00:00",
           "as_of_date": "2026-07-24",
           "source": "ta_signals.csv",
           "freshness_status": "current",
@@ -11472,7 +11472,7 @@
       },
       "freshness": {
         "daily_prices": {
-          "generated_at": "2026-07-25T07:38:08+07:00",
+          "generated_at": "2026-07-24T00:00:00+00:00",
           "as_of_date": "2026-07-24",
           "source": "screen_snapshot_live.csv",
           "freshness_status": "current",
@@ -11481,7 +11481,7 @@
           "is_actionable": true
         },
         "technical_signals": {
-          "generated_at": "2026-07-25T07:44:11+07:00",
+          "generated_at": "2026-07-24T00:00:00+00:00",
           "as_of_date": "2026-07-24",
           "source": "ta_signals.csv",
           "freshness_status": "current",
@@ -14362,7 +14362,7 @@
       },
       "freshness": {
         "daily_prices": {
-          "generated_at": "2026-07-25T07:38:08+07:00",
+          "generated_at": "2026-07-24T00:00:00+00:00",
           "as_of_date": "2026-07-24",
           "source": "screen_snapshot_live.csv",
           "freshness_status": "current",
@@ -14371,7 +14371,7 @@
           "is_actionable": true
         },
         "technical_signals": {
-          "generated_at": "2026-07-25T07:44:11+07:00",
+          "generated_at": null,
           "as_of_date": null,
           "source": "ta_signals.csv",
           "freshness_status": "missing",
@@ -18604,7 +18604,7 @@
       },
       "freshness": {
         "daily_prices": {
-          "generated_at": "2026-07-25T07:38:08+07:00",
+          "generated_at": "2026-07-24T00:00:00+00:00",
           "as_of_date": "2026-07-24",
           "source": "screen_snapshot_live.csv",
           "freshness_status": "current",
@@ -18613,7 +18613,7 @@
           "is_actionable": true
         },
         "technical_signals": {
-          "generated_at": "2026-07-25T07:44:11+07:00",
+          "generated_at": "2026-07-24T00:00:00+00:00",
           "as_of_date": "2026-07-24",
           "source": "ta_signals.csv",
           "freshness_status": "current",
