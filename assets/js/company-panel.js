@@ -23,9 +23,52 @@
     return s === "up" ? "bs-green" : s === "side" ? "bs-amber" : s === "down" ? "bs-red" : "bs-gray";
   };
 
+  /* ---------- Phase 5A: URL-synced ticker state (pure, no browser globals —
+   * testable directly from Node). VN tickers are 3-4 uppercase alnum chars;
+   * accept up to 10 defensively and reject anything else so an invalid/hostile
+   * URL value never reaches a lookup or the DOM. ---------- */
+  const TICKER_PARAM = "ticker";
+  function normalizeTicker(value) {
+    const t = String(value === null || value === undefined ? "" : value).trim().toUpperCase();
+    return /^[A-Z0-9]{1,10}$/.test(t) ? t : null;
+  }
+  function tickerFromSearch(search) {
+    return normalizeTicker(new URLSearchParams(search || "").get(TICKER_PARAM));
+  }
+  // Trả về "" hoặc "?a=1&ticker=X..." — không đụng tới các tham số khác.
+  function searchWithTicker(search, ticker) {
+    const params = new URLSearchParams(search || "");
+    if (ticker) params.set(TICKER_PARAM, ticker); else params.delete(TICKER_PARAM);
+    const qs = params.toString();
+    return qs ? `?${qs}` : "";
+  }
+  // openTicker: mã đang thực sự hiển thị trên panel (null nếu đang đóng).
+  // currentTicker: mã đang phản ánh trên URL hiện tại (null nếu không có).
+  // primed: đã từng push/bootstrap 1 lần trong phiên trang này chưa.
+  function decideOpenAction(currentTicker, openTicker, targetTicker, primed) {
+    if (!targetTicker) return { render: false };
+    if (openTicker === targetTicker) return { render: true, history: "none" };
+    // URL đã sẵn đúng mã (nạp thẳng bằng link/back-forward) — nếu đây là lần đầu
+    // tiên trong phiên thì cần "bootstrap" (chèn 1 trạng thái đã-đóng bên dưới)
+    // để nút Back/Đóng luôn có nơi an toàn để về, thay vì thoát hẳn trang.
+    if (currentTicker === targetTicker) return { render: true, history: primed ? "none" : "bootstrap" };
+    return { render: true, history: "push" };
+  }
+  // depth: số bước push kể từ trạng thái "đã đóng" gần nhất bên dưới (0 = đã ở
+  // trạng thái đóng). Đóng tường minh (X / Escape / bấm ra ngoài) LUÔN phải đóng
+  // hẳn — kể cả sau khi đã chuyển qua nhiều mã — nên nhảy thẳng N bước bằng
+  // history.go(-N) thay vì lùi từng bước 1 (lùi 1 bước sẽ chỉ hiện lại mã trước
+  // đó, đúng ngữ nghĩa của nút Back nhưng SAI với "Đóng" — Đóng phải đóng hẳn).
+  function decideCloseAction(depth) {
+    return depth > 0 ? { hide: false, history: "back", steps: depth } : { hide: true, history: "none" };
+  }
+
   let backdrop;
   let chartInstance = null;
   let corporateBundlePromise = null;
+  let lastFocused = null;
+  let historyPrimed = false;
+  const tickerRowCache = new Map();
 
   const isObject = (value) => value !== null && typeof value === "object" && !Array.isArray(value);
   const displayValue = (value) => value === null || value === undefined || value === "" ? "-" : esc(value);
@@ -248,8 +291,28 @@
     });
   }
 
+  function currentUrlTicker() {
+    return typeof location === "undefined" ? null : tickerFromSearch(location.search);
+  }
+  function currentOpenTicker() {
+    return backdrop && backdrop.classList.contains("is-open") && backdrop._currentRow
+      ? normalizeTicker(backdrop._currentRow.ticker) : null;
+  }
+  function currentDepth() {
+    return (typeof history !== "undefined" && history.state && history.state.vsDepth) || 0;
+  }
+  function pushUrlForTicker(ticker) {
+    const depth = currentDepth() + 1;
+    history.pushState({ vsTicker: ticker, vsDepth: depth }, "", location.pathname + searchWithTicker(location.search, ticker) + location.hash);
+  }
+
   function openPanel(row) {
+    const ticker = normalizeTicker(row && row.ticker);
+    const action = decideOpenAction(currentUrlTicker(), currentOpenTicker(), ticker, historyPrimed);
+    if (!action.render) return;
     if (!backdrop) buildPanelShell();
+    const wasOpen = backdrop.classList.contains("is-open");
+    if (!wasOpen) lastFocused = document.activeElement;
     backdrop._currentRow = row;
     document.getElementById("cp-title").textContent = row.ticker || "?";
     const overview = document.getElementById("cp-overview");
@@ -264,12 +327,34 @@
     backdrop.classList.add("is-open");
     document.body.style.overflow = "hidden";
     backdrop.querySelector("#cp-close").focus();
+
+    if (ticker) tickerRowCache.set(ticker, row);
+    if (action.history === "bootstrap") {
+      history.replaceState({ vsTicker: null, vsDepth: 0 }, "", location.pathname + searchWithTicker(location.search, null) + location.hash);
+      pushUrlForTicker(ticker);
+      historyPrimed = true;
+    } else if (action.history === "push") {
+      pushUrlForTicker(ticker);
+      historyPrimed = true;
+    }
   }
 
   function closePanel() {
-    if (!backdrop) return;
+    if (!backdrop || !backdrop.classList.contains("is-open")) return;
+    const action = decideCloseAction(currentDepth());
+    if (action.history === "back") { history.go(-action.steps); return; }
     backdrop.classList.remove("is-open");
     document.body.style.overflow = "";
+    if (lastFocused && typeof lastFocused.focus === "function" && document.contains(lastFocused)) lastFocused.focus();
+    lastFocused = null;
+  }
+
+  function handlePopState() {
+    const ticker = currentUrlTicker();
+    if (ticker === currentOpenTicker()) return;
+    if (!ticker) { closePanel(); return; }
+    const row = tickerRowCache.get(ticker);
+    if (row) openPanel(row); else closePanel();
   }
 
   if (typeof document !== "undefined") document.addEventListener("DOMContentLoaded", () => {
@@ -283,6 +368,16 @@
   });
 
   // API dùng chung cho các bảng ngoài DataTables (ví dụ bảng mẫu hình nến ở signals.html).
-  if (typeof window !== "undefined") window.VSCompanyPanel = { open: openPanel, close: closePanel };
-  if (typeof module !== "undefined" && module.exports) module.exports = { renderCorporateIntelligence, corporateForRow };
+  if (typeof window !== "undefined") {
+    window.VSCompanyPanel = { open: openPanel, close: closePanel, normalizeTicker, tickerFromSearch };
+    // Đồng bộ ?ticker= với Back/Forward — chỉ phản ứng khi tham số ticker thực sự
+    // đổi (bỏ qua popstate do điều hướng hash-tab không liên quan, ví dụ signals.html).
+    window.addEventListener("popstate", handlePopState);
+  }
+  if (typeof module !== "undefined" && module.exports) {
+    module.exports = {
+      renderCorporateIntelligence, corporateForRow,
+      normalizeTicker, tickerFromSearch, searchWithTicker, decideOpenAction, decideCloseAction,
+    };
+  }
 })();
