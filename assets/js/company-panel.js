@@ -139,10 +139,34 @@
       return `<div class="cp-ci-source"><h5>${esc(source)}</h5>${metadata(item)}${rows.map((entity) => { const fields = isObject(entity) && isObject(entity.fields) ? entity.fields : entity; return isObject(fields) ? `<div class="cp-ci-record">${fieldRows(fields, [{ key: "organization_name", label: "Entity" }, { key: "entity_name", label: "Entity" }, { key: "name", label: "Entity" }, { key: "provider_record_id", label: "Provider identity" }, { key: "provider_local_identity", label: "Provider identity" }, { key: "relationship_type", label: "Relationship" }, { key: "ownership_percent", label: "Ownership %", number: true }, { key: "ownership_percentage", label: "Ownership %", number: true }, { key: "ownership", label: "Ownership", number: true }, { key: "provenance", label: "Provenance" }])}</div>` : ""; }).join("")}</div>`;
     }).join("");
   }
+  function renderCorporateEvents(value) {
+    if (!isObject(value)) return "";
+    const warning = "Incomplete forward observations only; not complete event history or lifecycle status.";
+    return sourceBlocks(value).map(([source, item]) => {
+      const rows = isObject(item) && Array.isArray(item.records) ? item.records : [];
+      if (!rows.length) return "";
+      const coverage = item.coverage_status || value.coverage_status || "partial_unqualified_50_row_cap";
+      return `<div class="cp-ci-source"><h5>${esc(source)}</h5><div class="cp-ci-notice cp-ci-partial">${esc(warning)} ${esc(coverage)}</div>${rows.map((record) => {
+        if (!isObject(record)) return "";
+        const fields = isObject(record.fields) ? record.fields : record;
+        const provenance = isObject(record.provenance) ? record.provenance : {};
+        const title = fields.event_title_vi || fields.event_title_en || fields.event_name_vi || fields.event_name_en || "Corporate event";
+        return `<div class="cp-ci-record"><strong>${displayValue(title)}</strong>${fieldRows({ provider_event_id: record.provider_event_id, ...fields }, [
+          { key: "provider_event_id", label: "Provider event ID" }, { key: "event_code", label: "Event code" },
+          { key: "category", label: "Category" }, { key: "public_date", label: "Public date" },
+          { key: "record_date", label: "Record date" }, { key: "exright_date", label: "Ex-right date" },
+          { key: "issue_date", label: "Issue date" }, { key: "start_date", label: "Start date" },
+          { key: "end_date", label: "End date" }, { key: "payout_date", label: "Payout date" },
+          { key: "listing_date", label: "Listing date" }, { key: "exercise_ratio", label: "Exercise ratio", number: true },
+          { key: "value_per_share", label: "Value per share", number: true },
+        ]) }<div class="cp-ci-meta">${esc(provenance.provider || source)}${provenance.retrieved_at ? ` ? ${esc(provenance.retrieved_at)}` : ""}</div></div>`;
+      }).join("")}</div>`;
+    }).join("");
+  }
   function renderCorporateIntelligence(corporate) {
     if (!isObject(corporate)) return `<section class="cp-ci"><h3>Corporate Intelligence</h3><div class="cp-ci-notice cp-ci-missing">${esc(statusMessage("missing"))}</div></section>`;
     const majorShareholders = corporate.major_shareholders || (corporate.major_shareholder_snapshot || corporate.major_shareholder_delta ? { latest_valid_snapshot: corporate.major_shareholder_snapshot, delta: corporate.major_shareholder_delta } : null);
-    const parts = [subsection("Company profile", corporate.company_profile, renderProfile), subsection("Ownership structure", corporate.ownership_structure, renderOwnership), subsection("Major shareholders", majorShareholders, renderMajorShareholders), subsection("Company subsidiaries", corporate.company_subsidiaries, renderSubsidiaries)].filter(Boolean);
+    const parts = [subsection("Company profile", corporate.company_profile, renderProfile), subsection("Ownership structure", corporate.ownership_structure, renderOwnership), subsection("Major shareholders", majorShareholders, renderMajorShareholders), subsection("Company subsidiaries", corporate.company_subsidiaries, renderSubsidiaries), subsection("Corporate Events", corporate.corporate_events, renderCorporateEvents)].filter(Boolean);
     return `<section class="cp-ci"><h3>Corporate Intelligence</h3>${parts.length ? parts.join("") : `<div class="cp-ci-notice cp-ci-missing">${esc(statusMessage("missing"))}</div>`}</section>`;
   }
   function loadCorporateBundle() { if (window.ANALYSIS_BUNDLE) return Promise.resolve(window.ANALYSIS_BUNDLE); if (!corporateBundlePromise && typeof fetch === "function") corporateBundlePromise = fetch("analysis_bundle.json", { cache: "no-store" }).then((response) => response.ok ? response.json() : null).catch(() => null); return corporateBundlePromise || Promise.resolve(null); }

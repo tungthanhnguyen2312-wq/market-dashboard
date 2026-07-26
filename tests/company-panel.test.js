@@ -15,11 +15,12 @@ const fullPayload = {
     delta: { source: "KBS", reference_scope: "latest comparable", new_holder: "Beta", disappeared_holder: "Gamma", shares_change: 3, ownership_percentage_change: 0.2 },
   },
   company_subsidiaries: { sources: { VCI: { subsidiaries: [{ entity_name: "Sub One", provider_local_identity: "VCI-1", relationship_type: "Subsidiary", ownership_percentage: 51, provenance: "VCI filing" }] } } },
+  corporate_events: { status: "partial", coverage_status: "partial_unqualified_50_row_cap", sources: [{ source_name: "VCI", records: [{ provider_event_id: "evt-1", fields: { event_title_vi: "Cash dividend", category: "DIVIDEND", record_date: null, value_per_share: 0 }, provenance: { provider: "VCI", retrieved_at: "2026-07-26" } }] }] },
 };
 
 test("renders all Corporate Intelligence subsections and preserves provider semantics", () => {
   const html = renderCorporateIntelligence(fullPayload);
-  for (const expected of ["Company profile", "Ownership structure", "Major shareholders", "Company subsidiaries", "KBS", "VCI", "sector", "business model", "issue share", "outstanding shares", "Sub One", "VCI-1"]) assert.match(html.toLowerCase(), new RegExp(expected.toLowerCase()));
+  for (const expected of ["Company profile", "Ownership structure", "Major shareholders", "Company subsidiaries", "Corporate Events", "KBS", "VCI", "sector", "business model", "issue share", "outstanding shares", "Sub One", "VCI-1", "evt-1", "Incomplete forward observations"]) assert.match(html.toLowerCase(), new RegExp(expected.toLowerCase()));
   assert.match(html, /100,01/);
   assert.match(html, /Shares owned[\s\S]*?>-</);
 });
@@ -80,4 +81,23 @@ test("renders the producer source-envelope contract without merging providers", 
   for (const expected of ["KBS", "VCI", "Finance", "Brokerage", "Sub A", "VCI-42", "Holder A", "Holder B"]) assert.match(html, new RegExp(expected));
   assert.match(html, /100,01/);
   assert.match(html, /Shares owned[\s\S]*?>-</);
+});
+
+
+test("renders partial Corporate Events independently with escaped nullable fields", () => {
+  const html = renderCorporateIntelligence({ corporate_events: { status: "partial", coverage_status: "partial_unqualified_50_row_cap", sources: [{ source_name: "VCI", records: [{ provider_event_id: "<evt>", fields: { event_title_vi: "<script>bad</script>", record_date: null, value_per_share: 0 }, provenance: { provider: "VCI" } }] }] } });
+  assert.match(html, /Corporate Events/);
+  assert.match(html, /Incomplete forward observations/);
+  assert.match(html, /&lt;script&gt;bad&lt;\/script&gt;/);
+  assert.doesNotMatch(html, /<script>bad<\/script>/);
+  assert.match(html, /Value per share[\s\S]*>0(?:\.00)?</);
+  assert.match(html, /Record date[\s\S]*>-</);
+});
+
+test("does not render missing Corporate Events and isolates malformed state", () => {
+  const missing = renderCorporateIntelligence({ corporate_events: { status: "missing", sources: [] } });
+  assert.doesNotMatch(missing, /Corporate Events/);
+  const malformed = renderCorporateIntelligence({ corporate_events: { status: "malformed", data: "bad" } });
+  assert.match(malformed, /Corporate Events/);
+  assert.match(malformed, /invalid and cannot be displayed/);
 });
