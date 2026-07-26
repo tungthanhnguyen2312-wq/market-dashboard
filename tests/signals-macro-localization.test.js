@@ -262,8 +262,263 @@ test("tags() renders SMC confirmations with the text-itself trigger (no '?'), wh
 test("tags() applies the no-'?' presentation to all 4 real SMC concepts without inventing new ones", () => {
   const html = cp.tags(["ob_bull", "ob_bear", "fvg_bull", "fvg_bear"], "confirmation");
   assert.ok(!html.includes("vs-info-trigger"), "all 4 real SMC keys must use the text-trigger presentation, none fall back to '?'");
-  for (const label of ["Khối lệnh tăng (OB Bull)", "Khối lệnh giảm (OB Bear)", "Khoảng trống giá tăng (FVG Bull)", "Khoảng trống giá giảm (FVG Bear)"]) {
-    assert.ok(html.includes(label), `${label} must be present`);
+  // Phase 4D splits "vi (ABBR)" into two hierarchy spans (smc-name-vi / smc-name-abbr,
+  // see smcNameTrigger) instead of one flat string — check both parts are still present.
+  for (const [vi, abbr] of [
+    ["Khối lệnh tăng", "(OB Bull)"],
+    ["Khối lệnh giảm", "(OB Bear)"],
+    ["Khoảng trống giá tăng", "(FVG Bull)"],
+    ["Khoảng trống giá giảm", "(FVG Bear)"],
+  ]) {
+    assert.ok(html.includes(vi), `${vi} must be present`);
+    assert.ok(html.includes(abbr), `${abbr} must be present`);
+  }
+});
+
+// ---------- Phase 4D: Vietnamese direction terminology (display-only) ----------
+
+test("directionLabel returns the full Vietnamese terms for standalone labels (KPI summary, filter option)", () => {
+  assert.equal(cp.directionLabel("bullish", false), "Tăng giá");
+  assert.equal(cp.directionLabel("bearish", false), "Giảm giá");
+  assert.equal(cp.directionLabel("neutral", false), "Trung tính");
+});
+
+test("directionLabel returns the compact Vietnamese terms for tight inline badges", () => {
+  assert.equal(cp.directionLabel("bullish", true), "Tăng");
+  assert.equal(cp.directionLabel("bearish", true), "Giảm");
+  assert.equal(cp.directionLabel("neutral", true), "Trung tính", "neutral has no shorter compact form");
+});
+
+test("directionLabel falls back to the raw value for an unrecognized direction instead of throwing or going blank", () => {
+  assert.equal(cp.directionLabel("sideways", true), "sideways");
+  assert.equal(cp.directionLabel("", true), "");
+  assert.equal(cp.directionLabel(undefined, true), "");
+});
+
+test("rowHtml's direction cell shows the compact Vietnamese term while its CSS class still carries the raw direction value (filtering/analytics unaffected)", () => {
+  for (const [direction, term] of [["bullish", "Tăng"], ["bearish", "Giảm"], ["neutral", "Trung tính"]]) {
+    const html = cp.rowHtml(sampleRow({ direction }));
+    assert.match(html, new RegExp(`<span class="pattern-direction ${direction}">${term}</span>`));
+  }
+});
+
+test("signals.html no longer displays raw English 'Bullish'/'Bearish'/'Neutral' as visible text content", () => {
+  const html = fs.readFileSync(path.join(__dirname, "..", "signals.html"), "utf8");
+  assert.doesNotMatch(html, />Bullish</);
+  assert.doesNotMatch(html, />Bearish</);
+  assert.doesNotMatch(html, />Neutral</);
+});
+
+test("signals.html filter option values stay the lowercase English data contract while their visible text is Vietnamese", () => {
+  const html = fs.readFileSync(path.join(__dirname, "..", "signals.html"), "utf8");
+  assert.match(html, /<option value="bullish">Tăng giá<\/option>/);
+  assert.match(html, /<option value="bearish">Giảm giá<\/option>/);
+  assert.match(html, /<option value="neutral">Trung tính<\/option>/);
+});
+
+test("signals.html KPI summary labels are Vietnamese while their ids (JS data contract) are unchanged", () => {
+  const html = fs.readFileSync(path.join(__dirname, "..", "signals.html"), "utf8");
+  assert.match(html, /<span>Tăng giá<\/span><strong id="pattern-summary-bullish">/);
+  assert.match(html, /<span>Giảm giá<\/span><strong id="pattern-summary-bearish">/);
+  assert.match(html, /<span>Trung tính<\/span><strong id="pattern-summary-neutral">/);
+});
+
+test("candlestick-patterns.js source has no hardcoded capitalized English direction word as a rendered label", () => {
+  const src = fs.readFileSync(path.join(__dirname, "..", "assets", "js", "candlestick-patterns.js"), "utf8");
+  assert.doesNotMatch(src, /"Bullish"|"Bearish"|"Neutral"/);
+});
+
+// ---------- Phase 4D: deterministic, canonical-key-based candlestick colors ----------
+
+test("colorTokenForPattern is deterministic across repeated calls for every mapped canonical pattern key, and only ever returns a fixed safe token", () => {
+  for (const key of Object.keys(cp.PATTERN_COLORS)) {
+    const a = cp.colorTokenForPattern(key);
+    const b = cp.colorTokenForPattern(key);
+    assert.equal(a, b, `${key} must resolve to the same color every time`);
+    assert.ok(cp.PATTERN_COLOR_TOKENS.has(a), `${key} must resolve to one of the fixed tokens`);
+  }
+});
+
+test("colorTokenForPattern matches every specific example named in the spec", () => {
+  assert.equal(cp.colorTokenForPattern("bullish_engulfing"), "emerald");
+  assert.equal(cp.colorTokenForPattern("bearish_engulfing"), "rose");
+  assert.equal(cp.colorTokenForPattern("hammer"), "teal");
+  assert.equal(cp.colorTokenForPattern("shooting_star"), "orange");
+  assert.equal(cp.colorTokenForPattern("morning_star"), "cyan");
+  assert.equal(cp.colorTokenForPattern("evening_star"), "magenta");
+  assert.equal(cp.colorTokenForPattern("doji"), "amber");
+});
+
+test("every mapped candlestick pattern's color stays within its pattern's real directional family (cross-checked against data/candlestick_patterns.json registry)", () => {
+  const registryPath = path.join(__dirname, "..", "data", "candlestick_patterns.json");
+  const registry = JSON.parse(fs.readFileSync(registryPath, "utf8")).registry;
+  const FAMILY = {
+    bullish: new Set(["emerald", "teal", "cyan"]),
+    bearish: new Set(["rose", "red", "orange", "magenta"]),
+    neutral: new Set(["amber", "violet", "slate"]),
+  };
+  const keys = Object.keys(registry);
+  assert.ok(keys.length > 0, "registry must not be empty for this cross-check to be meaningful");
+  for (const [key, entry] of Object.entries(registry)) {
+    const token = cp.colorTokenForPattern(key, entry.direction);
+    const family = FAMILY[entry.direction];
+    assert.ok(family, `unexpected direction '${entry.direction}' for ${key}`);
+    assert.ok(family.has(token), `${key} (${entry.direction}) resolved to '${token}', outside its required directional family`);
+  }
+});
+
+test("colorTokenForPattern gives a safe, direction-based predefined fallback for an unmapped/future pattern key", () => {
+  assert.equal(cp.colorTokenForPattern("some_future_pattern", "bullish"), "emerald");
+  assert.equal(cp.colorTokenForPattern("some_future_pattern", "bearish"), "rose");
+  assert.equal(cp.colorTokenForPattern("some_future_pattern", "neutral"), "slate");
+});
+
+test("colorTokenForPattern falls back to a safe neutral token when both the key and the direction are unrecognized", () => {
+  const token = cp.colorTokenForPattern("totally_unknown_pattern", "sideways-nonsense");
+  assert.ok(cp.PATTERN_COLOR_TOKENS.has(token));
+  assert.equal(token, "slate");
+});
+
+test("colorTokenForPattern never echoes an arbitrary/malicious pattern_key back — only a fixed safe token is ever returned", () => {
+  const hostileKeys = ['"><script>alert(1)</script>', "'; } .evil{color:red} .x{", "__proto__", "constructor", "toString", "hasOwnProperty"];
+  for (const key of hostileKeys) {
+    const token = cp.colorTokenForPattern(key, "bullish");
+    assert.equal(typeof token, "string");
+    assert.ok(cp.PATTERN_COLOR_TOKENS.has(token), `hostile key '${key}' must still resolve to a fixed safe token`);
+  }
+});
+
+test("rowHtml applies a pattern-color-* class from the fixed token set even for a pattern_key absent from the registry", () => {
+  const html = cp.rowHtml(sampleRow({ pattern_key: "not_in_registry_xyz", pattern_name_vi: "X", pattern_name: "X", direction: "bullish" }));
+  const match = html.match(/pattern-name-vi pattern-color-([a-zA-Z]+)/);
+  assert.ok(match, "must still apply a pattern-color-* class");
+  assert.ok(cp.PATTERN_COLOR_TOKENS.has(match[1]));
+  assert.equal(match[1], "emerald", "bullish fallback");
+});
+
+test("rowHtml never renders a pattern-color class outside the fixed token set, even for pattern_key values shaped like prototype/object properties", () => {
+  for (const key of ["__proto__", "constructor", "toString", "hasOwnProperty"]) {
+    const html = cp.rowHtml(sampleRow({ pattern_key: key, direction: "neutral" }));
+    const match = html.match(/pattern-name-vi pattern-color-([a-zA-Z]+)/);
+    assert.ok(match, `must still apply a single pattern-color-* class for pattern_key='${key}'`);
+    assert.ok(cp.PATTERN_COLOR_TOKENS.has(match[1]), `resolved token '${match[1]}' for pattern_key='${key}' must be one of the fixed safe tokens`);
+  }
+});
+
+// ---------- Phase 4D: deterministic SMC semantic colors ----------
+
+test("colorTokenForSmc matches the required semantic mapping for all 4 supported concepts", () => {
+  assert.equal(cp.colorTokenForSmc("ob_bull"), "emerald");
+  assert.equal(cp.colorTokenForSmc("ob_bear"), "rose");
+  assert.equal(cp.colorTokenForSmc("fvg_bull"), "cyan");
+  assert.ok(["orange", "violet"].includes(cp.colorTokenForSmc("fvg_bear")), "fvg_bear must be orange or violet per spec");
+});
+
+test("colorTokenForSmc is stable across both SMC naming conventions (smc[] key and confirmations[]/warnings[] alias)", () => {
+  assert.equal(cp.colorTokenForSmc("bullish_order_block"), cp.colorTokenForSmc("ob_bull"));
+  assert.equal(cp.colorTokenForSmc("bearish_order_block"), cp.colorTokenForSmc("ob_bear"));
+  assert.equal(cp.colorTokenForSmc("bullish_fvg"), cp.colorTokenForSmc("fvg_bull"));
+  assert.equal(cp.colorTokenForSmc("bearish_fvg"), cp.colorTokenForSmc("fvg_bear"));
+});
+
+test("colorTokenForSmc is deterministic across repeated calls", () => {
+  for (const key of ["ob_bull", "ob_bear", "fvg_bull", "fvg_bear"]) {
+    assert.equal(cp.colorTokenForSmc(key), cp.colorTokenForSmc(key));
+  }
+});
+
+test("colorTokenForSmc gives a safe predefined fallback for an unmapped SMC key, never echoing the raw key", () => {
+  const hostileKeys = ["not_a_real_smc_key", '"><img src=x onerror=alert(1)>', "__proto__", "constructor"];
+  for (const key of hostileKeys) {
+    const token = cp.colorTokenForSmc(key);
+    assert.ok(cp.PATTERN_COLOR_TOKENS.has(token));
+  }
+});
+
+test("no unsupported SMC concept gets a color either — colorTokenForSmc still only recognizes the 4 real keys/aliases", () => {
+  for (const key of ["bos", "choch", "liquidity_sweep", "break_of_structure"]) {
+    assert.equal(cp.colorTokenForSmc(key), "slate", `${key} must not be a recognized SMC concept`);
+  }
+});
+
+// ---------- Phase 4D: SMC name hierarchy + no '?' icon on the new helper ----------
+
+test("smcNameTrigger renders the Vietnamese term and abbreviation as two hierarchy spans, with a space between them", () => {
+  const html = cp.smcNameTrigger("ob_bull");
+  assert.match(html, /<span class="smc-name-vi">Khối lệnh tăng<\/span> <span class="smc-name-abbr">\(OB Bull\)<\/span>/);
+});
+
+test("smcNameTrigger uses the name text itself as the trigger, with no separate '?' icon, for all 4 real SMC concepts", () => {
+  for (const key of ["ob_bull", "ob_bear", "fvg_bull", "fvg_bear"]) {
+    const html = cp.smcNameTrigger(key);
+    assert.ok(!html.includes("vs-info-trigger"), `${key} must not render the ? button`);
+    assert.ok(!html.includes(">?<"), `${key} must not render a bare ? glyph`);
+  }
+});
+
+test("smcNameTrigger output still carries the [data-tooltip]/aria contract, so initTooltips() and bindEvents()'s company-panel guard keep working unchanged", () => {
+  const html = cp.smcNameTrigger("ob_bull");
+  assert.match(html, /data-tooltip="Order Block tăng/);
+  assert.match(html, /aria-describedby="vs-tooltip-bubble"/);
+  assert.match(html, /aria-expanded="false"/);
+  assert.match(html, /tabindex="0"/);
+});
+
+test("smcNameTrigger escapes both the Vietnamese term and the abbreviation independently (no innerHTML injection)", () => {
+  assert.doesNotMatch(cp.smcNameTrigger("ob_bull"), /<script/);
+});
+
+test("smcNameTrigger falls back to the escaped raw key for an unrecognized SMC key (no throw)", () => {
+  assert.equal(cp.smcNameTrigger("not_a_real_key"), "not_a_real_key");
+  assert.equal(cp.smcNameTrigger("<b>x</b>"), "&lt;b&gt;x&lt;/b&gt;");
+});
+
+// ---------- Phase 4D: candlestick/SMC name visual hierarchy (CSS) ----------
+
+test("candlestick-patterns.css gives the Vietnamese primary pattern name an explicit ~15-16px size, ~650-700 weight, and a compact line-height", () => {
+  const css = fs.readFileSync(path.join(__dirname, "..", "assets", "css", "candlestick-patterns.css"), "utf8");
+  const rule = css.match(/\.pattern-name-vi\s*\{([^}]*)\}/);
+  assert.ok(rule, ".pattern-name-vi rule must exist");
+  const body = rule[1];
+  const size = Number((body.match(/font-size\s*:\s*([\d.]+)px/) || [])[1]);
+  assert.ok(size >= 15 && size <= 16.5, `font-size must be ~15-16px, got ${size}`);
+  const weight = Number((body.match(/font-weight\s*:\s*(\d+)/) || [])[1]);
+  assert.ok(weight >= 650 && weight <= 700, `font-weight must be ~650-700, got ${weight}`);
+  const lineHeight = Number((body.match(/line-height\s*:\s*([\d.]+)/) || [])[1]);
+  assert.ok(lineHeight > 0 && lineHeight <= 1.3, `line-height must be compact (<=1.3), got ${lineHeight}`);
+});
+
+test("candlestick-patterns.css keeps the English secondary name visibly smaller than the Vietnamese primary name", () => {
+  const css = fs.readFileSync(path.join(__dirname, "..", "assets", "css", "candlestick-patterns.css"), "utf8");
+  const viSize = Number((css.match(/\.pattern-name-vi\s*\{([^}]*)\}/)[1].match(/font-size\s*:\s*([\d.]+)px/) || [])[1]);
+  const enRule = css.match(/\.pattern-name-en\s*\{([^}]*)\}/);
+  assert.ok(enRule, ".pattern-name-en rule must exist");
+  const enSize = Number((enRule[1].match(/font-size\s*:\s*([\d.]+)px/) || [])[1]);
+  assert.ok(enSize < viSize, `English secondary name (${enSize}px) must be smaller than the Vietnamese primary name (${viSize}px)`);
+});
+
+test("candlestick-patterns.css defines a color rule for every fixed pattern-color token (restrained fixed palette, not per-row generation)", () => {
+  const css = fs.readFileSync(path.join(__dirname, "..", "assets", "css", "candlestick-patterns.css"), "utf8");
+  for (const token of cp.PATTERN_COLOR_TOKENS) {
+    assert.match(css, new RegExp(`\\.pattern-color-${token}\\s*\\{`), `missing CSS rule for token '${token}'`);
+  }
+});
+
+test("candlestick-patterns.css gives the SMC abbreviation a smaller, relatively-sized secondary treatment (compact-chip-safe, not an absolute 15-16px override)", () => {
+  const css = fs.readFileSync(path.join(__dirname, "..", "assets", "css", "candlestick-patterns.css"), "utf8");
+  const abbrRule = css.match(/\.smc-name-abbr\s*\{([^}]*)\}/);
+  assert.ok(abbrRule, ".smc-name-abbr rule must exist");
+  assert.match(abbrRule[1], /font-size\s*:\s*\.?[0-9]+(\.[0-9]+)?em/, "abbreviation size must be relative (em) so it stays legible in compact chip contexts");
+});
+
+// ---------- Phase 4D: direction is never color-only ----------
+
+test("the pattern-direction badge always carries visible Vietnamese text alongside its color class — direction is never color-only", () => {
+  for (const direction of ["bullish", "bearish", "neutral"]) {
+    const html = cp.rowHtml(sampleRow({ direction }));
+    const cell = html.match(/<span class="pattern-direction [^"]*">([^<]*)<\/span>/);
+    assert.ok(cell, `direction cell must exist for ${direction}`);
+    assert.ok(cell[1].trim().length > 0, `direction text must be non-empty/visible for ${direction}`);
   }
 });
 
