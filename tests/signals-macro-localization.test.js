@@ -328,6 +328,38 @@ test("candlestick-patterns.js source has no hardcoded capitalized English direct
   assert.doesNotMatch(src, /"Bullish"|"Bearish"|"Neutral"/);
 });
 
+// ---------- Overview tab: confluence/dividend tables stay responsive on mobile
+// (follow-up fix) — a plain <table> with no wrapper can force the whole page to
+// scroll horizontally on narrow viewports; both small Overview-tab tables must be
+// wrapped in a bounded, keyboard-focusable horizontal-scroll container instead. ----------
+
+test("renderConfluence()'s table is wrapped in a keyboard-focusable horizontal-scroll container (no page-level overflow on mobile)", () => {
+  const html = fs.readFileSync(path.join(__dirname, "..", "signals.html"), "utf8");
+  assert.match(
+    html,
+    /document\.getElementById\("confluence"\)\.innerHTML = `<div class="overview-table-wrap" tabindex="0" aria-label="[^"]+"><table>/,
+    "confluence table must be wrapped in .overview-table-wrap with tabindex=0 and an aria-label",
+  );
+  assert.match(html, /join\(""\) \+ "<\/table><\/div>";\s*\n}\s*\nfunction renderDividend/, "the wrapper div must be closed after </table> in renderConfluence's output");
+});
+
+test("renderDividend()'s table is also wrapped in the same horizontal-scroll container", () => {
+  const html = fs.readFileSync(path.join(__dirname, "..", "signals.html"), "utf8");
+  assert.match(
+    html,
+    /document\.getElementById\("dividend"\)\.innerHTML = `<div class="overview-table-wrap" tabindex="0" aria-label="[^"]+"><table>/,
+    "dividend table must be wrapped in .overview-table-wrap with tabindex=0 and an aria-label",
+  );
+});
+
+test("signals.html defines .overview-table-wrap as overflow-x:auto only — no max-height, so short Overview tables never get an unwanted vertical scrollbar on desktop", () => {
+  const html = fs.readFileSync(path.join(__dirname, "..", "signals.html"), "utf8");
+  const rule = html.match(/\.overview-table-wrap\s*\{([^}]*)\}/);
+  assert.ok(rule, ".overview-table-wrap rule must exist");
+  assert.match(rule[1], /overflow-x\s*:\s*auto/);
+  assert.doesNotMatch(rule[1], /max-height/, "must not inherit the patterns table's max-height:70vh constraint");
+});
+
 // ---------- Phase 4D: deterministic, canonical-key-based candlestick colors ----------
 
 test("colorTokenForPattern is deterministic across repeated calls for every mapped canonical pattern key, and only ever returns a fixed safe token", () => {

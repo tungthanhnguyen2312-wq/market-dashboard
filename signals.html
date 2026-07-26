@@ -44,6 +44,13 @@
   table { border-collapse:collapse; width:100%; margin-top:6px; font-variant-numeric:tabular-nums; }
   th,td { border-bottom:1px solid var(--border); padding:5px 9px; text-align:left; font-size:13px; }
   th { background:var(--panel); color:var(--dim); font-weight:600; text-transform:uppercase; font-size:11px; letter-spacing:0.04em; }
+  /* Bọc các bảng nhỏ ở tab Tổng quan (hợp lưu + cổ tức) để cuộn ngang trong khung ở
+     mobile thay vì tràn trang (chip mẫu hình/SMC + tên ngành khiến bảng rộng hơn
+     viewport nhỏ). Chỉ overflow-x, KHÔNG dùng .pattern-table-wrap (candlestick-
+     patterns.css) vì class đó có thêm max-height:70vh cho bảng mẫu hình nến dài hơn
+     nhiều — sẽ ép các bảng ngắn này vào khung cuộn dọc không cần thiết, kể cả trên
+     desktop. */
+  .overview-table-wrap { overflow-x:auto; }
   .up { color:var(--green); } .down { color:var(--red); } .flat { color:var(--dim); }
   .empty { color:var(--dim); padding:14px; border:1px dashed var(--border); margin-top:6px; border-radius:var(--radius-md); }
   /* Watchlist cards */
@@ -281,23 +288,23 @@ function renderConfluence(signals, confidenceIndex) {
     document.getElementById("confluence").innerHTML = '<div class="empty">Phiên này không có tín hiệu hợp lưu</div>';
     return;
   }
-  document.getElementById("confluence").innerHTML = `<table><tr>
+  document.getElementById("confluence").innerHTML = `<div class="overview-table-wrap" tabindex="0" aria-label="Bảng tín hiệu hợp lưu có thể cuộn ngang"><table><tr>
     <th>Mã</th><th>Giá</th><th>Hướng</th><th>Mẫu nến</th><th>SMC</th><th>Ngành</th><th>RS</th><th>RelVol</th><th>Cờ</th></tr>` +
     rows.map(s => `<tr><td><b>${esc(s.ticker)}</b></td><td>${fmt(s.close, 0)}</td>
       <td class="${dirCls(s.direction)}">${esc(dirLabel(s.direction, true))}</td>
       <td>${(s.patterns || []).map((key) => patternChip(key, s.ticker, confidenceIndex)).join("") || "–"}</td>
       <td>${(s.smc || []).map((key) => smcChip(key)).join("") || "–"}</td>
       <td>${esc(s.industry || "–")}</td><td>${fmt(s.rs_rating, 0)}</td><td>${fmt(s.rel_vol, 2)}</td>
-      <td class="down">${esc(s.margin_status || "")}</td></tr>`).join("") + "</table>";
+      <td class="down">${esc(s.margin_status || "")}</td></tr>`).join("") + "</table></div>";
 }
 function renderDividend(list, note) {
   document.getElementById("divnote").textContent = note || "";
   if (!list || !list.length) return;   // giữ text "Đang chờ đồng bộ..."
-  document.getElementById("dividend").innerHTML = `<table><tr>
+  document.getElementById("dividend").innerHTML = `<div class="overview-table-wrap" tabindex="0" aria-label="Bảng cổ tức có thể cuộn ngang"><table><tr>
     <th>Mã</th><th>Giá</th><th>Yield %</th><th>P/E</th><th>P/B</th><th>ROE %</th><th>Ngành</th></tr>` +
     list.map(d => `<tr><td><b>${esc(d.ticker)}</b></td><td>${fmt(d.close, 0)}</td>
       <td class="up">${fmt(d.dividend_yield, 1)}</td><td>${fmt(d.pe, 1)}</td>
-      <td>${fmt(d.pb, 2)}</td><td>${fmt(d.roe, 1)}</td><td>${esc(d.industry || "–")}</td></tr>`).join("") + "</table>";
+      <td>${fmt(d.pb, 2)}</td><td>${fmt(d.roe, 1)}</td><td>${esc(d.industry || "–")}</td></tr>`).join("") + "</table></div>";
 }
 function renderHeatmap(sectors) {
   if (!sectors || !sectors.length) return;
