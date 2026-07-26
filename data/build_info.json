@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "build_id": "2026-07-24-98d2e1b-07b5b9a54d",
-  "generated_at": "2026-07-26T17:06:13+07:00",
+  "build_id": "2026-07-24-c3742e9-6ba6bdcc63",
+  "generated_at": "2026-07-26T17:45:10+07:00",
   "market_session": "2026-07-24",
-  "git_commit": "98d2e1b785ea3a3ed3a480199509933b81926425",
+  "git_commit": "c3742e97363e08d0eb4af0cfc4cc78f819966b2b",
   "row_counts": {
     "screen_snapshot": 1580,
     "market_breadth": 20
@@ -30,9 +30,9 @@
       "mtime": "2026-07-26T14:55:19+07:00"
     },
     "data/screener_data.js": {
-      "sha256": "f6943acb7fb54a5e9f1c4befc1a212d0760d8f42ef24fa3e3ce2af64fe7b6838",
+      "sha256": "2bcb94c0fa0669deda97f4150c6e69a5eca4ba46997b8e5c3f0e72c2d28df018",
       "size": 1471569,
-      "mtime": "2026-07-26T17:06:14+07:00"
+      "mtime": "2026-07-26T17:45:11+07:00"
     }
   }
 }

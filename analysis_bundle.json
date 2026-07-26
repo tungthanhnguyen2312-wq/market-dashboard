@@ -7,7 +7,8 @@
     "SSI",
     "VCB",
     "VNM",
-    "POW"
+    "POW",
+    "PAN"
   ],
   "freshness": {
     "prior_session": "2026-07-23",
@@ -35,7 +36,8 @@
       "SSI": true,
       "VCB": true,
       "VNM": true,
-      "POW": true
+      "POW": true,
+      "PAN": true
     },
     "status": "stale_override"
   },
@@ -4030,6 +4032,58 @@
           "is_actionable": false
         }
       },
+      "analysis_readiness": {
+        "reference_at": "2026-07-26T12:00:00+00:00",
+        "domains": {
+          "market_technical": {
+            "state": "ready",
+            "reason": "all_required_inputs_current_and_actionable",
+            "required_inputs": [
+              "daily_prices",
+              "technical_signals"
+            ],
+            "is_actionable": true
+          },
+          "fundamental": {
+            "state": "blocked",
+            "reason": "financial_input_missing_or_unknown",
+            "required_inputs": [
+              "financial_statements"
+            ],
+            "is_actionable": false
+          },
+          "corporate_intelligence": {
+            "state": "blocked",
+            "reason": "corporate_intelligence_completeness_or_comparability_gate",
+            "required_inputs": [
+              "company_profile",
+              "company_subsidiaries",
+              "ownership_structure",
+              "major_shareholders"
+            ],
+            "is_actionable": false
+          },
+          "corporate_events": {
+            "state": "degraded",
+            "reason": "partial_unqualified_50_row_cap_not_complete_history_or_lifecycle",
+            "required_inputs": [
+              "corporate_events"
+            ],
+            "is_actionable": false
+          },
+          "combined_ai_analysis": {
+            "state": "blocked",
+            "reason": "required_readiness_blocked",
+            "required_inputs": [
+              "market_technical",
+              "fundamental",
+              "corporate_intelligence",
+              "corporate_events"
+            ],
+            "is_actionable": false
+          }
+        }
+      },
       "warnings": [],
       "context_package": {
         "schema_version": "1.4.0",
@@ -8000,6 +8054,58 @@
           "is_actionable": false
         }
       },
+      "analysis_readiness": {
+        "reference_at": "2026-07-26T12:00:00+00:00",
+        "domains": {
+          "market_technical": {
+            "state": "ready",
+            "reason": "all_required_inputs_current_and_actionable",
+            "required_inputs": [
+              "daily_prices",
+              "technical_signals"
+            ],
+            "is_actionable": true
+          },
+          "fundamental": {
+            "state": "blocked",
+            "reason": "financial_input_missing_or_unknown",
+            "required_inputs": [
+              "financial_statements"
+            ],
+            "is_actionable": false
+          },
+          "corporate_intelligence": {
+            "state": "blocked",
+            "reason": "corporate_intelligence_completeness_or_comparability_gate",
+            "required_inputs": [
+              "company_profile",
+              "company_subsidiaries",
+              "ownership_structure",
+              "major_shareholders"
+            ],
+            "is_actionable": false
+          },
+          "corporate_events": {
+            "state": "degraded",
+            "reason": "partial_unqualified_50_row_cap_not_complete_history_or_lifecycle",
+            "required_inputs": [
+              "corporate_events"
+            ],
+            "is_actionable": false
+          },
+          "combined_ai_analysis": {
+            "state": "blocked",
+            "reason": "required_readiness_blocked",
+            "required_inputs": [
+              "market_technical",
+              "fundamental",
+              "corporate_intelligence",
+              "corporate_events"
+            ],
+            "is_actionable": false
+          }
+        }
+      },
       "warnings": [],
       "context_package": {
         "schema_version": "1.4.0",
@@ -11508,6 +11614,58 @@
           "is_actionable": false
         }
       },
+      "analysis_readiness": {
+        "reference_at": "2026-07-26T12:00:00+00:00",
+        "domains": {
+          "market_technical": {
+            "state": "ready",
+            "reason": "all_required_inputs_current_and_actionable",
+            "required_inputs": [
+              "daily_prices",
+              "technical_signals"
+            ],
+            "is_actionable": true
+          },
+          "fundamental": {
+            "state": "blocked",
+            "reason": "financial_input_missing_or_unknown",
+            "required_inputs": [
+              "financial_statements"
+            ],
+            "is_actionable": false
+          },
+          "corporate_intelligence": {
+            "state": "blocked",
+            "reason": "corporate_intelligence_completeness_or_comparability_gate",
+            "required_inputs": [
+              "company_profile",
+              "company_subsidiaries",
+              "ownership_structure",
+              "major_shareholders"
+            ],
+            "is_actionable": false
+          },
+          "corporate_events": {
+            "state": "degraded",
+            "reason": "partial_unqualified_50_row_cap_not_complete_history_or_lifecycle",
+            "required_inputs": [
+              "corporate_events"
+            ],
+            "is_actionable": false
+          },
+          "combined_ai_analysis": {
+            "state": "blocked",
+            "reason": "required_readiness_blocked",
+            "required_inputs": [
+              "market_technical",
+              "fundamental",
+              "corporate_intelligence",
+              "corporate_events"
+            ],
+            "is_actionable": false
+          }
+        }
+      },
       "warnings": [],
       "context_package": {
         "schema_version": "1.1.0",
@@ -14396,6 +14554,58 @@
           "expected_update_frequency": "92d",
           "stale_reason": "source_timestamp_missing_or_malformed",
           "is_actionable": false
+        }
+      },
+      "analysis_readiness": {
+        "reference_at": "2026-07-26T12:00:00+00:00",
+        "domains": {
+          "market_technical": {
+            "state": "blocked",
+            "reason": "required_input_missing_or_unknown",
+            "required_inputs": [
+              "daily_prices",
+              "technical_signals"
+            ],
+            "is_actionable": false
+          },
+          "fundamental": {
+            "state": "blocked",
+            "reason": "financial_input_missing_or_unknown",
+            "required_inputs": [
+              "financial_statements"
+            ],
+            "is_actionable": false
+          },
+          "corporate_intelligence": {
+            "state": "blocked",
+            "reason": "corporate_intelligence_completeness_or_comparability_gate",
+            "required_inputs": [
+              "company_profile",
+              "company_subsidiaries",
+              "ownership_structure",
+              "major_shareholders"
+            ],
+            "is_actionable": false
+          },
+          "corporate_events": {
+            "state": "degraded",
+            "reason": "partial_unqualified_50_row_cap_not_complete_history_or_lifecycle",
+            "required_inputs": [
+              "corporate_events"
+            ],
+            "is_actionable": false
+          },
+          "combined_ai_analysis": {
+            "state": "blocked",
+            "reason": "required_readiness_blocked",
+            "required_inputs": [
+              "market_technical",
+              "fundamental",
+              "corporate_intelligence",
+              "corporate_events"
+            ],
+            "is_actionable": false
+          }
         }
       },
       "warnings": [
@@ -18640,6 +18850,58 @@
           "is_actionable": false
         }
       },
+      "analysis_readiness": {
+        "reference_at": "2026-07-26T12:00:00+00:00",
+        "domains": {
+          "market_technical": {
+            "state": "ready",
+            "reason": "all_required_inputs_current_and_actionable",
+            "required_inputs": [
+              "daily_prices",
+              "technical_signals"
+            ],
+            "is_actionable": true
+          },
+          "fundamental": {
+            "state": "blocked",
+            "reason": "financial_input_missing_or_unknown",
+            "required_inputs": [
+              "financial_statements"
+            ],
+            "is_actionable": false
+          },
+          "corporate_intelligence": {
+            "state": "blocked",
+            "reason": "corporate_intelligence_completeness_or_comparability_gate",
+            "required_inputs": [
+              "company_profile",
+              "company_subsidiaries",
+              "ownership_structure",
+              "major_shareholders"
+            ],
+            "is_actionable": false
+          },
+          "corporate_events": {
+            "state": "degraded",
+            "reason": "partial_unqualified_50_row_cap_not_complete_history_or_lifecycle",
+            "required_inputs": [
+              "corporate_events"
+            ],
+            "is_actionable": false
+          },
+          "combined_ai_analysis": {
+            "state": "blocked",
+            "reason": "required_readiness_blocked",
+            "required_inputs": [
+              "market_technical",
+              "fundamental",
+              "corporate_intelligence",
+              "corporate_events"
+            ],
+            "is_actionable": false
+          }
+        }
+      },
       "warnings": [],
       "context_package": {
         "schema_version": "1.4.0",
@@ -19555,6 +19817,2737 @@
         },
         "metric_contract_version": "1.0.0"
       }
+    },
+    "PAN": {
+      "snapshot": {
+        "ticker": "PAN",
+        "date": "2026-07-24",
+        "close": 20900.0,
+        "chg_today_pct": -0.48,
+        "gtgd20_ty": 7.161,
+        "rel_vol": 0.31,
+        "rsi14": 23.3,
+        "macd_hist": -59.9,
+        "bb_pctb": 0.17,
+        "atr_pct": 2.66,
+        "above_sma50": false,
+        "above_sma200": false,
+        "golden_cross": true,
+        "pct_from_52w_high": -22.5,
+        "near_52w_high": false,
+        "pct_above_52w_low": 8.0,
+        "ret_1m": -8.9,
+        "ret_3m": -13.3,
+        "ret_6m": -1.8,
+        "ret_12m": -7.9,
+        "structure": "down",
+        "dist_swing_low_pct": 5.8,
+        "exchange": "HSX",
+        "industry": "Thực phẩm và đồ uống",
+        "foreign_room_pct": 54.42,
+        "pe": 8.47,
+        "pb": 0.63,
+        "roe": 12.92,
+        "free_float_est": 0.5402,
+        "margin_status": null,
+        "latest_price_date": "2026-07-24",
+        "reference_market_date": "2026-07-24",
+        "days_stale": 0,
+        "instrument_type": "STOCK",
+        "listing_exchange": "HSX",
+        "listing_source": "VCI",
+        "listing_snapshot_hash": "d03c19b41a233f28dc6036b23de3134c07c81523f99b09b9194969134cde7d73",
+        "live_universe_status": "live",
+        "live_universe_reason": "eligible_equity_current_session",
+        "is_live": true,
+        "rs_rating": 54
+      },
+      "canonical_rs_rating": 54,
+      "rs_rating_reconciliation": {
+        "canonical_rs_rating": 54,
+        "canonical_source": "screen_snapshot_live.csv:rs_rating (tính 1 lần trong vn_indicators.py main(), percentile-rank chỉ trên tập mã LIVE — xem P0-1).",
+        "canonical_as_of": "2026-07-25T07:38:08+07:00",
+        "ta_signals_cached_rs_rating": 54.0,
+        "ta_signals_cached_as_of": "2026-07-25T07:44:11+07:00",
+        "matches_canonical": true,
+        "explanation": "Khớp — ta_signals.csv đang phản ánh đúng lần chạy vn_indicators.py gần nhất."
+      },
+      "ta_signal": {
+        "ticker": "PAN",
+        "date": "2026-07-24",
+        "close": 20900.0,
+        "volume": 102300,
+        "patterns": "inside_bar;hammer",
+        "smc": null,
+        "confluence": false,
+        "direction": "bullish",
+        "industry": "Thực phẩm và đồ uống",
+        "rs_rating": 54.0,
+        "rel_vol": 0.31,
+        "gtgd20_ty": 7.161,
+        "margin_status": null
+      },
+      "analysis_score": {
+        "session_date": "2026-07-24",
+        "regime": "phòng thủ",
+        "values": {
+          "score": 49.4,
+          "fundamental": 73,
+          "technical": 16,
+          "momentum": 30,
+          "liquidity": 58,
+          "macro": 33,
+          "risk": 100
+        }
+      },
+      "financial_latest": {
+        "schema_version": "2.0",
+        "ticker": "PAN",
+        "period": "2026-Q1",
+        "period_type": "quarter",
+        "revenue": 4303330764000.0,
+        "net_profit": 448223660000.0,
+        "gross_profit": 884083751000.0,
+        "operating_profit": 523218098000.0,
+        "total_assets": 15214214977087.0,
+        "total_liabilities": 5580391336563.0,
+        "equity": 9633823640524.0,
+        "cash": 3647877566971.0,
+        "inventory": 3395101866457.0,
+        "receivables": 1804372412716.0,
+        "current_assets": 11248414243666.0,
+        "current_liabilities": 4966876065856.0,
+        "cost_of_goods_sold": 3419247014000.0,
+        "amortization": null,
+        "depreciation": null,
+        "depreciation_and_amortization": null,
+        "ebit": 600682628000.0,
+        "ebitda": null,
+        "general_admin_expense": 213298423000.0,
+        "interest_expense": 72858406000.0,
+        "profit_before_tax": 527824222000.0,
+        "retained_earnings": 2618950443317.0,
+        "retained_earnings_current_year": 585186351350.0,
+        "retained_earnings_prior_year": 2033764091967.0,
+        "selling_expense": 140484426000.0,
+        "sga": 353782849000.0,
+        "operating_cash_flow_reported": null,
+        "operating_cash_flow_ytd": null,
+        "operating_cash_flow_quarter": null,
+        "operating_cash_flow_quarter_status": null,
+        "operating_cash_flow_ttm": null,
+        "operating_cash_flow_ttm_status": null,
+        "operating_cash_flow_ttm_reason": null,
+        "operating_cash_flow": null,
+        "operating_cash_flow_basis": null,
+        "operating_cash_flow_basis_confidence": null,
+        "operating_cash_flow_status": null,
+        "operating_cash_flow_source_period": null,
+        "operating_cash_flow_raw_unit": null,
+        "operating_cash_flow_normalized_unit": null,
+        "operating_cash_flow_unit_multiplier": null,
+        "operating_cash_flow_unit_status": null,
+        "operating_cash_flow_report_scope": null,
+        "operating_cash_flow_audit_status": null,
+        "operating_cash_flow_source": null,
+        "statement_currency": "VND",
+        "statement_scale": null,
+        "unit_status": "unit_unknown",
+        "unit_evidence": "no mapped item in this ticker-period declared a raw_unit; scale defaults to an unconfirmed 1.0x (base VND) multiplier and is not positively verified against the filed statement",
+        "entity_type": "corporate",
+        "interest_expense_status": "reported",
+        "interest_expense_basis": "reported",
+        "interest_expense_reason": null,
+        "interest_expense_formula": null,
+        "interest_expense_inputs": null,
+        "depreciation_status": "source_empty",
+        "depreciation_basis": null,
+        "depreciation_reason": "reported_depreciation_not_available",
+        "depreciation_formula": null,
+        "depreciation_inputs": null,
+        "amortization_status": "source_empty",
+        "amortization_basis": null,
+        "amortization_reason": "reported_amortization_not_available",
+        "amortization_formula": null,
+        "amortization_inputs": null,
+        "depreciation_and_amortization_status": "source_empty",
+        "depreciation_and_amortization_basis": null,
+        "depreciation_and_amortization_reason": "reported_combined_da_not_available",
+        "depreciation_and_amortization_formula": null,
+        "depreciation_and_amortization_inputs": null,
+        "interest_expense_sign_convention": "positive_expense",
+        "retained_earnings_end_period": 2618950443317.0,
+        "retained_earnings_status": "reported",
+        "retained_earnings_basis": "reported",
+        "retained_earnings_reason": null,
+        "retained_earnings_formula": null,
+        "retained_earnings_inputs": null,
+        "ebit_status": "derived",
+        "ebit_basis": "derived",
+        "ebit_reason": null,
+        "ebit_formula": "profit_before_tax + interest_expense",
+        "ebit_inputs": "[\"profit_before_tax\", \"interest_expense\"]",
+        "ebitda_status": "insufficient_periods",
+        "ebitda_basis": null,
+        "ebitda_reason": "missing_ebit_or_complete_da_inputs",
+        "ebitda_formula": null,
+        "ebitda_inputs": null,
+        "sga_status": "derived",
+        "sga_basis": "derived",
+        "sga_reason": null,
+        "sga_formula": "selling_expense + general_admin_expense",
+        "sga_inputs": "[\"selling_expense\", \"general_admin_expense\"]",
+        "debt": 2754947637995.0,
+        "shares_outstanding": 216294580.0,
+        "shares_period_end": 216294580.0,
+        "shares_period_end_status": "derived",
+        "shares_period_end_basis": "balance_sheet_common_shares_or_charter_capital_over_par_value_10000_vnd",
+        "shares_period_end_reason": null,
+        "book_value": 44540.29148822869,
+        "book_value_status": "proxy",
+        "book_value_basis": "equity_over_shares_period_end_not_weighted_average",
+        "eps_calc": 2072.283364659438,
+        "eps_calc_status": "proxy",
+        "eps_calc_basis": "net_profit_over_shares_period_end_not_weighted_average",
+        "capex": null,
+        "free_cash_flow": null,
+        "revenue_growth_yoy": null,
+        "revenue_growth_qoq": 0.044625088922974857,
+        "profit_growth_yoy": null,
+        "profit_growth_qoq": 1.3079762641754114,
+        "revenue_growth_yoy_comparison_period": "2025-Q1",
+        "revenue_growth_yoy_status": "comparable_period_value_missing",
+        "revenue_growth_yoy_reason": "comparable_period_revenue_not_reported",
+        "profit_growth_yoy_comparison_period": "2025-Q1",
+        "profit_growth_yoy_status": "comparable_period_value_missing",
+        "profit_growth_yoy_reason": "comparable_period_profit_not_reported",
+        "gross_margin": 0.20544173791982306,
+        "operating_margin": 0.12158444858039734,
+        "net_margin": 0.10415738054570792,
+        "roe": 0.04790980928571872,
+        "roa": 0.02946084702201437,
+        "roe_status": "deprecated",
+        "roe_canonical_metric": "roe_quarter",
+        "roe_quarter": 0.04790980928571872,
+        "roe_quarter_unit": "ratio",
+        "roe_quarter_basis": "quarter_average_equity",
+        "roe_quarter_annualization": "none",
+        "roe_quarter_period": "2026-Q1",
+        "roe_quarter_period_calendar_end": "2026-03-31",
+        "roe_quarter_source": "financial_snapshot_derived",
+        "roe_quarter_formula": "net_profit_quarter / average(equity_quarter_end, equity_prior_quarter_end_or_fallback_to_equity_quarter_end)",
+        "roe_quarter_status": "derived",
+        "roe_quarter_reason": null,
+        "roe_fy": null,
+        "roe_fy_unit": null,
+        "roe_fy_basis": null,
+        "roe_fy_annualization": null,
+        "roe_fy_period": null,
+        "roe_fy_period_calendar_end": null,
+        "roe_fy_source": null,
+        "roe_fy_formula": null,
+        "roe_fy_status": "not_applicable",
+        "roe_fy_reason": "not_this_period_type",
+        "roe_ttm": null,
+        "roe_ttm_unit": "ratio",
+        "roe_ttm_basis": null,
+        "roe_ttm_annualization": "trailing_twelve_month_sum",
+        "roe_ttm_period": "2026-Q1",
+        "roe_ttm_period_calendar_end": "2026-03-31",
+        "roe_ttm_source": "financial_snapshot_derived",
+        "roe_ttm_formula": null,
+        "roe_ttm_status": "insufficient_periods",
+        "roe_ttm_reason": "requires_four_consecutive_reported_quarters_and_ttm_window_equity",
+        "debt_to_equity": 0.2859661688643029,
+        "debt_ratio": 0.1810772124716275,
+        "current_ratio": 2.264685910121945,
+        "quick_ratio": 1.5811371721544147,
+        "cash_ratio": 0.7344410286473131,
+        "asset_turnover": 0.2828493465144884,
+        "inventory_turnover": 1.0071117593794607,
+        "receivable_turnover": 2.3849459976626926,
+        "current_ratio_status": "derived",
+        "current_ratio_reason": null,
+        "quick_ratio_status": "derived",
+        "quick_ratio_reason": null,
+        "cash_ratio_status": "derived",
+        "cash_ratio_reason": null,
+        "inventory_turnover_status": "derived",
+        "inventory_turnover_reason": null,
+        "operating_cash_flow_ratio": null,
+        "ebit_source": "derived_financial_statement",
+        "ebit_period": "2026-Q1",
+        "ebitda_source": null,
+        "ebitda_period": null,
+        "interest_expense_source": "financial_mapping_registry",
+        "interest_expense_period": "2026-Q1",
+        "retained_earnings_source": "financial_mapping_registry",
+        "retained_earnings_period": "2026-Q1",
+        "depreciation_source": null,
+        "depreciation_period": null,
+        "amortization_source": null,
+        "amortization_period": null,
+        "depreciation_and_amortization_source": null,
+        "depreciation_and_amortization_period": null,
+        "sga_source": "derived_financial_statement",
+        "sga_period": "2026-Q1",
+        "period_calendar_end": "2026-03-31",
+        "fiscal_period_status": "calendar_aligned_or_past",
+        "period_verified": true
+      },
+      "financial_period_used": "2026-Q1",
+      "financial_latest_quality": {
+        "excluded_unverified_periods": []
+      },
+      "ohlcv_recent": [
+        {
+          "date": "2026-06-15",
+          "open": 23000.0,
+          "high": 23250.0,
+          "low": 22800.0,
+          "close": 23050.0,
+          "volume": 374200
+        },
+        {
+          "date": "2026-06-16",
+          "open": 23100.0,
+          "high": 23350.0,
+          "low": 23050.0,
+          "close": 23200.0,
+          "volume": 524700
+        },
+        {
+          "date": "2026-06-17",
+          "open": 23300.0,
+          "high": 23450.0,
+          "low": 23050.0,
+          "close": 23200.0,
+          "volume": 175000
+        },
+        {
+          "date": "2026-06-18",
+          "open": 23200.0,
+          "high": 23300.0,
+          "low": 23050.0,
+          "close": 23050.0,
+          "volume": 226100
+        },
+        {
+          "date": "2026-06-19",
+          "open": 23100.0,
+          "high": 23300.0,
+          "low": 22850.0,
+          "close": 22850.0,
+          "volume": 419500
+        },
+        {
+          "date": "2026-06-22",
+          "open": 22900.0,
+          "high": 22950.0,
+          "low": 22700.0,
+          "close": 22750.0,
+          "volume": 483900
+        },
+        {
+          "date": "2026-06-23",
+          "open": 22700.0,
+          "high": 22900.0,
+          "low": 22650.0,
+          "close": 22700.0,
+          "volume": 265200
+        },
+        {
+          "date": "2026-06-24",
+          "open": 22650.0,
+          "high": 22700.0,
+          "low": 22350.0,
+          "close": 22650.0,
+          "volume": 475900
+        },
+        {
+          "date": "2026-06-25",
+          "open": 22700.0,
+          "high": 23300.0,
+          "low": 22700.0,
+          "close": 22950.0,
+          "volume": 532300
+        },
+        {
+          "date": "2026-06-26",
+          "open": 23000.0,
+          "high": 23150.0,
+          "low": 22800.0,
+          "close": 22900.0,
+          "volume": 195900
+        },
+        {
+          "date": "2026-06-29",
+          "open": 22800.0,
+          "high": 23150.0,
+          "low": 22800.0,
+          "close": 23000.0,
+          "volume": 263500
+        },
+        {
+          "date": "2026-06-30",
+          "open": 23000.0,
+          "high": 23200.0,
+          "low": 22900.0,
+          "close": 22900.0,
+          "volume": 240000
+        },
+        {
+          "date": "2026-07-01",
+          "open": 22900.0,
+          "high": 23200.0,
+          "low": 22800.0,
+          "close": 23200.0,
+          "volume": 318300
+        },
+        {
+          "date": "2026-07-02",
+          "open": 23050.0,
+          "high": 23300.0,
+          "low": 23000.0,
+          "close": 23150.0,
+          "volume": 214100
+        },
+        {
+          "date": "2026-07-03",
+          "open": 23050.0,
+          "high": 23100.0,
+          "low": 22750.0,
+          "close": 22800.0,
+          "volume": 410100
+        },
+        {
+          "date": "2026-07-06",
+          "open": 22750.0,
+          "high": 22900.0,
+          "low": 21950.0,
+          "close": 22300.0,
+          "volume": 688900
+        },
+        {
+          "date": "2026-07-07",
+          "open": 22100.0,
+          "high": 22300.0,
+          "low": 22000.0,
+          "close": 22150.0,
+          "volume": 285600
+        },
+        {
+          "date": "2026-07-08",
+          "open": 22350.0,
+          "high": 22500.0,
+          "low": 22050.0,
+          "close": 22500.0,
+          "volume": 171200
+        },
+        {
+          "date": "2026-07-09",
+          "open": 22500.0,
+          "high": 22500.0,
+          "low": 22050.0,
+          "close": 22150.0,
+          "volume": 134600
+        },
+        {
+          "date": "2026-07-10",
+          "open": 22200.0,
+          "high": 22350.0,
+          "low": 22000.0,
+          "close": 22150.0,
+          "volume": 138500
+        },
+        {
+          "date": "2026-07-13",
+          "open": 21750.0,
+          "high": 22150.0,
+          "low": 21400.0,
+          "close": 21750.0,
+          "volume": 479200
+        },
+        {
+          "date": "2026-07-14",
+          "open": 21600.0,
+          "high": 21750.0,
+          "low": 21350.0,
+          "close": 21650.0,
+          "volume": 248500
+        },
+        {
+          "date": "2026-07-15",
+          "open": 21850.0,
+          "high": 21850.0,
+          "low": 21250.0,
+          "close": 21300.0,
+          "volume": 160400
+        },
+        {
+          "date": "2026-07-16",
+          "open": 21300.0,
+          "high": 21300.0,
+          "low": 20800.0,
+          "close": 21250.0,
+          "volume": 515700
+        },
+        {
+          "date": "2026-07-17",
+          "open": 21200.0,
+          "high": 21350.0,
+          "low": 21000.0,
+          "close": 21200.0,
+          "volume": 137500
+        },
+        {
+          "date": "2026-07-20",
+          "open": 21050.0,
+          "high": 21200.0,
+          "low": 19750.0,
+          "close": 21100.0,
+          "volume": 516000
+        },
+        {
+          "date": "2026-07-21",
+          "open": 20500.0,
+          "high": 21200.0,
+          "low": 20500.0,
+          "close": 21100.0,
+          "volume": 311000
+        },
+        {
+          "date": "2026-07-22",
+          "open": 21100.0,
+          "high": 21200.0,
+          "low": 20500.0,
+          "close": 21050.0,
+          "volume": 432600
+        },
+        {
+          "date": "2026-07-23",
+          "open": 20950.0,
+          "high": 21200.0,
+          "low": 20550.0,
+          "close": 21000.0,
+          "volume": 789900
+        },
+        {
+          "date": "2026-07-24",
+          "open": 20950.0,
+          "high": 20950.0,
+          "low": 20650.0,
+          "close": 20900.0,
+          "volume": 102300
+        }
+      ],
+      "ohlcv_recent_count": 30,
+      "corporate_intelligence": {
+        "status": "available",
+        "company_profile": {
+          "status": "available",
+          "sources": [
+            {
+              "snapshot_id": "970af2213691f0fc69773d3e387c2d2db2a4263ae408c41a97e65b247682aa6b",
+              "schema_version": 1,
+              "source_name": "KBS",
+              "source_reference": "https://kbbuddywts.kbsec.com.vn/iis-server/investment/stockinfo/profile/{ticker}?l=1",
+              "snapshot_date": "2026-07-22T08:50:07.993036+00:00",
+              "raw_hash": "ddde09ed81fd6919593931161926d66cc24f2e019fca4fcc18ec076dbf11a9fb",
+              "record_count": 1,
+              "snapshot_status": "complete_response",
+              "is_complete": 1,
+              "status": "available",
+              "record": {
+                "provider_identity": "0301472704",
+                "identity_basis": "tax_id",
+                "qualified_fields": {
+                  "address": "Số 81B quốc lộ 62 - P. Long An - T. Tây Ninh",
+                  "as_of_date": "2025-12-31T00:00:00",
+                  "business_model": "- Thực phẩm đóng gói: Bánh kẹo, hạt, hoa quả sấy, cà phê, nước mắm.\n- Thủy sản: Tôm đông lạnh, rau củ phối chế, cá tra, nghêu.\n- Nông nghiệp: Nông sản, giống cây trồng, nông dược, khử trùng và kiểm soát dịch hại",
+                  "charter_capital": 2581,
+                  "exchange": "HOSE",
+                  "listing_date": "15/12/2010",
+                  "outstanding_shares": 250673166,
+                  "symbol": "PAN",
+                  "tax_id": "0301472704",
+                  "website": "https://thepangroup.vn/"
+                },
+                "raw_record": {
+                  "address": "Số 81B quốc lộ 62 - P. Long An - T. Tây Ninh",
+                  "as_of_date": "2025-12-31T00:00:00",
+                  "auditor": "Ernst & Young",
+                  "branches": "- Chi nhánh Hà Nội: Tầng 15 - Tòa nhà ICON4 - Số 243A Đường Đê La Thành - P.Láng - Tp. Hà Nội.\r\n",
+                  "business_code": "4103003790 ",
+                  "business_model": "\n- Thực phẩm đóng gói: Bánh kẹo, hạt, hoa quả sấy, cà phê, nước mắm.\n- Thủy sản: Tôm đông lạnh, rau củ phối chế, cá tra, nghêu.\n- Nông nghiệp: Nông sản, giống cây trồng, nông dược, khử trùng và kiểm soát dịch hại",
+                  "ceo_name": "Mr. Nguyễn Duy Hưng",
+                  "ceo_position": "Chủ Tịch HĐQT",
+                  "charter_capital": 2581,
+                  "company_type": "Công ty cổ phần",
+                  "email": "info@thepangroup.vn",
+                  "establishment_license": null,
+                  "exchange": "HOSE",
+                  "fax": "(84-272) ‎3630217",
+                  "founded_date": "31/08/2005",
+                  "free_float": 10000,
+                  "free_float_percentage": 2580729960000,
+                  "history": "\n- Năm 1998: Tiền thân là Công ty Cổ phần Xuyên Thái Bình được thành lập với vốn điều lệ ban đầu là 250 triệu đồng.\n- Ngày 31/08/2005: Công ty được Sở kế hoạch và Đầu tư Tp. Hồ Chí Minh (DPI) cấp giấy phép chuyển đổi hình thức hoạt động sang CTCP với số VĐL là 6.2 tỷ đồng.\n- Năm 2014: Tăng vốn điều lệ lên 616.4 tỷ đồng.\n- Tháng 10/2015: Tăng vốn điều lệ lên xấp xỉ 1,009 tỷ đồng.\n- Năm 2018: Thoái toàn bộ vốn tại PAN Services, rút hoàn toàn khỏi lĩnh vực vệ sinh công nghiệp để tập trung vào hai lĩnh vực cốt lõi nông nghiệp \n- thực phẩm. Phát hành riêng lẻ 13.4 triệu cổ phiếu cho nhà đầu tư chiến lược Sojitz; Phát hành 1,135 tỷ đồng trái phiếu được bảo lãnh thanh toán bởi CGIF. Đưa CTCP Thực phẩm Sao Ta (Fimex VN) thành công ty con, và CTCP Khử trùng Việt Nam (VFC) thành công ty liên kết. Tăng vốn điều lệ lên 1,361 tỷ đồng.\n- Năm 2019: Tăng vốn điều lệ lên 1,731,011,410,000 đồng.\n- Ngày 12/04/2021: Ngày giao dịch cuối cùng để chuyển đổi hệ thống giao dịch từ HOSE sang HNX.\n- Ngày 16/04/2021: Ngày giao dịch đầu tiên của cổ phiếu chuyển giao dịch từ hệ thống HOSE sang HNX.\n- Ngày 27/08/2021: Ngày giao dịch cuối cùng để chuyển đổi hệ thống giao dịch từ HNX sang HOSE.\n- Ngày 07/09/2021: Ngày giao dịch đầu tiên của cổ phiếu khi chuyển giao dịch từ hệ thống HNX sang HOSE.\n- Tháng 12/2024: Giảm vốn điều lệ xuống 2,162.94 tỷ đồng.\n- Tháng 06/2026: Tăng vốn điều lệ lên 2,580.72 tỷ đồng.",
+                  "inspector_name": "Mr. Nguyễn Anh Tuấn",
+                  "inspector_position": "Thư ký HĐQT - TP Tài chính",
+                  "listed_volume": 258,
+                  "listing_date": "15/12/2010",
+                  "listing_price": 59500,
+                  "number_of_employees": 10349,
+                  "outstanding_shares": 250673166,
+                  "par_value": 10000,
+                  "phone": "(84-272) 3630218",
+                  "symbol": "PAN",
+                  "tax_id": "0301472704",
+                  "website": "https://thepangroup.vn/"
+                },
+                "provenance": {
+                  "field_contract": "source_specific_company_profile_v1",
+                  "identity_basis": "tax_id",
+                  "non_equivalences": [
+                    "VCI.issue_share is not merged with KBS.outstanding_shares",
+                    "VCI.sector is not merged with KBS.business_model",
+                    "KBS.charter_capital and KBS.address retain provider semantics"
+                  ],
+                  "provider": "KBS",
+                  "source_reference": "https://kbbuddywts.kbsec.com.vn/iis-server/investment/stockinfo/profile/{ticker}?l=1"
+                }
+              }
+            },
+            {
+              "snapshot_id": "41218b40a604045f38403c64b475f48f5c27d7b14b241f1084ae1f71f707d7ad",
+              "schema_version": 1,
+              "source_name": "VCI",
+              "source_reference": "https://iq.vietcap.com.vn/api/iq-insight-service/v1/company/details?ticker={ticker}",
+              "snapshot_date": "2026-07-26T08:38:52.024155+00:00",
+              "raw_hash": "5d4082cce060096079b7bccda7db094d40ede351b96b154903cee61002717e0f",
+              "record_count": 1,
+              "snapshot_status": "complete_response",
+              "is_complete": 1,
+              "status": "available",
+              "record": {
+                "provider_identity": "PAN",
+                "identity_basis": "organ_code",
+                "qualified_fields": {
+                  "company_profile": "Công ty Cổ phần Tập đoàn PAN (PAN) có tiền thân là Công ty Cổ phần Xuyên Thái Bình, được thành lập vào năm 1998. Công ty nắm giữ cổ phần chi phối tại những công ty có các uy tín trong lĩnh vực nông nghiệp, thủy sản, thực phẩm và phân phối. Thông qua các công ty con và công ty liên kết, PAN cung cấp các sản phẩm về nông nghiệp và thực phẩm như giống cây trồng, thủy hải sản, thực phẩm tiện lợi, thực phẩm hàng ngày, các sản phẩm nông dược, khử trùng, và kiểm soát dịch hại. Cổ phiếu của Công ty (PAN) được niêm yết và giao dịch trên Sở Giao dịch Chứng khoán Thành phố Hồ Chí Minh (HOSE) từ năm 2010.",
+                  "issue_share": 250673166.0,
+                  "listing_date": "2006-12-22T00:00:00",
+                  "organ_code": "PAN",
+                  "organ_name": "Công ty Cổ phần Tập đoàn PAN",
+                  "organ_short_name": "Tập đoàn PAN",
+                  "sector": "Food & Beverage",
+                  "symbol": "PAN"
+                },
+                "raw_record": {
+                  "analyst": null,
+                  "average_match_value1_month": 7267352613.636363,
+                  "average_match_volume1_month": 332287.0,
+                  "bank": false,
+                  "com_group_code": "VNINDEX",
+                  "com_type_code": "CT",
+                  "company_profile": "Công ty Cổ phần Tập đoàn PAN (PAN) có tiền thân là Công ty Cổ phần Xuyên Thái Bình, được thành lập vào năm 1998. Công ty nắm giữ cổ phần chi phối tại những công ty có các uy tín trong lĩnh vực nông nghiệp, thủy sản, thực phẩm và phân phối. Thông qua các công ty con và công ty liên kết, PAN cung cấp các sản phẩm về nông nghiệp và thực phẩm như giống cây trồng, thủy hải sản, thực phẩm tiện lợi, thực phẩm hàng ngày, các sản phẩm nông dược, khử trùng, và kiểm soát dịch hại. Cổ phiếu của Công ty (PAN) được niêm yết và giao dịch trên Sở Giao dịch Chứng khoán Thành phố Hồ Chí Minh (HOSE) từ năm 2010.",
+                  "current_price": 20900.0,
+                  "dividend_per_share_tsr": null,
+                  "foreigner_percentage": 0.2230016,
+                  "free_float": 137870241,
+                  "free_float_percentage": 0.5499999988,
+                  "fund_info": null,
+                  "highest_price1_year": 26960.0,
+                  "icb_code_lv2": "3500",
+                  "icb_code_lv4": "3577",
+                  "in_cu": false,
+                  "is_bank": false,
+                  "issue_share": 250673166.0,
+                  "listing": true,
+                  "listing_date": "2006-12-22T00:00:00",
+                  "lowest_price1_year": 19349.0,
+                  "market_cap": 5239069169400.0,
+                  "maximum_foreign_percentage": 0.49,
+                  "organ_code": "PAN",
+                  "organ_name": "Công ty Cổ phần Tập đoàn PAN",
+                  "organ_short_name": "Tập đoàn PAN",
+                  "prev_insight": null,
+                  "projected_tsr_percentage": null,
+                  "rating": null,
+                  "rating_as_of": null,
+                  "sector": "Food & Beverage",
+                  "state_percentage": 0.0,
+                  "symbol": "PAN",
+                  "tag": null,
+                  "target_price": null,
+                  "upside_to_target_percent": null
+                },
+                "provenance": {
+                  "field_contract": "source_specific_company_profile_v1",
+                  "identity_basis": "organ_code",
+                  "non_equivalences": [
+                    "VCI.issue_share is not merged with KBS.outstanding_shares",
+                    "VCI.sector is not merged with KBS.business_model",
+                    "KBS.charter_capital and KBS.address retain provider semantics"
+                  ],
+                  "provider": "VCI",
+                  "source_reference": "https://iq.vietcap.com.vn/api/iq-insight-service/v1/company/details?ticker={ticker}"
+                }
+              }
+            }
+          ],
+          "freshness": {
+            "generated_at": "2026-07-22T08:50:07.993036+00:00",
+            "as_of_date": "2026-07-22",
+            "source": "KBS",
+            "freshness_status": "current",
+            "expected_update_frequency": "92d",
+            "stale_reason": null,
+            "is_actionable": true
+          }
+        },
+        "company_subsidiaries": {
+          "status": "available",
+          "sources": [
+            {
+              "snapshot_id": "e4f547e05c5089d88733dacfe70e69bd459f68d314dfaceee57fa42fdb28560b",
+              "schema_version": 1,
+              "source_name": "KBS",
+              "source_reference": "https://kbbuddywts.kbsec.com.vn/iis-server/investment/stockinfo/profile/{ticker}?l=1",
+              "snapshot_date": "2026-07-22T08:50:09.778860+00:00",
+              "raw_hash": "7067f79694ca58a0085b64cdce95724ecaf951216d4079144d8d570afce45e6b",
+              "record_count": 13,
+              "snapshot_status": "complete_response",
+              "is_complete": 1,
+              "status": "available",
+              "records": [
+                {
+                  "source_record_identity": "kbs:name:ctcp atani holdings",
+                  "fields": {
+                    "provider_record_id": null,
+                    "organization_name": "CTCP Atani Holdings",
+                    "relationship_type": "công ty con",
+                    "ownership_percent": 67.74,
+                    "ownership_unit": "percent",
+                    "charter_capital": 91356583000.0,
+                    "currency": "VND",
+                    "provider_update_date": "2025-12-31T00:00:00"
+                  },
+                  "raw_record": {
+                    "charter_capital": 91356583000,
+                    "currency": "VND",
+                    "name": "CTCP Atani Holdings",
+                    "ownership_percent": 67.74,
+                    "type": "công ty con",
+                    "update_date": "2025-12-31T00:00:00"
+                  },
+                  "provenance": {
+                    "identity_basis": "provider_name",
+                    "ownership_unit": "percent",
+                    "provider": "KBS",
+                    "raw_relationship_type": "công ty con",
+                    "source_reference": "https://kbbuddywts.kbsec.com.vn/iis-server/investment/stockinfo/profile/{ticker}?l=1"
+                  }
+                },
+                {
+                  "source_record_identity": "kbs:name:ctcp bibica",
+                  "fields": {
+                    "provider_record_id": null,
+                    "organization_name": "CTCP Bibica",
+                    "relationship_type": "công ty con",
+                    "ownership_percent": 98.3,
+                    "ownership_unit": "percent",
+                    "charter_capital": 187526870000.0,
+                    "currency": "VND",
+                    "provider_update_date": "2025-12-31T00:00:00"
+                  },
+                  "raw_record": {
+                    "charter_capital": 187526870000,
+                    "currency": "VND",
+                    "name": "CTCP Bibica",
+                    "ownership_percent": 98.3,
+                    "type": "công ty con",
+                    "update_date": "2025-12-31T00:00:00"
+                  },
+                  "provenance": {
+                    "identity_basis": "provider_name",
+                    "ownership_unit": "percent",
+                    "provider": "KBS",
+                    "raw_relationship_type": "công ty con",
+                    "source_reference": "https://kbbuddywts.kbsec.com.vn/iis-server/investment/stockinfo/profile/{ticker}?l=1"
+                  }
+                },
+                {
+                  "source_record_identity": "kbs:name:ctcp chế biến hàng xuất khẩu long an",
+                  "fields": {
+                    "provider_record_id": null,
+                    "organization_name": "CTCP Chế biến hàng Xuất khẩu Long An",
+                    "relationship_type": "công ty con",
+                    "ownership_percent": 77.88,
+                    "ownership_unit": "percent",
+                    "charter_capital": 147280190000.0,
+                    "currency": "VND",
+                    "provider_update_date": "2025-12-31T00:00:00"
+                  },
+                  "raw_record": {
+                    "charter_capital": 147280190000,
+                    "currency": "VND",
+                    "name": "CTCP Chế biến hàng Xuất khẩu Long An",
+                    "ownership_percent": 77.88,
+                    "type": "công ty con",
+                    "update_date": "2025-12-31T00:00:00"
+                  },
+                  "provenance": {
+                    "identity_basis": "provider_name",
+                    "ownership_unit": "percent",
+                    "provider": "KBS",
+                    "raw_relationship_type": "công ty con",
+                    "source_reference": "https://kbbuddywts.kbsec.com.vn/iis-server/investment/stockinfo/profile/{ticker}?l=1"
+                  }
+                },
+                {
+                  "source_record_identity": "kbs:name:ctcp cà phê golden beans",
+                  "fields": {
+                    "provider_record_id": null,
+                    "organization_name": "CTCP Cà phê Golden Beans",
+                    "relationship_type": "công ty con",
+                    "ownership_percent": 79.59,
+                    "ownership_unit": "percent",
+                    "charter_capital": 73234630000.0,
+                    "currency": "VND",
+                    "provider_update_date": "2025-12-31T00:00:00"
+                  },
+                  "raw_record": {
+                    "charter_capital": 73234630000,
+                    "currency": "VND",
+                    "name": "CTCP Cà phê Golden Beans",
+                    "ownership_percent": 79.59,
+                    "type": "công ty con",
+                    "update_date": "2025-12-31T00:00:00"
+                  },
+                  "provenance": {
+                    "identity_basis": "provider_name",
+                    "ownership_unit": "percent",
+                    "provider": "KBS",
+                    "raw_relationship_type": "công ty con",
+                    "source_reference": "https://kbbuddywts.kbsec.com.vn/iis-server/investment/stockinfo/profile/{ticker}?l=1"
+                  }
+                },
+                {
+                  "source_record_identity": "kbs:name:ctcp khử trùng việt nam",
+                  "fields": {
+                    "provider_record_id": null,
+                    "organization_name": "CTCP Khử trùng Việt Nam",
+                    "relationship_type": "công ty con",
+                    "ownership_percent": 51.25,
+                    "ownership_unit": "percent",
+                    "charter_capital": 417146140000.0,
+                    "currency": "VND",
+                    "provider_update_date": "2025-12-31T00:00:00"
+                  },
+                  "raw_record": {
+                    "charter_capital": 417146140000,
+                    "currency": "VND",
+                    "name": "CTCP Khử trùng Việt Nam",
+                    "ownership_percent": 51.25,
+                    "type": "công ty con",
+                    "update_date": "2025-12-31T00:00:00"
+                  },
+                  "provenance": {
+                    "identity_basis": "provider_name",
+                    "ownership_unit": "percent",
+                    "provider": "KBS",
+                    "raw_relationship_type": "công ty con",
+                    "source_reference": "https://kbbuddywts.kbsec.com.vn/iis-server/investment/stockinfo/profile/{ticker}?l=1"
+                  }
+                },
+                {
+                  "source_record_identity": "kbs:name:ctcp pan - hulic",
+                  "fields": {
+                    "provider_record_id": null,
+                    "organization_name": "CTCP PAN - HULIC",
+                    "relationship_type": "công ty con",
+                    "ownership_percent": 50.97,
+                    "ownership_unit": "percent",
+                    "charter_capital": 157441940000.0,
+                    "currency": "VND",
+                    "provider_update_date": "2025-12-31T00:00:00"
+                  },
+                  "raw_record": {
+                    "charter_capital": 157441940000,
+                    "currency": "VND",
+                    "name": "CTCP PAN - HULIC",
+                    "ownership_percent": 50.97,
+                    "type": "công ty con",
+                    "update_date": "2025-12-31T00:00:00"
+                  },
+                  "provenance": {
+                    "identity_basis": "provider_name",
+                    "ownership_unit": "percent",
+                    "provider": "KBS",
+                    "raw_relationship_type": "công ty con",
+                    "source_reference": "https://kbbuddywts.kbsec.com.vn/iis-server/investment/stockinfo/profile/{ticker}?l=1"
+                  }
+                },
+                {
+                  "source_record_identity": "kbs:name:ctcp pan farm",
+                  "fields": {
+                    "provider_record_id": null,
+                    "organization_name": "CTCP PAN Farm",
+                    "relationship_type": "công ty con",
+                    "ownership_percent": 98.55,
+                    "ownership_unit": "percent",
+                    "charter_capital": 1220738040000.0,
+                    "currency": "VND",
+                    "provider_update_date": "2025-12-31T00:00:00"
+                  },
+                  "raw_record": {
+                    "charter_capital": 1220738040000,
+                    "currency": "VND",
+                    "name": "CTCP PAN Farm",
+                    "ownership_percent": 98.55,
+                    "type": "công ty con",
+                    "update_date": "2025-12-31T00:00:00"
+                  },
+                  "provenance": {
+                    "identity_basis": "provider_name",
+                    "ownership_unit": "percent",
+                    "provider": "KBS",
+                    "raw_relationship_type": "công ty con",
+                    "source_reference": "https://kbbuddywts.kbsec.com.vn/iis-server/investment/stockinfo/profile/{ticker}?l=1"
+                  }
+                },
+                {
+                  "source_record_identity": "kbs:name:ctcp thủy sản 584 nha trang (584 nha trang)",
+                  "fields": {
+                    "provider_record_id": null,
+                    "organization_name": "CTCP Thủy sản 584 Nha Trang (584 Nha Trang)",
+                    "relationship_type": "công ty con",
+                    "ownership_percent": 73.45,
+                    "ownership_unit": "percent",
+                    "charter_capital": 64019090000.0,
+                    "currency": "VND",
+                    "provider_update_date": "2025-12-31T00:00:00"
+                  },
+                  "raw_record": {
+                    "charter_capital": 64019090000,
+                    "currency": "VND",
+                    "name": "CTCP Thủy sản 584 Nha Trang (584 Nha Trang)",
+                    "ownership_percent": 73.45,
+                    "type": "công ty con",
+                    "update_date": "2025-12-31T00:00:00"
+                  },
+                  "provenance": {
+                    "identity_basis": "provider_name",
+                    "ownership_unit": "percent",
+                    "provider": "KBS",
+                    "raw_relationship_type": "công ty con",
+                    "source_reference": "https://kbbuddywts.kbsec.com.vn/iis-server/investment/stockinfo/profile/{ticker}?l=1"
+                  }
+                },
+                {
+                  "source_record_identity": "kbs:name:ctcp thực phẩm khang an",
+                  "fields": {
+                    "provider_record_id": null,
+                    "organization_name": "CTCP Thực phẩm Khang An",
+                    "relationship_type": "công ty con",
+                    "ownership_percent": 80.11,
+                    "ownership_unit": "percent",
+                    "charter_capital": 350000000000.0,
+                    "currency": "VND",
+                    "provider_update_date": "2025-12-31T00:00:00"
+                  },
+                  "raw_record": {
+                    "charter_capital": 350000000000,
+                    "currency": "VND",
+                    "name": "CTCP Thực phẩm Khang An",
+                    "ownership_percent": 80.11,
+                    "type": "công ty con",
+                    "update_date": "2025-12-31T00:00:00"
+                  },
+                  "provenance": {
+                    "identity_basis": "provider_name",
+                    "ownership_unit": "percent",
+                    "provider": "KBS",
+                    "raw_relationship_type": "công ty con",
+                    "source_reference": "https://kbbuddywts.kbsec.com.vn/iis-server/investment/stockinfo/profile/{ticker}?l=1"
+                  }
+                },
+                {
+                  "source_record_identity": "kbs:name:ctcp thực phẩm pan",
+                  "fields": {
+                    "provider_record_id": null,
+                    "organization_name": "CTCP Thực phẩm PAN",
+                    "relationship_type": "công ty con",
+                    "ownership_percent": 99.99,
+                    "ownership_unit": "percent",
+                    "charter_capital": 1000000000000.0,
+                    "currency": "VND",
+                    "provider_update_date": "2025-12-31T00:00:00"
+                  },
+                  "raw_record": {
+                    "charter_capital": 1000000000000,
+                    "currency": "VND",
+                    "name": "CTCP Thực phẩm PAN",
+                    "ownership_percent": 99.99,
+                    "type": "công ty con",
+                    "update_date": "2025-12-31T00:00:00"
+                  },
+                  "provenance": {
+                    "identity_basis": "provider_name",
+                    "ownership_unit": "percent",
+                    "provider": "KBS",
+                    "raw_relationship_type": "công ty con",
+                    "source_reference": "https://kbbuddywts.kbsec.com.vn/iis-server/investment/stockinfo/profile/{ticker}?l=1"
+                  }
+                },
+                {
+                  "source_record_identity": "kbs:name:ctcp thực phẩm sao ta",
+                  "fields": {
+                    "provider_record_id": null,
+                    "organization_name": "CTCP Thực phẩm Sao Ta",
+                    "relationship_type": "công ty con",
+                    "ownership_percent": 50.12,
+                    "ownership_unit": "percent",
+                    "charter_capital": 653888890000.0,
+                    "currency": "VND",
+                    "provider_update_date": "2025-12-31T00:00:00"
+                  },
+                  "raw_record": {
+                    "charter_capital": 653888890000,
+                    "currency": "VND",
+                    "name": "CTCP Thực phẩm Sao Ta",
+                    "ownership_percent": 50.12,
+                    "type": "công ty con",
+                    "update_date": "2025-12-31T00:00:00"
+                  },
+                  "provenance": {
+                    "identity_basis": "provider_name",
+                    "ownership_unit": "percent",
+                    "provider": "KBS",
+                    "raw_relationship_type": "công ty con",
+                    "source_reference": "https://kbbuddywts.kbsec.com.vn/iis-server/investment/stockinfo/profile/{ticker}?l=1"
+                  }
+                },
+                {
+                  "source_record_identity": "kbs:name:ctcp tập đoàn giống cây trồng việt nam",
+                  "fields": {
+                    "provider_record_id": null,
+                    "organization_name": "CTCP Tập Đoàn Giống Cây Trồng Việt Nam",
+                    "relationship_type": "công ty con",
+                    "ownership_percent": 80.11,
+                    "ownership_unit": "percent",
+                    "charter_capital": 175869880000.0,
+                    "currency": "VND",
+                    "provider_update_date": "2025-12-31T00:00:00"
+                  },
+                  "raw_record": {
+                    "charter_capital": 175869880000,
+                    "currency": "VND",
+                    "name": "CTCP Tập Đoàn Giống Cây Trồng Việt Nam",
+                    "ownership_percent": 80.11,
+                    "type": "công ty con",
+                    "update_date": "2025-12-31T00:00:00"
+                  },
+                  "provenance": {
+                    "identity_basis": "provider_name",
+                    "ownership_unit": "percent",
+                    "provider": "KBS",
+                    "raw_relationship_type": "công ty con",
+                    "source_reference": "https://kbbuddywts.kbsec.com.vn/iis-server/investment/stockinfo/profile/{ticker}?l=1"
+                  }
+                },
+                {
+                  "source_record_identity": "kbs:name:ctcp xuất nhập khẩu thủy sản bến tre",
+                  "fields": {
+                    "provider_record_id": null,
+                    "organization_name": "CTCP Xuất nhập khẩu Thủy sản Bến Tre",
+                    "relationship_type": "công ty con",
+                    "ownership_percent": 76.47,
+                    "ownership_unit": "percent",
+                    "charter_capital": 143872070000.0,
+                    "currency": "VND",
+                    "provider_update_date": "2025-12-31T00:00:00"
+                  },
+                  "raw_record": {
+                    "charter_capital": 143872070000,
+                    "currency": "VND",
+                    "name": "CTCP Xuất nhập khẩu Thủy sản Bến Tre",
+                    "ownership_percent": 76.47,
+                    "type": "công ty con",
+                    "update_date": "2025-12-31T00:00:00"
+                  },
+                  "provenance": {
+                    "identity_basis": "provider_name",
+                    "ownership_unit": "percent",
+                    "provider": "KBS",
+                    "raw_relationship_type": "công ty con",
+                    "source_reference": "https://kbbuddywts.kbsec.com.vn/iis-server/investment/stockinfo/profile/{ticker}?l=1"
+                  }
+                }
+              ]
+            },
+            {
+              "snapshot_id": "86da5e52564d0c33c3223fe86e677ebe0830c28276231917e93945859f188089",
+              "schema_version": 1,
+              "source_name": "VCI",
+              "source_reference": "https://iq.vietcap.com.vn/api/iq-insight-service/v1/company/{ticker}/relationship",
+              "snapshot_date": "2026-07-22T08:50:08.548886+00:00",
+              "raw_hash": "5b2e5bee0fe86b227c52690532a49606b2e852ad12407d4b64ab16d5b722ea90",
+              "record_count": 10,
+              "snapshot_status": "complete_response",
+              "is_complete": 1,
+              "status": "available",
+              "records": [
+                {
+                  "source_record_identity": "vci:sub_organ_code:12663",
+                  "fields": {
+                    "provider_record_id": "12663",
+                    "organization_name": "Công ty TNHH MTV Bibica Biên Hòa",
+                    "relationship_type": "subsidiary",
+                    "ownership_percent": 0.999,
+                    "ownership_unit": "fraction",
+                    "charter_capital": null,
+                    "currency": null,
+                    "provider_update_date": null
+                  },
+                  "raw_record": {
+                    "organ_name": "Công ty TNHH MTV Bibica Biên Hòa",
+                    "ownership_percent": 0.999,
+                    "sub_organ_code": "12663",
+                    "symbol": "PAN"
+                  },
+                  "provenance": {
+                    "identity_basis": "sub_organ_code",
+                    "ownership_unit": "fraction",
+                    "provider": "VCI",
+                    "raw_relationship_type": "subsidiary",
+                    "source_reference": "https://iq.vietcap.com.vn/api/iq-insight-service/v1/company/{ticker}/relationship"
+                  }
+                },
+                {
+                  "source_record_identity": "vci:sub_organ_code:4001061041",
+                  "fields": {
+                    "provider_record_id": "4001061041",
+                    "organization_name": "Công ty Cổ phần Capella Quảng Nam",
+                    "relationship_type": "subsidiary",
+                    "ownership_percent": 0.0,
+                    "ownership_unit": "fraction",
+                    "charter_capital": null,
+                    "currency": null,
+                    "provider_update_date": null
+                  },
+                  "raw_record": {
+                    "organ_name": "Công ty Cổ phần Capella Quảng Nam",
+                    "ownership_percent": 0.0,
+                    "sub_organ_code": "4001061041",
+                    "symbol": "PAN"
+                  },
+                  "provenance": {
+                    "identity_basis": "sub_organ_code",
+                    "ownership_unit": "fraction",
+                    "provider": "VCI",
+                    "raw_relationship_type": "subsidiary",
+                    "source_reference": "https://iq.vietcap.com.vn/api/iq-insight-service/v1/company/{ticker}/relationship"
+                  }
+                },
+                {
+                  "source_record_identity": "vci:sub_organ_code:ABT",
+                  "fields": {
+                    "provider_record_id": "ABT",
+                    "organization_name": "Công ty Cổ phần Xuất nhập khẩu Thủy sản Bến Tre",
+                    "relationship_type": "subsidiary",
+                    "ownership_percent": 0.7647,
+                    "ownership_unit": "fraction",
+                    "charter_capital": null,
+                    "currency": null,
+                    "provider_update_date": null
+                  },
+                  "raw_record": {
+                    "organ_name": "Công ty Cổ phần Xuất nhập khẩu Thủy sản Bến Tre",
+                    "ownership_percent": 0.7647,
+                    "sub_organ_code": "ABT",
+                    "symbol": "PAN"
+                  },
+                  "provenance": {
+                    "identity_basis": "sub_organ_code",
+                    "ownership_unit": "fraction",
+                    "provider": "VCI",
+                    "raw_relationship_type": "subsidiary",
+                    "source_reference": "https://iq.vietcap.com.vn/api/iq-insight-service/v1/company/{ticker}/relationship"
+                  }
+                },
+                {
+                  "source_record_identity": "vci:sub_organ_code:BBC",
+                  "fields": {
+                    "provider_record_id": "BBC",
+                    "organization_name": "Công ty Cổ phần Bibica",
+                    "relationship_type": "subsidiary",
+                    "ownership_percent": 0.983,
+                    "ownership_unit": "fraction",
+                    "charter_capital": null,
+                    "currency": null,
+                    "provider_update_date": null
+                  },
+                  "raw_record": {
+                    "organ_name": "Công ty Cổ phần Bibica",
+                    "ownership_percent": 0.983,
+                    "sub_organ_code": "BBC",
+                    "symbol": "PAN"
+                  },
+                  "provenance": {
+                    "identity_basis": "sub_organ_code",
+                    "ownership_unit": "fraction",
+                    "provider": "VCI",
+                    "raw_relationship_type": "subsidiary",
+                    "source_reference": "https://iq.vietcap.com.vn/api/iq-insight-service/v1/company/{ticker}/relationship"
+                  }
+                },
+                {
+                  "source_record_identity": "vci:sub_organ_code:FARM",
+                  "fields": {
+                    "provider_record_id": "FARM",
+                    "organization_name": "Công ty Cổ phần PAN Farm",
+                    "relationship_type": "subsidiary",
+                    "ownership_percent": 0.8815,
+                    "ownership_unit": "fraction",
+                    "charter_capital": null,
+                    "currency": null,
+                    "provider_update_date": null
+                  },
+                  "raw_record": {
+                    "organ_name": "Công ty Cổ phần PAN Farm",
+                    "ownership_percent": 0.8815,
+                    "sub_organ_code": "FARM",
+                    "symbol": "PAN"
+                  },
+                  "provenance": {
+                    "identity_basis": "sub_organ_code",
+                    "ownership_unit": "fraction",
+                    "provider": "VCI",
+                    "raw_relationship_type": "subsidiary",
+                    "source_reference": "https://iq.vietcap.com.vn/api/iq-insight-service/v1/company/{ticker}/relationship"
+                  }
+                },
+                {
+                  "source_record_identity": "vci:sub_organ_code:FMC",
+                  "fields": {
+                    "provider_record_id": "FMC",
+                    "organization_name": "Công ty Cổ phần Thực phẩm Sao Ta",
+                    "relationship_type": "subsidiary",
+                    "ownership_percent": 0.3775,
+                    "ownership_unit": "fraction",
+                    "charter_capital": null,
+                    "currency": null,
+                    "provider_update_date": null
+                  },
+                  "raw_record": {
+                    "organ_name": "Công ty Cổ phần Thực phẩm Sao Ta",
+                    "ownership_percent": 0.3775,
+                    "sub_organ_code": "FMC",
+                    "symbol": "PAN"
+                  },
+                  "provenance": {
+                    "identity_basis": "sub_organ_code",
+                    "ownership_unit": "fraction",
+                    "provider": "VCI",
+                    "raw_relationship_type": "subsidiary",
+                    "source_reference": "https://iq.vietcap.com.vn/api/iq-insight-service/v1/company/{ticker}/relationship"
+                  }
+                },
+                {
+                  "source_record_identity": "vci:sub_organ_code:GBCOFFEE",
+                  "fields": {
+                    "provider_record_id": "GBCOFFEE",
+                    "organization_name": "Công ty Cổ phần Cà Phê Golden Beans",
+                    "relationship_type": "subsidiary",
+                    "ownership_percent": 0.7959,
+                    "ownership_unit": "fraction",
+                    "charter_capital": null,
+                    "currency": null,
+                    "provider_update_date": null
+                  },
+                  "raw_record": {
+                    "organ_name": "Công ty Cổ phần Cà Phê Golden Beans",
+                    "ownership_percent": 0.7959,
+                    "sub_organ_code": "GBCOFFEE",
+                    "symbol": "PAN"
+                  },
+                  "provenance": {
+                    "identity_basis": "sub_organ_code",
+                    "ownership_unit": "fraction",
+                    "provider": "VCI",
+                    "raw_relationship_type": "subsidiary",
+                    "source_reference": "https://iq.vietcap.com.vn/api/iq-insight-service/v1/company/{ticker}/relationship"
+                  }
+                },
+                {
+                  "source_record_identity": "vci:sub_organ_code:LAF",
+                  "fields": {
+                    "provider_record_id": "LAF",
+                    "organization_name": "Công ty Cổ phần Chế biến Hàng Xuất khẩu Long An",
+                    "relationship_type": "subsidiary",
+                    "ownership_percent": 0.7788,
+                    "ownership_unit": "fraction",
+                    "charter_capital": null,
+                    "currency": null,
+                    "provider_update_date": null
+                  },
+                  "raw_record": {
+                    "organ_name": "Công ty Cổ phần Chế biến Hàng Xuất khẩu Long An",
+                    "ownership_percent": 0.7788,
+                    "sub_organ_code": "LAF",
+                    "symbol": "PAN"
+                  },
+                  "provenance": {
+                    "identity_basis": "sub_organ_code",
+                    "ownership_unit": "fraction",
+                    "provider": "VCI",
+                    "raw_relationship_type": "subsidiary",
+                    "source_reference": "https://iq.vietcap.com.vn/api/iq-insight-service/v1/company/{ticker}/relationship"
+                  }
+                },
+                {
+                  "source_record_identity": "vci:sub_organ_code:PANFOOD",
+                  "fields": {
+                    "provider_record_id": "PANFOOD",
+                    "organization_name": "Công ty Cổ Phần Thực Phẩm Pan",
+                    "relationship_type": "subsidiary",
+                    "ownership_percent": 0.9999,
+                    "ownership_unit": "fraction",
+                    "charter_capital": null,
+                    "currency": null,
+                    "provider_update_date": null
+                  },
+                  "raw_record": {
+                    "organ_name": "Công ty Cổ Phần Thực Phẩm Pan",
+                    "ownership_percent": 0.9999,
+                    "sub_organ_code": "PANFOOD",
+                    "symbol": "PAN"
+                  },
+                  "provenance": {
+                    "identity_basis": "sub_organ_code",
+                    "ownership_unit": "fraction",
+                    "provider": "VCI",
+                    "raw_relationship_type": "subsidiary",
+                    "source_reference": "https://iq.vietcap.com.vn/api/iq-insight-service/v1/company/{ticker}/relationship"
+                  }
+                },
+                {
+                  "source_record_identity": "vci:sub_organ_code:TS584",
+                  "fields": {
+                    "provider_record_id": "TS584",
+                    "organization_name": "Công Ty Cổ Phần Thủy Sản 584 Nha Trang",
+                    "relationship_type": "subsidiary",
+                    "ownership_percent": 0.7345,
+                    "ownership_unit": "fraction",
+                    "charter_capital": null,
+                    "currency": null,
+                    "provider_update_date": null
+                  },
+                  "raw_record": {
+                    "organ_name": "Công Ty Cổ Phần Thủy Sản 584 Nha Trang",
+                    "ownership_percent": 0.7345,
+                    "sub_organ_code": "TS584",
+                    "symbol": "PAN"
+                  },
+                  "provenance": {
+                    "identity_basis": "sub_organ_code",
+                    "ownership_unit": "fraction",
+                    "provider": "VCI",
+                    "raw_relationship_type": "subsidiary",
+                    "source_reference": "https://iq.vietcap.com.vn/api/iq-insight-service/v1/company/{ticker}/relationship"
+                  }
+                }
+              ]
+            }
+          ],
+          "freshness": {
+            "generated_at": "2026-07-22T08:50:09.778860+00:00",
+            "as_of_date": "2026-07-22",
+            "source": "KBS",
+            "freshness_status": "current",
+            "expected_update_frequency": "92d",
+            "stale_reason": null,
+            "is_actionable": true
+          }
+        },
+        "ownership_structure": {
+          "status": "available",
+          "sources": [
+            {
+              "snapshot_id": "67b513ae4e5392ea280952c592b00299ea96788da431f21385d4da7f4b80872e",
+              "schema_version": 1,
+              "source_name": "KBS",
+              "source_reference": "https://kbbuddywts.kbsec.com.vn/iis-server/investment/stockinfo/profile/{ticker}?l=1",
+              "snapshot_date": "2026-07-22T08:50:10.430328+00:00",
+              "raw_hash": "bc287e7ba73cd7ef41a759465ef2c6e2063e98688b96062d1aae9e7fc40bc33d",
+              "record_count": 5,
+              "snapshot_status": "complete_response",
+              "is_complete": 1,
+              "status": "available",
+              "records": [
+                {
+                  "source_record_identity": "kbs:owner_type:cđ khác nước ngoài",
+                  "fields": {
+                    "owner_type": "CĐ khác nước ngoài",
+                    "ownership_percentage": 20.04,
+                    "shares_owned": 43349170.0,
+                    "update_date": "2025-12-31T00:00:00"
+                  },
+                  "raw_record": {
+                    "owner_type": "CĐ khác nước ngoài",
+                    "ownership_percentage": 20.04,
+                    "shares_owned": 43349170,
+                    "update_date": "2025-12-31T00:00:00"
+                  },
+                  "provenance": {
+                    "identity_basis": "owner_type_provider_local",
+                    "ownership_unit": "percentage_points",
+                    "provider": "KBS",
+                    "source_reference": "https://kbbuddywts.kbsec.com.vn/iis-server/investment/stockinfo/profile/{ticker}?l=1",
+                    "update_date_semantics": "current_response_provenance_not_historical_api"
+                  }
+                },
+                {
+                  "source_record_identity": "kbs:owner_type:cđ khác trong nước",
+                  "fields": {
+                    "owner_type": "CĐ khác trong nước",
+                    "ownership_percentage": 52.44,
+                    "shares_owned": 113432860.0,
+                    "update_date": "2025-12-31T00:00:00"
+                  },
+                  "raw_record": {
+                    "owner_type": "CĐ khác trong nước",
+                    "ownership_percentage": 52.44,
+                    "shares_owned": 113432860,
+                    "update_date": "2025-12-31T00:00:00"
+                  },
+                  "provenance": {
+                    "identity_basis": "owner_type_provider_local",
+                    "ownership_unit": "percentage_points",
+                    "provider": "KBS",
+                    "source_reference": "https://kbbuddywts.kbsec.com.vn/iis-server/investment/stockinfo/profile/{ticker}?l=1",
+                    "update_date_semantics": "current_response_provenance_not_historical_api"
+                  }
+                },
+                {
+                  "source_record_identity": "kbs:owner_type:cđ lớn trong nước",
+                  "fields": {
+                    "owner_type": "CĐ lớn trong nước",
+                    "ownership_percentage": 23.31,
+                    "shares_owned": 50411720.0,
+                    "update_date": "2025-12-31T00:00:00"
+                  },
+                  "raw_record": {
+                    "owner_type": "CĐ lớn trong nước",
+                    "ownership_percentage": 23.31,
+                    "shares_owned": 50411720,
+                    "update_date": "2025-12-31T00:00:00"
+                  },
+                  "provenance": {
+                    "identity_basis": "owner_type_provider_local",
+                    "ownership_unit": "percentage_points",
+                    "provider": "KBS",
+                    "source_reference": "https://kbbuddywts.kbsec.com.vn/iis-server/investment/stockinfo/profile/{ticker}?l=1",
+                    "update_date_semantics": "current_response_provenance_not_historical_api"
+                  }
+                },
+                {
+                  "source_record_identity": "kbs:owner_type:cđ sáng lập",
+                  "fields": {
+                    "owner_type": "CĐ sáng lập",
+                    "ownership_percentage": 0.79,
+                    "shares_owned": 1701000.0,
+                    "update_date": "2025-12-31T00:00:00"
+                  },
+                  "raw_record": {
+                    "owner_type": "CĐ sáng lập",
+                    "ownership_percentage": 0.79,
+                    "shares_owned": 1701000,
+                    "update_date": "2025-12-31T00:00:00"
+                  },
+                  "provenance": {
+                    "identity_basis": "owner_type_provider_local",
+                    "ownership_unit": "percentage_points",
+                    "provider": "KBS",
+                    "source_reference": "https://kbbuddywts.kbsec.com.vn/iis-server/investment/stockinfo/profile/{ticker}?l=1",
+                    "update_date_semantics": "current_response_provenance_not_historical_api"
+                  }
+                },
+                {
+                  "source_record_identity": "kbs:owner_type:cổ  phiếu quỹ",
+                  "fields": {
+                    "owner_type": "Cổ  phiếu quỹ",
+                    "ownership_percentage": 3.42,
+                    "shares_owned": 7399830.0,
+                    "update_date": "2025-12-31T00:00:00"
+                  },
+                  "raw_record": {
+                    "owner_type": "Cổ  phiếu quỹ",
+                    "ownership_percentage": 3.42,
+                    "shares_owned": 7399830,
+                    "update_date": "2025-12-31T00:00:00"
+                  },
+                  "provenance": {
+                    "identity_basis": "owner_type_provider_local",
+                    "ownership_unit": "percentage_points",
+                    "provider": "KBS",
+                    "source_reference": "https://kbbuddywts.kbsec.com.vn/iis-server/investment/stockinfo/profile/{ticker}?l=1",
+                    "update_date_semantics": "current_response_provenance_not_historical_api"
+                  }
+                }
+              ]
+            }
+          ],
+          "freshness": {
+            "generated_at": "2026-07-22T08:50:10.430328+00:00",
+            "as_of_date": "2026-07-22",
+            "source": "KBS",
+            "freshness_status": "current",
+            "expected_update_frequency": "92d",
+            "stale_reason": null,
+            "is_actionable": true
+          }
+        },
+        "major_shareholders": {
+          "status": "missing",
+          "sources": [],
+          "freshness": {
+            "generated_at": null,
+            "as_of_date": null,
+            "source": null,
+            "freshness_status": "missing",
+            "expected_update_frequency": "92d",
+            "stale_reason": "source_timestamp_missing_or_malformed",
+            "is_actionable": false
+          }
+        },
+        "corporate_events": {
+          "status": "missing",
+          "reason": "no_forward_event_observations",
+          "sources": [],
+          "freshness": {
+            "generated_at": null,
+            "as_of_date": null,
+            "source": null,
+            "freshness_status": "missing",
+            "expected_update_frequency": "1d",
+            "stale_reason": "source_timestamp_missing_or_malformed",
+            "is_actionable": false
+          }
+        }
+      },
+      "freshness": {
+        "daily_prices": {
+          "generated_at": "2026-07-24T00:00:00+00:00",
+          "as_of_date": "2026-07-24",
+          "source": "screen_snapshot_live.csv",
+          "freshness_status": "current",
+          "expected_update_frequency": "1d",
+          "stale_reason": null,
+          "is_actionable": true
+        },
+        "technical_signals": {
+          "generated_at": "2026-07-24T00:00:00+00:00",
+          "as_of_date": "2026-07-24",
+          "source": "ta_signals.csv",
+          "freshness_status": "current",
+          "expected_update_frequency": "1d",
+          "stale_reason": null,
+          "is_actionable": true
+        },
+        "ai_report": {
+          "generated_at": "2026-07-25T07:44:00+00:00",
+          "as_of_date": "2026-07-24",
+          "source": "analysis_latest.json",
+          "freshness_status": "current",
+          "expected_update_frequency": "1d",
+          "stale_reason": null,
+          "is_actionable": true
+        },
+        "financial_statements": {
+          "generated_at": null,
+          "as_of_date": null,
+          "source": "financial_snapshot.parquet",
+          "freshness_status": "unknown",
+          "expected_update_frequency": "92d",
+          "stale_reason": "source_timestamp_missing_or_malformed",
+          "is_actionable": false
+        }
+      },
+      "analysis_readiness": {
+        "reference_at": "2026-07-26T12:00:00+00:00",
+        "domains": {
+          "market_technical": {
+            "state": "ready",
+            "reason": "all_required_inputs_current_and_actionable",
+            "required_inputs": [
+              "daily_prices",
+              "technical_signals"
+            ],
+            "is_actionable": true
+          },
+          "fundamental": {
+            "state": "blocked",
+            "reason": "financial_input_missing_or_unknown",
+            "required_inputs": [
+              "financial_statements"
+            ],
+            "is_actionable": false
+          },
+          "corporate_intelligence": {
+            "state": "blocked",
+            "reason": "corporate_intelligence_completeness_or_comparability_gate",
+            "required_inputs": [
+              "company_profile",
+              "company_subsidiaries",
+              "ownership_structure",
+              "major_shareholders"
+            ],
+            "is_actionable": false
+          },
+          "corporate_events": {
+            "state": "blocked",
+            "reason": "corporate_events_missing_or_unknown",
+            "required_inputs": [
+              "corporate_events"
+            ],
+            "is_actionable": false
+          },
+          "combined_ai_analysis": {
+            "state": "blocked",
+            "reason": "required_readiness_blocked",
+            "required_inputs": [
+              "market_technical",
+              "fundamental",
+              "corporate_intelligence",
+              "corporate_events"
+            ],
+            "is_actionable": false
+          }
+        }
+      },
+      "warnings": [],
+      "context_package": {
+        "schema_version": "1.4.0",
+        "package_type": "ticker_context",
+        "ticker": "PAN",
+        "generated_at": "2026-07-23T19:27:57+07:00",
+        "analysis_cutoff": null,
+        "data_sources": [
+          "C:\\Projects\\StockLookup\\dashboard-runtime\\financial_snapshot.csv",
+          "C:\\Projects\\StockLookup\\dashboard-runtime\\news_latest.csv",
+          "C:\\Projects\\StockLookup\\dashboard-runtime\\screen_snapshot.csv",
+          "C:\\Projects\\StockLookup\\dashboard-runtime\\ta_signals.csv",
+          "C:\\Projects\\StockLookup\\dashboard-runtime\\vn_stock.db"
+        ],
+        "latest_available_dates": {
+          "price": "2026-07-23",
+          "technical": "2026-07-23",
+          "metadata_updated": "2026-07-09 11:34",
+          "financial_period": "2026-Q1",
+          "shareholder_updated": "2026-06-10",
+          "news_published_utc": null
+        },
+        "identity": {
+          "ticker": "PAN",
+          "exchange": "HSX",
+          "industry": "Thực phẩm và đồ uống",
+          "company_name": null,
+          "activity_status": "not fully confirmed",
+          "status_basis": "metadata exchange plus latest price coverage; explicit trading status not queried",
+          "entity_type": "corporate",
+          "entity_type_warning": "financial ratios gated by entity_type (ebit/ebitda/sga/liquidity) are only structurally not_applicable for a confirmed non-corporate type; entity_type=='unknown' means unclassified, not confirmed corporate"
+        },
+        "metadata": {
+          "ticker": "PAN",
+          "exchange": "HSX",
+          "industry": "Thực phẩm và đồ uống",
+          "foreign_room_pct": 54.42,
+          "pe": 8.47,
+          "pb": 0.63,
+          "roe": 12.92,
+          "market_cap": 5640146235000.0,
+          "shares_outstanding": 250673166.0,
+          "free_float_est": 0.5402,
+          "dividend_yield": 2.0,
+          "margin_status": null,
+          "updated": "2026-07-09 11:34",
+          "company_name": null,
+          "margin_status_meaning": "no flagged status under project convention",
+          "point_in_time_warning": "Current metadata snapshot; do not use directly for historical backtests.",
+          "free_float_warning": "free_float_est is a proxy, not an official value.",
+          "company_name_warning": "company_name is not available in the confirmed metadata schema."
+        },
+        "price_summary": {
+          "first_date": "2018-07-09",
+          "last_date": "2026-07-23",
+          "trading_days": 2002,
+          "latest_close": 21000,
+          "latest_volume": 789900,
+          "return_1m_pct": -7.284768,
+          "return_3m_pct": -14.529915,
+          "return_1y_pct": -7.448215,
+          "avg_volume_20d": 332575.0,
+          "currency": "VND",
+          "latest_source": "VCI",
+          "adjusted_price_warning": "Price adjustment for dividends/splits is not fully confirmed; trading-day returns may be affected by corporate actions.",
+          "return_method": "latest close versus close 21/63/252 trading observations earlier",
+          "price_basis": "unknown",
+          "price_basis_verified": false,
+          "price_basis_provenance": {
+            "source": "missing_or_unverified_bundle_price_basis"
+          }
+        },
+        "financial_summary": {
+          "snapshot_schema_version": "2.0",
+          "latest_period": "2026-Q1",
+          "latest_period_type": "quarter",
+          "available_periods_count": 8,
+          "available_periods": [
+            "2024-Q2",
+            "2024-Q3",
+            "2024-Q4",
+            "2025-Q1",
+            "2025-Q2",
+            "2025-Q3",
+            "2025-Q4",
+            "2026-Q1"
+          ],
+          "source_rows_found": true,
+          "excluded_unverified_fiscal_periods": [],
+          "revenue": 4303330764000,
+          "net_profit": 448223660000,
+          "total_assets": 15214214977087,
+          "equity": 9633823640524,
+          "total_liabilities": 5580391336563,
+          "operating_cash_flow_reported": -2885506210000,
+          "operating_cash_flow_ytd": -2885506210000,
+          "operating_cash_flow_quarter": null,
+          "operating_cash_flow_ttm": null,
+          "operating_cash_flow": -2885506210000,
+          "operating_cash_flow_meta": {
+            "value": -2885506210000,
+            "status": "reported",
+            "reason": null,
+            "source": "financial_snapshot",
+            "period": "2025-Q4",
+            "basis": "ytd",
+            "raw_item_id": null,
+            "raw_label": null,
+            "confidence": 0.9,
+            "details": {
+              "financial_latest_period": "2026-Q1",
+              "selected_latest_non_null_reported": true,
+              "raw_unit": null,
+              "normalized_unit": "unknown",
+              "unit_multiplier": 1,
+              "unit_status": "unit_unknown",
+              "report_scope": "unknown",
+              "audit_status": "unknown"
+            }
+          },
+          "ebit": 600682628000,
+          "ebit_meta": {
+            "value": 600682628000,
+            "status": "derived",
+            "reason": null,
+            "source": "derived_financial_statement",
+            "period": "2026-Q1",
+            "basis": "derived",
+            "raw_item_id": null,
+            "raw_label": null,
+            "confidence": 1.0,
+            "formula": "profit_before_tax + interest_expense",
+            "inputs": [
+              "profit_before_tax",
+              "interest_expense"
+            ],
+            "details": {
+              "unit_status": "unit_unknown",
+              "interest_expense_sign_convention": null
+            }
+          },
+          "ebitda": null,
+          "ebitda_meta": {
+            "value": null,
+            "status": "insufficient_periods",
+            "reason": "missing_ebit_or_complete_da_inputs",
+            "source": "financial_snapshot",
+            "period": "2026-Q1",
+            "basis": "quarter",
+            "raw_item_id": null,
+            "raw_label": null,
+            "confidence": 0.0
+          },
+          "interest_expense": 72858406000,
+          "interest_expense_meta": {
+            "value": 72858406000,
+            "status": "reported",
+            "reason": null,
+            "source": "financial_mapping_registry",
+            "period": "2026-Q1",
+            "basis": "reported",
+            "raw_item_id": null,
+            "raw_label": null,
+            "confidence": 1.0,
+            "details": {
+              "unit_status": "unit_unknown",
+              "interest_expense_sign_convention": "positive_expense"
+            }
+          },
+          "retained_earnings": 2618950443317,
+          "retained_earnings_meta": {
+            "value": 2618950443317,
+            "status": "reported",
+            "reason": null,
+            "source": "financial_mapping_registry",
+            "period": "2026-Q1",
+            "basis": "reported",
+            "raw_item_id": null,
+            "raw_label": null,
+            "confidence": 1.0,
+            "details": {
+              "unit_status": "unit_unknown",
+              "interest_expense_sign_convention": null
+            }
+          },
+          "depreciation": null,
+          "depreciation_meta": {
+            "value": null,
+            "status": "stale",
+            "reason": "selected_period_value_missing",
+            "source": "financial_snapshot",
+            "period": "2026-Q1",
+            "basis": "quarter",
+            "raw_item_id": null,
+            "raw_label": null,
+            "confidence": 0.0,
+            "details": {
+              "latest_non_null_period": "2025-Q4",
+              "latest_non_null_value": 138815269000,
+              "fallback_not_applied": true,
+              "unit_status": "unit_unknown"
+            }
+          },
+          "sga": 353782849000,
+          "sga_meta": {
+            "value": 353782849000,
+            "status": "derived",
+            "reason": null,
+            "source": "derived_financial_statement",
+            "period": "2026-Q1",
+            "basis": "derived",
+            "raw_item_id": null,
+            "raw_label": null,
+            "confidence": 1.0,
+            "formula": "selling_expense + general_admin_expense",
+            "inputs": [
+              "selling_expense",
+              "general_admin_expense"
+            ],
+            "details": {
+              "unit_status": "unit_unknown",
+              "interest_expense_sign_convention": null
+            }
+          },
+          "known_missing_mappings": [],
+          "known_unimplemented_derivations": [],
+          "coverage": {
+            "status": "partial",
+            "coverage": 0.714286,
+            "available_metrics": 5,
+            "expected_metrics": 7,
+            "missing_metrics": [
+              "depreciation",
+              "ebitda"
+            ],
+            "available_metric_names": [
+              "ebit",
+              "interest_expense",
+              "operating_cash_flow",
+              "retained_earnings",
+              "sga"
+            ],
+            "not_applicable_metrics": []
+          },
+          "coverage_scope": [
+            "operating_cash_flow",
+            "ebit",
+            "ebitda",
+            "interest_expense",
+            "retained_earnings",
+            "depreciation",
+            "sga"
+          ],
+          "metric_contract_version": "1.0.0",
+          "unit_scale_warning": "Financial statement monetary unit/scale is not fully confirmed from current metadata; do not compare or calculate across sources without verification.",
+          "availability_warning": "Reporting period is not the filing publication/availability date; not point-in-time safe for strict backtests.",
+          "roe_quarter": 0.04790980928571872,
+          "roe_quarter_meta": {
+            "value": 0.04790980928571872,
+            "status": "derived",
+            "reason": null,
+            "source": "financial_snapshot_derived",
+            "period": "2026-Q1",
+            "basis": "quarter_average_equity",
+            "raw_item_id": null,
+            "raw_label": null,
+            "confidence": 1.0,
+            "formula": "net_profit_quarter / average(equity_quarter_end, equity_prior_quarter_end_or_fallback_to_equity_quarter_end)",
+            "inputs": [
+              "net_profit",
+              "equity"
+            ],
+            "unit": "ratio",
+            "period_calendar_end": "2026-03-31",
+            "annualization": "none"
+          },
+          "roe_fy": null,
+          "roe_fy_meta": {
+            "value": null,
+            "status": "not_applicable",
+            "reason": "not_this_period_type",
+            "source": "financial_snapshot",
+            "period": null,
+            "basis": null,
+            "raw_item_id": null,
+            "raw_label": null,
+            "confidence": 1.0
+          },
+          "roe_ttm": null,
+          "roe_ttm_meta": {
+            "value": null,
+            "status": "insufficient_periods",
+            "reason": "requires_four_consecutive_reported_quarters_and_ttm_window_equity",
+            "source": "financial_snapshot_derived",
+            "period": "2026-Q1",
+            "basis": null,
+            "raw_item_id": null,
+            "raw_label": null,
+            "confidence": 0.0,
+            "unit": "ratio",
+            "period_calendar_end": "2026-03-31",
+            "annualization": "trailing_twelve_month_sum"
+          },
+          "eps_calc": 2072.283364659438,
+          "eps_calc_meta": {
+            "value": 2072.283364659438,
+            "status": "proxy",
+            "reason": null,
+            "source": "financial_snapshot",
+            "period": "2026-Q1",
+            "basis": "net_profit_over_shares_period_end_not_weighted_average",
+            "raw_item_id": null,
+            "raw_label": null,
+            "confidence": 0.5,
+            "unit": "vnd_per_share"
+          },
+          "book_value": 44540.29148822869,
+          "book_value_meta": {
+            "value": 44540.29148822869,
+            "status": "proxy",
+            "reason": null,
+            "source": "financial_snapshot",
+            "period": "2026-Q1",
+            "basis": "equity_over_shares_period_end_not_weighted_average",
+            "raw_item_id": null,
+            "raw_label": null,
+            "confidence": 0.5,
+            "unit": "vnd_per_share"
+          }
+        },
+        "valuation_inputs": {
+          "as_of": "2026-07-23",
+          "price": 21000,
+          "market_cap": 5640146235000.0,
+          "pe": 8.47,
+          "pb": 0.63,
+          "roe": 12.92,
+          "roe_meta": {
+            "value": 12.92,
+            "status": "reported",
+            "reason": null,
+            "source": "vnstock_metadata_snapshot",
+            "period": "2026-07-09 11:34",
+            "basis": "trailing_ttm_external_provider",
+            "raw_item_id": null,
+            "raw_label": null,
+            "confidence": 1.0,
+            "details": {
+              "distinct_from": "financial_summary.roe_quarter/roe_fy/roe_ttm are a different source and methodology; do not treat as the same number"
+            },
+            "unit": "percent"
+          },
+          "net_profit_latest": 448223660000,
+          "equity_latest": 9633823640524,
+          "unit_warning": "Price is VND; financial statement unit/scale is not fully confirmed. No new valuation multiples were calculated."
+        },
+        "technical_summary": {
+          "latest_signal_date": "2026-07-23",
+          "screen_snapshot_date": "2026-07-23",
+          "rsi14": 24.4,
+          "macd_hist": -70.6,
+          "above_sma50": false,
+          "above_sma200": false,
+          "golden_cross": true,
+          "structure": "down",
+          "rs_rating": 48,
+          "available_signals": {
+            "patterns": [
+              "doji"
+            ],
+            "smc": [],
+            "confluence": false,
+            "direction": "neutral"
+          },
+          "snapshot_warning": "Technical data/signals are snapshots and derived indicators, not buy/sell conclusions."
+        },
+        "news_summary": {
+          "status": "no_company_specific_news",
+          "company_news_count": 0,
+          "sector_news_count": 0,
+          "market_news_count": 100,
+          "candidate_review_count": 0,
+          "lookback_days": 30,
+          "cutoff": "2026-06-23T12:27:57.927600Z",
+          "items": [],
+          "candidate_items": [],
+          "sector_items": [],
+          "market_items": [
+            {
+              "published_utc": "2026-07-23T09:31:29Z",
+              "region": "vn",
+              "source": "VnEconomy CK",
+              "title": "Blog chứng khoán: Dòng tiền hành động sớm?",
+              "link": "https://vneconomy.vn/blog-chung-khoan-dong-tien-hanh-dong-som.htm",
+              "news_id": "de49ebce5334d34a34893435"
+            },
+            {
+              "published_utc": "2026-07-23T09:31:00Z",
+              "region": "world",
+              "source": "MarketWatch",
+              "title": "‘It would feel like a burden’: My stepmother, 96, owns the house I grew up in. Is it wrong to tell her I don’t want to inherit it?",
+              "link": "https://www.marketwatch.com/story/it-would-feel-like-a-burden-my-stepmother-96-owns-the-house-i-grew-up-in-is-it-wrong-to-tell-her-i-dont-want-to-inherit-it-9d5810c2?mod=mw_rss_topstories",
+              "news_id": "699018e27dcbee216f339077"
+            },
+            {
+              "published_utc": "2026-07-23T09:16:00Z",
+              "region": "vn",
+              "source": "CafeF CK",
+              "title": "Thủ tướng phát động, Tập đoàn của tỷ phú Phạm Nhật Vượng ủng hộ 11.000 tỷ đồng làm 3 việc ý nghĩa",
+              "link": "https://cafef.vn/thu-tuong-phat-dong-tap-doan-cua-ty-phu-pham-nhat-vuong-ung-ho-11000-ty-dong-lam-3-viec-y-nghia-188260723142758563.chn",
+              "news_id": "0a3efab7444f04082007a6a3"
+            },
+            {
+              "published_utc": "2026-07-23T09:01:00Z",
+              "region": "world",
+              "source": "MarketWatch",
+              "title": "The late James Van Der Beek’s former Beverly Hills home up for rent for $13,950 a month",
+              "link": "https://www.marketwatch.com/story/the-late-james-van-der-beeks-former-beverly-hills-home-up-for-rent-for-13-950-a-month-c6caf118?mod=mw_rss_topstories",
+              "news_id": "18c840c6d2169ad74e866307"
+            },
+            {
+              "published_utc": "2026-07-23T08:57:36Z",
+              "region": "world",
+              "source": "CNBC TopNews",
+              "title": "UniCredit CEO tells CNBC acquisition of Commerzbank could happen in fourth quarter",
+              "link": "https://www.cnbc.com/2026/07/23/unicredit-commerzbank-takeover-acquisition-2q-earnings.html",
+              "news_id": "61d8a8123cd8e26516d5d9eb"
+            }
+          ],
+          "latest_published_utc": null,
+          "mapping_version": "1.0.0",
+          "latest_news_count": 0,
+          "sample_titles": [],
+          "ticker_linkage_method": "canonical_alias_registry",
+          "mapping_warning": "No company-specific news matched the accepted confidence threshold.",
+          "meta": {
+            "value": null,
+            "status": "source_empty",
+            "reason": "no_company_specific_news",
+            "source": "news_latest",
+            "period": null,
+            "basis": "canonical_ticker_alias",
+            "raw_item_id": null,
+            "raw_label": null,
+            "confidence": 0.0,
+            "details": {
+              "mapping_version": "1.0.0",
+              "candidate_review_count": 0
+            }
+          },
+          "coverage": {
+            "status": "missing",
+            "coverage": 0.0,
+            "available_metrics": 0,
+            "expected_metrics": 1,
+            "missing_metrics": [
+              "news_summary"
+            ],
+            "available_metric_names": [],
+            "not_applicable_metrics": []
+          },
+          "metric_contract_version": "1.0.0"
+        },
+        "shareholder_summary": {
+          "status": "done",
+          "reason": "usable_records_from_configured_source",
+          "attempts": [
+            {
+              "source": "VCI",
+              "status": "done",
+              "error": null,
+              "reason": null,
+              "error_reason": null,
+              "record_count": 36,
+              "parsed_record_count": 36,
+              "request_timestamp": "2026-07-20T11:39:04+00:00",
+              "latest_as_of_date": "2026-06-10"
+            }
+          ],
+          "sources_attempted": [
+            "VCI"
+          ],
+          "latest_as_of_date": "2026-06-10",
+          "freshness": {
+            "status": "fresh",
+            "threshold_days": 180,
+            "age_days": 40,
+            "latest_as_of_date": "2026-06-10"
+          },
+          "manual_override_count": 0,
+          "raw_record_count": 36,
+          "parsed_record_count": 36,
+          "deduplicated_record_count": 36,
+          "retained_record_count": 9,
+          "latest_snapshot_date": "2026-06-10",
+          "major_shareholders_count": 36,
+          "returned_top_holders_count": 9,
+          "top_holders": [
+            {
+              "shareholder_name": "Nguyễn Duy Hưng",
+              "shares_owned": 1226000,
+              "pct": 0.5869,
+              "source": "VCI",
+              "updated_at": "2026-07-20T11:39:04+00:00",
+              "as_of_date": "2026-06-10",
+              "source_reference": "vnstock Company(source=VCI).shareholders",
+              "verified_at": null,
+              "record_origin": "api",
+              "reconciliation_status": "accepted",
+              "conflict_group": null,
+              "provenance": [
+                {
+                  "source_name": "VCI",
+                  "source_reference": "vnstock Company(source=VCI).shareholders",
+                  "record_origin": "api",
+                  "verified_at": null,
+                  "fetched_at": "2026-07-20T11:39:04+00:00"
+                }
+              ]
+            },
+            {
+              "shareholder_name": "Nguyễn Thị Trà My",
+              "shares_owned": 970266,
+              "pct": 0.46448,
+              "source": "VCI",
+              "updated_at": "2026-07-20T11:39:04+00:00",
+              "as_of_date": "2026-06-10",
+              "source_reference": "vnstock Company(source=VCI).shareholders",
+              "verified_at": null,
+              "record_origin": "api",
+              "reconciliation_status": "accepted",
+              "conflict_group": null,
+              "provenance": [
+                {
+                  "source_name": "VCI",
+                  "source_reference": "vnstock Company(source=VCI).shareholders",
+                  "record_origin": "api",
+                  "verified_at": null,
+                  "fetched_at": "2026-07-20T11:39:04+00:00"
+                }
+              ]
+            },
+            {
+              "shareholder_name": "Đoàn Thị Hồng Thúy",
+              "shares_owned": 288411,
+              "pct": 0.13807,
+              "source": "VCI",
+              "updated_at": "2026-07-20T11:39:04+00:00",
+              "as_of_date": "2026-06-10",
+              "source_reference": "vnstock Company(source=VCI).shareholders",
+              "verified_at": null,
+              "record_origin": "api",
+              "reconciliation_status": "accepted",
+              "conflict_group": null,
+              "provenance": [
+                {
+                  "source_name": "VCI",
+                  "source_reference": "vnstock Company(source=VCI).shareholders",
+                  "record_origin": "api",
+                  "verified_at": null,
+                  "fetched_at": "2026-07-20T11:39:04+00:00"
+                }
+              ]
+            },
+            {
+              "shareholder_name": "Nguyễn Duy Khánh",
+              "shares_owned": 251562,
+              "pct": 0.12043,
+              "source": "VCI",
+              "updated_at": "2026-07-20T11:39:04+00:00",
+              "as_of_date": "2026-06-10",
+              "source_reference": "vnstock Company(source=VCI).shareholders",
+              "verified_at": null,
+              "record_origin": "api",
+              "reconciliation_status": "accepted",
+              "conflict_group": null,
+              "provenance": [
+                {
+                  "source_name": "VCI",
+                  "source_reference": "vnstock Company(source=VCI).shareholders",
+                  "record_origin": "api",
+                  "verified_at": null,
+                  "fetched_at": "2026-07-20T11:39:04+00:00"
+                }
+              ]
+            },
+            {
+              "shareholder_name": "Nguyễn Vũ Thùy Hương",
+              "shares_owned": 155077,
+              "pct": 0.07424,
+              "source": "VCI",
+              "updated_at": "2026-07-20T11:39:04+00:00",
+              "as_of_date": "2026-06-10",
+              "source_reference": "vnstock Company(source=VCI).shareholders",
+              "verified_at": null,
+              "record_origin": "api",
+              "reconciliation_status": "accepted",
+              "conflict_group": null,
+              "provenance": [
+                {
+                  "source_name": "VCI",
+                  "source_reference": "vnstock Company(source=VCI).shareholders",
+                  "record_origin": "api",
+                  "verified_at": null,
+                  "fetched_at": "2026-07-20T11:39:04+00:00"
+                }
+              ]
+            },
+            {
+              "shareholder_name": "Phạm Thị Gái",
+              "shares_owned": 153125,
+              "pct": 0.0733,
+              "source": "VCI",
+              "updated_at": "2026-07-20T11:39:04+00:00",
+              "as_of_date": "2026-06-10",
+              "source_reference": "vnstock Company(source=VCI).shareholders",
+              "verified_at": null,
+              "record_origin": "api",
+              "reconciliation_status": "accepted",
+              "conflict_group": null,
+              "provenance": [
+                {
+                  "source_name": "VCI",
+                  "source_reference": "vnstock Company(source=VCI).shareholders",
+                  "record_origin": "api",
+                  "verified_at": null,
+                  "fetched_at": "2026-07-20T11:39:04+00:00"
+                }
+              ]
+            },
+            {
+              "shareholder_name": "Nguyễn Tùng Phong",
+              "shares_owned": 72968,
+              "pct": 0.034929999999999996,
+              "source": "VCI",
+              "updated_at": "2026-07-20T11:39:04+00:00",
+              "as_of_date": "2026-06-10",
+              "source_reference": "vnstock Company(source=VCI).shareholders",
+              "verified_at": null,
+              "record_origin": "api",
+              "reconciliation_status": "accepted",
+              "conflict_group": null,
+              "provenance": [
+                {
+                  "source_name": "VCI",
+                  "source_reference": "vnstock Company(source=VCI).shareholders",
+                  "record_origin": "api",
+                  "verified_at": null,
+                  "fetched_at": "2026-07-20T11:39:04+00:00"
+                }
+              ]
+            },
+            {
+              "shareholder_name": "Phạm Viết Muôn",
+              "shares_owned": 56250,
+              "pct": 0.02693,
+              "source": "VCI",
+              "updated_at": "2026-07-20T11:39:04+00:00",
+              "as_of_date": "2026-06-10",
+              "source_reference": "vnstock Company(source=VCI).shareholders",
+              "verified_at": null,
+              "record_origin": "api",
+              "reconciliation_status": "accepted",
+              "conflict_group": null,
+              "provenance": [
+                {
+                  "source_name": "VCI",
+                  "source_reference": "vnstock Company(source=VCI).shareholders",
+                  "record_origin": "api",
+                  "verified_at": null,
+                  "fetched_at": "2026-07-20T11:39:04+00:00"
+                }
+              ]
+            },
+            {
+              "shareholder_name": "Nguyễn Anh Tuấn",
+              "shares_owned": 52506,
+              "pct": 0.02514,
+              "source": "VCI",
+              "updated_at": "2026-07-20T11:39:04+00:00",
+              "as_of_date": "2026-06-10",
+              "source_reference": "vnstock Company(source=VCI).shareholders",
+              "verified_at": null,
+              "record_origin": "api",
+              "reconciliation_status": "accepted",
+              "conflict_group": null,
+              "provenance": [
+                {
+                  "source_name": "VCI",
+                  "source_reference": "vnstock Company(source=VCI).shareholders",
+                  "record_origin": "api",
+                  "verified_at": null,
+                  "fetched_at": "2026-07-20T11:39:04+00:00"
+                }
+              ]
+            }
+          ],
+          "progress_status": "done",
+          "snapshot_warning": "Shareholder data is point-in-time and has no history; do not use as historical ownership.",
+          "meta": {
+            "value": 9,
+            "status": "reported",
+            "reason": "usable_records_from_configured_source",
+            "source": "shareholder_records_v2",
+            "period": "2026-06-10",
+            "basis": "point_in_time",
+            "raw_item_id": null,
+            "raw_label": null,
+            "confidence": 1.0,
+            "details": {
+              "pipeline_status": "done",
+              "attempt_count": 1
+            }
+          },
+          "coverage": {
+            "status": "complete",
+            "coverage": 1.0,
+            "available_metrics": 1,
+            "expected_metrics": 1,
+            "missing_metrics": [],
+            "available_metric_names": [
+              "shareholder_summary"
+            ],
+            "not_applicable_metrics": []
+          },
+          "metric_contract_version": "1.0.0"
+        },
+        "risks": [],
+        "data_quality": {
+          "coverage": {
+            "ticker": "PAN",
+            "has_price": true,
+            "has_metadata": true,
+            "has_financial": true,
+            "has_news": null,
+            "has_shareholder": true,
+            "has_technical": true,
+            "status": "checked",
+            "coverage_summary_note": "Per-ticker enumeration would require scanning the large SQLite database, OHLCV history and thousands of BCTC files. Phase 3 uses safe discovery-level coverage instead."
+          },
+          "validation_status": "valid",
+          "missing_sections": [
+            "news_summary"
+          ],
+          "warnings": [
+            "Context contains data only and is not investment analysis or a buy/sell recommendation.",
+            "Metadata is a current snapshot and shareholder data has no history.",
+            "OHLCV price basis is unverified; corporate actions may affect return, MA, and RS.",
+            "news_summary status is no_company_specific_news for PAN; sector/market fallback is kept separate."
+          ],
+          "not_fully_confirmed": [
+            "OHLCV price basis",
+            "explicit current trading status",
+            "financial filing publication/availability dates",
+            "financial statement monetary unit/scale",
+            "news alias coverage outside configured aliases",
+            "price adjustment for dividends/splits"
+          ],
+          "sentinels_normalized": true,
+          "boolean_strings_normalized": true,
+          "metric_contract_version": "1.0.0",
+          "section_coverage": {
+            "financial_summary": {
+              "status": "partial",
+              "coverage": 0.714286,
+              "available_metrics": 5,
+              "expected_metrics": 7,
+              "missing_metrics": [
+                "depreciation",
+                "ebitda"
+              ],
+              "available_metric_names": [
+                "ebit",
+                "interest_expense",
+                "operating_cash_flow",
+                "retained_earnings",
+                "sga"
+              ],
+              "not_applicable_metrics": []
+            },
+            "news_summary": {
+              "status": "missing",
+              "coverage": 0.0,
+              "available_metrics": 0,
+              "expected_metrics": 1,
+              "missing_metrics": [
+                "news_summary"
+              ],
+              "available_metric_names": [],
+              "not_applicable_metrics": []
+            },
+            "shareholder_summary": {
+              "status": "complete",
+              "coverage": 1.0,
+              "available_metrics": 1,
+              "expected_metrics": 1,
+              "missing_metrics": [],
+              "available_metric_names": [
+                "shareholder_summary"
+              ],
+              "not_applicable_metrics": []
+            }
+          },
+          "flags": [
+            {
+              "scope": "pipeline",
+              "ticker": "PAN",
+              "code": "price_basis_unverified",
+              "severity": "warning",
+              "metric": "price_basis",
+              "evidence": {
+                "price_basis": "unknown",
+                "price_basis_verified": false,
+                "price_basis_provenance": {
+                  "source": "missing_or_unverified_bundle_price_basis"
+                }
+              },
+              "message": "OHLCV price basis is unverified; corporate actions may affect return, MA, and RS.",
+              "consumer_action": "Do not assume raw or adjusted prices; qualify OHLCV-derived conclusions."
+            }
+          ]
+        },
+        "missing_sections": [
+          "news_summary"
+        ],
+        "warnings": [
+          "Context contains data only and is not investment analysis or a buy/sell recommendation.",
+          "Metadata is a current snapshot and shareholder data has no history.",
+          "OHLCV price basis is unverified; corporate actions may affect return, MA, and RS.",
+          "news_summary status is no_company_specific_news for PAN; sector/market fallback is kept separate."
+        ],
+        "provenance": [
+          {
+            "source_file": "C:\\Projects\\StockLookup\\dashboard-runtime\\vn_stock.db",
+            "source_dataset": "ohlcv",
+            "source_keys": {
+              "ticker": "PAN"
+            },
+            "transformation": "Read-only indexed ticker query; ordered by date; lightweight aggregates and trading-day returns."
+          },
+          {
+            "source_file": "C:\\Projects\\StockLookup\\dashboard-runtime\\vn_stock.db",
+            "source_dataset": "metadata",
+            "source_keys": {
+              "ticker": "PAN"
+            },
+            "transformation": "Read-only primary-key query; -1 dividend sentinel normalized to null."
+          },
+          {
+            "source_file": "C:\\Projects\\StockLookup\\dashboard-runtime\\financial_snapshot.csv",
+            "source_dataset": "financial_snapshot",
+            "source_keys": {
+              "ticker": "PAN"
+            },
+            "transformation": "UTF-8 streaming CSV filter by ticker; latest period selected by parsed period key."
+          },
+          {
+            "source_file": "C:\\Projects\\StockLookup\\dashboard-runtime\\news_latest.csv",
+            "source_dataset": "news_latest",
+            "source_keys": {
+              "ticker": "PAN"
+            },
+            "transformation": "Deduplicate articles, apply versioned exact alias mapping, and keep company/sector/market news separate."
+          },
+          {
+            "source_file": "C:\\Projects\\StockLookup\\dashboard-runtime\\vn_stock.db",
+            "source_dataset": "shareholder_records_v2 + attempts + sync_runs",
+            "source_keys": {
+              "ticker": "PAN",
+              "as_of_date": "2026-06-10"
+            },
+            "transformation": "Read-only ticker query; Phase 6 records are ranked only within the latest valid as_of_date snapshot, with a deterministic unknown-date fallback; legacy -1 pct normalized to null."
+          },
+          {
+            "source_file": "C:\\Projects\\StockLookup\\dashboard-runtime\\screen_snapshot.csv",
+            "source_dataset": "screen_snapshot",
+            "source_keys": {
+              "ticker": "PAN"
+            },
+            "transformation": "Streaming filter; latest ticker row selected; string booleans parsed."
+          },
+          {
+            "source_file": "C:\\Projects\\StockLookup\\dashboard-runtime\\ta_signals.csv",
+            "source_dataset": "ta_signals",
+            "source_keys": {
+              "ticker": "PAN"
+            },
+            "transformation": "Streaming filter; latest ticker row selected; semicolon signal lists parsed."
+          },
+          {
+            "source_file": "C:\\Projects\\StockLookup\\dashboard-runtime\\financial_snapshot.csv",
+            "source_dataset": "financial_snapshot",
+            "source_keys": {
+              "ticker": "PAN"
+            },
+            "transformation": "UTF-8 streaming CSV filter by ticker; latest verified period's shares_period_end selected."
+          },
+          {
+            "source_file": "C:\\Projects\\StockLookup\\dashboard-runtime\\vn_stock.db",
+            "source_dataset": "metadata",
+            "source_keys": {
+              "ticker": "PAN"
+            },
+            "transformation": "Read-only primary-key query for shares_outstanding (shares_current, live)."
+          },
+          {
+            "source_file": "analysis_bundle.json",
+            "source_dataset": "price_basis_contract",
+            "source_keys": {
+              "ticker": "PAN"
+            },
+            "transformation": "Propagate Phase 1 price-basis contract without changing OHLCV-derived calculations.",
+            "price_basis": "unknown",
+            "price_basis_verified": false,
+            "limitations": [
+              "OHLCV basis is not verified"
+            ]
+          },
+          {
+            "source_file": "analysis_bundle.json",
+            "source_dataset": "corporate_intelligence",
+            "source_keys": {
+              "ticker": "PAN"
+            },
+            "transformation": "Pass through producer-owned, source-scoped corporate snapshots without canonicalization.",
+            "corporate_intelligence_status": "missing",
+            "limitations": [
+              "Corporate Intelligence is not fully available; do not infer missing or incomparable values."
+            ]
+          },
+          {
+            "source_file": [
+              "summary layer",
+              "Phase 5 read-only adapters"
+            ],
+            "source_dataset": "context_builder",
+            "source_keys": {
+              "ticker": "PAN"
+            },
+            "generated_at": "2026-07-23T19:27:57+07:00",
+            "transformation": "Assemble validated read-only ticker slices into context template; no investment analysis.",
+            "assumptions": [
+              "21/63/252 observations approximate 1m/3m/1y trading returns"
+            ],
+            "limitations": [
+              "OHLCV price basis",
+              "explicit current trading status",
+              "financial filing publication/availability dates",
+              "financial statement monetary unit/scale",
+              "news alias coverage outside configured aliases",
+              "price adjustment for dividends/splits"
+            ]
+          }
+        ],
+        "mode": "test_context_package",
+        "share_reconciliation": {
+          "mismatch_pct": 15.9,
+          "status": "material_warning",
+          "reason": "shares_current_and_shares_period_end_differ_10pct_or_more",
+          "possible_reason": "Share issuance (stock dividend/rights issue/ESOP), buyback, or a metadata snapshot taken from a different date than the financial statement period — investigate before computing per-share figures across the two counts.",
+          "consumer_action": "Do not compute per-share or market-cap figures without first confirming which share count matches the metric's period — the two disagree materially.",
+          "thresholds": {
+            "warning_pct": 5.0,
+            "material_warning_pct": 10.0
+          },
+          "shares_period_end": 216294580,
+          "shares_period_end_meta": {
+            "value": 216294580,
+            "status": "derived",
+            "reason": null,
+            "source": "financial_snapshot",
+            "period": "2026-Q1",
+            "basis": "balance_sheet_par_value_derived",
+            "raw_item_id": null,
+            "raw_label": null,
+            "confidence": 1.0,
+            "formula": "common_shares_or_charter_capital_or_paid_in_capital / 10000",
+            "inputs": [
+              "common_shares",
+              "charter_capital",
+              "paid_in_capital"
+            ]
+          },
+          "shares_current": 250673166,
+          "shares_current_meta": {
+            "value": 250673166,
+            "status": "reported",
+            "reason": null,
+            "source": "vnstock_metadata_snapshot",
+            "period": "2026-07-09 11:34",
+            "basis": "live_current",
+            "raw_item_id": null,
+            "raw_label": null,
+            "confidence": 1.0
+          },
+          "weighted_average_shares_basic": 216294580,
+          "weighted_average_shares_basic_meta": {
+            "value": 216294580,
+            "status": "proxy",
+            "reason": null,
+            "source": "financial_snapshot",
+            "period": "2026-Q1",
+            "basis": "shares_period_end_used_as_proxy",
+            "raw_item_id": null,
+            "raw_label": null,
+            "confidence": 0.3,
+            "details": {
+              "proxy_of": "shares_period_end",
+              "true_weighted_average_not_available": "no weighted-average share count is reported in the raw BCTC source"
+            }
+          },
+          "weighted_average_shares_diluted": 216294580,
+          "weighted_average_shares_diluted_meta": {
+            "value": 216294580,
+            "status": "proxy",
+            "reason": null,
+            "source": "financial_snapshot",
+            "period": "2026-Q1",
+            "basis": "shares_period_end_used_as_proxy",
+            "raw_item_id": null,
+            "raw_label": null,
+            "confidence": 0.3,
+            "details": {
+              "proxy_of": "shares_period_end",
+              "true_weighted_average_not_available": "no weighted-average share count is reported in the raw BCTC source"
+            }
+          }
+        },
+        "corporate_intelligence": {
+          "status": "missing",
+          "reason": "corporate_intelligence_not_in_bundle",
+          "sources": []
+        }
+      },
+      "news_related": {
+        "status": "no_company_specific_news",
+        "company_news_count": 0,
+        "sector_news_count": 0,
+        "market_news_count": 100,
+        "candidate_review_count": 0,
+        "lookback_days": 30,
+        "cutoff": "2026-06-23T12:27:57.927600Z",
+        "items": [],
+        "candidate_items": [],
+        "sector_items": [],
+        "market_items": [
+          {
+            "published_utc": "2026-07-23T09:31:29Z",
+            "region": "vn",
+            "source": "VnEconomy CK",
+            "title": "Blog chứng khoán: Dòng tiền hành động sớm?",
+            "link": "https://vneconomy.vn/blog-chung-khoan-dong-tien-hanh-dong-som.htm",
+            "news_id": "de49ebce5334d34a34893435"
+          },
+          {
+            "published_utc": "2026-07-23T09:31:00Z",
+            "region": "world",
+            "source": "MarketWatch",
+            "title": "‘It would feel like a burden’: My stepmother, 96, owns the house I grew up in. Is it wrong to tell her I don’t want to inherit it?",
+            "link": "https://www.marketwatch.com/story/it-would-feel-like-a-burden-my-stepmother-96-owns-the-house-i-grew-up-in-is-it-wrong-to-tell-her-i-dont-want-to-inherit-it-9d5810c2?mod=mw_rss_topstories",
+            "news_id": "699018e27dcbee216f339077"
+          },
+          {
+            "published_utc": "2026-07-23T09:16:00Z",
+            "region": "vn",
+            "source": "CafeF CK",
+            "title": "Thủ tướng phát động, Tập đoàn của tỷ phú Phạm Nhật Vượng ủng hộ 11.000 tỷ đồng làm 3 việc ý nghĩa",
+            "link": "https://cafef.vn/thu-tuong-phat-dong-tap-doan-cua-ty-phu-pham-nhat-vuong-ung-ho-11000-ty-dong-lam-3-viec-y-nghia-188260723142758563.chn",
+            "news_id": "0a3efab7444f04082007a6a3"
+          },
+          {
+            "published_utc": "2026-07-23T09:01:00Z",
+            "region": "world",
+            "source": "MarketWatch",
+            "title": "The late James Van Der Beek’s former Beverly Hills home up for rent for $13,950 a month",
+            "link": "https://www.marketwatch.com/story/the-late-james-van-der-beeks-former-beverly-hills-home-up-for-rent-for-13-950-a-month-c6caf118?mod=mw_rss_topstories",
+            "news_id": "18c840c6d2169ad74e866307"
+          },
+          {
+            "published_utc": "2026-07-23T08:57:36Z",
+            "region": "world",
+            "source": "CNBC TopNews",
+            "title": "UniCredit CEO tells CNBC acquisition of Commerzbank could happen in fourth quarter",
+            "link": "https://www.cnbc.com/2026/07/23/unicredit-commerzbank-takeover-acquisition-2q-earnings.html",
+            "news_id": "61d8a8123cd8e26516d5d9eb"
+          }
+        ],
+        "latest_published_utc": null,
+        "mapping_version": "1.0.0",
+        "latest_news_count": 0,
+        "sample_titles": [],
+        "ticker_linkage_method": "canonical_alias_registry",
+        "mapping_warning": "No company-specific news matched the accepted confidence threshold.",
+        "meta": {
+          "value": null,
+          "status": "source_empty",
+          "reason": "no_company_specific_news",
+          "source": "news_latest",
+          "period": null,
+          "basis": "canonical_ticker_alias",
+          "raw_item_id": null,
+          "raw_label": null,
+          "confidence": 0.0,
+          "details": {
+            "mapping_version": "1.0.0",
+            "candidate_review_count": 0
+          }
+        },
+        "coverage": {
+          "status": "missing",
+          "coverage": 0.0,
+          "available_metrics": 0,
+          "expected_metrics": 1,
+          "missing_metrics": [
+            "news_summary"
+          ],
+          "available_metric_names": [],
+          "not_applicable_metrics": []
+        },
+        "metric_contract_version": "1.0.0"
+      }
     }
   },
   "data_quality_flags": [
@@ -19981,6 +22974,178 @@
         "entity_type": "unknown"
       },
       "consumer_action": "Do not assume this is a corporate entity, and do not read its missing ebit/ebitda/liquidity ratios as confirmed not_applicable."
+    },
+    {
+      "scope": "ticker",
+      "ticker": "PAN",
+      "code": "financial_metric_stale",
+      "severity": "warning",
+      "detail": "PAN: depreciation status=stale — selected_period_value_missing",
+      "message": "PAN: depreciation status=stale — selected_period_value_missing",
+      "metric": "depreciation",
+      "evidence": {
+        "value": null,
+        "status": "stale",
+        "reason": "selected_period_value_missing",
+        "source": "financial_snapshot",
+        "period": "2026-Q1",
+        "basis": "quarter",
+        "raw_item_id": null,
+        "raw_label": null,
+        "confidence": 0.0,
+        "details": {
+          "latest_non_null_period": "2025-Q4",
+          "latest_non_null_value": 138815269000,
+          "fallback_not_applied": true,
+          "unit_status": "unit_unknown"
+        }
+      },
+      "consumer_action": "Do not treat this metric's value as current for the latest period; check its own period against financial_summary.latest_period before using it."
+    },
+    {
+      "scope": "ticker",
+      "ticker": "PAN",
+      "code": "roe_local_ttm_unavailable_external_roe_present",
+      "severity": "info",
+      "detail": "PAN: financial_summary.roe_ttm is insufficient_periods while valuation_inputs.roe=12.92 (percent, external, different source/methodology) is available.",
+      "message": "PAN: financial_summary.roe_ttm is insufficient_periods while valuation_inputs.roe=12.92 (percent, external, different source/methodology) is available.",
+      "metric": "roe_ttm",
+      "evidence": {
+        "roe_ttm_meta": {
+          "value": null,
+          "status": "insufficient_periods",
+          "reason": "requires_four_consecutive_reported_quarters_and_ttm_window_equity",
+          "source": "financial_snapshot_derived",
+          "period": "2026-Q1",
+          "basis": null,
+          "raw_item_id": null,
+          "raw_label": null,
+          "confidence": 0.0,
+          "unit": "ratio",
+          "period_calendar_end": "2026-03-31",
+          "annualization": "trailing_twelve_month_sum"
+        },
+        "external_roe_meta": {
+          "value": 12.92,
+          "status": "reported",
+          "reason": null,
+          "source": "vnstock_metadata_snapshot",
+          "period": "2026-07-09 11:34",
+          "basis": "trailing_ttm_external_provider",
+          "raw_item_id": null,
+          "raw_label": null,
+          "confidence": 1.0,
+          "details": {
+            "distinct_from": "financial_summary.roe_quarter/roe_fy/roe_ttm are a different source and methodology; do not treat as the same number"
+          },
+          "unit": "percent"
+        }
+      },
+      "consumer_action": "Do not substitute valuation_inputs.roe for financial_summary.roe_ttm or vice versa — different source, different unit/basis."
+    },
+    {
+      "scope": "ticker",
+      "ticker": "PAN",
+      "code": "share_count_material_mismatch",
+      "severity": "warning",
+      "detail": "PAN: shares_period_end vs shares_current differ by 15.9%.",
+      "message": "PAN: shares_period_end vs shares_current differ by 15.9%.",
+      "metric": "shares_outstanding",
+      "evidence": {
+        "mismatch_pct": 15.9,
+        "status": "material_warning",
+        "reason": "shares_current_and_shares_period_end_differ_10pct_or_more",
+        "possible_reason": "Share issuance (stock dividend/rights issue/ESOP), buyback, or a metadata snapshot taken from a different date than the financial statement period — investigate before computing per-share figures across the two counts.",
+        "consumer_action": "Do not compute per-share or market-cap figures without first confirming which share count matches the metric's period — the two disagree materially.",
+        "thresholds": {
+          "warning_pct": 5.0,
+          "material_warning_pct": 10.0
+        },
+        "shares_period_end": 216294580,
+        "shares_period_end_meta": {
+          "value": 216294580,
+          "status": "derived",
+          "reason": null,
+          "source": "financial_snapshot",
+          "period": "2026-Q1",
+          "basis": "balance_sheet_par_value_derived",
+          "raw_item_id": null,
+          "raw_label": null,
+          "confidence": 1.0,
+          "formula": "common_shares_or_charter_capital_or_paid_in_capital / 10000",
+          "inputs": [
+            "common_shares",
+            "charter_capital",
+            "paid_in_capital"
+          ]
+        },
+        "shares_current": 250673166,
+        "shares_current_meta": {
+          "value": 250673166,
+          "status": "reported",
+          "reason": null,
+          "source": "vnstock_metadata_snapshot",
+          "period": "2026-07-09 11:34",
+          "basis": "live_current",
+          "raw_item_id": null,
+          "raw_label": null,
+          "confidence": 1.0
+        },
+        "weighted_average_shares_basic": 216294580,
+        "weighted_average_shares_basic_meta": {
+          "value": 216294580,
+          "status": "proxy",
+          "reason": null,
+          "source": "financial_snapshot",
+          "period": "2026-Q1",
+          "basis": "shares_period_end_used_as_proxy",
+          "raw_item_id": null,
+          "raw_label": null,
+          "confidence": 0.3,
+          "details": {
+            "proxy_of": "shares_period_end",
+            "true_weighted_average_not_available": "no weighted-average share count is reported in the raw BCTC source"
+          }
+        },
+        "weighted_average_shares_diluted": 216294580,
+        "weighted_average_shares_diluted_meta": {
+          "value": 216294580,
+          "status": "proxy",
+          "reason": null,
+          "source": "financial_snapshot",
+          "period": "2026-Q1",
+          "basis": "shares_period_end_used_as_proxy",
+          "raw_item_id": null,
+          "raw_label": null,
+          "confidence": 0.3,
+          "details": {
+            "proxy_of": "shares_period_end",
+            "true_weighted_average_not_available": "no weighted-average share count is reported in the raw BCTC source"
+          }
+        }
+      },
+      "consumer_action": "Do not compute per-share or market-cap figures without first confirming which share count matches the metric's period — the two disagree materially."
+    },
+    {
+      "scope": "ticker",
+      "ticker": "PAN",
+      "code": "news_summary_missing",
+      "severity": "warning",
+      "detail": "PAN: news_summary has zero available metrics.",
+      "message": "PAN: news_summary has zero available metrics.",
+      "metric": "news_summary",
+      "evidence": {
+        "status": "missing",
+        "coverage": 0.0,
+        "available_metrics": 0,
+        "expected_metrics": 1,
+        "missing_metrics": [
+          "news_summary"
+        ],
+        "available_metric_names": [],
+        "not_applicable_metrics": []
+      },
+      "consumer_action": "Do not claim news summary coverage for this ticker."
     }
   ],
   "provenance": [
@@ -20108,6 +23273,17 @@
       "data_date": "2026-07-23",
       "sha256": "7a700b3f50a0fe201f66e70f511c13de18068aee0f109835bad9fa7f80a8d6e7",
       "generated_at": "2026-07-23T19:27:53+07:00"
+    },
+    {
+      "file": "../ai-runtime/exports/context_packages/PAN_context.json",
+      "role": "source_context_package",
+      "ticker": "PAN",
+      "exists": true,
+      "row_or_record_count": null,
+      "count_basis": "single_ticker_package",
+      "data_date": "2026-07-23",
+      "sha256": "d62490c59dead644c4e82de84451a4a5c0e1ebffecc4d725ffe5511373416f92",
+      "generated_at": "2026-07-23T19:27:58+07:00"
     }
   ],
   "ai_instructions": [
