@@ -77,7 +77,7 @@
   const titleCase = (value) => String(value || "").replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
   const sectionState = (section) => isObject(section) && typeof section.status === "string" ? section.status.toLowerCase() : "available";
   const sectionData = (section) => isObject(section) && Object.prototype.hasOwnProperty.call(section, "data") ? section.data : section;
-  const statusMessage = (state) => ({ missing: "Corporate Intelligence is not included in this bundle.", partial: "Data is incomplete; valid information is still shown.", malformed: "This subsection is invalid and cannot be displayed.", incomparable: "The snapshots are not comparable." }[state] || "");
+  const statusMessage = (state) => ({ current: "Current data.", expiring: "Update window is approaching.", stale: "Data is stale.", missing: "Corporate Intelligence is not included in this bundle.", historical: "Historical evidence; not current market state.", unknown: "Freshness cannot be verified.", partial: "Data is incomplete; valid information is still shown.", malformed: "This subsection is invalid and cannot be displayed.", incomparable: "The snapshots are not comparable." }[state] || "");
 
   function sourceBlocks(value) {
     if (!isObject(value)) return [];
@@ -101,7 +101,9 @@
   function subsection(title, section, render) {
     const state = sectionState(section); if (state === "missing") return "";
     const notice = statusMessage(state), body = state === "malformed" ? "" : render(sectionData(section));
-    return body || notice ? `<section class="cp-ci-section"><h4>${esc(title)}</h4>${notice ? `<div class="cp-ci-notice cp-ci-${esc(state)}">${esc(notice)}</div>` : ""}${body}</section>` : "";
+    const freshness = isObject(section) && isObject(section.freshness) ? section.freshness : null;
+    const freshnessNotice = freshness ? `<div class="cp-ci-notice cp-ci-${esc(freshness.freshness_status || "unknown")}">${esc(statusMessage(freshness.freshness_status || "unknown"))}${freshness.stale_reason ? ` ${esc(freshness.stale_reason)}` : ""}${freshness.is_actionable ? "" : " Not actionable."}</div>` : "";
+    return body || notice || freshnessNotice ? `<section class="cp-ci-section"><h4>${esc(title)}</h4>${notice ? `<div class="cp-ci-notice cp-ci-${esc(state)}">${esc(notice)}</div>` : ""}${freshnessNotice}${body}</section>` : "";
   }
   function renderProfile(profile) {
     return sourceBlocks(profile).map(([source, item]) => { const values = isObject(item) ? item : {};
@@ -429,7 +431,7 @@
   }
   if (typeof module !== "undefined" && module.exports) {
     module.exports = {
-      renderCorporateIntelligence, corporateForRow,
+      renderCorporateIntelligence, corporateForRow, statusMessage,
       normalizeTicker, tickerFromSearch, searchWithTicker, decideOpenAction, decideCloseAction,
       isScreenerPage,
     };
