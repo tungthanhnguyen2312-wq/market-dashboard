@@ -28,14 +28,14 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.min.css">
   <!-- Design system cũ (card/kpi/badge/table) — KHÔNG đổi -->
-  <link rel="stylesheet" href="style.css?v=2026-07-24-d3d7fbf-6b2b64a49f">
+  <link rel="stylesheet" href="style.css?v=2026-07-24-f788430-f82ae8e775">
 
   <!-- Tailwind CSS build sẵn bằng CLI standalone (xem build_frontend.bat + tailwind.config.js)
        — thay cho Play CDN chạy JIT trong trình duyệt. Giữ NGUYÊN behavior cũ
        (corePlugins.preflight:false để không đè reset lên Bootstrap đang phục vụ nội dung
        dữ liệu bên trong, theme.extend colors/fontFamily như cũ). -->
-  <link rel="stylesheet" href="assets/css/tailwind.generated.css?v=2026-07-24-d3d7fbf-6b2b64a49f">
-  <link rel="stylesheet" href="assets/css/shell.css?v=2026-07-24-d3d7fbf-6b2b64a49f">
+  <link rel="stylesheet" href="assets/css/tailwind.generated.css?v=2026-07-24-f788430-f82ae8e775">
+  <link rel="stylesheet" href="assets/css/shell.css?v=2026-07-24-f788430-f82ae8e775">
 </head>
 <body class="bg-bg text-white font-sans" data-page="dashboard">
 
@@ -282,19 +282,19 @@
        thi ĐÚNG THỨ TỰ ngay trước DOMContentLoaded — app.js vốn đã gói toàn bộ
        logic trong DOMContentLoaded nên thời điểm chạy thực tế không đổi. -->
   <script src="https://unpkg.com/lucide@1.24.0" defer></script>
-  <script src="assets/js/shell.js?v=2026-07-24-d3d7fbf-6b2b64a49f" defer></script>
-  <script src="assets/js/resizable-panels.js?v=2026-07-24-d3d7fbf-6b2b64a49f" defer></script>
+  <script src="assets/js/shell.js?v=2026-07-24-f788430-f82ae8e775" defer></script>
+  <script src="assets/js/resizable-panels.js?v=2026-07-24-f788430-f82ae8e775" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" defer></script>
   <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js" defer></script>
   <script src="https://cdn.datatables.net/2.1.8/js/dataTables.bootstrap5.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js" defer></script>
-  <script src="data/build_info.js?v=2026-07-24-d3d7fbf-6b2b64a49f" defer></script>
+  <script src="data/build_info.js?v=2026-07-24-f788430-f82ae8e775" defer></script>
   <!-- data/screener_data.js (fallback file://) KHÔNG còn tải tĩnh ở đây — app.js chỉ
        nạp động qua loadFallbackScript() khi thật sự cần (xem loadMarketTable). -->
-  <script src="assets/js/value-format.js?v=2026-07-24-d3d7fbf-6b2b64a49f" defer></script>
-  <script src="assets/js/company-panel.js?v=2026-07-24-d3d7fbf-6b2b64a49f" defer></script>
-  <script src="app.js?v=2026-07-24-d3d7fbf-6b2b64a49f" defer></script>
+  <script src="assets/js/value-format.js?v=2026-07-24-f788430-f82ae8e775" defer></script>
+  <script src="assets/js/company-panel.js?v=2026-07-24-f788430-f82ae8e775" defer></script>
+  <script src="app.js?v=2026-07-24-f788430-f82ae8e775" defer></script>
 </body>
 </html>
