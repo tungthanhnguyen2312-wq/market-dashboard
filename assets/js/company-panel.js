@@ -208,8 +208,17 @@
     const priceDate = available.find(({ method }) => method.price_as_of_date)?.method.price_as_of_date || "Unknown";
     const ebitda = historicalEbitdaMetadata(entry);
     const rows = available.map(({ key, method }) => `<div class="cp-ci-field"><span>${esc(labels[key])}${key === "ev_ebitda" ? " (derived EBITDA)" : ""}</span><strong>${displayNumber(method.observed_multiple, 2)}x</strong></div>`).join("");
+    // Methods present in the artifact but not "available" (e.g. ps unavailable for a
+    // bank with no revenue identity, ev_sales/ev_ebitda inapplicable for a bank archetype)
+    // must still render explicitly here -- never silently dropped alongside the available
+    // ones, and never conflated with a "zero available" ticker (the branch above).
+    const notAvailable = ordered.filter(({ key }) => !available.some((entry2) => entry2.key === key));
+    const notAvailableRows = notAvailable.map(({ key, method }) => {
+      const state = String(method.state || "unknown");
+      return `<div class="cp-ci-notice cp-ci-${esc(state)}"><span>${esc(labels[key])}</span>: ${esc(titleCase(state))} — ${esc(authoritativeReason(method))}</div>`;
+    }).join("");
     const ebitdaDetails = ebitda ? `<details class="cp-hv-details"><summary>Derived EBITDA details</summary><div>Formula version: <code>${esc(ebitda.formula_version)}</code></div>${Array.isArray(ebitda.warnings) && ebitda.warnings.length ? `<div class="cp-ci-notice cp-ci-incomparable">${esc(ebitda.warnings.join(" "))}</div>` : ""}</details>` : "";
-    return `<section class="cp-hv" data-valuation-state="historical"><h3>Historical valuation</h3><div class="cp-ci-notice cp-ci-historical">Historical multiples only — not current/live multiples.</div><div class="cp-ci-meta">${esc(historicalValuationPeriod(available.map(({ method }) => method)))} financials · qualified market price as of ${esc(priceDate)}</div><div class="cp-ci-source"><div class="cp-ci-fields">${rows}</div></div>${ebitdaDetails}</section>`;
+    return `<section class="cp-hv" data-valuation-state="historical"><h3>Historical valuation</h3><div class="cp-ci-notice cp-ci-historical">Historical multiples only — not current/live multiples.</div><div class="cp-ci-meta">${esc(historicalValuationPeriod(available.map(({ method }) => method)))} financials · qualified market price as of ${esc(priceDate)}</div><div class="cp-ci-source"><div class="cp-ci-fields">${rows}</div></div>${notAvailableRows}${ebitdaDetails}</section>`;
   }
 
   /* ---------- Financial-analysis visibility (bounded closeout): render already-

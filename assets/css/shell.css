@@ -706,7 +706,7 @@
 .cp-ci-field span { color: var(--text-muted); }
 .cp-ci-field strong { text-align: right; overflow-wrap: anywhere; }
 .cp-ci-record + .cp-ci-record { margin-top: 0.55rem; padding-top: 0.55rem; border-top: 1px solid var(--border-soft); }
-.cp-ci-notice { margin-top: 0.55rem; padding: 0.55rem 0.65rem; border-radius: 0.35rem; font-size: 0.74rem; color: var(--text-muted); background: rgba(140, 163, 168, 0.1); }
+.cp-ci-notice { margin-top: 0.55rem; padding: 0.55rem 0.65rem; border-radius: 0.35rem; font-size: 0.74rem; color: var(--text-muted); background: rgba(140, 163, 168, 0.1); overflow-wrap: anywhere; }
 .cp-ci-partial { color: var(--warning); }
 .cp-ci-malformed { color: var(--danger); }
 .cp-ci-incomparable { color: var(--warning); }
