@@ -211,6 +211,90 @@
     const ebitdaDetails = ebitda ? `<details class="cp-hv-details"><summary>Derived EBITDA details</summary><div>Formula version: <code>${esc(ebitda.formula_version)}</code></div>${Array.isArray(ebitda.warnings) && ebitda.warnings.length ? `<div class="cp-ci-notice cp-ci-incomparable">${esc(ebitda.warnings.join(" "))}</div>` : ""}</details>` : "";
     return `<section class="cp-hv" data-valuation-state="historical"><h3>Historical valuation</h3><div class="cp-ci-notice cp-ci-historical">Historical multiples only — not current/live multiples.</div><div class="cp-ci-meta">${esc(historicalValuationPeriod(available.map(({ method }) => method)))} financials · qualified market price as of ${esc(priceDate)}</div><div class="cp-ci-source"><div class="cp-ci-fields">${rows}</div></div>${ebitdaDetails}</section>`;
   }
+
+  /* ---------- Financial-analysis visibility (bounded closeout): render already-
+   * qualified fundamental_quality / intrinsic_valuation (net_net, fcff_dcf) /
+   * financial_canonical(ebitda) fields from the production artifact as-is.
+   * Contract-driven only — no ticker checks, no recomputation, no invented
+   * aggregates. Anything absent from the artifact simply renders nothing
+   * (fail closed), never a fabricated zero/blank/NaN. ---------- */
+  const FUNDAMENTAL_QUALITY_LABELS = { growth_profitability: "Growth & Profitability", dupont_roe: "DuPont ROE", earnings_quality: "Earnings Quality", financial_strength: "Financial Strength", piotroski_f_score: "Piotroski F-Score", altman_z_score: "Altman Z-Score", beneish_m_score: "Beneish M-Score" };
+  function authoritativeReason(method) {
+    if (!isObject(method)) return "reason_not_provided";
+    if (Array.isArray(method.missing_inputs) && method.missing_inputs.length) return method.missing_inputs.join(", ");
+    if (Array.isArray(method.warnings) && method.warnings.length) return method.warnings.join(" ");
+    return "reason_not_provided";
+  }
+  function financialCurrency(entry) {
+    const records = entry && entry.financial_canonical && entry.financial_canonical.records;
+    const found = Array.isArray(records) ? records.find((r) => isObject(r) && r.currency) : null;
+    return found ? found.currency : null;
+  }
+  function periodLabelFromPeriods(periods) {
+    const first = Array.isArray(periods) ? periods.find((p) => p) : null;
+    return first ? `FY${first}` : "Historical financial period unavailable";
+  }
+  function renderFundamentalQuality(entry) {
+    const fq = entry && entry.fundamental_quality;
+    if (!isObject(fq) || !isObject(fq.models)) return "";
+    const models = Object.entries(fq.models).filter(([, model]) => isObject(model));
+    if (!models.length) return "";
+    const availableCount = models.filter(([, model]) => model.result_state === "available").length;
+    const rows = models.map(([key, model]) => {
+      const label = FUNDAMENTAL_QUALITY_LABELS[key] || titleCase(key);
+      const state = String(model.result_state || model.applicability_state || "unknown");
+      if (state === "available") {
+        return `<div class="cp-ci-source"><h5>${esc(label)}</h5><div class="cp-ci-fields"><div class="cp-ci-field"><span>Result</span><strong>${displayNumber(model.score_or_value, 2)}</strong></div></div></div>`;
+      }
+      return `<div class="cp-ci-source"><h5>${esc(label)}</h5><div class="cp-ci-notice cp-ci-${esc(state)}">${esc(titleCase(state))}: ${esc(authoritativeReason(model))}</div></div>`;
+    }).join("");
+    return `<section class="cp-ci-section"><h4>Fundamental Quality</h4><div class="cp-ci-meta">${availableCount} of ${models.length} model sections available</div>${rows}</section>`;
+  }
+  function renderNetNet(entry) {
+    const method = entry && entry.intrinsic_valuation && entry.intrinsic_valuation.methods && entry.intrinsic_valuation.methods.net_net;
+    if (!isObject(method)) return "";
+    const state = String(method.state || "unknown");
+    if (state !== "available") {
+      return `<section class="cp-ci-section"><h4>Net-Net</h4><div class="cp-ci-notice cp-ci-${esc(state)}">${esc(titleCase(state))}: ${esc(authoritativeReason(method))}</div></section>`;
+    }
+    const currency = financialCurrency(entry);
+    const period = periodLabelFromPeriods(method.historical_input_periods);
+    const hasPerShare = method.per_share_value !== null && method.per_share_value !== undefined;
+    return `<section class="cp-ci-section"><h4>Net-Net</h4><div class="cp-ci-meta">${esc(period)}${currency ? ` · ${esc(currency)}` : ""}${method.statement_scope ? ` · ${esc(method.statement_scope)}` : ""}</div><div class="cp-ci-fields"><div class="cp-ci-field"><span>Net-Net result</span><strong>${displayNumber(method.equity_value, 0)}</strong></div>${hasPerShare ? `<div class="cp-ci-field"><span>Per-share</span><strong>${displayNumber(method.per_share_value, 2)}</strong></div>` : ""}</div></section>`;
+  }
+  function renderFcff(entry) {
+    const method = entry && entry.intrinsic_valuation && entry.intrinsic_valuation.methods && entry.intrinsic_valuation.methods.fcff_dcf;
+    if (!isObject(method)) return "";
+    const state = String(method.state || "unknown");
+    if (state !== "available") {
+      return `<section class="cp-ci-section"><h4>FCFF</h4><div class="cp-ci-notice cp-ci-${esc(state)}">${esc(titleCase(state))}: ${esc(authoritativeReason(method))}</div></section>`;
+    }
+    return `<section class="cp-ci-section"><h4>FCFF</h4><div class="cp-ci-fields"><div class="cp-ci-field"><span>Enterprise value</span><strong>${displayNumber(method.enterprise_value, 0)}</strong></div><div class="cp-ci-field"><span>Equity value</span><strong>${displayNumber(method.equity_value, 0)}</strong></div><div class="cp-ci-field"><span>Per-share</span><strong>${displayNumber(method.per_share_value, 2)}</strong></div></div></section>`;
+  }
+  function financialAnalysisAvailable(entry) {
+    return isObject(entry) && (isObject(entry.fundamental_quality) || isObject(entry.intrinsic_valuation));
+  }
+  function renderFinancialAnalysis(entry) {
+    if (!financialAnalysisAvailable(entry)) return financialsPlaceholder();
+    const sections = [renderFundamentalQuality(entry), renderNetNet(entry), renderFcff(entry)].filter(Boolean);
+    if (!sections.length) return financialsPlaceholder();
+    return `<section class="cp-ci"><h3>Financial Analysis</h3>${sections.join("")}</section>`;
+  }
+  // Independent of renderHistoricalValuation's own state: a qualified EBITDA
+  // record must stay visible even when every historical multiple is unavailable
+  // (e.g. VNM has no qualified historical price yet, so EV/EBITDA and its inline
+  // details never render there — this section is the only place VNM's EBITDA
+  // lineage is shown). Left decoupled rather than folded into
+  // renderHistoricalValuation so HPG's existing inline "Derived EBITDA details"
+  // disclosure — and the test asserting it — stay untouched.
+  function renderEbitdaLineage(entry) {
+    const ebitda = historicalEbitdaMetadata(entry);
+    if (!ebitda) return "";
+    const period = isObject(ebitda.period_identity) && ebitda.period_identity.period ? `FY${ebitda.period_identity.period}` : "Historical financial period unavailable";
+    const warnings = Array.isArray(ebitda.warnings) && ebitda.warnings.length ? `<div class="cp-ci-notice cp-ci-incomparable">${esc(ebitda.warnings.join(" "))}</div>` : "";
+    return `<section class="cp-ci" data-ebitda-state="${esc(String(ebitda.quality_state || "unknown"))}"><h3>EBITDA lineage</h3><div class="cp-ci-meta">${esc(period)}${ebitda.currency ? ` · ${esc(ebitda.currency)}` : ""}${ebitda.statement_scope ? ` · ${esc(ebitda.statement_scope)}` : ""}</div><div class="cp-ci-fields"><div class="cp-ci-field"><span>Derived EBITDA</span><strong>${displayNumber(ebitda.value, 0)}</strong></div><div class="cp-ci-field"><span>Derived status</span><strong>${displayValue(ebitda.derivation_status)}</strong></div></div><div class="cp-ci-meta">Formula version: <code>${esc(ebitda.formula_version)}</code></div>${warnings}</section>`;
+  }
+
   let chartRenderedFor = null; // ticker mà biểu đồ hiện đang hiển thị — tránh huỷ/tạo lại Chart.js
                                 // khi bấm lại đúng tab của cùng 1 mã (Phase 5: giảm render thừa)
 
@@ -328,7 +412,7 @@
           <div class="vs-panel-tab-content" data-tab-content="chart" id="cp-panel-chart" role="tabpanel" aria-labelledby="cp-tab-chart">
             <div class="chart-box" style="height:220px"><canvas id="cp-chart-canvas"></canvas></div>
           </div>
-          <div class="vs-panel-tab-content" data-tab-content="financials" id="cp-panel-financials" role="tabpanel" aria-labelledby="cp-tab-financials">${financialsPlaceholder()}</div>
+          <div class="vs-panel-tab-content" data-tab-content="financials" id="cp-panel-financials" role="tabpanel" aria-labelledby="cp-tab-financials"><div id="cp-financials-content">${financialsPlaceholder()}</div></div>
         </div>
       </div>`;
     document.body.appendChild(backdrop);
@@ -390,13 +474,17 @@
     backdrop._currentRow = row;
     document.getElementById("cp-title").textContent = row.ticker || "?";
     const overview = document.getElementById("cp-overview");
-    overview.innerHTML = renderOverview(row) + renderHistoricalValuation(bundleEntryForRow(row)) + renderAnalysisReadiness(readinessForRow(row)) + renderCorporateIntelligence(corporateForRow(row));
+    const financialsContent = document.getElementById("cp-financials-content");
+    const immediateEntry = bundleEntryForRow(row);
+    overview.innerHTML = renderOverview(row) + renderHistoricalValuation(immediateEntry) + renderEbitdaLineage(immediateEntry) + renderAnalysisReadiness(readinessForRow(row)) + renderCorporateIntelligence(corporateForRow(row));
+    if (financialsContent) financialsContent.innerHTML = renderFinancialAnalysis(immediateEntry);
     // Legacy bundles render a neutral missing state immediately.  A cached dashboard
     // artifact, when present, replaces only this panel's Corporate Intelligence area.
     loadCorporateBundle().then((bundle) => {
       if (!backdrop || backdrop._currentRow !== row) return;
       const entry = bundleEntryForRow(row, bundle);
-      overview.innerHTML = renderOverview(row) + renderHistoricalValuation(entry) + renderAnalysisReadiness(readinessForRow(row, bundle)) + renderCorporateIntelligence(corporateForRow(row, bundle));
+      overview.innerHTML = renderOverview(row) + renderHistoricalValuation(entry) + renderEbitdaLineage(entry) + renderAnalysisReadiness(readinessForRow(row, bundle)) + renderCorporateIntelligence(corporateForRow(row, bundle));
+      if (financialsContent) financialsContent.innerHTML = renderFinancialAnalysis(entry);
     });
     switchTab("overview");
     backdrop.classList.add("is-open");
@@ -473,6 +561,7 @@
       renderCorporateIntelligence, renderAnalysisReadiness, renderHistoricalValuation, renderOverview, bundleEntryForRow, corporateForRow, readinessForRow, statusMessage,
       normalizeTicker, tickerFromSearch, searchWithTicker, decideOpenAction, decideCloseAction,
       isScreenerPage,
+      renderFundamentalQuality, renderNetNet, renderFcff, renderEbitdaLineage, renderFinancialAnalysis, financialAnalysisAvailable,
     };
   }
 })();
