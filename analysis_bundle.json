@@ -2376,8 +2376,8 @@
                 }
               ],
               "excluded": [
-                "operating_profit (Lợi nhuận thuần từ hoạt động kinh doanh, mã số 30): audited at 13,267,005,585,330 VND for HPG FY2024 but not used as the EBIT-equivalent input -- it already nets financial income/expense per its own printed formula, so it is not a pre-interest figure.",
-                "Phân bổ lợi thế thương mại (goodwill amortization, mã số 02, 12,295,891,969 VND): a distinct, non-operating cash-flow-statement addback separate from the combined \"Khấu hao và phân bổ\" line; never folded into depreciation_and_amortization."
+                "operating_profit (line code 30): excluded because the printed formula already nets financial income and expense; it is not a pre-interest figure.",
+                "goodwill amortization (line code 02): excluded because it is a distinct cash-flow-statement addback separate from the cited combined depreciation_and_amortization line; it is never folded into EBITDA."
               ]
             }
           },
@@ -52017,6 +52017,41 @@
           },
           {
             "canonical_metric": "capital_expenditure",
+            "value": -1741501711051,
+            "source": "financial_observation_store",
+            "source_field": "purchases_of_fixed_assets_and_other_long_term_assets",
+            "source_statement": "cash_flow",
+            "period_identity": {
+              "period": "2024",
+              "period_type": "annual"
+            },
+            "statement_scope": "consolidated",
+            "currency": "VND",
+            "unit_scale": 1,
+            "derivation_status": "direct",
+            "quality_state": "available",
+            "reason": null,
+            "restatement_state": "unknown",
+            "observation_ids": [
+              "6a274c9c0094455e5f6d20cd224d28911e437b8085687c29f045c00ec9f14f33"
+            ],
+            "evidence": {
+              "evidence_id": "02eac9e7a6487dee80adfb033ff4dadfb8902cbd44ae882ac774d74b110d6f57",
+              "citation_id": "9426a5ff2b6510f95aa925f263a767c0a0d519a00fac745041f546a1c95ad997",
+              "match_method": "exact_numeric_match",
+              "sign_rule_version": "exact",
+              "citation": {
+                "form_code": "B01/B02/B03-DN/HN",
+                "line_code_ma_so": "21",
+                "line_label_vi": "Ti?n chi ?? mua s?m, x?y d?ng TSC? v? c?c t?i s?n d?i h?n kh?c",
+                "pdf_page": 13,
+                "printed_page": 12
+              },
+              "qualification_version": "1.0.0"
+            }
+          },
+          {
+            "canonical_metric": "capital_expenditure",
             "value": null,
             "source_field": "capex",
             "source_statement": "financial_snapshot",
@@ -52205,6 +52240,41 @@
             "currency": null,
             "unit_scale": null,
             "restatement_state": "unknown"
+          },
+          {
+            "canonical_metric": "cash_and_equivalents",
+            "value": 2225943732075,
+            "source": "financial_observation_store",
+            "source_field": "cash_and_cash_equivalents",
+            "source_statement": "balance_sheet",
+            "period_identity": {
+              "period": "2024",
+              "period_type": "annual"
+            },
+            "statement_scope": "consolidated",
+            "currency": "VND",
+            "unit_scale": 1,
+            "derivation_status": "direct",
+            "quality_state": "available",
+            "reason": null,
+            "restatement_state": "unknown",
+            "observation_ids": [
+              "526e75e1ee5a7948ea8cfe8607d8da22da7df69e24a89d60b9e670825712f726"
+            ],
+            "evidence": {
+              "evidence_id": "02eac9e7a6487dee80adfb033ff4dadfb8902cbd44ae882ac774d74b110d6f57",
+              "citation_id": "83aa7a8fa8d659be1742a71761482309904cc823d0999172b4a2ab3575da1e9f",
+              "match_method": "exact_numeric_match",
+              "sign_rule_version": "exact",
+              "citation": {
+                "form_code": "B01/B02/B03-DN/HN",
+                "line_code_ma_so": "110",
+                "line_label_vi": "Ti?n v? c?c kho?n t??ng ???ng ti?n",
+                "pdf_page": 7,
+                "printed_page": 6
+              },
+              "qualification_version": "1.0.0"
+            }
           },
           {
             "canonical_metric": "cash_and_equivalents",
@@ -52399,6 +52469,41 @@
           },
           {
             "canonical_metric": "current_assets",
+            "value": 37553650065098,
+            "source": "financial_observation_store",
+            "source_field": "current_assets",
+            "source_statement": "balance_sheet",
+            "period_identity": {
+              "period": "2024",
+              "period_type": "annual"
+            },
+            "statement_scope": "consolidated",
+            "currency": "VND",
+            "unit_scale": 1,
+            "derivation_status": "direct",
+            "quality_state": "available",
+            "reason": null,
+            "restatement_state": "unknown",
+            "observation_ids": [
+              "6881b4125cddef9592bba247756e18c72a7354e8b530215ef62cf027145ffef6"
+            ],
+            "evidence": {
+              "evidence_id": "02eac9e7a6487dee80adfb033ff4dadfb8902cbd44ae882ac774d74b110d6f57",
+              "citation_id": "101679457e8345ea748ce2882a6a817beacb3dcfc1be0f4f54e58fe30e2240c3",
+              "match_method": "exact_numeric_match",
+              "sign_rule_version": "exact",
+              "citation": {
+                "form_code": "B01/B02/B03-DN/HN",
+                "line_code_ma_so": "100",
+                "line_label_vi": "T?i s?n ng?n h?n",
+                "pdf_page": 7,
+                "printed_page": 6
+              },
+              "qualification_version": "1.0.0"
+            }
+          },
+          {
+            "canonical_metric": "current_assets",
             "value": 37332761258942,
             "source_field": "current_assets",
             "source_statement": "financial_snapshot",
@@ -52572,6 +52677,112 @@
             "quality_state": "unknown",
             "reason": "statement_scope_unknown",
             "restatement_state": "unknown"
+          },
+          {
+            "canonical_metric": "ebitda",
+            "value": 13974237947571,
+            "source": "ebitda_component_evidence",
+            "source_field": "profit_before_tax+interest_expense+depreciation_and_amortization",
+            "source_statement": "income_statement_and_cash_flow_statement",
+            "period_identity": {
+              "period": "2024",
+              "period_type": "annual"
+            },
+            "statement_scope": "consolidated",
+            "currency": "VND",
+            "unit_scale": 1,
+            "derivation_status": "derived",
+            "quality_state": "available",
+            "reason": null,
+            "restatement_state": "unknown",
+            "formula_version": "ebitda_v1_profit_before_tax_plus_interest_expense_plus_depreciation_and_amortization",
+            "warnings": [
+              "derived_ebitda_specific_formula_version_ebitda_v1_profit_before_tax_plus_interest_expense_plus_depreciation_and_amortization_not_a_reported_or_normalized_ebitda_and_may_not_be_comparable_to_provider_reported_or_differently_formulated_peer_ebitda"
+            ],
+            "derivation_lineage": {
+              "formula": "profit_before_tax + interest_expense + depreciation_and_amortization",
+              "formula_version": "ebitda_v1_profit_before_tax_plus_interest_expense_plus_depreciation_and_amortization",
+              "components": [
+                {
+                  "metric": "profit_before_tax",
+                  "value": 11599653741335,
+                  "evidence_id": "02eac9e7a6487dee80adfb033ff4dadfb8902cbd44ae882ac774d74b110d6f57",
+                  "citation_id": "7b18ee1f84053cff58c1dab62a826ad1bafcf6f25d94ccf1e7301d5dba510fc9",
+                  "citation": {
+                    "form_code": "B02-DN/HN",
+                    "line_code_ma_so": "50",
+                    "line_label_vi": "L?i nhu?n k? to?n tr??c thu?",
+                    "pdf_page": 10,
+                    "printed_page": 9
+                  }
+                },
+                {
+                  "metric": "interest_expense",
+                  "value": 279424561295,
+                  "evidence_id": "02eac9e7a6487dee80adfb033ff4dadfb8902cbd44ae882ac774d74b110d6f57",
+                  "citation_id": "54abbb1a53b7f9ca29f0ef9d05c50cfcaeda29e86f22875c3cbb74ff7cd86f4f",
+                  "citation": {
+                    "form_code": "B02-DN/HN",
+                    "line_code_ma_so": "23",
+                    "line_label_vi": "Trong ??: Chi ph? l?i vay",
+                    "pdf_page": 10,
+                    "printed_page": 9
+                  }
+                },
+                {
+                  "metric": "depreciation_and_amortization",
+                  "value": 2095159644941,
+                  "evidence_id": "02eac9e7a6487dee80adfb033ff4dadfb8902cbd44ae882ac774d74b110d6f57",
+                  "citation_id": "56bda050dfe4acc457a24e516136818307664f534b09171bb8879815696c55f1",
+                  "citation": {
+                    "form_code": "B03-DN/HN",
+                    "line_code_ma_so": "02",
+                    "line_label_vi": "Kh?u hao v? ph?n b?",
+                    "pdf_page": 12,
+                    "printed_page": 11
+                  }
+                }
+              ],
+              "excluded": [
+                "operating_profit (line code 30): excluded because the printed formula already nets financial income and expense; it is not a pre-interest figure.",
+                "goodwill amortization (line code 02): excluded because it is a distinct cash-flow-statement addback separate from the cited combined depreciation_and_amortization line; it is never folded into EBITDA."
+              ]
+            }
+          },
+          {
+            "canonical_metric": "financing_cash_flow",
+            "value": -6641260238228,
+            "source": "financial_observation_store",
+            "source_field": "net_cash_inflows_outflows_from_financing_activities",
+            "source_statement": "cash_flow",
+            "period_identity": {
+              "period": "2024",
+              "period_type": "annual"
+            },
+            "statement_scope": "consolidated",
+            "currency": "VND",
+            "unit_scale": 1,
+            "derivation_status": "direct",
+            "quality_state": "available",
+            "reason": null,
+            "restatement_state": "unknown",
+            "observation_ids": [
+              "c64b05fc8f39a2a157d04c81cea6343945bf544b205030113ac4956fc2677f29"
+            ],
+            "evidence": {
+              "evidence_id": "02eac9e7a6487dee80adfb033ff4dadfb8902cbd44ae882ac774d74b110d6f57",
+              "citation_id": "f881ac2cf615e76a23eab67d9daf4b5e3a9dde0f7ff5509400b4988ceb143c81",
+              "match_method": "exact_numeric_match",
+              "sign_rule_version": "exact",
+              "citation": {
+                "form_code": "B01/B02/B03-DN/HN",
+                "line_code_ma_so": "40",
+                "line_label_vi": "L?u chuy?n ti?n thu?n t? ho?t ??ng t?i ch?nh",
+                "pdf_page": 14,
+                "printed_page": 13
+              },
+              "qualification_version": "1.0.0"
+            }
           },
           {
             "canonical_metric": "gross_profit",
@@ -52781,6 +52992,41 @@
           },
           {
             "canonical_metric": "interest_expense",
+            "value": -279424561295,
+            "source": "financial_observation_store",
+            "source_field": "interest_expenses",
+            "source_statement": "income_statement",
+            "period_identity": {
+              "period": "2024",
+              "period_type": "annual"
+            },
+            "statement_scope": "consolidated",
+            "currency": "VND",
+            "unit_scale": 1,
+            "derivation_status": "direct",
+            "quality_state": "available",
+            "reason": null,
+            "restatement_state": "unknown",
+            "observation_ids": [
+              "18c17245cb08cf2b25e19e3d4cccbe4fb19ab8fd806b5e533e3b2a950c091ce5"
+            ],
+            "evidence": {
+              "evidence_id": "02eac9e7a6487dee80adfb033ff4dadfb8902cbd44ae882ac774d74b110d6f57",
+              "citation_id": "4194368019554c4c446e7d3854f183a48565984e84a036c3eefdfa1825ddc643",
+              "match_method": "exact_numeric_match",
+              "sign_rule_version": "v1",
+              "citation": {
+                "form_code": "B01/B02/B03-DN/HN",
+                "line_code_ma_so": "23",
+                "line_label_vi": "Trong ??: Chi ph? l?i vay",
+                "pdf_page": 10,
+                "printed_page": 9
+              },
+              "qualification_version": "1.0.0"
+            }
+          },
+          {
+            "canonical_metric": "interest_expense",
             "value": null,
             "source_field": "interest_expense",
             "source_statement": "financial_snapshot",
@@ -52972,6 +53218,41 @@
           },
           {
             "canonical_metric": "inventory",
+            "value": 5686840161996,
+            "source": "financial_observation_store",
+            "source_field": "inventories_net",
+            "source_statement": "balance_sheet",
+            "period_identity": {
+              "period": "2024",
+              "period_type": "annual"
+            },
+            "statement_scope": "consolidated",
+            "currency": "VND",
+            "unit_scale": 1,
+            "derivation_status": "direct",
+            "quality_state": "available",
+            "reason": null,
+            "restatement_state": "unknown",
+            "observation_ids": [
+              "29d99baf271d7372180076768762d796fc34e0db6c4ce14f3dfdf448a00e47d4"
+            ],
+            "evidence": {
+              "evidence_id": "02eac9e7a6487dee80adfb033ff4dadfb8902cbd44ae882ac774d74b110d6f57",
+              "citation_id": "60475dc71369a5465e92bc238ec21b4cec125e11ef883522c06fe25b5332dfd6",
+              "match_method": "exact_numeric_match",
+              "sign_rule_version": "exact",
+              "citation": {
+                "form_code": "B01/B02/B03-DN/HN",
+                "line_code_ma_so": "140",
+                "line_label_vi": "H?ng t?n kho",
+                "pdf_page": 7,
+                "printed_page": 6
+              },
+              "qualification_version": "1.0.0"
+            }
+          },
+          {
+            "canonical_metric": "inventory",
             "value": 6551775627864,
             "source_field": "inventory",
             "source_statement": "financial_snapshot",
@@ -53147,6 +53428,146 @@
             "restatement_state": "unknown"
           },
           {
+            "canonical_metric": "investing_cash_flow",
+            "value": -3739092638543,
+            "source": "financial_observation_store",
+            "source_field": "net_cash_inflows_outflows_from_investing_activities",
+            "source_statement": "cash_flow",
+            "period_identity": {
+              "period": "2024",
+              "period_type": "annual"
+            },
+            "statement_scope": "consolidated",
+            "currency": "VND",
+            "unit_scale": 1,
+            "derivation_status": "direct",
+            "quality_state": "available",
+            "reason": null,
+            "restatement_state": "unknown",
+            "observation_ids": [
+              "038987c71381254feee4d8f4239639f81a359aa9835ba50ca70f0679374322d5"
+            ],
+            "evidence": {
+              "evidence_id": "02eac9e7a6487dee80adfb033ff4dadfb8902cbd44ae882ac774d74b110d6f57",
+              "citation_id": "20fea360cf7266a4cbff43e9a0f5b822b32a54469dedf221f8b9484e09981059",
+              "match_method": "exact_numeric_match",
+              "sign_rule_version": "exact",
+              "citation": {
+                "form_code": "B01/B02/B03-DN/HN",
+                "line_code_ma_so": "30",
+                "line_label_vi": "L?u chuy?n ti?n thu?n t? ho?t ??ng ??u t?",
+                "pdf_page": 13,
+                "printed_page": 12
+              },
+              "qualification_version": "1.0.0"
+            }
+          },
+          {
+            "canonical_metric": "long_term_borrowings",
+            "value": 157903902450,
+            "source": "financial_observation_store",
+            "source_field": "long_term_borrowings",
+            "source_statement": "balance_sheet",
+            "period_identity": {
+              "period": "2024",
+              "period_type": "annual"
+            },
+            "statement_scope": "consolidated",
+            "currency": "VND",
+            "unit_scale": 1,
+            "derivation_status": "direct",
+            "quality_state": "available",
+            "reason": null,
+            "restatement_state": "unknown",
+            "observation_ids": [
+              "ca60a247d1642bdd12ba1b603c124b3a8e98147749c2afb560917456cf62bbd3"
+            ],
+            "evidence": {
+              "evidence_id": "02eac9e7a6487dee80adfb033ff4dadfb8902cbd44ae882ac774d74b110d6f57",
+              "citation_id": "9499025241e2c45dbbe276f0bb608a7e35a9133dde3afef4e269d33355d731a9",
+              "match_method": "exact_numeric_match",
+              "sign_rule_version": "exact",
+              "citation": {
+                "form_code": "B01/B02/B03-DN/HN",
+                "line_code_ma_so": "338",
+                "line_label_vi": "Vay d?i h?n",
+                "pdf_page": 9,
+                "printed_page": 8
+              },
+              "qualification_version": "1.0.0"
+            }
+          },
+          {
+            "canonical_metric": "minority_interest_equity",
+            "value": 3895583288658,
+            "source": "financial_observation_store",
+            "source_field": "minority_interests",
+            "source_statement": "balance_sheet",
+            "period_identity": {
+              "period": "2024",
+              "period_type": "annual"
+            },
+            "statement_scope": "consolidated",
+            "currency": "VND",
+            "unit_scale": 1,
+            "derivation_status": "direct",
+            "quality_state": "available",
+            "reason": null,
+            "restatement_state": "unknown",
+            "observation_ids": [
+              "98437197ca7ae2006d64ea376792b6000fdf70963608d7f2fc9cc57e7a976a74"
+            ],
+            "evidence": {
+              "evidence_id": "02eac9e7a6487dee80adfb033ff4dadfb8902cbd44ae882ac774d74b110d6f57",
+              "citation_id": "f0457f3d680e84320eb566441d27ae2e6180203ded71ee67ecea3401b45e10da",
+              "match_method": "exact_numeric_match",
+              "sign_rule_version": "exact",
+              "citation": {
+                "form_code": "B01/B02/B03-DN/HN",
+                "line_code_ma_so": "429",
+                "line_label_vi": "L?i ?ch c? ??ng kh?ng ki?m so?t",
+                "pdf_page": 9,
+                "printed_page": 8
+              },
+              "qualification_version": "1.0.0"
+            }
+          },
+          {
+            "canonical_metric": "minority_interest_net_income",
+            "value": 60582633698,
+            "source": "financial_observation_store",
+            "source_field": "minority_interests",
+            "source_statement": "income_statement",
+            "period_identity": {
+              "period": "2024",
+              "period_type": "annual"
+            },
+            "statement_scope": "consolidated",
+            "currency": "VND",
+            "unit_scale": 1,
+            "derivation_status": "direct",
+            "quality_state": "available",
+            "reason": null,
+            "restatement_state": "unknown",
+            "observation_ids": [
+              "a5077e59fc725510257d1961c904e56da1113756c79025a3ca89594a76df7c02"
+            ],
+            "evidence": {
+              "evidence_id": "02eac9e7a6487dee80adfb033ff4dadfb8902cbd44ae882ac774d74b110d6f57",
+              "citation_id": "97dfea48f292304640c516ce973644eff521a81a26de898e5d6b9ae85e4fe7e8",
+              "match_method": "exact_numeric_match",
+              "sign_rule_version": "exact",
+              "citation": {
+                "form_code": "B01/B02/B03-DN/HN",
+                "line_code_ma_so": "62",
+                "line_label_vi": "L?i ?ch c? ??ng kh?ng ki?m so?t",
+                "pdf_page": 11,
+                "printed_page": 10
+              },
+              "qualification_version": "1.0.0"
+            }
+          },
+          {
             "canonical_metric": "net_income",
             "value": null,
             "period_identity": null,
@@ -53160,6 +53581,46 @@
             "currency": null,
             "unit_scale": null,
             "restatement_state": "unknown"
+          },
+          {
+            "canonical_metric": "net_income",
+            "value": 9392310356250,
+            "source": "financial_observation_store",
+            "source_field": "attributable_to_parent_company",
+            "source_statement": "income_statement",
+            "period_identity": {
+              "period": "2024",
+              "period_type": "annual"
+            },
+            "statement_scope": "consolidated",
+            "currency": "VND",
+            "unit_scale": 1,
+            "derivation_status": "direct",
+            "quality_state": "available",
+            "reason": null,
+            "restatement_state": "unknown",
+            "observation_ids": [
+              "59ff8639045f2fdeea500c95d8a472216b218eb6a4ab8c84645c3b8953dea517"
+            ],
+            "evidence": {
+              "evidence_id": "02eac9e7a6487dee80adfb033ff4dadfb8902cbd44ae882ac774d74b110d6f57",
+              "citation_id": "85546bab89f6d2ae21d702ea2d340053090da7e0217c5bafadc22b05fe4dab58",
+              "match_method": "exact_numeric_match",
+              "sign_rule_version": "exact",
+              "citation": {
+                "form_code": "B01/B02/B03-DN/HN",
+                "line_code_ma_so": "61",
+                "line_label_vi": "Ch? s? h?u c?a C?ng ty",
+                "pdf_page": 11,
+                "printed_page": 10
+              },
+              "qualification_version": "1.0.0"
+            },
+            "identity_reconciliation": {
+              "reconciled_from": "net_income_attributable_to_parent",
+              "version": "v1",
+              "reason": "fundamental_quality's DuPont ROE, Piotroski, and net-margin ratios, and relative_valuation's P/E denominator, pair net_income against parent-only shareholders_equity/EPS; by convention that is income attributable to parent, not consolidated income including non-controlling interest."
+            }
           },
           {
             "canonical_metric": "net_income",
@@ -53338,6 +53799,76 @@
             "restatement_state": "unknown"
           },
           {
+            "canonical_metric": "net_income_attributable_to_parent",
+            "value": 9392310356250,
+            "source": "financial_observation_store",
+            "source_field": "attributable_to_parent_company",
+            "source_statement": "income_statement",
+            "period_identity": {
+              "period": "2024",
+              "period_type": "annual"
+            },
+            "statement_scope": "consolidated",
+            "currency": "VND",
+            "unit_scale": 1,
+            "derivation_status": "direct",
+            "quality_state": "available",
+            "reason": null,
+            "restatement_state": "unknown",
+            "observation_ids": [
+              "59ff8639045f2fdeea500c95d8a472216b218eb6a4ab8c84645c3b8953dea517"
+            ],
+            "evidence": {
+              "evidence_id": "02eac9e7a6487dee80adfb033ff4dadfb8902cbd44ae882ac774d74b110d6f57",
+              "citation_id": "85546bab89f6d2ae21d702ea2d340053090da7e0217c5bafadc22b05fe4dab58",
+              "match_method": "exact_numeric_match",
+              "sign_rule_version": "exact",
+              "citation": {
+                "form_code": "B01/B02/B03-DN/HN",
+                "line_code_ma_so": "61",
+                "line_label_vi": "Ch? s? h?u c?a C?ng ty",
+                "pdf_page": 11,
+                "printed_page": 10
+              },
+              "qualification_version": "1.0.0"
+            }
+          },
+          {
+            "canonical_metric": "net_profit_after_tax_total",
+            "value": 9452892989948,
+            "source": "financial_observation_store",
+            "source_field": "net_profit_loss_after_tax",
+            "source_statement": "income_statement",
+            "period_identity": {
+              "period": "2024",
+              "period_type": "annual"
+            },
+            "statement_scope": "consolidated",
+            "currency": "VND",
+            "unit_scale": 1,
+            "derivation_status": "direct",
+            "quality_state": "available",
+            "reason": null,
+            "restatement_state": "unknown",
+            "observation_ids": [
+              "16d297363c15bd79d591ca4840f3c45b032db441aef3231affc45763b4ccb1b5"
+            ],
+            "evidence": {
+              "evidence_id": "02eac9e7a6487dee80adfb033ff4dadfb8902cbd44ae882ac774d74b110d6f57",
+              "citation_id": "093d0ca40710909f8c89301c2a64d26736eb63f4460c2168ae0b6359eacf5ac0",
+              "match_method": "exact_numeric_match",
+              "sign_rule_version": "exact",
+              "citation": {
+                "form_code": "B01/B02/B03-DN/HN",
+                "line_code_ma_so": "60",
+                "line_label_vi": "L?i nhu?n sau thu? TNDN",
+                "pdf_page": 10,
+                "printed_page": 9
+              },
+              "qualification_version": "1.0.0"
+            }
+          },
+          {
             "canonical_metric": "operating_cash_flow",
             "value": null,
             "period_identity": null,
@@ -53351,6 +53882,41 @@
             "currency": null,
             "unit_scale": null,
             "restatement_state": "unknown"
+          },
+          {
+            "canonical_metric": "operating_cash_flow",
+            "value": 9685937539346,
+            "source": "financial_observation_store",
+            "source_field": "net_cash_inflows_outflows_from_operating_activities",
+            "source_statement": "cash_flow",
+            "period_identity": {
+              "period": "2024",
+              "period_type": "annual"
+            },
+            "statement_scope": "consolidated",
+            "currency": "VND",
+            "unit_scale": 1,
+            "derivation_status": "direct",
+            "quality_state": "available",
+            "reason": null,
+            "restatement_state": "unknown",
+            "observation_ids": [
+              "6f2f1d2643b109b6070b19b0efd735f5e4350d5b62b4ea0fcd30b374325132db"
+            ],
+            "evidence": {
+              "evidence_id": "02eac9e7a6487dee80adfb033ff4dadfb8902cbd44ae882ac774d74b110d6f57",
+              "citation_id": "72a97354d0256905007bccc9e22465b9639edb832408663669eb64f8f85cef33",
+              "match_method": "exact_numeric_match",
+              "sign_rule_version": "exact",
+              "citation": {
+                "form_code": "B01/B02/B03-DN/HN",
+                "line_code_ma_so": "20",
+                "line_label_vi": "L?u chuy?n ti?n thu?n t? ho?t ??ng kinh doanh",
+                "pdf_page": 12,
+                "printed_page": 11
+              },
+              "qualification_version": "1.0.0"
+            }
           },
           {
             "canonical_metric": "operating_cash_flow",
@@ -53927,6 +54493,41 @@
           },
           {
             "canonical_metric": "receivables",
+            "value": 6233758612009,
+            "source": "financial_observation_store",
+            "source_field": "accounts_receivable",
+            "source_statement": "balance_sheet",
+            "period_identity": {
+              "period": "2024",
+              "period_type": "annual"
+            },
+            "statement_scope": "consolidated",
+            "currency": "VND",
+            "unit_scale": 1,
+            "derivation_status": "direct",
+            "quality_state": "available",
+            "reason": null,
+            "restatement_state": "unknown",
+            "observation_ids": [
+              "671b923abad21be716cd1990e66587358b32ecfabc44a4d6e10595f75f1c9ddb"
+            ],
+            "evidence": {
+              "evidence_id": "02eac9e7a6487dee80adfb033ff4dadfb8902cbd44ae882ac774d74b110d6f57",
+              "citation_id": "ca0d70b6e6dca1140a049ecee06a496a6506ccd7074ab7aefaef18187aa8d837",
+              "match_method": "exact_numeric_match",
+              "sign_rule_version": "exact",
+              "citation": {
+                "form_code": "B01/B02/B03-DN/HN",
+                "line_code_ma_so": "130",
+                "line_label_vi": "C?c kho?n ph?i thu ng?n h?n",
+                "pdf_page": 7,
+                "printed_page": 6
+              },
+              "qualification_version": "1.0.0"
+            }
+          },
+          {
+            "canonical_metric": "receivables",
             "value": 6344861898250,
             "source_field": "receivables",
             "source_statement": "financial_snapshot",
@@ -54115,6 +54716,41 @@
             "currency": null,
             "unit_scale": null,
             "restatement_state": "unknown"
+          },
+          {
+            "canonical_metric": "revenue",
+            "value": 61782609528445,
+            "source": "financial_observation_store",
+            "source_field": "net_sales",
+            "source_statement": "income_statement",
+            "period_identity": {
+              "period": "2024",
+              "period_type": "annual"
+            },
+            "statement_scope": "consolidated",
+            "currency": "VND",
+            "unit_scale": 1,
+            "derivation_status": "direct",
+            "quality_state": "available",
+            "reason": null,
+            "restatement_state": "unknown",
+            "observation_ids": [
+              "06ff65f6b8777301a2833db0df22ec70241f081d54b711e2b583fcfcefb5df41"
+            ],
+            "evidence": {
+              "evidence_id": "02eac9e7a6487dee80adfb033ff4dadfb8902cbd44ae882ac774d74b110d6f57",
+              "citation_id": "940345e441e0ad99b8d531fdafa1cea28865245983968d27314fe7830cda466b",
+              "match_method": "exact_numeric_match",
+              "sign_rule_version": "exact",
+              "citation": {
+                "form_code": "B01/B02/B03-DN/HN",
+                "line_code_ma_so": "10",
+                "line_label_vi": "Doanh thu thu?n v? b?n h?ng v? cung c?p d?ch v?",
+                "pdf_page": 10,
+                "printed_page": 9
+              },
+              "qualification_version": "1.0.0"
+            }
           },
           {
             "canonical_metric": "revenue",
@@ -54500,6 +55136,68 @@
           },
           {
             "canonical_metric": "shareholders_equity",
+            "value": 32278819541005,
+            "source": "financial_observation_store",
+            "source_field": null,
+            "source_statement": "balance_sheet",
+            "period_identity": {
+              "period": "2024",
+              "period_type": "annual"
+            },
+            "statement_scope": "consolidated",
+            "currency": "VND",
+            "unit_scale": 1,
+            "derivation_status": "derived",
+            "quality_state": "available",
+            "reason": null,
+            "restatement_state": "unknown",
+            "observation_ids": [
+              "98437197ca7ae2006d64ea376792b6000fdf70963608d7f2fc9cc57e7a976a74",
+              "a305dc3784eff9b13c80666005f4ce59a2507842073a9047434a6ffdfd5ce285"
+            ],
+            "evidence": {
+              "components": [
+                {
+                  "canonical_metric": "total_equity",
+                  "observation_ids": [
+                    "a305dc3784eff9b13c80666005f4ce59a2507842073a9047434a6ffdfd5ce285"
+                  ],
+                  "evidence_id": "02eac9e7a6487dee80adfb033ff4dadfb8902cbd44ae882ac774d74b110d6f57",
+                  "citation_id": "dc5a5694c301bf0d3f4c558fb1e64daefd3ce15afacffe27505b52f569bd9dac",
+                  "match_method": "exact_numeric_match",
+                  "sign_rule_version": "exact",
+                  "citation": {
+                    "form_code": "B01/B02/B03-DN/HN",
+                    "line_code_ma_so": "400",
+                    "line_label_vi": "V?N CH? S? H?U",
+                    "pdf_page": 9,
+                    "printed_page": 8
+                  },
+                  "qualification_version": "1.0.0"
+                },
+                {
+                  "canonical_metric": "minority_interest_equity",
+                  "observation_ids": [
+                    "98437197ca7ae2006d64ea376792b6000fdf70963608d7f2fc9cc57e7a976a74"
+                  ],
+                  "evidence_id": "02eac9e7a6487dee80adfb033ff4dadfb8902cbd44ae882ac774d74b110d6f57",
+                  "citation_id": "f0457f3d680e84320eb566441d27ae2e6180203ded71ee67ecea3401b45e10da",
+                  "match_method": "exact_numeric_match",
+                  "sign_rule_version": "exact",
+                  "citation": {
+                    "form_code": "B01/B02/B03-DN/HN",
+                    "line_code_ma_so": "429",
+                    "line_label_vi": "L?i ?ch c? ??ng kh?ng ki?m so?t",
+                    "pdf_page": 9,
+                    "printed_page": 8
+                  },
+                  "qualification_version": "1.0.0"
+                }
+              ]
+            }
+          },
+          {
+            "canonical_metric": "shareholders_equity",
             "value": 38337447333457,
             "source_field": "equity",
             "source_statement": "financial_snapshot",
@@ -54675,6 +55373,41 @@
             "restatement_state": "unknown"
           },
           {
+            "canonical_metric": "short_term_borrowings",
+            "value": 9115435107250,
+            "source": "financial_observation_store",
+            "source_field": "short_term_borrowings",
+            "source_statement": "balance_sheet",
+            "period_identity": {
+              "period": "2024",
+              "period_type": "annual"
+            },
+            "statement_scope": "consolidated",
+            "currency": "VND",
+            "unit_scale": 1,
+            "derivation_status": "direct",
+            "quality_state": "available",
+            "reason": null,
+            "restatement_state": "unknown",
+            "observation_ids": [
+              "b9d74b9f3f25e01acd8197e230f593dd08eb72438802bccc656024b39879e25d"
+            ],
+            "evidence": {
+              "evidence_id": "02eac9e7a6487dee80adfb033ff4dadfb8902cbd44ae882ac774d74b110d6f57",
+              "citation_id": "f695d25ddb536b5b50440c40fdc9e78d86925e2b9abcf0a6fb58e23bcf1d39ad",
+              "match_method": "exact_numeric_match",
+              "sign_rule_version": "exact",
+              "citation": {
+                "form_code": "B01/B02/B03-DN/HN",
+                "line_code_ma_so": "320",
+                "line_label_vi": "Vay ng?n h?n",
+                "pdf_page": 9,
+                "printed_page": 8
+              },
+              "qualification_version": "1.0.0"
+            }
+          },
+          {
             "canonical_metric": "total_assets",
             "value": null,
             "period_identity": null,
@@ -54688,6 +55421,41 @@
             "currency": null,
             "unit_scale": null,
             "restatement_state": "unknown"
+          },
+          {
+            "canonical_metric": "total_assets",
+            "value": 55049061537061,
+            "source": "financial_observation_store",
+            "source_field": "total_assets",
+            "source_statement": "balance_sheet",
+            "period_identity": {
+              "period": "2024",
+              "period_type": "annual"
+            },
+            "statement_scope": "consolidated",
+            "currency": "VND",
+            "unit_scale": 1,
+            "derivation_status": "direct",
+            "quality_state": "available",
+            "reason": null,
+            "restatement_state": "unknown",
+            "observation_ids": [
+              "6fcb28319c8c22c80b4e3ed9d34d66d1a6a4ea87d011377a355874a7269a8aae"
+            ],
+            "evidence": {
+              "evidence_id": "02eac9e7a6487dee80adfb033ff4dadfb8902cbd44ae882ac774d74b110d6f57",
+              "citation_id": "f2a33193da7601bc12d4591f0ceb6ad05841109db9b18827f10f07d195fddfe3",
+              "match_method": "exact_numeric_match",
+              "sign_rule_version": "exact",
+              "citation": {
+                "form_code": "B01/B02/B03-DN/HN",
+                "line_code_ma_so": "270",
+                "line_label_vi": "T?NG C?NG T?I S?N",
+                "pdf_page": 8,
+                "printed_page": 7
+              },
+              "qualification_version": "1.0.0"
+            }
           },
           {
             "canonical_metric": "total_assets",
@@ -54882,6 +55650,73 @@
           },
           {
             "canonical_metric": "total_debt",
+            "value": 9273339009700,
+            "source": "financial_observation_store",
+            "source_field": null,
+            "source_statement": "balance_sheet",
+            "period_identity": {
+              "period": "2024",
+              "period_type": "annual"
+            },
+            "statement_scope": "consolidated",
+            "currency": "VND",
+            "unit_scale": 1,
+            "derivation_status": "derived",
+            "quality_state": "available",
+            "reason": null,
+            "restatement_state": "unknown",
+            "observation_ids": [
+              "b9d74b9f3f25e01acd8197e230f593dd08eb72438802bccc656024b39879e25d",
+              "ca60a247d1642bdd12ba1b603c124b3a8e98147749c2afb560917456cf62bbd3"
+            ],
+            "evidence": {
+              "components": [
+                {
+                  "canonical_metric": "short_term_borrowings",
+                  "observation_ids": [
+                    "b9d74b9f3f25e01acd8197e230f593dd08eb72438802bccc656024b39879e25d"
+                  ],
+                  "evidence_id": "02eac9e7a6487dee80adfb033ff4dadfb8902cbd44ae882ac774d74b110d6f57",
+                  "citation_id": "f695d25ddb536b5b50440c40fdc9e78d86925e2b9abcf0a6fb58e23bcf1d39ad",
+                  "match_method": "exact_numeric_match",
+                  "sign_rule_version": "exact",
+                  "citation": {
+                    "form_code": "B01/B02/B03-DN/HN",
+                    "line_code_ma_so": "320",
+                    "line_label_vi": "Vay ng?n h?n",
+                    "pdf_page": 9,
+                    "printed_page": 8
+                  },
+                  "qualification_version": "1.0.0"
+                },
+                {
+                  "canonical_metric": "long_term_borrowings",
+                  "observation_ids": [
+                    "ca60a247d1642bdd12ba1b603c124b3a8e98147749c2afb560917456cf62bbd3"
+                  ],
+                  "evidence_id": "02eac9e7a6487dee80adfb033ff4dadfb8902cbd44ae882ac774d74b110d6f57",
+                  "citation_id": "9499025241e2c45dbbe276f0bb608a7e35a9133dde3afef4e269d33355d731a9",
+                  "match_method": "exact_numeric_match",
+                  "sign_rule_version": "exact",
+                  "citation": {
+                    "form_code": "B01/B02/B03-DN/HN",
+                    "line_code_ma_so": "338",
+                    "line_label_vi": "Vay d?i h?n",
+                    "pdf_page": 9,
+                    "printed_page": 8
+                  },
+                  "qualification_version": "1.0.0"
+                }
+              ]
+            },
+            "identity_reconciliation": {
+              "reconciled_from": "total_interest_bearing_debt",
+              "version": "v1",
+              "reason": "fundamental_quality.financial_strength, intrinsic_valuation.fcff_dcf, and relative_valuation.ev_ebitda/ev_sales all use total_debt as an enterprise-value / net-debt input (market_cap + debt - cash); by convention that is interest-bearing borrowings, not total liabilities."
+            }
+          },
+          {
+            "canonical_metric": "total_debt",
             "value": 7977703373026,
             "source_field": "debt",
             "source_statement": "financial_snapshot",
@@ -55057,6 +55892,103 @@
             "restatement_state": "unknown"
           },
           {
+            "canonical_metric": "total_equity",
+            "value": 36174402829663,
+            "source": "financial_observation_store",
+            "source_field": "owners_equity",
+            "source_statement": "balance_sheet",
+            "period_identity": {
+              "period": "2024",
+              "period_type": "annual"
+            },
+            "statement_scope": "consolidated",
+            "currency": "VND",
+            "unit_scale": 1,
+            "derivation_status": "direct",
+            "quality_state": "available",
+            "reason": null,
+            "restatement_state": "unknown",
+            "observation_ids": [
+              "a305dc3784eff9b13c80666005f4ce59a2507842073a9047434a6ffdfd5ce285"
+            ],
+            "evidence": {
+              "evidence_id": "02eac9e7a6487dee80adfb033ff4dadfb8902cbd44ae882ac774d74b110d6f57",
+              "citation_id": "dc5a5694c301bf0d3f4c558fb1e64daefd3ce15afacffe27505b52f569bd9dac",
+              "match_method": "exact_numeric_match",
+              "sign_rule_version": "exact",
+              "citation": {
+                "form_code": "B01/B02/B03-DN/HN",
+                "line_code_ma_so": "400",
+                "line_label_vi": "V?N CH? S? H?U",
+                "pdf_page": 9,
+                "printed_page": 8
+              },
+              "qualification_version": "1.0.0"
+            }
+          },
+          {
+            "canonical_metric": "total_interest_bearing_debt",
+            "value": 9273339009700,
+            "source": "financial_observation_store",
+            "source_field": null,
+            "source_statement": "balance_sheet",
+            "period_identity": {
+              "period": "2024",
+              "period_type": "annual"
+            },
+            "statement_scope": "consolidated",
+            "currency": "VND",
+            "unit_scale": 1,
+            "derivation_status": "derived",
+            "quality_state": "available",
+            "reason": null,
+            "restatement_state": "unknown",
+            "observation_ids": [
+              "b9d74b9f3f25e01acd8197e230f593dd08eb72438802bccc656024b39879e25d",
+              "ca60a247d1642bdd12ba1b603c124b3a8e98147749c2afb560917456cf62bbd3"
+            ],
+            "evidence": {
+              "components": [
+                {
+                  "canonical_metric": "short_term_borrowings",
+                  "observation_ids": [
+                    "b9d74b9f3f25e01acd8197e230f593dd08eb72438802bccc656024b39879e25d"
+                  ],
+                  "evidence_id": "02eac9e7a6487dee80adfb033ff4dadfb8902cbd44ae882ac774d74b110d6f57",
+                  "citation_id": "f695d25ddb536b5b50440c40fdc9e78d86925e2b9abcf0a6fb58e23bcf1d39ad",
+                  "match_method": "exact_numeric_match",
+                  "sign_rule_version": "exact",
+                  "citation": {
+                    "form_code": "B01/B02/B03-DN/HN",
+                    "line_code_ma_so": "320",
+                    "line_label_vi": "Vay ng?n h?n",
+                    "pdf_page": 9,
+                    "printed_page": 8
+                  },
+                  "qualification_version": "1.0.0"
+                },
+                {
+                  "canonical_metric": "long_term_borrowings",
+                  "observation_ids": [
+                    "ca60a247d1642bdd12ba1b603c124b3a8e98147749c2afb560917456cf62bbd3"
+                  ],
+                  "evidence_id": "02eac9e7a6487dee80adfb033ff4dadfb8902cbd44ae882ac774d74b110d6f57",
+                  "citation_id": "9499025241e2c45dbbe276f0bb608a7e35a9133dde3afef4e269d33355d731a9",
+                  "match_method": "exact_numeric_match",
+                  "sign_rule_version": "exact",
+                  "citation": {
+                    "form_code": "B01/B02/B03-DN/HN",
+                    "line_code_ma_so": "338",
+                    "line_label_vi": "Vay d?i h?n",
+                    "pdf_page": 9,
+                    "printed_page": 8
+                  },
+                  "qualification_version": "1.0.0"
+                }
+              ]
+            }
+          },
+          {
             "canonical_metric": "total_liabilities",
             "value": null,
             "period_identity": null,
@@ -55070,6 +56002,41 @@
             "currency": null,
             "unit_scale": null,
             "restatement_state": "unknown"
+          },
+          {
+            "canonical_metric": "total_liabilities",
+            "value": 18874658707398,
+            "source": "financial_observation_store",
+            "source_field": "liabilities",
+            "source_statement": "balance_sheet",
+            "period_identity": {
+              "period": "2024",
+              "period_type": "annual"
+            },
+            "statement_scope": "consolidated",
+            "currency": "VND",
+            "unit_scale": 1,
+            "derivation_status": "direct",
+            "quality_state": "available",
+            "reason": null,
+            "restatement_state": "unknown",
+            "observation_ids": [
+              "93f5d319fb415a5216c734f31719906ef269af9ed0c9a7d16c21f8407079afca"
+            ],
+            "evidence": {
+              "evidence_id": "02eac9e7a6487dee80adfb033ff4dadfb8902cbd44ae882ac774d74b110d6f57",
+              "citation_id": "ee60107bafb3248e84408c8ee4c4f480b8b52e61e51079e09173577d6ad87a01",
+              "match_method": "exact_numeric_match",
+              "sign_rule_version": "exact",
+              "citation": {
+                "form_code": "B01/B02/B03-DN/HN",
+                "line_code_ma_so": "300",
+                "line_label_vi": "N? PH?I TR?",
+                "pdf_page": 9,
+                "printed_page": 8
+              },
+              "qualification_version": "1.0.0"
+            }
           },
           {
             "canonical_metric": "total_liabilities",
@@ -55267,19 +56234,34 @@
           "growth_profitability": {
             "model_name": "growth_profitability",
             "model_version": "1.0.0",
-            "applicability_state": "unknown",
-            "result_state": "unknown",
-            "score_or_value": null,
-            "component_results": {},
-            "input_periods": [],
-            "statement_scope": null,
-            "required_inputs": [],
-            "used_inputs": [],
+            "applicability_state": "available",
+            "result_state": "available",
+            "score_or_value": 0.1520219108246915,
+            "component_results": {
+              "net_margin": 0.1520219108246915
+            },
+            "input_periods": [
+              {
+                "period": "2024",
+                "period_type": "annual"
+              },
+              {
+                "period": "2024",
+                "period_type": "annual"
+              }
+            ],
+            "statement_scope": "consolidated",
+            "required_inputs": [
+              "revenue",
+              "net_income"
+            ],
+            "used_inputs": [
+              "revenue",
+              "net_income"
+            ],
             "missing_inputs": [],
             "provenance": "financial_canonical",
-            "warnings": [
-              "no_compatible_known_scope_canonical_records"
-            ],
+            "warnings": [],
             "interpretation_limits": [
               "Numeric result is not automatically actionable."
             ],
@@ -55288,19 +56270,44 @@
           "dupont_roe": {
             "model_name": "dupont_roe",
             "model_version": "1.0.0",
-            "applicability_state": "unknown",
-            "result_state": "unknown",
-            "score_or_value": null,
+            "applicability_state": "available",
+            "result_state": "available",
+            "score_or_value": 0.2909744064313937,
             "component_results": {},
-            "input_periods": [],
-            "statement_scope": null,
-            "required_inputs": [],
-            "used_inputs": [],
+            "input_periods": [
+              {
+                "period": "2024",
+                "period_type": "annual"
+              },
+              {
+                "period": "2024",
+                "period_type": "annual"
+              },
+              {
+                "period": "2024",
+                "period_type": "annual"
+              },
+              {
+                "period": "2024",
+                "period_type": "annual"
+              }
+            ],
+            "statement_scope": "consolidated",
+            "required_inputs": [
+              "net_income",
+              "revenue",
+              "total_assets",
+              "shareholders_equity"
+            ],
+            "used_inputs": [
+              "net_income",
+              "revenue",
+              "total_assets",
+              "shareholders_equity"
+            ],
             "missing_inputs": [],
             "provenance": "financial_canonical",
-            "warnings": [
-              "no_compatible_known_scope_canonical_records"
-            ],
+            "warnings": [],
             "interpretation_limits": [
               "Numeric result is not automatically actionable."
             ],
@@ -55309,19 +56316,32 @@
           "earnings_quality": {
             "model_name": "earnings_quality",
             "model_version": "1.0.0",
-            "applicability_state": "unknown",
-            "result_state": "unknown",
-            "score_or_value": null,
+            "applicability_state": "available",
+            "result_state": "available",
+            "score_or_value": 293627183096,
             "component_results": {},
-            "input_periods": [],
-            "statement_scope": null,
-            "required_inputs": [],
-            "used_inputs": [],
+            "input_periods": [
+              {
+                "period": "2024",
+                "period_type": "annual"
+              },
+              {
+                "period": "2024",
+                "period_type": "annual"
+              }
+            ],
+            "statement_scope": "consolidated",
+            "required_inputs": [
+              "operating_cash_flow",
+              "net_income"
+            ],
+            "used_inputs": [
+              "operating_cash_flow",
+              "net_income"
+            ],
             "missing_inputs": [],
             "provenance": "financial_canonical",
-            "warnings": [
-              "no_compatible_known_scope_canonical_records"
-            ],
+            "warnings": [],
             "interpretation_limits": [
               "Numeric result is not automatically actionable."
             ],
@@ -55330,19 +56350,38 @@
           "financial_strength": {
             "model_name": "financial_strength",
             "model_version": "1.0.0",
-            "applicability_state": "unknown",
-            "result_state": "unknown",
-            "score_or_value": null,
+            "applicability_state": "available",
+            "result_state": "available",
+            "score_or_value": 7047395277625,
             "component_results": {},
-            "input_periods": [],
-            "statement_scope": null,
-            "required_inputs": [],
-            "used_inputs": [],
+            "input_periods": [
+              {
+                "period": "2024",
+                "period_type": "annual"
+              },
+              {
+                "period": "2024",
+                "period_type": "annual"
+              },
+              {
+                "period": "2024",
+                "period_type": "annual"
+              }
+            ],
+            "statement_scope": "consolidated",
+            "required_inputs": [
+              "total_debt",
+              "cash_and_equivalents",
+              "shareholders_equity"
+            ],
+            "used_inputs": [
+              "total_debt",
+              "cash_and_equivalents",
+              "shareholders_equity"
+            ],
             "missing_inputs": [],
             "provenance": "financial_canonical",
-            "warnings": [
-              "no_compatible_known_scope_canonical_records"
-            ],
+            "warnings": [],
             "interpretation_limits": [
               "Numeric result is not automatically actionable."
             ],
@@ -55351,18 +56390,39 @@
           "piotroski_f_score": {
             "model_name": "piotroski_f_score",
             "model_version": "1.0.0",
-            "applicability_state": "unknown",
-            "result_state": "unknown",
-            "score_or_value": null,
+            "applicability_state": "available",
+            "result_state": "available",
+            "score_or_value": 3,
             "component_results": {},
-            "input_periods": [],
-            "statement_scope": null,
-            "required_inputs": [],
-            "used_inputs": [],
+            "input_periods": [
+              {
+                "period": "2024",
+                "period_type": "annual"
+              },
+              {
+                "period": "2024",
+                "period_type": "annual"
+              },
+              {
+                "period": "2024",
+                "period_type": "annual"
+              }
+            ],
+            "statement_scope": "consolidated",
+            "required_inputs": [
+              "net_income",
+              "operating_cash_flow",
+              "total_assets"
+            ],
+            "used_inputs": [
+              "net_income",
+              "operating_cash_flow",
+              "total_assets"
+            ],
             "missing_inputs": [],
             "provenance": "financial_canonical",
             "warnings": [
-              "no_compatible_known_scope_canonical_records"
+              "Incomplete Piotroski criteria are not rescaled to nine points."
             ],
             "interpretation_limits": [
               "Numeric result is not automatically actionable."
@@ -55372,8 +56432,8 @@
           "altman_z_score": {
             "model_name": "altman_z_score",
             "model_version": "1.0.0",
-            "applicability_state": "unknown",
-            "result_state": "unknown",
+            "applicability_state": "inapplicable",
+            "result_state": "inapplicable",
             "score_or_value": null,
             "component_results": {},
             "input_periods": [],
@@ -55383,7 +56443,7 @@
             "missing_inputs": [],
             "provenance": "financial_canonical",
             "warnings": [
-              "no_compatible_known_scope_canonical_records"
+              "qualified_altman_variant_not_available"
             ],
             "interpretation_limits": [
               "Numeric result is not automatically actionable."
@@ -55393,8 +56453,8 @@
           "beneish_m_score": {
             "model_name": "beneish_m_score",
             "model_version": "1.0.0",
-            "applicability_state": "unknown",
-            "result_state": "unknown",
+            "applicability_state": "unavailable",
+            "result_state": "unavailable",
             "score_or_value": null,
             "component_results": {},
             "input_periods": [],
@@ -55404,7 +56464,7 @@
             "missing_inputs": [],
             "provenance": "financial_canonical",
             "warnings": [
-              "no_compatible_known_scope_canonical_records"
+              "exact_beneish_variables_not_available"
             ],
             "interpretation_limits": [
               "Numeric result is not automatically actionable."
@@ -55416,7 +56476,7 @@
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
         "reference_at": "2026-07-27T10:00:00+07:00",
-        "status": "unknown",
+        "status": "available",
         "methods": {
           "fcff_dcf": {
             "method": "fcff_dcf",
@@ -55431,10 +56491,6 @@
             "required_inputs": [],
             "used_inputs": [],
             "missing_inputs": [
-              "canonical_scope_or_quality_unqualified:operating_cash_flow",
-              "canonical_scope_or_quality_unqualified:capital_expenditure",
-              "canonical_scope_or_quality_unqualified:total_debt",
-              "canonical_scope_or_quality_unqualified:cash_and_equivalents",
               "sourced_wacc_terminal_growth_and_forecast"
             ],
             "scenario_name": null,
@@ -55453,33 +56509,39 @@
           "net_net": {
             "method": "net_net",
             "method_version": "1.0.0",
-            "state": "unavailable",
-            "applicability": "unknown",
-            "valuation_date": null,
-            "historical_input_periods": [],
-            "statement_scope": null,
+            "state": "available",
+            "applicability": "applicable",
+            "valuation_date": "2026-07-27T10:00:00+07:00",
+            "historical_input_periods": [
+              "2024",
+              "2024",
+              "2024",
+              "2024",
+              "2024"
+            ],
+            "statement_scope": "consolidated",
             "forecast_horizon": null,
             "assumptions": [],
             "required_inputs": [],
-            "used_inputs": [],
-            "missing_inputs": [
-              "canonical_scope_or_quality_unqualified:current_assets",
-              "canonical_scope_or_quality_unqualified:cash_and_equivalents",
-              "canonical_scope_or_quality_unqualified:receivables",
-              "canonical_scope_or_quality_unqualified:inventory",
-              "canonical_scope_or_quality_unqualified:total_liabilities",
-              "qualified_share_count"
+            "used_inputs": [
+              "current_assets",
+              "cash_and_equivalents",
+              "receivables",
+              "inventory",
+              "total_liabilities",
+              "share_count"
             ],
+            "missing_inputs": [],
             "scenario_name": null,
             "sensitivity_dimensions": [],
             "enterprise_value": null,
-            "equity_value": null,
-            "per_share_value": null,
+            "equity_value": -4728116201318,
+            "per_share_value": -2262.3047838792563,
             "warnings": [],
             "interpretation_limits": [
               "No target price, recommendation, or forced model output."
             ],
-            "is_actionable": false
+            "is_actionable": true
           }
         },
         "warnings": [
@@ -55746,11 +56808,10 @@
             "reference_range": null,
             "implied_value_range": null,
             "missing_inputs": [
-              "canonical_input_not_available"
+              "actionable_current_price",
+              "price_financial_period_alignment"
             ],
-            "warnings": [
-              "negative_or_zero_denominator_not_normalized"
-            ],
+            "warnings": [],
             "interpretation_limits": [
               "No target price is produced by this contract."
             ],
@@ -55775,11 +56836,11 @@
             "reference_range": null,
             "implied_value_range": null,
             "missing_inputs": [
-              "canonical_input_not_available"
+              "actionable_current_price",
+              "price_share_period_alignment",
+              "price_financial_period_alignment"
             ],
-            "warnings": [
-              "negative_or_zero_denominator_not_normalized"
-            ],
+            "warnings": [],
             "interpretation_limits": [
               "No target price is produced by this contract."
             ],
@@ -55804,11 +56865,11 @@
             "reference_range": null,
             "implied_value_range": null,
             "missing_inputs": [
-              "canonical_input_not_available"
+              "actionable_current_price",
+              "price_share_period_alignment",
+              "price_financial_period_alignment"
             ],
-            "warnings": [
-              "negative_or_zero_denominator_not_normalized"
-            ],
+            "warnings": [],
             "interpretation_limits": [
               "No target price is produced by this contract."
             ],
@@ -55833,11 +56894,7 @@
             "reference_range": null,
             "implied_value_range": null,
             "missing_inputs": [
-              "required_input_missing",
-              "canonical_input_not_available",
-              "canonical_input_not_available",
               "actionable_current_price",
-              "qualified_period_end_share_count",
               "price_share_period_alignment"
             ],
             "warnings": [
@@ -55867,11 +56924,7 @@
             "reference_range": null,
             "implied_value_range": null,
             "missing_inputs": [
-              "canonical_input_not_available",
-              "canonical_input_not_available",
-              "canonical_input_not_available",
               "actionable_current_price",
-              "qualified_period_end_share_count",
               "price_share_period_alignment"
             ],
             "warnings": [
