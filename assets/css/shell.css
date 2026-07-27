@@ -710,6 +710,13 @@
 .cp-ci-partial { color: var(--warning); }
 .cp-ci-malformed { color: var(--danger); }
 .cp-ci-incomparable { color: var(--warning); }
+/* Historical financial valuation is additive to the live company-panel stats. */
+.cp-hv { margin-top: 1.35rem; padding-top: 1.1rem; border-top: 1px solid var(--border-soft); }
+.cp-hv h3 { margin: 0; font-size: 0.95rem; font-weight: 800; }
+.cp-ci-historical { color: var(--accent-text); }
+.cp-hv-details { margin-top: 0.65rem; font-size: 0.72rem; color: var(--text-muted); }
+.cp-hv-details summary { cursor: pointer; color: var(--accent-text); }
+.cp-hv-details code { overflow-wrap: anywhere; }
 
 /* ---------- Resize handle giữa 2 cột (Phase 4) ---------- */
 .vs-resize-handle {

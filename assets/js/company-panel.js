@@ -181,6 +181,36 @@
   function loadCorporateBundle() { if (window.ANALYSIS_BUNDLE) return Promise.resolve(window.ANALYSIS_BUNDLE); if (!corporateBundlePromise && typeof fetch === "function") corporateBundlePromise = fetch("analysis_bundle.json", { cache: "no-store" }).then((response) => response.ok ? response.json() : null).catch(() => null); return corporateBundlePromise || Promise.resolve(null); }
   function corporateForRow(row, bundle) { if (isObject(row && row.corporate_intelligence)) return row.corporate_intelligence; return bundle && bundle.tickers && row && bundle.tickers[row.ticker] && bundle.tickers[row.ticker].corporate_intelligence; }
   function readinessForRow(row, bundle) { return bundle && bundle.tickers && row && bundle.tickers[row.ticker] && bundle.tickers[row.ticker].analysis_readiness; }
+  function bundleEntryForRow(row, bundle) {
+    if (isObject(row) && isObject(row.relative_valuation)) return row;
+    return isObject(bundle) && isObject(bundle.tickers) && isObject(row) && isObject(bundle.tickers[row.ticker]) ? bundle.tickers[row.ticker] : null;
+  }
+  function historicalValuationPeriod(methods) {
+    const first = methods.find((method) => isObject(method.financial_period));
+    return first && first.financial_period && first.financial_period.period ? `FY${first.financial_period.period}` : "Historical financial period unavailable";
+  }
+  function historicalEbitdaMetadata(entry) {
+    const records = entry && entry.financial_canonical && entry.financial_canonical.records;
+    return Array.isArray(records) ? records.find((record) => isObject(record) && record.canonical_metric === "ebitda" && record.formula_version) || null : null;
+  }
+  function renderHistoricalValuation(entry) {
+    const valuation = entry && entry.relative_valuation;
+    if (!isObject(valuation) || !isObject(valuation.methods)) return "";
+    const labels = { pe: "P/E", pb: "P/B", ps: "P/S", ev_sales: "EV/Sales", ev_ebitda: "EV/EBITDA" };
+    const ordered = ["pe", "pb", "ps", "ev_sales", "ev_ebitda"].map((key) => ({ key, method: valuation.methods[key] })).filter(({ method }) => isObject(method));
+    if (!ordered.length) return "";
+    const available = ordered.filter(({ method }) => method.state === "available" && method.is_actionable !== false && Number.isFinite(Number(method.observed_multiple)));
+    if (!available.length) {
+      const unavailable = ordered.find(({ method }) => method.state === "unavailable" || method.is_actionable === false);
+      const reason = unavailable && Array.isArray(unavailable.method.missing_inputs) ? unavailable.method.missing_inputs.join(", ") : "historical_valuation_not_actionable";
+      return `<section class="cp-hv" data-valuation-state="unavailable" data-valuation-reason="${esc(reason)}"><h3>Historical valuation</h3><div class="cp-ci-notice cp-ci-missing">Historical valuation is unavailable for this ticker. No current/live multiple is inferred.</div></section>`;
+    }
+    const priceDate = available.find(({ method }) => method.price_as_of_date)?.method.price_as_of_date || "Unknown";
+    const ebitda = historicalEbitdaMetadata(entry);
+    const rows = available.map(({ key, method }) => `<div class="cp-ci-field"><span>${esc(labels[key])}${key === "ev_ebitda" ? " (derived EBITDA)" : ""}</span><strong>${displayNumber(method.observed_multiple, 2)}x</strong></div>`).join("");
+    const ebitdaDetails = ebitda ? `<details class="cp-hv-details"><summary>Derived EBITDA details</summary><div>Formula version: <code>${esc(ebitda.formula_version)}</code></div>${Array.isArray(ebitda.warnings) && ebitda.warnings.length ? `<div class="cp-ci-notice cp-ci-incomparable">${esc(ebitda.warnings.join(" "))}</div>` : ""}</details>` : "";
+    return `<section class="cp-hv" data-valuation-state="historical"><h3>Historical valuation</h3><div class="cp-ci-notice cp-ci-historical">Historical multiples only — not current/live multiples.</div><div class="cp-ci-meta">${esc(historicalValuationPeriod(available.map(({ method }) => method)))} financials · qualified market price as of ${esc(priceDate)}</div><div class="cp-ci-source"><div class="cp-ci-fields">${rows}</div></div>${ebitdaDetails}</section>`;
+  }
   let chartRenderedFor = null; // ticker mà biểu đồ hiện đang hiển thị — tránh huỷ/tạo lại Chart.js
                                 // khi bấm lại đúng tab của cùng 1 mã (Phase 5: giảm render thừa)
 
@@ -360,12 +390,13 @@
     backdrop._currentRow = row;
     document.getElementById("cp-title").textContent = row.ticker || "?";
     const overview = document.getElementById("cp-overview");
-    overview.innerHTML = renderOverview(row) + renderAnalysisReadiness(readinessForRow(row)) + renderCorporateIntelligence(corporateForRow(row));
+    overview.innerHTML = renderOverview(row) + renderHistoricalValuation(bundleEntryForRow(row)) + renderAnalysisReadiness(readinessForRow(row)) + renderCorporateIntelligence(corporateForRow(row));
     // Legacy bundles render a neutral missing state immediately.  A cached dashboard
     // artifact, when present, replaces only this panel's Corporate Intelligence area.
     loadCorporateBundle().then((bundle) => {
       if (!backdrop || backdrop._currentRow !== row) return;
-      overview.innerHTML = renderOverview(row) + renderAnalysisReadiness(readinessForRow(row, bundle)) + renderCorporateIntelligence(corporateForRow(row, bundle));
+      const entry = bundleEntryForRow(row, bundle);
+      overview.innerHTML = renderOverview(row) + renderHistoricalValuation(entry) + renderAnalysisReadiness(readinessForRow(row, bundle)) + renderCorporateIntelligence(corporateForRow(row, bundle));
     });
     switchTab("overview");
     backdrop.classList.add("is-open");
@@ -439,7 +470,7 @@
   }
   if (typeof module !== "undefined" && module.exports) {
     module.exports = {
-      renderCorporateIntelligence, renderAnalysisReadiness, corporateForRow, readinessForRow, statusMessage,
+      renderCorporateIntelligence, renderAnalysisReadiness, renderHistoricalValuation, renderOverview, bundleEntryForRow, corporateForRow, readinessForRow, statusMessage,
       normalizeTicker, tickerFromSearch, searchWithTicker, decideOpenAction, decideCloseAction,
       isScreenerPage,
     };
