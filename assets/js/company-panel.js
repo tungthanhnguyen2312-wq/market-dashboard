@@ -102,8 +102,19 @@
     const parts = [subsection("Company profile", corporate.company_profile, renderProfile), subsection("Ownership structure", corporate.ownership_structure, renderOwnership), subsection("Major shareholders", majorShareholders, renderMajorShareholders), subsection("Company subsidiaries", corporate.company_subsidiaries, renderSubsidiaries)].filter(Boolean);
     return `<section class="cp-ci"><h3>Corporate Intelligence</h3>${parts.length ? parts.join("") : `<div class="cp-ci-notice cp-ci-missing">${esc(statusMessage("missing"))}</div>`}</section>`;
   }
+  function renderCitedDocumentEvidence(evidence) {
+    if (!isObject(evidence)) return "";
+    const state = String(evidence.retrieval_status || "unavailable");
+    const reason = evidence.reason || (state === "unavailable" ? "section_absent" : null);
+    const notices = { unsupported_query: "This evidence query is not supported.", no_source_supported_passage: "No source-supported passage was found.", missing_document: "The cited document is unavailable.", source_hash_mismatch: "The cited document failed source-hash validation.", section_absent: "Cited evidence is not included in this context." };
+    const rows = Array.isArray(evidence.results) ? evidence.results.filter((item) => isObject(item) && Array.isArray(item.citation_ids) && item.citation_ids.length).slice().sort((a, b) => String(a.document_id || "").localeCompare(String(b.document_id || "")) || String(a.chunk_id || "").localeCompare(String(b.chunk_id || ""))) : [];
+    const rowHtml = rows.map((item) => `<div class="cp-ci-source"><h5>${esc(item.document_id || "Document")}</h5><div class="cp-ci-fields"><div class="cp-ci-field"><span>Ticker</span><strong>${displayValue(evidence.ticker)}</strong></div><div class="cp-ci-field"><span>Page / section</span><strong>${displayValue(item.page)} / ${displayValue(item.section)}</strong></div><div class="cp-ci-field"><span>Citation IDs</span><strong>${item.citation_ids.map(esc).join(", ")}</strong></div><div class="cp-ci-field"><span>Published / observed</span><strong>${displayValue(item.published_at)} / ${displayValue(item.observed_at)}</strong></div><div class="cp-ci-field"><span>Document hash</span><strong>${displayValue(item.document_sha256)}</strong></div></div></div>`).join("");
+    const notice = notices[reason] || (state === "unavailable" ? "Cited evidence is unavailable." : "");
+    return `<section class="cp-ci"><h3>Cited Evidence</h3><div class="cp-ci-meta">Retrieval status: ${esc(state)}${reason ? ` · ${esc(reason)}` : ""}</div>${notice ? `<div class="cp-ci-notice cp-ci-missing">${esc(notice)}</div>` : ""}${rowHtml}</section>`;
+  }
   function loadCorporateBundle() { if (window.ANALYSIS_BUNDLE) return Promise.resolve(window.ANALYSIS_BUNDLE); if (!corporateBundlePromise && typeof fetch === "function") corporateBundlePromise = fetch("analysis_bundle.json", { cache: "no-store" }).then((response) => response.ok ? response.json() : null).catch(() => null); return corporateBundlePromise || Promise.resolve(null); }
   function corporateForRow(row, bundle) { if (isObject(row && row.corporate_intelligence)) return row.corporate_intelligence; return bundle && bundle.tickers && row && bundle.tickers[row.ticker] && bundle.tickers[row.ticker].corporate_intelligence; }
+  function evidenceForRow(row, bundle) { if (isObject(row && row.cited_document_evidence)) return row.cited_document_evidence; const entry = bundle && bundle.tickers && row && bundle.tickers[row.ticker]; return entry && entry.context_package && entry.context_package.cited_document_evidence; }
   let chartRenderedFor = null; // ticker mà biểu đồ hiện đang hiển thị — tránh huỷ/tạo lại Chart.js
                                 // khi bấm lại đúng tab của cùng 1 mã (Phase 5: giảm render thừa)
 
@@ -253,12 +264,12 @@
     backdrop._currentRow = row;
     document.getElementById("cp-title").textContent = row.ticker || "?";
     const overview = document.getElementById("cp-overview");
-    overview.innerHTML = renderOverview(row) + renderCorporateIntelligence(corporateForRow(row));
+    overview.innerHTML = renderOverview(row) + renderCorporateIntelligence(corporateForRow(row)) + renderCitedDocumentEvidence(evidenceForRow(row));
     // Legacy bundles render a neutral missing state immediately.  A cached dashboard
     // artifact, when present, replaces only this panel's Corporate Intelligence area.
     loadCorporateBundle().then((bundle) => {
       if (!backdrop || backdrop._currentRow !== row) return;
-      overview.innerHTML = renderOverview(row) + renderCorporateIntelligence(corporateForRow(row, bundle));
+      overview.innerHTML = renderOverview(row) + renderCorporateIntelligence(corporateForRow(row, bundle)) + renderCitedDocumentEvidence(evidenceForRow(row, bundle));
     });
     switchTab("overview");
     backdrop.classList.add("is-open");
@@ -284,5 +295,5 @@
 
   // API dùng chung cho các bảng ngoài DataTables (ví dụ bảng mẫu hình nến ở signals.html).
   if (typeof window !== "undefined") window.VSCompanyPanel = { open: openPanel, close: closePanel };
-  if (typeof module !== "undefined" && module.exports) module.exports = { renderCorporateIntelligence, corporateForRow };
+  if (typeof module !== "undefined" && module.exports) module.exports = { renderCorporateIntelligence, corporateForRow, renderCitedDocumentEvidence, evidenceForRow };
 })();
