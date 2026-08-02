@@ -1,5 +1,7 @@
 # Stock Look Up dashboard
 
+Dashboard is a presentation consumer. It preserves historical-only versus current-market distinctions and never upgrades unknown or blocked data into positive readiness. Canonical Codex governance is in `../stock-core-private/docs/`.
+
 This repository is the GitHub-facing dashboard and its publishable assets. It does not contain the producer pipeline, runtime database, backups, or private AI artifacts.
 
 ## Repository boundary
