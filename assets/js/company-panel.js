@@ -102,6 +102,76 @@
     const parts = [subsection("Company profile", corporate.company_profile, renderProfile), subsection("Ownership structure", corporate.ownership_structure, renderOwnership), subsection("Major shareholders", majorShareholders, renderMajorShareholders), subsection("Company subsidiaries", corporate.company_subsidiaries, renderSubsidiaries)].filter(Boolean);
     return `<section class="cp-ci"><h3>Corporate Intelligence</h3>${parts.length ? parts.join("") : `<div class="cp-ci-notice cp-ci-missing">${esc(statusMessage("missing"))}</div>`}</section>`;
   }
+  // Financial distress (Altman Z'). Deliberately narrow: this section renders the model's
+  // own fail-closed envelope and nothing else. It never computes a score, never turns an
+  // applicability verdict into a rating, and never shows a number for a filer the model
+  // does not apply to — a credit institution or a broker reaches this function with
+  // applicability "not_applicable" and no score, and that is exactly what is displayed.
+  const DISTRESS_APPLICABILITY = {
+    not_applicable: "This model does not apply to this issuer.",
+    insufficient_evidence: "Not enough qualified evidence to apply this model.",
+    eligible: "This issuer is eligible for this model.",
+  };
+  function renderStatementTaxonomy(evidence) {
+    if (!isObject(evidence) || !evidence.statement_taxonomy) return "";
+    const authority = String(evidence.entity_type_authority || "unknown");
+    return `<div class="cp-ci-source"><h5>Statement taxonomy (generated evidence)</h5>`
+      + `<div class="cp-ci-fields">`
+      + `<div class="cp-ci-field"><span>Reporting template</span><strong>${displayValue(titleCase(evidence.statement_taxonomy))}</strong></div>`
+      + `<div class="cp-ci-field"><span>Entity type authority</span><strong>${displayValue(titleCase(authority))}</strong></div>`
+      + `</div>`
+      + `<div class="cp-ci-notice cp-ci-partial">Generated observation of the reporting template only. It is not a manually verified issuer type.</div>`
+      + `</div>`;
+  }
+  function renderFinancialDistress(distress, taxonomy) {
+    const taxonomyHtml = renderStatementTaxonomy(taxonomy);
+    if (!isObject(distress)) {
+      return taxonomyHtml
+        ? `<section class="cp-ci"><h3>Financial Distress Model</h3>${taxonomyHtml}<div class="cp-ci-notice cp-ci-missing">No distress-model result is included in this bundle.</div></section>`
+        : "";
+    }
+    const applicability = isObject(distress.applicability) ? distress.applicability : {};
+    const verdict = String(applicability.applicability || distress.status || "insufficient_evidence");
+    const head = `<div class="cp-ci-meta">Model: ${esc(distress.model || "Altman Z'")}`
+      + `${distress.variant ? ` · variant ${esc(distress.variant)}` : ""}${distress.schema_version ? ` · v${esc(distress.schema_version)}` : ""}`
+      + ` · applicability: ${esc(verdict)}</div>`;
+    const notice = `<div class="cp-ci-notice cp-ci-${verdict === "eligible" ? "partial" : "missing"}">`
+      + `${esc(DISTRESS_APPLICABILITY[verdict] || "Model applicability is unknown.")}`
+      + `${applicability.reason ? ` ${esc(applicability.reason)}` : ""}</div>`;
+    const blocking = Array.isArray(distress.blocking_reasons) ? distress.blocking_reasons : [];
+    const missing = Array.isArray(distress.missing_inputs) ? distress.missing_inputs : [];
+    const reasons = (blocking.length || missing.length)
+      ? `<div class="cp-ci-source"><h5>Why no score is shown</h5>${blocking.map((r) => `<div class="cp-ci-field"><span>Blocked</span><strong>${displayValue(r)}</strong></div>`).join("")}${missing.map((r) => `<div class="cp-ci-field"><span>Missing input</span><strong>${displayValue(r)}</strong></div>`).join("")}</div>`
+      : "";
+    // A score is only ever rendered when the model itself reported one. `status`
+    // "available" without a numeric score still renders no number.
+    const score = distress.status === "available" && typeof distress.score === "number" && Number.isFinite(distress.score)
+      ? `<div class="cp-ci-source"><h5>Result</h5><div class="cp-ci-fields">`
+        + `<div class="cp-ci-field"><span>Z' score</span><strong>${displayNumber(distress.score, 4)}</strong></div>`
+        + `<div class="cp-ci-field"><span>Zone</span><strong>${displayValue(titleCase(distress.zone))}</strong></div>`
+        + `<div class="cp-ci-field"><span>Reporting period</span><strong>${displayValue(distress.period)}</strong></div>`
+        + `</div></div>`
+      : "";
+    const proximity = isObject(distress.zone_proximity) ? distress.zone_proximity : null;
+    const boundary = score && proximity && proximity.near_threshold
+      ? `<div class="cp-ci-notice cp-ci-partial">The score is close to the ${esc(proximity.nearest_threshold || "zone")} boundary (${displayNumber(proximity.nearest_threshold_value, 2)}); the zone label is not robust to small input changes.</div>`
+      : "";
+    const limits = Array.isArray(distress.limitations) && distress.limitations.length
+      ? `<div class="cp-ci-source"><h5>Interpretation limits</h5>${distress.limitations.map((l) => `<div class="cp-ci-notice cp-ci-partial">${displayValue(l)}</div>`).join("")}</div>`
+      : "";
+    return `<section class="cp-ci"><h3>Financial Distress Model</h3>${head}${taxonomyHtml}${notice}${score}${boundary}${reasons}${limits}`
+      + `<div class="cp-ci-notice cp-ci-missing">A model zone is not a bankruptcy probability and not an investment recommendation.</div></section>`;
+  }
+  function distressForRow(row, bundle) {
+    if (isObject(row && row.financial_distress_evidence)) return row.financial_distress_evidence;
+    const entry = bundle && bundle.tickers && row && bundle.tickers[row.ticker];
+    return entry && entry.financial_distress_evidence;
+  }
+  function taxonomyForRow(row, bundle) {
+    if (isObject(row && row.statement_taxonomy_evidence)) return row.statement_taxonomy_evidence;
+    const entry = bundle && bundle.tickers && row && bundle.tickers[row.ticker];
+    return entry && entry.statement_taxonomy_evidence;
+  }
   function renderCitedDocumentEvidence(evidence) {
     if (!isObject(evidence)) return "";
     const state = String(evidence.retrieval_status || "unavailable");
@@ -264,12 +334,12 @@
     backdrop._currentRow = row;
     document.getElementById("cp-title").textContent = row.ticker || "?";
     const overview = document.getElementById("cp-overview");
-    overview.innerHTML = renderOverview(row) + renderCorporateIntelligence(corporateForRow(row)) + renderCitedDocumentEvidence(evidenceForRow(row));
+    overview.innerHTML = renderOverview(row) + renderCorporateIntelligence(corporateForRow(row)) + renderFinancialDistress(distressForRow(row), taxonomyForRow(row)) + renderCitedDocumentEvidence(evidenceForRow(row));
     // Legacy bundles render a neutral missing state immediately.  A cached dashboard
     // artifact, when present, replaces only this panel's Corporate Intelligence area.
     loadCorporateBundle().then((bundle) => {
       if (!backdrop || backdrop._currentRow !== row) return;
-      overview.innerHTML = renderOverview(row) + renderCorporateIntelligence(corporateForRow(row, bundle)) + renderCitedDocumentEvidence(evidenceForRow(row, bundle));
+      overview.innerHTML = renderOverview(row) + renderCorporateIntelligence(corporateForRow(row, bundle)) + renderFinancialDistress(distressForRow(row, bundle), taxonomyForRow(row, bundle)) + renderCitedDocumentEvidence(evidenceForRow(row, bundle));
     });
     switchTab("overview");
     backdrop.classList.add("is-open");
@@ -295,5 +365,5 @@
 
   // API dùng chung cho các bảng ngoài DataTables (ví dụ bảng mẫu hình nến ở signals.html).
   if (typeof window !== "undefined") window.VSCompanyPanel = { open: openPanel, close: closePanel };
-  if (typeof module !== "undefined" && module.exports) module.exports = { renderCorporateIntelligence, corporateForRow, renderCitedDocumentEvidence, evidenceForRow };
+  if (typeof module !== "undefined" && module.exports) module.exports = { renderCorporateIntelligence, corporateForRow, renderCitedDocumentEvidence, evidenceForRow, renderFinancialDistress, distressForRow, taxonomyForRow };
 })();

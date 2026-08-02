@@ -68,6 +68,10 @@ financial_snapshot.parquet
 # ^ *.parquet ở dòng 9 đã chặn financial_snapshot.parquet + toàn bộ data_bctc/*.parquet
 #   rồi, ghi rõ tên ở đây là lớp phòng thủ tường minh thêm — đừng dựa mỗi vào rule chung.
 tickers_bctc.txt
+# Generated statement-taxonomy sidecar: derived entirely from data_bctc/, so it inherits
+# the same rule as financial_snapshot.* above — local analysis input, never published.
+# The Consumer reads it from the local runtime root; no dashboard page references it.
+statement_taxonomy_sidecar.json
 config.json
 docs/AUDIT_REPORT.md
 docs/VALIDATION_REPORT.md
