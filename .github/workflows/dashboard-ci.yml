@@ -36,6 +36,15 @@ jobs:
       - name: Company-panel JavaScript tests
         run: node --test tests/company-panel.test.js
 
+      - name: Cited-evidence render tests
+        run: node --test tests/cited-evidence-render.test.js
+
+      # Runs against the committed analysis_bundle.json / bundle_manifest.json rather than
+      # a fixture: a release that does not verify against its own manifest, or that would
+      # render a distress score for a filer the model excludes, must not reach Pages.
+      - name: Published release smoke tests
+        run: node --test tests/release-smoke.test.js
+
       - name: Screener state contract tests
         run: node --test tests/screener-state.test.js
 

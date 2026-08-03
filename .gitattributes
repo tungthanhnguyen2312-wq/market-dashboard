@@ -1,0 +1,11 @@
+# The published StockLookup release artifacts are hash-verified against the sha256 values
+# recorded in bundle_manifest.json, by tools/publish_release.py before promotion and by
+# tests/release-smoke.test.js afterwards. This repository is checked out with
+# core.autocrlf=true on Windows, which would rewrite every LF to CRLF on checkout and make
+# the working-tree bytes disagree with the manifest that describes them. `-text` disables
+# all end-of-line translation for exactly these files, so one release has one byte sequence
+# on every platform, in the index, and on the served origin.
+analysis_bundle.json            -text
+bundle_manifest.json            -text
+focus_extract.json              -text
+statement_taxonomy_sidecar.json -text
