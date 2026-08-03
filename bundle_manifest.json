@@ -11,10 +11,10 @@
     "present": true,
     "records_fingerprint": "fc8f077e965877b0c160d5b0de2c2004f5758c6036453bae0bacbd11bb70a6d1",
     "input_fingerprint": "ba009fe4e46331df44838b277fe54cef4319872d2a3520aceeb7752a66f6c8c5",
-    "session_identity": "2026-07-30",
+    "session_identity": "2026-08-03",
     "authority_level": "generated_evidence"
   },
-  "generated_at": "2026-08-03T01:03:28+00:00",
+  "generated_at": "2026-08-03T13:13:52+00:00",
   "tickers": [
     "POW",
     "SSI",
@@ -30,19 +30,19 @@
     "VNINDEX"
   ],
   "freshness": {
-    "prior_session": "2026-07-29",
+    "prior_session": "2026-07-31",
     "stale": [],
     "unknown": [],
     "blocked": false,
-    "reference_session": "2026-07-30",
+    "reference_session": "2026-08-03",
     "artifact_order_violations": [],
     "allow_stale": false,
     "categories_checked": {
-      "screen_snapshot_live": "2026-07-30",
-      "ta_signals": "2026-07-30",
-      "analysis_latest": "2026-07-30",
-      "focus_analysis": "2026-07-30",
-      "context_package": "2026-07-30"
+      "screen_snapshot_live": "2026-08-03",
+      "ta_signals": "2026-08-03",
+      "analysis_latest": "2026-08-03",
+      "focus_analysis": "2026-08-03",
+      "context_package": "2026-08-03"
     },
     "context_package_coverage": {
       "POW": true,
@@ -61,15 +61,15 @@
     "status": "fresh"
   },
   "live_universe": {
-    "live_universe_count": 871,
-    "excluded_count": 710,
+    "live_universe_count": 911,
+    "excluded_count": 671,
     "excluded_by_reason": {
       "listing_inactive_or_delisted": 142,
-      "stale_price": 568
+      "stale_price": 529
     },
-    "reference_market_date": "2026-07-30",
+    "reference_market_date": "2026-08-03",
     "universe_source": "screen_snapshot.csv",
-    "universe_hash": "41db065550cc4641fc6c922bf35414407ad9aed54210ab44f8c3541031bee782"
+    "universe_hash": "b22b49343434572eda44d10cc386c7116a0602659add30a6f21fd7eec19be5b8"
   },
   "price_basis": "unknown",
   "price_basis_verified": false,
@@ -112,6 +112,28 @@
         "source": "no_verified_price_basis_metadata"
       },
       "consumer_action": "Treat OHLCV-derived metrics as basis-unverified until a verified raw or adjusted price-basis contract is supplied."
+    },
+    {
+      "scope": "ticker",
+      "ticker": "FPT",
+      "code": "extract_warning",
+      "severity": "warning",
+      "detail": "FPT: khong_co_trong_ta_signals",
+      "message": "FPT: khong_co_trong_ta_signals",
+      "metric": null,
+      "evidence": "khong_co_trong_ta_signals",
+      "consumer_action": "Investigate the missing source before treating this ticker's data as complete."
+    },
+    {
+      "scope": "ticker",
+      "ticker": "NVL",
+      "code": "extract_warning",
+      "severity": "warning",
+      "detail": "NVL: khong_co_trong_ta_signals",
+      "message": "NVL: khong_co_trong_ta_signals",
+      "metric": null,
+      "evidence": "khong_co_trong_ta_signals",
+      "consumer_action": "Investigate the missing source before treating this ticker's data as complete."
     },
     {
       "scope": "ticker",
@@ -1415,35 +1437,117 @@
         "entity_type": "unknown"
       },
       "consumer_action": "Do not assume this is a corporate entity, and do not read its missing ebit/ebitda/liquidity ratios as confirmed not_applicable."
+    },
+    {
+      "scope": "ticker",
+      "ticker": "VNINDEX",
+      "code": "financial_summary_missing",
+      "severity": "error",
+      "detail": "VNINDEX: financial_summary has zero available metrics.",
+      "message": "VNINDEX: financial_summary has zero available metrics.",
+      "metric": "financial_summary",
+      "evidence": {
+        "status": "missing",
+        "coverage": 0.0,
+        "available_metrics": 0,
+        "expected_metrics": 7,
+        "missing_metrics": [
+          "depreciation",
+          "ebit",
+          "ebitda",
+          "interest_expense",
+          "operating_cash_flow",
+          "retained_earnings",
+          "sga"
+        ],
+        "available_metric_names": [],
+        "not_applicable_metrics": []
+      },
+      "consumer_action": "Do not report any financial figures for this ticker; the source data is entirely unavailable."
+    },
+    {
+      "scope": "ticker",
+      "ticker": "VNINDEX",
+      "code": "news_summary_missing",
+      "severity": "warning",
+      "detail": "VNINDEX: news_summary has zero available metrics.",
+      "message": "VNINDEX: news_summary has zero available metrics.",
+      "metric": "news_summary",
+      "evidence": {
+        "status": "missing",
+        "coverage": 0.0,
+        "available_metrics": 0,
+        "expected_metrics": 1,
+        "missing_metrics": [
+          "news_summary"
+        ],
+        "available_metric_names": [],
+        "not_applicable_metrics": []
+      },
+      "consumer_action": "Do not claim news summary coverage for this ticker."
+    },
+    {
+      "scope": "ticker",
+      "ticker": "VNINDEX",
+      "code": "shareholder_summary_missing",
+      "severity": "warning",
+      "detail": "VNINDEX: shareholder_summary has zero available metrics.",
+      "message": "VNINDEX: shareholder_summary has zero available metrics.",
+      "metric": "shareholder_summary",
+      "evidence": {
+        "status": "missing",
+        "coverage": 0.0,
+        "available_metrics": 0,
+        "expected_metrics": 1,
+        "missing_metrics": [
+          "shareholder_summary"
+        ],
+        "available_metric_names": [],
+        "not_applicable_metrics": []
+      },
+      "consumer_action": "Do not claim shareholder summary coverage for this ticker."
+    },
+    {
+      "scope": "ticker",
+      "ticker": "VNINDEX",
+      "code": "entity_type_unclassified",
+      "severity": "info",
+      "detail": "VNINDEX: entity_type is unknown — corporate-only ratios (ebit/ebitda/sga/liquidity) were not derived because this ticker is not yet profiled in ticker_entity_profiles.csv, not because they are confirmed inapplicable.",
+      "message": "VNINDEX: entity_type is unknown — corporate-only ratios (ebit/ebitda/sga/liquidity) were not derived because this ticker is not yet profiled in ticker_entity_profiles.csv, not because they are confirmed inapplicable.",
+      "metric": "entity_type",
+      "evidence": {
+        "entity_type": "unknown"
+      },
+      "consumer_action": "Do not assume this is a corporate entity, and do not read its missing ebit/ebitda/liquidity ratios as confirmed not_applicable."
     }
   ],
   "files": [
     {
       "file": "screen_snapshot_live.csv",
       "role": "source",
-      "row_or_record_count": 871,
+      "row_or_record_count": 911,
       "count_basis": "csv_rows",
-      "data_date": "2026-07-30",
-      "sha256": "2f8885313d4a62e3a83b46b9e7b8193fec005d97463a5f83666243f159eeb885",
-      "generated_at": "2026-07-30T18:52:12+07:00"
+      "data_date": "2026-08-03",
+      "sha256": "647d5ca2f88abbbdd8642afd1739c2dffd9110e331113338747d3f16582eaed4",
+      "generated_at": "2026-08-03T16:24:30+07:00"
     },
     {
       "file": "ta_signals.csv",
       "role": "source",
-      "row_or_record_count": 703,
+      "row_or_record_count": 748,
       "count_basis": "csv_rows",
-      "data_date": "2026-07-30",
-      "sha256": "cd517287cf795a4c0092d06a35b5364c547ca98b205c1a632266d63598618c58",
-      "generated_at": "2026-08-03T01:02:30+07:00"
+      "data_date": "2026-08-03",
+      "sha256": "bf0f6db3629c4818257abdab6edefc10114a3afb94f87f9c839a3057661f66de",
+      "generated_at": "2026-08-03T20:12:57+07:00"
     },
     {
       "file": "analysis_latest.json",
       "role": "source",
-      "row_or_record_count": 871,
+      "row_or_record_count": 911,
       "count_basis": "json_ticker_scores",
-      "data_date": "2026-07-30",
-      "sha256": "19b9fa87fdff420c30d3d48f56ba301d235ffa93f8ad8030cbe1072dfb531401",
-      "generated_at": "2026-08-03T01:02:58+07:00"
+      "data_date": "2026-08-03",
+      "sha256": "db5e2cfc7ded20aa85e4ce87b8e6e8bf19d0bc22f2d62e0336d30065f872bd4e",
+      "generated_at": "2026-08-03T20:13:17+07:00"
     },
     {
       "file": "financial_snapshot.parquet",
@@ -1466,9 +1570,9 @@
       "role": "source",
       "row_or_record_count": 20,
       "count_basis": "csv_rows",
-      "data_date": "2026-07-30",
-      "sha256": "80e4fe977afa5a25c2e9a9b7945359985249a586478b97ae410a3d06361cadd7",
-      "generated_at": "2026-07-30T18:52:12+07:00"
+      "data_date": "2026-08-03",
+      "sha256": "e5ffa11464d7fad44a58b1cef1443bcb1aab134c93667573b76ec883ce51774c",
+      "generated_at": "2026-08-03T16:24:30+07:00"
     },
     {
       "file": "macro_snapshot.csv",
@@ -1476,16 +1580,16 @@
       "row_or_record_count": 17,
       "count_basis": "csv_rows_one_per_series",
       "data_date": null,
-      "sha256": "c5b8b2573fdfad25fe3a489da8ffe9d6a1dfd747d7399ee9d12f120181d1d963",
-      "generated_at": "2026-07-30T18:37:12+07:00"
+      "sha256": "bbedcf395c87568c931abf564821053849b186fa88eb731837cd90469456f95b",
+      "generated_at": "2026-08-03T16:23:30+07:00"
     },
     {
       "file": "Focus_Analysis.md",
       "role": "source",
       "row_or_record_count": 12,
       "count_basis": "markdown_ticker_sections",
-      "data_date": "2026-07-30",
-      "sha256": "c82fd5fb585cb705a84fc001fa443d7e9fa97c2b302063a91aacc73aa1bd881c",
+      "data_date": "2026-08-03",
+      "sha256": "e6c1768dc48e892f0398ef66c3052b9894083bfc2a70fcc8445c6b313b3ef61a",
       "warning": null
     },
     {
@@ -1495,9 +1599,9 @@
       "exists": true,
       "row_or_record_count": null,
       "count_basis": "single_ticker_package",
-      "data_date": "2026-07-30",
-      "sha256": "4bdc7295cf20451fea178667298d26eb9538cfc8d4d872bffba89060dd6ed9a1",
-      "generated_at": "2026-08-03T01:03:03+07:00"
+      "data_date": "2026-08-03",
+      "sha256": "aa4891b92fa207525eed3533bed80fc050c57e9d218009a0d016ab7a639f3993",
+      "generated_at": "2026-08-03T20:13:22+07:00"
     },
     {
       "file": "../ai-core-private/exports/context_packages/SSI_context.json",
@@ -1506,9 +1610,9 @@
       "exists": true,
       "row_or_record_count": null,
       "count_basis": "single_ticker_package",
-      "data_date": "2026-07-30",
-      "sha256": "0e47bc30ce2c90a1ad4c0406b6ca9cce23c1219dcbee1cbc2574b822026885b0",
-      "generated_at": "2026-08-03T01:03:04+07:00"
+      "data_date": "2026-08-03",
+      "sha256": "4beec31fa864b2c65eb859cd787a04d263b33193e0facf3660dc896d02bb2202",
+      "generated_at": "2026-08-03T20:13:23+07:00"
     },
     {
       "file": "../ai-core-private/exports/context_packages/HPG_context.json",
@@ -1517,9 +1621,9 @@
       "exists": true,
       "row_or_record_count": null,
       "count_basis": "single_ticker_package",
-      "data_date": "2026-07-30",
-      "sha256": "e663b62a9f4fa373ff6a2166d2e00952c712b0dc3a232a20157bbec412a3b129",
-      "generated_at": "2026-08-03T01:03:06+07:00"
+      "data_date": "2026-08-03",
+      "sha256": "0d2af4d949cf9fca882c4df72d3f3be03008b8275fafba93aeebca5cdbc3a15c",
+      "generated_at": "2026-08-03T20:13:24+07:00"
     },
     {
       "file": "../ai-core-private/exports/context_packages/EVF_context.json",
@@ -1528,9 +1632,9 @@
       "exists": true,
       "row_or_record_count": null,
       "count_basis": "single_ticker_package",
-      "data_date": "2026-07-30",
-      "sha256": "ee40869f8c9f2ee03ac2a15ddbc0c81f8571b45d90064cd17b7fc876b9845dd2",
-      "generated_at": "2026-08-03T01:03:08+07:00"
+      "data_date": "2026-08-03",
+      "sha256": "34b60af34d79952e410566a23b0af356e235a803674b43a9ba4323e970eb732a",
+      "generated_at": "2026-08-03T20:13:26+07:00"
     },
     {
       "file": "../ai-core-private/exports/context_packages/PAN_context.json",
@@ -1539,9 +1643,9 @@
       "exists": true,
       "row_or_record_count": null,
       "count_basis": "single_ticker_package",
-      "data_date": "2026-07-30",
-      "sha256": "72b19193bfb661392f2856e63bfe5f6d5898f34f2f4242d397a436d6691365ba",
-      "generated_at": "2026-08-03T01:03:09+07:00"
+      "data_date": "2026-08-03",
+      "sha256": "fb3675121b61ebe85be48136a58892c6441c543fd6355f5d77e71d2c7d0f3a43",
+      "generated_at": "2026-08-03T20:13:27+07:00"
     },
     {
       "file": "../ai-core-private/exports/context_packages/PNJ_context.json",
@@ -1550,9 +1654,9 @@
       "exists": true,
       "row_or_record_count": null,
       "count_basis": "single_ticker_package",
-      "data_date": "2026-07-30",
-      "sha256": "ef892ee43c4e652490a172512f2f86dbe66df906720d8b843f0d8dd2382ed6cd",
-      "generated_at": "2026-08-03T01:03:11+07:00"
+      "data_date": "2026-08-03",
+      "sha256": "0c0f44754bb5091164ff599e27adde6eef085c483597657613c269e0c148f175",
+      "generated_at": "2026-08-03T20:13:29+07:00"
     },
     {
       "file": "../ai-core-private/exports/context_packages/FPT_context.json",
@@ -1561,9 +1665,9 @@
       "exists": true,
       "row_or_record_count": null,
       "count_basis": "single_ticker_package",
-      "data_date": "2026-07-30",
-      "sha256": "2456c85f12a5ebcfb727dc217fc13b7cbb29e2cec92b8c12d7b73091c859fea3",
-      "generated_at": "2026-08-03T01:03:13+07:00"
+      "data_date": "2026-08-03",
+      "sha256": "f5569e77ca2cf14545a41a8af19c23de4e5f7af6be65272eaa3f155f8dd781d6",
+      "generated_at": "2026-08-03T20:13:30+07:00"
     },
     {
       "file": "../ai-core-private/exports/context_packages/QNS_context.json",
@@ -1572,9 +1676,9 @@
       "exists": true,
       "row_or_record_count": null,
       "count_basis": "single_ticker_package",
-      "data_date": "2026-07-30",
-      "sha256": "bf55fd85ca327d62e8b12419d428c03533fc091a08e2c37c2e06b0be39a2be2b",
-      "generated_at": "2026-08-03T01:03:15+07:00"
+      "data_date": "2026-08-03",
+      "sha256": "7575d8b28955e10db729c717a62a55072484ddc4736d79d7025e85810e17d3d7",
+      "generated_at": "2026-08-03T20:13:31+07:00"
     },
     {
       "file": "../ai-core-private/exports/context_packages/VNM_context.json",
@@ -1583,9 +1687,9 @@
       "exists": true,
       "row_or_record_count": null,
       "count_basis": "single_ticker_package",
-      "data_date": "2026-07-30",
-      "sha256": "461204dbb117d0b0df3a35a0c74b2849800a109acea7e81cf3e8073b926b1722",
-      "generated_at": "2026-08-03T01:03:17+07:00"
+      "data_date": "2026-08-03",
+      "sha256": "678ddefbbe482f6f3932f92d2474c34c519415de2b404cee07faad6706060eb9",
+      "generated_at": "2026-08-03T20:13:33+07:00"
     },
     {
       "file": "../ai-core-private/exports/context_packages/PVD_context.json",
@@ -1594,9 +1698,9 @@
       "exists": true,
       "row_or_record_count": null,
       "count_basis": "single_ticker_package",
-      "data_date": "2026-07-30",
-      "sha256": "d4a88a865355666755634cf03751a864c73d017fa020ead279f6849188112d42",
-      "generated_at": "2026-08-03T01:03:19+07:00"
+      "data_date": "2026-08-03",
+      "sha256": "fba20666a49d88f3399af596a8bd7b34934172338a3b476ec47e7f56785bbde6",
+      "generated_at": "2026-08-03T20:13:34+07:00"
     },
     {
       "file": "../ai-core-private/exports/context_packages/NVL_context.json",
@@ -1605,9 +1709,9 @@
       "exists": true,
       "row_or_record_count": null,
       "count_basis": "single_ticker_package",
-      "data_date": "2026-07-30",
-      "sha256": "79761188dab0523edade19cde485ddbb3341fe724601a4721d1dba979b66ee94",
-      "generated_at": "2026-08-03T01:03:20+07:00"
+      "data_date": "2026-08-03",
+      "sha256": "12efdd1aeca4e3ada1227b67dec40db41d99963431d8bb3c440ea39532ba6ee0",
+      "generated_at": "2026-08-03T20:13:36+07:00"
     },
     {
       "file": "../ai-core-private/exports/context_packages/VNINDEX_context.json",
@@ -1616,33 +1720,33 @@
       "exists": true,
       "row_or_record_count": null,
       "count_basis": "single_ticker_package",
-      "data_date": "2026-07-30",
-      "sha256": "ae7e46f7c746c1cb9371425b1aa44c451b6403695b6e43a05c813d4b82d86317",
-      "generated_at": "2026-07-30T18:46:56+07:00"
+      "data_date": "2026-08-03",
+      "sha256": "176b28c2c6e9ddb2bfea3ac0e48478d76d7344f9852d2518ff8deb22dfd9a1fc",
+      "generated_at": "2026-08-03T20:13:37+07:00"
     },
     {
       "file": "focus_extract.json",
       "role": "output",
       "row_or_record_count": 12,
       "count_basis": "tickers_in_bundle",
-      "data_date": "2026-07-30",
-      "sha256": "c3dd3752b1c26d59bfb50f7753242a6e292773d287e68907f4c9e3596c9ccb02"
+      "data_date": "2026-08-03",
+      "sha256": "3f4ccde52841b27721074e7602e8c64b48532403a238476a796028afaadd6e8e"
     },
     {
       "file": "analysis_bundle.json",
       "role": "output",
       "row_or_record_count": 12,
       "count_basis": "tickers_in_bundle",
-      "data_date": "2026-07-30",
-      "sha256": "813fcfc1b8364b9aa6d243526d4a7e65e6547b18d373f4f18313b21e89af1042"
+      "data_date": "2026-08-03",
+      "sha256": "870f0ac81f2d6472f7ac5c25b3598fe8c85bcff0a77844fbc0ff0eaf3cfdcbdb"
     },
     {
       "file": "statement_taxonomy_sidecar.json",
       "role": "generated_evidence",
       "row_or_record_count": 1380,
       "count_basis": "tickers_classified",
-      "data_date": "2026-07-30",
-      "sha256": "d4e5e73fa72e1d007ec7a7717413d1f6c606b557281d3baf365f89782b97c499"
+      "data_date": "2026-08-03",
+      "sha256": "5180ac6ec19d297c23e5d62fdacca0e17ecba9a54a207811d743f6d6e021a504"
     }
   ],
   "trusted_subset": {
@@ -1683,24 +1787,24 @@
       "VNM"
     ],
     "trust_state": "untrusted_basis",
-    "session_identity": "2026-07-30",
-    "generated_at": "2026-08-03T01:03:28+00:00",
+    "session_identity": "2026-08-03",
+    "generated_at": "2026-08-03T13:13:52+00:00",
     "bundle_filename": "analysis_bundle.json",
-    "bundle_sha256": "813fcfc1b8364b9aa6d243526d4a7e65e6547b18d373f4f18313b21e89af1042",
-    "bundle_reference_session_date": "2026-07-30",
-    "bundle_generated_at": "2026-08-03T01:03:28+00:00",
+    "bundle_sha256": "870f0ac81f2d6472f7ac5c25b3598fe8c85bcff0a77844fbc0ff0eaf3cfdcbdb",
+    "bundle_reference_session_date": "2026-08-03",
+    "bundle_generated_at": "2026-08-03T13:13:52+00:00",
     "required_artifacts": [
       {
         "file": "analysis_bundle.json",
-        "sha256": "813fcfc1b8364b9aa6d243526d4a7e65e6547b18d373f4f18313b21e89af1042"
+        "sha256": "870f0ac81f2d6472f7ac5c25b3598fe8c85bcff0a77844fbc0ff0eaf3cfdcbdb"
       },
       {
         "file": "focus_extract.json",
-        "sha256": "c3dd3752b1c26d59bfb50f7753242a6e292773d287e68907f4c9e3596c9ccb02"
+        "sha256": "3f4ccde52841b27721074e7602e8c64b48532403a238476a796028afaadd6e8e"
       },
       {
         "file": "statement_taxonomy_sidecar.json",
-        "sha256": "d4e5e73fa72e1d007ec7a7717413d1f6c606b557281d3baf365f89782b97c499"
+        "sha256": "5180ac6ec19d297c23e5d62fdacca0e17ecba9a54a207811d743f6d6e021a504"
       }
     ],
     "expected_artifact_filenames": [
@@ -1711,57 +1815,61 @@
     ],
     "per_ticker": {
       "EVF": {
-        "session_identity": "2026-07-30",
+        "session_identity": "2026-08-03",
         "required_current_fields_qualified": true,
         "warnings": []
       },
       "FPT": {
-        "session_identity": "2026-07-30",
+        "session_identity": "2026-08-03",
         "required_current_fields_qualified": true,
-        "warnings": []
+        "warnings": [
+          "khong_co_trong_ta_signals"
+        ]
       },
       "HPG": {
-        "session_identity": "2026-07-30",
+        "session_identity": "2026-08-03",
         "required_current_fields_qualified": true,
         "warnings": []
       },
       "NVL": {
-        "session_identity": "2026-07-30",
+        "session_identity": "2026-08-03",
         "required_current_fields_qualified": true,
-        "warnings": []
+        "warnings": [
+          "khong_co_trong_ta_signals"
+        ]
       },
       "PAN": {
-        "session_identity": "2026-07-30",
+        "session_identity": "2026-08-03",
         "required_current_fields_qualified": true,
         "warnings": []
       },
       "PNJ": {
-        "session_identity": "2026-07-30",
+        "session_identity": "2026-08-03",
         "required_current_fields_qualified": true,
         "warnings": []
       },
       "POW": {
-        "session_identity": "2026-07-30",
+        "session_identity": "2026-08-03",
         "required_current_fields_qualified": true,
         "warnings": []
       },
       "PVD": {
-        "session_identity": "2026-07-30",
+        "session_identity": "2026-08-03",
         "required_current_fields_qualified": true,
         "warnings": []
       },
       "QNS": {
-        "session_identity": "2026-07-30",
+        "session_identity": "2026-08-03",
         "required_current_fields_qualified": true,
         "warnings": []
       },
       "SSI": {
-        "session_identity": "2026-07-30",
+        "session_identity": "2026-08-03",
         "required_current_fields_qualified": true,
         "warnings": []
       },
       "VNM": {
-        "session_identity": "2026-07-30",
+        "session_identity": "2026-08-03",
         "required_current_fields_qualified": true,
         "warnings": []
       }
