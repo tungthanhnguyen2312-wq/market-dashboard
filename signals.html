@@ -18,14 +18,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=2026-07-27-bbce4fd-70cbfc7b98">
+<link rel="stylesheet" href="style.css?v=2026-08-04-4835e5e-a5ca2d38bd">
 
 <!-- Tailwind CSS build sẵn bằng CLI standalone (xem build_frontend.bat + tailwind.config.js)
      — thay cho Play CDN chạy JIT trong trình duyệt. Giữ NGUYÊN behavior cũ
      (corePlugins.preflight:false, theme.extend colors/fontFamily như cũ). -->
-<link rel="stylesheet" href="assets/css/tailwind.generated.css?v=2026-07-27-bbce4fd-70cbfc7b98">
-<link rel="stylesheet" href="assets/css/shell.css?v=2026-07-27-bbce4fd-70cbfc7b98">
-<link rel="stylesheet" href="assets/css/candlestick-patterns.css?v=2026-07-27-bbce4fd-70cbfc7b98">
+<link rel="stylesheet" href="assets/css/tailwind.generated.css?v=2026-08-04-4835e5e-a5ca2d38bd">
+<link rel="stylesheet" href="assets/css/shell.css?v=2026-08-04-4835e5e-a5ca2d38bd">
+<link rel="stylesheet" href="assets/css/candlestick-patterns.css?v=2026-08-04-4835e5e-a5ca2d38bd">
 <style>
   /* Theme cục bộ của trang — biến local trỏ sang token dùng chung của style.css
      (không khai báo lại --bg/--border/--text vì đã có ở :root của style.css). */
@@ -185,13 +185,13 @@
   </div>
 
 <script src="https://unpkg.com/lucide@1.24.0"></script>
-<script src="assets/js/shell.js?v=2026-07-27-bbce4fd-70cbfc7b98"></script>
+<script src="assets/js/shell.js?v=2026-08-04-4835e5e-a5ca2d38bd"></script>
 <!-- data/candle_signals.js, data/sector_heatmap.js, data/candlestick_patterns.js (fallback
      file://) KHÔNG còn tải tĩnh — loadData()/candlestick-patterns.js chỉ nạp động qua
      loadFallbackScript() khi thật sự cần. value-format.js phải load TRƯỚC 2 script dùng nó. -->
-<script src="assets/js/value-format.js?v=2026-07-27-bbce4fd-70cbfc7b98"></script>
-<script src="assets/js/company-panel.js?v=2026-07-27-bbce4fd-70cbfc7b98"></script>
-<script src="assets/js/candlestick-patterns.js?v=2026-07-27-bbce4fd-70cbfc7b98"></script>
+<script src="assets/js/value-format.js?v=2026-08-04-4835e5e-a5ca2d38bd"></script>
+<script src="assets/js/company-panel.js?v=2026-08-04-4835e5e-a5ca2d38bd"></script>
+<script src="assets/js/candlestick-patterns.js?v=2026-08-04-4835e5e-a5ca2d38bd"></script>
 <script>
 // Ưu tiên fetch JSON (chạy qua http.server / GitHub Pages); file:// hoặc fetch lỗi thì
 // nạp fallback .js tương ứng CHỈ lúc đó, không tải song song với fetch.

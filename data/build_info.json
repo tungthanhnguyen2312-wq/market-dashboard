@@ -1,35 +1,23 @@
 {
   "schema_version": 1,
-  "build_id": "2026-07-27-bbce4fd-70cbfc7b98",
-  "generated_at": "2026-07-28T14:37:18+07:00",
-  "market_session": "2026-07-27",
-  "git_commit": "bbce4fd540d06b6660f2324314ad599586f88b77",
+  "build_id": "2026-08-04-4835e5e-a5ca2d38bd",
+  "generated_at": "2026-08-05T09:49:41+07:00",
+  "market_session": "2026-08-04",
+  "git_commit": "4835e5ef80a0a79d7430eb88d19528fa3e6cc673",
   "row_counts": {
-    "screen_snapshot": 1580,
+    "screen_snapshot": 1582,
     "market_breadth": 20
-  },
-  "price_basis_contract": {
-    "price_basis": "unknown",
-    "price_basis_verified": false,
-    "is_actionable": false,
-    "volume_basis": "raw_shares_traded",
-    "volume_basis_verified": true,
-    "adjustment_source": null,
-    "effective_date": null,
-    "limitations": [
-      "Price basis is unverified or unknown; corporate actions may affect price and return calculations."
-    ]
   },
   "files": {
     "screen_snapshot.csv": {
-      "sha256": "0051bbfc3ff73bd7b5ca93b609f59a97be116c23827b5deba0c6a859da7f0af9",
-      "size": 518112,
-      "mtime": "2026-07-27T17:06:48+07:00"
+      "sha256": "93dce0a24c2840e3b286501c8f642284b2fb23bc03c884bf1a0441f275411e44",
+      "size": 551059,
+      "mtime": "2026-08-04T17:15:01+07:00"
     },
     "market_breadth.csv": {
-      "sha256": "94f9205c8d6cfab544be8cae7b6eec408ada9a6d90047d1df4f8e62aeb6eeca6",
-      "size": 1249,
-      "mtime": "2026-07-27T17:06:48+07:00"
+      "sha256": "b209ea1a3479167972442d13c3b73b0df36efab2b0bfa0a9d3dd4e9fe5889826",
+      "size": 1687,
+      "mtime": "2026-08-04T17:15:01+07:00"
     },
     "ai_report_latest.md": {
       "sha256": "5ca7bad344ed82d9034c39c96a338a6ae988bb931e0127776782d516109cd0cf",
@@ -42,9 +30,9 @@
       "mtime": "2026-07-11T05:48:59+07:00"
     },
     "data/screener_data.js": {
-      "sha256": "61f52bb1f9e571dbbbd935eb6e710a481d950b7b478ec33d71d313013be1d6e8",
-      "size": 1471045,
-      "mtime": "2026-07-28T14:37:18+07:00"
+      "sha256": "2316f3a48879ef288515ce26b735ccc9bcd0c3a6c4dd97b0cbcd57e9a5a6c7d7",
+      "size": 1544058,
+      "mtime": "2026-08-05T09:49:41+07:00"
     }
   }
 }
