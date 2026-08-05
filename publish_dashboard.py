@@ -28,8 +28,23 @@ import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
+from atomic_io import atomic_copy_file, atomic_write_file, validate_json_file
 import release_session_contract
 import trusted_subset_contract
+try:
+    from observability_events import (
+        EventOutcome,
+        EventStage,
+        build_observability_event,
+        emit_observability_event,
+    )
+except ImportError:
+    from stock_core_private.observability_events import (
+        EventOutcome,
+        EventStage,
+        build_observability_event,
+        emit_observability_event,
+    )
 
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -156,7 +171,7 @@ def write_if_changed(path: Path, content: str) -> bool:
     path.parent.mkdir(parents=True, exist_ok=True)
     if path.exists() and path.read_text(encoding="utf-8") == content:
         return False
-    path.write_text(content, encoding="utf-8", newline="\n")
+    atomic_write_file(path, content, encoding="utf-8", newline="\n")
     return True
 
 
@@ -197,7 +212,8 @@ def copy_public_artifacts() -> list[str]:
         target.parent.mkdir(parents=True, exist_ok=True)
         if target.exists() and sha256(source) == sha256(target):
             continue
-        shutil.copy2(source, target)
+        validator = validate_json_file if relative.endswith(".json") else None
+        atomic_copy_file(source, target, validator=validator)
         copied.append(relative)
     log(f"Đã copy {len(copied)} artifact từ backend: {', '.join(copied) or '(không đổi)'}")
     return copied
@@ -220,7 +236,7 @@ def validate_release_session() -> release_session_contract.ReleaseSessionReport:
     already sitting in WEB_ROOT. Runs against BACKEND_ROOT (the fresh generation root;
     identical to WEB_ROOT in a single-root invocation) so a leftover stale WEB_ROOT copy
     from a previous publish can never mask itself as current — see
-    docs/dashboard_release_session_contract.md (stock-core-private)."""
+    docs/dashboard_release_session_contract.md."""
     root = BACKEND_ROOT
     required = list(REQUIRED_SESSION_ARTIFACTS)
     required += [name for name in OPTIONAL_SESSION_ARTIFACTS if (root / name).is_file()]
@@ -355,6 +371,40 @@ def compute_manifest(rows: list[dict[str, str]], breadth: list[dict[str, str]],
         # chưa có mtime thật; live apply sẽ có mtime thật sau khi write_build_manifest() ghi file.
         "mtime": None,
     }
+    bundle_path = source_root("analysis_bundle.json") / "analysis_bundle.json"
+
+    basis_contract: dict[str, object] = {
+        "price_basis": "unknown",
+        "price_basis_verified": False,
+        "is_actionable": False,
+        "volume_basis": "unknown",
+        "volume_basis_verified": False,
+        "adjustment_source": None,
+        "effective_date": None,
+        "limitations": ["Price basis is unverified or unknown; corporate actions may affect price and return calculations."],
+    }
+    if bundle_path.exists():
+        try:
+            b_data = json.loads(bundle_path.read_text(encoding="utf-8"))
+            if isinstance(b_data, dict):
+                prov = b_data.get("price_basis_provenance")
+                if isinstance(prov, dict):
+                    basis_contract.update({
+                        "price_basis": prov.get("price_basis", b_data.get("price_basis", "unknown")),
+                        "price_basis_verified": prov.get("price_basis_verified", b_data.get("price_basis_verified", False)),
+                        "is_actionable": prov.get("is_actionable", False),
+                        "volume_basis": prov.get("volume_basis", "unknown"),
+                        "volume_basis_verified": prov.get("volume_basis_verified", False) is True,
+                        "adjustment_source": prov.get("adjustment_source"),
+                        "effective_date": prov.get("effective_date"),
+                        "limitations": prov.get("limitations", basis_contract["limitations"]),
+                    })
+                elif "price_basis" in b_data:
+                    basis_contract["price_basis"] = str(b_data["price_basis"])
+                    basis_contract["price_basis_verified"] = b_data.get("price_basis_verified") is True
+        except (OSError, json.JSONDecodeError):
+            pass
+
     manifest: dict[str, object] = {
         "schema_version": 1,
         "build_id": build_id,
@@ -362,6 +412,7 @@ def compute_manifest(rows: list[dict[str, str]], breadth: list[dict[str, str]],
         "market_session": market_session,
         "git_commit": head,
         "row_counts": {"screen_snapshot": len(rows), "market_breadth": len(breadth)},
+        "price_basis_contract": basis_contract,
         "files": files,
     }
     return manifest, screener_js_content
@@ -393,6 +444,23 @@ def write_build_manifest(manifest: dict[str, object], screener_js_content: str) 
     # Parse lại chính artifact vừa tạo; hỏng JSON phải dừng trước git.
     json.loads(existing_path.read_text(encoding="utf-8"))
     log(f"Build manifest: {manifest['build_id']} · {manifest['generated_at']}")
+    try:
+        bc = manifest.get("price_basis_contract", {})
+        ev = build_observability_event(
+            EventStage.PUBLISH_DASHBOARD,
+            EventOutcome.SUCCESS,
+            artifact_filename="build_info.json",
+            sha256=hashlib.sha256(existing_path.read_bytes()).hexdigest(),
+            size_bytes=existing_path.stat().st_size,
+            price_basis=bc.get("price_basis") if isinstance(bc, dict) else None,
+            volume_basis=bc.get("volume_basis") if isinstance(bc, dict) else None,
+            is_actionable=bc.get("is_actionable") if isinstance(bc, dict) else None,
+            is_live_write=True,
+            target_path=existing_path,
+        )
+        emit_observability_event(ev, WEB_ROOT / "logs" / "observability_events.jsonl")
+    except Exception:
+        pass
     return manifest
 
 
@@ -586,6 +654,9 @@ def main() -> int:
     mode = "LIVE" if args.live else "DRY-RUN (read-only)"
     log(f"=== publish_dashboard {mode} ===")
     log(f"Backend={BACKEND_ROOT} · Web={WEB_ROOT}")
+
+    if BACKEND_ROOT.resolve() == WEB_ROOT.resolve() and not args.isolated_test_fixture:
+        return fail(f"BACKEND_ROOT và WEB_ROOT trùng nhau ({BACKEND_ROOT}). Cannot publish backend artifacts from web root to itself. Set STOCK_LOOKUP_BACKEND_DIR to point to dashboard-runtime (e.g. C:\\Projects\\StockLookup\\dashboard-runtime).")
 
     try:
         branch, _remote, head = git_preflight()
