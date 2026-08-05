@@ -36,7 +36,22 @@ if hasattr(sys.stdout, "reconfigure"):
 
 VN_TZ = timezone(timedelta(hours=7))
 SCRIPT_ROOT = Path(__file__).resolve().parent
-BACKEND_ROOT = Path(os.environ.get("STOCK_LOOKUP_BACKEND_DIR", SCRIPT_ROOT)).expanduser().resolve()
+
+def get_default_backend_root() -> Path:
+    if os.environ.get("STOCK_LOOKUP_BACKEND_DIR"):
+        return Path(os.environ["STOCK_LOOKUP_BACKEND_DIR"]).expanduser().resolve()
+    if os.environ.get("STOCK_LOOKUP_RUNTIME_ROOT"):
+        return Path(os.environ["STOCK_LOOKUP_RUNTIME_ROOT"]).expanduser().resolve()
+    for candidate_dir in (
+        SCRIPT_ROOT / ".." / "dashboard-runtime",
+        SCRIPT_ROOT / ".." / ".." / "dashboard-runtime",
+    ):
+        cand = candidate_dir.resolve()
+        if cand.is_dir() and (cand / "screen_snapshot.csv").is_file():
+            return cand
+    return SCRIPT_ROOT
+
+BACKEND_ROOT = get_default_backend_root()
 WEB_ROOT = Path(os.environ.get("STOCK_LOOKUP_WEB_DIR", SCRIPT_ROOT)).expanduser().resolve()
 
 # LIVE_MODE gates every filesystem/log write in this module. main() sets it
@@ -50,7 +65,7 @@ _RUN_TIMESTAMP = f"{datetime.now(VN_TZ):%Y%m%d-%H%M%S}"
 
 COPY_ARTIFACTS = (
     "screen_snapshot.csv", "market_breadth.csv",
-    "ai_report_latest.md", "ai_report_latest.json", "analysis_bundle.json",
+    "ai_report_latest.md", "ai_report_latest.json",
     "data/macro_snapshot.json", "data/macro_snapshot.js",
     "data/candlestick_patterns.json", "data/candlestick_patterns.js",
     "data/candle_signals.json", "data/candle_signals.js",
@@ -73,13 +88,13 @@ ASSET_VERSION_ATTR_RE = re.compile(r'(?P<prefix>\b(?:src|href)=["\'])(?P<url>[^"
 # instead of a hardcoded WEB_ROOT is what makes the dry-run preview and a live write
 # agree on content/build_id, and what lets session validation see the fresh generation
 # instead of the previous publish's already-copied — possibly stale — file.
-BACKEND_SOURCED = {"screen_snapshot.csv", "market_breadth.csv", "analysis_bundle.json",
+BACKEND_SOURCED = {"screen_snapshot.csv", "market_breadth.csv",
                    "ai_report_latest.md", "ai_report_latest.json"}
 # screen_snapshot_live.csv is not copied by this publisher (see COPY_ARTIFACTS) but is
 # generated alongside screen_snapshot.csv by the same vn_indicators.py run, so its
 # session is cross-checked here whenever it is present.
 REQUIRED_SESSION_ARTIFACTS = ("screen_snapshot.csv", "market_breadth.csv")
-OPTIONAL_SESSION_ARTIFACTS = ("screen_snapshot_live.csv", "analysis_bundle.json")
+OPTIONAL_SESSION_ARTIFACTS = ("screen_snapshot_live.csv",)
 
 
 def source_root(relative: str) -> Path:
@@ -213,7 +228,7 @@ def validate_release_session() -> release_session_contract.ReleaseSessionReport:
 
 
 def validate_snapshot() -> tuple[list[dict[str, str]], list[dict[str, str]], str]:
-    rows, fields = read_csv_rows(source_root("screen_snapshot.csv") / "screen_snapshot.csv")
+    rows, fields = read_csv_rows(BACKEND_ROOT / "screen_snapshot.csv")
     missing = REQUIRED_SNAPSHOT_COLUMNS - set(fields)
     if missing:
         raise ValueError(f"screen_snapshot.csv thiếu cột: {', '.join(sorted(missing))}")
@@ -239,7 +254,7 @@ def validate_snapshot() -> tuple[list[dict[str, str]], list[dict[str, str]], str
     if not active_dates:
         raise ValueError("không xác định được phiên mới nhất của mã đang niêm yết")
     market_session = max(active_dates)
-    breadth, _ = read_csv_rows(source_root("market_breadth.csv") / "market_breadth.csv")
+    breadth, _ = read_csv_rows(BACKEND_ROOT / "market_breadth.csv")
     log(f"Snapshot hợp lệ: {len(rows)} mã, {len(breadth)} dòng breadth, phiên {market_session}, HPG=HSX.")
     return rows, breadth, market_session
 
@@ -561,10 +576,9 @@ def publish_live(whitelist: list[str], branch: str) -> int:
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Build/publish dashboard. Mặc định (không --live) là dry-run "
-                     "read-only tuyệt đối: không copy, không ghi manifest, không sửa "
-                     "HTML/CSS/JS, không ghi log, không git mutation — chỉ in kế hoạch.")
+        description="Build/publish dashboard with atomic writes, asset versioning, basis contracts, and Phase 2A pipeline integration.")
     parser.add_argument("--live", action="store_true", help="cho phép ghi file, fetch/pull/add/commit/push thật")
+    parser.add_argument("--isolated-test-fixture", action="store_true", help="cho phép BACKEND_ROOT trùng WEB_ROOT trong môi trường test isolated")
     args = parser.parse_args()
 
     global LIVE_MODE
