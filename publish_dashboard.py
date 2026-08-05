@@ -29,6 +29,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import release_session_contract
+import trusted_subset_contract
 
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -459,6 +460,26 @@ def build_whitelist() -> list[str]:
     return sorted(cleaned)
 
 
+def run_release_smoke_tests() -> int:
+    """Run tests/release-smoke.test.js against WEB_ROOT — the exact post-copy worktree —
+    via `node --test`. LIVE only, and only after copy_public_artifacts()/write_build_manifest()
+    have run: a dry-run has not copied anything yet, so there is no post-copy worktree to
+    test. This is the authoritative content check trusted_subset_contract cannot perform
+    (rendered HTML, per-ticker Altman/statement-taxonomy sections) — it must pass before
+    any git add/commit/push. See tests/release-smoke.test.js's own docstring: it runs
+    against the committed analysis_bundle.json/bundle_manifest.json, not a fixture."""
+    test_path = WEB_ROOT / "tests" / "release-smoke.test.js"
+    if not test_path.is_file():
+        log(f"[LỖI] không thấy {test_path} — release-smoke bắt buộc trước khi commit.")
+        return 1
+    proc = subprocess.run(["node", "--test", str(test_path)], cwd=WEB_ROOT,
+                          capture_output=True, text=True, encoding="utf-8", errors="replace")
+    for stream in (proc.stdout, proc.stderr):
+        if stream:
+            log(stream.rstrip())
+    return proc.returncode
+
+
 def git_preflight() -> tuple[str, str, str]:
     ok, root = git("rev-parse", "--show-toplevel")
     if not ok or Path(root).resolve() != WEB_ROOT:
@@ -597,6 +618,30 @@ def main() -> int:
         whitelist = build_whitelist()
     except (OSError, ValueError, json.JSONDecodeError, csv.Error) as exc:
         return fail(str(exc))
+
+    # Post-copy, pre-commit gate: analysis_bundle.json is a member of the exact-session
+    # trusted subset that tools/publish_release.py owns (bundle_manifest.json,
+    # focus_extract.json, statement_taxonomy_sidecar.json alongside it). Copying it here
+    # without that subset already having been published together produces a mixed
+    # release — exactly what happened in commit fbaf1fe (2026-08-05): a fresh
+    # analysis_bundle.json committed next to a bundle_manifest.json still naming the
+    # previous session's hash. Refuse before any git mutation, not after.
+    # Scoped to analysis_bundle.json: the only trusted-subset member this publisher ever
+    # copies. An unrelated stale/undeclared sibling (e.g. a taxonomy sidecar
+    # tools/publish_release.py's own manifest legitimately excluded for this session) is
+    # not this publisher's concern and must not block its otherwise-unrelated commit.
+    trusted_report = trusted_subset_contract.verify_trusted_subset(WEB_ROOT, scope=("analysis_bundle.json",))
+    for line in trusted_report.render():
+        log(line)
+    if not trusted_report.ready:
+        return fail("trusted-subset verification failed — see TRUSTED_SUBSET_MISMATCH above; "
+                     "no git mutation performed. Publish the trusted subset with "
+                     "tools/publish_release.py first.")
+
+    smoke_rc = run_release_smoke_tests()
+    if smoke_rc != 0:
+        return fail(f"tests/release-smoke.test.js failed with exit code {smoke_rc}; "
+                     "no git mutation performed")
 
     ok, diff_check = git("diff", "--check", "--", *whitelist)
     if not ok:

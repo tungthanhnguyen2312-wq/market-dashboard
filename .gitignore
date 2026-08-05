@@ -38,8 +38,10 @@ ai_prompt_preview.txt
 *.py
 # Operational publisher source; keep this one entry point visible to Git.
 !publish_dashboard.py
-# publish_dashboard.py's release-session validation dependency — must ship with it.
+# publish_dashboard.py's release-session/trusted-subset validation dependencies — must
+# ship alongside it or the import fails on a fresh clone.
 !release_session_contract.py
+!trusted_subset_contract.py
 # ...trừ bộ test hồi quy (fixture bịa, không có dữ liệu thật — commit kèm repo 12/07;
 # lưu ý test cần stock_analyzer.py nằm cạnh nên chỉ chạy được trên máy local)
 !tests/**/*.py

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import importlib.util
 import json
 import sys
@@ -120,6 +121,145 @@ class ReleaseSessionGateTests(unittest.TestCase):
 
             self.assertTrue(report.ready)
             self.assertEqual(report.session, "2026-08-04")
+
+
+class _FakeGit:
+    """Answers only the read-only git() queries a --live run needs for a clean, conflict-
+    free repo with a pending unrelated change; raises on anything unexpected instead of
+    silently faking a mutating command."""
+
+    def __init__(self, root: Path, branch: str = "main"):
+        self.root = root
+        self.branch = branch
+        self.calls: list[tuple[str, ...]] = []
+        self.status_output = " M dashboard.html\n"
+
+    def __call__(self, *args: str, timeout: int = 180):
+        self.calls.append(args)
+        if args == ("rev-parse", "--show-toplevel"):
+            return True, str(self.root)
+        if args == ("branch", "--show-current"):
+            return True, self.branch
+        if args == ("remote", "get-url", "origin"):
+            return True, "https://example.invalid/repo.git"
+        if args == ("diff", "--name-only", "--diff-filter=U"):
+            return True, ""
+        if args == ("rev-parse", "HEAD"):
+            return True, "0" * 40
+        if args[:2] == ("show", "-s"):
+            return True, "2026-08-05T00:00:00+07:00"
+        if args == ("fetch", "origin", self.branch):
+            return True, ""
+        if args == ("rev-parse", f"origin/{self.branch}"):
+            return True, "0" * 40
+        if args and args[0] == "rev-list":
+            return True, "0\t0"
+        if args[:3] == ("diff", "--check", "--"):
+            return True, ""
+        if args[:2] == ("status", "--porcelain"):
+            return True, self.status_output
+        raise AssertionError(f"Unexpected git() call in test: {args!r}")
+
+
+def _backend_fixture(root: Path, session: str) -> None:
+    root.mkdir(parents=True, exist_ok=True)
+    (root / "bundle_manifest.json").write_text(json.dumps({
+        "freshness": {"reference_session": session, "blocked": False, "status": "fresh"},
+    }), encoding="utf-8")
+    (root / "screen_snapshot.csv").write_text(_snapshot_csv(session), encoding="utf-8")
+    (root / "market_breadth.csv").write_text(f"group,date,n_up\nALL,{session},1\n", encoding="utf-8")
+    (root / "analysis_bundle.json").write_text(
+        json.dumps({"reference_session_date": session}), encoding="utf-8")
+
+
+class AtomicTrustedSubsetReleaseTests(unittest.TestCase):
+    """Reproduces commit fbaf1fe (2026-08-05) in this worktree's own publish_dashboard.py:
+    a fresh analysis_bundle.json copied from BACKEND_ROOT must never reach git
+    add/commit/push while WEB_ROOT's bundle_manifest.json (tools/publish_release.py's
+    domain) still names a different session's hash for it."""
+
+    def setUp(self):
+        self.backend_dir = tempfile.TemporaryDirectory()
+        self.web_dir = tempfile.TemporaryDirectory()
+        self.addCleanup(self.backend_dir.cleanup)
+        self.addCleanup(self.web_dir.cleanup)
+        self.backend, self.web = Path(self.backend_dir.name), Path(self.web_dir.name)
+        _backend_fixture(self.backend, "2026-08-04")
+        for name in ("app.js", "style.css", "assets/js/value-format.js",
+                    "assets/js/company-panel.js", "assets/css/tailwind.generated.css"):
+            (self.web / name).parent.mkdir(parents=True, exist_ok=True)
+            (self.web / name).write_text("/* fixture */\n", encoding="utf-8")
+        (self.web / "dashboard.html").write_text(
+            '<html><head><link href="style.css"><script src="app.js"></script></head>'
+            "<body></body></html>\n", encoding="utf-8")
+        for relative in sorted(publisher.SAFE_WEB_ARTIFACTS):
+            path = self.web / relative
+            if path.exists():
+                continue
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text("{}\n" if relative.endswith(".json") else "/* fixture */\n", encoding="utf-8")
+
+        self.fake_git = _FakeGit(self.web)
+        self._orig_backend, self._orig_web = publisher.BACKEND_ROOT, publisher.WEB_ROOT
+        self._orig_live = publisher.LIVE_MODE
+        publisher.BACKEND_ROOT, publisher.WEB_ROOT = self.backend, self.web
+        self.addCleanup(self._restore)
+
+    def _restore(self):
+        publisher.BACKEND_ROOT, publisher.WEB_ROOT = self._orig_backend, self._orig_web
+        publisher.LIVE_MODE = self._orig_live
+
+    def _run_live(self):
+        with mock.patch.object(publisher, "git", self.fake_git), \
+             mock.patch("sys.argv", ["publish_dashboard.py", "--live"]):
+            return publisher.main()
+
+    def test_mixed_release_is_blocked_before_any_git_mutation(self):
+        (self.web / "bundle_manifest.json").write_text(json.dumps({
+            "trusted_subset": {
+                "session_identity": "2026-08-03",
+                "required_artifacts": [{"file": "analysis_bundle.json", "sha256": "0" * 64}],
+                "expected_artifact_filenames": ["analysis_bundle.json", "bundle_manifest.json"],
+            },
+        }), encoding="utf-8")
+
+        with mock.patch.object(publisher, "run_release_smoke_tests") as m_smoke, \
+             mock.patch.object(publisher, "publish_live") as m_publish:
+            rc = self._run_live()
+
+        self.assertEqual(rc, 1)
+        self.assertTrue((self.web / "analysis_bundle.json").exists())
+        m_smoke.assert_not_called()
+        m_publish.assert_not_called()
+        mutating = {"add", "commit", "push"}
+        used = {call[0] for call in self.fake_git.calls if call}
+        self.assertFalse(used & mutating, "Mixed release phải bị chặn trước mọi git mutation")
+
+    def test_matching_manifest_reaches_publish_live(self):
+        digest = hashlib.sha256((self.backend / "analysis_bundle.json").read_bytes()).hexdigest()
+        (self.web / "bundle_manifest.json").write_text(json.dumps({
+            "trusted_subset": {
+                "session_identity": "2026-08-04",
+                "required_artifacts": [{"file": "analysis_bundle.json", "sha256": digest}],
+                "expected_artifact_filenames": ["analysis_bundle.json", "bundle_manifest.json"],
+            },
+        }), encoding="utf-8")
+
+        with mock.patch.object(publisher, "run_release_smoke_tests", return_value=0), \
+             mock.patch.object(publisher, "publish_live", return_value=0) as m_publish:
+            rc = self._run_live()
+        self.assertEqual(rc, 0)
+        m_publish.assert_called_once()
+
+    def test_release_smoke_failure_blocks_before_git_mutation(self):
+        with mock.patch.object(publisher, "run_release_smoke_tests", return_value=1), \
+             mock.patch.object(publisher, "publish_live") as m_publish:
+            rc = self._run_live()
+        self.assertEqual(rc, 1)
+        m_publish.assert_not_called()
+        mutating = {"add", "commit", "push"}
+        used = {call[0] for call in self.fake_git.calls if call}
+        self.assertFalse(used & mutating)
 
 
 if __name__ == "__main__":
