@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "build_id": "2026-08-04-87a9d95-c3587b4bf5",
-  "generated_at": "2026-08-05T20:26:05+07:00",
-  "market_session": "2026-08-04",
-  "git_commit": "87a9d95c244b0a44bae73b147a4ab93e9e13f147",
+  "build_id": "2026-08-06-336cef0-f1bc9b1d07",
+  "generated_at": "2026-08-06T17:25:24+07:00",
+  "market_session": "2026-08-06",
+  "git_commit": "336cef0cfe350e7a0c95521c614af31dd936081a",
   "row_counts": {
     "screen_snapshot": 1582,
     "market_breadth": 20
@@ -22,14 +22,14 @@
   },
   "files": {
     "screen_snapshot.csv": {
-      "sha256": "b66bd2cc417904a0b31e39102b653a4b51e4f7c990677bbfb750f169d6a77c34",
-      "size": 551059,
-      "mtime": "2026-08-05T10:07:42+07:00"
+      "sha256": "aa03460480570b2ac3cf1164c67bbc0f09eb223b587da2846da8665795cccb50",
+      "size": 550686,
+      "mtime": "2026-08-06T15:56:10+07:00"
     },
     "market_breadth.csv": {
-      "sha256": "9f0cc7e13c2c6caf26f4488228c0e34b2c115e43d83919560104bdac5d7a6106",
-      "size": 1687,
-      "mtime": "2026-08-05T10:07:42+07:00"
+      "sha256": "963b8cdd9b77c6d991b105cb644d763e19e12759c33b60d4b960adaa8e78ecce",
+      "size": 1685,
+      "mtime": "2026-08-06T15:56:10+07:00"
     },
     "ai_report_latest.md": {
       "sha256": "5ca7bad344ed82d9034c39c96a338a6ae988bb931e0127776782d516109cd0cf",
@@ -42,9 +42,9 @@
       "mtime": "2026-07-11T05:48:59+07:00"
     },
     "data/screener_data.js": {
-      "sha256": "69a6ce94d56eb11b2a68d1593860fb2905146469a738035811d4547b89a5c192",
-      "size": 1544058,
-      "mtime": "2026-08-05T20:26:06+07:00"
+      "sha256": "2d1ff0828fed30a575be6f7950ae47b7c5eba247b12d4731d4f26e0ec1a6485f",
+      "size": 1543767,
+      "mtime": "2026-08-06T17:25:25+07:00"
     }
   }
 }
