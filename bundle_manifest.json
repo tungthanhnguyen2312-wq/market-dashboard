@@ -8,13 +8,13 @@
     "statement_taxonomy_sidecar.json"
   ],
   "statement_taxonomy_sidecar": {
-    "present": false,
-    "records_fingerprint": null,
-    "input_fingerprint": null,
-    "session_identity": null,
+    "present": true,
+    "records_fingerprint": "fc8f077e965877b0c160d5b0de2c2004f5758c6036453bae0bacbd11bb70a6d1",
+    "input_fingerprint": "ba009fe4e46331df44838b277fe54cef4319872d2a3520aceeb7752a66f6c8c5",
+    "session_identity": "2026-08-07",
     "authority_level": "generated_evidence"
   },
-  "generated_at": "2026-08-07T11:51:55+00:00",
+  "generated_at": "2026-08-07T14:50:33+00:00",
   "tickers": [
     "POW",
     "SSI",
@@ -121,20 +121,6 @@
       "metric": null,
       "evidence": "khong_co_trong_ta_signals",
       "consumer_action": "Investigate the missing source before treating this ticker's data as complete."
-    },
-    {
-      "scope": "pipeline",
-      "ticker": null,
-      "code": "statement_taxonomy_sidecar_session_mismatch",
-      "severity": "warning",
-      "detail": "statement_taxonomy_sidecar.json is bound to session '2026-08-06' but this export references session '2026-08-07'; the sidecar was ignored and no generated taxonomy evidence was applied.",
-      "message": "statement_taxonomy_sidecar.json is bound to session '2026-08-06' but this export references session '2026-08-07'; the sidecar was ignored and no generated taxonomy evidence was applied.",
-      "metric": "statement_taxonomy",
-      "evidence": {
-        "sidecar_session_identity": "2026-08-06",
-        "export_session_identity": "2026-08-07"
-      },
-      "consumer_action": "Rebuild the sidecar for the current session with tools/build_statement_taxonomy_sidecar.py, then re-export."
     },
     {
       "scope": "ticker",
@@ -1605,7 +1591,7 @@
       "row_or_record_count": 11,
       "count_basis": "tickers_in_bundle",
       "data_date": "2026-08-07",
-      "sha256": "4b677b5052afe5e47628254b91bbb57733974e19eb50a473a376568e082c14bb"
+      "sha256": "42ff75be4ed3272228167c20787e89e4d5a15bf54ce487cef32aec477f531d34"
     },
     {
       "file": "analysis_bundle.json",
@@ -1613,7 +1599,15 @@
       "row_or_record_count": 11,
       "count_basis": "tickers_in_bundle",
       "data_date": "2026-08-07",
-      "sha256": "0328ca85ae2c2968597acc24d588d6c058cf8fc9a7fd64562173c46c5753eea1"
+      "sha256": "2029aeb1cebf5aef1183f24a09a3cad98af6c5e668aac0e4d30b5521eff201df"
+    },
+    {
+      "file": "statement_taxonomy_sidecar.json",
+      "role": "generated_evidence",
+      "row_or_record_count": 1380,
+      "count_basis": "tickers_classified",
+      "data_date": "2026-08-07",
+      "sha256": "fb63d19a570458891c9afe08717db7ce754ec89b0af5c9a76d1c95fe053d5fdf"
     }
   ],
   "trusted_subset": {
@@ -1648,25 +1642,30 @@
     ],
     "trust_state": "untrusted_basis",
     "session_identity": "2026-08-07",
-    "generated_at": "2026-08-07T11:51:55+00:00",
+    "generated_at": "2026-08-07T14:50:33+00:00",
     "bundle_filename": "analysis_bundle.json",
-    "bundle_sha256": "0328ca85ae2c2968597acc24d588d6c058cf8fc9a7fd64562173c46c5753eea1",
+    "bundle_sha256": "2029aeb1cebf5aef1183f24a09a3cad98af6c5e668aac0e4d30b5521eff201df",
     "bundle_reference_session_date": "2026-08-07",
-    "bundle_generated_at": "2026-08-07T11:51:55+00:00",
+    "bundle_generated_at": "2026-08-07T14:50:33+00:00",
     "required_artifacts": [
       {
         "file": "analysis_bundle.json",
-        "sha256": "0328ca85ae2c2968597acc24d588d6c058cf8fc9a7fd64562173c46c5753eea1"
+        "sha256": "2029aeb1cebf5aef1183f24a09a3cad98af6c5e668aac0e4d30b5521eff201df"
       },
       {
         "file": "focus_extract.json",
-        "sha256": "4b677b5052afe5e47628254b91bbb57733974e19eb50a473a376568e082c14bb"
+        "sha256": "42ff75be4ed3272228167c20787e89e4d5a15bf54ce487cef32aec477f531d34"
+      },
+      {
+        "file": "statement_taxonomy_sidecar.json",
+        "sha256": "fb63d19a570458891c9afe08717db7ce754ec89b0af5c9a76d1c95fe053d5fdf"
       }
     ],
     "expected_artifact_filenames": [
       "analysis_bundle.json",
       "bundle_manifest.json",
-      "focus_extract.json"
+      "focus_extract.json",
+      "statement_taxonomy_sidecar.json"
     ],
     "per_ticker": {
       "EVF": {
