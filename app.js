@@ -665,9 +665,12 @@ function activeMarketSession(rows) {
 function updateMarketFreshness(rows, source) {
   const session = currentBuildInfo?.market_session || activeMarketSession(rows);
   const published = currentBuildInfo?.generated_at || "chưa có manifest";
-  const snapshotAt = currentBuildInfo?.files?.["screen_snapshot.csv"]?.mtime || published;
+  // build_info.files[*].mtime is raw filesystem mtime of the source CSV, not a data/session
+  // timestamp -- session (above) is the content-derived market session; this is diagnostic
+  // file metadata only, labeled accordingly rather than as "snapshot".
+  const fileMtime = currentBuildInfo?.files?.["screen_snapshot.csv"]?.mtime || published;
   const buildId = currentBuildInfo?.build_id || "legacy";
-  document.getElementById("market-last-updated").textContent = `Phiên ${session} · snapshot ${snapshotAt} · pipeline local`;
+  document.getElementById("market-last-updated").textContent = `Phiên ${session} · file mtime ${fileMtime} · pipeline local`;
   document.getElementById("build-status").textContent = `Xuất bản ${published} · build ${buildId} · ${source}`;
 }
 
