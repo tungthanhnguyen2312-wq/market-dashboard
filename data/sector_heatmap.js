@@ -1,5 +1,5 @@
 window.SECTOR_HEATMAP = {
-  "generated_at": "2026-08-07T09:21:30Z",
+  "generated_at": "2026-08-09T03:05:55Z",
   "scan_date": "2026-08-07",
   "sectors": [
     {
