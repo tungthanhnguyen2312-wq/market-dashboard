@@ -1,6 +1,6 @@
 {
   "schema_version": "1.1.0",
-  "generated_at": "2026-08-09T03:26:09+00:00",
+  "generated_at": "2026-08-09T11:01:19+00:00",
   "reference_session_date": "2026-08-07",
   "tickers_requested": [
     "POW",
@@ -3937,7 +3937,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -4011,7 +4011,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -4148,7 +4148,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -4410,7 +4410,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -5005,6 +5005,15 @@
         }
       ],
       "ohlcv_recent_count": 30,
+      "ohlcv_provider_provenance": {
+        "ticker": "POW",
+        "session_count": 30,
+        "sources_seen": [
+          "VCI"
+        ],
+        "pure": true,
+        "provider": "VCI"
+      },
       "corporate_intelligence": {
         "status": "available",
         "company_profile": {
@@ -8042,7 +8051,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -12048,7 +12057,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -12111,7 +12120,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -12248,7 +12257,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -12510,7 +12519,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -13091,6 +13100,15 @@
         }
       ],
       "ohlcv_recent_count": 30,
+      "ohlcv_provider_provenance": {
+        "ticker": "SSI",
+        "session_count": 30,
+        "sources_seen": [
+          "VCI"
+        ],
+        "pure": true,
+        "provider": "VCI"
+      },
       "corporate_intelligence": {
         "status": "available",
         "company_profile": {
@@ -15764,7 +15782,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -24485,7 +24503,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "status": "available",
         "methods": {
           "fcff_dcf": {
@@ -24521,7 +24539,7 @@
             "method_version": "1.0.0",
             "state": "available",
             "applicability": "applicable",
-            "valuation_date": "2026-08-09T03:26:09.790678+00:00",
+            "valuation_date": "2026-08-09T11:01:19.039692+00:00",
             "historical_input_periods": [
               "2024",
               "2024",
@@ -24563,7 +24581,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "state": "partial",
         "is_actionable": false,
         "evidence_inventory": {
@@ -25110,7 +25128,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -25372,7 +25390,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -25988,6 +26006,15 @@
         }
       ],
       "ohlcv_recent_count": 30,
+      "ohlcv_provider_provenance": {
+        "ticker": "HPG",
+        "session_count": 30,
+        "sources_seen": [
+          "VCI"
+        ],
+        "pure": true,
+        "provider": "VCI"
+      },
       "corporate_intelligence": {
         "status": "available",
         "company_profile": {
@@ -29227,7 +29254,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -33642,7 +33669,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -33716,7 +33743,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -33851,7 +33878,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -34113,7 +34140,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -34708,6 +34735,15 @@
         }
       ],
       "ohlcv_recent_count": 30,
+      "ohlcv_provider_provenance": {
+        "ticker": "EVF",
+        "session_count": 30,
+        "sources_seen": [
+          "VCI"
+        ],
+        "pure": true,
+        "provider": "VCI"
+      },
       "corporate_intelligence": {
         "status": "partial",
         "company_profile": {
@@ -35036,7 +35072,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -42370,7 +42406,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -42444,7 +42480,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -42579,7 +42615,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -42841,7 +42877,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -43436,6 +43472,15 @@
         }
       ],
       "ohlcv_recent_count": 30,
+      "ohlcv_provider_provenance": {
+        "ticker": "PAN",
+        "session_count": 30,
+        "sources_seen": [
+          "VCI"
+        ],
+        "pure": true,
+        "provider": "VCI"
+      },
       "corporate_intelligence": {
         "status": "available",
         "company_profile": {
@@ -44484,7 +44529,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -48244,7 +48289,7 @@
       },
       "fundamental_quality": {
         "schema_version": "1.2.0",
-        "entity_type": "unknown",
+        "entity_type": "corporate",
         "models": {
           "growth_profitability": {
             "model_name": "growth_profitability",
@@ -48490,7 +48535,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -48564,7 +48609,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -48701,7 +48746,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -48963,7 +49008,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -49558,6 +49603,15 @@
         }
       ],
       "ohlcv_recent_count": 30,
+      "ohlcv_provider_provenance": {
+        "ticker": "PNJ",
+        "session_count": 30,
+        "sources_seen": [
+          "VCI"
+        ],
+        "pure": true,
+        "provider": "VCI"
+      },
       "corporate_intelligence": {
         "status": "missing",
         "company_profile": {
@@ -49680,7 +49734,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -49734,11 +49788,11 @@
         }
       },
       "warnings": [],
-      "entity_type": "unknown",
+      "entity_type": "corporate",
       "opportunity_ranking": {
         "schema_version": "1.0.0",
         "ticker": "PNJ",
-        "entity_type": "unknown",
+        "entity_type": "corporate",
         "state": "unknown",
         "dimensions": {
           "financial_quality": {
@@ -53686,7 +53740,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -53760,7 +53814,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -53897,7 +53951,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -54159,7 +54213,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -54754,6 +54808,15 @@
         }
       ],
       "ohlcv_recent_count": 30,
+      "ohlcv_provider_provenance": {
+        "ticker": "FPT",
+        "session_count": 30,
+        "sources_seen": [
+          "VCI"
+        ],
+        "pure": true,
+        "provider": "VCI"
+      },
       "corporate_intelligence": {
         "status": "missing",
         "company_profile": {
@@ -54876,7 +54939,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -58621,7 +58684,7 @@
       },
       "fundamental_quality": {
         "schema_version": "1.2.0",
-        "entity_type": "unknown",
+        "entity_type": "corporate",
         "models": {
           "growth_profitability": {
             "model_name": "growth_profitability",
@@ -58867,7 +58930,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -58941,7 +59004,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -59078,7 +59141,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -59340,7 +59403,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -59935,6 +59998,15 @@
         }
       ],
       "ohlcv_recent_count": 30,
+      "ohlcv_provider_provenance": {
+        "ticker": "QNS",
+        "session_count": 30,
+        "sources_seen": [
+          "VCI"
+        ],
+        "pure": true,
+        "provider": "VCI"
+      },
       "corporate_intelligence": {
         "status": "missing",
         "company_profile": {
@@ -60057,7 +60129,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -60113,11 +60185,11 @@
       "warnings": [
         "khong_co_trong_ta_signals"
       ],
-      "entity_type": "unknown",
+      "entity_type": "corporate",
       "opportunity_ranking": {
         "schema_version": "1.0.0",
         "ticker": "QNS",
-        "entity_type": "unknown",
+        "entity_type": "corporate",
         "state": "unknown",
         "dimensions": {
           "financial_quality": {
@@ -65570,7 +65642,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "status": "available",
         "methods": {
           "fcff_dcf": {
@@ -65606,7 +65678,7 @@
             "method_version": "1.0.0",
             "state": "available",
             "applicability": "applicable",
-            "valuation_date": "2026-08-09T03:26:09.790678+00:00",
+            "valuation_date": "2026-08-09T11:01:19.039692+00:00",
             "historical_input_periods": [
               "2024",
               "2024",
@@ -65648,7 +65720,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "state": "partial",
         "is_actionable": false,
         "evidence_inventory": {
@@ -66197,7 +66269,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -66459,7 +66531,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -67072,6 +67144,15 @@
         }
       ],
       "ohlcv_recent_count": 30,
+      "ohlcv_provider_provenance": {
+        "ticker": "VNM",
+        "session_count": 30,
+        "sources_seen": [
+          "VCI"
+        ],
+        "pure": true,
+        "provider": "VCI"
+      },
       "corporate_intelligence": {
         "status": "missing",
         "company_profile": {
@@ -69447,7 +69528,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -73616,7 +73697,7 @@
       },
       "fundamental_quality": {
         "schema_version": "1.2.0",
-        "entity_type": "unknown",
+        "entity_type": "corporate",
         "models": {
           "growth_profitability": {
             "model_name": "growth_profitability",
@@ -73862,7 +73943,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -73936,7 +74017,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -74073,7 +74154,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -74335,7 +74416,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -74930,6 +75011,15 @@
         }
       ],
       "ohlcv_recent_count": 30,
+      "ohlcv_provider_provenance": {
+        "ticker": "PVD",
+        "session_count": 30,
+        "sources_seen": [
+          "VCI"
+        ],
+        "pure": true,
+        "provider": "VCI"
+      },
       "corporate_intelligence": {
         "status": "missing",
         "company_profile": {
@@ -75052,7 +75142,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -75106,11 +75196,11 @@
         }
       },
       "warnings": [],
-      "entity_type": "unknown",
+      "entity_type": "corporate",
       "opportunity_ranking": {
         "schema_version": "1.0.0",
         "ticker": "PVD",
-        "entity_type": "unknown",
+        "entity_type": "corporate",
         "state": "unknown",
         "dimensions": {
           "financial_quality": {
@@ -78817,7 +78907,7 @@
       },
       "fundamental_quality": {
         "schema_version": "1.2.0",
-        "entity_type": "unknown",
+        "entity_type": "corporate",
         "models": {
           "growth_profitability": {
             "model_name": "growth_profitability",
@@ -79063,7 +79153,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -79137,7 +79227,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -79274,7 +79364,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -79536,7 +79626,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -80131,6 +80221,15 @@
         }
       ],
       "ohlcv_recent_count": 30,
+      "ohlcv_provider_provenance": {
+        "ticker": "NVL",
+        "session_count": 30,
+        "sources_seen": [
+          "VCI"
+        ],
+        "pure": true,
+        "provider": "VCI"
+      },
       "corporate_intelligence": {
         "status": "missing",
         "company_profile": {
@@ -80253,7 +80352,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-09T03:26:09.790678+00:00",
+        "reference_at": "2026-08-09T11:01:19.039692+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -80307,11 +80406,11 @@
         }
       },
       "warnings": [],
-      "entity_type": "unknown",
+      "entity_type": "corporate",
       "opportunity_ranking": {
         "schema_version": "1.0.0",
         "ticker": "NVL",
-        "entity_type": "unknown",
+        "entity_type": "corporate",
         "state": "unknown",
         "dimensions": {
           "financial_quality": {
