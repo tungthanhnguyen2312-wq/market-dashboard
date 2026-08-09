@@ -345,6 +345,28 @@ function renderRunSummary(p) {
     </ul>`;
 }
 
+/* Producer-owned research changes: this renderer never compares states itself. */
+function renderResearchChanges(p) {
+  const target = document.getElementById("research-changes");
+  if (!target) return;
+  const raw = p.research_changes;
+  if (!raw || !Array.isArray(raw.events)) {
+    target.innerHTML = '<span class="text-muted small">No validated research-change data in this artifact.</span>';
+    return;
+  }
+  const valid = raw.events.filter((event) => event && typeof event.event_id === "string" &&
+    typeof event.family === "string" && Array.isArray(event.provenance_references));
+  if (valid.length !== raw.events.length) {
+    target.innerHTML = '<span class="text-muted small">Research-change data is unavailable.</span>';
+    return;
+  }
+  if (!valid.length || raw.status === "NO_CHANGE") {
+    target.innerHTML = '<span class="text-muted small">No qualified research change.</span>';
+    return;
+  }
+  target.innerHTML = valid.map((event) => `<div class="small mb-2"><b>${esc(event.ticker || "")}</b> · ${esc(event.family)}<br>${esc(event.previous)} → ${esc(event.current)}<br><span class="text-muted">${esc((event.provenance_references || []).join(", "))}</span></div>`).join("");
+}
+
 /* ============================================================
  * KHỞI CHẠY — fetch + try/catch, không bao giờ để trang trắng
  * ============================================================ */
@@ -382,4 +404,5 @@ document.addEventListener("DOMContentLoaded", async () => {
   try { renderMacro(payload); } catch (e) { console.error("macro:", e); hideCard("card-macro"); }
   try { renderRisks(payload); } catch (e) { console.error("risks:", e); hideCard("card-risks"); }
   try { renderRunSummary(payload); } catch (e) { console.error("summary:", e); hideCard("card-summary"); }
+  try { renderResearchChanges(payload); } catch (e) { console.error("research changes:", e); }
 });
