@@ -1,6 +1,6 @@
 {
   "schema_version": "1.1.0",
-  "generated_at": "2026-08-07T14:50:33+00:00",
+  "generated_at": "2026-08-09T03:26:09+00:00",
   "reference_session_date": "2026-08-07",
   "tickers_requested": [
     "POW",
@@ -129,14 +129,14 @@
         "canonical_source": "screen_snapshot_live.csv:rs_rating (tính 1 lần trong vn_indicators.py main(), percentile-rank chỉ trên tập mã LIVE — xem P0-1).",
         "canonical_as_of": "2026-08-07T16:21:25+07:00",
         "ta_signals_cached_rs_rating": 76.0,
-        "ta_signals_cached_as_of": "2026-08-07T16:24:45+07:00",
+        "ta_signals_cached_as_of": "2026-08-09T10:10:23+07:00",
         "matches_canonical": true,
         "explanation": "Khớp — ta_signals.csv đang phản ánh đúng lần chạy vn_indicators.py gần nhất."
       },
       "ta_signal": {
         "ticker": "POW",
         "date": "2026-08-07",
-        "source_generated_at": "2026-08-07T09:21:30Z",
+        "source_generated_at": "2026-08-09T03:05:55Z",
         "close": 13600.0,
         "volume": 6926700,
         "patterns": null,
@@ -3937,7 +3937,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -4011,7 +4011,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -4148,7 +4148,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -4410,7 +4410,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -7731,7 +7731,7 @@
             "source": "VCI",
             "freshness_status": "stale",
             "expected_update_frequency": "1d",
-            "stale_reason": "source_age_12d_exceeds_7d_grace",
+            "stale_reason": "source_age_14d_exceeds_7d_grace",
             "is_actionable": false
           }
         },
@@ -8014,7 +8014,7 @@
           "is_actionable": true
         },
         "technical_signals": {
-          "generated_at": "2026-08-07T09:21:30+00:00",
+          "generated_at": "2026-08-09T03:05:55+00:00",
           "as_of_date": "2026-08-07",
           "source": "ta_signals.csv",
           "freshness_status": "current",
@@ -8023,7 +8023,7 @@
           "is_actionable": true
         },
         "ai_report": {
-          "generated_at": "2026-08-07T18:13:00+00:00",
+          "generated_at": "2026-08-09T10:11:00+00:00",
           "as_of_date": "2026-08-07",
           "source": "analysis_latest.json",
           "freshness_status": "current",
@@ -8042,7 +8042,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -8240,14 +8240,14 @@
         "canonical_source": "screen_snapshot_live.csv:rs_rating (tính 1 lần trong vn_indicators.py main(), percentile-rank chỉ trên tập mã LIVE — xem P0-1).",
         "canonical_as_of": "2026-08-07T16:21:25+07:00",
         "ta_signals_cached_rs_rating": 36.0,
-        "ta_signals_cached_as_of": "2026-08-07T16:24:45+07:00",
+        "ta_signals_cached_as_of": "2026-08-09T10:10:23+07:00",
         "matches_canonical": true,
         "explanation": "Khớp — ta_signals.csv đang phản ánh đúng lần chạy vn_indicators.py gần nhất."
       },
       "ta_signal": {
         "ticker": "SSI",
         "date": "2026-08-07",
-        "source_generated_at": "2026-08-07T09:21:30Z",
+        "source_generated_at": "2026-08-09T03:05:55Z",
         "close": 24450.0,
         "volume": 13285400,
         "patterns": "bullish_engulfing",
@@ -12048,7 +12048,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -12111,7 +12111,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -12248,7 +12248,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -12510,7 +12510,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -15549,7 +15549,7 @@
             "source": "VCI",
             "freshness_status": "stale",
             "expected_update_frequency": "1d",
-            "stale_reason": "source_age_12d_exceeds_7d_grace",
+            "stale_reason": "source_age_14d_exceeds_7d_grace",
             "is_actionable": false
           }
         },
@@ -15736,7 +15736,7 @@
           "is_actionable": true
         },
         "technical_signals": {
-          "generated_at": "2026-08-07T09:21:30+00:00",
+          "generated_at": "2026-08-09T03:05:55+00:00",
           "as_of_date": "2026-08-07",
           "source": "ta_signals.csv",
           "freshness_status": "current",
@@ -15745,7 +15745,7 @@
           "is_actionable": true
         },
         "ai_report": {
-          "generated_at": "2026-08-07T18:13:00+00:00",
+          "generated_at": "2026-08-09T10:11:00+00:00",
           "as_of_date": "2026-08-07",
           "source": "analysis_latest.json",
           "freshness_status": "current",
@@ -15764,7 +15764,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -15962,14 +15962,14 @@
         "canonical_source": "screen_snapshot_live.csv:rs_rating (tính 1 lần trong vn_indicators.py main(), percentile-rank chỉ trên tập mã LIVE — xem P0-1).",
         "canonical_as_of": "2026-08-07T16:21:25+07:00",
         "ta_signals_cached_rs_rating": 59.0,
-        "ta_signals_cached_as_of": "2026-08-07T16:24:45+07:00",
+        "ta_signals_cached_as_of": "2026-08-09T10:10:23+07:00",
         "matches_canonical": true,
         "explanation": "Khớp — ta_signals.csv đang phản ánh đúng lần chạy vn_indicators.py gần nhất."
       },
       "ta_signal": {
         "ticker": "HPG",
         "date": "2026-08-07",
-        "source_generated_at": "2026-08-07T09:21:30Z",
+        "source_generated_at": "2026-08-09T03:05:55Z",
         "close": 22000.0,
         "volume": 13018100,
         "patterns": null,
@@ -24485,7 +24485,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "status": "available",
         "methods": {
           "fcff_dcf": {
@@ -24521,7 +24521,7 @@
             "method_version": "1.0.0",
             "state": "available",
             "applicability": "applicable",
-            "valuation_date": "2026-08-07T14:50:33.795561+00:00",
+            "valuation_date": "2026-08-09T03:26:09.790678+00:00",
             "historical_input_periods": [
               "2024",
               "2024",
@@ -24563,7 +24563,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "state": "partial",
         "is_actionable": false,
         "evidence_inventory": {
@@ -25110,7 +25110,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -25372,7 +25372,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -28830,7 +28830,7 @@
             "source": "VCI",
             "freshness_status": "stale",
             "expected_update_frequency": "1d",
-            "stale_reason": "source_age_12d_exceeds_7d_grace",
+            "stale_reason": "source_age_14d_exceeds_7d_grace",
             "is_actionable": false
           }
         },
@@ -29161,7 +29161,7 @@
           "is_actionable": true
         },
         "technical_signals": {
-          "generated_at": "2026-08-07T09:21:30+00:00",
+          "generated_at": "2026-08-09T03:05:55+00:00",
           "as_of_date": "2026-08-07",
           "source": "ta_signals.csv",
           "freshness_status": "current",
@@ -29170,7 +29170,7 @@
           "is_actionable": true
         },
         "ai_report": {
-          "generated_at": "2026-08-07T18:13:00+00:00",
+          "generated_at": "2026-08-09T10:11:00+00:00",
           "as_of_date": "2026-08-07",
           "source": "analysis_latest.json",
           "freshness_status": "current",
@@ -29227,7 +29227,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -29834,14 +29834,14 @@
         "canonical_source": "screen_snapshot_live.csv:rs_rating (tính 1 lần trong vn_indicators.py main(), percentile-rank chỉ trên tập mã LIVE — xem P0-1).",
         "canonical_as_of": "2026-08-07T16:21:25+07:00",
         "ta_signals_cached_rs_rating": 59.0,
-        "ta_signals_cached_as_of": "2026-08-07T16:24:45+07:00",
+        "ta_signals_cached_as_of": "2026-08-09T10:10:23+07:00",
         "matches_canonical": true,
         "explanation": "Khớp — ta_signals.csv đang phản ánh đúng lần chạy vn_indicators.py gần nhất."
       },
       "ta_signal": {
         "ticker": "EVF",
         "date": "2026-08-07",
-        "source_generated_at": "2026-08-07T09:21:30Z",
+        "source_generated_at": "2026-08-09T03:05:55Z",
         "close": 12350.0,
         "volume": 1233200,
         "patterns": "doji",
@@ -33642,7 +33642,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -33716,7 +33716,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -33851,7 +33851,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -34113,7 +34113,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -35008,7 +35008,7 @@
           "is_actionable": true
         },
         "technical_signals": {
-          "generated_at": "2026-08-07T09:21:30+00:00",
+          "generated_at": "2026-08-09T03:05:55+00:00",
           "as_of_date": "2026-08-07",
           "source": "ta_signals.csv",
           "freshness_status": "current",
@@ -35017,7 +35017,7 @@
           "is_actionable": true
         },
         "ai_report": {
-          "generated_at": "2026-08-07T18:13:00+00:00",
+          "generated_at": "2026-08-09T10:11:00+00:00",
           "as_of_date": "2026-08-07",
           "source": "analysis_latest.json",
           "freshness_status": "current",
@@ -35036,7 +35036,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -35234,14 +35234,14 @@
         "canonical_source": "screen_snapshot_live.csv:rs_rating (tính 1 lần trong vn_indicators.py main(), percentile-rank chỉ trên tập mã LIVE — xem P0-1).",
         "canonical_as_of": "2026-08-07T16:21:25+07:00",
         "ta_signals_cached_rs_rating": 38.0,
-        "ta_signals_cached_as_of": "2026-08-07T16:24:45+07:00",
+        "ta_signals_cached_as_of": "2026-08-09T10:10:23+07:00",
         "matches_canonical": true,
         "explanation": "Khớp — ta_signals.csv đang phản ánh đúng lần chạy vn_indicators.py gần nhất."
       },
       "ta_signal": {
         "ticker": "PAN",
         "date": "2026-08-07",
-        "source_generated_at": "2026-08-07T09:21:30Z",
+        "source_generated_at": "2026-08-09T03:05:55Z",
         "close": 20800.0,
         "volume": 271500,
         "patterns": null,
@@ -42370,7 +42370,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -42444,7 +42444,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -42579,7 +42579,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -42841,7 +42841,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -44456,7 +44456,7 @@
           "is_actionable": true
         },
         "technical_signals": {
-          "generated_at": "2026-08-07T09:21:30+00:00",
+          "generated_at": "2026-08-09T03:05:55+00:00",
           "as_of_date": "2026-08-07",
           "source": "ta_signals.csv",
           "freshness_status": "current",
@@ -44465,7 +44465,7 @@
           "is_actionable": true
         },
         "ai_report": {
-          "generated_at": "2026-08-07T18:13:00+00:00",
+          "generated_at": "2026-08-09T10:11:00+00:00",
           "as_of_date": "2026-08-07",
           "source": "analysis_latest.json",
           "freshness_status": "current",
@@ -44484,7 +44484,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -44682,14 +44682,14 @@
         "canonical_source": "screen_snapshot_live.csv:rs_rating (tính 1 lần trong vn_indicators.py main(), percentile-rank chỉ trên tập mã LIVE — xem P0-1).",
         "canonical_as_of": "2026-08-07T16:21:25+07:00",
         "ta_signals_cached_rs_rating": 6.0,
-        "ta_signals_cached_as_of": "2026-08-07T16:24:45+07:00",
+        "ta_signals_cached_as_of": "2026-08-09T10:10:23+07:00",
         "matches_canonical": true,
         "explanation": "Khớp — ta_signals.csv đang phản ánh đúng lần chạy vn_indicators.py gần nhất."
       },
       "ta_signal": {
         "ticker": "PNJ",
         "date": "2026-08-07",
-        "source_generated_at": "2026-08-07T09:21:30Z",
+        "source_generated_at": "2026-08-09T03:05:55Z",
         "close": 36000.0,
         "volume": 3949500,
         "patterns": "doji",
@@ -48490,7 +48490,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -48564,7 +48564,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -48701,7 +48701,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -48963,7 +48963,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -49652,7 +49652,7 @@
           "is_actionable": true
         },
         "technical_signals": {
-          "generated_at": "2026-08-07T09:21:30+00:00",
+          "generated_at": "2026-08-09T03:05:55+00:00",
           "as_of_date": "2026-08-07",
           "source": "ta_signals.csv",
           "freshness_status": "current",
@@ -49661,7 +49661,7 @@
           "is_actionable": true
         },
         "ai_report": {
-          "generated_at": "2026-08-07T18:13:00+00:00",
+          "generated_at": "2026-08-09T10:11:00+00:00",
           "as_of_date": "2026-08-07",
           "source": "analysis_latest.json",
           "freshness_status": "current",
@@ -49680,7 +49680,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -49878,14 +49878,14 @@
         "canonical_source": "screen_snapshot_live.csv:rs_rating (tính 1 lần trong vn_indicators.py main(), percentile-rank chỉ trên tập mã LIVE — xem P0-1).",
         "canonical_as_of": "2026-08-07T16:21:25+07:00",
         "ta_signals_cached_rs_rating": 33.0,
-        "ta_signals_cached_as_of": "2026-08-07T16:24:45+07:00",
+        "ta_signals_cached_as_of": "2026-08-09T10:10:23+07:00",
         "matches_canonical": true,
         "explanation": "Khớp — ta_signals.csv đang phản ánh đúng lần chạy vn_indicators.py gần nhất."
       },
       "ta_signal": {
         "ticker": "FPT",
         "date": "2026-08-07",
-        "source_generated_at": "2026-08-07T09:21:30Z",
+        "source_generated_at": "2026-08-09T03:05:55Z",
         "close": 70800.0,
         "volume": 4301800,
         "patterns": null,
@@ -53686,7 +53686,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -53760,7 +53760,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -53897,7 +53897,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -54159,7 +54159,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -54848,7 +54848,7 @@
           "is_actionable": true
         },
         "technical_signals": {
-          "generated_at": "2026-08-07T09:21:30+00:00",
+          "generated_at": "2026-08-09T03:05:55+00:00",
           "as_of_date": "2026-08-07",
           "source": "ta_signals.csv",
           "freshness_status": "current",
@@ -54857,7 +54857,7 @@
           "is_actionable": true
         },
         "ai_report": {
-          "generated_at": "2026-08-07T18:13:00+00:00",
+          "generated_at": "2026-08-09T10:11:00+00:00",
           "as_of_date": "2026-08-07",
           "source": "analysis_latest.json",
           "freshness_status": "current",
@@ -54876,7 +54876,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -55074,7 +55074,7 @@
         "canonical_source": "screen_snapshot_live.csv:rs_rating (tính 1 lần trong vn_indicators.py main(), percentile-rank chỉ trên tập mã LIVE — xem P0-1).",
         "canonical_as_of": "2026-08-07T16:21:25+07:00",
         "ta_signals_cached_rs_rating": null,
-        "ta_signals_cached_as_of": "2026-08-07T16:24:45+07:00",
+        "ta_signals_cached_as_of": "2026-08-09T10:10:23+07:00",
         "matches_canonical": null,
         "explanation": "Thiếu ít nhất một trong hai giá trị (mã không live hoặc không có tín hiệu) — không so sánh được."
       },
@@ -58867,7 +58867,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -58941,7 +58941,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -59078,7 +59078,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -59340,7 +59340,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -60038,7 +60038,7 @@
           "is_actionable": false
         },
         "ai_report": {
-          "generated_at": "2026-08-07T18:13:00+00:00",
+          "generated_at": "2026-08-09T10:11:00+00:00",
           "as_of_date": "2026-08-07",
           "source": "analysis_latest.json",
           "freshness_status": "current",
@@ -60057,7 +60057,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -60257,14 +60257,14 @@
         "canonical_source": "screen_snapshot_live.csv:rs_rating (tính 1 lần trong vn_indicators.py main(), percentile-rank chỉ trên tập mã LIVE — xem P0-1).",
         "canonical_as_of": "2026-08-07T16:21:25+07:00",
         "ta_signals_cached_rs_rating": 79.0,
-        "ta_signals_cached_as_of": "2026-08-07T16:24:45+07:00",
+        "ta_signals_cached_as_of": "2026-08-09T10:10:23+07:00",
         "matches_canonical": true,
         "explanation": "Khớp — ta_signals.csv đang phản ánh đúng lần chạy vn_indicators.py gần nhất."
       },
       "ta_signal": {
         "ticker": "VNM",
         "date": "2026-08-07",
-        "source_generated_at": "2026-08-07T09:21:30Z",
+        "source_generated_at": "2026-08-09T03:05:55Z",
         "close": 62000.0,
         "volume": 13239500,
         "patterns": null,
@@ -65570,7 +65570,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "status": "available",
         "methods": {
           "fcff_dcf": {
@@ -65606,7 +65606,7 @@
             "method_version": "1.0.0",
             "state": "available",
             "applicability": "applicable",
-            "valuation_date": "2026-08-07T14:50:33.795561+00:00",
+            "valuation_date": "2026-08-09T03:26:09.790678+00:00",
             "historical_input_periods": [
               "2024",
               "2024",
@@ -65648,7 +65648,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "state": "partial",
         "is_actionable": false,
         "evidence_inventory": {
@@ -66197,7 +66197,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -66459,7 +66459,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -69098,7 +69098,7 @@
             "source": "VCI",
             "freshness_status": "stale",
             "expected_update_frequency": "1d",
-            "stale_reason": "source_age_12d_exceeds_7d_grace",
+            "stale_reason": "source_age_14d_exceeds_7d_grace",
             "is_actionable": false
           }
         },
@@ -69381,7 +69381,7 @@
           "is_actionable": true
         },
         "technical_signals": {
-          "generated_at": "2026-08-07T09:21:30+00:00",
+          "generated_at": "2026-08-09T03:05:55+00:00",
           "as_of_date": "2026-08-07",
           "source": "ta_signals.csv",
           "freshness_status": "current",
@@ -69390,7 +69390,7 @@
           "is_actionable": true
         },
         "ai_report": {
-          "generated_at": "2026-08-07T18:13:00+00:00",
+          "generated_at": "2026-08-09T10:11:00+00:00",
           "as_of_date": "2026-08-07",
           "source": "analysis_latest.json",
           "freshness_status": "current",
@@ -69447,7 +69447,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -70054,14 +70054,14 @@
         "canonical_source": "screen_snapshot_live.csv:rs_rating (tính 1 lần trong vn_indicators.py main(), percentile-rank chỉ trên tập mã LIVE — xem P0-1).",
         "canonical_as_of": "2026-08-07T16:21:25+07:00",
         "ta_signals_cached_rs_rating": 13.0,
-        "ta_signals_cached_as_of": "2026-08-07T16:24:45+07:00",
+        "ta_signals_cached_as_of": "2026-08-09T10:10:23+07:00",
         "matches_canonical": true,
         "explanation": "Khớp — ta_signals.csv đang phản ánh đúng lần chạy vn_indicators.py gần nhất."
       },
       "ta_signal": {
         "ticker": "PVD",
         "date": "2026-08-07",
-        "source_generated_at": "2026-08-07T09:21:30Z",
+        "source_generated_at": "2026-08-09T03:05:55Z",
         "close": 18050.0,
         "volume": 5506200,
         "patterns": null,
@@ -73862,7 +73862,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -73936,7 +73936,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -74073,7 +74073,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -74335,7 +74335,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -75024,7 +75024,7 @@
           "is_actionable": true
         },
         "technical_signals": {
-          "generated_at": "2026-08-07T09:21:30+00:00",
+          "generated_at": "2026-08-09T03:05:55+00:00",
           "as_of_date": "2026-08-07",
           "source": "ta_signals.csv",
           "freshness_status": "current",
@@ -75033,7 +75033,7 @@
           "is_actionable": true
         },
         "ai_report": {
-          "generated_at": "2026-08-07T18:13:00+00:00",
+          "generated_at": "2026-08-09T10:11:00+00:00",
           "as_of_date": "2026-08-07",
           "source": "analysis_latest.json",
           "freshness_status": "current",
@@ -75052,7 +75052,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -75250,14 +75250,14 @@
         "canonical_source": "screen_snapshot_live.csv:rs_rating (tính 1 lần trong vn_indicators.py main(), percentile-rank chỉ trên tập mã LIVE — xem P0-1).",
         "canonical_as_of": "2026-08-07T16:21:25+07:00",
         "ta_signals_cached_rs_rating": 56.0,
-        "ta_signals_cached_as_of": "2026-08-07T16:24:45+07:00",
+        "ta_signals_cached_as_of": "2026-08-09T10:10:23+07:00",
         "matches_canonical": true,
         "explanation": "Khớp — ta_signals.csv đang phản ánh đúng lần chạy vn_indicators.py gần nhất."
       },
       "ta_signal": {
         "ticker": "NVL",
         "date": "2026-08-07",
-        "source_generated_at": "2026-08-07T09:21:30Z",
+        "source_generated_at": "2026-08-09T03:05:55Z",
         "close": 13900.0,
         "volume": 14985900,
         "patterns": "bullish_engulfing",
@@ -79063,7 +79063,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -79137,7 +79137,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -79274,7 +79274,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -79536,7 +79536,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -80225,7 +80225,7 @@
           "is_actionable": true
         },
         "technical_signals": {
-          "generated_at": "2026-08-07T09:21:30+00:00",
+          "generated_at": "2026-08-09T03:05:55+00:00",
           "as_of_date": "2026-08-07",
           "source": "ta_signals.csv",
           "freshness_status": "current",
@@ -80234,7 +80234,7 @@
           "is_actionable": true
         },
         "ai_report": {
-          "generated_at": "2026-08-07T18:13:00+00:00",
+          "generated_at": "2026-08-09T10:11:00+00:00",
           "as_of_date": "2026-08-07",
           "source": "analysis_latest.json",
           "freshness_status": "current",
@@ -80253,7 +80253,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-07T14:50:33.795561+00:00",
+        "reference_at": "2026-08-09T03:26:09.790678+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
