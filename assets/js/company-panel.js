@@ -178,6 +178,17 @@
     const parts = [subsection("Company profile", corporate.company_profile, renderProfile), subsection("Ownership structure", corporate.ownership_structure, renderOwnership), subsection("Major shareholders", majorShareholders, renderMajorShareholders), subsection("Company subsidiaries", corporate.company_subsidiaries, renderSubsidiaries), subsection("Corporate Events", corporate.corporate_events, renderCorporateEvents)].filter(Boolean);
     return `<section class="cp-ci"><h3>Corporate Intelligence</h3>${parts.length ? parts.join("") : `<div class="cp-ci-notice cp-ci-missing">${esc(statusMessage("missing"))}</div>`}</section>`;
   }
+
+  function renderQualifiedResearchBrief(brief) {
+    if (!isObject(brief)) return '<section class="company-section research-brief"><h3>Qualified historical research</h3><p>Research brief is unavailable in this legacy bundle.</p></section>';
+    const facts = Array.isArray(brief.qualified_facts) ? brief.qualified_facts.slice(0, 8) : [];
+    const quality = isObject(brief.quality) ? Object.values(brief.quality) : [];
+    const scenarios = isObject(brief.scenarios) ? ["bear", "base", "bull"].map((name) => [name, brief.scenarios[name]]).filter(([, value]) => isObject(value)) : [];
+    const liquidity = isObject(brief.portfolio_risk_boundary) ? brief.portfolio_risk_boundary.liquidity : null;
+    const conclusion = isObject(brief.historical_conclusion) ? brief.historical_conclusion : {};
+    return `<section class="company-section research-brief"><h3>Qualified historical research</h3><p><b>${esc(brief.ticker || "")}</b> · ${esc(brief.entity_type || "unknown")} · historical-only / non-actionable</p><p><b>Historical conclusion:</b> ${esc(conclusion.status || "insufficient_evidence")} — ${esc(conclusion.rationale || "")}</p><h4>Qualified facts</h4><ul>${facts.map((f) => `<li>${esc(f.canonical_metric)} (${esc(f.reporting_period)}): ${displayValue(f.value)}</li>`).join("") || "<li>Unavailable</li>"}</ul><h4>Quality</h4><ul>${quality.map((q) => `<li>${esc(q.dimension)}: ${esc(q.status)}${(q.reason_codes || []).length ? ` — ${esc(q.reason_codes.join(", "))}` : ""}</li>`).join("") || "<li>Unavailable</li>"}</ul><h4>Key risks</h4><ul>${(brief.risks && brief.risks.phase_4b || []).map((r) => `<li>${esc(r.risk_id)}: ${esc(r.inference || r.uncertainty || "")}</li>`).join("") || "<li>No additional qualified risk observation</li>"}</ul><h4>Bear / Base / Bull conditions</h4>${scenarios.map(([n,s]) => `<p><b>${titleCase(n)}:</b> ${esc(s.thesis || "Unavailable")}</p>`).join("")}<h4>Invalidation</h4><ul>${(brief.invalidation_conditions || []).map((x) => `<li>${esc(x)}</li>`).join("") || "<li>Unavailable</li>"}</ul><h4>Portfolio / liquidity boundary</h4><p>Fundamental risk: ${esc((brief.risks && brief.risks.phase_4c || {}).aggregate_posture || "insufficient_evidence")}. Liquidity: ${esc((liquidity || {}).status || "unavailable")} due to qualification: ${esc(((liquidity || {}).reason_codes || []).join(", "))}. Portfolio context: ${esc(((brief.portfolio_risk_boundary || {}).portfolio_context || {}).status || "blocked_input")}. Allocation: ${esc(((brief.portfolio_risk_boundary || {}).allocation || {}).status || "allocation_blocked")}.</p><h4>What cannot yet be concluded</h4><p>${esc((brief.prohibited_claims || []).join(", "))}</p></section>`;
+  }
+  function researchBriefForRow(row,bundle) { const e=bundleEntryForRow(row,bundle); return e && e.qualified_research_brief; }
   // Financial distress (Altman Z'). Deliberately narrow: this section renders the model's
   // own fail-closed envelope and nothing else. It never computes a score, never turns an
   // applicability verdict into a rating, and never shows a number for a filer the model
@@ -566,14 +577,14 @@
     const overview = document.getElementById("cp-overview");
     const financialsContent = document.getElementById("cp-financials-content");
     const immediateEntry = bundleEntryForRow(row);
-    overview.innerHTML = renderOverview(row) + renderHistoricalValuation(immediateEntry) + renderEbitdaLineage(immediateEntry) + renderAnalysisReadiness(readinessForRow(row)) + renderCorporateIntelligence(corporateForRow(row)) + renderFinancialDistress(distressForRow(row), taxonomyForRow(row)) + renderCitedDocumentEvidence(evidenceForRow(row));
+    overview.innerHTML = renderOverview(row) + renderHistoricalValuation(immediateEntry) + renderQualifiedResearchBrief(researchBriefForRow(row)) + renderEbitdaLineage(immediateEntry) + renderAnalysisReadiness(readinessForRow(row)) + renderCorporateIntelligence(corporateForRow(row)) + renderFinancialDistress(distressForRow(row), taxonomyForRow(row)) + renderCitedDocumentEvidence(evidenceForRow(row));
     if (financialsContent) financialsContent.innerHTML = renderFinancialAnalysis(immediateEntry);
     // Legacy bundles render a neutral missing state immediately.  A cached dashboard
     // artifact, when present, replaces only this panel's Corporate Intelligence area.
     loadCorporateBundle().then((bundle) => {
       if (!backdrop || backdrop._currentRow !== row) return;
       const entry = bundleEntryForRow(row, bundle);
-      overview.innerHTML = renderOverview(row) + renderHistoricalValuation(entry) + renderEbitdaLineage(entry) + renderAnalysisReadiness(readinessForRow(row, bundle)) + renderCorporateIntelligence(corporateForRow(row, bundle)) + renderFinancialDistress(distressForRow(row, bundle), taxonomyForRow(row, bundle)) + renderCitedDocumentEvidence(evidenceForRow(row, bundle));
+      overview.innerHTML = renderOverview(row) + renderHistoricalValuation(entry) + renderQualifiedResearchBrief(researchBriefForRow(row, bundle)) + renderEbitdaLineage(entry) + renderAnalysisReadiness(readinessForRow(row, bundle)) + renderCorporateIntelligence(corporateForRow(row, bundle)) + renderFinancialDistress(distressForRow(row, bundle), taxonomyForRow(row, bundle)) + renderCitedDocumentEvidence(evidenceForRow(row, bundle));
       if (financialsContent) financialsContent.innerHTML = renderFinancialAnalysis(entry);
     });
     switchTab("overview");
@@ -654,6 +665,7 @@
       renderFundamentalQuality, renderNetNet, renderFcff, renderEbitdaLineage, renderFinancialAnalysis, financialAnalysisAvailable,
       renderFinancialDistress, renderStatementTaxonomy, distressForRow, taxonomyForRow,
       renderCitedDocumentEvidence, evidenceForRow,
+      renderQualifiedResearchBrief, researchBriefForRow,
     };
   }
 })();

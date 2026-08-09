@@ -3,6 +3,12 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
 const { renderCorporateIntelligence } = require("../assets/js/company-panel.js");
+const { renderQualifiedResearchBrief } = require("../assets/js/company-panel.js");
+
+test("qualified research brief renders safely and keeps blocked liquidity non-directional", () => {
+  const html = renderQualifiedResearchBrief({ticker:"VCB",entity_type:"bank",qualified_facts:[{canonical_metric:"net_income",reporting_period:"2024",value:0}],quality:{capital:{dimension:"capital",status:"not_applicable"}},risks:{phase_4b:[{risk_id:"<risk>",inference:"<script>bad</script>"}],phase_4c:{aggregate_posture:"moderate"}},scenarios:{bear:{thesis:"condition"},base:{thesis:"base"},bull:{thesis:"improve"}},invalidation_conditions:["new fact"],portfolio_risk_boundary:{liquidity:{status:"blocked",reason_codes:["VOLUME_BASIS_UNQUALIFIED"]},portfolio_context:{status:"blocked_input"},allocation:{status:"allocation_blocked"}},prohibited_claims:["target_price"]});
+  assert.match(html,/not_applicable/); assert.match(html,/blocked due to qualification/); assert.doesNotMatch(html,/<script>|<risk>/); assert.match(html,/&lt;script&gt;bad/);
+});
 
 const fullPayload = {
   company_profile: { sources: {
