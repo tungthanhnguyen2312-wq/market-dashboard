@@ -387,12 +387,65 @@
     }
     return `<section class="cp-ci-section"><h4>FCFF</h4><div class="cp-ci-fields"><div class="cp-ci-field"><span>Enterprise value</span><strong>${displayNumber(method.enterprise_value, 0)}</strong></div><div class="cp-ci-field"><span>Equity value</span><strong>${displayNumber(method.equity_value, 0)}</strong></div><div class="cp-ci-field"><span>Per-share</span><strong>${displayNumber(method.per_share_value, 2)}</strong></div></div></section>`;
   }
+  function qualifiedMetric(row, name) {
+    const metrics = isObject(row) && isObject(row.metrics) ? row.metrics : {};
+    return isObject(metrics[name]) ? metrics[name] : null;
+  }
+  function qualifiedMetricValue(metric, suffix = "") {
+    if (!isObject(metric)) return "Data unavailable";
+    if (metric.status !== "available") return esc(titleCase(metric.status || metric.applicability || "unavailable"));
+    return metric.value === null || metric.value === undefined ? "Data unavailable" : `${displayNumber(metric.value, 2)}${suffix}`;
+  }
+  function predicateNames(items) {
+    return Array.isArray(items) && items.length
+      ? items.filter(isObject).map((item) => titleCase(item.predicate || "qualified condition")).join(", ")
+      : "None recorded";
+  }
+  function scenarioConditions(scenarios, name) {
+    const scenario = isObject(scenarios) && isObject(scenarios[name]) ? scenarios[name] : {};
+    const values = scenario.historical_fundamental_conditions || scenario.required_conditions;
+    return Array.isArray(values) && values.length ? values.map(displayValue).join("; ") : "Data unavailable";
+  }
+  function validQualifiedComparison(value) {
+    return isObject(value) && value.status === "available" && value.historical_only === true
+      && value.market_dependent === false && value.is_actionable === false && value.ranking_prohibited === true
+      && Array.isArray(value.rows) && value.cross_sectional_comparison === "available";
+  }
+  function renderQualifiedHistoricalResearch(entry) {
+    const comparison = entry && entry.qualified_cohort_comparison;
+    if (comparison === undefined) return "";
+    if (!validQualifiedComparison(comparison)) return `<section class="cp-ci-section" data-qualified-research-state="unavailable"><h4>Qualified Historical Research</h4><div class="cp-ci-notice cp-ci-missing">Data unavailable.</div></section>`;
+    const decision = isObject(entry.historical_decision_analysis) ? entry.historical_decision_analysis : {};
+    const ticker = String(entry.ticker || decision.ticker || "").toUpperCase();
+    const row = comparison.rows.find((item) => isObject(item) && String(item.ticker || "").toUpperCase() === ticker);
+    if (!isObject(row)) return `<section class="cp-ci-section" data-qualified-research-state="unavailable"><h4>Qualified Historical Research</h4><div class="cp-ci-notice cp-ci-missing">Data unavailable.</div></section>`;
+    const metrics = {
+      earnings: qualifiedMetric(row, "earnings_state"), ocf: qualifiedMetric(row, "operating_cash_flow_state"),
+      conversion: qualifiedMetric(row, "operating_cash_flow_to_net_income"), debtEquity: qualifiedMetric(row, "debt_to_equity"),
+      cashDebt: qualifiedMetric(row, "cash_to_debt"), netDebtEquity: qualifiedMetric(row, "net_debt_to_equity"),
+    };
+    const stateText = (metric) => isObject(metric) && Array.isArray(metric.reason_codes) && metric.reason_codes.length
+      ? titleCase(metric.reason_codes[0]) : qualifiedMetricValue(metric);
+    const cards = [
+      ["Profitability", stateText(metrics.earnings)], ["Operating cash flow", stateText(metrics.ocf)],
+      ["Cash conversion (OCF / NI)", qualifiedMetricValue(metrics.conversion, "x")], ["Debt / Equity", qualifiedMetricValue(metrics.debtEquity, "x")],
+      ["Cash / Debt", qualifiedMetricValue(metrics.cashDebt, "x")], ["Net debt / Equity", qualifiedMetricValue(metrics.netDebtEquity, "x")],
+      ["Historical conclusion", titleCase(row.conclusion_code || "unavailable")], ["Trend availability", titleCase(row.trend_status || "insufficient_history")],
+    ].map(([label, value]) => `<div class="cp-ci-field"><span>${esc(label)}</span><strong>${value}</strong></div>`).join("");
+    const comparisonRows = comparison.rows.map((item) => {
+      const value = (metricName) => qualifiedMetricValue(qualifiedMetric(item, metricName), "x");
+      return `<tr><td>${displayValue(item.ticker)}</td><td>${stateText(qualifiedMetric(item, "earnings_state"))}</td><td>${stateText(qualifiedMetric(item, "operating_cash_flow_state"))}</td><td>${value("operating_cash_flow_to_net_income")}</td><td>${value("debt_to_equity")}</td><td>${value("cash_to_debt")}</td><td>${value("net_debt_to_equity")}</td><td>${displayValue(titleCase(item.conclusion_code || "unavailable"))}</td></tr>`;
+    }).join("");
+    const scenarios = decision.scenarios;
+    const limitations = Array.isArray(comparison.limitations) ? comparison.limitations.map((item) => `<div class="cp-ci-notice cp-ci-historical">${displayValue(item)}</div>`).join("") : "";
+    return `<section class="cp-ci-section" data-qualified-research-state="available"><h4>Qualified Historical Research</h4><div class="cp-ci-notice cp-ci-historical">Historical qualified fundamentals only. Cross-sectional cohort context is available; multi-period trend is ${esc(String(comparison.multi_period_trend || "unavailable"))}.</div><div class="cp-ci-meta">FY${displayValue(row.analysis_period)}${row.currency ? ` Â· ${displayValue(row.currency)}` : ""} Â· no valuation, recommendation, ranking, or market-liquidity claim</div><div class="cp-ci-fields">${cards}</div><div class="cp-ci-source"><h5>Strengths</h5><div class="cp-ci-meta">${esc(predicateNames(row.strength_predicates))}</div><h5>Risks</h5><div class="cp-ci-meta">${esc(predicateNames(row.risk_predicates))}</div></div><div class="cp-ci-source"><h5>Bear / Base / Bull conditions</h5><div class="cp-ci-field"><span>Bear</span><strong>${displayValue(scenarioConditions(scenarios, "bear"))}</strong></div><div class="cp-ci-field"><span>Base</span><strong>${displayValue(scenarioConditions(scenarios, "base"))}</strong></div><div class="cp-ci-field"><span>Bull</span><strong>${displayValue(scenarioConditions(scenarios, "bull"))}</strong></div></div><div class="cp-ci-source"><h5>Qualified cohort context</h5><div class="table-responsive"><table class="table table-sm"><thead><tr><th>Ticker</th><th>Profitability</th><th>OCF</th><th>OCF/NI</th><th>D/E</th><th>Cash/Debt</th><th>Net debt/Equity</th><th>Conclusion</th></tr></thead><tbody>${comparisonRows}</tbody></table></div></div>${limitations}</section>`;
+  }
   function financialAnalysisAvailable(entry) {
-    return isObject(entry) && (isObject(entry.fundamental_quality) || isObject(entry.intrinsic_valuation));
+    return isObject(entry) && (isObject(entry.fundamental_quality) || isObject(entry.intrinsic_valuation) || entry.qualified_cohort_comparison !== undefined);
   }
   function renderFinancialAnalysis(entry) {
     if (!financialAnalysisAvailable(entry)) return financialsPlaceholder();
-    const sections = [renderFundamentalQuality(entry), renderNetNet(entry), renderFcff(entry)].filter(Boolean);
+    const sections = [renderQualifiedHistoricalResearch(entry), renderFundamentalQuality(entry), renderNetNet(entry), renderFcff(entry)].filter(Boolean);
     if (!sections.length) return financialsPlaceholder();
     return `<section class="cp-ci"><h3>Financial Analysis</h3>${sections.join("")}</section>`;
   }
@@ -677,7 +730,7 @@
       renderCorporateIntelligence, renderAnalysisReadiness, renderHistoricalValuation, renderOverview, bundleEntryForRow, corporateForRow, readinessForRow, statusMessage,
       normalizeTicker, tickerFromSearch, searchWithTicker, decideOpenAction, decideCloseAction,
       isScreenerPage,
-      renderFundamentalQuality, renderNetNet, renderFcff, renderEbitdaLineage, renderFinancialAnalysis, financialAnalysisAvailable,
+      renderFundamentalQuality, renderNetNet, renderFcff, renderEbitdaLineage, renderQualifiedHistoricalResearch, renderFinancialAnalysis, financialAnalysisAvailable,
       renderFinancialDistress, renderStatementTaxonomy, distressForRow, taxonomyForRow,
       renderCitedDocumentEvidence, evidenceForRow,
       renderQualifiedResearchBrief, researchBriefForRow, renderQualifiedResearchDelta, researchDeltaForRow,
