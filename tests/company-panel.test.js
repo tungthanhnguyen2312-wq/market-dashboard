@@ -4,6 +4,23 @@ const test = require("node:test");
 const assert = require("node:assert/strict");
 const { renderCorporateIntelligence } = require("../assets/js/company-panel.js");
 const { renderQualifiedResearchBrief } = require("../assets/js/company-panel.js");
+const { renderQualifiedResearchDelta } = require("../assets/js/company-panel.js");
+
+test("qualified research delta renders material changes, invalidation and unchanged liquidity safely", () => {
+  const html = renderQualifiedResearchDelta({ comparison_status:"comparable", material_change_summary:{material_change_detected:true,highest_priority_changes:[{category:"invalidation",reference:"<condition>"}],unchanged_critical_boundaries:["liquidity"]}, historical_conclusion:{changed:true,previous:{status:"historically_mixed"},current:{status:"insufficient_evidence"}}, quality_changes:[{dimension:"capital_structure",status:"status_changed",direction:"not_applicable"}], risk_changes:[], invalidation_changes:[{condition_id:"<script>",status:"new_condition",trigger_evaluation:"triggered"}] });
+  assert.match(html,/material change detected/); assert.match(html,/triggered/); assert.match(html,/liquidity/); assert.match(html,/&lt;condition&gt;|&lt;script&gt;/); assert.doesNotMatch(html,/<script>/);
+});
+
+test("qualified research delta has honest no-change and no-snapshot states", () => {
+  assert.match(renderQualifiedResearchDelta({comparison_status:"partially_comparable",material_change_summary:{material_change_detected:false,highest_priority_changes:[],unchanged_critical_boundaries:["liquidity"]},historical_conclusion:{changed:false},quality_changes:[],risk_changes:[],invalidation_changes:[]}),/no material qualified change/);
+  assert.match(renderQualifiedResearchDelta(null),/No qualified comparison snapshot available/);
+  assert.match(renderQualifiedResearchDelta({comparison_status:"incomparable"}),/Comparison unavailable/);
+});
+
+test("qualified research delta preserves VCB not-applicable status without deterioration", () => {
+  const html = renderQualifiedResearchDelta({comparison_status:"comparable",material_change_summary:{material_change_detected:false,highest_priority_changes:[],unchanged_critical_boundaries:["liquidity"]},historical_conclusion:{changed:false},quality_changes:[{dimension:"corporate_leverage",status:"unchanged",direction:"unchanged",current_status:"not_applicable"}],risk_changes:[],invalidation_changes:[]});
+  assert.doesNotMatch(html,/deteriorated/); assert.match(html,/Still blocked/);
+});
 
 test("qualified research brief renders safely and keeps blocked liquidity non-directional", () => {
   const html = renderQualifiedResearchBrief({ticker:"VCB",entity_type:"bank",qualified_facts:[{canonical_metric:"net_income",reporting_period:"2024",value:0}],quality:{capital:{dimension:"capital",status:"not_applicable"}},risks:{phase_4b:[{risk_id:"<risk>",inference:"<script>bad</script>"}],phase_4c:{aggregate_posture:"moderate"}},scenarios:{bear:{thesis:"condition"},base:{thesis:"base"},bull:{thesis:"improve"}},invalidation_conditions:["new fact"],portfolio_risk_boundary:{liquidity:{status:"blocked",reason_codes:["VOLUME_BASIS_UNQUALIFIED"]},portfolio_context:{status:"blocked_input"},allocation:{status:"allocation_blocked"}},prohibited_claims:["target_price"]});

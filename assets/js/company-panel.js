@@ -189,6 +189,21 @@
     return `<section class="company-section research-brief"><h3>Qualified historical research</h3><p><b>${esc(brief.ticker || "")}</b> · ${esc(brief.entity_type || "unknown")} · historical-only / non-actionable</p><p><b>Historical conclusion:</b> ${esc(conclusion.status || "insufficient_evidence")} — ${esc(conclusion.rationale || "")}</p><h4>Qualified facts</h4><ul>${facts.map((f) => `<li>${esc(f.canonical_metric)} (${esc(f.reporting_period)}): ${displayValue(f.value)}</li>`).join("") || "<li>Unavailable</li>"}</ul><h4>Quality</h4><ul>${quality.map((q) => `<li>${esc(q.dimension)}: ${esc(q.status)}${(q.reason_codes || []).length ? ` — ${esc(q.reason_codes.join(", "))}` : ""}</li>`).join("") || "<li>Unavailable</li>"}</ul><h4>Key risks</h4><ul>${(brief.risks && brief.risks.phase_4b || []).map((r) => `<li>${esc(r.risk_id)}: ${esc(r.inference || r.uncertainty || "")}</li>`).join("") || "<li>No additional qualified risk observation</li>"}</ul><h4>Bear / Base / Bull conditions</h4>${scenarios.map(([n,s]) => `<p><b>${titleCase(n)}:</b> ${esc(s.thesis || "Unavailable")}</p>`).join("")}<h4>Invalidation</h4><ul>${(brief.invalidation_conditions || []).map((x) => `<li>${esc(x)}</li>`).join("") || "<li>Unavailable</li>"}</ul><h4>Portfolio / liquidity boundary</h4><p>Fundamental risk: ${esc((brief.risks && brief.risks.phase_4c || {}).aggregate_posture || "insufficient_evidence")}. Liquidity: ${esc((liquidity || {}).status || "unavailable")} due to qualification: ${esc(((liquidity || {}).reason_codes || []).join(", "))}. Portfolio context: ${esc(((brief.portfolio_risk_boundary || {}).portfolio_context || {}).status || "blocked_input")}. Allocation: ${esc(((brief.portfolio_risk_boundary || {}).allocation || {}).status || "allocation_blocked")}.</p><h4>What cannot yet be concluded</h4><p>${esc((brief.prohibited_claims || []).join(", "))}</p></section>`;
   }
   function researchBriefForRow(row,bundle) { const e=bundleEntryForRow(row,bundle); return e && e.qualified_research_brief; }
+  function renderQualifiedResearchDelta(delta) {
+    if (!isObject(delta)) return '<section class="company-section research-delta"><h3>What changed?</h3><p>No qualified comparison snapshot available.</p></section>';
+    const state = String(delta.comparison_status || "unavailable");
+    if (state !== "comparable" && state !== "partially_comparable") return `<section class="company-section research-delta"><h3>What changed?</h3><p>Comparison unavailable: ${esc(state)}.</p></section>`;
+    const summary = isObject(delta.material_change_summary) ? delta.material_change_summary : {};
+    const conclusion = isObject(delta.historical_conclusion) ? delta.historical_conclusion : {};
+    const keyChanges = Array.isArray(summary.highest_priority_changes) ? summary.highest_priority_changes.slice(0, 8) : [];
+    const quality = Array.isArray(delta.quality_changes) ? delta.quality_changes.filter((item) => isObject(item) && item.status !== "unchanged").slice(0, 5) : [];
+    const risks = Array.isArray(delta.risk_changes) ? delta.risk_changes.filter((item) => isObject(item) && item.status !== "persistent").slice(0, 5) : [];
+    const invalidations = Array.isArray(delta.invalidation_changes) ? delta.invalidation_changes.filter((item) => isObject(item) && (item.status !== "unchanged" || item.trigger_evaluation === "triggered")).slice(0, 5) : [];
+    const blocked = Array.isArray(summary.unchanged_critical_boundaries) ? summary.unchanged_critical_boundaries : [];
+    const changedConclusion = conclusion.changed ? `<p><b>Historical conclusion:</b> ${esc((conclusion.previous || {}).status || "unavailable")} → ${esc((conclusion.current || {}).status || "unavailable")}</p>` : "";
+    return `<section class="company-section research-delta"><h3>What changed?</h3><p><b>Thesis change status:</b> ${summary.material_change_detected ? "material change detected" : "no material qualified change"} (${esc(state)}).</p>${changedConclusion}<h4>Key changes</h4><ul>${keyChanges.map((item) => `<li>${esc(item.category)}: ${esc(item.reference)}</li>`).join("") || "<li>No new qualified change.</li>"}</ul><h4>Risks and quality</h4><ul>${quality.map((item) => `<li>Quality ${esc(item.dimension)}: ${esc(item.status)}${item.direction && item.direction !== "unchanged" ? ` (${esc(item.direction)})` : ""}</li>`).join("")}${risks.map((item) => `<li>Risk ${esc(item.risk_id)}: ${esc(item.status)}</li>`).join("") || "<li>No changed qualified risk or quality item.</li>"}</ul><h4>Scenario / invalidation</h4><ul>${invalidations.map((item) => `<li>${esc(item.condition_id)}: ${esc(item.status)}; trigger ${esc(item.trigger_evaluation || "unavailable")}</li>`).join("") || "<li>No changed invalidation condition.</li>"}</ul><h4>Still blocked</h4><p>${blocked.length ? esc(blocked.join(", ")) : "No unchanged critical blocked boundary reported."}</p></section>`;
+  }
+  function researchDeltaForRow(row,bundle) { const e=bundleEntryForRow(row,bundle); return e && e.qualified_research_delta; }
   // Financial distress (Altman Z'). Deliberately narrow: this section renders the model's
   // own fail-closed envelope and nothing else. It never computes a score, never turns an
   // applicability verdict into a rating, and never shows a number for a filer the model
@@ -577,14 +592,14 @@
     const overview = document.getElementById("cp-overview");
     const financialsContent = document.getElementById("cp-financials-content");
     const immediateEntry = bundleEntryForRow(row);
-    overview.innerHTML = renderOverview(row) + renderHistoricalValuation(immediateEntry) + renderQualifiedResearchBrief(researchBriefForRow(row)) + renderEbitdaLineage(immediateEntry) + renderAnalysisReadiness(readinessForRow(row)) + renderCorporateIntelligence(corporateForRow(row)) + renderFinancialDistress(distressForRow(row), taxonomyForRow(row)) + renderCitedDocumentEvidence(evidenceForRow(row));
+    overview.innerHTML = renderOverview(row) + renderHistoricalValuation(immediateEntry) + renderQualifiedResearchBrief(researchBriefForRow(row)) + renderQualifiedResearchDelta(researchDeltaForRow(row)) + renderEbitdaLineage(immediateEntry) + renderAnalysisReadiness(readinessForRow(row)) + renderCorporateIntelligence(corporateForRow(row)) + renderFinancialDistress(distressForRow(row), taxonomyForRow(row)) + renderCitedDocumentEvidence(evidenceForRow(row));
     if (financialsContent) financialsContent.innerHTML = renderFinancialAnalysis(immediateEntry);
     // Legacy bundles render a neutral missing state immediately.  A cached dashboard
     // artifact, when present, replaces only this panel's Corporate Intelligence area.
     loadCorporateBundle().then((bundle) => {
       if (!backdrop || backdrop._currentRow !== row) return;
       const entry = bundleEntryForRow(row, bundle);
-      overview.innerHTML = renderOverview(row) + renderHistoricalValuation(entry) + renderQualifiedResearchBrief(researchBriefForRow(row, bundle)) + renderEbitdaLineage(entry) + renderAnalysisReadiness(readinessForRow(row, bundle)) + renderCorporateIntelligence(corporateForRow(row, bundle)) + renderFinancialDistress(distressForRow(row, bundle), taxonomyForRow(row, bundle)) + renderCitedDocumentEvidence(evidenceForRow(row, bundle));
+      overview.innerHTML = renderOverview(row) + renderHistoricalValuation(entry) + renderQualifiedResearchBrief(researchBriefForRow(row, bundle)) + renderQualifiedResearchDelta(researchDeltaForRow(row, bundle)) + renderEbitdaLineage(entry) + renderAnalysisReadiness(readinessForRow(row, bundle)) + renderCorporateIntelligence(corporateForRow(row, bundle)) + renderFinancialDistress(distressForRow(row, bundle), taxonomyForRow(row, bundle)) + renderCitedDocumentEvidence(evidenceForRow(row, bundle));
       if (financialsContent) financialsContent.innerHTML = renderFinancialAnalysis(entry);
     });
     switchTab("overview");
@@ -665,7 +680,7 @@
       renderFundamentalQuality, renderNetNet, renderFcff, renderEbitdaLineage, renderFinancialAnalysis, financialAnalysisAvailable,
       renderFinancialDistress, renderStatementTaxonomy, distressForRow, taxonomyForRow,
       renderCitedDocumentEvidence, evidenceForRow,
-      renderQualifiedResearchBrief, researchBriefForRow,
+      renderQualifiedResearchBrief, researchBriefForRow, renderQualifiedResearchDelta, researchDeltaForRow,
     };
   }
 })();
