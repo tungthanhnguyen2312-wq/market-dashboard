@@ -1,6 +1,6 @@
 {
   "schema_version": "1.1.0",
-  "generated_at": "2026-08-09T16:45:28+00:00",
+  "generated_at": "2026-08-10T03:03:15+00:00",
   "reference_session_date": "2026-08-07",
   "tickers_requested": [
     "POW",
@@ -3937,7 +3937,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -4011,7 +4011,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -4148,7 +4148,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -4410,7 +4410,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -7740,7 +7740,7 @@
             "source": "VCI",
             "freshness_status": "stale",
             "expected_update_frequency": "1d",
-            "stale_reason": "source_age_14d_exceeds_7d_grace",
+            "stale_reason": "source_age_15d_exceeds_7d_grace",
             "is_actionable": false
           }
         },
@@ -8051,7 +8051,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -12057,7 +12057,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -12120,7 +12120,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -12257,7 +12257,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -12519,7 +12519,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -15567,7 +15567,7 @@
             "source": "VCI",
             "freshness_status": "stale",
             "expected_update_frequency": "1d",
-            "stale_reason": "source_age_14d_exceeds_7d_grace",
+            "stale_reason": "source_age_15d_exceeds_7d_grace",
             "is_actionable": false
           }
         },
@@ -15782,7 +15782,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -23345,7 +23345,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -23419,7 +23419,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -23556,7 +23556,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -23818,7 +23818,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -27264,7 +27264,7 @@
             "source": "VCI",
             "freshness_status": "stale",
             "expected_update_frequency": "1d",
-            "stale_reason": "source_age_14d_exceeds_7d_grace",
+            "stale_reason": "source_age_15d_exceeds_7d_grace",
             "is_actionable": false
           }
         },
@@ -27623,7 +27623,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -31629,7 +31629,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -31703,7 +31703,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -31838,7 +31838,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -32100,7 +32100,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -33032,7 +33032,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -40366,7 +40366,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -40440,7 +40440,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -40575,7 +40575,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -40837,7 +40837,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -42489,7 +42489,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -46495,7 +46495,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -46569,7 +46569,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -46706,7 +46706,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -46968,7 +46968,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -47694,7 +47694,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -51700,7 +51700,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -51774,7 +51774,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -51911,7 +51911,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -52173,7 +52173,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -52899,7 +52899,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -56890,7 +56890,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -56964,7 +56964,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -57101,7 +57101,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -57363,7 +57363,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -58089,7 +58089,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -62534,7 +62534,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -62608,7 +62608,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -62747,7 +62747,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -63009,7 +63009,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -65639,7 +65639,7 @@
             "source": "VCI",
             "freshness_status": "stale",
             "expected_update_frequency": "1d",
-            "stale_reason": "source_age_14d_exceeds_7d_grace",
+            "stale_reason": "source_age_15d_exceeds_7d_grace",
             "is_actionable": false
           }
         },
@@ -65950,7 +65950,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -69956,7 +69956,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -70030,7 +70030,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -70167,7 +70167,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -70429,7 +70429,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -71155,7 +71155,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -75166,7 +75166,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -75240,7 +75240,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -75377,7 +75377,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -75639,7 +75639,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -76365,7 +76365,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-09T16:45:28.450257+00:00",
+        "reference_at": "2026-08-10T03:03:15.224049+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
