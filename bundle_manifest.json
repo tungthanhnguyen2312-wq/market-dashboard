@@ -14,7 +14,7 @@
     "session_identity": "2026-08-07",
     "authority_level": "generated_evidence"
   },
-  "generated_at": "2026-08-10T05:48:00+00:00",
+  "generated_at": "2026-08-10T13:47:03+00:00",
   "tickers": [
     "POW",
     "SSI",
@@ -1591,7 +1591,7 @@
       "row_or_record_count": 11,
       "count_basis": "tickers_in_bundle",
       "data_date": "2026-08-07",
-      "sha256": "d0e46943e58f4a3d30fe0ae7bb1b140cdec944d683154b19e85f1d07ce13f449"
+      "sha256": "ed650d5f134af9faeba4b0a851bd2187dbfa56c7e150e0bcab0158f7d6b3808a"
     },
     {
       "file": "analysis_bundle.json",
@@ -1599,7 +1599,7 @@
       "row_or_record_count": 11,
       "count_basis": "tickers_in_bundle",
       "data_date": "2026-08-07",
-      "sha256": "9b63c5a0a42f032a73d12529f3fecafde00e5680258b9e2289332e367a03bce8"
+      "sha256": "717f69b2401b1ceef182cdf05cb7e3a8b9e79dc7504384597fbba4dd0c8bfa0d"
     },
     {
       "file": "statement_taxonomy_sidecar.json",
@@ -1607,7 +1607,7 @@
       "row_or_record_count": 1380,
       "count_basis": "tickers_classified",
       "data_date": "2026-08-07",
-      "sha256": "5c4b2579480c002f0a03dba9db999cd0b8109c785eea2eec8d7f843e5766786f"
+      "sha256": "b397641261dc0584c4981bf218bdac38f7202cc7bff10a19def5019911b7b48c"
     }
   ],
   "trusted_subset": {
@@ -1642,23 +1642,23 @@
     ],
     "trust_state": "untrusted_basis",
     "session_identity": "2026-08-07",
-    "generated_at": "2026-08-10T05:48:00+00:00",
+    "generated_at": "2026-08-10T13:47:03+00:00",
     "bundle_filename": "analysis_bundle.json",
-    "bundle_sha256": "9b63c5a0a42f032a73d12529f3fecafde00e5680258b9e2289332e367a03bce8",
+    "bundle_sha256": "717f69b2401b1ceef182cdf05cb7e3a8b9e79dc7504384597fbba4dd0c8bfa0d",
     "bundle_reference_session_date": "2026-08-07",
-    "bundle_generated_at": "2026-08-10T05:48:00+00:00",
+    "bundle_generated_at": "2026-08-10T13:47:03+00:00",
     "required_artifacts": [
       {
         "file": "analysis_bundle.json",
-        "sha256": "9b63c5a0a42f032a73d12529f3fecafde00e5680258b9e2289332e367a03bce8"
+        "sha256": "717f69b2401b1ceef182cdf05cb7e3a8b9e79dc7504384597fbba4dd0c8bfa0d"
       },
       {
         "file": "focus_extract.json",
-        "sha256": "d0e46943e58f4a3d30fe0ae7bb1b140cdec944d683154b19e85f1d07ce13f449"
+        "sha256": "ed650d5f134af9faeba4b0a851bd2187dbfa56c7e150e0bcab0158f7d6b3808a"
       },
       {
         "file": "statement_taxonomy_sidecar.json",
-        "sha256": "5c4b2579480c002f0a03dba9db999cd0b8109c785eea2eec8d7f843e5766786f"
+        "sha256": "b397641261dc0584c4981bf218bdac38f7202cc7bff10a19def5019911b7b48c"
       }
     ],
     "expected_artifact_filenames": [

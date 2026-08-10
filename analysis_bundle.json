@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-08-10T05:48:00+00:00",
+  "generated_at": "2026-08-10T13:47:03+00:00",
   "reference_session_date": "2026-08-07",
   "tickers_requested": [
     "POW",
@@ -4691,7 +4691,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -4765,7 +4765,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -4902,7 +4902,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -5164,7 +5164,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -8805,7 +8805,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -15933,6 +15933,100 @@
           "Any downstream reading of persistent accumulation/distribution must be stated as an inference over the observations sequence, not as a fact this contract asserts."
         ],
         "is_actionable": false
+      },
+      "current_state_market_risk": {
+        "schema_version": "1.0.0",
+        "ticker": "POW",
+        "benchmark": "VNINDEX",
+        "source_scope": {
+          "stock_source": "DNSE",
+          "benchmark_source": "DNSE",
+          "same_source_no_fallback_mixing": true,
+          "reason": null
+        },
+        "stock_price_contract": {
+          "price_basis": "ADJUSTED_CONFIRMED",
+          "price_basis_contract_version": "dnse_ohlc_price_basis/2026-08-10",
+          "qualification_scope": "evidence_bounded_ticker_and_action_type"
+        },
+        "benchmark_return_contract": {
+          "index_level_unit": "index_points",
+          "source_contract_version": "dnse_index_return_series/2026-08-10"
+        },
+        "analysis_time_semantics": "current_state_using_retrospectively_adjusted_stock_history_and_current_benchmark_history",
+        "pit_backtest_eligible": false,
+        "input_gates": {
+          "stock_qualified": false,
+          "stock_reason": "stock_ticker_not_qualified_for_dnse_current_state_price_analytics",
+          "benchmark_qualified": true,
+          "benchmark_reason": null,
+          "source_scope_ok": true,
+          "source_scope_reason": null
+        },
+        "aligned_sessions": {
+          "aligned_pairs": [],
+          "stock_return_count": 0,
+          "benchmark_return_count": 0,
+          "paired_return_count": 0,
+          "dropped_stock_sessions": [],
+          "dropped_benchmark_sessions": [],
+          "status": "not_attempted",
+          "reason": null
+        },
+        "paired_return_count": 0,
+        "beta": {
+          "value": null,
+          "sample_adequacy": null,
+          "reason": null
+        },
+        "correlation": {
+          "value": null,
+          "sample_adequacy": null,
+          "reason": null
+        },
+        "coverage": {
+          "status": "not_qualified",
+          "reason": "stock_ticker_not_qualified_for_dnse_current_state_price_analytics"
+        },
+        "qualification_status": "CURRENT_STATE_BETA_CORRELATION_NOT_QUALIFIED",
+        "warnings": [
+          "short_observation_window_statistical_confidence_is_limited",
+          "mathematically_computable_is_not_the_same_claim_as_statistically_strong",
+          "descriptive_current_state_statistic_only_not_a_recommendation_or_risk_grade",
+          "correlation_and_beta_are_not_evidence_of_causation",
+          "current_state_only_no_point_in_time_or_backtest_authority",
+          "not_wired_into_production_bundle_ranking_or_publication"
+        ],
+        "provenance": {
+          "stock_provenance": {
+            "fetch": {
+              "evidence_source": "not_retained_or_malformed"
+            },
+            "dropped_sessions": []
+          },
+          "benchmark_provenance": {
+            "fetch": {
+              "evidence_source": "dnse_market_risk_evidence_store"
+            },
+            "dropped_sessions": []
+          },
+          "contract_module": "dnse_current_state_market_risk.py",
+          "contract_version": "1.0.0"
+        },
+        "freshness": {
+          "reference_session_date": "2026-08-07",
+          "latest_qualified_session_date": null,
+          "sessions_behind": null,
+          "status": "not_applicable",
+          "reason": "no_qualified_aligned_session_available"
+        },
+        "status": "not_qualified",
+        "is_actionable": false,
+        "stock_return_count": 0,
+        "benchmark_return_count": 0,
+        "dropped_stock_sessions": [],
+        "dropped_benchmark_sessions": [],
+        "sample_adequacy": null
       },
       "analysis_lane_eligibility": [
         {
@@ -42981,7 +43075,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -43044,7 +43138,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -43181,7 +43275,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -43443,7 +43537,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -46706,7 +46800,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -53952,6 +54046,100 @@
           "Any downstream reading of persistent accumulation/distribution must be stated as an inference over the observations sequence, not as a fact this contract asserts."
         ],
         "is_actionable": false
+      },
+      "current_state_market_risk": {
+        "schema_version": "1.0.0",
+        "ticker": "SSI",
+        "benchmark": "VNINDEX",
+        "source_scope": {
+          "stock_source": "DNSE",
+          "benchmark_source": "DNSE",
+          "same_source_no_fallback_mixing": true,
+          "reason": null
+        },
+        "stock_price_contract": {
+          "price_basis": "ADJUSTED_CONFIRMED",
+          "price_basis_contract_version": "dnse_ohlc_price_basis/2026-08-10",
+          "qualification_scope": "evidence_bounded_ticker_and_action_type"
+        },
+        "benchmark_return_contract": {
+          "index_level_unit": "index_points",
+          "source_contract_version": "dnse_index_return_series/2026-08-10"
+        },
+        "analysis_time_semantics": "current_state_using_retrospectively_adjusted_stock_history_and_current_benchmark_history",
+        "pit_backtest_eligible": false,
+        "input_gates": {
+          "stock_qualified": false,
+          "stock_reason": "stock_ticker_not_qualified_for_dnse_current_state_price_analytics",
+          "benchmark_qualified": true,
+          "benchmark_reason": null,
+          "source_scope_ok": true,
+          "source_scope_reason": null
+        },
+        "aligned_sessions": {
+          "aligned_pairs": [],
+          "stock_return_count": 0,
+          "benchmark_return_count": 0,
+          "paired_return_count": 0,
+          "dropped_stock_sessions": [],
+          "dropped_benchmark_sessions": [],
+          "status": "not_attempted",
+          "reason": null
+        },
+        "paired_return_count": 0,
+        "beta": {
+          "value": null,
+          "sample_adequacy": null,
+          "reason": null
+        },
+        "correlation": {
+          "value": null,
+          "sample_adequacy": null,
+          "reason": null
+        },
+        "coverage": {
+          "status": "not_qualified",
+          "reason": "stock_ticker_not_qualified_for_dnse_current_state_price_analytics"
+        },
+        "qualification_status": "CURRENT_STATE_BETA_CORRELATION_NOT_QUALIFIED",
+        "warnings": [
+          "short_observation_window_statistical_confidence_is_limited",
+          "mathematically_computable_is_not_the_same_claim_as_statistically_strong",
+          "descriptive_current_state_statistic_only_not_a_recommendation_or_risk_grade",
+          "correlation_and_beta_are_not_evidence_of_causation",
+          "current_state_only_no_point_in_time_or_backtest_authority",
+          "not_wired_into_production_bundle_ranking_or_publication"
+        ],
+        "provenance": {
+          "stock_provenance": {
+            "fetch": {
+              "evidence_source": "not_retained_or_malformed"
+            },
+            "dropped_sessions": []
+          },
+          "benchmark_provenance": {
+            "fetch": {
+              "evidence_source": "dnse_market_risk_evidence_store"
+            },
+            "dropped_sessions": []
+          },
+          "contract_module": "dnse_current_state_market_risk.py",
+          "contract_version": "1.0.0"
+        },
+        "freshness": {
+          "reference_session_date": "2026-08-07",
+          "latest_qualified_session_date": null,
+          "sessions_behind": null,
+          "status": "not_applicable",
+          "reason": "no_qualified_aligned_session_available"
+        },
+        "status": "not_qualified",
+        "is_actionable": false,
+        "stock_return_count": 0,
+        "benchmark_return_count": 0,
+        "dropped_stock_sessions": [],
+        "dropped_benchmark_sessions": [],
+        "sample_adequacy": null
       },
       "analysis_lane_eligibility": [
         {
@@ -70086,7 +70274,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -70160,7 +70348,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -70297,7 +70485,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -70559,7 +70747,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -74364,7 +74552,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -91798,6 +91986,194 @@
           "Any downstream reading of persistent accumulation/distribution must be stated as an inference over the observations sequence, not as a fact this contract asserts."
         ],
         "is_actionable": false
+      },
+      "current_state_market_risk": {
+        "schema_version": "1.0.0",
+        "ticker": "HPG",
+        "benchmark": "VNINDEX",
+        "source_scope": {
+          "stock_source": "DNSE",
+          "benchmark_source": "DNSE",
+          "same_source_no_fallback_mixing": true,
+          "reason": null
+        },
+        "stock_price_contract": {
+          "price_basis": "ADJUSTED_CONFIRMED",
+          "price_basis_contract_version": "dnse_ohlc_price_basis/2026-08-10",
+          "qualification_scope": "evidence_bounded_ticker_and_action_type"
+        },
+        "benchmark_return_contract": {
+          "index_level_unit": "index_points",
+          "source_contract_version": "dnse_index_return_series/2026-08-10"
+        },
+        "analysis_time_semantics": "current_state_using_retrospectively_adjusted_stock_history_and_current_benchmark_history",
+        "pit_backtest_eligible": false,
+        "input_gates": {
+          "stock_qualified": true,
+          "stock_reason": null,
+          "benchmark_qualified": true,
+          "benchmark_reason": null,
+          "source_scope_ok": true,
+          "source_scope_reason": null
+        },
+        "aligned_sessions": {
+          "aligned_pairs": [
+            {
+              "session_date": "2026-07-15",
+              "stock_return": -0.004444444444444473,
+              "benchmark_return": -0.01356669600305549
+            },
+            {
+              "session_date": "2026-07-16",
+              "stock_return": -0.008928571428571397,
+              "benchmark_return": 0.01241218324243043
+            },
+            {
+              "session_date": "2026-07-17",
+              "stock_return": -0.015765765765765716,
+              "benchmark_return": -0.009305857313882782
+            },
+            {
+              "session_date": "2026-07-20",
+              "stock_return": -0.05720823798627006,
+              "benchmark_return": -0.024582505804358168
+            },
+            {
+              "session_date": "2026-07-21",
+              "stock_return": 0.009708737864077666,
+              "benchmark_return": -0.007427545583334805
+            },
+            {
+              "session_date": "2026-07-22",
+              "stock_return": -0.004807692307692402,
+              "benchmark_return": -0.03584388868343191
+            },
+            {
+              "session_date": "2026-07-23",
+              "stock_return": 0.004830917874396157,
+              "benchmark_return": 0.01848932893025612
+            },
+            {
+              "session_date": "2026-07-24",
+              "stock_return": 0.0,
+              "benchmark_return": -0.007808730242794604
+            },
+            {
+              "session_date": "2026-07-27",
+              "stock_return": -0.021634615384615308,
+              "benchmark_return": -0.010141687078541683
+            },
+            {
+              "session_date": "2026-07-28",
+              "stock_return": 0.03194103194103182,
+              "benchmark_return": 0.006956219555305232
+            },
+            {
+              "session_date": "2026-07-29",
+              "stock_return": 0.030952380952380842,
+              "benchmark_return": 0.014316145232116773
+            },
+            {
+              "session_date": "2026-07-30",
+              "stock_return": 0.006928406466512715,
+              "benchmark_return": 0.023453082103386036
+            },
+            {
+              "session_date": "2026-07-31",
+              "stock_return": -0.004587155963302836,
+              "benchmark_return": -0.005089816927080437
+            },
+            {
+              "session_date": "2026-08-03",
+              "stock_return": 0.03917050691244239,
+              "benchmark_return": 0.015589533235778719
+            },
+            {
+              "session_date": "2026-08-04",
+              "stock_return": -0.017738359201773912,
+              "benchmark_return": 0.008162964307594667
+            },
+            {
+              "session_date": "2026-08-05",
+              "stock_return": -0.006772009029345272,
+              "benchmark_return": -0.00043325849777464676
+            },
+            {
+              "session_date": "2026-08-06",
+              "stock_return": -0.006818181818181723,
+              "benchmark_return": -0.006574873625074584
+            },
+            {
+              "session_date": "2026-08-07",
+              "stock_return": 0.00686498855835227,
+              "benchmark_return": 0.0018585886059452328
+            }
+          ],
+          "stock_return_count": 18,
+          "benchmark_return_count": 18,
+          "paired_return_count": 18,
+          "dropped_stock_sessions": [],
+          "dropped_benchmark_sessions": [],
+          "status": "aligned",
+          "reason": null
+        },
+        "paired_return_count": 18,
+        "beta": {
+          "value": 0.8093285134496059,
+          "sample_adequacy": "MATHEMATICALLY_COMPUTABLE",
+          "reason": null
+        },
+        "correlation": {
+          "value": 0.5664164065437041,
+          "sample_adequacy": "MATHEMATICALLY_COMPUTABLE",
+          "reason": null
+        },
+        "coverage": {
+          "status": "complete",
+          "paired_return_count": 18,
+          "minimum_required": 2,
+          "sample_adequacy": "MATHEMATICALLY_COMPUTABLE",
+          "reason": null
+        },
+        "qualification_status": "CURRENT_STATE_BETA_CORRELATION_QUALIFIED",
+        "warnings": [
+          "short_observation_window_statistical_confidence_is_limited",
+          "mathematically_computable_is_not_the_same_claim_as_statistically_strong",
+          "descriptive_current_state_statistic_only_not_a_recommendation_or_risk_grade",
+          "correlation_and_beta_are_not_evidence_of_causation",
+          "current_state_only_no_point_in_time_or_backtest_authority",
+          "not_wired_into_production_bundle_ranking_or_publication"
+        ],
+        "provenance": {
+          "stock_provenance": {
+            "fetch": {
+              "evidence_source": "dnse_market_risk_evidence_store"
+            },
+            "dropped_sessions": []
+          },
+          "benchmark_provenance": {
+            "fetch": {
+              "evidence_source": "dnse_market_risk_evidence_store"
+            },
+            "dropped_sessions": []
+          },
+          "contract_module": "dnse_current_state_market_risk.py",
+          "contract_version": "1.0.0"
+        },
+        "freshness": {
+          "reference_session_date": "2026-08-07",
+          "latest_qualified_session_date": "2026-08-07",
+          "sessions_behind": 0,
+          "status": "current",
+          "reason": null
+        },
+        "status": "available",
+        "is_actionable": false,
+        "stock_return_count": 18,
+        "benchmark_return_count": 18,
+        "dropped_stock_sessions": [],
+        "dropped_benchmark_sessions": [],
+        "sample_adequacy": "MATHEMATICALLY_COMPUTABLE"
       },
       "analysis_lane_eligibility": [
         {
@@ -120311,7 +120687,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -120385,7 +120761,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -120520,7 +120896,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -120782,7 +121158,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -121714,7 +122090,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -128976,6 +129352,100 @@
           "Any downstream reading of persistent accumulation/distribution must be stated as an inference over the observations sequence, not as a fact this contract asserts."
         ],
         "is_actionable": false
+      },
+      "current_state_market_risk": {
+        "schema_version": "1.0.0",
+        "ticker": "EVF",
+        "benchmark": "VNINDEX",
+        "source_scope": {
+          "stock_source": "DNSE",
+          "benchmark_source": "DNSE",
+          "same_source_no_fallback_mixing": true,
+          "reason": null
+        },
+        "stock_price_contract": {
+          "price_basis": "ADJUSTED_CONFIRMED",
+          "price_basis_contract_version": "dnse_ohlc_price_basis/2026-08-10",
+          "qualification_scope": "evidence_bounded_ticker_and_action_type"
+        },
+        "benchmark_return_contract": {
+          "index_level_unit": "index_points",
+          "source_contract_version": "dnse_index_return_series/2026-08-10"
+        },
+        "analysis_time_semantics": "current_state_using_retrospectively_adjusted_stock_history_and_current_benchmark_history",
+        "pit_backtest_eligible": false,
+        "input_gates": {
+          "stock_qualified": false,
+          "stock_reason": "stock_ticker_not_qualified_for_dnse_current_state_price_analytics",
+          "benchmark_qualified": true,
+          "benchmark_reason": null,
+          "source_scope_ok": true,
+          "source_scope_reason": null
+        },
+        "aligned_sessions": {
+          "aligned_pairs": [],
+          "stock_return_count": 0,
+          "benchmark_return_count": 0,
+          "paired_return_count": 0,
+          "dropped_stock_sessions": [],
+          "dropped_benchmark_sessions": [],
+          "status": "not_attempted",
+          "reason": null
+        },
+        "paired_return_count": 0,
+        "beta": {
+          "value": null,
+          "sample_adequacy": null,
+          "reason": null
+        },
+        "correlation": {
+          "value": null,
+          "sample_adequacy": null,
+          "reason": null
+        },
+        "coverage": {
+          "status": "not_qualified",
+          "reason": "stock_ticker_not_qualified_for_dnse_current_state_price_analytics"
+        },
+        "qualification_status": "CURRENT_STATE_BETA_CORRELATION_NOT_QUALIFIED",
+        "warnings": [
+          "short_observation_window_statistical_confidence_is_limited",
+          "mathematically_computable_is_not_the_same_claim_as_statistically_strong",
+          "descriptive_current_state_statistic_only_not_a_recommendation_or_risk_grade",
+          "correlation_and_beta_are_not_evidence_of_causation",
+          "current_state_only_no_point_in_time_or_backtest_authority",
+          "not_wired_into_production_bundle_ranking_or_publication"
+        ],
+        "provenance": {
+          "stock_provenance": {
+            "fetch": {
+              "evidence_source": "not_retained_or_malformed"
+            },
+            "dropped_sessions": []
+          },
+          "benchmark_provenance": {
+            "fetch": {
+              "evidence_source": "dnse_market_risk_evidence_store"
+            },
+            "dropped_sessions": []
+          },
+          "contract_module": "dnse_current_state_market_risk.py",
+          "contract_version": "1.0.0"
+        },
+        "freshness": {
+          "reference_session_date": "2026-08-07",
+          "latest_qualified_session_date": null,
+          "sessions_behind": null,
+          "status": "not_applicable",
+          "reason": "no_qualified_aligned_session_available"
+        },
+        "status": "not_qualified",
+        "is_actionable": false,
+        "stock_return_count": 0,
+        "benchmark_return_count": 0,
+        "dropped_stock_sessions": [],
+        "dropped_benchmark_sessions": [],
+        "sample_adequacy": null
       },
       "analysis_lane_eligibility": [
         {
@@ -144947,7 +145417,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -145021,7 +145491,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -145156,7 +145626,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -145418,7 +145888,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -147070,7 +147540,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -158227,6 +158697,100 @@
           "Any downstream reading of persistent accumulation/distribution must be stated as an inference over the observations sequence, not as a fact this contract asserts."
         ],
         "is_actionable": false
+      },
+      "current_state_market_risk": {
+        "schema_version": "1.0.0",
+        "ticker": "PAN",
+        "benchmark": "VNINDEX",
+        "source_scope": {
+          "stock_source": "DNSE",
+          "benchmark_source": "DNSE",
+          "same_source_no_fallback_mixing": true,
+          "reason": null
+        },
+        "stock_price_contract": {
+          "price_basis": "ADJUSTED_CONFIRMED",
+          "price_basis_contract_version": "dnse_ohlc_price_basis/2026-08-10",
+          "qualification_scope": "evidence_bounded_ticker_and_action_type"
+        },
+        "benchmark_return_contract": {
+          "index_level_unit": "index_points",
+          "source_contract_version": "dnse_index_return_series/2026-08-10"
+        },
+        "analysis_time_semantics": "current_state_using_retrospectively_adjusted_stock_history_and_current_benchmark_history",
+        "pit_backtest_eligible": false,
+        "input_gates": {
+          "stock_qualified": false,
+          "stock_reason": "stock_ticker_not_qualified_for_dnse_current_state_price_analytics",
+          "benchmark_qualified": true,
+          "benchmark_reason": null,
+          "source_scope_ok": true,
+          "source_scope_reason": null
+        },
+        "aligned_sessions": {
+          "aligned_pairs": [],
+          "stock_return_count": 0,
+          "benchmark_return_count": 0,
+          "paired_return_count": 0,
+          "dropped_stock_sessions": [],
+          "dropped_benchmark_sessions": [],
+          "status": "not_attempted",
+          "reason": null
+        },
+        "paired_return_count": 0,
+        "beta": {
+          "value": null,
+          "sample_adequacy": null,
+          "reason": null
+        },
+        "correlation": {
+          "value": null,
+          "sample_adequacy": null,
+          "reason": null
+        },
+        "coverage": {
+          "status": "not_qualified",
+          "reason": "stock_ticker_not_qualified_for_dnse_current_state_price_analytics"
+        },
+        "qualification_status": "CURRENT_STATE_BETA_CORRELATION_NOT_QUALIFIED",
+        "warnings": [
+          "short_observation_window_statistical_confidence_is_limited",
+          "mathematically_computable_is_not_the_same_claim_as_statistically_strong",
+          "descriptive_current_state_statistic_only_not_a_recommendation_or_risk_grade",
+          "correlation_and_beta_are_not_evidence_of_causation",
+          "current_state_only_no_point_in_time_or_backtest_authority",
+          "not_wired_into_production_bundle_ranking_or_publication"
+        ],
+        "provenance": {
+          "stock_provenance": {
+            "fetch": {
+              "evidence_source": "not_retained_or_malformed"
+            },
+            "dropped_sessions": []
+          },
+          "benchmark_provenance": {
+            "fetch": {
+              "evidence_source": "dnse_market_risk_evidence_store"
+            },
+            "dropped_sessions": []
+          },
+          "contract_module": "dnse_current_state_market_risk.py",
+          "contract_version": "1.0.0"
+        },
+        "freshness": {
+          "reference_session_date": "2026-08-07",
+          "latest_qualified_session_date": null,
+          "sessions_behind": null,
+          "status": "not_applicable",
+          "reason": "no_qualified_aligned_session_available"
+        },
+        "status": "not_qualified",
+        "is_actionable": false,
+        "stock_return_count": 0,
+        "benchmark_return_count": 0,
+        "dropped_stock_sessions": [],
+        "dropped_benchmark_sessions": [],
+        "sample_adequacy": null
       },
       "analysis_lane_eligibility": [
         {
@@ -185480,7 +186044,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -185554,7 +186118,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -185691,7 +186255,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -185953,7 +186517,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -186679,7 +187243,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -193986,6 +194550,100 @@
           "Any downstream reading of persistent accumulation/distribution must be stated as an inference over the observations sequence, not as a fact this contract asserts."
         ],
         "is_actionable": false
+      },
+      "current_state_market_risk": {
+        "schema_version": "1.0.0",
+        "ticker": "PNJ",
+        "benchmark": "VNINDEX",
+        "source_scope": {
+          "stock_source": "DNSE",
+          "benchmark_source": "DNSE",
+          "same_source_no_fallback_mixing": true,
+          "reason": null
+        },
+        "stock_price_contract": {
+          "price_basis": "ADJUSTED_CONFIRMED",
+          "price_basis_contract_version": "dnse_ohlc_price_basis/2026-08-10",
+          "qualification_scope": "evidence_bounded_ticker_and_action_type"
+        },
+        "benchmark_return_contract": {
+          "index_level_unit": "index_points",
+          "source_contract_version": "dnse_index_return_series/2026-08-10"
+        },
+        "analysis_time_semantics": "current_state_using_retrospectively_adjusted_stock_history_and_current_benchmark_history",
+        "pit_backtest_eligible": false,
+        "input_gates": {
+          "stock_qualified": false,
+          "stock_reason": "stock_ticker_not_qualified_for_dnse_current_state_price_analytics",
+          "benchmark_qualified": true,
+          "benchmark_reason": null,
+          "source_scope_ok": true,
+          "source_scope_reason": null
+        },
+        "aligned_sessions": {
+          "aligned_pairs": [],
+          "stock_return_count": 0,
+          "benchmark_return_count": 0,
+          "paired_return_count": 0,
+          "dropped_stock_sessions": [],
+          "dropped_benchmark_sessions": [],
+          "status": "not_attempted",
+          "reason": null
+        },
+        "paired_return_count": 0,
+        "beta": {
+          "value": null,
+          "sample_adequacy": null,
+          "reason": null
+        },
+        "correlation": {
+          "value": null,
+          "sample_adequacy": null,
+          "reason": null
+        },
+        "coverage": {
+          "status": "not_qualified",
+          "reason": "stock_ticker_not_qualified_for_dnse_current_state_price_analytics"
+        },
+        "qualification_status": "CURRENT_STATE_BETA_CORRELATION_NOT_QUALIFIED",
+        "warnings": [
+          "short_observation_window_statistical_confidence_is_limited",
+          "mathematically_computable_is_not_the_same_claim_as_statistically_strong",
+          "descriptive_current_state_statistic_only_not_a_recommendation_or_risk_grade",
+          "correlation_and_beta_are_not_evidence_of_causation",
+          "current_state_only_no_point_in_time_or_backtest_authority",
+          "not_wired_into_production_bundle_ranking_or_publication"
+        ],
+        "provenance": {
+          "stock_provenance": {
+            "fetch": {
+              "evidence_source": "not_retained_or_malformed"
+            },
+            "dropped_sessions": []
+          },
+          "benchmark_provenance": {
+            "fetch": {
+              "evidence_source": "dnse_market_risk_evidence_store"
+            },
+            "dropped_sessions": []
+          },
+          "contract_module": "dnse_current_state_market_risk.py",
+          "contract_version": "1.0.0"
+        },
+        "freshness": {
+          "reference_session_date": "2026-08-07",
+          "latest_qualified_session_date": null,
+          "sessions_behind": null,
+          "status": "not_applicable",
+          "reason": "no_qualified_aligned_session_available"
+        },
+        "status": "not_qualified",
+        "is_actionable": false,
+        "stock_return_count": 0,
+        "benchmark_return_count": 0,
+        "dropped_stock_sessions": [],
+        "dropped_benchmark_sessions": [],
+        "sample_adequacy": null
       },
       "analysis_lane_eligibility": [
         {
@@ -207246,7 +207904,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -207320,7 +207978,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -207457,7 +208115,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -207719,7 +208377,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -208445,7 +209103,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -215831,6 +216489,100 @@
           "Any downstream reading of persistent accumulation/distribution must be stated as an inference over the observations sequence, not as a fact this contract asserts."
         ],
         "is_actionable": false
+      },
+      "current_state_market_risk": {
+        "schema_version": "1.0.0",
+        "ticker": "FPT",
+        "benchmark": "VNINDEX",
+        "source_scope": {
+          "stock_source": "DNSE",
+          "benchmark_source": "DNSE",
+          "same_source_no_fallback_mixing": true,
+          "reason": null
+        },
+        "stock_price_contract": {
+          "price_basis": "ADJUSTED_CONFIRMED",
+          "price_basis_contract_version": "dnse_ohlc_price_basis/2026-08-10",
+          "qualification_scope": "evidence_bounded_ticker_and_action_type"
+        },
+        "benchmark_return_contract": {
+          "index_level_unit": "index_points",
+          "source_contract_version": "dnse_index_return_series/2026-08-10"
+        },
+        "analysis_time_semantics": "current_state_using_retrospectively_adjusted_stock_history_and_current_benchmark_history",
+        "pit_backtest_eligible": false,
+        "input_gates": {
+          "stock_qualified": false,
+          "stock_reason": "stock_ticker_not_qualified_for_dnse_current_state_price_analytics",
+          "benchmark_qualified": true,
+          "benchmark_reason": null,
+          "source_scope_ok": true,
+          "source_scope_reason": null
+        },
+        "aligned_sessions": {
+          "aligned_pairs": [],
+          "stock_return_count": 0,
+          "benchmark_return_count": 0,
+          "paired_return_count": 0,
+          "dropped_stock_sessions": [],
+          "dropped_benchmark_sessions": [],
+          "status": "not_attempted",
+          "reason": null
+        },
+        "paired_return_count": 0,
+        "beta": {
+          "value": null,
+          "sample_adequacy": null,
+          "reason": null
+        },
+        "correlation": {
+          "value": null,
+          "sample_adequacy": null,
+          "reason": null
+        },
+        "coverage": {
+          "status": "not_qualified",
+          "reason": "stock_ticker_not_qualified_for_dnse_current_state_price_analytics"
+        },
+        "qualification_status": "CURRENT_STATE_BETA_CORRELATION_NOT_QUALIFIED",
+        "warnings": [
+          "short_observation_window_statistical_confidence_is_limited",
+          "mathematically_computable_is_not_the_same_claim_as_statistically_strong",
+          "descriptive_current_state_statistic_only_not_a_recommendation_or_risk_grade",
+          "correlation_and_beta_are_not_evidence_of_causation",
+          "current_state_only_no_point_in_time_or_backtest_authority",
+          "not_wired_into_production_bundle_ranking_or_publication"
+        ],
+        "provenance": {
+          "stock_provenance": {
+            "fetch": {
+              "evidence_source": "not_retained_or_malformed"
+            },
+            "dropped_sessions": []
+          },
+          "benchmark_provenance": {
+            "fetch": {
+              "evidence_source": "dnse_market_risk_evidence_store"
+            },
+            "dropped_sessions": []
+          },
+          "contract_module": "dnse_current_state_market_risk.py",
+          "contract_version": "1.0.0"
+        },
+        "freshness": {
+          "reference_session_date": "2026-08-07",
+          "latest_qualified_session_date": null,
+          "sessions_behind": null,
+          "status": "not_applicable",
+          "reason": "no_qualified_aligned_session_available"
+        },
+        "status": "not_qualified",
+        "is_actionable": false,
+        "stock_return_count": 0,
+        "benchmark_return_count": 0,
+        "dropped_stock_sessions": [],
+        "dropped_benchmark_sessions": [],
+        "sample_adequacy": null
       },
       "analysis_lane_eligibility": [
         {
@@ -228833,7 +229585,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -228907,7 +229659,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -229044,7 +229796,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -229306,7 +230058,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -230032,7 +230784,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -237174,6 +237926,100 @@
           "Any downstream reading of persistent accumulation/distribution must be stated as an inference over the observations sequence, not as a fact this contract asserts."
         ],
         "is_actionable": false
+      },
+      "current_state_market_risk": {
+        "schema_version": "1.0.0",
+        "ticker": "QNS",
+        "benchmark": "VNINDEX",
+        "source_scope": {
+          "stock_source": "DNSE",
+          "benchmark_source": "DNSE",
+          "same_source_no_fallback_mixing": true,
+          "reason": null
+        },
+        "stock_price_contract": {
+          "price_basis": "ADJUSTED_CONFIRMED",
+          "price_basis_contract_version": "dnse_ohlc_price_basis/2026-08-10",
+          "qualification_scope": "evidence_bounded_ticker_and_action_type"
+        },
+        "benchmark_return_contract": {
+          "index_level_unit": "index_points",
+          "source_contract_version": "dnse_index_return_series/2026-08-10"
+        },
+        "analysis_time_semantics": "current_state_using_retrospectively_adjusted_stock_history_and_current_benchmark_history",
+        "pit_backtest_eligible": false,
+        "input_gates": {
+          "stock_qualified": false,
+          "stock_reason": "stock_ticker_not_qualified_for_dnse_current_state_price_analytics",
+          "benchmark_qualified": true,
+          "benchmark_reason": null,
+          "source_scope_ok": true,
+          "source_scope_reason": null
+        },
+        "aligned_sessions": {
+          "aligned_pairs": [],
+          "stock_return_count": 0,
+          "benchmark_return_count": 0,
+          "paired_return_count": 0,
+          "dropped_stock_sessions": [],
+          "dropped_benchmark_sessions": [],
+          "status": "not_attempted",
+          "reason": null
+        },
+        "paired_return_count": 0,
+        "beta": {
+          "value": null,
+          "sample_adequacy": null,
+          "reason": null
+        },
+        "correlation": {
+          "value": null,
+          "sample_adequacy": null,
+          "reason": null
+        },
+        "coverage": {
+          "status": "not_qualified",
+          "reason": "stock_ticker_not_qualified_for_dnse_current_state_price_analytics"
+        },
+        "qualification_status": "CURRENT_STATE_BETA_CORRELATION_NOT_QUALIFIED",
+        "warnings": [
+          "short_observation_window_statistical_confidence_is_limited",
+          "mathematically_computable_is_not_the_same_claim_as_statistically_strong",
+          "descriptive_current_state_statistic_only_not_a_recommendation_or_risk_grade",
+          "correlation_and_beta_are_not_evidence_of_causation",
+          "current_state_only_no_point_in_time_or_backtest_authority",
+          "not_wired_into_production_bundle_ranking_or_publication"
+        ],
+        "provenance": {
+          "stock_provenance": {
+            "fetch": {
+              "evidence_source": "not_retained_or_malformed"
+            },
+            "dropped_sessions": []
+          },
+          "benchmark_provenance": {
+            "fetch": {
+              "evidence_source": "dnse_market_risk_evidence_store"
+            },
+            "dropped_sessions": []
+          },
+          "contract_module": "dnse_current_state_market_risk.py",
+          "contract_version": "1.0.0"
+        },
+        "freshness": {
+          "reference_session_date": "2026-08-07",
+          "latest_qualified_session_date": null,
+          "sessions_behind": null,
+          "status": "not_applicable",
+          "reason": "no_qualified_aligned_session_available"
+        },
+        "status": "not_qualified",
+        "is_actionable": false,
+        "stock_return_count": 0,
+        "benchmark_return_count": 0,
+        "dropped_stock_sessions": [],
+        "dropped_benchmark_sessions": [],
+        "sample_adequacy": null
       },
       "analysis_lane_eligibility": [
         {
@@ -264959,7 +265805,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -265033,7 +265879,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -265172,7 +266018,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -265434,7 +266280,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -268375,7 +269221,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -281491,6 +282337,100 @@
           "Any downstream reading of persistent accumulation/distribution must be stated as an inference over the observations sequence, not as a fact this contract asserts."
         ],
         "is_actionable": false
+      },
+      "current_state_market_risk": {
+        "schema_version": "1.0.0",
+        "ticker": "VNM",
+        "benchmark": "VNINDEX",
+        "source_scope": {
+          "stock_source": "DNSE",
+          "benchmark_source": "DNSE",
+          "same_source_no_fallback_mixing": true,
+          "reason": null
+        },
+        "stock_price_contract": {
+          "price_basis": "ADJUSTED_CONFIRMED",
+          "price_basis_contract_version": "dnse_ohlc_price_basis/2026-08-10",
+          "qualification_scope": "evidence_bounded_ticker_and_action_type"
+        },
+        "benchmark_return_contract": {
+          "index_level_unit": "index_points",
+          "source_contract_version": "dnse_index_return_series/2026-08-10"
+        },
+        "analysis_time_semantics": "current_state_using_retrospectively_adjusted_stock_history_and_current_benchmark_history",
+        "pit_backtest_eligible": false,
+        "input_gates": {
+          "stock_qualified": false,
+          "stock_reason": "stock_ticker_not_qualified_for_dnse_current_state_price_analytics",
+          "benchmark_qualified": true,
+          "benchmark_reason": null,
+          "source_scope_ok": true,
+          "source_scope_reason": null
+        },
+        "aligned_sessions": {
+          "aligned_pairs": [],
+          "stock_return_count": 0,
+          "benchmark_return_count": 0,
+          "paired_return_count": 0,
+          "dropped_stock_sessions": [],
+          "dropped_benchmark_sessions": [],
+          "status": "not_attempted",
+          "reason": null
+        },
+        "paired_return_count": 0,
+        "beta": {
+          "value": null,
+          "sample_adequacy": null,
+          "reason": null
+        },
+        "correlation": {
+          "value": null,
+          "sample_adequacy": null,
+          "reason": null
+        },
+        "coverage": {
+          "status": "not_qualified",
+          "reason": "stock_ticker_not_qualified_for_dnse_current_state_price_analytics"
+        },
+        "qualification_status": "CURRENT_STATE_BETA_CORRELATION_NOT_QUALIFIED",
+        "warnings": [
+          "short_observation_window_statistical_confidence_is_limited",
+          "mathematically_computable_is_not_the_same_claim_as_statistically_strong",
+          "descriptive_current_state_statistic_only_not_a_recommendation_or_risk_grade",
+          "correlation_and_beta_are_not_evidence_of_causation",
+          "current_state_only_no_point_in_time_or_backtest_authority",
+          "not_wired_into_production_bundle_ranking_or_publication"
+        ],
+        "provenance": {
+          "stock_provenance": {
+            "fetch": {
+              "evidence_source": "not_retained_or_malformed"
+            },
+            "dropped_sessions": []
+          },
+          "benchmark_provenance": {
+            "fetch": {
+              "evidence_source": "dnse_market_risk_evidence_store"
+            },
+            "dropped_sessions": []
+          },
+          "contract_module": "dnse_current_state_market_risk.py",
+          "contract_version": "1.0.0"
+        },
+        "freshness": {
+          "reference_session_date": "2026-08-07",
+          "latest_qualified_session_date": null,
+          "sessions_behind": null,
+          "status": "not_applicable",
+          "reason": "no_qualified_aligned_session_available"
+        },
+        "status": "not_qualified",
+        "is_actionable": false,
+        "stock_return_count": 0,
+        "benchmark_return_count": 0,
+        "dropped_stock_sessions": [],
+        "dropped_benchmark_sessions": [],
+        "sample_adequacy": null
       },
       "analysis_lane_eligibility": [
         {
@@ -308716,7 +309656,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -308790,7 +309730,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -308927,7 +309867,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -309189,7 +310129,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -309915,7 +310855,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -317043,6 +317983,100 @@
           "Any downstream reading of persistent accumulation/distribution must be stated as an inference over the observations sequence, not as a fact this contract asserts."
         ],
         "is_actionable": false
+      },
+      "current_state_market_risk": {
+        "schema_version": "1.0.0",
+        "ticker": "PVD",
+        "benchmark": "VNINDEX",
+        "source_scope": {
+          "stock_source": "DNSE",
+          "benchmark_source": "DNSE",
+          "same_source_no_fallback_mixing": true,
+          "reason": null
+        },
+        "stock_price_contract": {
+          "price_basis": "ADJUSTED_CONFIRMED",
+          "price_basis_contract_version": "dnse_ohlc_price_basis/2026-08-10",
+          "qualification_scope": "evidence_bounded_ticker_and_action_type"
+        },
+        "benchmark_return_contract": {
+          "index_level_unit": "index_points",
+          "source_contract_version": "dnse_index_return_series/2026-08-10"
+        },
+        "analysis_time_semantics": "current_state_using_retrospectively_adjusted_stock_history_and_current_benchmark_history",
+        "pit_backtest_eligible": false,
+        "input_gates": {
+          "stock_qualified": false,
+          "stock_reason": "stock_ticker_not_qualified_for_dnse_current_state_price_analytics",
+          "benchmark_qualified": true,
+          "benchmark_reason": null,
+          "source_scope_ok": true,
+          "source_scope_reason": null
+        },
+        "aligned_sessions": {
+          "aligned_pairs": [],
+          "stock_return_count": 0,
+          "benchmark_return_count": 0,
+          "paired_return_count": 0,
+          "dropped_stock_sessions": [],
+          "dropped_benchmark_sessions": [],
+          "status": "not_attempted",
+          "reason": null
+        },
+        "paired_return_count": 0,
+        "beta": {
+          "value": null,
+          "sample_adequacy": null,
+          "reason": null
+        },
+        "correlation": {
+          "value": null,
+          "sample_adequacy": null,
+          "reason": null
+        },
+        "coverage": {
+          "status": "not_qualified",
+          "reason": "stock_ticker_not_qualified_for_dnse_current_state_price_analytics"
+        },
+        "qualification_status": "CURRENT_STATE_BETA_CORRELATION_NOT_QUALIFIED",
+        "warnings": [
+          "short_observation_window_statistical_confidence_is_limited",
+          "mathematically_computable_is_not_the_same_claim_as_statistically_strong",
+          "descriptive_current_state_statistic_only_not_a_recommendation_or_risk_grade",
+          "correlation_and_beta_are_not_evidence_of_causation",
+          "current_state_only_no_point_in_time_or_backtest_authority",
+          "not_wired_into_production_bundle_ranking_or_publication"
+        ],
+        "provenance": {
+          "stock_provenance": {
+            "fetch": {
+              "evidence_source": "not_retained_or_malformed"
+            },
+            "dropped_sessions": []
+          },
+          "benchmark_provenance": {
+            "fetch": {
+              "evidence_source": "dnse_market_risk_evidence_store"
+            },
+            "dropped_sessions": []
+          },
+          "contract_module": "dnse_current_state_market_risk.py",
+          "contract_version": "1.0.0"
+        },
+        "freshness": {
+          "reference_session_date": "2026-08-07",
+          "latest_qualified_session_date": null,
+          "sessions_behind": null,
+          "status": "not_applicable",
+          "reason": "no_qualified_aligned_session_available"
+        },
+        "status": "not_qualified",
+        "is_actionable": false,
+        "stock_return_count": 0,
+        "benchmark_return_count": 0,
+        "dropped_stock_sessions": [],
+        "dropped_benchmark_sessions": [],
+        "sample_adequacy": null
       },
       "analysis_lane_eligibility": [
         {
@@ -345560,7 +346594,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -345634,7 +346668,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -345771,7 +346805,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -346033,7 +347067,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -346759,7 +347793,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-10T05:48:00.917432+00:00",
+        "reference_at": "2026-08-10T13:47:03.976002+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -353721,6 +354755,100 @@
           "Any downstream reading of persistent accumulation/distribution must be stated as an inference over the observations sequence, not as a fact this contract asserts."
         ],
         "is_actionable": false
+      },
+      "current_state_market_risk": {
+        "schema_version": "1.0.0",
+        "ticker": "NVL",
+        "benchmark": "VNINDEX",
+        "source_scope": {
+          "stock_source": "DNSE",
+          "benchmark_source": "DNSE",
+          "same_source_no_fallback_mixing": true,
+          "reason": null
+        },
+        "stock_price_contract": {
+          "price_basis": "ADJUSTED_CONFIRMED",
+          "price_basis_contract_version": "dnse_ohlc_price_basis/2026-08-10",
+          "qualification_scope": "evidence_bounded_ticker_and_action_type"
+        },
+        "benchmark_return_contract": {
+          "index_level_unit": "index_points",
+          "source_contract_version": "dnse_index_return_series/2026-08-10"
+        },
+        "analysis_time_semantics": "current_state_using_retrospectively_adjusted_stock_history_and_current_benchmark_history",
+        "pit_backtest_eligible": false,
+        "input_gates": {
+          "stock_qualified": false,
+          "stock_reason": "stock_ticker_not_qualified_for_dnse_current_state_price_analytics",
+          "benchmark_qualified": true,
+          "benchmark_reason": null,
+          "source_scope_ok": true,
+          "source_scope_reason": null
+        },
+        "aligned_sessions": {
+          "aligned_pairs": [],
+          "stock_return_count": 0,
+          "benchmark_return_count": 0,
+          "paired_return_count": 0,
+          "dropped_stock_sessions": [],
+          "dropped_benchmark_sessions": [],
+          "status": "not_attempted",
+          "reason": null
+        },
+        "paired_return_count": 0,
+        "beta": {
+          "value": null,
+          "sample_adequacy": null,
+          "reason": null
+        },
+        "correlation": {
+          "value": null,
+          "sample_adequacy": null,
+          "reason": null
+        },
+        "coverage": {
+          "status": "not_qualified",
+          "reason": "stock_ticker_not_qualified_for_dnse_current_state_price_analytics"
+        },
+        "qualification_status": "CURRENT_STATE_BETA_CORRELATION_NOT_QUALIFIED",
+        "warnings": [
+          "short_observation_window_statistical_confidence_is_limited",
+          "mathematically_computable_is_not_the_same_claim_as_statistically_strong",
+          "descriptive_current_state_statistic_only_not_a_recommendation_or_risk_grade",
+          "correlation_and_beta_are_not_evidence_of_causation",
+          "current_state_only_no_point_in_time_or_backtest_authority",
+          "not_wired_into_production_bundle_ranking_or_publication"
+        ],
+        "provenance": {
+          "stock_provenance": {
+            "fetch": {
+              "evidence_source": "not_retained_or_malformed"
+            },
+            "dropped_sessions": []
+          },
+          "benchmark_provenance": {
+            "fetch": {
+              "evidence_source": "dnse_market_risk_evidence_store"
+            },
+            "dropped_sessions": []
+          },
+          "contract_module": "dnse_current_state_market_risk.py",
+          "contract_version": "1.0.0"
+        },
+        "freshness": {
+          "reference_session_date": "2026-08-07",
+          "latest_qualified_session_date": null,
+          "sessions_behind": null,
+          "status": "not_applicable",
+          "reason": "no_qualified_aligned_session_available"
+        },
+        "status": "not_qualified",
+        "is_actionable": false,
+        "stock_return_count": 0,
+        "benchmark_return_count": 0,
+        "dropped_stock_sessions": [],
+        "dropped_benchmark_sessions": [],
+        "sample_adequacy": null
       },
       "analysis_lane_eligibility": [
         {
