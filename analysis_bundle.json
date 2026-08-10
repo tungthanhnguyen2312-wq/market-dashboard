@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-08-10T03:03:15+00:00",
+  "generated_at": "2026-08-10T05:48:00+00:00",
   "reference_session_date": "2026-08-07",
   "tickers_requested": [
     "POW",
@@ -760,24 +760,10 @@
   "research_changes": {
     "schema_version": "1.0.0",
     "snapshot_version": "2.0.0",
-    "source_snapshot": "qrs2-4a2ea9bd55d001d47251a4e2d0cf66d3c19205a9e5e9c4d00921de61f2a45bf5",
+    "source_snapshot": "qrs2-cbd802a5e9a55e3b5dcc981ea449a8c7b9298ff19db7bf43d5ed6814aa970a3d",
     "destination_snapshot": "qrs2-cbd802a5e9a55e3b5dcc981ea449a8c7b9298ff19db7bf43d5ed6814aa970a3d",
-    "events": [
-      {
-        "event_id": "qrc-5e32f49418b48ce8c2646fe163a54858d7e0f30d7e0074e020067f6f4649aa90",
-        "ticker": "QNS",
-        "family": "research_availability_established",
-        "importance": "research_state_change",
-        "previous": "unavailable",
-        "current": "available",
-        "provenance_references": [
-          "v2.tickers.QNS.semantic_sha256"
-        ],
-        "historical_only": true,
-        "is_actionable": false
-      }
-    ],
-    "status": "events_available",
+    "events": [],
+    "status": "NO_CHANGE",
     "historical_only": true,
     "is_actionable": false
   },
@@ -4705,7 +4691,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -4779,7 +4765,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -4916,7 +4902,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -5178,7 +5164,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -8819,7 +8805,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -15880,6 +15866,72 @@
           "cash_source_status": "unavailable",
           "non_cash_source_status": "unavailable"
         },
+        "is_actionable": false
+      },
+      "foreign_flow": {
+        "schema_version": "1.0.0",
+        "ticker": "POW",
+        "status": "missing",
+        "source": "DNSE",
+        "source_contract_version": "dnse_foreign_flow/2026-08-10",
+        "source_scope": "per_ticker_foreign_investor_value_flow",
+        "point_in_time_status": "not_applicable",
+        "latest_session": null,
+        "observations": [],
+        "qualified_session_count": 0,
+        "cumulative_net_value_vnd": null,
+        "cumulative_window": {
+          "first_session": null,
+          "last_session": null,
+          "session_count": 0
+        },
+        "positive_session_count": 0,
+        "negative_session_count": 0,
+        "neutral_session_count": 0,
+        "current_consecutive_net_buy_sessions": 0,
+        "current_consecutive_net_sell_sessions": 0,
+        "window_summaries": {
+          "5_session": {
+            "window_size": 5,
+            "sessions": [],
+            "cumulative_net_value_vnd": null,
+            "buy_value_vnd": null,
+            "sell_value_vnd": null,
+            "coverage": "incomplete",
+            "reason": "only 0 qualified session(s) retained, need 5"
+          },
+          "10_session": {
+            "window_size": 10,
+            "sessions": [],
+            "cumulative_net_value_vnd": null,
+            "buy_value_vnd": null,
+            "sell_value_vnd": null,
+            "coverage": "incomplete",
+            "reason": "only 0 qualified session(s) retained, need 10"
+          }
+        },
+        "freshness": {
+          "reference_session_date": "2026-08-07",
+          "latest_qualified_session_date": null,
+          "sessions_behind": null,
+          "status": "not_applicable",
+          "reason": "no_qualified_foreign_flow_session_retained"
+        },
+        "warnings": [
+          "foreign_volume_not_represented_here_unqualified_by_contract",
+          "foreign_room_not_represented_here_unqualified_by_contract",
+          "no_ownership_or_free_float_percentage_is_derived",
+          "flow_relative_to_trading_value_is_not_computed_denominator_unqualified",
+          "dnse_ohlc_price_basis_and_market_volume_basis_remain_unqualified_separately",
+          "a_single_session_net_value_is_an_observation_not_a_trend_evaluate_the_full_observations_sequence",
+          "no_score_ranking_or_bullish_bearish_label_is_computed_or_implied_by_this_contract",
+          "foreign_value_flow_is_not_evidence_that_foreign_investors_caused_any_price_movement"
+        ],
+        "limitations": [
+          "is_actionable is always false; this contract carries qualified foreign-value flow evidence only, never an investment signal or recommendation.",
+          "Session coverage is bounded to whatever has been explicitly ingested; a missing session is reported as a gap, never filled or inferred.",
+          "Any downstream reading of persistent accumulation/distribution must be stated as an inference over the observations sequence, not as a fact this contract asserts."
+        ],
         "is_actionable": false
       },
       "analysis_lane_eligibility": [
@@ -42929,7 +42981,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -42992,7 +43044,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -43129,7 +43181,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -43391,7 +43443,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -46654,7 +46706,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -53833,6 +53885,72 @@
           "cash_source_status": "unavailable",
           "non_cash_source_status": "unavailable"
         },
+        "is_actionable": false
+      },
+      "foreign_flow": {
+        "schema_version": "1.0.0",
+        "ticker": "SSI",
+        "status": "missing",
+        "source": "DNSE",
+        "source_contract_version": "dnse_foreign_flow/2026-08-10",
+        "source_scope": "per_ticker_foreign_investor_value_flow",
+        "point_in_time_status": "not_applicable",
+        "latest_session": null,
+        "observations": [],
+        "qualified_session_count": 0,
+        "cumulative_net_value_vnd": null,
+        "cumulative_window": {
+          "first_session": null,
+          "last_session": null,
+          "session_count": 0
+        },
+        "positive_session_count": 0,
+        "negative_session_count": 0,
+        "neutral_session_count": 0,
+        "current_consecutive_net_buy_sessions": 0,
+        "current_consecutive_net_sell_sessions": 0,
+        "window_summaries": {
+          "5_session": {
+            "window_size": 5,
+            "sessions": [],
+            "cumulative_net_value_vnd": null,
+            "buy_value_vnd": null,
+            "sell_value_vnd": null,
+            "coverage": "incomplete",
+            "reason": "only 0 qualified session(s) retained, need 5"
+          },
+          "10_session": {
+            "window_size": 10,
+            "sessions": [],
+            "cumulative_net_value_vnd": null,
+            "buy_value_vnd": null,
+            "sell_value_vnd": null,
+            "coverage": "incomplete",
+            "reason": "only 0 qualified session(s) retained, need 10"
+          }
+        },
+        "freshness": {
+          "reference_session_date": "2026-08-07",
+          "latest_qualified_session_date": null,
+          "sessions_behind": null,
+          "status": "not_applicable",
+          "reason": "no_qualified_foreign_flow_session_retained"
+        },
+        "warnings": [
+          "foreign_volume_not_represented_here_unqualified_by_contract",
+          "foreign_room_not_represented_here_unqualified_by_contract",
+          "no_ownership_or_free_float_percentage_is_derived",
+          "flow_relative_to_trading_value_is_not_computed_denominator_unqualified",
+          "dnse_ohlc_price_basis_and_market_volume_basis_remain_unqualified_separately",
+          "a_single_session_net_value_is_an_observation_not_a_trend_evaluate_the_full_observations_sequence",
+          "no_score_ranking_or_bullish_bearish_label_is_computed_or_implied_by_this_contract",
+          "foreign_value_flow_is_not_evidence_that_foreign_investors_caused_any_price_movement"
+        ],
+        "limitations": [
+          "is_actionable is always false; this contract carries qualified foreign-value flow evidence only, never an investment signal or recommendation.",
+          "Session coverage is bounded to whatever has been explicitly ingested; a missing session is reported as a gap, never filled or inferred.",
+          "Any downstream reading of persistent accumulation/distribution must be stated as an inference over the observations sequence, not as a fact this contract asserts."
+        ],
         "is_actionable": false
       },
       "analysis_lane_eligibility": [
@@ -69968,7 +70086,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -70042,7 +70160,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -70179,7 +70297,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -70441,7 +70559,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -74246,7 +74364,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -91427,6 +91545,258 @@
           "cash_source_status": "unavailable",
           "non_cash_source_status": "unavailable"
         },
+        "is_actionable": false
+      },
+      "foreign_flow": {
+        "schema_version": "1.0.0",
+        "ticker": "HPG",
+        "status": "available",
+        "source": "DNSE",
+        "source_contract_version": "dnse_foreign_flow/2026-08-10",
+        "source_scope": "per_ticker_foreign_investor_value_flow",
+        "point_in_time_status": "qualified",
+        "latest_session": {
+          "ticker": "HPG",
+          "session_date": "2026-08-07",
+          "observed_at": "2026-08-07 15:33:11.507",
+          "foreign_buy_value_vnd": 47907362050,
+          "foreign_sell_value_vnd": 20350730400,
+          "foreign_net_value_vnd": 27556631650,
+          "source": "DNSE",
+          "source_contract_version": "dnse_foreign_flow/2026-08-10",
+          "point_in_time_status": "qualified",
+          "provenance": {
+            "board_id": "G4",
+            "event_scoped": {
+              "buy_value": 2232050,
+              "buy_volume": 101,
+              "sell_value": 7490400,
+              "sell_volume": 339
+            },
+            "exchange": "STO",
+            "query_window": {
+              "from": 1786035600,
+              "limit": 5,
+              "order": "DESC",
+              "to": 1786121999
+            },
+            "source_endpoint": "/price/HPG/foreign-trading",
+            "trading_session_id": "99"
+          },
+          "qualification_status": "QUALIFIED_VALUE_ONLY"
+        },
+        "observations": [
+          {
+            "ticker": "HPG",
+            "session_date": "2026-08-03",
+            "observed_at": "2026-08-03 15:33:12.448",
+            "foreign_buy_value_vnd": 370256849400,
+            "foreign_sell_value_vnd": 86900235150,
+            "foreign_net_value_vnd": 283356614250,
+            "source": "DNSE",
+            "source_contract_version": "dnse_foreign_flow/2026-08-10",
+            "point_in_time_status": "qualified",
+            "provenance": {
+              "board_id": "G4",
+              "event_scoped": {
+                "buy_value": 3349400,
+                "buy_volume": 151,
+                "sell_value": 6690150,
+                "sell_volume": 302
+              },
+              "exchange": "STO",
+              "query_window": {
+                "from": 1785690000,
+                "limit": 5,
+                "order": "DESC",
+                "to": 1785776399
+              },
+              "source_endpoint": "/price/HPG/foreign-trading",
+              "trading_session_id": "99"
+            },
+            "qualification_status": "QUALIFIED_VALUE_ONLY"
+          },
+          {
+            "ticker": "HPG",
+            "session_date": "2026-08-04",
+            "observed_at": "2026-08-04 15:33:11.711",
+            "foreign_buy_value_vnd": 125750887750,
+            "foreign_sell_value_vnd": 91532959750,
+            "foreign_net_value_vnd": 34217928000,
+            "source": "DNSE",
+            "source_contract_version": "dnse_foreign_flow/2026-08-10",
+            "point_in_time_status": "qualified",
+            "provenance": {
+              "board_id": "G4",
+              "event_scoped": {
+                "buy_value": 7037750,
+                "buy_volume": 315,
+                "sell_value": 4904750,
+                "sell_volume": 221
+              },
+              "exchange": "STO",
+              "query_window": {
+                "from": 1785776400,
+                "limit": 5,
+                "order": "DESC",
+                "to": 1785862799
+              },
+              "source_endpoint": "/price/HPG/foreign-trading",
+              "trading_session_id": "99"
+            },
+            "qualification_status": "QUALIFIED_VALUE_ONLY"
+          },
+          {
+            "ticker": "HPG",
+            "session_date": "2026-08-05",
+            "observed_at": "2026-08-05 15:33:12.229",
+            "foreign_buy_value_vnd": 111382916000,
+            "foreign_sell_value_vnd": 69002320650,
+            "foreign_net_value_vnd": 42380595350,
+            "source": "DNSE",
+            "source_contract_version": "dnse_foreign_flow/2026-08-10",
+            "point_in_time_status": "qualified",
+            "provenance": {
+              "board_id": "G4",
+              "event_scoped": {
+                "buy_value": 6226000,
+                "buy_volume": 280,
+                "sell_value": 20590650,
+                "sell_volume": 926
+              },
+              "exchange": "STO",
+              "query_window": {
+                "from": 1785862800,
+                "limit": 5,
+                "order": "DESC",
+                "to": 1785949199
+              },
+              "source_endpoint": "/price/HPG/foreign-trading",
+              "trading_session_id": "99"
+            },
+            "qualification_status": "QUALIFIED_VALUE_ONLY"
+          },
+          {
+            "ticker": "HPG",
+            "session_date": "2026-08-06",
+            "observed_at": "2026-08-06 15:33:12.924",
+            "foreign_buy_value_vnd": 51686035100,
+            "foreign_sell_value_vnd": 8018820000,
+            "foreign_net_value_vnd": 43667215100,
+            "source": "DNSE",
+            "source_contract_version": "dnse_foreign_flow/2026-08-10",
+            "point_in_time_status": "qualified",
+            "provenance": {
+              "board_id": "G4",
+              "event_scoped": {
+                "buy_value": 3170100,
+                "buy_volume": 144,
+                "sell_value": 0,
+                "sell_volume": 0
+              },
+              "exchange": "STO",
+              "query_window": {
+                "from": 1785949200,
+                "limit": 5,
+                "order": "DESC",
+                "to": 1786035599
+              },
+              "source_endpoint": "/price/HPG/foreign-trading",
+              "trading_session_id": "99"
+            },
+            "qualification_status": "QUALIFIED_VALUE_ONLY"
+          },
+          {
+            "ticker": "HPG",
+            "session_date": "2026-08-07",
+            "observed_at": "2026-08-07 15:33:11.507",
+            "foreign_buy_value_vnd": 47907362050,
+            "foreign_sell_value_vnd": 20350730400,
+            "foreign_net_value_vnd": 27556631650,
+            "source": "DNSE",
+            "source_contract_version": "dnse_foreign_flow/2026-08-10",
+            "point_in_time_status": "qualified",
+            "provenance": {
+              "board_id": "G4",
+              "event_scoped": {
+                "buy_value": 2232050,
+                "buy_volume": 101,
+                "sell_value": 7490400,
+                "sell_volume": 339
+              },
+              "exchange": "STO",
+              "query_window": {
+                "from": 1786035600,
+                "limit": 5,
+                "order": "DESC",
+                "to": 1786121999
+              },
+              "source_endpoint": "/price/HPG/foreign-trading",
+              "trading_session_id": "99"
+            },
+            "qualification_status": "QUALIFIED_VALUE_ONLY"
+          }
+        ],
+        "qualified_session_count": 5,
+        "cumulative_net_value_vnd": 431178984350,
+        "cumulative_window": {
+          "first_session": "2026-08-03",
+          "last_session": "2026-08-07",
+          "session_count": 5
+        },
+        "positive_session_count": 5,
+        "negative_session_count": 0,
+        "neutral_session_count": 0,
+        "current_consecutive_net_buy_sessions": 5,
+        "current_consecutive_net_sell_sessions": 0,
+        "window_summaries": {
+          "5_session": {
+            "window_size": 5,
+            "sessions": [
+              "2026-08-03",
+              "2026-08-04",
+              "2026-08-05",
+              "2026-08-06",
+              "2026-08-07"
+            ],
+            "coverage": "complete",
+            "reason": null,
+            "cumulative_net_value_vnd": 431178984350,
+            "buy_value_vnd": 706984050300,
+            "sell_value_vnd": 275805065950
+          },
+          "10_session": {
+            "window_size": 10,
+            "sessions": [],
+            "cumulative_net_value_vnd": null,
+            "buy_value_vnd": null,
+            "sell_value_vnd": null,
+            "coverage": "incomplete",
+            "reason": "only 5 qualified session(s) retained, need 10"
+          }
+        },
+        "freshness": {
+          "reference_session_date": "2026-08-07",
+          "latest_qualified_session_date": "2026-08-07",
+          "sessions_behind": 0,
+          "status": "current",
+          "reason": null
+        },
+        "warnings": [
+          "foreign_volume_not_represented_here_unqualified_by_contract",
+          "foreign_room_not_represented_here_unqualified_by_contract",
+          "no_ownership_or_free_float_percentage_is_derived",
+          "flow_relative_to_trading_value_is_not_computed_denominator_unqualified",
+          "dnse_ohlc_price_basis_and_market_volume_basis_remain_unqualified_separately",
+          "a_single_session_net_value_is_an_observation_not_a_trend_evaluate_the_full_observations_sequence",
+          "no_score_ranking_or_bullish_bearish_label_is_computed_or_implied_by_this_contract",
+          "foreign_value_flow_is_not_evidence_that_foreign_investors_caused_any_price_movement"
+        ],
+        "limitations": [
+          "is_actionable is always false; this contract carries qualified foreign-value flow evidence only, never an investment signal or recommendation.",
+          "Session coverage is bounded to whatever has been explicitly ingested; a missing session is reported as a gap, never filled or inferred.",
+          "Any downstream reading of persistent accumulation/distribution must be stated as an inference over the observations sequence, not as a fact this contract asserts."
+        ],
         "is_actionable": false
       },
       "analysis_lane_eligibility": [
@@ -119941,7 +120311,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -120015,7 +120385,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -120150,7 +120520,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -120412,7 +120782,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -121344,7 +121714,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -128539,6 +128909,72 @@
           "cash_source_status": "unavailable",
           "non_cash_source_status": "unavailable"
         },
+        "is_actionable": false
+      },
+      "foreign_flow": {
+        "schema_version": "1.0.0",
+        "ticker": "EVF",
+        "status": "missing",
+        "source": "DNSE",
+        "source_contract_version": "dnse_foreign_flow/2026-08-10",
+        "source_scope": "per_ticker_foreign_investor_value_flow",
+        "point_in_time_status": "not_applicable",
+        "latest_session": null,
+        "observations": [],
+        "qualified_session_count": 0,
+        "cumulative_net_value_vnd": null,
+        "cumulative_window": {
+          "first_session": null,
+          "last_session": null,
+          "session_count": 0
+        },
+        "positive_session_count": 0,
+        "negative_session_count": 0,
+        "neutral_session_count": 0,
+        "current_consecutive_net_buy_sessions": 0,
+        "current_consecutive_net_sell_sessions": 0,
+        "window_summaries": {
+          "5_session": {
+            "window_size": 5,
+            "sessions": [],
+            "cumulative_net_value_vnd": null,
+            "buy_value_vnd": null,
+            "sell_value_vnd": null,
+            "coverage": "incomplete",
+            "reason": "only 0 qualified session(s) retained, need 5"
+          },
+          "10_session": {
+            "window_size": 10,
+            "sessions": [],
+            "cumulative_net_value_vnd": null,
+            "buy_value_vnd": null,
+            "sell_value_vnd": null,
+            "coverage": "incomplete",
+            "reason": "only 0 qualified session(s) retained, need 10"
+          }
+        },
+        "freshness": {
+          "reference_session_date": "2026-08-07",
+          "latest_qualified_session_date": null,
+          "sessions_behind": null,
+          "status": "not_applicable",
+          "reason": "no_qualified_foreign_flow_session_retained"
+        },
+        "warnings": [
+          "foreign_volume_not_represented_here_unqualified_by_contract",
+          "foreign_room_not_represented_here_unqualified_by_contract",
+          "no_ownership_or_free_float_percentage_is_derived",
+          "flow_relative_to_trading_value_is_not_computed_denominator_unqualified",
+          "dnse_ohlc_price_basis_and_market_volume_basis_remain_unqualified_separately",
+          "a_single_session_net_value_is_an_observation_not_a_trend_evaluate_the_full_observations_sequence",
+          "no_score_ranking_or_bullish_bearish_label_is_computed_or_implied_by_this_contract",
+          "foreign_value_flow_is_not_evidence_that_foreign_investors_caused_any_price_movement"
+        ],
+        "limitations": [
+          "is_actionable is always false; this contract carries qualified foreign-value flow evidence only, never an investment signal or recommendation.",
+          "Session coverage is bounded to whatever has been explicitly ingested; a missing session is reported as a gap, never filled or inferred.",
+          "Any downstream reading of persistent accumulation/distribution must be stated as an inference over the observations sequence, not as a fact this contract asserts."
+        ],
         "is_actionable": false
       },
       "analysis_lane_eligibility": [
@@ -144511,7 +144947,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -144585,7 +145021,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -144720,7 +145156,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -144982,7 +145418,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -146634,7 +147070,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -157724,6 +158160,72 @@
           "cash_source_status": "unavailable",
           "non_cash_source_status": "unavailable"
         },
+        "is_actionable": false
+      },
+      "foreign_flow": {
+        "schema_version": "1.0.0",
+        "ticker": "PAN",
+        "status": "missing",
+        "source": "DNSE",
+        "source_contract_version": "dnse_foreign_flow/2026-08-10",
+        "source_scope": "per_ticker_foreign_investor_value_flow",
+        "point_in_time_status": "not_applicable",
+        "latest_session": null,
+        "observations": [],
+        "qualified_session_count": 0,
+        "cumulative_net_value_vnd": null,
+        "cumulative_window": {
+          "first_session": null,
+          "last_session": null,
+          "session_count": 0
+        },
+        "positive_session_count": 0,
+        "negative_session_count": 0,
+        "neutral_session_count": 0,
+        "current_consecutive_net_buy_sessions": 0,
+        "current_consecutive_net_sell_sessions": 0,
+        "window_summaries": {
+          "5_session": {
+            "window_size": 5,
+            "sessions": [],
+            "cumulative_net_value_vnd": null,
+            "buy_value_vnd": null,
+            "sell_value_vnd": null,
+            "coverage": "incomplete",
+            "reason": "only 0 qualified session(s) retained, need 5"
+          },
+          "10_session": {
+            "window_size": 10,
+            "sessions": [],
+            "cumulative_net_value_vnd": null,
+            "buy_value_vnd": null,
+            "sell_value_vnd": null,
+            "coverage": "incomplete",
+            "reason": "only 0 qualified session(s) retained, need 10"
+          }
+        },
+        "freshness": {
+          "reference_session_date": "2026-08-07",
+          "latest_qualified_session_date": null,
+          "sessions_behind": null,
+          "status": "not_applicable",
+          "reason": "no_qualified_foreign_flow_session_retained"
+        },
+        "warnings": [
+          "foreign_volume_not_represented_here_unqualified_by_contract",
+          "foreign_room_not_represented_here_unqualified_by_contract",
+          "no_ownership_or_free_float_percentage_is_derived",
+          "flow_relative_to_trading_value_is_not_computed_denominator_unqualified",
+          "dnse_ohlc_price_basis_and_market_volume_basis_remain_unqualified_separately",
+          "a_single_session_net_value_is_an_observation_not_a_trend_evaluate_the_full_observations_sequence",
+          "no_score_ranking_or_bullish_bearish_label_is_computed_or_implied_by_this_contract",
+          "foreign_value_flow_is_not_evidence_that_foreign_investors_caused_any_price_movement"
+        ],
+        "limitations": [
+          "is_actionable is always false; this contract carries qualified foreign-value flow evidence only, never an investment signal or recommendation.",
+          "Session coverage is bounded to whatever has been explicitly ingested; a missing session is reported as a gap, never filled or inferred.",
+          "Any downstream reading of persistent accumulation/distribution must be stated as an inference over the observations sequence, not as a fact this contract asserts."
+        ],
         "is_actionable": false
       },
       "analysis_lane_eligibility": [
@@ -184978,7 +185480,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -185052,7 +185554,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -185189,7 +185691,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -185451,7 +185953,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -186177,7 +186679,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -193417,6 +193919,72 @@
           "cash_source_status": "unavailable",
           "non_cash_source_status": "unavailable"
         },
+        "is_actionable": false
+      },
+      "foreign_flow": {
+        "schema_version": "1.0.0",
+        "ticker": "PNJ",
+        "status": "missing",
+        "source": "DNSE",
+        "source_contract_version": "dnse_foreign_flow/2026-08-10",
+        "source_scope": "per_ticker_foreign_investor_value_flow",
+        "point_in_time_status": "not_applicable",
+        "latest_session": null,
+        "observations": [],
+        "qualified_session_count": 0,
+        "cumulative_net_value_vnd": null,
+        "cumulative_window": {
+          "first_session": null,
+          "last_session": null,
+          "session_count": 0
+        },
+        "positive_session_count": 0,
+        "negative_session_count": 0,
+        "neutral_session_count": 0,
+        "current_consecutive_net_buy_sessions": 0,
+        "current_consecutive_net_sell_sessions": 0,
+        "window_summaries": {
+          "5_session": {
+            "window_size": 5,
+            "sessions": [],
+            "cumulative_net_value_vnd": null,
+            "buy_value_vnd": null,
+            "sell_value_vnd": null,
+            "coverage": "incomplete",
+            "reason": "only 0 qualified session(s) retained, need 5"
+          },
+          "10_session": {
+            "window_size": 10,
+            "sessions": [],
+            "cumulative_net_value_vnd": null,
+            "buy_value_vnd": null,
+            "sell_value_vnd": null,
+            "coverage": "incomplete",
+            "reason": "only 0 qualified session(s) retained, need 10"
+          }
+        },
+        "freshness": {
+          "reference_session_date": "2026-08-07",
+          "latest_qualified_session_date": null,
+          "sessions_behind": null,
+          "status": "not_applicable",
+          "reason": "no_qualified_foreign_flow_session_retained"
+        },
+        "warnings": [
+          "foreign_volume_not_represented_here_unqualified_by_contract",
+          "foreign_room_not_represented_here_unqualified_by_contract",
+          "no_ownership_or_free_float_percentage_is_derived",
+          "flow_relative_to_trading_value_is_not_computed_denominator_unqualified",
+          "dnse_ohlc_price_basis_and_market_volume_basis_remain_unqualified_separately",
+          "a_single_session_net_value_is_an_observation_not_a_trend_evaluate_the_full_observations_sequence",
+          "no_score_ranking_or_bullish_bearish_label_is_computed_or_implied_by_this_contract",
+          "foreign_value_flow_is_not_evidence_that_foreign_investors_caused_any_price_movement"
+        ],
+        "limitations": [
+          "is_actionable is always false; this contract carries qualified foreign-value flow evidence only, never an investment signal or recommendation.",
+          "Session coverage is bounded to whatever has been explicitly ingested; a missing session is reported as a gap, never filled or inferred.",
+          "Any downstream reading of persistent accumulation/distribution must be stated as an inference over the observations sequence, not as a fact this contract asserts."
+        ],
         "is_actionable": false
       },
       "analysis_lane_eligibility": [
@@ -206678,7 +207246,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -206752,7 +207320,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -206889,7 +207457,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -207151,7 +207719,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -207877,7 +208445,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -215196,6 +215764,72 @@
           "cash_source_status": "unavailable",
           "non_cash_source_status": "unavailable"
         },
+        "is_actionable": false
+      },
+      "foreign_flow": {
+        "schema_version": "1.0.0",
+        "ticker": "FPT",
+        "status": "missing",
+        "source": "DNSE",
+        "source_contract_version": "dnse_foreign_flow/2026-08-10",
+        "source_scope": "per_ticker_foreign_investor_value_flow",
+        "point_in_time_status": "not_applicable",
+        "latest_session": null,
+        "observations": [],
+        "qualified_session_count": 0,
+        "cumulative_net_value_vnd": null,
+        "cumulative_window": {
+          "first_session": null,
+          "last_session": null,
+          "session_count": 0
+        },
+        "positive_session_count": 0,
+        "negative_session_count": 0,
+        "neutral_session_count": 0,
+        "current_consecutive_net_buy_sessions": 0,
+        "current_consecutive_net_sell_sessions": 0,
+        "window_summaries": {
+          "5_session": {
+            "window_size": 5,
+            "sessions": [],
+            "cumulative_net_value_vnd": null,
+            "buy_value_vnd": null,
+            "sell_value_vnd": null,
+            "coverage": "incomplete",
+            "reason": "only 0 qualified session(s) retained, need 5"
+          },
+          "10_session": {
+            "window_size": 10,
+            "sessions": [],
+            "cumulative_net_value_vnd": null,
+            "buy_value_vnd": null,
+            "sell_value_vnd": null,
+            "coverage": "incomplete",
+            "reason": "only 0 qualified session(s) retained, need 10"
+          }
+        },
+        "freshness": {
+          "reference_session_date": "2026-08-07",
+          "latest_qualified_session_date": null,
+          "sessions_behind": null,
+          "status": "not_applicable",
+          "reason": "no_qualified_foreign_flow_session_retained"
+        },
+        "warnings": [
+          "foreign_volume_not_represented_here_unqualified_by_contract",
+          "foreign_room_not_represented_here_unqualified_by_contract",
+          "no_ownership_or_free_float_percentage_is_derived",
+          "flow_relative_to_trading_value_is_not_computed_denominator_unqualified",
+          "dnse_ohlc_price_basis_and_market_volume_basis_remain_unqualified_separately",
+          "a_single_session_net_value_is_an_observation_not_a_trend_evaluate_the_full_observations_sequence",
+          "no_score_ranking_or_bullish_bearish_label_is_computed_or_implied_by_this_contract",
+          "foreign_value_flow_is_not_evidence_that_foreign_investors_caused_any_price_movement"
+        ],
+        "limitations": [
+          "is_actionable is always false; this contract carries qualified foreign-value flow evidence only, never an investment signal or recommendation.",
+          "Session coverage is bounded to whatever has been explicitly ingested; a missing session is reported as a gap, never filled or inferred.",
+          "Any downstream reading of persistent accumulation/distribution must be stated as an inference over the observations sequence, not as a fact this contract asserts."
+        ],
         "is_actionable": false
       },
       "analysis_lane_eligibility": [
@@ -228199,7 +228833,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -228273,7 +228907,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -228410,7 +229044,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -228672,7 +229306,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -229398,7 +230032,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -236287,6 +236921,258 @@
           "cash_source_status": "unavailable",
           "non_cash_source_status": "unavailable"
         },
+        "is_actionable": false
+      },
+      "foreign_flow": {
+        "schema_version": "1.0.0",
+        "ticker": "QNS",
+        "status": "available",
+        "source": "DNSE",
+        "source_contract_version": "dnse_foreign_flow/2026-08-10",
+        "source_scope": "per_ticker_foreign_investor_value_flow",
+        "point_in_time_status": "qualified",
+        "latest_session": {
+          "ticker": "QNS",
+          "session_date": "2026-08-07",
+          "observed_at": "2026-08-07 15:36:33.057",
+          "foreign_buy_value_vnd": 1645520000,
+          "foreign_sell_value_vnd": 8118190000,
+          "foreign_net_value_vnd": -6472670000,
+          "source": "DNSE",
+          "source_contract_version": "dnse_foreign_flow/2026-08-10",
+          "point_in_time_status": "qualified",
+          "provenance": {
+            "board_id": "G1",
+            "event_scoped": {
+              "buy_value": 1645520000,
+              "buy_volume": 35000,
+              "sell_value": 8118190000,
+              "sell_volume": 172700
+            },
+            "exchange": "UPX",
+            "query_window": {
+              "from": 1786035600,
+              "limit": 5,
+              "order": "DESC",
+              "to": 1786121999
+            },
+            "source_endpoint": "/price/QNS/foreign-trading",
+            "trading_session_id": "99"
+          },
+          "qualification_status": "QUALIFIED_VALUE_ONLY"
+        },
+        "observations": [
+          {
+            "ticker": "QNS",
+            "session_date": "2026-08-03",
+            "observed_at": "2026-08-03 15:32:32.800",
+            "foreign_buy_value_vnd": 117320000,
+            "foreign_sell_value_vnd": 2544700000,
+            "foreign_net_value_vnd": -2427380000,
+            "source": "DNSE",
+            "source_contract_version": "dnse_foreign_flow/2026-08-10",
+            "point_in_time_status": "qualified",
+            "provenance": {
+              "board_id": "G1",
+              "event_scoped": {
+                "buy_value": 117320000,
+                "buy_volume": 2500,
+                "sell_value": 2544700000,
+                "sell_volume": 54200
+              },
+              "exchange": "UPX",
+              "query_window": {
+                "from": 1785690000,
+                "limit": 5,
+                "order": "DESC",
+                "to": 1785776399
+              },
+              "source_endpoint": "/price/QNS/foreign-trading",
+              "trading_session_id": "99"
+            },
+            "qualification_status": "QUALIFIED_VALUE_ONLY"
+          },
+          {
+            "ticker": "QNS",
+            "session_date": "2026-08-04",
+            "observed_at": "2026-08-04 15:33:02.106",
+            "foreign_buy_value_vnd": 4700000,
+            "foreign_sell_value_vnd": 414100000,
+            "foreign_net_value_vnd": -409400000,
+            "source": "DNSE",
+            "source_contract_version": "dnse_foreign_flow/2026-08-10",
+            "point_in_time_status": "qualified",
+            "provenance": {
+              "board_id": "G1",
+              "event_scoped": {
+                "buy_value": 4700000,
+                "buy_volume": 100,
+                "sell_value": 414100000,
+                "sell_volume": 8800
+              },
+              "exchange": "UPX",
+              "query_window": {
+                "from": 1785776400,
+                "limit": 5,
+                "order": "DESC",
+                "to": 1785862799
+              },
+              "source_endpoint": "/price/QNS/foreign-trading",
+              "trading_session_id": "99"
+            },
+            "qualification_status": "QUALIFIED_VALUE_ONLY"
+          },
+          {
+            "ticker": "QNS",
+            "session_date": "2026-08-05",
+            "observed_at": "2026-08-05 15:32:32.171",
+            "foreign_buy_value_vnd": 2360000,
+            "foreign_sell_value_vnd": 1030810000,
+            "foreign_net_value_vnd": -1028450000,
+            "source": "DNSE",
+            "source_contract_version": "dnse_foreign_flow/2026-08-10",
+            "point_in_time_status": "qualified",
+            "provenance": {
+              "board_id": "G4",
+              "event_scoped": {
+                "buy_value": 2360000,
+                "buy_volume": 50,
+                "sell_value": 0,
+                "sell_volume": 0
+              },
+              "exchange": "UPX",
+              "query_window": {
+                "from": 1785862800,
+                "limit": 5,
+                "order": "DESC",
+                "to": 1785949199
+              },
+              "source_endpoint": "/price/QNS/foreign-trading",
+              "trading_session_id": "99"
+            },
+            "qualification_status": "QUALIFIED_VALUE_ONLY"
+          },
+          {
+            "ticker": "QNS",
+            "session_date": "2026-08-06",
+            "observed_at": "2026-08-06 15:38:01.360",
+            "foreign_buy_value_vnd": 0,
+            "foreign_sell_value_vnd": 489250000,
+            "foreign_net_value_vnd": -489250000,
+            "source": "DNSE",
+            "source_contract_version": "dnse_foreign_flow/2026-08-10",
+            "point_in_time_status": "qualified",
+            "provenance": {
+              "board_id": "G1",
+              "event_scoped": {
+                "buy_value": 0,
+                "buy_volume": 0,
+                "sell_value": 489250000,
+                "sell_volume": 10400
+              },
+              "exchange": "UPX",
+              "query_window": {
+                "from": 1785949200,
+                "limit": 5,
+                "order": "DESC",
+                "to": 1786035599
+              },
+              "source_endpoint": "/price/QNS/foreign-trading",
+              "trading_session_id": "99"
+            },
+            "qualification_status": "QUALIFIED_VALUE_ONLY"
+          },
+          {
+            "ticker": "QNS",
+            "session_date": "2026-08-07",
+            "observed_at": "2026-08-07 15:36:33.057",
+            "foreign_buy_value_vnd": 1645520000,
+            "foreign_sell_value_vnd": 8118190000,
+            "foreign_net_value_vnd": -6472670000,
+            "source": "DNSE",
+            "source_contract_version": "dnse_foreign_flow/2026-08-10",
+            "point_in_time_status": "qualified",
+            "provenance": {
+              "board_id": "G1",
+              "event_scoped": {
+                "buy_value": 1645520000,
+                "buy_volume": 35000,
+                "sell_value": 8118190000,
+                "sell_volume": 172700
+              },
+              "exchange": "UPX",
+              "query_window": {
+                "from": 1786035600,
+                "limit": 5,
+                "order": "DESC",
+                "to": 1786121999
+              },
+              "source_endpoint": "/price/QNS/foreign-trading",
+              "trading_session_id": "99"
+            },
+            "qualification_status": "QUALIFIED_VALUE_ONLY"
+          }
+        ],
+        "qualified_session_count": 5,
+        "cumulative_net_value_vnd": -10827150000,
+        "cumulative_window": {
+          "first_session": "2026-08-03",
+          "last_session": "2026-08-07",
+          "session_count": 5
+        },
+        "positive_session_count": 0,
+        "negative_session_count": 5,
+        "neutral_session_count": 0,
+        "current_consecutive_net_buy_sessions": 0,
+        "current_consecutive_net_sell_sessions": 5,
+        "window_summaries": {
+          "5_session": {
+            "window_size": 5,
+            "sessions": [
+              "2026-08-03",
+              "2026-08-04",
+              "2026-08-05",
+              "2026-08-06",
+              "2026-08-07"
+            ],
+            "coverage": "complete",
+            "reason": null,
+            "cumulative_net_value_vnd": -10827150000,
+            "buy_value_vnd": 1769900000,
+            "sell_value_vnd": 12597050000
+          },
+          "10_session": {
+            "window_size": 10,
+            "sessions": [],
+            "cumulative_net_value_vnd": null,
+            "buy_value_vnd": null,
+            "sell_value_vnd": null,
+            "coverage": "incomplete",
+            "reason": "only 5 qualified session(s) retained, need 10"
+          }
+        },
+        "freshness": {
+          "reference_session_date": "2026-08-07",
+          "latest_qualified_session_date": "2026-08-07",
+          "sessions_behind": 0,
+          "status": "current",
+          "reason": null
+        },
+        "warnings": [
+          "foreign_volume_not_represented_here_unqualified_by_contract",
+          "foreign_room_not_represented_here_unqualified_by_contract",
+          "no_ownership_or_free_float_percentage_is_derived",
+          "flow_relative_to_trading_value_is_not_computed_denominator_unqualified",
+          "dnse_ohlc_price_basis_and_market_volume_basis_remain_unqualified_separately",
+          "a_single_session_net_value_is_an_observation_not_a_trend_evaluate_the_full_observations_sequence",
+          "no_score_ranking_or_bullish_bearish_label_is_computed_or_implied_by_this_contract",
+          "foreign_value_flow_is_not_evidence_that_foreign_investors_caused_any_price_movement"
+        ],
+        "limitations": [
+          "is_actionable is always false; this contract carries qualified foreign-value flow evidence only, never an investment signal or recommendation.",
+          "Session coverage is bounded to whatever has been explicitly ingested; a missing session is reported as a gap, never filled or inferred.",
+          "Any downstream reading of persistent accumulation/distribution must be stated as an inference over the observations sequence, not as a fact this contract asserts."
+        ],
         "is_actionable": false
       },
       "analysis_lane_eligibility": [
@@ -264073,7 +264959,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -264147,7 +265033,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -264286,7 +265172,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -264548,7 +265434,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -267489,7 +268375,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -280352,6 +281238,258 @@
           "cash_source_status": "unavailable",
           "non_cash_source_status": "unavailable"
         },
+        "is_actionable": false
+      },
+      "foreign_flow": {
+        "schema_version": "1.0.0",
+        "ticker": "VNM",
+        "status": "available",
+        "source": "DNSE",
+        "source_contract_version": "dnse_foreign_flow/2026-08-10",
+        "source_scope": "per_ticker_foreign_investor_value_flow",
+        "point_in_time_status": "qualified",
+        "latest_session": {
+          "ticker": "VNM",
+          "session_date": "2026-08-07",
+          "observed_at": "2026-08-07 15:32:27.407",
+          "foreign_buy_value_vnd": 211766632500,
+          "foreign_sell_value_vnd": 51064962700,
+          "foreign_net_value_vnd": 160701669800,
+          "source": "DNSE",
+          "source_contract_version": "dnse_foreign_flow/2026-08-10",
+          "point_in_time_status": "qualified",
+          "provenance": {
+            "board_id": "G4",
+            "event_scoped": {
+              "buy_value": 62500,
+              "buy_volume": 1,
+              "sell_value": 5262700,
+              "sell_volume": 87
+            },
+            "exchange": "STO",
+            "query_window": {
+              "from": 1786035600,
+              "limit": 5,
+              "order": "DESC",
+              "to": 1786121999
+            },
+            "source_endpoint": "/price/VNM/foreign-trading",
+            "trading_session_id": "99"
+          },
+          "qualification_status": "QUALIFIED_VALUE_ONLY"
+        },
+        "observations": [
+          {
+            "ticker": "VNM",
+            "session_date": "2026-08-03",
+            "observed_at": "2026-08-03 15:32:30.148",
+            "foreign_buy_value_vnd": 210468097200,
+            "foreign_sell_value_vnd": 214961918500,
+            "foreign_net_value_vnd": -4493821300,
+            "source": "DNSE",
+            "source_contract_version": "dnse_foreign_flow/2026-08-10",
+            "point_in_time_status": "qualified",
+            "provenance": {
+              "board_id": "T3",
+              "event_scoped": {
+                "buy_value": 59494971200,
+                "buy_volume": 986400,
+                "sell_value": 59494971200,
+                "sell_volume": 986400
+              },
+              "exchange": "STO",
+              "query_window": {
+                "from": 1785690000,
+                "limit": 5,
+                "order": "DESC",
+                "to": 1785776399
+              },
+              "source_endpoint": "/price/VNM/foreign-trading",
+              "trading_session_id": "99"
+            },
+            "qualification_status": "QUALIFIED_VALUE_ONLY"
+          },
+          {
+            "ticker": "VNM",
+            "session_date": "2026-08-04",
+            "observed_at": "2026-08-04 15:32:28.411",
+            "foreign_buy_value_vnd": 61586390000,
+            "foreign_sell_value_vnd": 177219103000,
+            "foreign_net_value_vnd": -115632713000,
+            "source": "DNSE",
+            "source_contract_version": "dnse_foreign_flow/2026-08-10",
+            "point_in_time_status": "qualified",
+            "provenance": {
+              "board_id": "G4",
+              "event_scoped": {
+                "buy_value": 0,
+                "buy_volume": 0,
+                "sell_value": 4783000,
+                "sell_volume": 80
+              },
+              "exchange": "STO",
+              "query_window": {
+                "from": 1785776400,
+                "limit": 5,
+                "order": "DESC",
+                "to": 1785862799
+              },
+              "source_endpoint": "/price/VNM/foreign-trading",
+              "trading_session_id": "99"
+            },
+            "qualification_status": "QUALIFIED_VALUE_ONLY"
+          },
+          {
+            "ticker": "VNM",
+            "session_date": "2026-08-05",
+            "observed_at": "2026-08-05 15:32:28.129",
+            "foreign_buy_value_vnd": 61773848600,
+            "foreign_sell_value_vnd": 134142200000,
+            "foreign_net_value_vnd": -72368351400,
+            "source": "DNSE",
+            "source_contract_version": "dnse_foreign_flow/2026-08-10",
+            "point_in_time_status": "qualified",
+            "provenance": {
+              "board_id": "G4",
+              "event_scoped": {
+                "buy_value": 118600,
+                "buy_volume": 2,
+                "sell_value": 4720000,
+                "sell_volume": 80
+              },
+              "exchange": "STO",
+              "query_window": {
+                "from": 1785862800,
+                "limit": 5,
+                "order": "DESC",
+                "to": 1785949199
+              },
+              "source_endpoint": "/price/VNM/foreign-trading",
+              "trading_session_id": "99"
+            },
+            "qualification_status": "QUALIFIED_VALUE_ONLY"
+          },
+          {
+            "ticker": "VNM",
+            "session_date": "2026-08-06",
+            "observed_at": "2026-08-06 15:32:30.524",
+            "foreign_buy_value_vnd": 46388756300,
+            "foreign_sell_value_vnd": 70779976600,
+            "foreign_net_value_vnd": -24391220300,
+            "source": "DNSE",
+            "source_contract_version": "dnse_foreign_flow/2026-08-10",
+            "point_in_time_status": "qualified",
+            "provenance": {
+              "board_id": "G4",
+              "event_scoped": {
+                "buy_value": 10796300,
+                "buy_volume": 182,
+                "sell_value": 19006600,
+                "sell_volume": 320
+              },
+              "exchange": "STO",
+              "query_window": {
+                "from": 1785949200,
+                "limit": 5,
+                "order": "DESC",
+                "to": 1786035599
+              },
+              "source_endpoint": "/price/VNM/foreign-trading",
+              "trading_session_id": "99"
+            },
+            "qualification_status": "QUALIFIED_VALUE_ONLY"
+          },
+          {
+            "ticker": "VNM",
+            "session_date": "2026-08-07",
+            "observed_at": "2026-08-07 15:32:27.407",
+            "foreign_buy_value_vnd": 211766632500,
+            "foreign_sell_value_vnd": 51064962700,
+            "foreign_net_value_vnd": 160701669800,
+            "source": "DNSE",
+            "source_contract_version": "dnse_foreign_flow/2026-08-10",
+            "point_in_time_status": "qualified",
+            "provenance": {
+              "board_id": "G4",
+              "event_scoped": {
+                "buy_value": 62500,
+                "buy_volume": 1,
+                "sell_value": 5262700,
+                "sell_volume": 87
+              },
+              "exchange": "STO",
+              "query_window": {
+                "from": 1786035600,
+                "limit": 5,
+                "order": "DESC",
+                "to": 1786121999
+              },
+              "source_endpoint": "/price/VNM/foreign-trading",
+              "trading_session_id": "99"
+            },
+            "qualification_status": "QUALIFIED_VALUE_ONLY"
+          }
+        ],
+        "qualified_session_count": 5,
+        "cumulative_net_value_vnd": -56184436200,
+        "cumulative_window": {
+          "first_session": "2026-08-03",
+          "last_session": "2026-08-07",
+          "session_count": 5
+        },
+        "positive_session_count": 1,
+        "negative_session_count": 4,
+        "neutral_session_count": 0,
+        "current_consecutive_net_buy_sessions": 1,
+        "current_consecutive_net_sell_sessions": 0,
+        "window_summaries": {
+          "5_session": {
+            "window_size": 5,
+            "sessions": [
+              "2026-08-03",
+              "2026-08-04",
+              "2026-08-05",
+              "2026-08-06",
+              "2026-08-07"
+            ],
+            "coverage": "complete",
+            "reason": null,
+            "cumulative_net_value_vnd": -56184436200,
+            "buy_value_vnd": 591983724600,
+            "sell_value_vnd": 648168160800
+          },
+          "10_session": {
+            "window_size": 10,
+            "sessions": [],
+            "cumulative_net_value_vnd": null,
+            "buy_value_vnd": null,
+            "sell_value_vnd": null,
+            "coverage": "incomplete",
+            "reason": "only 5 qualified session(s) retained, need 10"
+          }
+        },
+        "freshness": {
+          "reference_session_date": "2026-08-07",
+          "latest_qualified_session_date": "2026-08-07",
+          "sessions_behind": 0,
+          "status": "current",
+          "reason": null
+        },
+        "warnings": [
+          "foreign_volume_not_represented_here_unqualified_by_contract",
+          "foreign_room_not_represented_here_unqualified_by_contract",
+          "no_ownership_or_free_float_percentage_is_derived",
+          "flow_relative_to_trading_value_is_not_computed_denominator_unqualified",
+          "dnse_ohlc_price_basis_and_market_volume_basis_remain_unqualified_separately",
+          "a_single_session_net_value_is_an_observation_not_a_trend_evaluate_the_full_observations_sequence",
+          "no_score_ranking_or_bullish_bearish_label_is_computed_or_implied_by_this_contract",
+          "foreign_value_flow_is_not_evidence_that_foreign_investors_caused_any_price_movement"
+        ],
+        "limitations": [
+          "is_actionable is always false; this contract carries qualified foreign-value flow evidence only, never an investment signal or recommendation.",
+          "Session coverage is bounded to whatever has been explicitly ingested; a missing session is reported as a gap, never filled or inferred.",
+          "Any downstream reading of persistent accumulation/distribution must be stated as an inference over the observations sequence, not as a fact this contract asserts."
+        ],
         "is_actionable": false
       },
       "analysis_lane_eligibility": [
@@ -307578,7 +308716,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -307652,7 +308790,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -307789,7 +308927,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -308051,7 +309189,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -308777,7 +309915,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -315838,6 +316976,72 @@
           "cash_source_status": "unavailable",
           "non_cash_source_status": "unavailable"
         },
+        "is_actionable": false
+      },
+      "foreign_flow": {
+        "schema_version": "1.0.0",
+        "ticker": "PVD",
+        "status": "missing",
+        "source": "DNSE",
+        "source_contract_version": "dnse_foreign_flow/2026-08-10",
+        "source_scope": "per_ticker_foreign_investor_value_flow",
+        "point_in_time_status": "not_applicable",
+        "latest_session": null,
+        "observations": [],
+        "qualified_session_count": 0,
+        "cumulative_net_value_vnd": null,
+        "cumulative_window": {
+          "first_session": null,
+          "last_session": null,
+          "session_count": 0
+        },
+        "positive_session_count": 0,
+        "negative_session_count": 0,
+        "neutral_session_count": 0,
+        "current_consecutive_net_buy_sessions": 0,
+        "current_consecutive_net_sell_sessions": 0,
+        "window_summaries": {
+          "5_session": {
+            "window_size": 5,
+            "sessions": [],
+            "cumulative_net_value_vnd": null,
+            "buy_value_vnd": null,
+            "sell_value_vnd": null,
+            "coverage": "incomplete",
+            "reason": "only 0 qualified session(s) retained, need 5"
+          },
+          "10_session": {
+            "window_size": 10,
+            "sessions": [],
+            "cumulative_net_value_vnd": null,
+            "buy_value_vnd": null,
+            "sell_value_vnd": null,
+            "coverage": "incomplete",
+            "reason": "only 0 qualified session(s) retained, need 10"
+          }
+        },
+        "freshness": {
+          "reference_session_date": "2026-08-07",
+          "latest_qualified_session_date": null,
+          "sessions_behind": null,
+          "status": "not_applicable",
+          "reason": "no_qualified_foreign_flow_session_retained"
+        },
+        "warnings": [
+          "foreign_volume_not_represented_here_unqualified_by_contract",
+          "foreign_room_not_represented_here_unqualified_by_contract",
+          "no_ownership_or_free_float_percentage_is_derived",
+          "flow_relative_to_trading_value_is_not_computed_denominator_unqualified",
+          "dnse_ohlc_price_basis_and_market_volume_basis_remain_unqualified_separately",
+          "a_single_session_net_value_is_an_observation_not_a_trend_evaluate_the_full_observations_sequence",
+          "no_score_ranking_or_bullish_bearish_label_is_computed_or_implied_by_this_contract",
+          "foreign_value_flow_is_not_evidence_that_foreign_investors_caused_any_price_movement"
+        ],
+        "limitations": [
+          "is_actionable is always false; this contract carries qualified foreign-value flow evidence only, never an investment signal or recommendation.",
+          "Session coverage is bounded to whatever has been explicitly ingested; a missing session is reported as a gap, never filled or inferred.",
+          "Any downstream reading of persistent accumulation/distribution must be stated as an inference over the observations sequence, not as a fact this contract asserts."
+        ],
         "is_actionable": false
       },
       "analysis_lane_eligibility": [
@@ -344356,7 +345560,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -344430,7 +345634,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -344567,7 +345771,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -344829,7 +346033,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -345555,7 +346759,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-10T03:03:15.224049+00:00",
+        "reference_at": "2026-08-10T05:48:00.917432+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -352450,6 +353654,72 @@
           "cash_source_status": "unavailable",
           "non_cash_source_status": "unavailable"
         },
+        "is_actionable": false
+      },
+      "foreign_flow": {
+        "schema_version": "1.0.0",
+        "ticker": "NVL",
+        "status": "missing",
+        "source": "DNSE",
+        "source_contract_version": "dnse_foreign_flow/2026-08-10",
+        "source_scope": "per_ticker_foreign_investor_value_flow",
+        "point_in_time_status": "not_applicable",
+        "latest_session": null,
+        "observations": [],
+        "qualified_session_count": 0,
+        "cumulative_net_value_vnd": null,
+        "cumulative_window": {
+          "first_session": null,
+          "last_session": null,
+          "session_count": 0
+        },
+        "positive_session_count": 0,
+        "negative_session_count": 0,
+        "neutral_session_count": 0,
+        "current_consecutive_net_buy_sessions": 0,
+        "current_consecutive_net_sell_sessions": 0,
+        "window_summaries": {
+          "5_session": {
+            "window_size": 5,
+            "sessions": [],
+            "cumulative_net_value_vnd": null,
+            "buy_value_vnd": null,
+            "sell_value_vnd": null,
+            "coverage": "incomplete",
+            "reason": "only 0 qualified session(s) retained, need 5"
+          },
+          "10_session": {
+            "window_size": 10,
+            "sessions": [],
+            "cumulative_net_value_vnd": null,
+            "buy_value_vnd": null,
+            "sell_value_vnd": null,
+            "coverage": "incomplete",
+            "reason": "only 0 qualified session(s) retained, need 10"
+          }
+        },
+        "freshness": {
+          "reference_session_date": "2026-08-07",
+          "latest_qualified_session_date": null,
+          "sessions_behind": null,
+          "status": "not_applicable",
+          "reason": "no_qualified_foreign_flow_session_retained"
+        },
+        "warnings": [
+          "foreign_volume_not_represented_here_unqualified_by_contract",
+          "foreign_room_not_represented_here_unqualified_by_contract",
+          "no_ownership_or_free_float_percentage_is_derived",
+          "flow_relative_to_trading_value_is_not_computed_denominator_unqualified",
+          "dnse_ohlc_price_basis_and_market_volume_basis_remain_unqualified_separately",
+          "a_single_session_net_value_is_an_observation_not_a_trend_evaluate_the_full_observations_sequence",
+          "no_score_ranking_or_bullish_bearish_label_is_computed_or_implied_by_this_contract",
+          "foreign_value_flow_is_not_evidence_that_foreign_investors_caused_any_price_movement"
+        ],
+        "limitations": [
+          "is_actionable is always false; this contract carries qualified foreign-value flow evidence only, never an investment signal or recommendation.",
+          "Session coverage is bounded to whatever has been explicitly ingested; a missing session is reported as a gap, never filled or inferred.",
+          "Any downstream reading of persistent accumulation/distribution must be stated as an inference over the observations sequence, not as a fact this contract asserts."
+        ],
         "is_actionable": false
       },
       "analysis_lane_eligibility": [
