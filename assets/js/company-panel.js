@@ -145,6 +145,43 @@
     const parts = [subsection("Company profile", corporate.company_profile, renderProfile), subsection("Ownership structure", corporate.ownership_structure, renderOwnership), subsection("Major shareholders", majorShareholders, renderMajorShareholders), subsection("Company subsidiaries", corporate.company_subsidiaries, renderSubsidiaries)].filter(Boolean);
     return `<section class="cp-ci"><h3>Corporate Intelligence</h3>${parts.length ? parts.join("") : `<div class="cp-ci-notice cp-ci-missing">${esc(statusMessage("missing"))}</div>`}</section>`;
   }
+  function qualifiedResearchSnapshotForRow(row, bundle) {
+    if (isObject(row && row.qualified_research_snapshot_v2)) return row.qualified_research_snapshot_v2;
+    return isObject(bundle && bundle.qualified_research_snapshot_v2) ? bundle.qualified_research_snapshot_v2 : null;
+  }
+  function snapshotRecordForTicker(snapshot, ticker) {
+    if (!isObject(snapshot) || !Array.isArray(snapshot.tickers)) return null;
+    return snapshot.tickers.find((record) => isObject(record) && record.ticker === ticker) || null;
+  }
+  function researchStateClass(status) {
+    return ["qualified", "available"].includes(String(status || "").toLowerCase()) ? "qrs2-qualified" : "qrs2-unavailable";
+  }
+  function renderResearchState(label, state) {
+    const status = isObject(state) && typeof state.status === "string" ? state.status : "unknown";
+    const reasons = isObject(state) && Array.isArray(state.reason_codes) ? state.reason_codes.filter((reason) => typeof reason === "string" && reason) : [];
+    return `<div class="qrs2-state ${researchStateClass(status)}"><span>${esc(label)}</span><strong>${esc(titleCase(status))}</strong>${reasons.length ? `<small>${esc(reasons.join(", "))}</small>` : ""}</div>`;
+  }
+  function issuerForRow(row) {
+    const issuer = [row && row.issuer, row && row.issuer_name, row && row.company_name, row && row.company, row && row.name]
+      .find((value) => typeof value === "string" && value.trim());
+    return issuer || "Not supplied by this snapshot";
+  }
+  function renderQualifiedResearchSnapshotV2(snapshot, row) {
+    const ticker = row && row.ticker;
+    if (!isObject(snapshot)) return "";
+    const record = snapshotRecordForTicker(snapshot, ticker);
+    if (!record) return `<section class="cp-ci qrs2"><h3>Qualified Research Snapshot v2</h3><div class="qrs2-state qrs2-unavailable"><span>Ticker</span><strong>${esc(ticker || "unknown")}</strong><small>ticker_not_present_in_snapshot</small></div></section>`;
+    const reasons = Array.isArray(record.reason_codes) ? record.reason_codes.filter((reason) => typeof reason === "string" && reason) : [];
+    const states = isObject(record.analysis_states) ? record.analysis_states : {};
+    const stateRows = [
+      ["Historical research", states.historical_research],
+      ["Raw-price basis", states.raw_as_traded_price],
+      ["Current valuation", states.current_valuation],
+      ["Liquidity", states.generic_liquidity],
+      ["Foreign-flow value", states.foreign_flow_value],
+    ].map(([label, state]) => renderResearchState(label, state)).join("");
+    return `<section class="cp-ci qrs2"><h3>Qualified Research Snapshot v2</h3><div class="cp-ci-meta">${esc(snapshot.schema_version || "unknown version")} · ${esc(snapshot.snapshot_id || "identity unavailable")}</div><div class="cp-ci-fields"><div class="cp-ci-field"><span>Ticker</span><strong>${esc(record.ticker)}</strong></div><div class="cp-ci-field"><span>Issuer</span><strong>${esc(issuerForRow(row))}</strong></div><div class="cp-ci-field"><span>Research capability</span><strong>${esc(titleCase(record.research_status || "unknown"))}</strong></div></div>${reasons.length ? `<div class="cp-ci-notice cp-ci-partial">${esc(reasons.join(", "))}</div>` : ""}<div class="qrs2-states">${stateRows}</div></section>`;
+  }
   function loadCorporateBundle() { if (window.ANALYSIS_BUNDLE) return Promise.resolve(window.ANALYSIS_BUNDLE); if (!corporateBundlePromise && typeof fetch === "function") corporateBundlePromise = fetch("analysis_bundle.json", { cache: "no-store" }).then((response) => response.ok ? response.json() : null).catch(() => null); return corporateBundlePromise || Promise.resolve(null); }
   function corporateForRow(row, bundle) { if (isObject(row && row.corporate_intelligence)) return row.corporate_intelligence; return bundle && bundle.tickers && row && bundle.tickers[row.ticker] && bundle.tickers[row.ticker].corporate_intelligence; }
   let chartRenderedFor = null; // ticker mà biểu đồ hiện đang hiển thị — tránh huỷ/tạo lại Chart.js
@@ -326,12 +363,12 @@
     backdrop._currentRow = row;
     document.getElementById("cp-title").textContent = row.ticker || "?";
     const overview = document.getElementById("cp-overview");
-    overview.innerHTML = renderOverview(row) + renderCorporateIntelligence(corporateForRow(row));
+    overview.innerHTML = renderOverview(row) + renderCorporateIntelligence(corporateForRow(row)) + renderQualifiedResearchSnapshotV2(qualifiedResearchSnapshotForRow(row), row);
     // Legacy bundles render a neutral missing state immediately.  A cached dashboard
     // artifact, when present, replaces only this panel's Corporate Intelligence area.
     loadCorporateBundle().then((bundle) => {
       if (!backdrop || backdrop._currentRow !== row) return;
-      overview.innerHTML = renderOverview(row) + renderCorporateIntelligence(corporateForRow(row, bundle));
+      overview.innerHTML = renderOverview(row) + renderCorporateIntelligence(corporateForRow(row, bundle)) + renderQualifiedResearchSnapshotV2(qualifiedResearchSnapshotForRow(row, bundle), row);
     });
     switchTab("overview");
     backdrop.classList.add("is-open");
@@ -405,7 +442,7 @@
   }
   if (typeof module !== "undefined" && module.exports) {
     module.exports = {
-      renderCorporateIntelligence, corporateForRow,
+      renderCorporateIntelligence, corporateForRow, qualifiedResearchSnapshotForRow, snapshotRecordForTicker, renderQualifiedResearchSnapshotV2,
       normalizeTicker, tickerFromSearch, searchWithTicker, decideOpenAction, decideCloseAction,
       isScreenerPage,
     };

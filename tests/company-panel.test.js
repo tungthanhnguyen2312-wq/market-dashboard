@@ -2,7 +2,7 @@
 
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { renderCorporateIntelligence } = require("../assets/js/company-panel.js");
+const { renderCorporateIntelligence, renderQualifiedResearchSnapshotV2, snapshotRecordForTicker } = require("../assets/js/company-panel.js");
 
 const fullPayload = {
   company_profile: { sources: {
@@ -64,6 +64,39 @@ test("empty and null source entries do not throw", () => {
     ownership_structure: { sources: [null] },
     company_subsidiaries: { sources: [null] },
   }));
+});
+
+const qualifiedResearchSnapshotV2 = {
+  schema_version: "2.1.0",
+  snapshot_id: "qrs2-test-identity",
+  tickers: [
+    { ticker: "HPG", research_status: "qualified", reason_codes: [], target_price: 99, probability: 0.42, analysis_states: {
+      historical_research: { status: "qualified", reason_codes: [] },
+      raw_as_traded_price: { status: "blocked", reason_codes: ["raw_price_unqualified"] },
+      current_valuation: { status: "unknown", reason_codes: ["inputs_unqualified"] },
+      generic_liquidity: { status: "unqualified", reason_codes: ["volume_unqualified"] },
+      foreign_flow_value: { status: "qualified", reason_codes: [] },
+    } },
+    { ticker: "VNM", research_status: "blocked", reason_codes: ["research_not_qualified"], analysis_states: {} },
+  ],
+};
+
+test("renders v2 snapshot identity, statuses, and blockers without numeric fallbacks", () => {
+  const html = renderQualifiedResearchSnapshotV2(qualifiedResearchSnapshotV2, { ticker: "HPG", company_name: "Hoa Phat" });
+  for (const expected of ["Qualified Research Snapshot v2", "2.1.0", "qrs2-test-identity", "HPG", "Hoa Phat", "Historical research", "Raw-price basis", "Current valuation", "Liquidity", "Foreign-flow value", "raw_price_unqualified", "inputs_unqualified", "volume_unqualified"]) assert.match(html, new RegExp(expected));
+  assert.match(html, /qrs2-qualified/);
+  assert.match(html, /qrs2-unavailable/);
+  assert.doesNotMatch(html, /target price|probability|99|0\.42/i);
+});
+
+test("preserves source ticker order when selecting the record for presentation", () => {
+  assert.equal(snapshotRecordForTicker(qualifiedResearchSnapshotV2, "VNM"), qualifiedResearchSnapshotV2.tickers[1]);
+  assert.deepEqual(qualifiedResearchSnapshotV2.tickers.map((row) => row.ticker), ["HPG", "VNM"]);
+});
+
+test("legacy bundles without v2 retain the prior panel behavior", () => {
+  assert.equal(renderQualifiedResearchSnapshotV2(null, { ticker: "HPG" }), "");
+  assert.match(renderQualifiedResearchSnapshotV2({ tickers: [] }, { ticker: "HPG" }), /ticker_not_present_in_snapshot/);
 });
 
 test("renders the producer source-envelope contract without merging providers", () => {
