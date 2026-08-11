@@ -717,6 +717,12 @@
 .cp-hv-details { margin-top: 0.65rem; font-size: 0.72rem; color: var(--text-muted); }
 .cp-hv-details summary { cursor: pointer; color: var(--accent-text); }
 .cp-hv-details code { overflow-wrap: anywhere; }
+.qrs2-states { display: grid; gap: 0.4rem; margin-top: 0.65rem; }
+.qrs2-state { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.15rem 0.65rem; padding: 0.5rem 0.6rem; border: 1px solid var(--border-soft); border-radius: 0.35rem; font-size: 0.74rem; }
+.qrs2-state span { color: var(--text-muted); }
+.qrs2-state small { grid-column: 1 / -1; color: var(--text-muted); overflow-wrap: anywhere; }
+.qrs2-qualified { border-color: var(--success); background: color-mix(in srgb, var(--success) 10%, transparent); }
+.qrs2-unavailable { border-color: var(--warning); background: color-mix(in srgb, var(--warning) 10%, transparent); }
 
 /* ---------- Resize handle giữa 2 cột (Phase 4) ---------- */
 .vs-resize-handle {
