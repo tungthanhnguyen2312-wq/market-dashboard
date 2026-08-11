@@ -11,10 +11,10 @@
     "present": true,
     "records_fingerprint": "fc8f077e965877b0c160d5b0de2c2004f5758c6036453bae0bacbd11bb70a6d1",
     "input_fingerprint": "ba009fe4e46331df44838b277fe54cef4319872d2a3520aceeb7752a66f6c8c5",
-    "session_identity": "2026-08-07",
+    "session_identity": "2026-08-10",
     "authority_level": "generated_evidence"
   },
-  "generated_at": "2026-08-10T13:47:03+00:00",
+  "generated_at": "2026-08-11T13:11:48+00:00",
   "tickers": [
     "POW",
     "SSI",
@@ -29,19 +29,19 @@
     "NVL"
   ],
   "freshness": {
-    "prior_session": "2026-08-06",
+    "prior_session": "2026-08-07",
     "stale": [],
     "unknown": [],
     "blocked": false,
-    "reference_session": "2026-08-07",
+    "reference_session": "2026-08-10",
     "artifact_order_violations": [],
     "allow_stale": false,
     "categories_checked": {
-      "screen_snapshot_live": "2026-08-07",
-      "ta_signals": "2026-08-07",
-      "analysis_latest": "2026-08-07",
-      "focus_analysis": "2026-08-07",
-      "context_package": "2026-08-07"
+      "screen_snapshot_live": "2026-08-10",
+      "ta_signals": "2026-08-10",
+      "analysis_latest": "2026-08-10",
+      "focus_analysis": "2026-08-10",
+      "context_package": "2026-08-10"
     },
     "context_package_coverage": {
       "POW": true,
@@ -59,15 +59,15 @@
     "status": "fresh"
   },
   "live_universe": {
-    "live_universe_count": 936,
-    "excluded_count": 646,
+    "live_universe_count": 890,
+    "excluded_count": 692,
     "excluded_by_reason": {
       "listing_inactive_or_delisted": 142,
-      "stale_price": 504
+      "stale_price": 550
     },
-    "reference_market_date": "2026-08-07",
+    "reference_market_date": "2026-08-10",
     "universe_source": "screen_snapshot.csv",
-    "universe_hash": "fb6f99249f320b8f23a9e63e64072da383b686290307613c088bed392c899c43"
+    "universe_hash": "8c2b34ecaa8067c169ed1f8b76e0162009ba0d86813ae746dc6e1ba619be61ad"
   },
   "price_basis": "unknown",
   "price_basis_verified": false,
@@ -110,1316 +110,35 @@
         "source": "no_verified_price_basis_metadata"
       },
       "consumer_action": "Treat OHLCV-derived metrics as basis-unverified until a verified raw or adjusted price-basis contract is supplied."
-    },
-    {
-      "scope": "ticker",
-      "ticker": "QNS",
-      "code": "extract_warning",
-      "severity": "warning",
-      "detail": "QNS: khong_co_trong_ta_signals",
-      "message": "QNS: khong_co_trong_ta_signals",
-      "metric": null,
-      "evidence": "khong_co_trong_ta_signals",
-      "consumer_action": "Investigate the missing source before treating this ticker's data as complete."
-    },
-    {
-      "scope": "ticker",
-      "ticker": "POW",
-      "code": "roe_local_ttm_unavailable_external_roe_present",
-      "severity": "info",
-      "detail": "POW: financial_summary.roe_ttm is insufficient_periods while valuation_inputs.roe=6.94 (percent, external, different source/methodology) is available.",
-      "message": "POW: financial_summary.roe_ttm is insufficient_periods while valuation_inputs.roe=6.94 (percent, external, different source/methodology) is available.",
-      "metric": "roe_ttm",
-      "evidence": {
-        "roe_ttm_meta": {
-          "value": null,
-          "status": "insufficient_periods",
-          "reason": "requires_four_consecutive_reported_quarters_and_ttm_window_equity",
-          "source": "financial_snapshot_derived",
-          "period": "2026-Q1",
-          "basis": null,
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 0.0,
-          "unit": "ratio",
-          "period_calendar_end": "2026-03-31",
-          "annualization": "trailing_twelve_month_sum"
-        },
-        "external_roe_meta": {
-          "value": 6.94,
-          "status": "reported",
-          "reason": null,
-          "source": "vnstock_metadata_snapshot",
-          "period": "2026-07-30 16:45",
-          "basis": "trailing_ttm_external_provider",
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 1.0,
-          "details": {
-            "distinct_from": "financial_summary.roe_quarter/roe_fy/roe_ttm are a different source and methodology; do not treat as the same number"
-          },
-          "unit": "percent"
-        }
-      },
-      "consumer_action": "Do not substitute valuation_inputs.roe for financial_summary.roe_ttm or vice versa — different source, different unit/basis."
-    },
-    {
-      "scope": "ticker",
-      "ticker": "POW",
-      "code": "news_summary_missing",
-      "severity": "warning",
-      "detail": "POW: news_summary has zero available metrics.",
-      "message": "POW: news_summary has zero available metrics.",
-      "metric": "news_summary",
-      "evidence": {
-        "status": "missing",
-        "coverage": 0.0,
-        "available_metrics": 0,
-        "expected_metrics": 1,
-        "missing_metrics": [
-          "news_summary"
-        ],
-        "available_metric_names": [],
-        "not_applicable_metrics": []
-      },
-      "consumer_action": "Do not claim news summary coverage for this ticker."
-    },
-    {
-      "scope": "ticker",
-      "ticker": "POW",
-      "code": "entity_type_unclassified",
-      "severity": "info",
-      "detail": "POW: entity_type is unknown — corporate-only ratios (ebit/ebitda/sga/liquidity) were not derived because this ticker is not yet profiled in ticker_entity_profiles.csv, not because they are confirmed inapplicable.",
-      "message": "POW: entity_type is unknown — corporate-only ratios (ebit/ebitda/sga/liquidity) were not derived because this ticker is not yet profiled in ticker_entity_profiles.csv, not because they are confirmed inapplicable.",
-      "metric": "entity_type",
-      "evidence": {
-        "entity_type": "unknown"
-      },
-      "consumer_action": "Do not assume this is a corporate entity, and do not read its missing ebit/ebitda/liquidity ratios as confirmed not_applicable."
-    },
-    {
-      "scope": "ticker",
-      "ticker": "SSI",
-      "code": "roe_local_ttm_unavailable_external_roe_present",
-      "severity": "info",
-      "detail": "SSI: financial_summary.roe_ttm is insufficient_periods while valuation_inputs.roe=13.06 (percent, external, different source/methodology) is available.",
-      "message": "SSI: financial_summary.roe_ttm is insufficient_periods while valuation_inputs.roe=13.06 (percent, external, different source/methodology) is available.",
-      "metric": "roe_ttm",
-      "evidence": {
-        "roe_ttm_meta": {
-          "value": null,
-          "status": "insufficient_periods",
-          "reason": "requires_four_consecutive_reported_quarters_and_ttm_window_equity",
-          "source": "financial_snapshot_derived",
-          "period": "2026-Q1",
-          "basis": null,
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 0.0,
-          "unit": "ratio",
-          "period_calendar_end": "2026-03-31",
-          "annualization": "trailing_twelve_month_sum"
-        },
-        "external_roe_meta": {
-          "value": 13.06,
-          "status": "reported",
-          "reason": null,
-          "source": "vnstock_metadata_snapshot",
-          "period": "2026-07-30 17:05",
-          "basis": "trailing_ttm_external_provider",
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 1.0,
-          "details": {
-            "distinct_from": "financial_summary.roe_quarter/roe_fy/roe_ttm are a different source and methodology; do not treat as the same number"
-          },
-          "unit": "percent"
-        }
-      },
-      "consumer_action": "Do not substitute valuation_inputs.roe for financial_summary.roe_ttm or vice versa — different source, different unit/basis."
-    },
-    {
-      "scope": "ticker",
-      "ticker": "SSI",
-      "code": "news_summary_missing",
-      "severity": "warning",
-      "detail": "SSI: news_summary has zero available metrics.",
-      "message": "SSI: news_summary has zero available metrics.",
-      "metric": "news_summary",
-      "evidence": {
-        "status": "missing",
-        "coverage": 0.0,
-        "available_metrics": 0,
-        "expected_metrics": 1,
-        "missing_metrics": [
-          "news_summary"
-        ],
-        "available_metric_names": [],
-        "not_applicable_metrics": []
-      },
-      "consumer_action": "Do not claim news summary coverage for this ticker."
-    },
-    {
-      "scope": "ticker",
-      "ticker": "HPG",
-      "code": "financial_metric_stale",
-      "severity": "warning",
-      "detail": "HPG: depreciation status=stale — selected_period_value_missing",
-      "message": "HPG: depreciation status=stale — selected_period_value_missing",
-      "metric": "depreciation",
-      "evidence": {
-        "value": null,
-        "status": "stale",
-        "reason": "selected_period_value_missing",
-        "source": "financial_snapshot",
-        "period": "2026-Q1",
-        "basis": "quarter",
-        "raw_item_id": null,
-        "raw_label": null,
-        "confidence": 0.0,
-        "details": {
-          "latest_non_null_period": "2025-Q4",
-          "latest_non_null_value": 1801603135000,
-          "fallback_not_applied": true,
-          "unit_status": "unit_unknown"
-        }
-      },
-      "consumer_action": "Do not treat this metric's value as current for the latest period; check its own period against financial_summary.latest_period before using it."
-    },
-    {
-      "scope": "ticker",
-      "ticker": "HPG",
-      "code": "roe_local_ttm_unavailable_external_roe_present",
-      "severity": "info",
-      "detail": "HPG: financial_summary.roe_ttm is insufficient_periods while valuation_inputs.roe=12.51 (percent, external, different source/methodology) is available.",
-      "message": "HPG: financial_summary.roe_ttm is insufficient_periods while valuation_inputs.roe=12.51 (percent, external, different source/methodology) is available.",
-      "metric": "roe_ttm",
-      "evidence": {
-        "roe_ttm_meta": {
-          "value": null,
-          "status": "insufficient_periods",
-          "reason": "requires_four_consecutive_reported_quarters_and_ttm_window_equity",
-          "source": "financial_snapshot_derived",
-          "period": "2026-Q1",
-          "basis": null,
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 0.0,
-          "unit": "ratio",
-          "period_calendar_end": "2026-03-31",
-          "annualization": "trailing_twelve_month_sum"
-        },
-        "external_roe_meta": {
-          "value": 12.51,
-          "status": "reported",
-          "reason": null,
-          "source": "vnstock_metadata_snapshot",
-          "period": "2026-07-30 16:12",
-          "basis": "trailing_ttm_external_provider",
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 1.0,
-          "details": {
-            "distinct_from": "financial_summary.roe_quarter/roe_fy/roe_ttm are a different source and methodology; do not treat as the same number"
-          },
-          "unit": "percent"
-        }
-      },
-      "consumer_action": "Do not substitute valuation_inputs.roe for financial_summary.roe_ttm or vice versa — different source, different unit/basis."
-    },
-    {
-      "scope": "ticker",
-      "ticker": "HPG",
-      "code": "share_count_material_mismatch",
-      "severity": "warning",
-      "detail": "HPG: shares_period_end vs shares_current differ by 10.0%.",
-      "message": "HPG: shares_period_end vs shares_current differ by 10.0%.",
-      "metric": "shares_outstanding",
-      "evidence": {
-        "mismatch_pct": 10.0,
-        "status": "material_warning",
-        "reason": "shares_current_and_shares_period_end_differ_10pct_or_more",
-        "possible_reason": "Share issuance (stock dividend/rights issue/ESOP), buyback, or a metadata snapshot taken from a different date than the financial statement period — investigate before computing per-share figures across the two counts.",
-        "consumer_action": "Do not compute per-share or market-cap figures without first confirming which share count matches the metric's period — the two disagree materially.",
-        "thresholds": {
-          "warning_pct": 5.0,
-          "material_warning_pct": 10.0
-        },
-        "shares_period_end": 7675465855,
-        "shares_period_end_meta": {
-          "value": 7675465855,
-          "status": "derived",
-          "reason": null,
-          "source": "financial_snapshot",
-          "period": "2026-Q1",
-          "basis": "balance_sheet_par_value_derived",
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 1.0,
-          "formula": "common_shares_or_charter_capital_or_paid_in_capital / 10000",
-          "inputs": [
-            "common_shares",
-            "charter_capital",
-            "paid_in_capital"
-          ]
-        },
-        "shares_current": 8442964520,
-        "shares_current_meta": {
-          "value": 8442964520,
-          "status": "reported",
-          "reason": null,
-          "source": "vnstock_metadata_snapshot",
-          "period": "2026-07-30 16:12",
-          "basis": "live_current",
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 1.0
-        },
-        "weighted_average_shares_basic": 7675465855,
-        "weighted_average_shares_basic_meta": {
-          "value": 7675465855,
-          "status": "proxy",
-          "reason": null,
-          "source": "financial_snapshot",
-          "period": "2026-Q1",
-          "basis": "shares_period_end_used_as_proxy",
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 0.3,
-          "details": {
-            "proxy_of": "shares_period_end",
-            "true_weighted_average_not_available": "no weighted-average share count is reported in the raw BCTC source"
-          }
-        },
-        "weighted_average_shares_diluted": 7675465855,
-        "weighted_average_shares_diluted_meta": {
-          "value": 7675465855,
-          "status": "proxy",
-          "reason": null,
-          "source": "financial_snapshot",
-          "period": "2026-Q1",
-          "basis": "shares_period_end_used_as_proxy",
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 0.3,
-          "details": {
-            "proxy_of": "shares_period_end",
-            "true_weighted_average_not_available": "no weighted-average share count is reported in the raw BCTC source"
-          }
-        }
-      },
-      "consumer_action": "Do not compute per-share or market-cap figures without first confirming which share count matches the metric's period — the two disagree materially."
-    },
-    {
-      "scope": "ticker",
-      "ticker": "HPG",
-      "code": "news_summary_missing",
-      "severity": "warning",
-      "detail": "HPG: news_summary has zero available metrics.",
-      "message": "HPG: news_summary has zero available metrics.",
-      "metric": "news_summary",
-      "evidence": {
-        "status": "missing",
-        "coverage": 0.0,
-        "available_metrics": 0,
-        "expected_metrics": 1,
-        "missing_metrics": [
-          "news_summary"
-        ],
-        "available_metric_names": [],
-        "not_applicable_metrics": []
-      },
-      "consumer_action": "Do not claim news summary coverage for this ticker."
-    },
-    {
-      "scope": "ticker",
-      "ticker": "EVF",
-      "code": "roe_local_ttm_unavailable_external_roe_present",
-      "severity": "info",
-      "detail": "EVF: financial_summary.roe_ttm is insufficient_periods while valuation_inputs.roe=9.27 (percent, external, different source/methodology) is available.",
-      "message": "EVF: financial_summary.roe_ttm is insufficient_periods while valuation_inputs.roe=9.27 (percent, external, different source/methodology) is available.",
-      "metric": "roe_ttm",
-      "evidence": {
-        "roe_ttm_meta": {
-          "value": null,
-          "status": "insufficient_periods",
-          "reason": "requires_four_consecutive_reported_quarters_and_ttm_window_equity",
-          "source": "financial_snapshot_derived",
-          "period": "2026-Q1",
-          "basis": null,
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 0.0,
-          "unit": "ratio",
-          "period_calendar_end": "2026-03-31",
-          "annualization": "trailing_twelve_month_sum"
-        },
-        "external_roe_meta": {
-          "value": 9.27,
-          "status": "reported",
-          "reason": null,
-          "source": "vnstock_metadata_snapshot",
-          "period": "2026-07-30 15:58",
-          "basis": "trailing_ttm_external_provider",
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 1.0,
-          "details": {
-            "distinct_from": "financial_summary.roe_quarter/roe_fy/roe_ttm are a different source and methodology; do not treat as the same number"
-          },
-          "unit": "percent"
-        }
-      },
-      "consumer_action": "Do not substitute valuation_inputs.roe for financial_summary.roe_ttm or vice versa — different source, different unit/basis."
-    },
-    {
-      "scope": "ticker",
-      "ticker": "EVF",
-      "code": "news_summary_missing",
-      "severity": "warning",
-      "detail": "EVF: news_summary has zero available metrics.",
-      "message": "EVF: news_summary has zero available metrics.",
-      "metric": "news_summary",
-      "evidence": {
-        "status": "missing",
-        "coverage": 0.0,
-        "available_metrics": 0,
-        "expected_metrics": 1,
-        "missing_metrics": [
-          "news_summary"
-        ],
-        "available_metric_names": [],
-        "not_applicable_metrics": []
-      },
-      "consumer_action": "Do not claim news summary coverage for this ticker."
-    },
-    {
-      "scope": "ticker",
-      "ticker": "PAN",
-      "code": "financial_metric_stale",
-      "severity": "warning",
-      "detail": "PAN: depreciation status=stale — selected_period_value_missing",
-      "message": "PAN: depreciation status=stale — selected_period_value_missing",
-      "metric": "depreciation",
-      "evidence": {
-        "value": null,
-        "status": "stale",
-        "reason": "selected_period_value_missing",
-        "source": "financial_snapshot",
-        "period": "2026-Q1",
-        "basis": "quarter",
-        "raw_item_id": null,
-        "raw_label": null,
-        "confidence": 0.0,
-        "details": {
-          "latest_non_null_period": "2025-Q4",
-          "latest_non_null_value": 138815269000,
-          "fallback_not_applied": true,
-          "unit_status": "unit_unknown"
-        }
-      },
-      "consumer_action": "Do not treat this metric's value as current for the latest period; check its own period against financial_summary.latest_period before using it."
-    },
-    {
-      "scope": "ticker",
-      "ticker": "PAN",
-      "code": "roe_local_ttm_unavailable_external_roe_present",
-      "severity": "info",
-      "detail": "PAN: financial_summary.roe_ttm is insufficient_periods while valuation_inputs.roe=12.37 (percent, external, different source/methodology) is available.",
-      "message": "PAN: financial_summary.roe_ttm is insufficient_periods while valuation_inputs.roe=12.37 (percent, external, different source/methodology) is available.",
-      "metric": "roe_ttm",
-      "evidence": {
-        "roe_ttm_meta": {
-          "value": null,
-          "status": "insufficient_periods",
-          "reason": "requires_four_consecutive_reported_quarters_and_ttm_window_equity",
-          "source": "financial_snapshot_derived",
-          "period": "2026-Q1",
-          "basis": null,
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 0.0,
-          "unit": "ratio",
-          "period_calendar_end": "2026-03-31",
-          "annualization": "trailing_twelve_month_sum"
-        },
-        "external_roe_meta": {
-          "value": 12.37,
-          "status": "reported",
-          "reason": null,
-          "source": "vnstock_metadata_snapshot",
-          "period": "2026-07-30 16:39",
-          "basis": "trailing_ttm_external_provider",
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 1.0,
-          "details": {
-            "distinct_from": "financial_summary.roe_quarter/roe_fy/roe_ttm are a different source and methodology; do not treat as the same number"
-          },
-          "unit": "percent"
-        }
-      },
-      "consumer_action": "Do not substitute valuation_inputs.roe for financial_summary.roe_ttm or vice versa — different source, different unit/basis."
-    },
-    {
-      "scope": "ticker",
-      "ticker": "PAN",
-      "code": "share_count_material_mismatch",
-      "severity": "warning",
-      "detail": "PAN: shares_period_end vs shares_current differ by 15.9%.",
-      "message": "PAN: shares_period_end vs shares_current differ by 15.9%.",
-      "metric": "shares_outstanding",
-      "evidence": {
-        "mismatch_pct": 15.9,
-        "status": "material_warning",
-        "reason": "shares_current_and_shares_period_end_differ_10pct_or_more",
-        "possible_reason": "Share issuance (stock dividend/rights issue/ESOP), buyback, or a metadata snapshot taken from a different date than the financial statement period — investigate before computing per-share figures across the two counts.",
-        "consumer_action": "Do not compute per-share or market-cap figures without first confirming which share count matches the metric's period — the two disagree materially.",
-        "thresholds": {
-          "warning_pct": 5.0,
-          "material_warning_pct": 10.0
-        },
-        "shares_period_end": 216294580,
-        "shares_period_end_meta": {
-          "value": 216294580,
-          "status": "derived",
-          "reason": null,
-          "source": "financial_snapshot",
-          "period": "2026-Q1",
-          "basis": "balance_sheet_par_value_derived",
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 1.0,
-          "formula": "common_shares_or_charter_capital_or_paid_in_capital / 10000",
-          "inputs": [
-            "common_shares",
-            "charter_capital",
-            "paid_in_capital"
-          ]
-        },
-        "shares_current": 250673166,
-        "shares_current_meta": {
-          "value": 250673166,
-          "status": "reported",
-          "reason": null,
-          "source": "vnstock_metadata_snapshot",
-          "period": "2026-07-30 16:39",
-          "basis": "live_current",
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 1.0
-        },
-        "weighted_average_shares_basic": 216294580,
-        "weighted_average_shares_basic_meta": {
-          "value": 216294580,
-          "status": "proxy",
-          "reason": null,
-          "source": "financial_snapshot",
-          "period": "2026-Q1",
-          "basis": "shares_period_end_used_as_proxy",
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 0.3,
-          "details": {
-            "proxy_of": "shares_period_end",
-            "true_weighted_average_not_available": "no weighted-average share count is reported in the raw BCTC source"
-          }
-        },
-        "weighted_average_shares_diluted": 216294580,
-        "weighted_average_shares_diluted_meta": {
-          "value": 216294580,
-          "status": "proxy",
-          "reason": null,
-          "source": "financial_snapshot",
-          "period": "2026-Q1",
-          "basis": "shares_period_end_used_as_proxy",
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 0.3,
-          "details": {
-            "proxy_of": "shares_period_end",
-            "true_weighted_average_not_available": "no weighted-average share count is reported in the raw BCTC source"
-          }
-        }
-      },
-      "consumer_action": "Do not compute per-share or market-cap figures without first confirming which share count matches the metric's period — the two disagree materially."
-    },
-    {
-      "scope": "ticker",
-      "ticker": "PAN",
-      "code": "news_summary_missing",
-      "severity": "warning",
-      "detail": "PAN: news_summary has zero available metrics.",
-      "message": "PAN: news_summary has zero available metrics.",
-      "metric": "news_summary",
-      "evidence": {
-        "status": "missing",
-        "coverage": 0.0,
-        "available_metrics": 0,
-        "expected_metrics": 1,
-        "missing_metrics": [
-          "news_summary"
-        ],
-        "available_metric_names": [],
-        "not_applicable_metrics": []
-      },
-      "consumer_action": "Do not claim news summary coverage for this ticker."
-    },
-    {
-      "scope": "ticker",
-      "ticker": "PNJ",
-      "code": "roe_local_ttm_unavailable_external_roe_present",
-      "severity": "info",
-      "detail": "PNJ: financial_summary.roe_ttm is insufficient_periods while valuation_inputs.roe=23.15 (percent, external, different source/methodology) is available.",
-      "message": "PNJ: financial_summary.roe_ttm is insufficient_periods while valuation_inputs.roe=23.15 (percent, external, different source/methodology) is available.",
-      "metric": "roe_ttm",
-      "evidence": {
-        "roe_ttm_meta": {
-          "value": null,
-          "status": "insufficient_periods",
-          "reason": "requires_four_consecutive_reported_quarters_and_ttm_window_equity",
-          "source": "financial_snapshot_derived",
-          "period": "2026-Q1",
-          "basis": null,
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 0.0,
-          "unit": "ratio",
-          "period_calendar_end": "2026-03-31",
-          "annualization": "trailing_twelve_month_sum"
-        },
-        "external_roe_meta": {
-          "value": 23.15,
-          "status": "reported",
-          "reason": null,
-          "source": "vnstock_metadata_snapshot",
-          "period": "2026-07-30 16:45",
-          "basis": "trailing_ttm_external_provider",
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 1.0,
-          "details": {
-            "distinct_from": "financial_summary.roe_quarter/roe_fy/roe_ttm are a different source and methodology; do not treat as the same number"
-          },
-          "unit": "percent"
-        }
-      },
-      "consumer_action": "Do not substitute valuation_inputs.roe for financial_summary.roe_ttm or vice versa — different source, different unit/basis."
-    },
-    {
-      "scope": "ticker",
-      "ticker": "PNJ",
-      "code": "share_count_material_mismatch",
-      "severity": "warning",
-      "detail": "PNJ: shares_period_end vs shares_current differ by 49.9%.",
-      "message": "PNJ: shares_period_end vs shares_current differ by 49.9%.",
-      "metric": "shares_outstanding",
-      "evidence": {
-        "mismatch_pct": 49.9,
-        "status": "material_warning",
-        "reason": "shares_current_and_shares_period_end_differ_10pct_or_more",
-        "possible_reason": "Share issuance (stock dividend/rights issue/ESOP), buyback, or a metadata snapshot taken from a different date than the financial statement period — investigate before computing per-share figures across the two counts.",
-        "consumer_action": "Do not compute per-share or market-cap figures without first confirming which share count matches the metric's period — the two disagree materially.",
-        "thresholds": {
-          "warning_pct": 5.0,
-          "material_warning_pct": 10.0
-        },
-        "shares_period_end": 341318666,
-        "shares_period_end_meta": {
-          "value": 341318666,
-          "status": "derived",
-          "reason": null,
-          "source": "financial_snapshot",
-          "period": "2026-Q1",
-          "basis": "balance_sheet_par_value_derived",
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 1.0,
-          "formula": "common_shares_or_charter_capital_or_paid_in_capital / 10000",
-          "inputs": [
-            "common_shares",
-            "charter_capital",
-            "paid_in_capital"
-          ]
-        },
-        "shares_current": 511721959,
-        "shares_current_meta": {
-          "value": 511721959,
-          "status": "reported",
-          "reason": null,
-          "source": "vnstock_metadata_snapshot",
-          "period": "2026-07-30 16:45",
-          "basis": "live_current",
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 1.0
-        },
-        "weighted_average_shares_basic": 341318666,
-        "weighted_average_shares_basic_meta": {
-          "value": 341318666,
-          "status": "proxy",
-          "reason": null,
-          "source": "financial_snapshot",
-          "period": "2026-Q1",
-          "basis": "shares_period_end_used_as_proxy",
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 0.3,
-          "details": {
-            "proxy_of": "shares_period_end",
-            "true_weighted_average_not_available": "no weighted-average share count is reported in the raw BCTC source"
-          }
-        },
-        "weighted_average_shares_diluted": 341318666,
-        "weighted_average_shares_diluted_meta": {
-          "value": 341318666,
-          "status": "proxy",
-          "reason": null,
-          "source": "financial_snapshot",
-          "period": "2026-Q1",
-          "basis": "shares_period_end_used_as_proxy",
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 0.3,
-          "details": {
-            "proxy_of": "shares_period_end",
-            "true_weighted_average_not_available": "no weighted-average share count is reported in the raw BCTC source"
-          }
-        }
-      },
-      "consumer_action": "Do not compute per-share or market-cap figures without first confirming which share count matches the metric's period — the two disagree materially."
-    },
-    {
-      "scope": "ticker",
-      "ticker": "PNJ",
-      "code": "news_summary_missing",
-      "severity": "warning",
-      "detail": "PNJ: news_summary has zero available metrics.",
-      "message": "PNJ: news_summary has zero available metrics.",
-      "metric": "news_summary",
-      "evidence": {
-        "status": "missing",
-        "coverage": 0.0,
-        "available_metrics": 0,
-        "expected_metrics": 1,
-        "missing_metrics": [
-          "news_summary"
-        ],
-        "available_metric_names": [],
-        "not_applicable_metrics": []
-      },
-      "consumer_action": "Do not claim news summary coverage for this ticker."
-    },
-    {
-      "scope": "ticker",
-      "ticker": "PNJ",
-      "code": "entity_type_unclassified",
-      "severity": "info",
-      "detail": "PNJ: entity_type is unknown — corporate-only ratios (ebit/ebitda/sga/liquidity) were not derived because this ticker is not yet profiled in ticker_entity_profiles.csv, not because they are confirmed inapplicable.",
-      "message": "PNJ: entity_type is unknown — corporate-only ratios (ebit/ebitda/sga/liquidity) were not derived because this ticker is not yet profiled in ticker_entity_profiles.csv, not because they are confirmed inapplicable.",
-      "metric": "entity_type",
-      "evidence": {
-        "entity_type": "unknown"
-      },
-      "consumer_action": "Do not assume this is a corporate entity, and do not read its missing ebit/ebitda/liquidity ratios as confirmed not_applicable."
-    },
-    {
-      "scope": "ticker",
-      "ticker": "FPT",
-      "code": "financial_metric_stale",
-      "severity": "warning",
-      "detail": "FPT: depreciation status=stale — selected_period_value_missing",
-      "message": "FPT: depreciation status=stale — selected_period_value_missing",
-      "metric": "depreciation",
-      "evidence": {
-        "value": null,
-        "status": "stale",
-        "reason": "selected_period_value_missing",
-        "source": "financial_snapshot",
-        "period": "2026-Q1",
-        "basis": "quarter",
-        "raw_item_id": null,
-        "raw_label": null,
-        "confidence": 0.0,
-        "details": {
-          "latest_non_null_period": "2025-Q4",
-          "latest_non_null_value": 644023122000,
-          "fallback_not_applied": true,
-          "unit_status": "unit_unknown"
-        }
-      },
-      "consumer_action": "Do not treat this metric's value as current for the latest period; check its own period against financial_summary.latest_period before using it."
-    },
-    {
-      "scope": "ticker",
-      "ticker": "FPT",
-      "code": "roe_local_ttm_unavailable_external_roe_present",
-      "severity": "info",
-      "detail": "FPT: financial_summary.roe_ttm is insufficient_periods while valuation_inputs.roe=27.33 (percent, external, different source/methodology) is available.",
-      "message": "FPT: financial_summary.roe_ttm is insufficient_periods while valuation_inputs.roe=27.33 (percent, external, different source/methodology) is available.",
-      "metric": "roe_ttm",
-      "evidence": {
-        "roe_ttm_meta": {
-          "value": null,
-          "status": "insufficient_periods",
-          "reason": "requires_four_consecutive_reported_quarters_and_ttm_window_equity",
-          "source": "financial_snapshot_derived",
-          "period": "2026-Q1",
-          "basis": null,
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 0.0,
-          "unit": "ratio",
-          "period_calendar_end": "2026-03-31",
-          "annualization": "trailing_twelve_month_sum"
-        },
-        "external_roe_meta": {
-          "value": 27.33,
-          "status": "reported",
-          "reason": null,
-          "source": "vnstock_metadata_snapshot",
-          "period": "2026-07-30 16:00",
-          "basis": "trailing_ttm_external_provider",
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 1.0,
-          "details": {
-            "distinct_from": "financial_summary.roe_quarter/roe_fy/roe_ttm are a different source and methodology; do not treat as the same number"
-          },
-          "unit": "percent"
-        }
-      },
-      "consumer_action": "Do not substitute valuation_inputs.roe for financial_summary.roe_ttm or vice versa — different source, different unit/basis."
-    },
-    {
-      "scope": "ticker",
-      "ticker": "FPT",
-      "code": "news_summary_missing",
-      "severity": "warning",
-      "detail": "FPT: news_summary has zero available metrics.",
-      "message": "FPT: news_summary has zero available metrics.",
-      "metric": "news_summary",
-      "evidence": {
-        "status": "missing",
-        "coverage": 0.0,
-        "available_metrics": 0,
-        "expected_metrics": 1,
-        "missing_metrics": [
-          "news_summary"
-        ],
-        "available_metric_names": [],
-        "not_applicable_metrics": []
-      },
-      "consumer_action": "Do not claim news summary coverage for this ticker."
-    },
-    {
-      "scope": "ticker",
-      "ticker": "QNS",
-      "code": "roe_local_ttm_unavailable_external_roe_present",
-      "severity": "info",
-      "detail": "QNS: financial_summary.roe_ttm is insufficient_periods while valuation_inputs.roe=19.37 (percent, external, different source/methodology) is available.",
-      "message": "QNS: financial_summary.roe_ttm is insufficient_periods while valuation_inputs.roe=19.37 (percent, external, different source/methodology) is available.",
-      "metric": "roe_ttm",
-      "evidence": {
-        "roe_ttm_meta": {
-          "value": null,
-          "status": "insufficient_periods",
-          "reason": "requires_four_consecutive_reported_quarters_and_ttm_window_equity",
-          "source": "financial_snapshot_derived",
-          "period": "2026-Q1",
-          "basis": null,
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 0.0,
-          "unit": "ratio",
-          "period_calendar_end": "2026-03-31",
-          "annualization": "trailing_twelve_month_sum"
-        },
-        "external_roe_meta": {
-          "value": 19.37,
-          "status": "reported",
-          "reason": null,
-          "source": "vnstock_metadata_snapshot",
-          "period": "2026-07-30 16:52",
-          "basis": "trailing_ttm_external_provider",
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 1.0,
-          "details": {
-            "distinct_from": "financial_summary.roe_quarter/roe_fy/roe_ttm are a different source and methodology; do not treat as the same number"
-          },
-          "unit": "percent"
-        }
-      },
-      "consumer_action": "Do not substitute valuation_inputs.roe for financial_summary.roe_ttm or vice versa — different source, different unit/basis."
-    },
-    {
-      "scope": "ticker",
-      "ticker": "QNS",
-      "code": "news_summary_missing",
-      "severity": "warning",
-      "detail": "QNS: news_summary has zero available metrics.",
-      "message": "QNS: news_summary has zero available metrics.",
-      "metric": "news_summary",
-      "evidence": {
-        "status": "missing",
-        "coverage": 0.0,
-        "available_metrics": 0,
-        "expected_metrics": 1,
-        "missing_metrics": [
-          "news_summary"
-        ],
-        "available_metric_names": [],
-        "not_applicable_metrics": []
-      },
-      "consumer_action": "Do not claim news summary coverage for this ticker."
-    },
-    {
-      "scope": "ticker",
-      "ticker": "QNS",
-      "code": "entity_type_unclassified",
-      "severity": "info",
-      "detail": "QNS: entity_type is unknown — corporate-only ratios (ebit/ebitda/sga/liquidity) were not derived because this ticker is not yet profiled in ticker_entity_profiles.csv, not because they are confirmed inapplicable.",
-      "message": "QNS: entity_type is unknown — corporate-only ratios (ebit/ebitda/sga/liquidity) were not derived because this ticker is not yet profiled in ticker_entity_profiles.csv, not because they are confirmed inapplicable.",
-      "metric": "entity_type",
-      "evidence": {
-        "entity_type": "unknown"
-      },
-      "consumer_action": "Do not assume this is a corporate entity, and do not read its missing ebit/ebitda/liquidity ratios as confirmed not_applicable."
-    },
-    {
-      "scope": "ticker",
-      "ticker": "VNM",
-      "code": "financial_metric_stale",
-      "severity": "warning",
-      "detail": "VNM: depreciation status=stale — selected_period_value_missing",
-      "message": "VNM: depreciation status=stale — selected_period_value_missing",
-      "metric": "depreciation",
-      "evidence": {
-        "value": null,
-        "status": "stale",
-        "reason": "selected_period_value_missing",
-        "source": "financial_snapshot",
-        "period": "2026-Q1",
-        "basis": "quarter",
-        "raw_item_id": null,
-        "raw_label": null,
-        "confidence": 0.0,
-        "details": {
-          "latest_non_null_period": "2025-Q4",
-          "latest_non_null_value": 511791213000,
-          "fallback_not_applied": true,
-          "unit_status": "unit_unknown"
-        }
-      },
-      "consumer_action": "Do not treat this metric's value as current for the latest period; check its own period against financial_summary.latest_period before using it."
-    },
-    {
-      "scope": "ticker",
-      "ticker": "VNM",
-      "code": "roe_local_ttm_unavailable_external_roe_present",
-      "severity": "info",
-      "detail": "VNM: financial_summary.roe_ttm is insufficient_periods while valuation_inputs.roe=28.9 (percent, external, different source/methodology) is available.",
-      "message": "VNM: financial_summary.roe_ttm is insufficient_periods while valuation_inputs.roe=28.9 (percent, external, different source/methodology) is available.",
-      "metric": "roe_ttm",
-      "evidence": {
-        "roe_ttm_meta": {
-          "value": null,
-          "status": "insufficient_periods",
-          "reason": "requires_four_consecutive_reported_quarters_and_ttm_window_equity",
-          "source": "financial_snapshot_derived",
-          "period": "2026-Q1",
-          "basis": null,
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 0.0,
-          "unit": "ratio",
-          "period_calendar_end": "2026-03-31",
-          "annualization": "trailing_twelve_month_sum"
-        },
-        "external_roe_meta": {
-          "value": 28.9,
-          "status": "reported",
-          "reason": null,
-          "source": "vnstock_metadata_snapshot",
-          "period": "2026-07-30 17:30",
-          "basis": "trailing_ttm_external_provider",
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 1.0,
-          "details": {
-            "distinct_from": "financial_summary.roe_quarter/roe_fy/roe_ttm are a different source and methodology; do not treat as the same number"
-          },
-          "unit": "percent"
-        }
-      },
-      "consumer_action": "Do not substitute valuation_inputs.roe for financial_summary.roe_ttm or vice versa — different source, different unit/basis."
-    },
-    {
-      "scope": "ticker",
-      "ticker": "VNM",
-      "code": "news_summary_missing",
-      "severity": "warning",
-      "detail": "VNM: news_summary has zero available metrics.",
-      "message": "VNM: news_summary has zero available metrics.",
-      "metric": "news_summary",
-      "evidence": {
-        "status": "missing",
-        "coverage": 0.0,
-        "available_metrics": 0,
-        "expected_metrics": 1,
-        "missing_metrics": [
-          "news_summary"
-        ],
-        "available_metric_names": [],
-        "not_applicable_metrics": []
-      },
-      "consumer_action": "Do not claim news summary coverage for this ticker."
-    },
-    {
-      "scope": "ticker",
-      "ticker": "PVD",
-      "code": "roe_local_ttm_unavailable_external_roe_present",
-      "severity": "info",
-      "detail": "PVD: financial_summary.roe_ttm is insufficient_periods while valuation_inputs.roe=6.22 (percent, external, different source/methodology) is available.",
-      "message": "PVD: financial_summary.roe_ttm is insufficient_periods while valuation_inputs.roe=6.22 (percent, external, different source/methodology) is available.",
-      "metric": "roe_ttm",
-      "evidence": {
-        "roe_ttm_meta": {
-          "value": null,
-          "status": "insufficient_periods",
-          "reason": "requires_four_consecutive_reported_quarters_and_ttm_window_equity",
-          "source": "financial_snapshot_derived",
-          "period": "2026-Q1",
-          "basis": null,
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 0.0,
-          "unit": "ratio",
-          "period_calendar_end": "2026-03-31",
-          "annualization": "trailing_twelve_month_sum"
-        },
-        "external_roe_meta": {
-          "value": 6.22,
-          "status": "reported",
-          "reason": null,
-          "source": "vnstock_metadata_snapshot",
-          "period": "2026-07-30 16:49",
-          "basis": "trailing_ttm_external_provider",
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 1.0,
-          "details": {
-            "distinct_from": "financial_summary.roe_quarter/roe_fy/roe_ttm are a different source and methodology; do not treat as the same number"
-          },
-          "unit": "percent"
-        }
-      },
-      "consumer_action": "Do not substitute valuation_inputs.roe for financial_summary.roe_ttm or vice versa — different source, different unit/basis."
-    },
-    {
-      "scope": "ticker",
-      "ticker": "PVD",
-      "code": "share_count_material_mismatch",
-      "severity": "warning",
-      "detail": "PVD: shares_period_end vs shares_current differ by 66.8%.",
-      "message": "PVD: shares_period_end vs shares_current differ by 66.8%.",
-      "metric": "shares_outstanding",
-      "evidence": {
-        "mismatch_pct": 66.8,
-        "status": "material_warning",
-        "reason": "shares_current_and_shares_period_end_differ_10pct_or_more",
-        "possible_reason": "Share issuance (stock dividend/rights issue/ESOP), buyback, or a metadata snapshot taken from a different date than the financial statement period — investigate before computing per-share figures across the two counts.",
-        "consumer_action": "Do not compute per-share or market-cap figures without first confirming which share count matches the metric's period — the two disagree materially.",
-        "thresholds": {
-          "warning_pct": 5.0,
-          "material_warning_pct": 10.0
-        },
-        "shares_period_end": 556296006,
-        "shares_period_end_meta": {
-          "value": 556296006,
-          "status": "derived",
-          "reason": null,
-          "source": "financial_snapshot",
-          "period": "2026-Q1",
-          "basis": "balance_sheet_par_value_derived",
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 1.0,
-          "formula": "common_shares_or_charter_capital_or_paid_in_capital / 10000",
-          "inputs": [
-            "common_shares",
-            "charter_capital",
-            "paid_in_capital"
-          ]
-        },
-        "shares_current": 927742191,
-        "shares_current_meta": {
-          "value": 927742191,
-          "status": "reported",
-          "reason": null,
-          "source": "vnstock_metadata_snapshot",
-          "period": "2026-07-30 16:49",
-          "basis": "live_current",
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 1.0
-        },
-        "weighted_average_shares_basic": 556296006,
-        "weighted_average_shares_basic_meta": {
-          "value": 556296006,
-          "status": "proxy",
-          "reason": null,
-          "source": "financial_snapshot",
-          "period": "2026-Q1",
-          "basis": "shares_period_end_used_as_proxy",
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 0.3,
-          "details": {
-            "proxy_of": "shares_period_end",
-            "true_weighted_average_not_available": "no weighted-average share count is reported in the raw BCTC source"
-          }
-        },
-        "weighted_average_shares_diluted": 556296006,
-        "weighted_average_shares_diluted_meta": {
-          "value": 556296006,
-          "status": "proxy",
-          "reason": null,
-          "source": "financial_snapshot",
-          "period": "2026-Q1",
-          "basis": "shares_period_end_used_as_proxy",
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 0.3,
-          "details": {
-            "proxy_of": "shares_period_end",
-            "true_weighted_average_not_available": "no weighted-average share count is reported in the raw BCTC source"
-          }
-        }
-      },
-      "consumer_action": "Do not compute per-share or market-cap figures without first confirming which share count matches the metric's period — the two disagree materially."
-    },
-    {
-      "scope": "ticker",
-      "ticker": "PVD",
-      "code": "news_summary_missing",
-      "severity": "warning",
-      "detail": "PVD: news_summary has zero available metrics.",
-      "message": "PVD: news_summary has zero available metrics.",
-      "metric": "news_summary",
-      "evidence": {
-        "status": "missing",
-        "coverage": 0.0,
-        "available_metrics": 0,
-        "expected_metrics": 1,
-        "missing_metrics": [
-          "news_summary"
-        ],
-        "available_metric_names": [],
-        "not_applicable_metrics": []
-      },
-      "consumer_action": "Do not claim news summary coverage for this ticker."
-    },
-    {
-      "scope": "ticker",
-      "ticker": "PVD",
-      "code": "entity_type_unclassified",
-      "severity": "info",
-      "detail": "PVD: entity_type is unknown — corporate-only ratios (ebit/ebitda/sga/liquidity) were not derived because this ticker is not yet profiled in ticker_entity_profiles.csv, not because they are confirmed inapplicable.",
-      "message": "PVD: entity_type is unknown — corporate-only ratios (ebit/ebitda/sga/liquidity) were not derived because this ticker is not yet profiled in ticker_entity_profiles.csv, not because they are confirmed inapplicable.",
-      "metric": "entity_type",
-      "evidence": {
-        "entity_type": "unknown"
-      },
-      "consumer_action": "Do not assume this is a corporate entity, and do not read its missing ebit/ebitda/liquidity ratios as confirmed not_applicable."
-    },
-    {
-      "scope": "ticker",
-      "ticker": "NVL",
-      "code": "roe_local_ttm_unavailable_external_roe_present",
-      "severity": "info",
-      "detail": "NVL: financial_summary.roe_ttm is insufficient_periods while valuation_inputs.roe=4.24 (percent, external, different source/methodology) is available.",
-      "message": "NVL: financial_summary.roe_ttm is insufficient_periods while valuation_inputs.roe=4.24 (percent, external, different source/methodology) is available.",
-      "metric": "roe_ttm",
-      "evidence": {
-        "roe_ttm_meta": {
-          "value": null,
-          "status": "insufficient_periods",
-          "reason": "requires_four_consecutive_reported_quarters_and_ttm_window_equity",
-          "source": "financial_snapshot_derived",
-          "period": "2026-Q1",
-          "basis": null,
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 0.0,
-          "unit": "ratio",
-          "period_calendar_end": "2026-03-31",
-          "annualization": "trailing_twelve_month_sum"
-        },
-        "external_roe_meta": {
-          "value": 4.24,
-          "status": "reported",
-          "reason": null,
-          "source": "vnstock_metadata_snapshot",
-          "period": "2026-07-30 16:38",
-          "basis": "trailing_ttm_external_provider",
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 1.0,
-          "details": {
-            "distinct_from": "financial_summary.roe_quarter/roe_fy/roe_ttm are a different source and methodology; do not treat as the same number"
-          },
-          "unit": "percent"
-        }
-      },
-      "consumer_action": "Do not substitute valuation_inputs.roe for financial_summary.roe_ttm or vice versa — different source, different unit/basis."
-    },
-    {
-      "scope": "ticker",
-      "ticker": "NVL",
-      "code": "share_count_mismatch",
-      "severity": "info",
-      "detail": "NVL: shares_period_end vs shares_current differ by 7.6%.",
-      "message": "NVL: shares_period_end vs shares_current differ by 7.6%.",
-      "metric": "shares_outstanding",
-      "evidence": {
-        "mismatch_pct": 7.6,
-        "status": "warning",
-        "reason": "shares_current_and_shares_period_end_differ_5pct_or_more",
-        "possible_reason": "Share issuance (stock dividend/rights issue/ESOP), buyback, or a metadata snapshot taken from a different date than the financial statement period — investigate before computing per-share figures across the two counts.",
-        "consumer_action": "Prefer shares_current for live market_cap/valuation; prefer shares_period_end for ratios computed against that same financial period. Do not mix the two in one ratio.",
-        "thresholds": {
-          "warning_pct": 5.0,
-          "material_warning_pct": 10.0
-        },
-        "shares_period_end": 2232018549,
-        "shares_period_end_meta": {
-          "value": 2232018549,
-          "status": "derived",
-          "reason": null,
-          "source": "financial_snapshot",
-          "period": "2026-Q1",
-          "basis": "balance_sheet_par_value_derived",
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 1.0,
-          "formula": "common_shares_or_charter_capital_or_paid_in_capital / 10000",
-          "inputs": [
-            "common_shares",
-            "charter_capital",
-            "paid_in_capital"
-          ]
-        },
-        "shares_current": 2402067972,
-        "shares_current_meta": {
-          "value": 2402067972,
-          "status": "reported",
-          "reason": null,
-          "source": "vnstock_metadata_snapshot",
-          "period": "2026-07-30 16:38",
-          "basis": "live_current",
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 1.0
-        },
-        "weighted_average_shares_basic": 2232018549,
-        "weighted_average_shares_basic_meta": {
-          "value": 2232018549,
-          "status": "proxy",
-          "reason": null,
-          "source": "financial_snapshot",
-          "period": "2026-Q1",
-          "basis": "shares_period_end_used_as_proxy",
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 0.3,
-          "details": {
-            "proxy_of": "shares_period_end",
-            "true_weighted_average_not_available": "no weighted-average share count is reported in the raw BCTC source"
-          }
-        },
-        "weighted_average_shares_diluted": 2232018549,
-        "weighted_average_shares_diluted_meta": {
-          "value": 2232018549,
-          "status": "proxy",
-          "reason": null,
-          "source": "financial_snapshot",
-          "period": "2026-Q1",
-          "basis": "shares_period_end_used_as_proxy",
-          "raw_item_id": null,
-          "raw_label": null,
-          "confidence": 0.3,
-          "details": {
-            "proxy_of": "shares_period_end",
-            "true_weighted_average_not_available": "no weighted-average share count is reported in the raw BCTC source"
-          }
-        }
-      },
-      "consumer_action": "Prefer shares_current for live market_cap/valuation; prefer shares_period_end for ratios computed against that same financial period. Do not mix the two in one ratio."
-    },
-    {
-      "scope": "ticker",
-      "ticker": "NVL",
-      "code": "news_summary_missing",
-      "severity": "warning",
-      "detail": "NVL: news_summary has zero available metrics.",
-      "message": "NVL: news_summary has zero available metrics.",
-      "metric": "news_summary",
-      "evidence": {
-        "status": "missing",
-        "coverage": 0.0,
-        "available_metrics": 0,
-        "expected_metrics": 1,
-        "missing_metrics": [
-          "news_summary"
-        ],
-        "available_metric_names": [],
-        "not_applicable_metrics": []
-      },
-      "consumer_action": "Do not claim news summary coverage for this ticker."
-    },
-    {
-      "scope": "ticker",
-      "ticker": "NVL",
-      "code": "entity_type_unclassified",
-      "severity": "info",
-      "detail": "NVL: entity_type is unknown — corporate-only ratios (ebit/ebitda/sga/liquidity) were not derived because this ticker is not yet profiled in ticker_entity_profiles.csv, not because they are confirmed inapplicable.",
-      "message": "NVL: entity_type is unknown — corporate-only ratios (ebit/ebitda/sga/liquidity) were not derived because this ticker is not yet profiled in ticker_entity_profiles.csv, not because they are confirmed inapplicable.",
-      "metric": "entity_type",
-      "evidence": {
-        "entity_type": "unknown"
-      },
-      "consumer_action": "Do not assume this is a corporate entity, and do not read its missing ebit/ebitda/liquidity ratios as confirmed not_applicable."
     }
   ],
   "files": [
     {
       "file": "screen_snapshot_live.csv",
       "role": "source",
-      "row_or_record_count": 936,
+      "row_or_record_count": 890,
       "count_basis": "csv_rows",
-      "data_date": "2026-08-07",
-      "sha256": "3c6928c4da90d05eb47d482bdd49e2ef20fa79591c9a04e967734ed725cde1c3",
-      "generated_at": "2026-08-07T16:21:25+07:00"
+      "data_date": "2026-08-10",
+      "sha256": "a48c721a1c29442610c255906c519b93328d248ba40d9db84e70dc7b84f6a77e",
+      "generated_at": "2026-08-11T20:03:22+07:00"
     },
     {
       "file": "ta_signals.csv",
       "role": "source",
-      "row_or_record_count": 721,
+      "row_or_record_count": 746,
       "count_basis": "csv_rows",
-      "data_date": "2026-08-07",
-      "sha256": "69d484f40b6d9a2048d5e8c42d6a94cbe3e5c15e16c3a124d113f3be779632c7",
-      "generated_at": "2026-08-09T10:10:23+07:00"
+      "data_date": "2026-08-10",
+      "sha256": "528e52ce918e9ff054fc4ff7b4f4a3ebfa670a927359f8dea847965f4fcc29d8",
+      "generated_at": "2026-08-11T20:08:18+07:00"
     },
     {
       "file": "analysis_latest.json",
       "role": "source",
-      "row_or_record_count": 936,
+      "row_or_record_count": 890,
       "count_basis": "json_ticker_scores",
-      "data_date": "2026-08-07",
-      "sha256": "66e3dd6f90c70d0189891f1c9dabd1d3af83899f9ee3a6464b182050821e51b2",
-      "generated_at": "2026-08-09T10:11:25+07:00"
+      "data_date": "2026-08-10",
+      "sha256": "708f2328cf2ab838bdeccc7a8e827f1f49b649351bcdef0074df8eddb8a1da20",
+      "generated_at": "2026-08-11T20:08:41+07:00"
     },
     {
       "file": "financial_snapshot.parquet",
@@ -1442,9 +161,9 @@
       "role": "source",
       "row_or_record_count": 20,
       "count_basis": "csv_rows",
-      "data_date": "2026-08-07",
-      "sha256": "d56c9c296f8f643ab5d26a8cc2f332183e8b6ed9af780b8073efef8aa95d2bfa",
-      "generated_at": "2026-08-07T16:21:25+07:00"
+      "data_date": "2026-08-10",
+      "sha256": "5e64cab6ca03af9c6d375f35cf95e4669183db3a716c0f69cae817c753feaa86",
+      "generated_at": "2026-08-11T20:03:22+07:00"
     },
     {
       "file": "macro_snapshot.csv",
@@ -1458,10 +177,10 @@
     {
       "file": "Focus_Analysis.md",
       "role": "source",
-      "row_or_record_count": 12,
+      "row_or_record_count": 11,
       "count_basis": "markdown_ticker_sections",
-      "data_date": "2026-08-07",
-      "sha256": "31dc9062f02b21b98ac2f069df4fb77c09b974361750f5d139bc814d1d038e14",
+      "data_date": "2026-08-10",
+      "sha256": "fc1e4bc8937218473b753a243fab36f15d343a88a54a9f7e8f4a4a8791231ecf",
       "warning": null
     },
     {
@@ -1471,9 +190,9 @@
       "exists": true,
       "row_or_record_count": null,
       "count_basis": "single_ticker_package",
-      "data_date": "2026-08-07",
-      "sha256": "9c310ab9d324164eb1be306fb077774dd0903d6015281a1e56dacb4b83d1ac43",
-      "generated_at": "2026-08-09T10:25:04+07:00"
+      "data_date": "2026-08-10",
+      "sha256": "887c92cf4007d0b57e1b7169015ee70e0efc19a1e2c817dbc7f4d66b0fb7dbdc",
+      "generated_at": "2026-08-11T20:08:46+07:00"
     },
     {
       "file": "../ai-core-private/exports/context_packages/SSI_context.json",
@@ -1482,9 +201,9 @@
       "exists": true,
       "row_or_record_count": null,
       "count_basis": "single_ticker_package",
-      "data_date": "2026-08-07",
-      "sha256": "9aecbddc26c8efc7c8ab13b04b3eb42cee568f1f7989d5377af57bb7d0b877f0",
-      "generated_at": "2026-08-09T10:25:05+07:00"
+      "data_date": "2026-08-10",
+      "sha256": "37d6947496e5538165a3ded9e2a2ff7b5ed62fff1ada03743c6f387502a9e2c8",
+      "generated_at": "2026-08-11T20:08:47+07:00"
     },
     {
       "file": "../ai-core-private/exports/context_packages/HPG_context.json",
@@ -1493,9 +212,9 @@
       "exists": true,
       "row_or_record_count": null,
       "count_basis": "single_ticker_package",
-      "data_date": "2026-08-07",
-      "sha256": "d5a0258d6fd6de8dbadc76c53680fa39df73187dbb27a7f11697eb3f63cba708",
-      "generated_at": "2026-08-09T10:25:07+07:00"
+      "data_date": "2026-08-10",
+      "sha256": "2a085de924e45dcddde7550f159141888e184f3c404ff96b2ce37079fc63040f",
+      "generated_at": "2026-08-11T20:08:48+07:00"
     },
     {
       "file": "../ai-core-private/exports/context_packages/EVF_context.json",
@@ -1504,9 +223,9 @@
       "exists": true,
       "row_or_record_count": null,
       "count_basis": "single_ticker_package",
-      "data_date": "2026-08-07",
-      "sha256": "5c724e4cf86126f4191aad832249b7ee62f82134a3ea0f26ce6862f24531f2b6",
-      "generated_at": "2026-08-09T10:25:09+07:00"
+      "data_date": "2026-08-10",
+      "sha256": "8787ca26068e47d5f3af46b1bec7edc4b86f379a7ede0d6b6281484b5dd1db70",
+      "generated_at": "2026-08-11T20:08:50+07:00"
     },
     {
       "file": "../ai-core-private/exports/context_packages/PAN_context.json",
@@ -1515,9 +234,9 @@
       "exists": true,
       "row_or_record_count": null,
       "count_basis": "single_ticker_package",
-      "data_date": "2026-08-07",
-      "sha256": "cfcc5e6bdb23dd01950d3a507e02c4c83a02281b91656e2b57a343d273f06525",
-      "generated_at": "2026-08-09T10:25:10+07:00"
+      "data_date": "2026-08-10",
+      "sha256": "66662ff14e0474aac6bc9f231c2ae87e07ae175031bf0d4767b29e88ec9e048f",
+      "generated_at": "2026-08-11T20:08:51+07:00"
     },
     {
       "file": "../ai-core-private/exports/context_packages/PNJ_context.json",
@@ -1526,9 +245,9 @@
       "exists": true,
       "row_or_record_count": null,
       "count_basis": "single_ticker_package",
-      "data_date": "2026-08-07",
-      "sha256": "e47c71d1c813e862bd818c58cc9c8c1a487a82d2a0aa6869109c3fcb672b0ef7",
-      "generated_at": "2026-08-09T10:25:11+07:00"
+      "data_date": "2026-08-10",
+      "sha256": "d5f8aa81ad567d8e363bacb7a3aefe89ac1987add609b29c93feb251e1efb4a1",
+      "generated_at": "2026-08-11T20:08:53+07:00"
     },
     {
       "file": "../ai-core-private/exports/context_packages/FPT_context.json",
@@ -1537,9 +256,9 @@
       "exists": true,
       "row_or_record_count": null,
       "count_basis": "single_ticker_package",
-      "data_date": "2026-08-07",
-      "sha256": "e6e260bd6a01d8481f2878c44c3ee592641e9246445cf1b3eb10496f73d4fbd6",
-      "generated_at": "2026-08-09T10:25:13+07:00"
+      "data_date": "2026-08-10",
+      "sha256": "9877570bc041c2ff9e03f2944d0885cd839b8ee97546c6053be79d3ff9317611",
+      "generated_at": "2026-08-11T20:08:54+07:00"
     },
     {
       "file": "../ai-core-private/exports/context_packages/QNS_context.json",
@@ -1548,9 +267,9 @@
       "exists": true,
       "row_or_record_count": null,
       "count_basis": "single_ticker_package",
-      "data_date": "2026-08-07",
-      "sha256": "354ec0d65c02399ef6612033d707b7c4c346ade18ad25dc38771fe27b14a4bce",
-      "generated_at": "2026-08-09T10:25:16+07:00"
+      "data_date": "2026-08-10",
+      "sha256": "849abf7944823e0e198da790433db664cf66227dae52af2b6bef43000b80d59a",
+      "generated_at": "2026-08-11T20:08:56+07:00"
     },
     {
       "file": "../ai-core-private/exports/context_packages/VNM_context.json",
@@ -1559,9 +278,9 @@
       "exists": true,
       "row_or_record_count": null,
       "count_basis": "single_ticker_package",
-      "data_date": "2026-08-07",
-      "sha256": "49ae59c36d0d3702ddf21dd3d5d59937ca3651b759952b14ac166ae57949e1bb",
-      "generated_at": "2026-08-09T10:25:18+07:00"
+      "data_date": "2026-08-10",
+      "sha256": "b45deeb2ec2fa1a7a69010c3b202cdc195cccbf731214b44c954b9d83018d6ad",
+      "generated_at": "2026-08-11T20:08:57+07:00"
     },
     {
       "file": "../ai-core-private/exports/context_packages/PVD_context.json",
@@ -1570,9 +289,9 @@
       "exists": true,
       "row_or_record_count": null,
       "count_basis": "single_ticker_package",
-      "data_date": "2026-08-07",
-      "sha256": "c11f3770326a17415b4b175cbcb54fca851555a0df1a8322927b7e0d98893062",
-      "generated_at": "2026-08-09T10:25:21+07:00"
+      "data_date": "2026-08-10",
+      "sha256": "0d1957b86275427fbe8bd9cb9c13ace93876013720972adf8fe01b0fa08ec8d3",
+      "generated_at": "2026-08-11T20:08:58+07:00"
     },
     {
       "file": "../ai-core-private/exports/context_packages/NVL_context.json",
@@ -1581,33 +300,33 @@
       "exists": true,
       "row_or_record_count": null,
       "count_basis": "single_ticker_package",
-      "data_date": "2026-08-07",
-      "sha256": "5c0ad70ea0ca262aea22f89ade0f75faa056d015fe83cba496dfa186d4e60060",
-      "generated_at": "2026-08-09T10:25:23+07:00"
+      "data_date": "2026-08-10",
+      "sha256": "c016ddeacf6bafc7e8369062be33bff5dc1341e8104959817152725b4f9171a8",
+      "generated_at": "2026-08-11T20:09:00+07:00"
     },
     {
       "file": "focus_extract.json",
       "role": "output",
       "row_or_record_count": 11,
       "count_basis": "tickers_in_bundle",
-      "data_date": "2026-08-07",
-      "sha256": "ed650d5f134af9faeba4b0a851bd2187dbfa56c7e150e0bcab0158f7d6b3808a"
+      "data_date": "2026-08-10",
+      "sha256": "6a18bd3efe97e5e94e034ab2db13b0c02169ab9dcb9dfc6ba00b9fad31c07613"
     },
     {
       "file": "analysis_bundle.json",
       "role": "output",
       "row_or_record_count": 11,
       "count_basis": "tickers_in_bundle",
-      "data_date": "2026-08-07",
-      "sha256": "717f69b2401b1ceef182cdf05cb7e3a8b9e79dc7504384597fbba4dd0c8bfa0d"
+      "data_date": "2026-08-10",
+      "sha256": "ed3ec123788f6915daec1d26af62a165300669fa7ccaaaae23eacc0d0f52f279"
     },
     {
       "file": "statement_taxonomy_sidecar.json",
       "role": "generated_evidence",
       "row_or_record_count": 1380,
       "count_basis": "tickers_classified",
-      "data_date": "2026-08-07",
-      "sha256": "b397641261dc0584c4981bf218bdac38f7202cc7bff10a19def5019911b7b48c"
+      "data_date": "2026-08-10",
+      "sha256": "15319d1ca2109e6f43b5fc6ad122c1a40fec485af6ad7fde118c54fe3a9e2d7a"
     }
   ],
   "trusted_subset": {
@@ -1641,24 +360,24 @@
       "VNM"
     ],
     "trust_state": "untrusted_basis",
-    "session_identity": "2026-08-07",
-    "generated_at": "2026-08-10T13:47:03+00:00",
+    "session_identity": "2026-08-10",
+    "generated_at": "2026-08-11T13:11:48+00:00",
     "bundle_filename": "analysis_bundle.json",
-    "bundle_sha256": "717f69b2401b1ceef182cdf05cb7e3a8b9e79dc7504384597fbba4dd0c8bfa0d",
-    "bundle_reference_session_date": "2026-08-07",
-    "bundle_generated_at": "2026-08-10T13:47:03+00:00",
+    "bundle_sha256": "ed3ec123788f6915daec1d26af62a165300669fa7ccaaaae23eacc0d0f52f279",
+    "bundle_reference_session_date": "2026-08-10",
+    "bundle_generated_at": "2026-08-11T13:11:48+00:00",
     "required_artifacts": [
       {
         "file": "analysis_bundle.json",
-        "sha256": "717f69b2401b1ceef182cdf05cb7e3a8b9e79dc7504384597fbba4dd0c8bfa0d"
+        "sha256": "ed3ec123788f6915daec1d26af62a165300669fa7ccaaaae23eacc0d0f52f279"
       },
       {
         "file": "focus_extract.json",
-        "sha256": "ed650d5f134af9faeba4b0a851bd2187dbfa56c7e150e0bcab0158f7d6b3808a"
+        "sha256": "6a18bd3efe97e5e94e034ab2db13b0c02169ab9dcb9dfc6ba00b9fad31c07613"
       },
       {
         "file": "statement_taxonomy_sidecar.json",
-        "sha256": "b397641261dc0584c4981bf218bdac38f7202cc7bff10a19def5019911b7b48c"
+        "sha256": "15319d1ca2109e6f43b5fc6ad122c1a40fec485af6ad7fde118c54fe3a9e2d7a"
       }
     ],
     "expected_artifact_filenames": [
@@ -1669,61 +388,92 @@
     ],
     "per_ticker": {
       "EVF": {
-        "session_identity": "2026-08-07",
-        "required_current_fields_qualified": true,
-        "warnings": []
-      },
-      "FPT": {
-        "session_identity": "2026-08-07",
-        "required_current_fields_qualified": true,
-        "warnings": []
-      },
-      "HPG": {
-        "session_identity": "2026-08-07",
-        "required_current_fields_qualified": true,
-        "warnings": []
-      },
-      "NVL": {
-        "session_identity": "2026-08-07",
-        "required_current_fields_qualified": true,
-        "warnings": []
-      },
-      "PAN": {
-        "session_identity": "2026-08-07",
-        "required_current_fields_qualified": true,
-        "warnings": []
-      },
-      "PNJ": {
-        "session_identity": "2026-08-07",
-        "required_current_fields_qualified": true,
-        "warnings": []
-      },
-      "POW": {
-        "session_identity": "2026-08-07",
-        "required_current_fields_qualified": true,
-        "warnings": []
-      },
-      "PVD": {
-        "session_identity": "2026-08-07",
-        "required_current_fields_qualified": true,
-        "warnings": []
-      },
-      "QNS": {
-        "session_identity": "2026-08-07",
+        "session_identity": "2026-08-10",
         "required_current_fields_qualified": true,
         "warnings": [
-          "khong_co_trong_ta_signals"
+          "context_package_basis_mismatch_fail_closed:context_package.current_state_market_risk.stock_price_contract.price_basis",
+          "khong_co_context_package (chưa build_ticker_context.py cho mã này -> thiếu news_related/shareholder/valuation_inputs chi tiết)"
+        ]
+      },
+      "FPT": {
+        "session_identity": "2026-08-10",
+        "required_current_fields_qualified": true,
+        "warnings": [
+          "context_package_basis_mismatch_fail_closed:context_package.current_state_market_risk.stock_price_contract.price_basis",
+          "khong_co_context_package (chưa build_ticker_context.py cho mã này -> thiếu news_related/shareholder/valuation_inputs chi tiết)"
+        ]
+      },
+      "HPG": {
+        "session_identity": "2026-08-10",
+        "required_current_fields_qualified": true,
+        "warnings": [
+          "context_package_basis_mismatch_fail_closed:context_package.current_state_market_risk.stock_price_contract.price_basis",
+          "khong_co_context_package (chưa build_ticker_context.py cho mã này -> thiếu news_related/shareholder/valuation_inputs chi tiết)"
+        ]
+      },
+      "NVL": {
+        "session_identity": "2026-08-10",
+        "required_current_fields_qualified": true,
+        "warnings": [
+          "context_package_basis_mismatch_fail_closed:context_package.current_state_market_risk.stock_price_contract.price_basis",
+          "khong_co_context_package (chưa build_ticker_context.py cho mã này -> thiếu news_related/shareholder/valuation_inputs chi tiết)"
+        ]
+      },
+      "PAN": {
+        "session_identity": "2026-08-10",
+        "required_current_fields_qualified": true,
+        "warnings": [
+          "context_package_basis_mismatch_fail_closed:context_package.current_state_market_risk.stock_price_contract.price_basis",
+          "khong_co_context_package (chưa build_ticker_context.py cho mã này -> thiếu news_related/shareholder/valuation_inputs chi tiết)"
+        ]
+      },
+      "PNJ": {
+        "session_identity": "2026-08-10",
+        "required_current_fields_qualified": true,
+        "warnings": [
+          "context_package_basis_mismatch_fail_closed:context_package.current_state_market_risk.stock_price_contract.price_basis",
+          "khong_co_context_package (chưa build_ticker_context.py cho mã này -> thiếu news_related/shareholder/valuation_inputs chi tiết)"
+        ]
+      },
+      "POW": {
+        "session_identity": "2026-08-10",
+        "required_current_fields_qualified": true,
+        "warnings": [
+          "context_package_basis_mismatch_fail_closed:context_package.current_state_market_risk.stock_price_contract.price_basis",
+          "khong_co_context_package (chưa build_ticker_context.py cho mã này -> thiếu news_related/shareholder/valuation_inputs chi tiết)"
+        ]
+      },
+      "PVD": {
+        "session_identity": "2026-08-10",
+        "required_current_fields_qualified": true,
+        "warnings": [
+          "context_package_basis_mismatch_fail_closed:context_package.current_state_market_risk.stock_price_contract.price_basis",
+          "khong_co_context_package (chưa build_ticker_context.py cho mã này -> thiếu news_related/shareholder/valuation_inputs chi tiết)"
+        ]
+      },
+      "QNS": {
+        "session_identity": "2026-08-10",
+        "required_current_fields_qualified": true,
+        "warnings": [
+          "context_package_basis_mismatch_fail_closed:context_package.current_state_market_risk.stock_price_contract.price_basis",
+          "khong_co_context_package (chưa build_ticker_context.py cho mã này -> thiếu news_related/shareholder/valuation_inputs chi tiết)"
         ]
       },
       "SSI": {
-        "session_identity": "2026-08-07",
+        "session_identity": "2026-08-10",
         "required_current_fields_qualified": true,
-        "warnings": []
+        "warnings": [
+          "context_package_basis_mismatch_fail_closed:context_package.current_state_market_risk.stock_price_contract.price_basis",
+          "khong_co_context_package (chưa build_ticker_context.py cho mã này -> thiếu news_related/shareholder/valuation_inputs chi tiết)"
+        ]
       },
       "VNM": {
-        "session_identity": "2026-08-07",
+        "session_identity": "2026-08-10",
         "required_current_fields_qualified": true,
-        "warnings": []
+        "warnings": [
+          "context_package_basis_mismatch_fail_closed:context_package.current_state_market_risk.stock_price_contract.price_basis",
+          "khong_co_context_package (chưa build_ticker_context.py cho mã này -> thiếu news_related/shareholder/valuation_inputs chi tiết)"
+        ]
       }
     },
     "price_basis": {
