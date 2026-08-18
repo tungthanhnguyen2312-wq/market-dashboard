@@ -1,5 +1,10 @@
 # Project Health Audit — Stock Look Up
 
+> **HISTORICAL SNAPSHOT — 2026-07-19.** Describes a pre-migration, single-repository "VNSTOCK"
+> checkout and does not reflect the current repository structure or the Producer/Consumer/
+> Dashboard split. Preserved for historical record only; not current authority. Current project
+> state lives in the Producer repository's `docs/STATE.md`.
+
 **Ngày khảo sát:** 2026-07-19 (Asia/Saigon)  
 **Phạm vi:** worktree tại commit `eb8e7e50460d3ed103865f27f3ff17b26987401d` (`origin/main` cùng commit), gồm 116 file được Git track và 22 script Python local bị ignore có chủ đích.  
 **Kết luận:** `NEEDS_FIXES`  
@@ -101,7 +106,7 @@ Lệnh bắt buộc đã chạy:
 python -m unittest discover tests
 ```
 
-Kết quả trong venv sẵn có của project (`C:\Projects\VNSTOCK\.venv`, pandas 2.3.3, numpy 2.2.6): **PASS**, `Ran 133 tests in 5.281s`, `OK (skipped=1)`.
+Kết quả trong venv sẵn có của project (`[local path redacted]\.venv`, pandas 2.3.3, numpy 2.2.6): **PASS**, `Ran 133 tests in 5.281s`, `OK (skipped=1)`.
 
 - Không có error hoặc failure; log từ `bctc_processor.py` và các `FutureWarning` từ `candlestick_patterns.py` xác nhận các nhánh dùng pandas/numpy đã thực thi.
 - Đếm tĩnh trong 13 file test cho thấy 139 hàm `test_`; số định nghĩa tĩnh không tương ứng một-một với số case unittest thực thi, và chênh lệch này không phải import failure.

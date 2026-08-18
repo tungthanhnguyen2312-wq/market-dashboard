@@ -1,8 +1,13 @@
 # Final Release Audit — Stock Look Up
 
+> **HISTORICAL SNAPSHOT — 2026-07-19.** This audit describes a pre-migration, single-repository
+> checkout and does not reflect the current repository structure, file counts, or architecture
+> (Producer/Consumer/Dashboard split). Preserved for historical record only; it is not current
+> authority. Current project state lives in the Producer repository's `docs/STATE.md`.
+
 **Ngày kiểm tra:** 2026-07-19 (Asia/Saigon), cập nhật cùng ngày sau khi P1 được sửa và đóng project.
 **Phạm vi:** `main` @ `b12cda6433c7328788095432462dd44ee4078d88` (không đổi kể từ lần audit đầu — phiên đóng project này chỉ thêm tài liệu, không sửa code/dữ liệu public), 136 file được Git track.
-**Người thực hiện:** Claude Sonnet 5 (Claude Code), audit read-only trên public repo — không sửa code/dữ liệu public, không chạy publish thật, không push/deploy. (Có sửa code trên **private source repo** `vnstock-core-private` ở phiên trước đó — xem mục 7 và `C:\Projects\.ai\PUBLISH_DRYRUN_FIX_REPORT.md`.)
+**Người thực hiện:** Claude Sonnet 5 (Claude Code), audit read-only trên public repo — không sửa code/dữ liệu public, không chạy publish thật, không push/deploy. (Có sửa code trên **private source repo** `vnstock-core-private` ở phiên trước đó — xem mục 7 và an internal closeout report (not included in this repository).)
 
 **Kết luận:** **`READY_WITH_KNOWN_WARNINGS`** *(cập nhật từ `NEEDS_FIXES` — xem mục 0)*
 
@@ -12,11 +17,11 @@
 
 Bản audit gốc (cùng ngày, trước khi cập nhật này) kết luận `NEEDS_FIXES` vì đúng 1 lý do: `publish_dashboard.py` ghi file ngay cả khi không có `--live`. Finding đó **đã được sửa, kiểm chứng, và đóng** trong hai phiên làm việc kế tiếp:
 
-1. **Sửa fix** (phiên trước): tách mỗi hàm ghi (`copy_public_artifacts`, `write_build_manifest`, `update_asset_versions`) thành cặp *plan* (đọc, dùng cho cả 2 chế độ) + *apply* (ghi, chỉ `--live`); `log()` hết ghi `logs/*.log` khi không `--live`. Chi tiết đầy đủ: `C:\Projects\.ai\PUBLISH_DRYRUN_FIX_REPORT.md`.
-2. **Phân loại lại source/test đúng repository** (phiên này): xác nhận `publish_dashboard.py` có nguồn chuẩn tại private repo `C:\Projects\vnstock-core-private` (commit `c820dce`); test mới `tests/test_publish_dashboard.py` (import trực tiếp `publish_dashboard.py`) được chuyển hẳn sang private repo (commit `9b67cbf`) thay vì nằm trong public — vì public checkout không có `publish_dashboard.py` (bị `.gitignore` chặn có chủ đích) nên không thể chạy test đó.
+1. **Sửa fix** (phiên trước): tách mỗi hàm ghi (`copy_public_artifacts`, `write_build_manifest`, `update_asset_versions`) thành cặp *plan* (đọc, dùng cho cả 2 chế độ) + *apply* (ghi, chỉ `--live`); `log()` hết ghi `logs/*.log` khi không `--live`. Chi tiết đầy đủ: an internal closeout report (not included in this repository).
+2. **Phân loại lại source/test đúng repository** (phiên này): xác nhận `publish_dashboard.py` có nguồn chuẩn tại private repo `[private source repo path redacted]` (commit `c820dce`); test mới `tests/test_publish_dashboard.py` (import trực tiếp `publish_dashboard.py`) được chuyển hẳn sang private repo (commit `9b67cbf`) thay vì nằm trong public — vì public checkout không có `publish_dashboard.py` (bị `.gitignore` chặn có chủ đích) nên không thể chạy test đó.
 3. **Kiểm chứng cuối cùng, độc lập với 2 phiên trên** (phiên này): chạy lại toàn bộ 9 test publisher trong chính private repo (nơi source thật nằm) — **9/9 pass**; chạy dry-run thật (không mock) trong sandbox có git repo riêng — **snapshot hash+mtime toàn bộ file trước/sau giống hệt tuyệt đối, `git status` sạch, không tạo `logs/`**. Xem mục 7 và mục 15 (P1 đã đóng).
 
-Toàn bộ chi tiết quy trình đóng project: `C:\Projects\.ai\FINAL_RELEASE_CLOSEOUT_REPORT.md`.
+Toàn bộ chi tiết quy trình đóng project: an internal closeout report (not included in this repository).
 
 ---
 
@@ -52,11 +57,11 @@ Ranh giới local-vs-public (`.gitignore`) được xác nhận còn nguyên v�
 
 ## 3. Test suite
 
-**Public** (`C:\Projects\VNSTOCK`): `python -m unittest discover tests` → **`Ran 258 tests` → `OK`, 0 failure, 0 error.**
+**Public** (`[local path redacted]`): `python -m unittest discover tests` → **`Ran 258 tests` → `OK`, 0 failure, 0 error.**
 
 Con số này giữ nguyên baseline (không phải 267 như một báo cáo trung gian trong ngày từng ghi) vì: test mới `tests/test_publish_dashboard.py` (viết ở phiên sửa P1, import trực tiếp `publish_dashboard.py`) đã được **xác định lại đúng vị trí** và chuyển hẳn sang private repo trong phiên đóng project — public checkout không có `publish_dashboard.py` nên không thể chạy test đó, giữ nó lại trong public sẽ vi phạm nguyên tắc "không đưa test không thể chạy từ public checkout vào public repo".
 
-**Private** (`C:\Projects\vnstock-core-private`, dùng chung `.venv` của public repo — private repo không có `.venv` riêng, không cài thêm gì):
+**Private** (`[private source repo path redacted]`, dùng chung `.venv` của public repo — private repo không có `.venv` riêng, không cài thêm gì):
 - `python -m unittest tests.test_publish_dashboard` → **9/9 pass**, `OK`.
 - `python -m unittest discover tests` (toàn bộ 40 file test của private repo) → **290 test, 266 pass, 24 error, 7 skip.** Toàn bộ 24 lỗi truy ngược về **thiếu file dữ liệu local** (`screen_snapshot.csv`, `financial_snapshot.csv`, `data/build_info.json`, `app.js`, các CSV nguồn BCTC theo mã...) — private repo chỉ track **source code**, không track **dữ liệu runtime** (đúng thiết kế, xem `docs/vnstock-repo-hygiene-audit` memory), nên các test cần dữ liệu thật không chạy được ở đây. **Không có lỗi nào liên quan tới `publish_dashboard.py` hay logic đã sửa** — khớp hoàn toàn với giới hạn đã biết P2-04 (test không tái lập từ checkout không đủ dữ liệu), không phải finding mới.
 
@@ -89,7 +94,7 @@ Không đổi so với lần audit trước trong ngày: không `CNAME`/`.nojeky
 
 **Bằng chứng kiểm chứng lần cuối (phiên đóng project, độc lập với phiên sửa fix):**
 - 9/9 test publisher pass trong chính private repo (nguồn thật).
-- Dry-run thật (không mock) trong sandbox riêng (git repo thật, không phải `C:\Projects\VNSTOCK` hay private repo) — snapshot SHA-256+mtime toàn bộ file **trước/sau giống hệt tuyệt đối** (`fc.exe /A` báo "no differences encountered"), danh sách file trước/sau giống hệt, `git status` = `nothing to commit, working tree clean`, không có thư mục `logs/` nào được tạo.
+- Dry-run thật (không mock) trong sandbox riêng (git repo thật, không phải `[local path redacted]` hay private repo) — snapshot SHA-256+mtime toàn bộ file **trước/sau giống hệt tuyệt đối** (`fc.exe /A` báo "no differences encountered"), danh sách file trước/sau giống hệt, `git status` = `nothing to commit, working tree clean`, không có thư mục `logs/` nào được tạo.
 
 ## 8. `sync_and_push.bat` và `sync_and_publish.bat`
 
@@ -164,7 +169,7 @@ Không đổi so với lần audit trước trong ngày (public suite quay về 
 
 ### Mới trong phiên đóng project
 
-- Xác nhận `vnstock-core-private` (`C:\Projects\vnstock-core-private`, không có remote) là nguồn chuẩn hợp lệ cho `publish_dashboard.py` — nội dung khớp 100% với bản local public trước khi phiên này bắt đầu.
+- Xác nhận `vnstock-core-private` (`[private source repo path redacted]`, không có remote) là nguồn chuẩn hợp lệ cho `publish_dashboard.py` — nội dung khớp 100% với bản local public trước khi phiên này bắt đầu.
 - `tests/test_publish_dashboard.py` được xác định đúng là test private-only, chuyển từ public (untracked) sang private (tracked, commit `9b67cbf`) — public quay về 258 test, không mất bài test nào (đã verify chạy được 9/9 ở nơi đúng).
 
 ---
@@ -180,14 +185,14 @@ Không đổi so với lần audit trước trong ngày (public suite quay về 
 **Không có P1 nào đang mở.**
 
 **Đã đóng trong ngày — publisher dry-run ghi file (P1 duy nhất của bản audit gốc):**
-- **File:** `publish_dashboard.py` (nguồn chuẩn: `C:\Projects\vnstock-core-private\publish_dashboard.py`, commit `c820dce`; đồng bộ về `C:\Projects\VNSTOCK\publish_dashboard.py`, local, gitignored).
-- **Fix:** tách plan (đọc)/apply (ghi) cho cả 3 hàm ghi file + `log()`; chỉ `--live` mới ghi. Chi tiết: `C:\Projects\.ai\PUBLISH_DRYRUN_FIX_REPORT.md`.
+- **File:** `publish_dashboard.py` (nguồn chuẩn: `[private source repo path redacted]\publish_dashboard.py`, commit `c820dce`; đồng bộ về `[local path redacted]\publish_dashboard.py`, local, gitignored).
+- **Fix:** tách plan (đọc)/apply (ghi) cho cả 3 hàm ghi file + `log()`; chỉ `--live` mới ghi. Chi tiết: an internal closeout report (not included in this repository).
 - **Bằng chứng đóng:** 9/9 test publisher pass tại private repo; dry-run thật trong sandbox độc lập cho kết quả 0 khác biệt hash/mtime/danh sách file, `git status` sạch, không tạo `logs/`.
 - **Test bảo vệ:** `tests/test_publish_dashboard.py`, private repo, commit `9b67cbf`.
 
 ### P2 — nên sửa sớm nhưng không nhất thiết chặn release
 
-*(Nội dung P2-01 đến P2-06 không đổi so với bản audit trước trong ngày — xem mục 14 để biết trạng thái xác nhận lại. Chi tiết đầy đủ từng mục theo cấu trúc File/Bằng chứng/Rủi ro/Kiểm chứng/Sửa/Giao cho: xem lịch sử file này hoặc `C:\Projects\.ai\backups\final-release-closeout-20260719\FINAL_RELEASE_AUDIT.md.before-update` — giữ nguyên logic, chỉ đổi số thứ tự P2-03→P2-06 do P1 cũ chuyển xuống mục "đã đóng".)*
+*(Nội dung P2-01 đến P2-06 không đổi so với bản audit trước trong ngày — xem mục 14 để biết trạng thái xác nhận lại. Chi tiết đầy đủ từng mục theo cấu trúc File/Bằng chứng/Rủi ro/Kiểm chứng/Sửa/Giao cho: xem lịch sử file này hoặc an internal pre-update backup of this file (not included in this repository) — giữ nguyên logic, chỉ đổi số thứ tự P2-03→P2-06 do P1 cũ chuyển xuống mục "đã đóng".)*
 
 #### P2-01 — Tài liệu lệch code, độ lệch tăng theo thời gian
 File: `AI_CONTEXT.md:12`, `CHANGELOG.md:143`, `docs/RELEASE_CHECKLIST.md:14-18`. Giao: **Sonnet**.

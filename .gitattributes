@@ -9,3 +9,16 @@ analysis_bundle.json            -text
 bundle_manifest.json            -text
 focus_extract.json              -text
 statement_taxonomy_sidecar.json -text
+
+# Deterministic line endings for the public-OSS-hardened documentation files ported from
+# dashboard-runtime (see operations-review/public-oss-hardening-v1-20260818.md and
+# operations-review/local-publication-assembly-v1-20260818.md). Scoped to exactly the paths
+# whose content was ported in this pass — not the full dashboard-runtime set, since the
+# remaining doc paths there were untouched PUBLISH_AS_IS content and AGENTS.md is held back
+# pending an explicit owner decision (see report). Does not touch any other tracked file.
+AI_CONTEXT.md                text eol=lf
+docs/FINAL_RELEASE_AUDIT.md  text eol=lf
+docs/PROJECT_COMPLETION.md   text eol=lf
+docs/PROJECT_DIRECTION.md    text eol=lf
+docs/PROJECT_HEALTH_AUDIT.md text eol=lf
+docs/REPO_AUDIT.md           text eol=lf

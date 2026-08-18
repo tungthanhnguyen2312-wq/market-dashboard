@@ -1,19 +1,29 @@
 # AI Context
 
-> File này dành cho AI/agent làm việc trên codebase VNSTOCK. Nội dung phản ánh code thực tế
-> tại 2026-07-17. Không chứa secret. Tài liệu người đọc: `README.md` + `docs/`.
+> **Đã cập nhật ranh giới kiến trúc (xem ghi chú dưới) — nội dung vận hành gốc phản ánh code
+> thực tế tại 2026-07-17, dưới cấu trúc một-repo cũ.** File này dành cho AI/agent làm việc trong
+> repository này (Dashboard/publication). Authority hiện tại cho toàn workspace là `docs/STATE.md`
+> của repository Producer (`stock-core-private`, repo riêng, không nằm trong checkout này) — file
+> này mô tả riêng repository này, không cạnh tranh với authority đó. Không chứa secret. Tài liệu
+> người đọc: `README.md` + `docs/`.
 
 ## Mục tiêu project
 
-Pipeline Python chạy local thu thập và phân tích dữ liệu chứng khoán Việt Nam (~1.700 mã):
-giá OHLCV hằng ngày, metadata cơ bản, vĩ mô, tin tức, cổ đông lớn, báo cáo tài chính quý (BCTC),
-chỉ báo kỹ thuật và báo cáo AI — rồi xuất snapshot cho một dashboard tĩnh publish lên GitHub
-Pages. **Thư mục này đồng thời là repo web `market-dashboard`**: git chỉ track website + tài
-liệu (114 file); toàn bộ `*.py` và kho dữ liệu bị gitignore có chủ đích.
+Pipeline Python thu thập và phân tích dữ liệu chứng khoán Việt Nam (~1.700 mã): giá OHLCV hằng
+ngày, metadata cơ bản, vĩ mô, tin tức, cổ đông lớn, báo cáo tài chính quý (BCTC), chỉ báo kỹ
+thuật và báo cáo AI — rồi xuất snapshot cho dashboard tĩnh publish lên GitHub Pages. **Repository
+này (`market-dashboard`) là thành phần Dashboard/publication**: git ở đây chỉ track website và
+tài liệu. Pipeline Python (`vn_stock_pipeline.py`, `meta_sync.py`, và các script khác nêu dưới)
+có nguồn chuẩn ở repository Producer riêng (`stock-core-private`) — bản `.py` xuất hiện trong
+thư mục này chỉ là **bản deploy cục bộ, gitignore có chủ đích** (xem rule `*.py` của
+`.gitignore`, ngoại lệ duy nhất được track là `publish_dashboard.py`), không phải nguồn chuẩn
+của repo này.
 
-## Entry point
+## Entry point (tham khảo vận hành cục bộ — không phải nguồn chuẩn của repo này)
 
-Chạy từ thư mục gốc (nhiều script mở `vn_stock.db` theo đường dẫn tương đối với CWD):
+Các lệnh dưới đây mô tả cách chạy pipeline khi máy cục bộ có bản deploy gitignore của các script
+Producer trong thư mục này; nguồn chuẩn các script này nằm ở repository Producer, không phải ở
+đây. Chạy từ thư mục gốc (nhiều script mở `vn_stock.db` theo đường dẫn tương đối với CWD):
 
 - Hằng ngày (đúng thứ tự): `python vn_stock_pipeline.py update` → `python macro_sync.py` →
   `python news_sync.py` → `python vn_indicators.py` → `python candle_scan.py` →
@@ -26,7 +36,7 @@ Chạy từ thư mục gốc (nhiều script mở `vn_stock.db` theo đường d
 - Publish web: `sync_and_publish.bat` (dry-run mặc định; chỉ `--live` mới commit/push)
 - Toàn bộ lệnh + lịch chạy: `docs/CLI_REFERENCE.md`
 
-## Thành phần quan trọng
+## Thành phần quan trọng (mô tả các script Producer — nguồn chuẩn không nằm trong repo này)
 
 | Module | Trách nhiệm |
 |---|---|

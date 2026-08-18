@@ -1,5 +1,12 @@
 # Project Direction
 
+> **HISTORICAL/SUPERSEDED.** This document predates the current data-source direction — it
+> describes a provider-layer roadmap organized around `vnstock`/`kbs`/`vci` adapters with no
+> mention of DNSE. The current, owner-authorized market-data direction is documented in the
+> Producer repository's `docs/ROADMAP.md` and `docs/STATE.md` (`stock-core-private`, a sibling
+> repository, not included in this checkout) — that is current authority, not this file. Preserved
+> here as a historical record of earlier project positioning, not as current strategy.
+
 ## Positioning and boundary
 
 Stock Look Up is not intended to become a public data library competing with vnstock. It is a personal intelligence system built on multiple data sources, focused on storing, normalizing, analyzing, and supporting investment decisions.

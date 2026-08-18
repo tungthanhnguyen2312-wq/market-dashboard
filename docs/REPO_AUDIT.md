@@ -1,5 +1,9 @@
 # Repository Audit — GitHub Release Prep (2026-07-12)
 
+> **HISTORICAL SNAPSHOT — 2026-07-12.** Describes a pre-migration, single-repository checkout
+> (30 tracked files at the time) and pre-dates the current repository structure and the Producer/
+> Consumer/Dashboard split. Preserved for historical record only; not current authority.
+
 > Audit thuần đọc, thực hiện trước khi polish repo cho bản public. Không có file nào bị xóa
 > trong bước này — mọi khuyến nghị xóa/gitignore đều để chủ repo tự quyết.
 > Không nhầm với `docs/AUDIT_REPORT.md` (audit nội bộ về API/công thức BCTC, mục đích khác,

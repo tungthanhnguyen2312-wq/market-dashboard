@@ -1,8 +1,13 @@
 # Project Completion — Stock Look Up
 
+> **HISTORICAL SNAPSHOT — 2026-07-19.** Describes a pre-migration, single-repository checkout,
+> including "how to run" instructions that reference a local path that no longer applies and will
+> not work as written in the current repository layout. Preserved for historical record only; not
+> current authority. Current project state lives in the Producer repository's `docs/STATE.md`.
+
 **Ngày hoàn thành:** 2026-07-19
-**HEAD public repository:** `b12cda6433c7328788095432462dd44ee4078d88` (branch `main`, `C:\Projects\VNSTOCK`)
-**Commit private source liên quan:** `c820dcedcbd8deb4904103a0dd7b2fbfb5706f23` (fix) + `9b67cbf` (test), `C:\Projects\vnstock-core-private`
+**HEAD public repository:** `b12cda6433c7328788095432462dd44ee4078d88` (branch `main`, `[local path redacted]`)
+**Commit private source liên quan:** `c820dcedcbd8deb4904103a0dd7b2fbfb5706f23` (fix) + `9b67cbf` (test), `[private source repo path redacted]`
 **Kết luận Final Release Audit:** `READY_WITH_KNOWN_WARNINGS` — xem `docs/FINAL_RELEASE_AUDIT.md` để biết chi tiết đầy đủ.
 
 ---
@@ -21,7 +26,7 @@
 
 ## Bằng chứng dry-run read-only
 
-Chạy thật (không mock) `publish_dashboard.py` không có `--live` trong một sandbox có git repo riêng, tách biệt hoàn toàn khỏi `C:\Projects\VNSTOCK` và `vnstock-core-private`:
+Chạy thật (không mock) `publish_dashboard.py` không có `--live` trong một sandbox có git repo riêng, tách biệt hoàn toàn khỏi `[local path redacted]` và `vnstock-core-private`:
 
 ```
 [DRY-RUN] Kiểm tra xong — CHƯA copy artifact, CHƯA ghi manifest, CHƯA sửa HTML/CSS/JS, CHƯA git add/commit/push.
@@ -52,19 +57,21 @@ Chi tiết đầy đủ (file, bằng chứng, rủi ro, cách kiểm chứng) c
 **Chỉ xem dashboard** (không cần cài gì ngoài Python có sẵn):
 
 ```powershell
-cd C:\Projects\VNSTOCK
+cd [local path redacted]
 python -m http.server 8017
 # mở http://localhost:8017/dashboard.html
 ```
 
 hoặc mở thẳng `dashboard.html` bằng trình duyệt (có fallback `file://`), hoặc xem bản live tại GitHub Pages: https://tungthanhnguyen2312-wq.github.io/market-dashboard/
 
-**Chạy pipeline dữ liệu** (cần source code local, không nằm trong repo public): xem `../VNSTOCK_GUIDE.md`.
+**Chạy pipeline dữ liệu**: nguồn chuẩn của pipeline nay nằm ở repository Producer riêng
+(`stock-core-private`), không còn nằm cạnh repo này theo cấu trúc một-repo cũ mà tài liệu này
+mô tả — xem tài liệu vận hành của repository đó.
 
 ## Cách chạy kiểm tra trước khi publish
 
 ```powershell
-cd C:\Projects\VNSTOCK
+cd [local path redacted]
 
 # 1. Test suite public
 .\.venv\Scripts\python.exe -m unittest discover tests
@@ -88,4 +95,4 @@ Cờ `--live` mới là bước **duy nhất** thực sự: copy artifact từ b
 
 ---
 
-*Tài liệu này được tạo cùng đợt với việc cập nhật `docs/FINAL_RELEASE_AUDIT.md` sau khi P1 duy nhất của audit (publisher dry-run ghi file) được sửa và kiểm chứng đóng hoàn toàn. Xem `C:\Projects\.ai\FINAL_RELEASE_CLOSEOUT_REPORT.md` cho quy trình đầy đủ của phiên đóng project.*
+*Tài liệu này được tạo cùng đợt với việc cập nhật `docs/FINAL_RELEASE_AUDIT.md` sau khi P1 duy nhất của audit (publisher dry-run ghi file) được sửa và kiểm chứng đóng hoàn toàn. Quy trình đầy đủ của phiên đóng project nằm trong một báo cáo closeout nội bộ (không nằm trong repository này).*
