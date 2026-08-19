@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
-  "generated_at": "2026-08-11T13:11:48+00:00",
-  "reference_session_date": "2026-08-10",
+  "generated_at": "2026-08-19T11:42:54+00:00",
+  "reference_session_date": "2026-08-19",
   "tickers_requested": [
     "POW",
     "SSI",
@@ -16,19 +16,19 @@
     "NVL"
   ],
   "freshness": {
-    "prior_session": "2026-08-07",
+    "prior_session": "2026-08-18",
     "stale": [],
     "unknown": [],
     "blocked": false,
-    "reference_session": "2026-08-10",
+    "reference_session": "2026-08-19",
     "artifact_order_violations": [],
     "allow_stale": false,
     "categories_checked": {
-      "screen_snapshot_live": "2026-08-10",
-      "ta_signals": "2026-08-10",
-      "analysis_latest": "2026-08-10",
-      "focus_analysis": "2026-08-10",
-      "context_package": "2026-08-10"
+      "screen_snapshot_live": "2026-08-19",
+      "ta_signals": "2026-08-19",
+      "analysis_latest": "2026-08-19",
+      "focus_analysis": "2026-08-19",
+      "context_package": "2026-08-19"
     },
     "context_package_coverage": {
       "POW": true,
@@ -46,15 +46,15 @@
     "status": "fresh"
   },
   "live_universe": {
-    "live_universe_count": 890,
-    "excluded_count": 692,
+    "live_universe_count": 827,
+    "excluded_count": 756,
     "excluded_by_reason": {
       "listing_inactive_or_delisted": 142,
-      "stale_price": 550
+      "stale_price": 614
     },
-    "reference_market_date": "2026-08-10",
+    "reference_market_date": "2026-08-19",
     "universe_source": "screen_snapshot.csv",
-    "universe_hash": "8c2b34ecaa8067c169ed1f8b76e0162009ba0d86813ae746dc6e1ba619be61ad"
+    "universe_hash": "64f5c8a67cd499ee7b80e65eed1d430593d3f78282ab7e62942f4f9ca82471da"
   },
   "canonical_sources": {
     "rs_rating": "screen_snapshot_live.csv:rs_rating (tính 1 lần trong vn_indicators.py main(), percentile-rank chỉ trên tập mã LIVE — xem P0-1)."
@@ -81,38 +81,38 @@
     "POW": {
       "snapshot": {
         "ticker": "POW",
-        "date": "2026-08-10",
-        "close": 13850.0,
-        "chg_today_pct": 1.84,
-        "gtgd20_ty": 101.197,
-        "rel_vol": 0.9,
-        "rsi14": 51.3,
-        "macd_hist": 36.5,
-        "bb_pctb": 0.69,
-        "atr_pct": 2.88,
+        "date": "2026-08-19",
+        "close": 13350.0,
+        "chg_today_pct": 0.0,
+        "gtgd20_ty": 87.674,
+        "rel_vol": 0.44,
+        "rsi14": 42.9,
+        "macd_hist": -17.1,
+        "bb_pctb": 0.29,
+        "atr_pct": 2.45,
         "above_sma50": false,
-        "above_sma200": true,
+        "above_sma200": false,
         "golden_cross": true,
-        "pct_from_52w_high": -17.8,
+        "pct_from_52w_high": -20.8,
         "near_52w_high": false,
-        "pct_above_52w_low": 29.9,
-        "ret_1m": -1.8,
-        "ret_3m": -2.5,
-        "ret_6m": -3.1,
-        "ret_12m": 15.6,
+        "pct_above_52w_low": 25.2,
+        "ret_1m": -1.5,
+        "ret_3m": -1.8,
+        "ret_6m": 0.4,
+        "ret_12m": -1.5,
         "structure": "side",
-        "dist_swing_low_pct": 3.4,
-        "source_generated_at": "2026-08-11T13:02:44Z",
+        "dist_swing_low_pct": 1.1,
+        "source_generated_at": "2026-08-19T11:24:48Z",
         "exchange": "HSX",
         "industry": "Điện, nước & xăng dầu khí đốt",
-        "foreign_room_pct": 90.67,
-        "pe": 12.86,
-        "pb": 0.8,
-        "roe": 6.94,
+        "foreign_room_pct": 91.05,
+        "pe": 16.68,
+        "pb": 0.92,
+        "roe": 6.16,
         "free_float_est": 0.0,
         "margin_status": null,
-        "latest_price_date": "2026-08-10",
-        "reference_market_date": "2026-08-10",
+        "latest_price_date": "2026-08-19",
+        "reference_market_date": "2026-08-19",
         "days_stale": 0,
         "instrument_type": "STOCK",
         "listing_exchange": "HSX",
@@ -121,32 +121,32 @@
         "live_universe_status": "live",
         "live_universe_reason": "eligible_equity_current_session",
         "is_live": true,
-        "rs_rating": 79
+        "rs_rating": 71
       },
-      "canonical_rs_rating": 79,
+      "canonical_rs_rating": 71,
       "rs_rating_reconciliation": {
-        "canonical_rs_rating": 79,
+        "canonical_rs_rating": 71,
         "canonical_source": "screen_snapshot_live.csv:rs_rating (tính 1 lần trong vn_indicators.py main(), percentile-rank chỉ trên tập mã LIVE — xem P0-1).",
-        "canonical_as_of": "2026-08-11T20:03:22+07:00",
-        "ta_signals_cached_rs_rating": 79.0,
-        "ta_signals_cached_as_of": "2026-08-11T20:08:18+07:00",
+        "canonical_as_of": "2026-08-19T18:25:22+07:00",
+        "ta_signals_cached_rs_rating": 71.0,
+        "ta_signals_cached_as_of": "2026-08-19T18:36:42+07:00",
         "matches_canonical": true,
         "explanation": "Khớp — ta_signals.csv đang phản ánh đúng lần chạy vn_indicators.py gần nhất."
       },
       "ta_signal": {
         "ticker": "POW",
-        "date": "2026-08-10",
-        "source_generated_at": "2026-08-11T13:03:40Z",
-        "close": 13850.0,
-        "volume": 6669700,
+        "date": "2026-08-19",
+        "source_generated_at": "2026-08-19T11:33:14Z",
+        "close": 13350.0,
+        "volume": 2859700,
         "patterns": null,
-        "smc": "ob_bear;fvg_bull;fvg_bear",
+        "smc": null,
         "confluence": false,
-        "direction": "bearish",
+        "direction": "neutral",
         "industry": "Điện, nước & xăng dầu khí đốt",
-        "rs_rating": 79.0,
-        "rel_vol": 0.9,
-        "gtgd20_ty": 101.197,
+        "rs_rating": 71.0,
+        "rel_vol": 0.44,
+        "gtgd20_ty": 87.674,
         "margin_status": null
       },
       "ta_signal_semantics": {
@@ -159,14 +159,14 @@
         "is_actionable": false
       },
       "analysis_score": {
-        "session_date": "2026-08-10",
+        "session_date": "2026-08-19",
         "regime": "phòng thủ",
         "values": {
-          "score": 56.8,
-          "fundamental": 49,
-          "technical": 48,
-          "momentum": 44,
-          "liquidity": 85,
+          "score": 48.2,
+          "fundamental": 39,
+          "technical": 24,
+          "momentum": 45,
+          "liquidity": 75,
           "macro": 34,
           "risk": 100
         },
@@ -4389,7 +4389,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -4460,7 +4460,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -4597,7 +4597,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -4859,7 +4859,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -5026,8 +5026,8 @@
         "live_vendor": {
           "metrics": {
             "pe": {
-              "value": 12.86,
-              "price_date": "2026-08-10",
+              "value": 16.68,
+              "price_date": "2026-08-19",
               "denominator_measure": "vendor_unspecified",
               "financial_period": "vendor_unspecified",
               "share_basis": "vendor_unspecified",
@@ -5039,8 +5039,8 @@
               ]
             },
             "pb": {
-              "value": 0.8,
-              "price_date": "2026-08-10",
+              "value": 0.92,
+              "price_date": "2026-08-19",
               "denominator_measure": "vendor_unspecified",
               "financial_period": "vendor_unspecified",
               "share_basis": "vendor_unspecified",
@@ -5052,7 +5052,7 @@
               ]
             }
           },
-          "observed_at": "2026-08-10",
+          "observed_at": "2026-08-19",
           "provider": "unknown_vendor"
         },
         "historical_calculated": {
@@ -5113,8 +5113,8 @@
         "ticker": "POW",
         "current_market": {
           "value": null,
-          "effective_date": "2026-08-10",
-          "observed_at": "2026-08-10",
+          "effective_date": "2026-08-19",
+          "observed_at": "2026-08-19",
           "basis_type": "current_market_shares_outstanding",
           "source": "live_market_snapshot",
           "provenance": "live_market_snapshot",
@@ -5211,62 +5211,6 @@
         }
       },
       "ohlcv_recent": [
-        {
-          "date": "2026-06-30",
-          "open": 14800.0,
-          "high": 14950.0,
-          "low": 14650.0,
-          "close": 14700.0,
-          "volume": 11078700
-        },
-        {
-          "date": "2026-07-01",
-          "open": 14650.0,
-          "high": 14850.0,
-          "low": 14600.0,
-          "close": 14600.0,
-          "volume": 14016400
-        },
-        {
-          "date": "2026-07-02",
-          "open": 14650.0,
-          "high": 14900.0,
-          "low": 14500.0,
-          "close": 14900.0,
-          "volume": 11845400
-        },
-        {
-          "date": "2026-07-03",
-          "open": 14950.0,
-          "high": 15000.0,
-          "low": 14650.0,
-          "close": 14900.0,
-          "volume": 11048900
-        },
-        {
-          "date": "2026-07-06",
-          "open": 14800.0,
-          "high": 15150.0,
-          "low": 14500.0,
-          "close": 14800.0,
-          "volume": 20318900
-        },
-        {
-          "date": "2026-07-07",
-          "open": 14850.0,
-          "high": 14850.0,
-          "low": 14500.0,
-          "close": 14700.0,
-          "volume": 8122400
-        },
-        {
-          "date": "2026-07-08",
-          "open": 14750.0,
-          "high": 14850.0,
-          "low": 14500.0,
-          "close": 14700.0,
-          "volume": 7698900
-        },
         {
           "date": "2026-07-09",
           "open": 14650.0,
@@ -5450,6 +5394,62 @@
           "low": 13600.0,
           "close": 13850.0,
           "volume": 6669700
+        },
+        {
+          "date": "2026-08-11",
+          "open": 13800.0,
+          "high": 13900.0,
+          "low": 13700.0,
+          "close": 13750.0,
+          "volume": 5547300
+        },
+        {
+          "date": "2026-08-12",
+          "open": 13800.0,
+          "high": 13800.0,
+          "low": 13600.0,
+          "close": 13750.0,
+          "volume": 6056700
+        },
+        {
+          "date": "2026-08-13",
+          "open": 13750.0,
+          "high": 13750.0,
+          "low": 13500.0,
+          "close": 13500.0,
+          "volume": 7029400
+        },
+        {
+          "date": "2026-08-14",
+          "open": 13500.0,
+          "high": 13500.0,
+          "low": 13200.0,
+          "close": 13250.0,
+          "volume": 8659900
+        },
+        {
+          "date": "2026-08-17",
+          "open": 13300.0,
+          "high": 13350.0,
+          "low": 13200.0,
+          "close": 13350.0,
+          "volume": 2538900
+        },
+        {
+          "date": "2026-08-18",
+          "open": 13350.0,
+          "high": 13600.0,
+          "low": 13300.0,
+          "close": 13350.0,
+          "volume": 4558700
+        },
+        {
+          "date": "2026-08-19",
+          "open": 13300.0,
+          "high": 13400.0,
+          "low": 13250.0,
+          "close": 13350.0,
+          "volume": 2859700
         }
       ],
       "ohlcv_recent_count": 30,
@@ -8188,7 +8188,7 @@
             "source": "VCI",
             "freshness_status": "stale",
             "expected_update_frequency": "1d",
-            "stale_reason": "source_age_16d_exceeds_7d_grace",
+            "stale_reason": "source_age_24d_exceeds_7d_grace",
             "is_actionable": false
           }
         },
@@ -8462,8 +8462,8 @@
       },
       "freshness": {
         "daily_prices": {
-          "generated_at": "2026-08-11T13:02:44+00:00",
-          "as_of_date": "2026-08-10",
+          "generated_at": "2026-08-19T11:24:48+00:00",
+          "as_of_date": "2026-08-19",
           "source": "screen_snapshot_live.csv",
           "freshness_status": "current",
           "expected_update_frequency": "1d",
@@ -8471,8 +8471,8 @@
           "is_actionable": true
         },
         "technical_signals": {
-          "generated_at": "2026-08-11T13:03:40+00:00",
-          "as_of_date": "2026-08-10",
+          "generated_at": "2026-08-19T11:33:14+00:00",
+          "as_of_date": "2026-08-19",
           "source": "ta_signals.csv",
           "freshness_status": "current",
           "expected_update_frequency": "1d",
@@ -8480,8 +8480,8 @@
           "is_actionable": true
         },
         "ai_report": {
-          "generated_at": "2026-08-11T20:08:00+00:00",
-          "as_of_date": "2026-08-10",
+          "generated_at": "2026-08-19T18:37:00+00:00",
+          "as_of_date": "2026-08-19",
           "source": "analysis_latest.json",
           "freshness_status": "current",
           "expected_update_frequency": "1d",
@@ -8499,7 +8499,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -8649,38 +8649,38 @@
     "SSI": {
       "snapshot": {
         "ticker": "SSI",
-        "date": "2026-08-10",
-        "close": 25100.0,
-        "chg_today_pct": 2.66,
-        "gtgd20_ty": 525.397,
-        "rel_vol": 0.92,
-        "rsi14": 53.7,
-        "macd_hist": 285.9,
-        "bb_pctb": 0.83,
-        "atr_pct": 3.32,
+        "date": "2026-08-19",
+        "close": 19400.0,
+        "chg_today_pct": -0.51,
+        "gtgd20_ty": 462.696,
+        "rel_vol": 0.54,
+        "rsi14": 27.7,
+        "macd_hist": -409.2,
+        "bb_pctb": 0.1,
+        "atr_pct": 4.76,
         "above_sma50": false,
         "above_sma200": false,
         "golden_cross": false,
-        "pct_from_52w_high": -36.4,
+        "pct_from_52w_high": -50.8,
         "near_52w_high": false,
-        "pct_above_52w_low": 15.7,
-        "ret_1m": -5.5,
-        "ret_3m": -9.7,
-        "ret_6m": -18.8,
-        "ret_12m": -18.5,
+        "pct_above_52w_low": 1.0,
+        "ret_1m": -16.4,
+        "ret_3m": -29.6,
+        "ret_6m": -37.9,
+        "ret_12m": -40.7,
         "structure": "up",
-        "dist_swing_low_pct": 4.6,
-        "source_generated_at": "2026-08-11T13:02:44Z",
+        "dist_swing_low_pct": -19.2,
+        "source_generated_at": "2026-08-19T11:24:48Z",
         "exchange": "HSX",
         "industry": "Dịch vụ tài chính",
-        "foreign_room_pct": 70.03,
+        "foreign_room_pct": 69.57,
         "pe": 20.17,
         "pb": 2.56,
         "roe": 13.06,
-        "free_float_est": 0.7686,
+        "free_float_est": 0.7692,
         "margin_status": null,
-        "latest_price_date": "2026-08-10",
-        "reference_market_date": "2026-08-10",
+        "latest_price_date": "2026-08-19",
+        "reference_market_date": "2026-08-19",
         "days_stale": 0,
         "instrument_type": "STOCK",
         "listing_exchange": "HSX",
@@ -8689,32 +8689,32 @@
         "live_universe_status": "live",
         "live_universe_reason": "eligible_equity_current_session",
         "is_live": true,
-        "rs_rating": 36
+        "rs_rating": 7
       },
-      "canonical_rs_rating": 36,
+      "canonical_rs_rating": 7,
       "rs_rating_reconciliation": {
-        "canonical_rs_rating": 36,
+        "canonical_rs_rating": 7,
         "canonical_source": "screen_snapshot_live.csv:rs_rating (tính 1 lần trong vn_indicators.py main(), percentile-rank chỉ trên tập mã LIVE — xem P0-1).",
-        "canonical_as_of": "2026-08-11T20:03:22+07:00",
-        "ta_signals_cached_rs_rating": 36.0,
-        "ta_signals_cached_as_of": "2026-08-11T20:08:18+07:00",
+        "canonical_as_of": "2026-08-19T18:25:22+07:00",
+        "ta_signals_cached_rs_rating": 7.0,
+        "ta_signals_cached_as_of": "2026-08-19T18:36:42+07:00",
         "matches_canonical": true,
         "explanation": "Khớp — ta_signals.csv đang phản ánh đúng lần chạy vn_indicators.py gần nhất."
       },
       "ta_signal": {
         "ticker": "SSI",
-        "date": "2026-08-10",
-        "source_generated_at": "2026-08-11T13:03:40Z",
-        "close": 25100.0,
-        "volume": 20351300,
+        "date": "2026-08-19",
+        "source_generated_at": "2026-08-19T11:33:14Z",
+        "close": 19400.0,
+        "volume": 11085700,
         "patterns": null,
         "smc": "fvg_bear",
         "confluence": false,
         "direction": "bearish",
         "industry": "Dịch vụ tài chính",
-        "rs_rating": 36.0,
-        "rel_vol": 0.92,
-        "gtgd20_ty": 525.397,
+        "rs_rating": 7.0,
+        "rel_vol": 0.54,
+        "gtgd20_ty": 462.696,
         "margin_status": null
       },
       "ta_signal_semantics": {
@@ -8727,22 +8727,22 @@
         "is_actionable": false
       },
       "analysis_score": {
-        "session_date": "2026-08-10",
+        "session_date": "2026-08-19",
         "regime": "phòng thủ",
         "values": {
-          "score": 52.7,
+          "score": 47.4,
           "fundamental": 54,
-          "technical": 28,
-          "momentum": 27,
+          "technical": 21,
+          "momentum": 13,
           "liquidity": 100,
-          "macro": 32,
-          "risk": 100
+          "macro": 31,
+          "risk": 90
         },
         "risk_semantics": {
           "legacy_field": "risk",
           "legacy_field_ambiguity": "The field name 'risk' is legacy nomenclature and must not be interpreted as higher-means-more-risk.",
           "polarity": "higher_is_safer",
-          "score_value": 100,
+          "score_value": 90,
           "interpretation": "100 means no configured penalty flags were triggered (maximum configured safety score). 0 means all penalty flags were triggered.",
           "limitations": [
             "100 means no configured penalty flags were triggered; it is not a calibrated probability of loss.",
@@ -12505,7 +12505,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -12568,7 +12568,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -12705,7 +12705,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -12967,7 +12967,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -13122,7 +13122,7 @@
           "metrics": {
             "pe": {
               "value": 20.17,
-              "price_date": "2026-08-10",
+              "price_date": "2026-08-19",
               "denominator_measure": "vendor_unspecified",
               "financial_period": "vendor_unspecified",
               "share_basis": "vendor_unspecified",
@@ -13135,7 +13135,7 @@
             },
             "pb": {
               "value": 2.56,
-              "price_date": "2026-08-10",
+              "price_date": "2026-08-19",
               "denominator_measure": "vendor_unspecified",
               "financial_period": "vendor_unspecified",
               "share_basis": "vendor_unspecified",
@@ -13147,7 +13147,7 @@
               ]
             }
           },
-          "observed_at": "2026-08-10",
+          "observed_at": "2026-08-19",
           "provider": "unknown_vendor"
         },
         "historical_calculated": {
@@ -13208,8 +13208,8 @@
         "ticker": "SSI",
         "current_market": {
           "value": null,
-          "effective_date": "2026-08-10",
-          "observed_at": "2026-08-10",
+          "effective_date": "2026-08-19",
+          "observed_at": "2026-08-19",
           "basis_type": "current_market_shares_outstanding",
           "source": "live_market_snapshot",
           "provenance": "live_market_snapshot",
@@ -13306,62 +13306,6 @@
         }
       },
       "ohlcv_recent": [
-        {
-          "date": "2026-06-30",
-          "open": 26650.0,
-          "high": 27150.0,
-          "low": 26600.0,
-          "close": 26750.0,
-          "volume": 14723800
-        },
-        {
-          "date": "2026-07-01",
-          "open": 26800.0,
-          "high": 27300.0,
-          "low": 26750.0,
-          "close": 27200.0,
-          "volume": 11575600
-        },
-        {
-          "date": "2026-07-02",
-          "open": 27250.0,
-          "high": 27500.0,
-          "low": 27100.0,
-          "close": 27100.0,
-          "volume": 13087400
-        },
-        {
-          "date": "2026-07-03",
-          "open": 27250.0,
-          "high": 27500.0,
-          "low": 26950.0,
-          "close": 27350.0,
-          "volume": 20102700
-        },
-        {
-          "date": "2026-07-06",
-          "open": 27500.0,
-          "high": 27700.0,
-          "low": 26300.0,
-          "close": 26750.0,
-          "volume": 18215100
-        },
-        {
-          "date": "2026-07-07",
-          "open": 26750.0,
-          "high": 27150.0,
-          "low": 26450.0,
-          "close": 27150.0,
-          "volume": 15256800
-        },
-        {
-          "date": "2026-07-08",
-          "open": 27150.0,
-          "high": 27800.0,
-          "low": 27100.0,
-          "close": 27200.0,
-          "volume": 21899300
-        },
         {
           "date": "2026-07-09",
           "open": 27100.0,
@@ -13545,6 +13489,62 @@
           "low": 24600.0,
           "close": 25100.0,
           "volume": 20351300
+        },
+        {
+          "date": "2026-08-11",
+          "open": 25150.0,
+          "high": 25400.0,
+          "low": 25000.0,
+          "close": 25150.0,
+          "volume": 22669000
+        },
+        {
+          "date": "2026-08-12",
+          "open": 20100.0,
+          "high": 20260.0,
+          "low": 19980.0,
+          "close": 20220.0,
+          "volume": 15744273
+        },
+        {
+          "date": "2026-08-13",
+          "open": 20220.0,
+          "high": 20380.0,
+          "low": 19980.0,
+          "close": 19980.0,
+          "volume": 28059936
+        },
+        {
+          "date": "2026-08-14",
+          "open": 19940.0,
+          "high": 19940.0,
+          "low": 19420.0,
+          "close": 19580.0,
+          "volume": 34046434
+        },
+        {
+          "date": "2026-08-17",
+          "open": 19800.0,
+          "high": 20100.0,
+          "low": 19700.0,
+          "close": 19800.0,
+          "volume": 18245055
+        },
+        {
+          "date": "2026-08-18",
+          "open": 19800.0,
+          "high": 19900.0,
+          "low": 19300.0,
+          "close": 19500.0,
+          "volume": 15322681
+        },
+        {
+          "date": "2026-08-19",
+          "open": 19500.0,
+          "high": 19600.0,
+          "low": 19200.0,
+          "close": 19400.0,
+          "volume": 11085700
         }
       ],
       "ohlcv_recent_count": 30,
@@ -16015,7 +16015,7 @@
             "source": "VCI",
             "freshness_status": "stale",
             "expected_update_frequency": "1d",
-            "stale_reason": "source_age_16d_exceeds_7d_grace",
+            "stale_reason": "source_age_24d_exceeds_7d_grace",
             "is_actionable": false
           }
         },
@@ -16193,8 +16193,8 @@
       },
       "freshness": {
         "daily_prices": {
-          "generated_at": "2026-08-11T13:02:44+00:00",
-          "as_of_date": "2026-08-10",
+          "generated_at": "2026-08-19T11:24:48+00:00",
+          "as_of_date": "2026-08-19",
           "source": "screen_snapshot_live.csv",
           "freshness_status": "current",
           "expected_update_frequency": "1d",
@@ -16202,8 +16202,8 @@
           "is_actionable": true
         },
         "technical_signals": {
-          "generated_at": "2026-08-11T13:03:40+00:00",
-          "as_of_date": "2026-08-10",
+          "generated_at": "2026-08-19T11:33:14+00:00",
+          "as_of_date": "2026-08-19",
           "source": "ta_signals.csv",
           "freshness_status": "current",
           "expected_update_frequency": "1d",
@@ -16211,8 +16211,8 @@
           "is_actionable": true
         },
         "ai_report": {
-          "generated_at": "2026-08-11T20:08:00+00:00",
-          "as_of_date": "2026-08-10",
+          "generated_at": "2026-08-19T18:37:00+00:00",
+          "as_of_date": "2026-08-19",
           "source": "analysis_latest.json",
           "freshness_status": "current",
           "expected_update_frequency": "1d",
@@ -16230,7 +16230,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -16380,38 +16380,38 @@
     "HPG": {
       "snapshot": {
         "ticker": "HPG",
-        "date": "2026-08-10",
-        "close": 22100.0,
-        "chg_today_pct": 0.45,
-        "gtgd20_ty": 579.893,
-        "rel_vol": 0.62,
-        "rsi14": 50.4,
-        "macd_hist": 167.0,
-        "bb_pctb": 0.69,
-        "atr_pct": 2.5,
+        "date": "2026-08-19",
+        "close": 21200.0,
+        "chg_today_pct": 0.95,
+        "gtgd20_ty": 501.183,
+        "rel_vol": 0.66,
+        "rsi14": 40.3,
+        "macd_hist": -23.1,
+        "bb_pctb": 0.34,
+        "atr_pct": 2.33,
         "above_sma50": false,
         "above_sma200": false,
         "golden_cross": false,
-        "pct_from_52w_high": -19.8,
+        "pct_from_52w_high": -23.0,
         "near_52w_high": false,
-        "pct_above_52w_low": 10.0,
-        "ret_1m": -3.7,
-        "ret_3m": -10.3,
-        "ret_6m": -7.5,
-        "ret_12m": -6.2,
-        "structure": "down",
-        "dist_swing_low_pct": 10.0,
-        "source_generated_at": "2026-08-11T13:02:44Z",
+        "pct_above_52w_low": 5.5,
+        "ret_1m": 1.9,
+        "ret_3m": -11.5,
+        "ret_6m": -11.7,
+        "ret_12m": -15.8,
+        "structure": "side",
+        "dist_swing_low_pct": -2.5,
+        "source_generated_at": "2026-08-19T11:24:48Z",
         "exchange": "HSX",
         "industry": "Tài nguyên Cơ bản",
-        "foreign_room_pct": 55.91,
-        "pe": 11.98,
-        "pb": 1.54,
-        "roe": 12.51,
+        "foreign_room_pct": 55.53,
+        "pe": 13.05,
+        "pb": 1.69,
+        "roe": 12.02,
         "free_float_est": 0.6732,
         "margin_status": null,
-        "latest_price_date": "2026-08-10",
-        "reference_market_date": "2026-08-10",
+        "latest_price_date": "2026-08-19",
+        "reference_market_date": "2026-08-19",
         "days_stale": 0,
         "instrument_type": "STOCK",
         "listing_exchange": "HSX",
@@ -16420,32 +16420,32 @@
         "live_universe_status": "live",
         "live_universe_reason": "eligible_equity_current_session",
         "is_live": true,
-        "rs_rating": 53
+        "rs_rating": 44
       },
-      "canonical_rs_rating": 53,
+      "canonical_rs_rating": 44,
       "rs_rating_reconciliation": {
-        "canonical_rs_rating": 53,
+        "canonical_rs_rating": 44,
         "canonical_source": "screen_snapshot_live.csv:rs_rating (tính 1 lần trong vn_indicators.py main(), percentile-rank chỉ trên tập mã LIVE — xem P0-1).",
-        "canonical_as_of": "2026-08-11T20:03:22+07:00",
-        "ta_signals_cached_rs_rating": 53.0,
-        "ta_signals_cached_as_of": "2026-08-11T20:08:18+07:00",
+        "canonical_as_of": "2026-08-19T18:25:22+07:00",
+        "ta_signals_cached_rs_rating": 44.0,
+        "ta_signals_cached_as_of": "2026-08-19T18:36:42+07:00",
         "matches_canonical": true,
         "explanation": "Khớp — ta_signals.csv đang phản ánh đúng lần chạy vn_indicators.py gần nhất."
       },
       "ta_signal": {
         "ticker": "HPG",
-        "date": "2026-08-10",
-        "source_generated_at": "2026-08-11T13:03:40Z",
-        "close": 22100.0,
-        "volume": 16732700,
-        "patterns": null,
+        "date": "2026-08-19",
+        "source_generated_at": "2026-08-19T11:33:14Z",
+        "close": 21200.0,
+        "volume": 15312500,
+        "patterns": "hammer",
         "smc": "fvg_bear",
         "confluence": false,
-        "direction": "bearish",
+        "direction": "neutral",
         "industry": "Tài nguyên Cơ bản",
-        "rs_rating": 53.0,
-        "rel_vol": 0.62,
-        "gtgd20_ty": 579.893,
+        "rs_rating": 44.0,
+        "rel_vol": 0.66,
+        "gtgd20_ty": 501.183,
         "margin_status": null
       },
       "ta_signal_semantics": {
@@ -16458,15 +16458,15 @@
         "is_actionable": false
       },
       "analysis_score": {
-        "session_date": "2026-08-10",
+        "session_date": "2026-08-19",
         "regime": "phòng thủ",
         "values": {
-          "score": 50.5,
+          "score": 52.4,
           "fundamental": 54,
-          "technical": 8,
-          "momentum": 35,
+          "technical": 16,
+          "momentum": 36,
           "liquidity": 100,
-          "macro": 34,
+          "macro": 35,
           "risk": 100
         },
         "risk_semantics": {
@@ -25846,7 +25846,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "status": "available",
         "methods": {
           "fcff_dcf": {
@@ -25882,7 +25882,7 @@
             "method_version": "1.0.0",
             "state": "available",
             "applicability": "applicable",
-            "valuation_date": "2026-08-11T13:11:48.646062+00:00",
+            "valuation_date": "2026-08-19T11:42:54.771008+00:00",
             "historical_input_periods": [
               "2024",
               "2024",
@@ -25924,7 +25924,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -26061,7 +26061,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -26323,7 +26323,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -26482,8 +26482,8 @@
         "live_vendor": {
           "metrics": {
             "pe": {
-              "value": 11.98,
-              "price_date": "2026-08-10",
+              "value": 13.05,
+              "price_date": "2026-08-19",
               "denominator_measure": "vendor_unspecified",
               "financial_period": "vendor_unspecified",
               "share_basis": "vendor_unspecified",
@@ -26495,8 +26495,8 @@
               ]
             },
             "pb": {
-              "value": 1.54,
-              "price_date": "2026-08-10",
+              "value": 1.69,
+              "price_date": "2026-08-19",
               "denominator_measure": "vendor_unspecified",
               "financial_period": "vendor_unspecified",
               "share_basis": "vendor_unspecified",
@@ -26508,7 +26508,7 @@
               ]
             }
           },
-          "observed_at": "2026-08-10",
+          "observed_at": "2026-08-19",
           "provider": "unknown_vendor"
         },
         "historical_calculated": {
@@ -26569,8 +26569,8 @@
         "ticker": "HPG",
         "current_market": {
           "value": null,
-          "effective_date": "2026-08-10",
-          "observed_at": "2026-08-10",
+          "effective_date": "2026-08-19",
+          "observed_at": "2026-08-19",
           "basis_type": "current_market_shares_outstanding",
           "source": "live_market_snapshot",
           "provenance": "live_market_snapshot",
@@ -26697,62 +26697,6 @@
         }
       },
       "ohlcv_recent": [
-        {
-          "date": "2026-06-30",
-          "open": 23700.0,
-          "high": 23700.0,
-          "low": 23250.0,
-          "close": 23300.0,
-          "volume": 30593200
-        },
-        {
-          "date": "2026-07-01",
-          "open": 23400.0,
-          "high": 23550.0,
-          "low": 23350.0,
-          "close": 23450.0,
-          "volume": 14937400
-        },
-        {
-          "date": "2026-07-02",
-          "open": 23500.0,
-          "high": 23650.0,
-          "low": 23350.0,
-          "close": 23400.0,
-          "volume": 13367500
-        },
-        {
-          "date": "2026-07-03",
-          "open": 23400.0,
-          "high": 23500.0,
-          "low": 23250.0,
-          "close": 23250.0,
-          "volume": 15935100
-        },
-        {
-          "date": "2026-07-06",
-          "open": 23400.0,
-          "high": 23600.0,
-          "low": 23000.0,
-          "close": 23100.0,
-          "volume": 21299300
-        },
-        {
-          "date": "2026-07-07",
-          "open": 23200.0,
-          "high": 23250.0,
-          "low": 23000.0,
-          "close": 23100.0,
-          "volume": 13839600
-        },
-        {
-          "date": "2026-07-08",
-          "open": 23150.0,
-          "high": 23400.0,
-          "low": 23050.0,
-          "close": 23200.0,
-          "volume": 12499500
-        },
         {
           "date": "2026-07-09",
           "open": 23200.0,
@@ -26936,6 +26880,62 @@
           "low": 21950.0,
           "close": 22100.0,
           "volume": 16732700
+        },
+        {
+          "date": "2026-08-11",
+          "open": 22200.0,
+          "high": 22250.0,
+          "low": 22050.0,
+          "close": 22050.0,
+          "volume": 13694600
+        },
+        {
+          "date": "2026-08-12",
+          "open": 22000.0,
+          "high": 22350.0,
+          "low": 21950.0,
+          "close": 22100.0,
+          "volume": 15925100
+        },
+        {
+          "date": "2026-08-13",
+          "open": 22200.0,
+          "high": 22250.0,
+          "low": 21700.0,
+          "close": 21700.0,
+          "volume": 25702700
+        },
+        {
+          "date": "2026-08-14",
+          "open": 21700.0,
+          "high": 21800.0,
+          "low": 21200.0,
+          "close": 21250.0,
+          "volume": 27443600
+        },
+        {
+          "date": "2026-08-17",
+          "open": 21250.0,
+          "high": 21450.0,
+          "low": 21050.0,
+          "close": 21200.0,
+          "volume": 18455500
+        },
+        {
+          "date": "2026-08-18",
+          "open": 21150.0,
+          "high": 21400.0,
+          "low": 21000.0,
+          "close": 21000.0,
+          "volume": 16367500
+        },
+        {
+          "date": "2026-08-19",
+          "open": 21100.0,
+          "high": 21200.0,
+          "low": 20900.0,
+          "close": 21200.0,
+          "volume": 15312500
         }
       ],
       "ohlcv_recent_count": 30,
@@ -29790,7 +29790,7 @@
             "source": "VCI",
             "freshness_status": "stale",
             "expected_update_frequency": "1d",
-            "stale_reason": "source_age_16d_exceeds_7d_grace",
+            "stale_reason": "source_age_24d_exceeds_7d_grace",
             "is_actionable": false
           }
         },
@@ -30112,8 +30112,8 @@
       },
       "freshness": {
         "daily_prices": {
-          "generated_at": "2026-08-11T13:02:44+00:00",
-          "as_of_date": "2026-08-10",
+          "generated_at": "2026-08-19T11:24:48+00:00",
+          "as_of_date": "2026-08-19",
           "source": "screen_snapshot_live.csv",
           "freshness_status": "current",
           "expected_update_frequency": "1d",
@@ -30121,8 +30121,8 @@
           "is_actionable": true
         },
         "technical_signals": {
-          "generated_at": "2026-08-11T13:03:40+00:00",
-          "as_of_date": "2026-08-10",
+          "generated_at": "2026-08-19T11:33:14+00:00",
+          "as_of_date": "2026-08-19",
           "source": "ta_signals.csv",
           "freshness_status": "current",
           "expected_update_frequency": "1d",
@@ -30130,8 +30130,8 @@
           "is_actionable": true
         },
         "ai_report": {
-          "generated_at": "2026-08-11T20:08:00+00:00",
-          "as_of_date": "2026-08-10",
+          "generated_at": "2026-08-19T18:37:00+00:00",
+          "as_of_date": "2026-08-19",
           "source": "analysis_latest.json",
           "freshness_status": "current",
           "expected_update_frequency": "1d",
@@ -30187,7 +30187,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -30337,38 +30337,38 @@
     "EVF": {
       "snapshot": {
         "ticker": "EVF",
-        "date": "2026-08-10",
-        "close": 12500.0,
-        "chg_today_pct": 1.21,
-        "gtgd20_ty": 20.568,
-        "rel_vol": 0.82,
-        "rsi14": 49.0,
-        "macd_hist": 62.9,
-        "bb_pctb": 0.62,
-        "atr_pct": 2.64,
+        "date": "2026-08-19",
+        "close": 12350.0,
+        "chg_today_pct": -1.2,
+        "gtgd20_ty": 17.464,
+        "rel_vol": 0.46,
+        "rsi14": 45.7,
+        "macd_hist": 37.6,
+        "bb_pctb": 0.47,
+        "atr_pct": 2.42,
         "above_sma50": false,
         "above_sma200": false,
         "golden_cross": true,
-        "pct_from_52w_high": -24.2,
+        "pct_from_52w_high": -25.2,
         "near_52w_high": false,
-        "pct_above_52w_low": 17.9,
-        "ret_1m": -2.0,
-        "ret_3m": -10.1,
-        "ret_6m": 5.5,
-        "ret_12m": -7.7,
+        "pct_above_52w_low": 16.5,
+        "ret_1m": 0.0,
+        "ret_3m": -9.9,
+        "ret_6m": 7.4,
+        "ret_12m": -24.0,
         "structure": "side",
-        "dist_swing_low_pct": 1.6,
-        "source_generated_at": "2026-08-11T13:02:44Z",
+        "dist_swing_low_pct": 0.4,
+        "source_generated_at": "2026-08-19T11:24:48Z",
         "exchange": "HSX",
         "industry": "Dịch vụ tài chính",
-        "foreign_room_pct": 98.09,
+        "foreign_room_pct": 98.1,
         "pe": 11.6,
         "pb": 1.04,
         "roe": 9.27,
         "free_float_est": 1.0,
         "margin_status": null,
-        "latest_price_date": "2026-08-10",
-        "reference_market_date": "2026-08-10",
+        "latest_price_date": "2026-08-19",
+        "reference_market_date": "2026-08-19",
         "days_stale": 0,
         "instrument_type": "STOCK",
         "listing_exchange": "HSX",
@@ -30377,32 +30377,32 @@
         "live_universe_status": "live",
         "live_universe_reason": "eligible_equity_current_session",
         "is_live": true,
-        "rs_rating": 57
+        "rs_rating": 47
       },
-      "canonical_rs_rating": 57,
+      "canonical_rs_rating": 47,
       "rs_rating_reconciliation": {
-        "canonical_rs_rating": 57,
+        "canonical_rs_rating": 47,
         "canonical_source": "screen_snapshot_live.csv:rs_rating (tính 1 lần trong vn_indicators.py main(), percentile-rank chỉ trên tập mã LIVE — xem P0-1).",
-        "canonical_as_of": "2026-08-11T20:03:22+07:00",
-        "ta_signals_cached_rs_rating": 57.0,
-        "ta_signals_cached_as_of": "2026-08-11T20:08:18+07:00",
+        "canonical_as_of": "2026-08-19T18:25:22+07:00",
+        "ta_signals_cached_rs_rating": 47.0,
+        "ta_signals_cached_as_of": "2026-08-19T18:36:42+07:00",
         "matches_canonical": true,
         "explanation": "Khớp — ta_signals.csv đang phản ánh đúng lần chạy vn_indicators.py gần nhất."
       },
       "ta_signal": {
         "ticker": "EVF",
-        "date": "2026-08-10",
-        "source_generated_at": "2026-08-11T13:03:40Z",
-        "close": 12500.0,
-        "volume": 1367500,
-        "patterns": null,
-        "smc": "ob_bear;fvg_bull",
+        "date": "2026-08-19",
+        "source_generated_at": "2026-08-19T11:33:14Z",
+        "close": 12350.0,
+        "volume": 642600,
+        "patterns": "doji",
+        "smc": "fvg_bull",
         "confluence": false,
-        "direction": "neutral",
+        "direction": "bullish",
         "industry": "Dịch vụ tài chính",
-        "rs_rating": 57.0,
-        "rel_vol": 0.82,
-        "gtgd20_ty": 20.568,
+        "rs_rating": 47.0,
+        "rel_vol": 0.46,
+        "gtgd20_ty": 17.464,
         "margin_status": null
       },
       "ta_signal_semantics": {
@@ -30415,15 +30415,15 @@
         "is_actionable": false
       },
       "analysis_score": {
-        "session_date": "2026-08-10",
+        "session_date": "2026-08-19",
         "regime": "phòng thủ",
         "values": {
-          "score": 49.0,
+          "score": 49.4,
           "fundamental": 49,
-          "technical": 24,
-          "momentum": 43,
+          "technical": 36,
+          "momentum": 33,
           "liquidity": 68,
-          "macro": 32,
+          "macro": 31,
           "risk": 100
         },
         "risk_semantics": {
@@ -34193,7 +34193,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -34267,7 +34267,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -34402,7 +34402,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -34664,7 +34664,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -34833,7 +34833,7 @@
           "metrics": {
             "pe": {
               "value": 11.6,
-              "price_date": "2026-08-10",
+              "price_date": "2026-08-19",
               "denominator_measure": "vendor_unspecified",
               "financial_period": "vendor_unspecified",
               "share_basis": "vendor_unspecified",
@@ -34846,7 +34846,7 @@
             },
             "pb": {
               "value": 1.04,
-              "price_date": "2026-08-10",
+              "price_date": "2026-08-19",
               "denominator_measure": "vendor_unspecified",
               "financial_period": "vendor_unspecified",
               "share_basis": "vendor_unspecified",
@@ -34858,7 +34858,7 @@
               ]
             }
           },
-          "observed_at": "2026-08-10",
+          "observed_at": "2026-08-19",
           "provider": "unknown_vendor"
         },
         "historical_calculated": {
@@ -34919,8 +34919,8 @@
         "ticker": "EVF",
         "current_market": {
           "value": null,
-          "effective_date": "2026-08-10",
-          "observed_at": "2026-08-10",
+          "effective_date": "2026-08-19",
+          "observed_at": "2026-08-19",
           "basis_type": "current_market_shares_outstanding",
           "source": "live_market_snapshot",
           "provenance": "live_market_snapshot",
@@ -35017,62 +35017,6 @@
         }
       },
       "ohlcv_recent": [
-        {
-          "date": "2026-06-30",
-          "open": 13050.0,
-          "high": 13400.0,
-          "low": 13050.0,
-          "close": 13100.0,
-          "volume": 1872000
-        },
-        {
-          "date": "2026-07-01",
-          "open": 13200.0,
-          "high": 13500.0,
-          "low": 13200.0,
-          "close": 13300.0,
-          "volume": 1866900
-        },
-        {
-          "date": "2026-07-02",
-          "open": 13400.0,
-          "high": 13500.0,
-          "low": 13050.0,
-          "close": 13150.0,
-          "volume": 2418600
-        },
-        {
-          "date": "2026-07-03",
-          "open": 13150.0,
-          "high": 13300.0,
-          "low": 13100.0,
-          "close": 13200.0,
-          "volume": 2012400
-        },
-        {
-          "date": "2026-07-06",
-          "open": 13200.0,
-          "high": 13300.0,
-          "low": 12500.0,
-          "close": 12700.0,
-          "volume": 5595500
-        },
-        {
-          "date": "2026-07-07",
-          "open": 12700.0,
-          "high": 12900.0,
-          "low": 12550.0,
-          "close": 12850.0,
-          "volume": 2251200
-        },
-        {
-          "date": "2026-07-08",
-          "open": 12800.0,
-          "high": 13000.0,
-          "low": 12700.0,
-          "close": 12950.0,
-          "volume": 1739200
-        },
         {
           "date": "2026-07-09",
           "open": 12750.0,
@@ -35256,6 +35200,62 @@
           "low": 12350.0,
           "close": 12500.0,
           "volume": 1367500
+        },
+        {
+          "date": "2026-08-11",
+          "open": 12500.0,
+          "high": 12650.0,
+          "low": 12450.0,
+          "close": 12450.0,
+          "volume": 1270600
+        },
+        {
+          "date": "2026-08-12",
+          "open": 12500.0,
+          "high": 12600.0,
+          "low": 12450.0,
+          "close": 12500.0,
+          "volume": 875500
+        },
+        {
+          "date": "2026-08-13",
+          "open": 12550.0,
+          "high": 13000.0,
+          "low": 12500.0,
+          "close": 12700.0,
+          "volume": 3220000
+        },
+        {
+          "date": "2026-08-14",
+          "open": 12650.0,
+          "high": 12750.0,
+          "low": 12500.0,
+          "close": 12600.0,
+          "volume": 1338300
+        },
+        {
+          "date": "2026-08-17",
+          "open": 12550.0,
+          "high": 12750.0,
+          "low": 12400.0,
+          "close": 12400.0,
+          "volume": 861800
+        },
+        {
+          "date": "2026-08-18",
+          "open": 12300.0,
+          "high": 12500.0,
+          "low": 12300.0,
+          "close": 12500.0,
+          "volume": 1316700
+        },
+        {
+          "date": "2026-08-19",
+          "open": 12350.0,
+          "high": 12500.0,
+          "low": 12350.0,
+          "close": 12350.0,
+          "volume": 642600
         }
       ],
       "ohlcv_recent_count": 30,
@@ -35559,8 +35559,8 @@
       },
       "freshness": {
         "daily_prices": {
-          "generated_at": "2026-08-11T13:02:44+00:00",
-          "as_of_date": "2026-08-10",
+          "generated_at": "2026-08-19T11:24:48+00:00",
+          "as_of_date": "2026-08-19",
           "source": "screen_snapshot_live.csv",
           "freshness_status": "current",
           "expected_update_frequency": "1d",
@@ -35568,8 +35568,8 @@
           "is_actionable": true
         },
         "technical_signals": {
-          "generated_at": "2026-08-11T13:03:40+00:00",
-          "as_of_date": "2026-08-10",
+          "generated_at": "2026-08-19T11:33:14+00:00",
+          "as_of_date": "2026-08-19",
           "source": "ta_signals.csv",
           "freshness_status": "current",
           "expected_update_frequency": "1d",
@@ -35577,8 +35577,8 @@
           "is_actionable": true
         },
         "ai_report": {
-          "generated_at": "2026-08-11T20:08:00+00:00",
-          "as_of_date": "2026-08-10",
+          "generated_at": "2026-08-19T18:37:00+00:00",
+          "as_of_date": "2026-08-19",
           "source": "analysis_latest.json",
           "freshness_status": "current",
           "expected_update_frequency": "1d",
@@ -35596,7 +35596,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -35746,38 +35746,38 @@
     "PAN": {
       "snapshot": {
         "ticker": "PAN",
-        "date": "2026-08-10",
-        "close": 20900.0,
-        "chg_today_pct": 0.48,
-        "gtgd20_ty": 8.417,
-        "rel_vol": 2.0,
-        "rsi14": 42.0,
-        "macd_hist": 87.0,
-        "bb_pctb": 0.44,
-        "atr_pct": 2.69,
+        "date": "2026-08-19",
+        "close": 19250.0,
+        "chg_today_pct": -2.04,
+        "gtgd20_ty": 9.216,
+        "rel_vol": 1.02,
+        "rsi14": 24.2,
+        "macd_hist": -92.7,
+        "bb_pctb": -0.11,
+        "atr_pct": 2.67,
         "above_sma50": false,
         "above_sma200": false,
         "golden_cross": false,
-        "pct_from_52w_high": -22.5,
+        "pct_from_52w_high": -28.6,
         "near_52w_high": false,
-        "pct_above_52w_low": 11.5,
-        "ret_1m": -5.6,
-        "ret_3m": -12.7,
-        "ret_6m": -12.1,
-        "ret_12m": -18.6,
+        "pct_above_52w_low": 2.7,
+        "ret_1m": -8.8,
+        "ret_3m": -22.2,
+        "ret_6m": -19.8,
+        "ret_12m": -23.6,
         "structure": "side",
-        "dist_swing_low_pct": 11.5,
-        "source_generated_at": "2026-08-11T13:02:44Z",
+        "dist_swing_low_pct": -7.2,
+        "source_generated_at": "2026-08-19T11:24:48Z",
         "exchange": "HSX",
         "industry": "Thực phẩm và đồ uống",
-        "foreign_room_pct": 54.53,
+        "foreign_room_pct": 55.52,
         "pe": 10.38,
         "pb": 0.76,
         "roe": 12.37,
         "free_float_est": 0.5402,
         "margin_status": null,
-        "latest_price_date": "2026-08-10",
-        "reference_market_date": "2026-08-10",
+        "latest_price_date": "2026-08-19",
+        "reference_market_date": "2026-08-19",
         "days_stale": 0,
         "instrument_type": "STOCK",
         "listing_exchange": "HSX",
@@ -35786,32 +35786,32 @@
         "live_universe_status": "live",
         "live_universe_reason": "eligible_equity_current_session",
         "is_live": true,
-        "rs_rating": 36
+        "rs_rating": 25
       },
-      "canonical_rs_rating": 36,
+      "canonical_rs_rating": 25,
       "rs_rating_reconciliation": {
-        "canonical_rs_rating": 36,
+        "canonical_rs_rating": 25,
         "canonical_source": "screen_snapshot_live.csv:rs_rating (tính 1 lần trong vn_indicators.py main(), percentile-rank chỉ trên tập mã LIVE — xem P0-1).",
-        "canonical_as_of": "2026-08-11T20:03:22+07:00",
-        "ta_signals_cached_rs_rating": 36.0,
-        "ta_signals_cached_as_of": "2026-08-11T20:08:18+07:00",
+        "canonical_as_of": "2026-08-19T18:25:22+07:00",
+        "ta_signals_cached_rs_rating": 25.0,
+        "ta_signals_cached_as_of": "2026-08-19T18:36:42+07:00",
         "matches_canonical": true,
         "explanation": "Khớp — ta_signals.csv đang phản ánh đúng lần chạy vn_indicators.py gần nhất."
       },
       "ta_signal": {
         "ticker": "PAN",
-        "date": "2026-08-10",
-        "source_generated_at": "2026-08-11T13:03:40Z",
-        "close": 20900.0,
-        "volume": 798800,
-        "patterns": "doji;inside_bar",
-        "smc": "ob_bull;fvg_bull",
+        "date": "2026-08-19",
+        "source_generated_at": "2026-08-19T11:33:14Z",
+        "close": 19250.0,
+        "volume": 455200,
+        "patterns": null,
+        "smc": "fvg_bear",
         "confluence": false,
-        "direction": "bullish",
+        "direction": "bearish",
         "industry": "Thực phẩm và đồ uống",
-        "rs_rating": 36.0,
-        "rel_vol": 2.0,
-        "gtgd20_ty": 8.417,
+        "rs_rating": 25.0,
+        "rel_vol": 1.02,
+        "gtgd20_ty": 9.216,
         "margin_status": null
       },
       "ta_signal_semantics": {
@@ -35824,22 +35824,22 @@
         "is_actionable": false
       },
       "analysis_score": {
-        "session_date": "2026-08-10",
+        "session_date": "2026-08-19",
         "regime": "phòng thủ",
         "values": {
-          "score": 51.2,
+          "score": 46.0,
           "fundamental": 65,
-          "technical": 28,
-          "momentum": 35,
+          "technical": 16,
+          "momentum": 26,
           "liquidity": 58,
           "macro": 37,
-          "risk": 100
+          "risk": 90
         },
         "risk_semantics": {
           "legacy_field": "risk",
           "legacy_field_ambiguity": "The field name 'risk' is legacy nomenclature and must not be interpreted as higher-means-more-risk.",
           "polarity": "higher_is_safer",
-          "score_value": 100,
+          "score_value": 90,
           "interpretation": "100 means no configured penalty flags were triggered (maximum configured safety score). 0 means all penalty flags were triggered.",
           "limitations": [
             "100 means no configured penalty flags were triggered; it is not a calibrated probability of loss.",
@@ -43382,7 +43382,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -43453,7 +43453,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -43588,7 +43588,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -43850,7 +43850,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -44018,7 +44018,7 @@
           "metrics": {
             "pe": {
               "value": 10.38,
-              "price_date": "2026-08-10",
+              "price_date": "2026-08-19",
               "denominator_measure": "vendor_unspecified",
               "financial_period": "vendor_unspecified",
               "share_basis": "vendor_unspecified",
@@ -44031,7 +44031,7 @@
             },
             "pb": {
               "value": 0.76,
-              "price_date": "2026-08-10",
+              "price_date": "2026-08-19",
               "denominator_measure": "vendor_unspecified",
               "financial_period": "vendor_unspecified",
               "share_basis": "vendor_unspecified",
@@ -44043,7 +44043,7 @@
               ]
             }
           },
-          "observed_at": "2026-08-10",
+          "observed_at": "2026-08-19",
           "provider": "unknown_vendor"
         },
         "historical_calculated": {
@@ -44104,8 +44104,8 @@
         "ticker": "PAN",
         "current_market": {
           "value": null,
-          "effective_date": "2026-08-10",
-          "observed_at": "2026-08-10",
+          "effective_date": "2026-08-19",
+          "observed_at": "2026-08-19",
           "basis_type": "current_market_shares_outstanding",
           "source": "live_market_snapshot",
           "provenance": "live_market_snapshot",
@@ -44202,62 +44202,6 @@
         }
       },
       "ohlcv_recent": [
-        {
-          "date": "2026-06-30",
-          "open": 23000.0,
-          "high": 23200.0,
-          "low": 22900.0,
-          "close": 22900.0,
-          "volume": 240000
-        },
-        {
-          "date": "2026-07-01",
-          "open": 22900.0,
-          "high": 23200.0,
-          "low": 22800.0,
-          "close": 23200.0,
-          "volume": 318300
-        },
-        {
-          "date": "2026-07-02",
-          "open": 23050.0,
-          "high": 23300.0,
-          "low": 23000.0,
-          "close": 23150.0,
-          "volume": 214100
-        },
-        {
-          "date": "2026-07-03",
-          "open": 23050.0,
-          "high": 23100.0,
-          "low": 22750.0,
-          "close": 22800.0,
-          "volume": 410100
-        },
-        {
-          "date": "2026-07-06",
-          "open": 22750.0,
-          "high": 22900.0,
-          "low": 21950.0,
-          "close": 22300.0,
-          "volume": 688900
-        },
-        {
-          "date": "2026-07-07",
-          "open": 22100.0,
-          "high": 22300.0,
-          "low": 22000.0,
-          "close": 22150.0,
-          "volume": 285600
-        },
-        {
-          "date": "2026-07-08",
-          "open": 22350.0,
-          "high": 22500.0,
-          "low": 22050.0,
-          "close": 22500.0,
-          "volume": 171200
-        },
         {
           "date": "2026-07-09",
           "open": 22500.0,
@@ -44441,6 +44385,62 @@
           "low": 20850.0,
           "close": 20900.0,
           "volume": 798800
+        },
+        {
+          "date": "2026-08-11",
+          "open": 20950.0,
+          "high": 21050.0,
+          "low": 20750.0,
+          "close": 20800.0,
+          "volume": 413500
+        },
+        {
+          "date": "2026-08-12",
+          "open": 20850.0,
+          "high": 20850.0,
+          "low": 20650.0,
+          "close": 20700.0,
+          "volume": 244300
+        },
+        {
+          "date": "2026-08-13",
+          "open": 20700.0,
+          "high": 20750.0,
+          "low": 20300.0,
+          "close": 20500.0,
+          "volume": 937300
+        },
+        {
+          "date": "2026-08-14",
+          "open": 20300.0,
+          "high": 20600.0,
+          "low": 20100.0,
+          "close": 20100.0,
+          "volume": 480800
+        },
+        {
+          "date": "2026-08-17",
+          "open": 20100.0,
+          "high": 20250.0,
+          "low": 19900.0,
+          "close": 20000.0,
+          "volume": 266500
+        },
+        {
+          "date": "2026-08-18",
+          "open": 20000.0,
+          "high": 20200.0,
+          "low": 19600.0,
+          "close": 19650.0,
+          "volume": 436900
+        },
+        {
+          "date": "2026-08-19",
+          "open": 19650.0,
+          "high": 19750.0,
+          "low": 19150.0,
+          "close": 19250.0,
+          "volume": 455200
         }
       ],
       "ohlcv_recent_count": 30,
@@ -45464,8 +45464,8 @@
       },
       "freshness": {
         "daily_prices": {
-          "generated_at": "2026-08-11T13:02:44+00:00",
-          "as_of_date": "2026-08-10",
+          "generated_at": "2026-08-19T11:24:48+00:00",
+          "as_of_date": "2026-08-19",
           "source": "screen_snapshot_live.csv",
           "freshness_status": "current",
           "expected_update_frequency": "1d",
@@ -45473,8 +45473,8 @@
           "is_actionable": true
         },
         "technical_signals": {
-          "generated_at": "2026-08-11T13:03:40+00:00",
-          "as_of_date": "2026-08-10",
+          "generated_at": "2026-08-19T11:33:14+00:00",
+          "as_of_date": "2026-08-19",
           "source": "ta_signals.csv",
           "freshness_status": "current",
           "expected_update_frequency": "1d",
@@ -45482,8 +45482,8 @@
           "is_actionable": true
         },
         "ai_report": {
-          "generated_at": "2026-08-11T20:08:00+00:00",
-          "as_of_date": "2026-08-10",
+          "generated_at": "2026-08-19T18:37:00+00:00",
+          "as_of_date": "2026-08-19",
           "source": "analysis_latest.json",
           "freshness_status": "current",
           "expected_update_frequency": "1d",
@@ -45501,7 +45501,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -45651,38 +45651,38 @@
     "PNJ": {
       "snapshot": {
         "ticker": "PNJ",
-        "date": "2026-08-10",
-        "close": 35950.0,
-        "chg_today_pct": -0.14,
-        "gtgd20_ty": 361.987,
-        "rel_vol": 0.26,
-        "rsi14": 37.8,
-        "macd_hist": 1253.5,
-        "bb_pctb": 0.47,
-        "atr_pct": 6.87,
+        "date": "2026-08-19",
+        "close": 35700.0,
+        "chg_today_pct": 1.85,
+        "gtgd20_ty": 283.66,
+        "rel_vol": 0.39,
+        "rsi14": 40.4,
+        "macd_hist": 1059.5,
+        "bb_pctb": 0.66,
+        "atr_pct": 5.83,
         "above_sma50": false,
         "above_sma200": false,
         "golden_cross": false,
-        "pct_from_52w_high": -57.5,
+        "pct_from_52w_high": -57.8,
         "near_52w_high": false,
-        "pct_above_52w_low": 18.8,
-        "ret_1m": -22.9,
-        "ret_3m": -48.3,
-        "ret_6m": -55.1,
-        "ret_12m": -35.3,
+        "pct_above_52w_low": 18.0,
+        "ret_1m": -6.4,
+        "ret_3m": -45.5,
+        "ret_6m": -54.8,
+        "ret_12m": -37.6,
         "structure": "side",
-        "dist_swing_low_pct": 18.8,
-        "source_generated_at": "2026-08-11T13:02:44Z",
+        "dist_swing_low_pct": 3.3,
+        "source_generated_at": "2026-08-19T11:24:48Z",
         "exchange": "HSX",
         "industry": "Hàng cá nhân & Gia dụng",
-        "foreign_room_pct": 12.56,
-        "pe": 11.59,
-        "pb": 2.49,
-        "roe": 23.15,
+        "foreign_room_pct": 8.7,
+        "pe": 11.96,
+        "pb": 2.34,
+        "roe": 20.0,
         "free_float_est": 0.9402,
         "margin_status": null,
-        "latest_price_date": "2026-08-10",
-        "reference_market_date": "2026-08-10",
+        "latest_price_date": "2026-08-19",
+        "reference_market_date": "2026-08-19",
         "days_stale": 0,
         "instrument_type": "STOCK",
         "listing_exchange": "HSX",
@@ -45691,32 +45691,32 @@
         "live_universe_status": "live",
         "live_universe_reason": "eligible_equity_current_session",
         "is_live": true,
-        "rs_rating": 2
+        "rs_rating": 3
       },
-      "canonical_rs_rating": 2,
+      "canonical_rs_rating": 3,
       "rs_rating_reconciliation": {
-        "canonical_rs_rating": 2,
+        "canonical_rs_rating": 3,
         "canonical_source": "screen_snapshot_live.csv:rs_rating (tính 1 lần trong vn_indicators.py main(), percentile-rank chỉ trên tập mã LIVE — xem P0-1).",
-        "canonical_as_of": "2026-08-11T20:03:22+07:00",
-        "ta_signals_cached_rs_rating": 2.0,
-        "ta_signals_cached_as_of": "2026-08-11T20:08:18+07:00",
+        "canonical_as_of": "2026-08-19T18:25:22+07:00",
+        "ta_signals_cached_rs_rating": 3.0,
+        "ta_signals_cached_as_of": "2026-08-19T18:36:42+07:00",
         "matches_canonical": true,
         "explanation": "Khớp — ta_signals.csv đang phản ánh đúng lần chạy vn_indicators.py gần nhất."
       },
       "ta_signal": {
         "ticker": "PNJ",
-        "date": "2026-08-10",
-        "source_generated_at": "2026-08-11T13:03:40Z",
-        "close": 35950.0,
-        "volume": 2725500,
+        "date": "2026-08-19",
+        "source_generated_at": "2026-08-19T11:33:14Z",
+        "close": 35700.0,
+        "volume": 3352700,
         "patterns": null,
         "smc": "fvg_bull;fvg_bear",
         "confluence": false,
         "direction": "neutral",
         "industry": "Hàng cá nhân & Gia dụng",
-        "rs_rating": 2.0,
-        "rel_vol": 0.26,
-        "gtgd20_ty": 361.987,
+        "rs_rating": 3.0,
+        "rel_vol": 0.39,
+        "gtgd20_ty": 283.66,
         "margin_status": null
       },
       "ta_signal_semantics": {
@@ -45729,15 +45729,15 @@
         "is_actionable": false
       },
       "analysis_score": {
-        "session_date": "2026-08-10",
+        "session_date": "2026-08-19",
         "regime": "phòng thủ",
         "values": {
-          "score": 51.8,
-          "fundamental": 74,
-          "technical": 20,
-          "momentum": 9,
+          "score": 52.0,
+          "fundamental": 80,
+          "technical": 15,
+          "momentum": 7,
           "liquidity": 95,
-          "macro": 32,
+          "macro": 33,
           "risk": 100
         },
         "risk_semantics": {
@@ -49507,7 +49507,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -49581,7 +49581,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -49718,7 +49718,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -49980,7 +49980,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -50148,8 +50148,8 @@
         "live_vendor": {
           "metrics": {
             "pe": {
-              "value": 11.59,
-              "price_date": "2026-08-10",
+              "value": 11.96,
+              "price_date": "2026-08-19",
               "denominator_measure": "vendor_unspecified",
               "financial_period": "vendor_unspecified",
               "share_basis": "vendor_unspecified",
@@ -50161,8 +50161,8 @@
               ]
             },
             "pb": {
-              "value": 2.49,
-              "price_date": "2026-08-10",
+              "value": 2.34,
+              "price_date": "2026-08-19",
               "denominator_measure": "vendor_unspecified",
               "financial_period": "vendor_unspecified",
               "share_basis": "vendor_unspecified",
@@ -50174,7 +50174,7 @@
               ]
             }
           },
-          "observed_at": "2026-08-10",
+          "observed_at": "2026-08-19",
           "provider": "unknown_vendor"
         },
         "historical_calculated": {
@@ -50235,8 +50235,8 @@
         "ticker": "PNJ",
         "current_market": {
           "value": null,
-          "effective_date": "2026-08-10",
-          "observed_at": "2026-08-10",
+          "effective_date": "2026-08-19",
+          "observed_at": "2026-08-19",
           "basis_type": "current_market_shares_outstanding",
           "source": "live_market_snapshot",
           "provenance": "live_market_snapshot",
@@ -50333,62 +50333,6 @@
         }
       },
       "ohlcv_recent": [
-        {
-          "date": "2026-06-30",
-          "open": 63100.0,
-          "high": 63200.0,
-          "low": 62300.0,
-          "close": 63000.0,
-          "volume": 715400
-        },
-        {
-          "date": "2026-07-01",
-          "open": 62500.0,
-          "high": 63400.0,
-          "low": 62500.0,
-          "close": 62700.0,
-          "volume": 586500
-        },
-        {
-          "date": "2026-07-02",
-          "open": 63000.0,
-          "high": 64800.0,
-          "low": 62800.0,
-          "close": 63100.0,
-          "volume": 2175200
-        },
-        {
-          "date": "2026-07-03",
-          "open": 58700.0,
-          "high": 58700.0,
-          "low": 58700.0,
-          "close": 58700.0,
-          "volume": 1185500
-        },
-        {
-          "date": "2026-07-06",
-          "open": 54600.0,
-          "high": 54600.0,
-          "low": 54600.0,
-          "close": 54600.0,
-          "volume": 565000
-        },
-        {
-          "date": "2026-07-07",
-          "open": 50800.0,
-          "high": 50800.0,
-          "low": 50800.0,
-          "close": 50800.0,
-          "volume": 994200
-        },
-        {
-          "date": "2026-07-08",
-          "open": 47250.0,
-          "high": 52000.0,
-          "low": 47250.0,
-          "close": 52000.0,
-          "volume": 25605600
-        },
         {
           "date": "2026-07-09",
           "open": 52000.0,
@@ -50572,6 +50516,62 @@
           "low": 34550.0,
           "close": 35950.0,
           "volume": 2725500
+        },
+        {
+          "date": "2026-08-11",
+          "open": 36300.0,
+          "high": 36750.0,
+          "low": 34850.0,
+          "close": 34850.0,
+          "volume": 3197000
+        },
+        {
+          "date": "2026-08-12",
+          "open": 35100.0,
+          "high": 35600.0,
+          "low": 34850.0,
+          "close": 35050.0,
+          "volume": 2360000
+        },
+        {
+          "date": "2026-08-13",
+          "open": 35600.0,
+          "high": 35750.0,
+          "low": 35150.0,
+          "close": 35300.0,
+          "volume": 2472100
+        },
+        {
+          "date": "2026-08-14",
+          "open": 35350.0,
+          "high": 37500.0,
+          "low": 35250.0,
+          "close": 36500.0,
+          "volume": 4771400
+        },
+        {
+          "date": "2026-08-17",
+          "open": 36600.0,
+          "high": 37000.0,
+          "low": 35600.0,
+          "close": 36200.0,
+          "volume": 2983300
+        },
+        {
+          "date": "2026-08-18",
+          "open": 36200.0,
+          "high": 36250.0,
+          "low": 34850.0,
+          "close": 35050.0,
+          "volume": 4749600
+        },
+        {
+          "date": "2026-08-19",
+          "open": 35350.0,
+          "high": 36600.0,
+          "low": 34600.0,
+          "close": 35700.0,
+          "volume": 3352700
         }
       ],
       "ohlcv_recent_count": 30,
@@ -50669,8 +50669,8 @@
       },
       "freshness": {
         "daily_prices": {
-          "generated_at": "2026-08-11T13:02:44+00:00",
-          "as_of_date": "2026-08-10",
+          "generated_at": "2026-08-19T11:24:48+00:00",
+          "as_of_date": "2026-08-19",
           "source": "screen_snapshot_live.csv",
           "freshness_status": "current",
           "expected_update_frequency": "1d",
@@ -50678,8 +50678,8 @@
           "is_actionable": true
         },
         "technical_signals": {
-          "generated_at": "2026-08-11T13:03:40+00:00",
-          "as_of_date": "2026-08-10",
+          "generated_at": "2026-08-19T11:33:14+00:00",
+          "as_of_date": "2026-08-19",
           "source": "ta_signals.csv",
           "freshness_status": "current",
           "expected_update_frequency": "1d",
@@ -50687,8 +50687,8 @@
           "is_actionable": true
         },
         "ai_report": {
-          "generated_at": "2026-08-11T20:08:00+00:00",
-          "as_of_date": "2026-08-10",
+          "generated_at": "2026-08-19T18:37:00+00:00",
+          "as_of_date": "2026-08-19",
           "source": "analysis_latest.json",
           "freshness_status": "current",
           "expected_update_frequency": "1d",
@@ -50706,7 +50706,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -50856,38 +50856,38 @@
     "FPT": {
       "snapshot": {
         "ticker": "FPT",
-        "date": "2026-08-10",
-        "close": 71800.0,
-        "chg_today_pct": 1.41,
-        "gtgd20_ty": 525.792,
-        "rel_vol": 0.67,
-        "rsi14": 60.4,
-        "macd_hist": 898.3,
-        "bb_pctb": 0.86,
-        "atr_pct": 2.67,
-        "above_sma50": true,
+        "date": "2026-08-19",
+        "close": 68900.0,
+        "chg_today_pct": -0.14,
+        "gtgd20_ty": 412.153,
+        "rel_vol": 0.3,
+        "rsi14": 48.8,
+        "macd_hist": 59.5,
+        "bb_pctb": 0.55,
+        "atr_pct": 2.45,
+        "above_sma50": false,
         "above_sma200": false,
         "golden_cross": false,
-        "pct_from_52w_high": -33.0,
+        "pct_from_52w_high": -35.7,
         "near_52w_high": false,
-        "pct_above_52w_low": 16.7,
-        "ret_1m": 1.7,
-        "ret_3m": 3.0,
-        "ret_6m": -29.9,
-        "ret_12m": -30.5,
-        "structure": "down",
-        "dist_swing_low_pct": 16.7,
-        "source_generated_at": "2026-08-11T13:02:44Z",
+        "pct_above_52w_low": 12.0,
+        "ret_1m": 6.3,
+        "ret_3m": -7.0,
+        "ret_6m": -29.3,
+        "ret_12m": -32.0,
+        "structure": "side",
+        "dist_swing_low_pct": 1.3,
+        "source_generated_at": "2026-08-19T11:24:48Z",
         "exchange": "HSX",
         "industry": "Công nghệ Thông tin",
-        "foreign_room_pct": 44.67,
+        "foreign_room_pct": 43.9,
         "pe": 15.53,
         "pb": 3.7,
         "roe": 27.33,
         "free_float_est": 0.8744,
         "margin_status": null,
-        "latest_price_date": "2026-08-10",
-        "reference_market_date": "2026-08-10",
+        "latest_price_date": "2026-08-19",
+        "reference_market_date": "2026-08-19",
         "days_stale": 0,
         "instrument_type": "STOCK",
         "listing_exchange": "HSX",
@@ -50896,32 +50896,32 @@
         "live_universe_status": "live",
         "live_universe_reason": "eligible_equity_current_session",
         "is_live": true,
-        "rs_rating": 31
+        "rs_rating": 27
       },
-      "canonical_rs_rating": 31,
+      "canonical_rs_rating": 27,
       "rs_rating_reconciliation": {
-        "canonical_rs_rating": 31,
+        "canonical_rs_rating": 27,
         "canonical_source": "screen_snapshot_live.csv:rs_rating (tính 1 lần trong vn_indicators.py main(), percentile-rank chỉ trên tập mã LIVE — xem P0-1).",
-        "canonical_as_of": "2026-08-11T20:03:22+07:00",
-        "ta_signals_cached_rs_rating": 31.0,
-        "ta_signals_cached_as_of": "2026-08-11T20:08:18+07:00",
+        "canonical_as_of": "2026-08-19T18:25:22+07:00",
+        "ta_signals_cached_rs_rating": 27.0,
+        "ta_signals_cached_as_of": "2026-08-19T18:36:42+07:00",
         "matches_canonical": true,
         "explanation": "Khớp — ta_signals.csv đang phản ánh đúng lần chạy vn_indicators.py gần nhất."
       },
       "ta_signal": {
         "ticker": "FPT",
-        "date": "2026-08-10",
-        "source_generated_at": "2026-08-11T13:03:40Z",
-        "close": 71800.0,
-        "volume": 5252100,
-        "patterns": null,
-        "smc": "fvg_bull",
+        "date": "2026-08-19",
+        "source_generated_at": "2026-08-19T11:33:14Z",
+        "close": 68900.0,
+        "volume": 1821000,
+        "patterns": "inside_bar",
+        "smc": "fvg_bull;fvg_bear",
         "confluence": false,
-        "direction": "bullish",
+        "direction": "neutral",
         "industry": "Công nghệ Thông tin",
-        "rs_rating": 31.0,
-        "rel_vol": 0.67,
-        "gtgd20_ty": 525.792,
+        "rs_rating": 27.0,
+        "rel_vol": 0.3,
+        "gtgd20_ty": 412.153,
         "margin_status": null
       },
       "ta_signal_semantics": {
@@ -50934,15 +50934,15 @@
         "is_actionable": false
       },
       "analysis_score": {
-        "session_date": "2026-08-10",
+        "session_date": "2026-08-19",
         "regime": "phòng thủ",
         "values": {
-          "score": 56.0,
+          "score": 49.0,
           "fundamental": 56,
-          "technical": 16,
-          "momentum": 53,
+          "technical": 8,
+          "momentum": 27,
           "liquidity": 100,
-          "macro": 32,
+          "macro": 30,
           "risk": 100
         },
         "risk_semantics": {
@@ -51475,6 +51475,70 @@
             "quality_state": "unknown",
             "reason": "statement_scope_unknown",
             "restatement_state": "unknown"
+          },
+          {
+            "canonical_metric": "cash_and_equivalents",
+            "value": 10522105729992,
+            "source_field": "cash_and_equivalents",
+            "source_statement": "balance_sheet",
+            "source": "official_evidence",
+            "period_identity": {
+              "fiscal_year": 2025,
+              "fiscal_quarter": null,
+              "period_type": "annual",
+              "period_end": "2025-12-31",
+              "report_published_at": null,
+              "period": "2025"
+            },
+            "statement_scope": "consolidated",
+            "currency": "VND",
+            "unit_scale": 1,
+            "derivation_status": "reported",
+            "quality_state": "available",
+            "reason": null,
+            "restatement_state": "unknown",
+            "official_evidence": {
+              "evidence_id": "34340c1ec5c44ac3dc5095ecdeccab68d210bea5e3659a2258b45b81f0099516",
+              "citation_id": "e7b506bc4079c8caf8d451806ef130c7657155312b6a137ced74eefec6931416",
+              "citation": "Issuer PDF page 8; Tiền và các khoản tương đương tiền; audited consolidated FY2025.",
+              "sha256": "630f61f6ef9f07d5c593c3bf8f65bad1d56ecbb091921296ed5c4e830ea070a4",
+              "document_sha256": "630f61f6ef9f07d5c593c3bf8f65bad1d56ecbb091921296ed5c4e830ea070a4",
+              "qualification_version": "1.0.0",
+              "verified_at": "2026-08-11T00:00:00Z",
+              "extraction": {
+                "materialization": {
+                  "contract": "annual_financial_ocr_materialization/v1",
+                  "document_sha256": "630f61f6ef9f07d5c593c3bf8f65bad1d56ecbb091921296ed5c4e830ea070a4",
+                  "extraction_method": "ocr",
+                  "materialization_id": "fbef3ac3c182432f9383a17f1b886d81771aa38031f0fc710f268ba6ab48f529",
+                  "ocr_engine": "tesseract v5.5.0.20241111 language=vie+eng psm=6",
+                  "page": 8,
+                  "page_citation_id": "139fb28fa8623c371c6b8dde173c62da80af3879375313f1dc72fd4d3407c8f1",
+                  "qualification_method": "direct_statement_line",
+                  "render_dpi": 240,
+                  "text_sha256": "42c29b10489fcd569e4dc71f966fdc64d4aec43c39ba34751b8a68730e425d49",
+                  "verification": "source_page_visual"
+                },
+                "method": "document_line_item",
+                "normalized_value": 10522105729992,
+                "ocr_anchors": {
+                  "label": "Tién va cac khoan tuong dwong tién",
+                  "value": "10.522.105.729.992"
+                },
+                "raw_labels": [
+                  "Tiền và các khoản tương đương tiền"
+                ],
+                "raw_values": [
+                  "10.522.105.729.992"
+                ],
+                "sign": "positive",
+                "source_pages": [
+                  8
+                ],
+                "statement": "balance_sheet",
+                "unit": "VND"
+              }
+            }
           },
           {
             "canonical_metric": "cash_and_equivalents",
@@ -52433,6 +52497,70 @@
           },
           {
             "canonical_metric": "net_income",
+            "value": 11232339450734,
+            "source_field": "net_income",
+            "source_statement": "income_statement",
+            "source": "official_evidence",
+            "period_identity": {
+              "fiscal_year": 2025,
+              "fiscal_quarter": null,
+              "period_type": "annual",
+              "period_end": "2025-12-31",
+              "report_published_at": null,
+              "period": "2025"
+            },
+            "statement_scope": "consolidated",
+            "currency": "VND",
+            "unit_scale": 1,
+            "derivation_status": "reported",
+            "quality_state": "available",
+            "reason": null,
+            "restatement_state": "unknown",
+            "official_evidence": {
+              "evidence_id": "34340c1ec5c44ac3dc5095ecdeccab68d210bea5e3659a2258b45b81f0099516",
+              "citation_id": "2847bb91a5aa3bd1b30547e523108321e99550daf8045e2a8ef080aa2394e453",
+              "citation": "Issuer PDF page 12; Lợi nhuận sau thuế TNDN; audited consolidated FY2025.",
+              "sha256": "630f61f6ef9f07d5c593c3bf8f65bad1d56ecbb091921296ed5c4e830ea070a4",
+              "document_sha256": "630f61f6ef9f07d5c593c3bf8f65bad1d56ecbb091921296ed5c4e830ea070a4",
+              "qualification_version": "1.0.0",
+              "verified_at": "2026-08-11T00:00:00Z",
+              "extraction": {
+                "materialization": {
+                  "contract": "annual_financial_ocr_materialization/v1",
+                  "document_sha256": "630f61f6ef9f07d5c593c3bf8f65bad1d56ecbb091921296ed5c4e830ea070a4",
+                  "extraction_method": "ocr",
+                  "materialization_id": "bc846fbff96257edf20fa2e191df3027a5e78537472f7a46832cda723e8692e0",
+                  "ocr_engine": "tesseract v5.5.0.20241111 language=vie+eng psm=6",
+                  "page": 12,
+                  "page_citation_id": "45affc39b403df7ef6df2af1f8b47c1de09f934ce57bc0fa0cdf06d63ff2a5ba",
+                  "qualification_method": "direct_statement_line",
+                  "render_dpi": 240,
+                  "text_sha256": "406a03135040ecdf162cb41bad2a135f491a86cb2df33de13ffb7e494eefb02a",
+                  "verification": "source_page_visual"
+                },
+                "method": "document_line_item",
+                "normalized_value": 11232339450734,
+                "ocr_anchors": {
+                  "label": "Loi nhuan sau thué TNDN",
+                  "value": "11.232.339.450.734"
+                },
+                "raw_labels": [
+                  "Lợi nhuận sau thuế TNDN"
+                ],
+                "raw_values": [
+                  "11.232.339.450.734"
+                ],
+                "sign": "positive",
+                "source_pages": [
+                  12
+                ],
+                "statement": "income_statement",
+                "unit": "VND"
+              }
+            }
+          },
+          {
+            "canonical_metric": "net_income",
             "value": null,
             "source_field": "net_profit",
             "source_statement": "financial_snapshot",
@@ -52621,6 +52749,70 @@
             "quality_state": "unavailable",
             "reason": "value_missing",
             "restatement_state": "unknown"
+          },
+          {
+            "canonical_metric": "operating_cash_flow",
+            "value": 10136043915911,
+            "source_field": "operating_cash_flow",
+            "source_statement": "cash_flow",
+            "source": "official_evidence",
+            "period_identity": {
+              "fiscal_year": 2025,
+              "fiscal_quarter": null,
+              "period_type": "annual",
+              "period_end": "2025-12-31",
+              "report_published_at": null,
+              "period": "2025"
+            },
+            "statement_scope": "consolidated",
+            "currency": "VND",
+            "unit_scale": 1,
+            "derivation_status": "reported",
+            "quality_state": "available",
+            "reason": null,
+            "restatement_state": "unknown",
+            "official_evidence": {
+              "evidence_id": "34340c1ec5c44ac3dc5095ecdeccab68d210bea5e3659a2258b45b81f0099516",
+              "citation_id": "81a0aa32186efe762551b36836770c6d34b7bc6aee5d1a4e96770decd172747f",
+              "citation": "Issuer PDF page 13; Lưu chuyển tiền thuần từ hoạt động kinh doanh; audited consolidated FY2025.",
+              "sha256": "630f61f6ef9f07d5c593c3bf8f65bad1d56ecbb091921296ed5c4e830ea070a4",
+              "document_sha256": "630f61f6ef9f07d5c593c3bf8f65bad1d56ecbb091921296ed5c4e830ea070a4",
+              "qualification_version": "1.0.0",
+              "verified_at": "2026-08-11T00:00:00Z",
+              "extraction": {
+                "materialization": {
+                  "contract": "annual_financial_ocr_materialization/v1",
+                  "document_sha256": "630f61f6ef9f07d5c593c3bf8f65bad1d56ecbb091921296ed5c4e830ea070a4",
+                  "extraction_method": "ocr",
+                  "materialization_id": "eaba8dc8d005cbfe27ccfbe2ea420df107411d0ee027e325e99cebd02acf3bec",
+                  "ocr_engine": "tesseract v5.5.0.20241111 language=vie+eng psm=6",
+                  "page": 13,
+                  "page_citation_id": "3b42ace7aca65d6de3ac2696239fc22f6dbc90cdbc6f34cde753f0fae9a71d1b",
+                  "qualification_method": "direct_statement_line",
+                  "render_dpi": 240,
+                  "text_sha256": "1e705284a0243b3c96ff66452db9de0df12fc43efad51be49514537545ceda0c",
+                  "verification": "source_page_visual"
+                },
+                "method": "document_line_item",
+                "normalized_value": 10136043915911,
+                "ocr_anchors": {
+                  "label": "Luu chuyén tién thuan tir hoat déng kinh doanh",
+                  "value": "10.136.043.915.911"
+                },
+                "raw_labels": [
+                  "Lưu chuyển tiền thuần từ hoạt động kinh doanh"
+                ],
+                "raw_values": [
+                  "10.136.043.915.911"
+                ],
+                "sign": "positive",
+                "source_pages": [
+                  13
+                ],
+                "statement": "cash_flow",
+                "unit": "VND"
+              }
+            }
           },
           {
             "canonical_metric": "operating_cash_flow",
@@ -53770,6 +53962,70 @@
           },
           {
             "canonical_metric": "shareholders_equity",
+            "value": 43748040747539,
+            "source_field": "shareholders_equity",
+            "source_statement": "balance_sheet",
+            "source": "official_evidence",
+            "period_identity": {
+              "fiscal_year": 2025,
+              "fiscal_quarter": null,
+              "period_type": "annual",
+              "period_end": "2025-12-31",
+              "report_published_at": null,
+              "period": "2025"
+            },
+            "statement_scope": "consolidated",
+            "currency": "VND",
+            "unit_scale": 1,
+            "derivation_status": "reported",
+            "quality_state": "available",
+            "reason": null,
+            "restatement_state": "unknown",
+            "official_evidence": {
+              "evidence_id": "34340c1ec5c44ac3dc5095ecdeccab68d210bea5e3659a2258b45b81f0099516",
+              "citation_id": "537da97478389b05ca442c762495280e20ba88df4610090c45a0f434e07eec33",
+              "citation": "Issuer PDF page 11; VỐN CHỦ SỞ HỮU; audited consolidated FY2025.",
+              "sha256": "630f61f6ef9f07d5c593c3bf8f65bad1d56ecbb091921296ed5c4e830ea070a4",
+              "document_sha256": "630f61f6ef9f07d5c593c3bf8f65bad1d56ecbb091921296ed5c4e830ea070a4",
+              "qualification_version": "1.0.0",
+              "verified_at": "2026-08-11T00:00:00Z",
+              "extraction": {
+                "materialization": {
+                  "contract": "annual_financial_ocr_materialization/v1",
+                  "document_sha256": "630f61f6ef9f07d5c593c3bf8f65bad1d56ecbb091921296ed5c4e830ea070a4",
+                  "extraction_method": "ocr",
+                  "materialization_id": "0704f4fb039b3c871e63d7874cdc0116eaf0332cab517fabb8bfc6f5ebb250de",
+                  "ocr_engine": "tesseract v5.5.0.20241111 language=vie+eng psm=6",
+                  "page": 11,
+                  "page_citation_id": "2c281f0be3cf67504a4af73b274cb2c815d0ea1ac1eaf80b51fb43534e174ae9",
+                  "qualification_method": "direct_statement_line",
+                  "render_dpi": 240,
+                  "text_sha256": "5f53625560aa11664840657f73ff83e66b0502affbdea3667e06d954aa0a2e97",
+                  "verification": "source_page_visual"
+                },
+                "method": "document_line_item",
+                "normalized_value": 43748040747539,
+                "ocr_anchors": {
+                  "label": "VON CHU SO HỮU",
+                  "value": "43.748.040.747.539"
+                },
+                "raw_labels": [
+                  "VỐN CHỦ SỞ HỮU"
+                ],
+                "raw_values": [
+                  "43.748.040.747.539"
+                ],
+                "sign": "positive",
+                "source_pages": [
+                  11
+                ],
+                "statement": "balance_sheet",
+                "unit": "VND"
+              }
+            }
+          },
+          {
+            "canonical_metric": "shareholders_equity",
             "value": 37896654696942,
             "source_field": "equity",
             "source_statement": "financial_snapshot",
@@ -54261,6 +54517,97 @@
             "restatement_state": "unknown"
           },
           {
+            "canonical_metric": "total_interest_bearing_debt",
+            "value": 21073487486139,
+            "source_field": "total_interest_bearing_debt",
+            "source_statement": "balance_sheet",
+            "source": "official_evidence",
+            "period_identity": {
+              "fiscal_year": 2025,
+              "fiscal_quarter": null,
+              "period_type": "annual",
+              "period_end": "2025-12-31",
+              "report_published_at": null,
+              "period": "2025"
+            },
+            "statement_scope": "consolidated",
+            "currency": "VND",
+            "unit_scale": 1,
+            "derivation_status": "reported",
+            "quality_state": "available",
+            "reason": null,
+            "restatement_state": "unknown",
+            "official_evidence": {
+              "evidence_id": "34340c1ec5c44ac3dc5095ecdeccab68d210bea5e3659a2258b45b81f0099516",
+              "citation_id": "4f751e84fcc64590c1c723d15f20fa0165021746ca367c33efd5e189dd033672",
+              "citation": "Issuer PDF page 10; explicit short- and long-term borrowing/finance-lease components; audited consolidated FY2025.",
+              "sha256": "630f61f6ef9f07d5c593c3bf8f65bad1d56ecbb091921296ed5c4e830ea070a4",
+              "document_sha256": "630f61f6ef9f07d5c593c3bf8f65bad1d56ecbb091921296ed5c4e830ea070a4",
+              "qualification_version": "1.0.0",
+              "verified_at": "2026-08-11T00:00:00Z",
+              "extraction": {
+                "components": [
+                  {
+                    "label": "Vay và nợ thuê tài chính ngắn hạn",
+                    "value": 19169697497955
+                  },
+                  {
+                    "label": "Vay và nợ thuê tài chính dài hạn",
+                    "value": 1903789988184
+                  }
+                ],
+                "materialization": {
+                  "components": [
+                    {
+                      "contract": "annual_financial_ocr_materialization/v1",
+                      "document_sha256": "630f61f6ef9f07d5c593c3bf8f65bad1d56ecbb091921296ed5c4e830ea070a4",
+                      "extraction_method": "ocr",
+                      "materialization_id": "8042bca90dd11cf6fc4d5c54aec95fe94778d702fa960c9106cde2c32644a22d",
+                      "ocr_engine": "tesseract v5.5.0.20241111 language=vie+eng psm=6",
+                      "page": 10,
+                      "page_citation_id": "5ce3839a02025e1a9042344578c58e0f68264d977fa86ce03cab299b065aec14",
+                      "qualification_method": "direct_statement_line",
+                      "render_dpi": 240,
+                      "text_sha256": "e2300f4ebf89366d3298ce8bb853bc9b728df8db48fe9f37f8cc9544fee599ce",
+                      "verification": "source_page_visual"
+                    },
+                    {
+                      "contract": "annual_financial_ocr_materialization/v1",
+                      "document_sha256": "630f61f6ef9f07d5c593c3bf8f65bad1d56ecbb091921296ed5c4e830ea070a4",
+                      "extraction_method": "ocr",
+                      "materialization_id": "8042bca90dd11cf6fc4d5c54aec95fe94778d702fa960c9106cde2c32644a22d",
+                      "ocr_engine": "tesseract v5.5.0.20241111 language=vie+eng psm=6",
+                      "page": 10,
+                      "page_citation_id": "5ce3839a02025e1a9042344578c58e0f68264d977fa86ce03cab299b065aec14",
+                      "qualification_method": "direct_statement_line",
+                      "render_dpi": 240,
+                      "text_sha256": "e2300f4ebf89366d3298ce8bb853bc9b728df8db48fe9f37f8cc9544fee599ce",
+                      "verification": "source_page_visual"
+                    }
+                  ],
+                  "contract": "annual_financial_ocr_materialization/v1",
+                  "verification": "source_page_visual"
+                },
+                "method": "document_line_item_sum",
+                "normalized_value": 21073487486139,
+                "raw_labels": [
+                  "Vay và nợ thuê tài chính ngắn hạn",
+                  "Vay và nợ thuê tài chính dài hạn"
+                ],
+                "raw_values": [
+                  "19.169.697.497.955",
+                  "1.903.789.988.184"
+                ],
+                "sign": "positive",
+                "source_pages": [
+                  10
+                ],
+                "statement": "balance_sheet",
+                "unit": "VND"
+              }
+            }
+          },
+          {
             "canonical_metric": "total_liabilities",
             "value": null,
             "period_identity": null,
@@ -54455,8 +54802,8 @@
         "invalid_periods": [],
         "official_evidence": {
           "status": "available",
-          "reason": "no_hash_verified_cited_financial_identities",
-          "record_count": 0
+          "reason": null,
+          "record_count": 5
         }
       },
       "financial_identity": {
@@ -54471,29 +54818,37 @@
           "growth_profitability": {
             "model_name": "growth_profitability",
             "model_version": "1.2.0",
-            "applicability_state": "unknown",
-            "result_state": "unknown",
+            "applicability_state": "unavailable",
+            "result_state": "unavailable",
             "score_or_value": null,
             "component_results": {},
             "input_periods": [],
-            "statement_scope": null,
-            "required_inputs": [],
+            "statement_scope": "consolidated",
+            "required_inputs": [
+              "revenue",
+              "net_income"
+            ],
             "used_inputs": [],
             "used_input_facts": {},
-            "input_classification": {},
-            "missing_inputs": [],
-            "provenance": "financial_canonical",
-            "warnings": [
-              "no_compatible_known_scope_canonical_records"
+            "input_classification": {
+              "revenue": "missing",
+              "net_income": "qualified"
+            },
+            "missing_inputs": [
+              "revenue"
             ],
+            "provenance": "financial_canonical",
+            "warnings": [],
             "interpretation_limits": [
               "Numeric result is not automatically actionable."
             ],
             "is_actionable": false,
-            "status": "unknown",
-            "applicability": "unknown",
+            "status": "unavailable",
+            "applicability": "unavailable",
             "is_partial": false,
-            "blocking_reasons": [],
+            "blocking_reasons": [
+              "revenue"
+            ],
             "limitations": [
               "Numeric result is not automatically actionable."
             ]
@@ -54501,29 +54856,43 @@
           "dupont_roe": {
             "model_name": "dupont_roe",
             "model_version": "1.2.0",
-            "applicability_state": "unknown",
-            "result_state": "unknown",
+            "applicability_state": "unavailable",
+            "result_state": "unavailable",
             "score_or_value": null,
             "component_results": {},
             "input_periods": [],
-            "statement_scope": null,
-            "required_inputs": [],
+            "statement_scope": "consolidated",
+            "required_inputs": [
+              "net_income",
+              "revenue",
+              "total_assets",
+              "shareholders_equity"
+            ],
             "used_inputs": [],
             "used_input_facts": {},
-            "input_classification": {},
-            "missing_inputs": [],
-            "provenance": "financial_canonical",
-            "warnings": [
-              "no_compatible_known_scope_canonical_records"
+            "input_classification": {
+              "net_income": "qualified",
+              "revenue": "missing",
+              "total_assets": "missing",
+              "shareholders_equity": "qualified"
+            },
+            "missing_inputs": [
+              "revenue",
+              "total_assets"
             ],
+            "provenance": "financial_canonical",
+            "warnings": [],
             "interpretation_limits": [
               "Numeric result is not automatically actionable."
             ],
             "is_actionable": false,
-            "status": "unknown",
-            "applicability": "unknown",
+            "status": "unavailable",
+            "applicability": "unavailable",
             "is_partial": false,
-            "blocking_reasons": [],
+            "blocking_reasons": [
+              "revenue",
+              "total_assets"
+            ],
             "limitations": [
               "Numeric result is not automatically actionable."
             ]
@@ -54531,27 +54900,88 @@
           "earnings_quality": {
             "model_name": "earnings_quality",
             "model_version": "1.2.0",
-            "applicability_state": "unknown",
-            "result_state": "unknown",
-            "score_or_value": null,
+            "applicability_state": "available",
+            "result_state": "available",
+            "score_or_value": -1096295534823,
             "component_results": {},
-            "input_periods": [],
-            "statement_scope": null,
-            "required_inputs": [],
-            "used_inputs": [],
-            "used_input_facts": {},
-            "input_classification": {},
+            "input_periods": [
+              {
+                "fiscal_year": 2025,
+                "fiscal_quarter": null,
+                "period_type": "annual",
+                "period_end": "2025-12-31",
+                "report_published_at": null,
+                "period": "2025"
+              },
+              {
+                "fiscal_year": 2025,
+                "fiscal_quarter": null,
+                "period_type": "annual",
+                "period_end": "2025-12-31",
+                "report_published_at": null,
+                "period": "2025"
+              }
+            ],
+            "statement_scope": "consolidated",
+            "required_inputs": [
+              "operating_cash_flow",
+              "net_income"
+            ],
+            "used_inputs": [
+              "operating_cash_flow",
+              "net_income"
+            ],
+            "used_input_facts": {
+              "operating_cash_flow": {
+                "value": 10136043915911,
+                "period_identity": {
+                  "fiscal_year": 2025,
+                  "fiscal_quarter": null,
+                  "period_type": "annual",
+                  "period_end": "2025-12-31",
+                  "report_published_at": null,
+                  "period": "2025"
+                },
+                "statement_scope": "consolidated",
+                "currency": "VND",
+                "unit_scale": 1,
+                "source": "official_evidence",
+                "observation_ids": null,
+                "citation_id": null,
+                "evidence_id": null
+              },
+              "net_income": {
+                "value": 11232339450734,
+                "period_identity": {
+                  "fiscal_year": 2025,
+                  "fiscal_quarter": null,
+                  "period_type": "annual",
+                  "period_end": "2025-12-31",
+                  "report_published_at": null,
+                  "period": "2025"
+                },
+                "statement_scope": "consolidated",
+                "currency": "VND",
+                "unit_scale": 1,
+                "source": "official_evidence",
+                "observation_ids": null,
+                "citation_id": null,
+                "evidence_id": null
+              }
+            },
+            "input_classification": {
+              "operating_cash_flow": "qualified",
+              "net_income": "qualified"
+            },
             "missing_inputs": [],
             "provenance": "financial_canonical",
-            "warnings": [
-              "no_compatible_known_scope_canonical_records"
-            ],
+            "warnings": [],
             "interpretation_limits": [
               "Numeric result is not automatically actionable."
             ],
             "is_actionable": false,
-            "status": "unknown",
-            "applicability": "unknown",
+            "status": "available",
+            "applicability": "available",
             "is_partial": false,
             "blocking_reasons": [],
             "limitations": [
@@ -54561,29 +54991,39 @@
           "financial_strength": {
             "model_name": "financial_strength",
             "model_version": "1.2.0",
-            "applicability_state": "unknown",
-            "result_state": "unknown",
+            "applicability_state": "unavailable",
+            "result_state": "unavailable",
             "score_or_value": null,
             "component_results": {},
             "input_periods": [],
-            "statement_scope": null,
-            "required_inputs": [],
+            "statement_scope": "consolidated",
+            "required_inputs": [
+              "total_debt",
+              "cash_and_equivalents",
+              "shareholders_equity"
+            ],
             "used_inputs": [],
             "used_input_facts": {},
-            "input_classification": {},
-            "missing_inputs": [],
-            "provenance": "financial_canonical",
-            "warnings": [
-              "no_compatible_known_scope_canonical_records"
+            "input_classification": {
+              "total_debt": "missing",
+              "cash_and_equivalents": "qualified",
+              "shareholders_equity": "qualified"
+            },
+            "missing_inputs": [
+              "total_debt"
             ],
+            "provenance": "financial_canonical",
+            "warnings": [],
             "interpretation_limits": [
               "Numeric result is not automatically actionable."
             ],
             "is_actionable": false,
-            "status": "unknown",
-            "applicability": "unknown",
+            "status": "unavailable",
+            "applicability": "unavailable",
             "is_partial": false,
-            "blocking_reasons": [],
+            "blocking_reasons": [
+              "total_debt"
+            ],
             "limitations": [
               "Numeric result is not automatically actionable."
             ]
@@ -54591,29 +55031,39 @@
           "piotroski_f_score": {
             "model_name": "piotroski_f_score",
             "model_version": "1.2.0",
-            "applicability_state": "unknown",
-            "result_state": "unknown",
+            "applicability_state": "unavailable",
+            "result_state": "unavailable",
             "score_or_value": null,
             "component_results": {},
             "input_periods": [],
-            "statement_scope": null,
-            "required_inputs": [],
+            "statement_scope": "consolidated",
+            "required_inputs": [
+              "net_income",
+              "operating_cash_flow",
+              "total_assets"
+            ],
             "used_inputs": [],
             "used_input_facts": {},
-            "input_classification": {},
-            "missing_inputs": [],
-            "provenance": "financial_canonical",
-            "warnings": [
-              "no_compatible_known_scope_canonical_records"
+            "input_classification": {
+              "net_income": "qualified",
+              "operating_cash_flow": "qualified",
+              "total_assets": "missing"
+            },
+            "missing_inputs": [
+              "total_assets"
             ],
+            "provenance": "financial_canonical",
+            "warnings": [],
             "interpretation_limits": [
               "Numeric result is not automatically actionable."
             ],
             "is_actionable": false,
-            "status": "unknown",
-            "applicability": "unknown",
+            "status": "unavailable",
+            "applicability": "unavailable",
             "is_partial": false,
-            "blocking_reasons": [],
+            "blocking_reasons": [
+              "total_assets"
+            ],
             "limitations": [
               "Numeric result is not automatically actionable."
             ]
@@ -54621,8 +55071,8 @@
           "altman_z_score": {
             "model_name": "altman_z_score",
             "model_version": "1.2.0",
-            "applicability_state": "unknown",
-            "result_state": "unknown",
+            "applicability_state": "inapplicable",
+            "result_state": "inapplicable",
             "score_or_value": null,
             "component_results": {},
             "input_periods": [],
@@ -54634,25 +55084,27 @@
             "missing_inputs": [],
             "provenance": "financial_canonical",
             "warnings": [
-              "no_compatible_known_scope_canonical_records"
+              "qualified_altman_variant_not_available_ebit_retained_earnings_and_working_capital_are_not_qualified_canonical_metrics"
             ],
             "interpretation_limits": [
               "Numeric result is not automatically actionable."
             ],
             "is_actionable": false,
-            "status": "unknown",
-            "applicability": "unknown",
+            "status": "inapplicable",
+            "applicability": "inapplicable",
             "is_partial": false,
-            "blocking_reasons": [],
+            "blocking_reasons": [
+              "qualified_altman_variant_not_available_ebit_retained_earnings_and_working_capital_are_not_qualified_canonical_metrics"
+            ],
             "limitations": [
-              "Numeric result is not automatically actionable."
+              "qualified_altman_variant_not_available_ebit_retained_earnings_and_working_capital_are_not_qualified_canonical_metrics"
             ]
           },
           "beneish_m_score": {
             "model_name": "beneish_m_score",
             "model_version": "1.2.0",
-            "applicability_state": "unknown",
-            "result_state": "unknown",
+            "applicability_state": "unavailable",
+            "result_state": "unavailable",
             "score_or_value": null,
             "component_results": {},
             "input_periods": [],
@@ -54664,25 +55116,27 @@
             "missing_inputs": [],
             "provenance": "financial_canonical",
             "warnings": [
-              "no_compatible_known_scope_canonical_records"
+              "exact_beneish_variables_not_available_requires_verified_comparative_period_not_available"
             ],
             "interpretation_limits": [
               "Numeric result is not automatically actionable."
             ],
             "is_actionable": false,
-            "status": "unknown",
-            "applicability": "unknown",
+            "status": "unavailable",
+            "applicability": "unavailable",
             "is_partial": false,
-            "blocking_reasons": [],
+            "blocking_reasons": [
+              "exact_beneish_variables_not_available_requires_verified_comparative_period_not_available"
+            ],
             "limitations": [
-              "Numeric result is not automatically actionable."
+              "exact_beneish_variables_not_available_requires_verified_comparative_period_not_available"
             ]
           },
           "bank_financial_quality": {
             "model_name": "bank_financial_quality",
             "model_version": "1.2.0",
-            "applicability_state": "unknown",
-            "result_state": "unknown",
+            "applicability_state": "inapplicable",
+            "result_state": "inapplicable",
             "score_or_value": null,
             "component_results": {},
             "input_periods": [],
@@ -54690,29 +55144,33 @@
             "required_inputs": [],
             "used_inputs": [],
             "used_input_facts": {},
-            "input_classification": {},
+            "input_classification": {
+              "sector": "sector-inapplicable"
+            },
             "missing_inputs": [],
             "provenance": "financial_canonical",
             "warnings": [
-              "no_compatible_known_scope_canonical_records"
+              "bank_variant_not_applicable_to_corporate_entity"
             ],
             "interpretation_limits": [
               "Numeric result is not automatically actionable."
             ],
             "is_actionable": false,
-            "status": "unknown",
-            "applicability": "unknown",
+            "status": "inapplicable",
+            "applicability": "inapplicable",
             "is_partial": false,
-            "blocking_reasons": [],
+            "blocking_reasons": [
+              "bank_variant_not_applicable_to_corporate_entity"
+            ],
             "limitations": [
-              "Numeric result is not automatically actionable."
+              "bank_variant_not_applicable_to_corporate_entity"
             ]
           }
         }
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -54728,10 +55186,8 @@
             "required_inputs": [],
             "used_inputs": [],
             "missing_inputs": [
-              "canonical_scope_or_quality_unqualified:operating_cash_flow",
               "canonical_scope_or_quality_unqualified:capital_expenditure",
               "canonical_scope_or_quality_unqualified:total_debt",
-              "canonical_scope_or_quality_unqualified:cash_and_equivalents",
               "sourced_wacc_terminal_growth_and_forecast"
             ],
             "scenario_name": null,
@@ -54761,7 +55217,6 @@
             "used_inputs": [],
             "missing_inputs": [
               "canonical_scope_or_quality_unqualified:current_assets",
-              "canonical_scope_or_quality_unqualified:cash_and_equivalents",
               "canonical_scope_or_quality_unqualified:receivables",
               "canonical_scope_or_quality_unqualified:inventory",
               "canonical_scope_or_quality_unqualified:total_liabilities",
@@ -54786,18 +55241,18 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
           "facts": [],
           "data_warnings": [
             "market_technical_not_ready_or_current",
-            "qualified_financial_quality_model_missing",
+            "financial_quality_lineage_missing_or_conflicting",
             "qualified_actionable_valuation_missing",
             "qualified_complete_current_catalyst_evidence_missing",
             "technical_invalidation_not_current_or_qualified",
-            "no_qualified_opportunity_dimensions"
+            "one_or_more_dimension_conflicting_or_blocked"
           ],
           "unknowns": [
             "current_technical_confirmation",
@@ -54808,11 +55263,11 @@
         },
         "data_warnings": [
           "market_technical_not_ready_or_current",
-          "qualified_financial_quality_model_missing",
+          "financial_quality_lineage_missing_or_conflicting",
           "qualified_actionable_valuation_missing",
           "qualified_complete_current_catalyst_evidence_missing",
           "technical_invalidation_not_current_or_qualified",
-          "no_qualified_opportunity_dimensions"
+          "one_or_more_dimension_conflicting_or_blocked"
         ],
         "unknowns": [
           "current_technical_confirmation",
@@ -54916,14 +55371,14 @@
           "above_sma50 becomes false"
         ],
         "time_horizon": "current_market_observation_only",
-        "confidence_state": "unknown",
+        "confidence_state": "incomparable",
         "interpretation_limits": [
           "No numerical probability, target price, recommendation, or inference from absent events."
         ]
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -55185,7 +55640,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -55207,11 +55662,11 @@
             "reference_range": null,
             "implied_value_range": null,
             "missing_inputs": [
-              "canonical_input_not_available"
+              "actionable_current_price",
+              "qualified_weighted_average_share_count",
+              "price_financial_period_alignment"
             ],
-            "warnings": [
-              "negative_or_zero_denominator_not_normalized"
-            ],
+            "warnings": [],
             "interpretation_limits": [
               "No target price is produced by this contract."
             ],
@@ -55236,11 +55691,12 @@
             "reference_range": null,
             "implied_value_range": null,
             "missing_inputs": [
-              "canonical_input_not_available"
+              "actionable_current_price",
+              "qualified_period_end_share_count",
+              "price_share_period_alignment",
+              "price_financial_period_alignment"
             ],
-            "warnings": [
-              "negative_or_zero_denominator_not_normalized"
-            ],
+            "warnings": [],
             "interpretation_limits": [
               "No target price is produced by this contract."
             ],
@@ -55296,7 +55752,6 @@
             "missing_inputs": [
               "required_input_missing",
               "canonical_input_not_available",
-              "canonical_input_not_available",
               "actionable_current_price",
               "qualified_period_end_share_count",
               "price_share_period_alignment"
@@ -55330,7 +55785,6 @@
             "missing_inputs": [
               "canonical_input_not_available",
               "canonical_input_not_available",
-              "canonical_input_not_available",
               "actionable_current_price",
               "qualified_period_end_share_count",
               "price_share_period_alignment"
@@ -55354,7 +55808,7 @@
           "metrics": {
             "pe": {
               "value": 15.53,
-              "price_date": "2026-08-10",
+              "price_date": "2026-08-19",
               "denominator_measure": "vendor_unspecified",
               "financial_period": "vendor_unspecified",
               "share_basis": "vendor_unspecified",
@@ -55367,7 +55821,7 @@
             },
             "pb": {
               "value": 3.7,
-              "price_date": "2026-08-10",
+              "price_date": "2026-08-19",
               "denominator_measure": "vendor_unspecified",
               "financial_period": "vendor_unspecified",
               "share_basis": "vendor_unspecified",
@@ -55379,7 +55833,7 @@
               ]
             }
           },
-          "observed_at": "2026-08-10",
+          "observed_at": "2026-08-19",
           "provider": "unknown_vendor"
         },
         "historical_calculated": {
@@ -55440,8 +55894,8 @@
         "ticker": "FPT",
         "current_market": {
           "value": null,
-          "effective_date": "2026-08-10",
-          "observed_at": "2026-08-10",
+          "effective_date": "2026-08-19",
+          "observed_at": "2026-08-19",
           "basis_type": "current_market_shares_outstanding",
           "source": "live_market_snapshot",
           "provenance": "live_market_snapshot",
@@ -55538,62 +55992,6 @@
         }
       },
       "ohlcv_recent": [
-        {
-          "date": "2026-06-30",
-          "open": 70500.0,
-          "high": 70800.0,
-          "low": 70200.0,
-          "close": 70200.0,
-          "volume": 6075800
-        },
-        {
-          "date": "2026-07-01",
-          "open": 70400.0,
-          "high": 73200.0,
-          "low": 70300.0,
-          "close": 72900.0,
-          "volume": 11630500
-        },
-        {
-          "date": "2026-07-02",
-          "open": 72900.0,
-          "high": 73300.0,
-          "low": 72500.0,
-          "close": 72500.0,
-          "volume": 5690500
-        },
-        {
-          "date": "2026-07-03",
-          "open": 72500.0,
-          "high": 73100.0,
-          "low": 71700.0,
-          "close": 72300.0,
-          "volume": 7490500
-        },
-        {
-          "date": "2026-07-06",
-          "open": 72400.0,
-          "high": 74000.0,
-          "low": 71900.0,
-          "close": 73000.0,
-          "volume": 11200200
-        },
-        {
-          "date": "2026-07-07",
-          "open": 73000.0,
-          "high": 73700.0,
-          "low": 72500.0,
-          "close": 73200.0,
-          "volume": 4557200
-        },
-        {
-          "date": "2026-07-08",
-          "open": 72400.0,
-          "high": 72800.0,
-          "low": 71500.0,
-          "close": 72100.0,
-          "volume": 6741600
-        },
         {
           "date": "2026-07-09",
           "open": 71800.0,
@@ -55777,6 +56175,62 @@
           "low": 70700.0,
           "close": 71800.0,
           "volume": 5252100
+        },
+        {
+          "date": "2026-08-11",
+          "open": 71600.0,
+          "high": 73100.0,
+          "low": 71000.0,
+          "close": 71200.0,
+          "volume": 6936800
+        },
+        {
+          "date": "2026-08-12",
+          "open": 71200.0,
+          "high": 71900.0,
+          "low": 70600.0,
+          "close": 70800.0,
+          "volume": 3685600
+        },
+        {
+          "date": "2026-08-13",
+          "open": 71000.0,
+          "high": 71300.0,
+          "low": 69200.0,
+          "close": 69200.0,
+          "volume": 7458000
+        },
+        {
+          "date": "2026-08-14",
+          "open": 69300.0,
+          "high": 69600.0,
+          "low": 68000.0,
+          "close": 68300.0,
+          "volume": 7123800
+        },
+        {
+          "date": "2026-08-17",
+          "open": 68400.0,
+          "high": 69400.0,
+          "low": 68400.0,
+          "close": 68800.0,
+          "volume": 4104500
+        },
+        {
+          "date": "2026-08-18",
+          "open": 68800.0,
+          "high": 69300.0,
+          "low": 68200.0,
+          "close": 69000.0,
+          "volume": 3383800
+        },
+        {
+          "date": "2026-08-19",
+          "open": 69000.0,
+          "high": 69200.0,
+          "low": 68600.0,
+          "close": 68900.0,
+          "volume": 1821000
         }
       ],
       "ohlcv_recent_count": 30,
@@ -55874,8 +56328,8 @@
       },
       "freshness": {
         "daily_prices": {
-          "generated_at": "2026-08-11T13:02:44+00:00",
-          "as_of_date": "2026-08-10",
+          "generated_at": "2026-08-19T11:24:48+00:00",
+          "as_of_date": "2026-08-19",
           "source": "screen_snapshot_live.csv",
           "freshness_status": "current",
           "expected_update_frequency": "1d",
@@ -55883,8 +56337,8 @@
           "is_actionable": true
         },
         "technical_signals": {
-          "generated_at": "2026-08-11T13:03:40+00:00",
-          "as_of_date": "2026-08-10",
+          "generated_at": "2026-08-19T11:33:14+00:00",
+          "as_of_date": "2026-08-19",
           "source": "ta_signals.csv",
           "freshness_status": "current",
           "expected_update_frequency": "1d",
@@ -55892,8 +56346,8 @@
           "is_actionable": true
         },
         "ai_report": {
-          "generated_at": "2026-08-11T20:08:00+00:00",
-          "as_of_date": "2026-08-10",
+          "generated_at": "2026-08-19T18:37:00+00:00",
+          "as_of_date": "2026-08-19",
           "source": "analysis_latest.json",
           "freshness_status": "current",
           "expected_update_frequency": "1d",
@@ -55911,7 +56365,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -55970,14 +56424,14 @@
         "schema_version": "1.0.0",
         "ticker": "FPT",
         "entity_type": "corporate",
-        "state": "unknown",
+        "state": "incomparable",
         "dimensions": {
           "financial_quality": {
             "dimension": "financial_quality",
-            "state": "unavailable",
+            "state": "incomparable",
             "facts": [],
             "data_warnings": [
-              "qualified_financial_quality_model_missing"
+              "financial_quality_lineage_missing_or_conflicting"
             ],
             "reason": null,
             "is_actionable": false
@@ -56024,32 +56478,32 @@
           },
           "data_confidence": {
             "dimension": "data_confidence",
-            "state": "unknown",
+            "state": "incomparable",
             "facts": [],
             "data_warnings": [
-              "no_qualified_opportunity_dimensions"
+              "one_or_more_dimension_conflicting_or_blocked"
             ],
             "reason": null,
             "is_actionable": false
           }
         },
         "ranking_key": [
-          3,
+          6,
           3,
           3,
           4,
           4,
-          4,
+          6,
           "FPT"
         ],
         "facts": [],
         "data_warnings": [
-          "qualified_financial_quality_model_missing",
+          "financial_quality_lineage_missing_or_conflicting",
           "qualified_actionable_valuation_missing",
           "market_technical_not_ready_or_current",
           "qualified_complete_current_catalyst_evidence_missing",
           "technical_invalidation_not_current_or_qualified",
-          "no_qualified_opportunity_dimensions"
+          "one_or_more_dimension_conflicting_or_blocked"
         ],
         "inferences": [],
         "hypotheses": [],
@@ -56061,38 +56515,38 @@
     "QNS": {
       "snapshot": {
         "ticker": "QNS",
-        "date": "2026-08-10",
-        "close": 47000.0,
-        "chg_today_pct": 0.0,
-        "gtgd20_ty": 5.05,
-        "rel_vol": 2.06,
-        "rsi14": 35.4,
-        "macd_hist": -55.9,
-        "bb_pctb": 0.22,
-        "atr_pct": 0.89,
+        "date": "2026-08-19",
+        "close": 45600.0,
+        "chg_today_pct": 0.44,
+        "gtgd20_ty": 5.993,
+        "rel_vol": 1.36,
+        "rsi14": 25.7,
+        "macd_hist": -128.5,
+        "bb_pctb": 0.12,
+        "atr_pct": 1.12,
         "above_sma50": false,
-        "above_sma200": true,
+        "above_sma200": false,
         "golden_cross": true,
-        "pct_from_52w_high": -5.2,
+        "pct_from_52w_high": -8.1,
         "near_52w_high": false,
-        "pct_above_52w_low": 23.5,
-        "ret_1m": -3.1,
-        "ret_3m": -4.1,
-        "ret_6m": 1.1,
-        "ret_12m": 4.4,
+        "pct_above_52w_low": 19.8,
+        "ret_1m": -5.4,
+        "ret_3m": -6.2,
+        "ret_6m": -2.9,
+        "ret_12m": 1.1,
         "structure": "side",
-        "dist_swing_low_pct": 0.6,
-        "source_generated_at": "2026-08-11T13:02:44Z",
+        "dist_swing_low_pct": -2.4,
+        "source_generated_at": "2026-08-19T11:24:48Z",
         "exchange": "UPCOM",
         "industry": "Thực phẩm và đồ uống",
-        "foreign_room_pct": 81.37,
+        "foreign_room_pct": 81.75,
         "pe": 9.01,
         "pb": 1.74,
         "roe": 19.37,
         "free_float_est": 0.6821,
         "margin_status": null,
-        "latest_price_date": "2026-08-10",
-        "reference_market_date": "2026-08-10",
+        "latest_price_date": "2026-08-19",
+        "reference_market_date": "2026-08-19",
         "days_stale": 0,
         "instrument_type": "STOCK",
         "listing_exchange": "UPCOM",
@@ -56101,32 +56555,32 @@
         "live_universe_status": "live",
         "live_universe_reason": "eligible_equity_current_session",
         "is_live": true,
-        "rs_rating": 71
+        "rs_rating": 68
       },
-      "canonical_rs_rating": 71,
+      "canonical_rs_rating": 68,
       "rs_rating_reconciliation": {
-        "canonical_rs_rating": 71,
+        "canonical_rs_rating": 68,
         "canonical_source": "screen_snapshot_live.csv:rs_rating (tính 1 lần trong vn_indicators.py main(), percentile-rank chỉ trên tập mã LIVE — xem P0-1).",
-        "canonical_as_of": "2026-08-11T20:03:22+07:00",
-        "ta_signals_cached_rs_rating": 71.0,
-        "ta_signals_cached_as_of": "2026-08-11T20:08:18+07:00",
+        "canonical_as_of": "2026-08-19T18:25:22+07:00",
+        "ta_signals_cached_rs_rating": 68.0,
+        "ta_signals_cached_as_of": "2026-08-19T18:36:42+07:00",
         "matches_canonical": true,
         "explanation": "Khớp — ta_signals.csv đang phản ánh đúng lần chạy vn_indicators.py gần nhất."
       },
       "ta_signal": {
         "ticker": "QNS",
-        "date": "2026-08-10",
-        "source_generated_at": "2026-08-11T13:03:40Z",
-        "close": 47000.0,
-        "volume": 218200,
-        "patterns": "doji",
+        "date": "2026-08-19",
+        "source_generated_at": "2026-08-19T11:33:14Z",
+        "close": 45600.0,
+        "volume": 174600,
+        "patterns": "inside_bar",
         "smc": null,
         "confluence": false,
         "direction": "neutral",
         "industry": "Thực phẩm và đồ uống",
-        "rs_rating": 71.0,
-        "rel_vol": 2.06,
-        "gtgd20_ty": 5.05,
+        "rs_rating": 68.0,
+        "rel_vol": 1.36,
+        "gtgd20_ty": 5.993,
         "margin_status": null
       },
       "ta_signal_semantics": {
@@ -56139,13 +56593,13 @@
         "is_actionable": false
       },
       "analysis_score": {
-        "session_date": "2026-08-10",
+        "session_date": "2026-08-19",
         "regime": "phòng thủ",
         "values": {
-          "score": 66.1,
+          "score": 59.3,
           "fundamental": 85,
-          "technical": 56,
-          "momentum": 51,
+          "technical": 32,
+          "momentum": 41,
           "liquidity": 65,
           "macro": 37,
           "risk": 100
@@ -60378,7 +60832,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -60449,7 +60903,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -60586,7 +61040,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -60848,7 +61302,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -61016,7 +61470,7 @@
           "metrics": {
             "pe": {
               "value": 9.01,
-              "price_date": "2026-08-10",
+              "price_date": "2026-08-19",
               "denominator_measure": "vendor_unspecified",
               "financial_period": "vendor_unspecified",
               "share_basis": "vendor_unspecified",
@@ -61029,7 +61483,7 @@
             },
             "pb": {
               "value": 1.74,
-              "price_date": "2026-08-10",
+              "price_date": "2026-08-19",
               "denominator_measure": "vendor_unspecified",
               "financial_period": "vendor_unspecified",
               "share_basis": "vendor_unspecified",
@@ -61041,7 +61495,7 @@
               ]
             }
           },
-          "observed_at": "2026-08-10",
+          "observed_at": "2026-08-19",
           "provider": "unknown_vendor"
         },
         "historical_calculated": {
@@ -61102,8 +61556,8 @@
         "ticker": "QNS",
         "current_market": {
           "value": null,
-          "effective_date": "2026-08-10",
-          "observed_at": "2026-08-10",
+          "effective_date": "2026-08-19",
+          "observed_at": "2026-08-19",
           "basis_type": "current_market_shares_outstanding",
           "source": "live_market_snapshot",
           "provenance": "live_market_snapshot",
@@ -61200,62 +61654,6 @@
         }
       },
       "ohlcv_recent": [
-        {
-          "date": "2026-06-30",
-          "open": 49100.0,
-          "high": 49200.0,
-          "low": 48900.0,
-          "close": 48900.0,
-          "volume": 114600
-        },
-        {
-          "date": "2026-07-01",
-          "open": 49200.0,
-          "high": 49200.0,
-          "low": 48600.0,
-          "close": 49100.0,
-          "volume": 53700
-        },
-        {
-          "date": "2026-07-02",
-          "open": 48900.0,
-          "high": 49400.0,
-          "low": 48800.0,
-          "close": 49100.0,
-          "volume": 84600
-        },
-        {
-          "date": "2026-07-03",
-          "open": 48700.0,
-          "high": 49200.0,
-          "low": 48600.0,
-          "close": 48900.0,
-          "volume": 83500
-        },
-        {
-          "date": "2026-07-06",
-          "open": 49100.0,
-          "high": 49600.0,
-          "low": 48800.0,
-          "close": 49100.0,
-          "volume": 508500
-        },
-        {
-          "date": "2026-07-07",
-          "open": 48800.0,
-          "high": 49400.0,
-          "low": 48600.0,
-          "close": 49000.0,
-          "volume": 76500
-        },
-        {
-          "date": "2026-07-08",
-          "open": 49100.0,
-          "high": 49100.0,
-          "low": 48800.0,
-          "close": 49100.0,
-          "volume": 21200
-        },
         {
           "date": "2026-07-09",
           "open": 48900.0,
@@ -61439,6 +61837,62 @@
           "low": 46900.0,
           "close": 47000.0,
           "volume": 218200
+        },
+        {
+          "date": "2026-08-11",
+          "open": 47900.0,
+          "high": 47900.0,
+          "low": 46700.0,
+          "close": 46700.0,
+          "volume": 154200
+        },
+        {
+          "date": "2026-08-12",
+          "open": 45790.0,
+          "high": 46190.0,
+          "low": 45700.0,
+          "close": 45890.0,
+          "volume": 105226
+        },
+        {
+          "date": "2026-08-13",
+          "open": 46090.0,
+          "high": 46190.0,
+          "low": 45500.0,
+          "close": 45890.0,
+          "volume": 124878
+        },
+        {
+          "date": "2026-08-14",
+          "open": 45890.0,
+          "high": 45890.0,
+          "low": 45600.0,
+          "close": 45600.0,
+          "volume": 74182
+        },
+        {
+          "date": "2026-08-17",
+          "open": 45700.0,
+          "high": 45790.0,
+          "low": 45400.0,
+          "close": 45600.0,
+          "volume": 111734
+        },
+        {
+          "date": "2026-08-18",
+          "open": 46100.0,
+          "high": 46100.0,
+          "low": 45300.0,
+          "close": 45400.0,
+          "volume": 241318
+        },
+        {
+          "date": "2026-08-19",
+          "open": 45800.0,
+          "high": 45800.0,
+          "low": 45400.0,
+          "close": 45600.0,
+          "volume": 174600
         }
       ],
       "ohlcv_recent_count": 30,
@@ -61536,8 +61990,8 @@
       },
       "freshness": {
         "daily_prices": {
-          "generated_at": "2026-08-11T13:02:44+00:00",
-          "as_of_date": "2026-08-10",
+          "generated_at": "2026-08-19T11:24:48+00:00",
+          "as_of_date": "2026-08-19",
           "source": "screen_snapshot_live.csv",
           "freshness_status": "current",
           "expected_update_frequency": "1d",
@@ -61545,8 +61999,8 @@
           "is_actionable": true
         },
         "technical_signals": {
-          "generated_at": "2026-08-11T13:03:40+00:00",
-          "as_of_date": "2026-08-10",
+          "generated_at": "2026-08-19T11:33:14+00:00",
+          "as_of_date": "2026-08-19",
           "source": "ta_signals.csv",
           "freshness_status": "current",
           "expected_update_frequency": "1d",
@@ -61554,8 +62008,8 @@
           "is_actionable": true
         },
         "ai_report": {
-          "generated_at": "2026-08-11T20:08:00+00:00",
-          "as_of_date": "2026-08-10",
+          "generated_at": "2026-08-19T18:37:00+00:00",
+          "as_of_date": "2026-08-19",
           "source": "analysis_latest.json",
           "freshness_status": "current",
           "expected_update_frequency": "1d",
@@ -61573,7 +62027,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -61723,38 +62177,38 @@
     "VNM": {
       "snapshot": {
         "ticker": "VNM",
-        "date": "2026-08-10",
-        "close": 62100.0,
-        "chg_today_pct": 0.16,
-        "gtgd20_ty": 329.208,
-        "rel_vol": 0.63,
-        "rsi14": 65.4,
-        "macd_hist": 215.6,
-        "bb_pctb": 0.94,
-        "atr_pct": 2.34,
+        "date": "2026-08-19",
+        "close": 63100.0,
+        "chg_today_pct": 1.61,
+        "gtgd20_ty": 295.048,
+        "rel_vol": 0.96,
+        "rsi14": 68.1,
+        "macd_hist": 122.1,
+        "bb_pctb": 0.9,
+        "atr_pct": 2.24,
         "above_sma50": true,
         "above_sma200": true,
         "golden_cross": false,
-        "pct_from_52w_high": -15.1,
+        "pct_from_52w_high": -13.7,
         "near_52w_high": false,
-        "pct_above_52w_low": 16.6,
-        "ret_1m": 9.7,
-        "ret_3m": 8.2,
-        "ret_6m": -10.4,
-        "ret_12m": 11.7,
-        "structure": "side",
-        "dist_swing_low_pct": 6.0,
-        "source_generated_at": "2026-08-11T13:02:44Z",
+        "pct_above_52w_low": 18.5,
+        "ret_1m": 8.0,
+        "ret_3m": 9.5,
+        "ret_6m": -5.6,
+        "ret_12m": 10.6,
+        "structure": "up",
+        "dist_swing_low_pct": 3.4,
+        "source_generated_at": "2026-08-19T11:24:48Z",
         "exchange": "HSX",
         "industry": "Thực phẩm và đồ uống",
-        "foreign_room_pct": 50.49,
-        "pe": 13.59,
-        "pb": 3.71,
-        "roe": 28.9,
-        "free_float_est": 0.4164,
+        "foreign_room_pct": 50.36,
+        "pe": 14.42,
+        "pb": 3.3,
+        "roe": 26.37,
+        "free_float_est": 0.4171,
         "margin_status": null,
-        "latest_price_date": "2026-08-10",
-        "reference_market_date": "2026-08-10",
+        "latest_price_date": "2026-08-19",
+        "reference_market_date": "2026-08-19",
         "days_stale": 0,
         "instrument_type": "STOCK",
         "listing_exchange": "HSX",
@@ -61763,32 +62217,32 @@
         "live_universe_status": "live",
         "live_universe_reason": "eligible_equity_current_session",
         "is_live": true,
-        "rs_rating": 81
+        "rs_rating": 82
       },
-      "canonical_rs_rating": 81,
+      "canonical_rs_rating": 82,
       "rs_rating_reconciliation": {
-        "canonical_rs_rating": 81,
+        "canonical_rs_rating": 82,
         "canonical_source": "screen_snapshot_live.csv:rs_rating (tính 1 lần trong vn_indicators.py main(), percentile-rank chỉ trên tập mã LIVE — xem P0-1).",
-        "canonical_as_of": "2026-08-11T20:03:22+07:00",
-        "ta_signals_cached_rs_rating": 81.0,
-        "ta_signals_cached_as_of": "2026-08-11T20:08:18+07:00",
+        "canonical_as_of": "2026-08-19T18:25:22+07:00",
+        "ta_signals_cached_rs_rating": 82.0,
+        "ta_signals_cached_as_of": "2026-08-19T18:36:42+07:00",
         "matches_canonical": true,
         "explanation": "Khớp — ta_signals.csv đang phản ánh đúng lần chạy vn_indicators.py gần nhất."
       },
       "ta_signal": {
         "ticker": "VNM",
-        "date": "2026-08-10",
-        "source_generated_at": "2026-08-11T13:03:40Z",
-        "close": 62100.0,
-        "volume": 3480200,
-        "patterns": "inside_bar",
-        "smc": "fvg_bull",
+        "date": "2026-08-19",
+        "source_generated_at": "2026-08-19T11:33:14Z",
+        "close": 63100.0,
+        "volume": 4664900,
+        "patterns": "bullish_engulfing",
+        "smc": null,
         "confluence": false,
         "direction": "bullish",
         "industry": "Thực phẩm và đồ uống",
-        "rs_rating": 81.0,
-        "rel_vol": 0.63,
-        "gtgd20_ty": 329.208,
+        "rs_rating": 82.0,
+        "rel_vol": 0.96,
+        "gtgd20_ty": 295.048,
         "margin_status": null
       },
       "ta_signal_semantics": {
@@ -61801,13 +62255,13 @@
         "is_actionable": false
       },
       "analysis_score": {
-        "session_date": "2026-08-10",
+        "session_date": "2026-08-19",
         "regime": "phòng thủ",
         "values": {
-          "score": 78.2,
-          "fundamental": 77,
-          "technical": 76,
-          "momentum": 75,
+          "score": 79.7,
+          "fundamental": 72,
+          "technical": 92,
+          "momentum": 73,
           "liquidity": 100,
           "macro": 37,
           "risk": 100
@@ -66468,7 +66922,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -66539,7 +66993,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -66678,7 +67132,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -66940,7 +67394,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -67107,8 +67561,8 @@
         "live_vendor": {
           "metrics": {
             "pe": {
-              "value": 13.59,
-              "price_date": "2026-08-10",
+              "value": 14.42,
+              "price_date": "2026-08-19",
               "denominator_measure": "vendor_unspecified",
               "financial_period": "vendor_unspecified",
               "share_basis": "vendor_unspecified",
@@ -67120,8 +67574,8 @@
               ]
             },
             "pb": {
-              "value": 3.71,
-              "price_date": "2026-08-10",
+              "value": 3.3,
+              "price_date": "2026-08-19",
               "denominator_measure": "vendor_unspecified",
               "financial_period": "vendor_unspecified",
               "share_basis": "vendor_unspecified",
@@ -67133,7 +67587,7 @@
               ]
             }
           },
-          "observed_at": "2026-08-10",
+          "observed_at": "2026-08-19",
           "provider": "unknown_vendor"
         },
         "historical_calculated": {
@@ -67194,8 +67648,8 @@
         "ticker": "VNM",
         "current_market": {
           "value": null,
-          "effective_date": "2026-08-10",
-          "observed_at": "2026-08-10",
+          "effective_date": "2026-08-19",
+          "observed_at": "2026-08-19",
           "basis_type": "current_market_shares_outstanding",
           "source": "live_market_snapshot",
           "provenance": "live_market_snapshot",
@@ -67292,62 +67746,6 @@
         }
       },
       "ohlcv_recent": [
-        {
-          "date": "2026-06-30",
-          "open": 56100.0,
-          "high": 56200.0,
-          "low": 54700.0,
-          "close": 54800.0,
-          "volume": 9342717
-        },
-        {
-          "date": "2026-07-01",
-          "open": 55000.0,
-          "high": 55500.0,
-          "low": 54800.0,
-          "close": 55200.0,
-          "volume": 2361716
-        },
-        {
-          "date": "2026-07-02",
-          "open": 55300.0,
-          "high": 56000.0,
-          "low": 55300.0,
-          "close": 55500.0,
-          "volume": 3681754
-        },
-        {
-          "date": "2026-07-03",
-          "open": 55500.0,
-          "high": 55700.0,
-          "low": 54700.0,
-          "close": 54900.0,
-          "volume": 4144347
-        },
-        {
-          "date": "2026-07-06",
-          "open": 55000.0,
-          "high": 55400.0,
-          "low": 54600.0,
-          "close": 55300.0,
-          "volume": 3223561
-        },
-        {
-          "date": "2026-07-07",
-          "open": 55200.0,
-          "high": 55300.0,
-          "low": 54900.0,
-          "close": 55100.0,
-          "volume": 1616241
-        },
-        {
-          "date": "2026-07-08",
-          "open": 55000.0,
-          "high": 55700.0,
-          "low": 55000.0,
-          "close": 55700.0,
-          "volume": 3711600
-        },
         {
           "date": "2026-07-09",
           "open": 55600.0,
@@ -67531,6 +67929,62 @@
           "low": 61600.0,
           "close": 62100.0,
           "volume": 3480200
+        },
+        {
+          "date": "2026-08-11",
+          "open": 62500.0,
+          "high": 63300.0,
+          "low": 61800.0,
+          "close": 62000.0,
+          "volume": 4475100
+        },
+        {
+          "date": "2026-08-12",
+          "open": 61900.0,
+          "high": 62500.0,
+          "low": 61400.0,
+          "close": 61800.0,
+          "volume": 2755600
+        },
+        {
+          "date": "2026-08-13",
+          "open": 61800.0,
+          "high": 63000.0,
+          "low": 61500.0,
+          "close": 61600.0,
+          "volume": 4257000
+        },
+        {
+          "date": "2026-08-14",
+          "open": 61600.0,
+          "high": 62600.0,
+          "low": 61000.0,
+          "close": 61600.0,
+          "volume": 3663300
+        },
+        {
+          "date": "2026-08-17",
+          "open": 61700.0,
+          "high": 63000.0,
+          "low": 61700.0,
+          "close": 62200.0,
+          "volume": 2965800
+        },
+        {
+          "date": "2026-08-18",
+          "open": 62200.0,
+          "high": 62600.0,
+          "low": 61800.0,
+          "close": 62100.0,
+          "volume": 1844100
+        },
+        {
+          "date": "2026-08-19",
+          "open": 61900.0,
+          "high": 63200.0,
+          "low": 61600.0,
+          "close": 63100.0,
+          "volume": 4664900
         }
       ],
       "ohlcv_recent_count": 30,
@@ -69569,7 +70023,7 @@
             "source": "VCI",
             "freshness_status": "stale",
             "expected_update_frequency": "1d",
-            "stale_reason": "source_age_16d_exceeds_7d_grace",
+            "stale_reason": "source_age_24d_exceeds_7d_grace",
             "is_actionable": false
           }
         },
@@ -69843,8 +70297,8 @@
       },
       "freshness": {
         "daily_prices": {
-          "generated_at": "2026-08-11T13:02:44+00:00",
-          "as_of_date": "2026-08-10",
+          "generated_at": "2026-08-19T11:24:48+00:00",
+          "as_of_date": "2026-08-19",
           "source": "screen_snapshot_live.csv",
           "freshness_status": "current",
           "expected_update_frequency": "1d",
@@ -69852,8 +70306,8 @@
           "is_actionable": true
         },
         "technical_signals": {
-          "generated_at": "2026-08-11T13:03:40+00:00",
-          "as_of_date": "2026-08-10",
+          "generated_at": "2026-08-19T11:33:14+00:00",
+          "as_of_date": "2026-08-19",
           "source": "ta_signals.csv",
           "freshness_status": "current",
           "expected_update_frequency": "1d",
@@ -69861,8 +70315,8 @@
           "is_actionable": true
         },
         "ai_report": {
-          "generated_at": "2026-08-11T20:08:00+00:00",
-          "as_of_date": "2026-08-10",
+          "generated_at": "2026-08-19T18:37:00+00:00",
+          "as_of_date": "2026-08-19",
           "source": "analysis_latest.json",
           "freshness_status": "current",
           "expected_update_frequency": "1d",
@@ -69880,7 +70334,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -70030,38 +70484,38 @@
     "PVD": {
       "snapshot": {
         "ticker": "PVD",
-        "date": "2026-08-10",
-        "close": 18250.0,
-        "chg_today_pct": 1.11,
-        "gtgd20_ty": 70.307,
-        "rel_vol": 0.67,
-        "rsi14": 32.7,
-        "macd_hist": 400.0,
-        "bb_pctb": 0.37,
-        "atr_pct": 5.13,
+        "date": "2026-08-19",
+        "close": 18400.0,
+        "chg_today_pct": -0.54,
+        "gtgd20_ty": 53.892,
+        "rel_vol": 0.52,
+        "rsi14": 37.9,
+        "macd_hist": 450.2,
+        "bb_pctb": 0.58,
+        "atr_pct": 4.31,
         "above_sma50": false,
         "above_sma200": false,
         "golden_cross": false,
-        "pct_from_52w_high": -59.9,
+        "pct_from_52w_high": -59.6,
         "near_52w_high": false,
-        "pct_above_52w_low": 5.2,
-        "ret_1m": -6.3,
-        "ret_3m": -46.2,
-        "ret_6m": -44.7,
-        "ret_12m": -10.9,
-        "structure": "down",
-        "dist_swing_low_pct": 3.1,
-        "source_generated_at": "2026-08-11T13:02:44Z",
+        "pct_above_52w_low": 6.1,
+        "ret_1m": -0.5,
+        "ret_3m": -41.7,
+        "ret_6m": -44.5,
+        "ret_12m": -17.8,
+        "structure": "side",
+        "dist_swing_low_pct": 4.2,
+        "source_generated_at": "2026-08-19T11:24:48Z",
         "exchange": "HSX",
         "industry": "Dầu khí",
-        "foreign_room_pct": 82.89,
-        "pe": 15.28,
-        "pb": 0.92,
-        "roe": 6.22,
+        "foreign_room_pct": 82.66,
+        "pe": 13.82,
+        "pb": 0.71,
+        "roe": 5.44,
         "free_float_est": 0.0,
         "margin_status": null,
-        "latest_price_date": "2026-08-10",
-        "reference_market_date": "2026-08-10",
+        "latest_price_date": "2026-08-19",
+        "reference_market_date": "2026-08-19",
         "days_stale": 0,
         "instrument_type": "STOCK",
         "listing_exchange": "HSX",
@@ -70070,32 +70524,32 @@
         "live_universe_status": "live",
         "live_universe_reason": "eligible_equity_current_session",
         "is_live": true,
-        "rs_rating": 8
+        "rs_rating": 10
       },
-      "canonical_rs_rating": 8,
+      "canonical_rs_rating": 10,
       "rs_rating_reconciliation": {
-        "canonical_rs_rating": 8,
+        "canonical_rs_rating": 10,
         "canonical_source": "screen_snapshot_live.csv:rs_rating (tính 1 lần trong vn_indicators.py main(), percentile-rank chỉ trên tập mã LIVE — xem P0-1).",
-        "canonical_as_of": "2026-08-11T20:03:22+07:00",
-        "ta_signals_cached_rs_rating": 8.0,
-        "ta_signals_cached_as_of": "2026-08-11T20:08:18+07:00",
+        "canonical_as_of": "2026-08-19T18:25:22+07:00",
+        "ta_signals_cached_rs_rating": 10.0,
+        "ta_signals_cached_as_of": "2026-08-19T18:36:42+07:00",
         "matches_canonical": true,
         "explanation": "Khớp — ta_signals.csv đang phản ánh đúng lần chạy vn_indicators.py gần nhất."
       },
       "ta_signal": {
         "ticker": "PVD",
-        "date": "2026-08-10",
-        "source_generated_at": "2026-08-11T13:03:40Z",
-        "close": 18250.0,
-        "volume": 2529500,
+        "date": "2026-08-19",
+        "source_generated_at": "2026-08-19T11:33:14Z",
+        "close": 18400.0,
+        "volume": 1528900,
         "patterns": "inside_bar",
-        "smc": "ob_bear",
+        "smc": "ob_bull",
         "confluence": false,
-        "direction": "bearish",
+        "direction": "bullish",
         "industry": "Dầu khí",
-        "rs_rating": 8.0,
-        "rel_vol": 0.67,
-        "gtgd20_ty": 70.307,
+        "rs_rating": 10.0,
+        "rel_vol": 0.52,
+        "gtgd20_ty": 53.892,
         "margin_status": null
       },
       "ta_signal_semantics": {
@@ -70108,13 +70562,13 @@
         "is_actionable": false
       },
       "analysis_score": {
-        "session_date": "2026-08-10",
+        "session_date": "2026-08-19",
         "regime": "phòng thủ",
         "values": {
-          "score": 38.3,
-          "fundamental": 43,
-          "technical": 0,
-          "momentum": 17,
+          "score": 44.6,
+          "fundamental": 53,
+          "technical": 20,
+          "momentum": 16,
           "liquidity": 75,
           "macro": 29,
           "risk": 100
@@ -75020,7 +75474,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -75091,7 +75545,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -75228,7 +75682,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -75490,7 +75944,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -75657,8 +76111,8 @@
         "live_vendor": {
           "metrics": {
             "pe": {
-              "value": 15.28,
-              "price_date": "2026-08-10",
+              "value": 13.82,
+              "price_date": "2026-08-19",
               "denominator_measure": "vendor_unspecified",
               "financial_period": "vendor_unspecified",
               "share_basis": "vendor_unspecified",
@@ -75670,8 +76124,8 @@
               ]
             },
             "pb": {
-              "value": 0.92,
-              "price_date": "2026-08-10",
+              "value": 0.71,
+              "price_date": "2026-08-19",
               "denominator_measure": "vendor_unspecified",
               "financial_period": "vendor_unspecified",
               "share_basis": "vendor_unspecified",
@@ -75683,7 +76137,7 @@
               ]
             }
           },
-          "observed_at": "2026-08-10",
+          "observed_at": "2026-08-19",
           "provider": "unknown_vendor"
         },
         "historical_calculated": {
@@ -75744,8 +76198,8 @@
         "ticker": "PVD",
         "current_market": {
           "value": null,
-          "effective_date": "2026-08-10",
-          "observed_at": "2026-08-10",
+          "effective_date": "2026-08-19",
+          "observed_at": "2026-08-19",
           "basis_type": "current_market_shares_outstanding",
           "source": "live_market_snapshot",
           "provenance": "live_market_snapshot",
@@ -75842,62 +76296,6 @@
         }
       },
       "ohlcv_recent": [
-        {
-          "date": "2026-06-30",
-          "open": 32700.000000000004,
-          "high": 33000.0,
-          "low": 32200.000000000004,
-          "close": 32800.0,
-          "volume": 3044500
-        },
-        {
-          "date": "2026-07-01",
-          "open": 33150.0,
-          "high": 33700.0,
-          "low": 33000.0,
-          "close": 33450.0,
-          "volume": 3958800
-        },
-        {
-          "date": "2026-07-02",
-          "open": 33350.0,
-          "high": 33450.0,
-          "low": 32700.000000000004,
-          "close": 32750.0,
-          "volume": 2771100
-        },
-        {
-          "date": "2026-07-03",
-          "open": 32800.0,
-          "high": 33000.0,
-          "low": 32549.999999999996,
-          "close": 32549.999999999996,
-          "volume": 1979500
-        },
-        {
-          "date": "2026-07-06",
-          "open": 32600.0,
-          "high": 32650.0,
-          "low": 31000.0,
-          "close": 31550.0,
-          "volume": 2910600
-        },
-        {
-          "date": "2026-07-07",
-          "open": 31550.0,
-          "high": 32800.0,
-          "low": 31550.0,
-          "close": 32600.0,
-          "volume": 3181500
-        },
-        {
-          "date": "2026-07-08",
-          "open": 33150.0,
-          "high": 33400.0,
-          "low": 32549.999999999996,
-          "close": 32549.999999999996,
-          "volume": 2289900
-        },
         {
           "date": "2026-07-09",
           "open": 19590.0,
@@ -76081,6 +76479,62 @@
           "low": 18050.0,
           "close": 18250.0,
           "volume": 2529500
+        },
+        {
+          "date": "2026-08-11",
+          "open": 18300.0,
+          "high": 18500.0,
+          "low": 18200.0,
+          "close": 18200.0,
+          "volume": 2509600
+        },
+        {
+          "date": "2026-08-12",
+          "open": 18300.0,
+          "high": 18900.0,
+          "low": 18100.0,
+          "close": 18700.0,
+          "volume": 5156100
+        },
+        {
+          "date": "2026-08-13",
+          "open": 18700.0,
+          "high": 18750.0,
+          "low": 18300.0,
+          "close": 18300.0,
+          "volume": 1972800
+        },
+        {
+          "date": "2026-08-14",
+          "open": 18550.0,
+          "high": 18550.0,
+          "low": 17900.0,
+          "close": 17950.0,
+          "volume": 2975200
+        },
+        {
+          "date": "2026-08-17",
+          "open": 18100.0,
+          "high": 18250.0,
+          "low": 17650.0,
+          "close": 18150.0,
+          "volume": 1377300
+        },
+        {
+          "date": "2026-08-18",
+          "open": 18350.0,
+          "high": 19000.0,
+          "low": 18200.0,
+          "close": 18500.0,
+          "volume": 4274600
+        },
+        {
+          "date": "2026-08-19",
+          "open": 18600.0,
+          "high": 18650.0,
+          "low": 18250.0,
+          "close": 18400.0,
+          "volume": 1528900
         }
       ],
       "ohlcv_recent_count": 30,
@@ -76178,8 +76632,8 @@
       },
       "freshness": {
         "daily_prices": {
-          "generated_at": "2026-08-11T13:02:44+00:00",
-          "as_of_date": "2026-08-10",
+          "generated_at": "2026-08-19T11:24:48+00:00",
+          "as_of_date": "2026-08-19",
           "source": "screen_snapshot_live.csv",
           "freshness_status": "current",
           "expected_update_frequency": "1d",
@@ -76187,8 +76641,8 @@
           "is_actionable": true
         },
         "technical_signals": {
-          "generated_at": "2026-08-11T13:03:40+00:00",
-          "as_of_date": "2026-08-10",
+          "generated_at": "2026-08-19T11:33:14+00:00",
+          "as_of_date": "2026-08-19",
           "source": "ta_signals.csv",
           "freshness_status": "current",
           "expected_update_frequency": "1d",
@@ -76196,8 +76650,8 @@
           "is_actionable": true
         },
         "ai_report": {
-          "generated_at": "2026-08-11T20:08:00+00:00",
-          "as_of_date": "2026-08-10",
+          "generated_at": "2026-08-19T18:37:00+00:00",
+          "as_of_date": "2026-08-19",
           "source": "analysis_latest.json",
           "freshness_status": "current",
           "expected_update_frequency": "1d",
@@ -76215,7 +76669,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -76365,38 +76819,38 @@
     "NVL": {
       "snapshot": {
         "ticker": "NVL",
-        "date": "2026-08-10",
-        "close": 13900.0,
-        "chg_today_pct": 0.0,
-        "gtgd20_ty": 231.399,
-        "rel_vol": 1.01,
-        "rsi14": 65.6,
-        "macd_hist": 152.4,
-        "bb_pctb": 0.93,
-        "atr_pct": 3.88,
+        "date": "2026-08-19",
+        "close": 13000.0,
+        "chg_today_pct": -1.52,
+        "gtgd20_ty": 231.989,
+        "rel_vol": 0.63,
+        "rsi14": 46.0,
+        "macd_hist": -53.3,
+        "bb_pctb": 0.33,
+        "atr_pct": 3.92,
         "above_sma50": true,
-        "above_sma200": true,
+        "above_sma200": false,
         "golden_cross": false,
-        "pct_from_52w_high": -28.8,
+        "pct_from_52w_high": -33.4,
         "near_52w_high": false,
-        "pct_above_52w_low": 49.5,
-        "ret_1m": 12.6,
-        "ret_3m": -10.5,
-        "ret_6m": 16.3,
-        "ret_12m": -17.0,
+        "pct_above_52w_low": 39.8,
+        "ret_1m": 3.2,
+        "ret_3m": -9.8,
+        "ret_6m": 7.9,
+        "ret_12m": -26.1,
         "structure": "side",
-        "dist_swing_low_pct": 13.0,
-        "source_generated_at": "2026-08-11T13:02:44Z",
+        "dist_swing_low_pct": 5.7,
+        "source_generated_at": "2026-08-19T11:24:48Z",
         "exchange": "HSX",
         "industry": "Bất động sản",
-        "foreign_room_pct": 89.62,
-        "pe": 15.47,
-        "pb": 0.46,
-        "roe": 4.24,
+        "foreign_room_pct": 91.56,
+        "pe": -7.85,
+        "pb": 0.59,
+        "roe": -9.9,
         "free_float_est": 0.7049,
         "margin_status": null,
-        "latest_price_date": "2026-08-10",
-        "reference_market_date": "2026-08-10",
+        "latest_price_date": "2026-08-19",
+        "reference_market_date": "2026-08-19",
         "days_stale": 0,
         "instrument_type": "STOCK",
         "listing_exchange": "HSX",
@@ -76405,32 +76859,32 @@
         "live_universe_status": "live",
         "live_universe_reason": "eligible_equity_current_session",
         "is_live": true,
-        "rs_rating": 54
+        "rs_rating": 45
       },
-      "canonical_rs_rating": 54,
+      "canonical_rs_rating": 45,
       "rs_rating_reconciliation": {
-        "canonical_rs_rating": 54,
+        "canonical_rs_rating": 45,
         "canonical_source": "screen_snapshot_live.csv:rs_rating (tính 1 lần trong vn_indicators.py main(), percentile-rank chỉ trên tập mã LIVE — xem P0-1).",
-        "canonical_as_of": "2026-08-11T20:03:22+07:00",
-        "ta_signals_cached_rs_rating": 54.0,
-        "ta_signals_cached_as_of": "2026-08-11T20:08:18+07:00",
+        "canonical_as_of": "2026-08-19T18:25:22+07:00",
+        "ta_signals_cached_rs_rating": 45.0,
+        "ta_signals_cached_as_of": "2026-08-19T18:36:42+07:00",
         "matches_canonical": true,
         "explanation": "Khớp — ta_signals.csv đang phản ánh đúng lần chạy vn_indicators.py gần nhất."
       },
       "ta_signal": {
         "ticker": "NVL",
-        "date": "2026-08-10",
-        "source_generated_at": "2026-08-11T13:03:40Z",
-        "close": 13900.0,
-        "volume": 17857600,
-        "patterns": "shooting_star",
-        "smc": "fvg_bull",
+        "date": "2026-08-19",
+        "source_generated_at": "2026-08-19T11:33:14Z",
+        "close": 13000.0,
+        "volume": 11034500,
+        "patterns": null,
+        "smc": "ob_bull",
         "confluence": false,
-        "direction": "neutral",
+        "direction": "bullish",
         "industry": "Bất động sản",
-        "rs_rating": 54.0,
-        "rel_vol": 1.01,
-        "gtgd20_ty": 231.399,
+        "rs_rating": 45.0,
+        "rel_vol": 0.63,
+        "gtgd20_ty": 231.989,
         "margin_status": null
       },
       "ta_signal_semantics": {
@@ -76443,22 +76897,22 @@
         "is_actionable": false
       },
       "analysis_score": {
-        "session_date": "2026-08-10",
+        "session_date": "2026-08-19",
         "regime": "phòng thủ",
         "values": {
-          "score": 64.3,
-          "fundamental": 39,
-          "technical": 68,
-          "momentum": 68,
+          "score": 44.1,
+          "fundamental": 15,
+          "technical": 31,
+          "momentum": 45,
           "liquidity": 95,
-          "macro": 31,
-          "risk": 100
+          "macro": 29,
+          "risk": 80
         },
         "risk_semantics": {
           "legacy_field": "risk",
           "legacy_field_ambiguity": "The field name 'risk' is legacy nomenclature and must not be interpreted as higher-means-more-risk.",
           "polarity": "higher_is_safer",
-          "score_value": 100,
+          "score_value": 80,
           "interpretation": "100 means no configured penalty flags were triggered (maximum configured safety score). 0 means all penalty flags were triggered.",
           "limitations": [
             "100 means no configured penalty flags were triggered; it is not a calibrated probability of loss.",
@@ -80678,7 +81132,7 @@
       },
       "intrinsic_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "status": "unknown",
         "methods": {
           "fcff_dcf": {
@@ -80749,7 +81203,7 @@
       "scenario_analysis": {
         "schema_version": "1.1.0",
         "engine_version": "1.1.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "state": "unknown",
         "is_actionable": false,
         "evidence_inventory": {
@@ -80886,7 +81340,7 @@
       },
       "risk_analysis": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "dimensions": {
           "market_risk": "unavailable",
           "liquidity": "unavailable_by_contract",
@@ -81148,7 +81602,7 @@
       },
       "relative_valuation": {
         "schema_version": "1.0.0",
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "status": "unknown",
         "methods": {
           "pe": {
@@ -81315,8 +81769,8 @@
         "live_vendor": {
           "metrics": {
             "pe": {
-              "value": 15.47,
-              "price_date": "2026-08-10",
+              "value": -7.85,
+              "price_date": "2026-08-19",
               "denominator_measure": "vendor_unspecified",
               "financial_period": "vendor_unspecified",
               "share_basis": "vendor_unspecified",
@@ -81328,8 +81782,8 @@
               ]
             },
             "pb": {
-              "value": 0.46,
-              "price_date": "2026-08-10",
+              "value": 0.59,
+              "price_date": "2026-08-19",
               "denominator_measure": "vendor_unspecified",
               "financial_period": "vendor_unspecified",
               "share_basis": "vendor_unspecified",
@@ -81341,7 +81795,7 @@
               ]
             }
           },
-          "observed_at": "2026-08-10",
+          "observed_at": "2026-08-19",
           "provider": "unknown_vendor"
         },
         "historical_calculated": {
@@ -81402,8 +81856,8 @@
         "ticker": "NVL",
         "current_market": {
           "value": null,
-          "effective_date": "2026-08-10",
-          "observed_at": "2026-08-10",
+          "effective_date": "2026-08-19",
+          "observed_at": "2026-08-19",
           "basis_type": "current_market_shares_outstanding",
           "source": "live_market_snapshot",
           "provenance": "live_market_snapshot",
@@ -81500,62 +81954,6 @@
         }
       },
       "ohlcv_recent": [
-        {
-          "date": "2026-06-30",
-          "open": 12600.0,
-          "high": 12650.0,
-          "low": 12400.0,
-          "close": 12400.0,
-          "volume": 5153100
-        },
-        {
-          "date": "2026-07-01",
-          "open": 12400.0,
-          "high": 12850.0,
-          "low": 12400.0,
-          "close": 12550.0,
-          "volume": 10643500
-        },
-        {
-          "date": "2026-07-02",
-          "open": 12550.0,
-          "high": 12700.0,
-          "low": 12450.0,
-          "close": 12450.0,
-          "volume": 4893500
-        },
-        {
-          "date": "2026-07-03",
-          "open": 12450.0,
-          "high": 12600.0,
-          "low": 12200.0,
-          "close": 12300.0,
-          "volume": 8127600
-        },
-        {
-          "date": "2026-07-06",
-          "open": 12300.0,
-          "high": 12450.0,
-          "low": 11700.0,
-          "close": 12350.0,
-          "volume": 23470700
-        },
-        {
-          "date": "2026-07-07",
-          "open": 12250.0,
-          "high": 12550.0,
-          "low": 12100.0,
-          "close": 12550.0,
-          "volume": 7232400
-        },
-        {
-          "date": "2026-07-08",
-          "open": 12500.0,
-          "high": 12850.0,
-          "low": 12400.0,
-          "close": 12650.0,
-          "volume": 13222500
-        },
         {
           "date": "2026-07-09",
           "open": 12600.0,
@@ -81739,6 +82137,62 @@
           "low": 13750.0,
           "close": 13900.0,
           "volume": 17857600
+        },
+        {
+          "date": "2026-08-11",
+          "open": 13750.0,
+          "high": 14000.0,
+          "low": 13550.0,
+          "close": 13550.0,
+          "volume": 16175500
+        },
+        {
+          "date": "2026-08-12",
+          "open": 13550.0,
+          "high": 13900.0,
+          "low": 13550.0,
+          "close": 13550.0,
+          "volume": 15825200
+        },
+        {
+          "date": "2026-08-13",
+          "open": 13600.0,
+          "high": 13750.0,
+          "low": 13400.0,
+          "close": 13400.0,
+          "volume": 16395300
+        },
+        {
+          "date": "2026-08-14",
+          "open": 13400.0,
+          "high": 13700.0,
+          "low": 13150.0,
+          "close": 13250.0,
+          "volume": 15250400
+        },
+        {
+          "date": "2026-08-17",
+          "open": 13200.0,
+          "high": 13500.0,
+          "low": 13000.0,
+          "close": 13200.0,
+          "volume": 12018400
+        },
+        {
+          "date": "2026-08-18",
+          "open": 13300.0,
+          "high": 13550.0,
+          "low": 13100.0,
+          "close": 13200.0,
+          "volume": 8610000
+        },
+        {
+          "date": "2026-08-19",
+          "open": 13150.0,
+          "high": 13400.0,
+          "low": 12850.0,
+          "close": 13000.0,
+          "volume": 11034500
         }
       ],
       "ohlcv_recent_count": 30,
@@ -81836,8 +82290,8 @@
       },
       "freshness": {
         "daily_prices": {
-          "generated_at": "2026-08-11T13:02:44+00:00",
-          "as_of_date": "2026-08-10",
+          "generated_at": "2026-08-19T11:24:48+00:00",
+          "as_of_date": "2026-08-19",
           "source": "screen_snapshot_live.csv",
           "freshness_status": "current",
           "expected_update_frequency": "1d",
@@ -81845,8 +82299,8 @@
           "is_actionable": true
         },
         "technical_signals": {
-          "generated_at": "2026-08-11T13:03:40+00:00",
-          "as_of_date": "2026-08-10",
+          "generated_at": "2026-08-19T11:33:14+00:00",
+          "as_of_date": "2026-08-19",
           "source": "ta_signals.csv",
           "freshness_status": "current",
           "expected_update_frequency": "1d",
@@ -81854,8 +82308,8 @@
           "is_actionable": true
         },
         "ai_report": {
-          "generated_at": "2026-08-11T20:08:00+00:00",
-          "as_of_date": "2026-08-10",
+          "generated_at": "2026-08-19T18:37:00+00:00",
+          "as_of_date": "2026-08-19",
           "source": "analysis_latest.json",
           "freshness_status": "current",
           "expected_update_frequency": "1d",
@@ -81873,7 +82327,7 @@
         }
       },
       "analysis_readiness": {
-        "reference_at": "2026-08-11T13:11:48.646062+00:00",
+        "reference_at": "2026-08-19T11:42:54.771008+00:00",
         "domains": {
           "market_technical": {
             "state": "blocked",
@@ -82048,18 +82502,6 @@
         }
       },
       {
-        "ticker": "FPT",
-        "state": "unknown",
-        "dimensions": {
-          "financial_quality": "unavailable",
-          "valuation": "unavailable",
-          "technical_current_market_readiness": "unavailable",
-          "catalyst_evidence": "unknown",
-          "downside_invalidation": "unknown",
-          "data_confidence": "unknown"
-        }
-      },
-      {
         "ticker": "PNJ",
         "state": "unknown",
         "dimensions": {
@@ -82081,6 +82523,18 @@
           "catalyst_evidence": "unknown",
           "downside_invalidation": "unknown",
           "data_confidence": "unknown"
+        }
+      },
+      {
+        "ticker": "FPT",
+        "state": "incomparable",
+        "dimensions": {
+          "financial_quality": "incomparable",
+          "valuation": "unavailable",
+          "technical_current_market_readiness": "unavailable",
+          "catalyst_evidence": "unknown",
+          "downside_invalidation": "unknown",
+          "data_confidence": "incomparable"
         }
       },
       {
