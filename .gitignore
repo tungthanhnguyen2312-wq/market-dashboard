@@ -116,6 +116,7 @@ logs/
 # không commit executable. Output CSS (assets/css/tailwind.generated.css) VẪN commit.
 tools/
 !tools/
+tools/*
 !tools/build_current_decision_cockpit.py
 
 # Local-only, identity-bound decision cockpit projections.  These are built from
