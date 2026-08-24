@@ -115,6 +115,13 @@ logs/
 # Tooling binary cục bộ (Tailwind CLI standalone) — tải về bởi build_frontend.bat,
 # không commit executable. Output CSS (assets/css/tailwind.generated.css) VẪN commit.
 tools/
+!tools/
+!tools/build_current_decision_cockpit.py
+
+# Local-only, identity-bound decision cockpit projections.  These are built from
+# an explicit Daily Research Session Operation; never treat a directory scan as
+# current research truth and never publish this local workspace data by default.
+local-data/
 
 # --------------------------------------------------------------------------
 # Bổ sung 2026-07-17 — cache của test/lint tool (phòng ngừa, cùng tinh thần

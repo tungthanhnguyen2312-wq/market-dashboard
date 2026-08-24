@@ -93,6 +93,12 @@ NEVER_PUBLISH = {
     "vn_stock.db", "config.json", "publish_log.txt", "tickers.txt",
     "sync_and_publish.bat", "sync_and_push.bat",
 }
+# Local decision-cockpit workspaces are intentionally absent from a public
+# release.  Their projection is built from an explicit retained operation and
+# may contain locally governed research context; dry-run and live release must
+# therefore neither version nor stage the page or its local payload.
+LOCAL_ONLY_PAGES = {"decision-cockpit.html"}
+LOCAL_ONLY_PREFIXES = ("local-data/",)
 REQUIRED_SNAPSHOT_COLUMNS = {"ticker", "exchange", "date"}
 CANONICAL_EXCHANGES = {"HSX", "HNX", "UPCOM", "DELISTED"}
 EXCHANGE_ALIASES = {"HOSE": "HSX", "HCM": "HSX", "UPCOM": "UPCOM"}
@@ -486,6 +492,8 @@ def plan_asset_versions(build_id: str) -> list[str]:
     """Return the HTML page names that a live run would rewrite. Never touches disk."""
     changed: list[str] = []
     for page in sorted(WEB_ROOT.glob("*.html")):
+        if page.name in LOCAL_ONLY_PAGES:
+            continue
         original = page.read_text(encoding="utf-8")
         if _versioned_html(original, build_id) != original:
             changed.append(page.name)
@@ -496,6 +504,8 @@ def update_asset_versions(build_id: str) -> list[str]:
     """Apply: actually rewrite the HTML pages computed by plan_asset_versions(). LIVE only."""
     changed: list[str] = []
     for page in sorted(WEB_ROOT.glob("*.html")):
+        if page.name in LOCAL_ONLY_PAGES:
+            continue
         original = page.read_text(encoding="utf-8")
         updated = _versioned_html(original, build_id)
         if updated != original:
@@ -516,7 +526,7 @@ def validate_json_artifacts() -> None:
 
 
 def build_whitelist() -> list[str]:
-    pages = sorted(path.name for path in WEB_ROOT.glob("*.html"))
+    pages = sorted(path.name for path in WEB_ROOT.glob("*.html") if path.name not in LOCAL_ONLY_PAGES)
     paths = set(pages) | SAFE_WEB_ARTIFACTS
     attr_re = re.compile(r'(?:src|href)=["\']([^"\']+)["\']', re.I)
     data_re = re.compile(r'["\']([\w./-]+\.(?:csv|json|md))["\']', re.I)
@@ -529,6 +539,8 @@ def build_whitelist() -> list[str]:
     cleaned: set[str] = set()
     for raw in paths:
         relative = raw.replace("\\", "/").split("?", 1)[0].split("#", 1)[0]
+        if not relative or relative in LOCAL_ONLY_PAGES or relative.startswith(LOCAL_ONLY_PREFIXES):
+            continue
         if relative.startswith(("http://", "https://", "//", "/", "data:")) or ".." in relative.split("/"):
             continue
         if relative in NEVER_PUBLISH:

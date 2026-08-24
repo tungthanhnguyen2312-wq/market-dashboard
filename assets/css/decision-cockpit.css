@@ -1,0 +1,19 @@
+.cockpit-hero { display:flex; align-items:start; justify-content:space-between; gap:1rem; margin-bottom:1rem; }
+.cockpit-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:.75rem; }
+.cockpit-kpi { padding:.85rem; border:1px solid var(--border-soft); border-radius:var(--radius-md); background:rgba(15,23,42,.45); }
+.cockpit-kpi .label { color:var(--text-muted); font-size:.72rem; text-transform:uppercase; letter-spacing:.04em; }
+.cockpit-kpi .value { color:var(--text); font-size:1rem; font-weight:800; margin-top:.3rem; overflow-wrap:anywhere; }
+.cockpit-section { scroll-margin-top:80px; }
+.cockpit-chip-row { display:flex; flex-wrap:wrap; gap:.4rem; }
+.cockpit-chip { background:rgba(var(--primary-rgb),.12); color:var(--accent-text-strong); border:1px solid rgba(var(--primary-rgb),.25); border-radius:999px; padding:.22rem .55rem; font-size:.76rem; font-weight:650; cursor:pointer; }
+.cockpit-chip:hover { background:rgba(var(--primary-rgb),.22); }
+.cockpit-table { width:100%; border-collapse:collapse; font-size:.82rem; }
+.cockpit-table th,.cockpit-table td { padding:.5rem .6rem; border-bottom:1px solid var(--border-soft); text-align:left; vertical-align:top; }
+.cockpit-table th { color:var(--text-muted); font-size:.69rem; text-transform:uppercase; letter-spacing:.04em; }
+.cockpit-note { color:var(--text-muted); font-size:.82rem; }
+.cockpit-state { display:inline-block; border-radius:999px; padding:.18rem .45rem; font-size:.7rem; font-weight:700; background:rgba(148,163,184,.15); color:var(--text-muted); }
+.cockpit-state.available { color:#86efac; background:rgba(34,197,94,.12); }.cockpit-state.partial,.cockpit-state.degraded { color:#fcd34d; background:rgba(245,158,11,.12); }.cockpit-state.blocked,.cockpit-state.unavailable { color:#fca5a5; background:rgba(239,68,68,.12); }
+.cockpit-detail-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:.75rem; }.cockpit-detail-grid .card { margin:0; }
+.cockpit-list { margin:0; padding-left:1.1rem; }.cockpit-list li { margin:.26rem 0; }.cockpit-code { font-family:ui-monospace,SFMono-Regular,Consolas,monospace; font-size:.72rem; overflow-wrap:anywhere; }
+.cockpit-warning { border-left:3px solid var(--warning); padding-left:.75rem; margin:.45rem 0; color:var(--text-muted); }
+@media (max-width:768px) { .cockpit-hero { flex-direction:column; }.cockpit-table { min-width:620px; } }

@@ -16,6 +16,7 @@ module.exports = {
     "./macro.html",
     "./archive.html",
     "./about.html",
+    "./decision-cockpit.html",
     "./app.js",
     "./analysis.js",
     "./assets/js/*.js",

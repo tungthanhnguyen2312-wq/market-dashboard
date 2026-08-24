@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="vi" data-bs-theme="dark"><head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Decision Cockpit V2 | Stock Lookup</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="assets/css/shell.css"><link rel="stylesheet" href="assets/css/decision-cockpit.css">
+</head><body class="bg-bg text-white" data-page="decision-cockpit">
+<div class="vs-shell"><div class="vs-shell-main"><header class="vs-topbar">
+  <a class="vs-topbar-brand" href="dashboard.html"><span class="vs-brand-dot"></span><span>Stock Lookup</span></a>
+  <nav class="vs-topbar-nav" aria-label="Điều hướng chính"><a class="vs-topnav-link" href="dashboard.html">Tổng quan</a><a class="vs-topnav-link" href="screener.html">Bộ lọc</a><a class="vs-topnav-link active" href="decision-cockpit.html">Decision Cockpit</a><a class="vs-topnav-link" href="analysis.html">Phân tích</a></nav>
+  <span class="vs-topbar-spacer"></span><span class="badge-soft bs-amber">LOCAL ONLY</span>
+</header><main class="vs-content">
+  <div id="cockpit-error" class="vs-alert vs-alert-warning" hidden></div>
+  <div id="cockpit" hidden>
+    <div class="cockpit-hero"><div><div class="section-eyebrow">Daily Decision Research Product V2</div><h1 class="h3 mb-1">Decision Cockpit</h1><div class="cockpit-note" id="session-line"></div></div><a class="btn btn-sm btn-outline-light" href="decision-cockpit.html#lineage">Lineage / Evidence</a></div>
+    <div class="cockpit-warning">Human-review research only. No target, recommendation, probability, sizing, or execution instruction is emitted.</div>
+    <section class="cockpit-section card mb-4"><div class="card-header"><h5>Market overview</h5></div><div class="card-body"><div id="market-overview" class="cockpit-grid"></div><div id="market-warnings" class="cockpit-note mt-3"></div></div></section>
+    <section class="cockpit-section card mb-4"><div class="card-header"><h5>Research discovery <small class="text-muted">ticker order is alphabetical, not ranking</small></h5></div><div class="card-body"><div id="cohorts"></div><hr><div id="priority-review"></div></div></section>
+    <section class="cockpit-section card mb-4"><div class="card-header"><h5>Watchlist <span id="watch-count" class="badge-soft bs-blue"></span></h5></div><div class="card-body p-0"><div class="table-responsive"><table class="cockpit-table"><thead><tr><th>Ticker</th><th>Entry state / action</th><th>Strategy</th><th>Scenario</th><th>Evidence / conflicts</th><th>Quality</th></tr></thead><tbody id="watchlist"></tbody></table></div></div></section>
+    <section class="cockpit-section card mb-4"><div class="card-header"><h5>Ticker research detail</h5></div><div class="card-body"><div class="d-flex gap-2 align-items-center mb-3"><label class="cockpit-note" for="ticker-select">Ticker</label><select id="ticker-select" class="form-select form-select-sm" style="max-width:160px"></select></div><div id="ticker-card"></div></div></section>
+    <section class="cockpit-section card mb-4"><div class="card-header"><h5>Portfolio risk</h5></div><div class="card-body" id="portfolio-risk"></div></section>
+    <section class="cockpit-section card mb-4"><div class="card-header"><h5>Data gaps &amp; what to verify</h5></div><div class="card-body"><div id="gaps" class="cockpit-grid"></div><ul id="verify-next" class="cockpit-list mt-3"></ul></div></section>
+    <section id="lineage" class="cockpit-section card mb-4"><div class="card-header"><h5>Lineage / evidence</h5></div><div class="card-body"><div id="lineage-content"></div></div></section>
+  </div>
+</main></div></div><script src="assets/js/decision-cockpit.js"></script></body></html>
