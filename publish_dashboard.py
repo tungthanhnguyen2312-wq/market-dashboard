@@ -93,12 +93,8 @@ NEVER_PUBLISH = {
     "vn_stock.db", "config.json", "publish_log.txt", "tickers.txt",
     "sync_and_publish.bat", "sync_and_push.bat",
 }
-# Local decision-cockpit workspaces are intentionally absent from a public
-# release.  Their projection is built from an explicit retained operation and
-# may contain locally governed research context; dry-run and live release must
-# therefore neither version nor stage the page or its local payload.
-LOCAL_ONLY_PAGES = {"decision-cockpit.html"}
-LOCAL_ONLY_PREFIXES = ("local-data/",)
+COCKPIT_ARTIFACT = "data/current_decision_cockpit.json"
+COCKPIT_SOURCE: Path | None = None
 REQUIRED_SNAPSHOT_COLUMNS = {"ticker", "exchange", "date"}
 CANONICAL_EXCHANGES = {"HSX", "HNX", "UPCOM", "DELISTED"}
 EXCHANGE_ALIASES = {"HOSE": "HSX", "HCM": "HSX", "UPCOM": "UPCOM"}
@@ -126,9 +122,16 @@ def source_root(relative: str) -> Path:
     -only build outputs, or an optional backend artifact never generated there — e.g. a
     single-root invocation where BACKEND_ROOT == WEB_ROOT already covers this trivially).
     """
+    if relative == COCKPIT_ARTIFACT and COCKPIT_SOURCE is not None:
+        return COCKPIT_SOURCE
     if relative in BACKEND_SOURCED and (BACKEND_ROOT / relative).is_file():
         return BACKEND_ROOT
     return WEB_ROOT
+
+
+def source_path(relative: str) -> Path:
+    root = source_root(relative)
+    return root if relative == COCKPIT_ARTIFACT and COCKPIT_SOURCE is not None else root / relative
 
 
 def log(message: str) -> None:
@@ -223,6 +226,36 @@ def copy_public_artifacts() -> list[str]:
         copied.append(relative)
     log(f"Đã copy {len(copied)} artifact từ backend: {', '.join(copied) or '(không đổi)'}")
     return copied
+
+
+def validate_cockpit_projection(*, expected_session: str | None, expected_operation_identity: str | None) -> dict[str, object]:
+    source = source_path(COCKPIT_ARTIFACT)
+    if not source.is_file():
+        raise ValueError("COCKPIT_PROJECTION_REQUIRED_EXPLICIT_SOURCE")
+    payload = json.loads(source.read_text(encoding="utf-8"))
+    if payload.get("schema_version") != "current_decision_cockpit_projection/v2":
+        raise ValueError("COCKPIT_PROJECTION_SCHEMA_INVALID")
+    session = payload.get("session")
+    operation = (payload.get("source") or {}).get("operation_identity")
+    product = (payload.get("source") or {}).get("product_identity")
+    if not isinstance(session, str) or not isinstance(operation, str) or not isinstance(product, str):
+        raise ValueError("COCKPIT_PROJECTION_LINEAGE_MISSING")
+    if expected_session and session != expected_session:
+        raise ValueError(f"COCKPIT_SESSION_MISMATCH:{session}")
+    if expected_operation_identity and operation != expected_operation_identity:
+        raise ValueError("COCKPIT_OPERATION_IDENTITY_MISMATCH")
+    if (payload.get("authority_boundary") or {}).get("is_actionable") is not False:
+        raise ValueError("COCKPIT_AUTHORITY_BOUNDARY_INVALID")
+    return payload
+
+
+def copy_cockpit_projection() -> bool:
+    source, target = source_path(COCKPIT_ARTIFACT), WEB_ROOT / COCKPIT_ARTIFACT
+    target.parent.mkdir(parents=True, exist_ok=True)
+    if target.exists() and sha256(source) == sha256(target):
+        return False
+    atomic_copy_file(source, target, validator=validate_json_file)
+    return True
 
 
 def read_csv_rows(path: Path) -> tuple[list[dict[str, str]], list[str]]:
@@ -492,8 +525,6 @@ def plan_asset_versions(build_id: str) -> list[str]:
     """Return the HTML page names that a live run would rewrite. Never touches disk."""
     changed: list[str] = []
     for page in sorted(WEB_ROOT.glob("*.html")):
-        if page.name in LOCAL_ONLY_PAGES:
-            continue
         original = page.read_text(encoding="utf-8")
         if _versioned_html(original, build_id) != original:
             changed.append(page.name)
@@ -504,8 +535,6 @@ def update_asset_versions(build_id: str) -> list[str]:
     """Apply: actually rewrite the HTML pages computed by plan_asset_versions(). LIVE only."""
     changed: list[str] = []
     for page in sorted(WEB_ROOT.glob("*.html")):
-        if page.name in LOCAL_ONLY_PAGES:
-            continue
         original = page.read_text(encoding="utf-8")
         updated = _versioned_html(original, build_id)
         if updated != original:
@@ -526,7 +555,7 @@ def validate_json_artifacts() -> None:
 
 
 def build_whitelist() -> list[str]:
-    pages = sorted(path.name for path in WEB_ROOT.glob("*.html") if path.name not in LOCAL_ONLY_PAGES)
+    pages = sorted(path.name for path in WEB_ROOT.glob("*.html"))
     paths = set(pages) | SAFE_WEB_ARTIFACTS
     attr_re = re.compile(r'(?:src|href)=["\']([^"\']+)["\']', re.I)
     data_re = re.compile(r'["\']([\w./-]+\.(?:csv|json|md))["\']', re.I)
@@ -539,14 +568,14 @@ def build_whitelist() -> list[str]:
     cleaned: set[str] = set()
     for raw in paths:
         relative = raw.replace("\\", "/").split("?", 1)[0].split("#", 1)[0]
-        if not relative or relative in LOCAL_ONLY_PAGES or relative.startswith(LOCAL_ONLY_PREFIXES):
+        if not relative:
             continue
         if relative.startswith(("http://", "https://", "//", "/", "data:")) or ".." in relative.split("/"):
             continue
         if relative in NEVER_PUBLISH:
             continue
         cleaned.add(relative)
-    missing = sorted(relative for relative in cleaned if not (WEB_ROOT / relative).is_file())
+    missing = sorted(relative for relative in cleaned if not source_path(relative).is_file())
     if missing:
         raise ValueError(f"whitelist tham chiếu file thiếu: {', '.join(missing)}")
     leaked = sorted(set(cleaned) & NEVER_PUBLISH)
@@ -659,10 +688,14 @@ def main() -> int:
         description="Build/publish dashboard with atomic writes, asset versioning, basis contracts, and Phase 2A pipeline integration.")
     parser.add_argument("--live", action="store_true", help="cho phép ghi file, fetch/pull/add/commit/push thật")
     parser.add_argument("--isolated-test-fixture", action="store_true", help="cho phép BACKEND_ROOT trùng WEB_ROOT trong môi trường test isolated")
+    parser.add_argument("--cockpit-projection-source", type=Path, help="Explicit current_decision_cockpit_projection.json from one session operation.")
+    parser.add_argument("--expected-cockpit-session", help="Required retained research session for the cockpit payload.")
+    parser.add_argument("--expected-cockpit-operation-identity", help="Required Daily Research Session Operation identity for the cockpit payload.")
     args = parser.parse_args()
 
-    global LIVE_MODE
+    global LIVE_MODE, COCKPIT_SOURCE
     LIVE_MODE = args.live
+    COCKPIT_SOURCE = args.cockpit_projection_source.resolve() if args.cockpit_projection_source else None
     mode = "LIVE" if args.live else "DRY-RUN (read-only)"
     log(f"=== publish_dashboard {mode} ===")
     log(f"Backend={BACKEND_ROOT} · Web={WEB_ROOT}")
@@ -687,6 +720,7 @@ def main() -> int:
             sync_remote_before_live(branch)
             head = current_head()
         rows, breadth, market_session = validate_snapshot()
+        cockpit = validate_cockpit_projection(expected_session=args.expected_cockpit_session, expected_operation_identity=args.expected_cockpit_operation_identity)
         copy_plan = plan_copy_artifacts()
         manifest, screener_js_content = compute_manifest(rows, breadth, market_session, head)
         version_plan = plan_asset_versions(str(manifest["build_id"]))
@@ -700,6 +734,7 @@ def main() -> int:
             "HTML/CSS/JS, CHƯA git add/commit/push. Không file nào trên đĩa bị thay đổi.")
         log(f"[DRY-RUN] Sẽ copy {len(copy_plan)} artifact từ backend: "
             f"{', '.join(copy_plan) or '(không có — backend=web hoặc đã khớp)'}")
+        log(f"[DRY-RUN] Cockpit release: session={cockpit['session']} · operation={(cockpit['source'] or {}).get('operation_identity')} · source={COCKPIT_SOURCE}")
         log(f"[DRY-RUN] Build id dự kiến (phiên {market_session}): {manifest['build_id']}")
         log(f"[DRY-RUN] Sẽ cập nhật asset-version trên {len(version_plan)} trang HTML: "
             f"{', '.join(version_plan) or '(không có)'}")
@@ -709,6 +744,8 @@ def main() -> int:
 
     try:
         copy_public_artifacts()
+        cockpit_copied = copy_cockpit_projection()
+        log(f"Cockpit projection {'copied' if cockpit_copied else 'already matched'}.")
         write_build_manifest(manifest, screener_js_content)
         update_asset_versions(str(manifest["build_id"]))
         validate_json_artifacts()

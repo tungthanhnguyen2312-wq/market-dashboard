@@ -11,7 +11,7 @@ test("cockpit declares every human-review surface and local projection source", 
   for (const label of ["Market overview", "Research discovery", "Watchlist", "Ticker research detail", "Portfolio risk", "Lineage / evidence"]) {
     assert.match(html, new RegExp(label));
   }
-  assert.match(script, /local-data\/current_decision_cockpit\.json/);
+  assert.match(script, /data\/current_decision_cockpit\.json/);
   for (const label of ["Strategy fit", "Peer context", "Fundamentals", "Valuation", "Market flow", "Corporate intelligence", "Bear \/ Base \/ Bull", "Macro", "Thesis \/ counter-thesis"]) {
     assert.match(script, new RegExp(label));
   }

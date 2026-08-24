@@ -1,5 +1,5 @@
 (() => {
-  const URL = "local-data/current_decision_cockpit.json";
+  const URL = "data/current_decision_cockpit.json";
   const esc = (v) => String(v ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
   const unavailable = (v) => v === null || v === undefined || v === "" ? "UNAVAILABLE" : v;
   const state = (v) => { const s = unavailable(v); const k = String(s).toLowerCase(); const c = k.includes("available") && !k.includes("unavailable") ? "available" : k.includes("partial") || k.includes("degraded") ? "partial" : k.includes("blocked") ? "blocked" : k.includes("unavailable") || k.includes("unknown") ? "unavailable" : ""; return `<span class="cockpit-state ${c}">${esc(s)}</span>`; };
