@@ -37,8 +37,7 @@ REM fails, publishing must stop (non-zero exit) instead of shipping a
 REM stale/broken CSS file.
 REM ============================================================
 
-set "SCRIPT_DIR=%~dp0"
-if "%SCRIPT_DIR:~-1%"=="\" set "SCRIPT_DIR=%SCRIPT_DIR:~0,-1%"
+for %%I in ("%~dp0.") do set "SCRIPT_DIR=%%~fI"
 set "TAILWIND_EXE=%SCRIPT_DIR%\tools\tailwind\tailwindcss.exe"
 set "TAILWIND_CONFIG=%SCRIPT_DIR%\tailwind.config.js"
 set "TAILWIND_INPUT=%SCRIPT_DIR%\assets\css\tailwind.src.css"
@@ -88,12 +87,13 @@ if not exist "%TEMP_OUTPUT%" (
   exit /b 1
 )
 
-if "%IS_LIVE%"=="1" (
-  copy /y "%TEMP_OUTPUT%" "%TAILWIND_OUTPUT%" >nul
-  del /f /q "%TEMP_OUTPUT%"
-  echo [OK] Frontend build complete (LIVE updated): %TAILWIND_OUTPUT%
-) else (
-  del /f /q "%TEMP_OUTPUT%"
-  echo [OK] Frontend build check complete (DRY-RUN zero-mutation): %TAILWIND_OUTPUT% remains unchanged.
-)
+if "%IS_LIVE%"=="1" goto :live_build
+del /f /q "%TEMP_OUTPUT%"
+echo [OK] Frontend build check complete ^(DRY-RUN zero-mutation^): %TAILWIND_OUTPUT% remains unchanged.
+exit /b 0
+
+:live_build
+copy /y "%TEMP_OUTPUT%" "%TAILWIND_OUTPUT%" >nul
+del /f /q "%TEMP_OUTPUT%"
+echo [OK] Frontend build complete ^(LIVE updated^): %TAILWIND_OUTPUT%
 exit /b 0
