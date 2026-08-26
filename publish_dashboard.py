@@ -16,6 +16,17 @@ whitelist.
 
 from __future__ import annotations
 
+import sys
+
+if __name__ == "__main__":
+    sys.stderr.write(
+        "REFUSED: market-dashboard/publish_dashboard.py is a TARGET checkout copy, "
+        "not publisher authority. Use "
+        "C:\\Projects\\StockLookup\\stock-core-private\\tools\\release_orchestrator.py "
+        "targeting C:\\Projects\\StockLookup\\market-dashboard.\n"
+    )
+    raise SystemExit(1)
+
 import argparse
 import csv
 import hashlib
@@ -684,6 +695,15 @@ def publish_live(whitelist: list[str], branch: str) -> int:
 
 
 def main() -> int:
+    print(
+        "REFUSED: market-dashboard/publish_dashboard.py is a TARGET checkout copy, "
+        "not publisher authority. Use "
+        "C:\\Projects\\StockLookup\\stock-core-private\\publish_dashboard.py via "
+        "C:\\Projects\\StockLookup\\stock-core-private\\tools\\release_orchestrator.py "
+        "with STOCK_LOOKUP_WEB_DIR=C:\\Projects\\StockLookup\\market-dashboard.",
+        file=sys.stderr,
+    )
+    return 1
     parser = argparse.ArgumentParser(
         description="Build/publish dashboard with atomic writes, asset versioning, basis contracts, and Phase 2A pipeline integration.")
     parser.add_argument("--live", action="store_true", help="cho phép ghi file, fetch/pull/add/commit/push thật")
