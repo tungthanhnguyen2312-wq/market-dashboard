@@ -262,19 +262,43 @@ test("checked-out source session is coherent for public verification", () => {
   assert.notEqual(sha256("dashboard.html"), sha256("analysis_latest.json"));
 });
 
+function manualDispatchAllowed(run, sourceSha, runId, compareStatus) {
+  return (
+    String(run.id) === String(runId)
+    && run.name === "Dashboard CI"
+    && run.status === "completed"
+    && run.conclusion === "success"
+    && run.head_branch === "main"
+    && run.head_sha === sourceSha
+    && /^[0-9a-fA-F]{40}$/.test(sourceSha)
+    && (compareStatus === "identical" || compareStatus === "ahead")
+  );
+}
+
 test("Deploy Pages workflow verifies cache-busted public bytes before SUCCESS", () => {
   const yamlText = fs.readFileSync(DEPLOY_WORKFLOW, "utf8");
   assert.match(yamlText, /workflow_run:/);
   assert.match(yamlText, /workflows:\s*\[["']Dashboard CI["']\]/);
   assert.match(yamlText, /branches:\s*\[main\]/);
   assert.match(yamlText, /types:\s*\[completed\]/);
-  assert.match(yamlText, /ref:\s*\$\{\{\s*github\.event\.workflow_run\.head_sha\s*\}\}/);
+  assert.match(yamlText, /workflow_dispatch:/);
+  assert.match(yamlText, /source_sha:/);
+  assert.match(yamlText, /validated_ci_run_id:/);
+  assert.match(yamlText, /source_sha:[\s\S]*?required:\s*true/);
+  assert.match(yamlText, /validated_ci_run_id:[\s\S]*?required:\s*true/);
+  assert.match(yamlText, /github\.event_name == 'workflow_dispatch'/);
+  assert.match(yamlText, /github\.event\.workflow_run\.conclusion == 'success'/);
+  assert.match(yamlText, /SOURCE_SHA:/);
+  assert.match(yamlText, /github\.event\.workflow_run\.head_sha/);
+  assert.match(yamlText, /github\.event\.inputs\.source_sha/);
+  assert.match(yamlText, /ref:\s*\$\{\{\s*env\.SOURCE_SHA\s*\}\}/);
+  assert.match(yamlText, /HEAD_SHA:\s*\$\{\{\s*env\.SOURCE_SHA\s*\}\}/);
+  assert.doesNotMatch(yamlText, /ref:\s*\$\{\{\s*github\.event\.workflow_run\.head_sha\s*\}\}/);
   assert.match(yamlText, /uses:\s*actions\/configure-pages@/);
   assert.match(yamlText, /uses:\s*actions\/upload-pages-artifact@/);
   assert.match(yamlText, /uses:\s*actions\/deploy-pages@/);
   assert.match(yamlText, /id:\s*deployment/);
   assert.match(yamlText, /PAGE_URL:\s*\$\{\{\s*steps\.deployment\.outputs\.page_url\s*\}\}/);
-  assert.match(yamlText, /HEAD_SHA:\s*\$\{\{\s*github\.event\.workflow_run\.head_sha\s*\}\}/);
   assert.match(yamlText, /jq -r '\.market_session/);
   assert.doesNotMatch(yamlText, /\bdate\s+\+%Y-%m-%d\b/);
   assert.doesNotMatch(yamlText, /github\.event\.workflow_run\.(created_at|run_started_at|updated_at)/);
@@ -290,12 +314,21 @@ test("Deploy Pages workflow verifies cache-busted public bytes before SUCCESS", 
   assert.match(yamlText, /set -euo pipefail/);
   assert.match(yamlText, /mktemp -d "\$\{RUNNER_TEMP:-\/tmp\}\/pages-verify\.XXXXXX"/);
   assert.match(yamlText, /trap 'rm -rf "\$WORKDIR"' EXIT/);
+  assert.match(yamlText, /actions:\s*read/);
   assert.match(yamlText, /contents:\s*read/);
   assert.match(yamlText, /pages:\s*write/);
   assert.match(yamlText, /id-token:\s*write/);
   assert.doesNotMatch(yamlText, /contents:\s*write/);
   assert.match(yamlText, /session_\$\{EXPECTED_SESSION\/\/-\/_\}_manifest\.json/);
   assert.match(yamlText, /report-\$\{EXPECTED_SESSION\}\.html/);
+  assert.match(yamlText, /run_name" != "Dashboard CI"/);
+  assert.match(yamlText, /run_status" != "completed"/);
+  assert.match(yamlText, /run_conclusion" != "success"/);
+  assert.match(yamlText, /run_branch" != "main"/);
+  assert.match(yamlText, /run_sha" != "\$SOURCE_SHA"/);
+  assert.match(yamlText, /compare\/\$\{SOURCE_SHA\}\.\.\.main/);
+  assert.match(yamlText, /compare_status" != "identical"/);
+  assert.match(yamlText, /compare_status" != "ahead"/);
   for (const file of [
     "data/build_info.json",
     "bundle_manifest.json",
@@ -315,7 +348,7 @@ test("Deploy Pages workflow verifies cache-busted public bytes before SUCCESS", 
   assert.ok(failBanner >= 0 && failExit > failBanner, "terminal failure must exit non-zero");
 
   const runBlocks = extractRunBlocks(yamlText);
-  assert.equal(runBlocks.length, 2, "expected local-coherence and public-verify run blocks");
+  assert.equal(runBlocks.length, 3, "expected manual-CI-gate, local-coherence, and public-verify run blocks");
   const bash = findBash();
   assert.ok(bash, "bash is required to syntax-check the deploy workflow scripts");
   for (const block of runBlocks) {
@@ -323,6 +356,26 @@ test("Deploy Pages workflow verifies cache-busted public bytes before SUCCESS", 
     const checked = spawnSync(bash, ["-n", "-c", block], { encoding: "utf8" });
     assert.equal(checked.status, 0, checked.stderr || "bash -n failed");
   }
+
+  const validatedSha = "534e4971edf2b9be62467ce89758b6625544558d";
+  const validatedRunId = "32986483019";
+  const acceptedRun = {
+    id: 32986483019,
+    name: "Dashboard CI",
+    status: "completed",
+    conclusion: "success",
+    head_branch: "main",
+    head_sha: validatedSha,
+  };
+  assert.equal(manualDispatchAllowed(acceptedRun, validatedSha, validatedRunId, "identical"), true);
+  assert.equal(manualDispatchAllowed(acceptedRun, validatedSha, validatedRunId, "ahead"), true);
+  assert.equal(manualDispatchAllowed({ ...acceptedRun, conclusion: "failure" }, validatedSha, validatedRunId, "ahead"), false);
+  assert.equal(manualDispatchAllowed({ ...acceptedRun, status: "in_progress", conclusion: null }, validatedSha, validatedRunId, "ahead"), false);
+  assert.equal(manualDispatchAllowed({ ...acceptedRun, name: "Deploy Pages" }, validatedSha, validatedRunId, "ahead"), false);
+  assert.equal(manualDispatchAllowed({ ...acceptedRun, head_branch: "release" }, validatedSha, validatedRunId, "ahead"), false);
+  assert.equal(manualDispatchAllowed(acceptedRun, "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", validatedRunId, "ahead"), false);
+  assert.equal(manualDispatchAllowed(acceptedRun, validatedSha, validatedRunId, "behind"), false);
+  assert.equal(manualDispatchAllowed(acceptedRun, validatedSha, validatedRunId, "diverged"), false);
 
   const maxAttempts = 12;
   let attemptsUsed = 0;
