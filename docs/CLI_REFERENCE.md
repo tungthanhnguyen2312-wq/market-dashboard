@@ -143,7 +143,8 @@ Nguyên tắc sắt của script:
 **Quy trình cập nhật web hằng ngày:**
 1. Chạy chuỗi backend (mục trên): update → macro → news → indicators → candle_scan.
 2. Nếu có báo cáo AI mới: copy `ai_report_YYYYMMDD.md/.json` mới nhất thành `ai_report_latest.md/.json`.
-3. `python .\publish_dashboard.py --live` → GitHub Pages tự cập nhật sau 1-2 phút.
+3. `python .\publish_dashboard.py --live` → push lên `main` → Dashboard CI → Deploy Pages.
+   Deploy Pages workflow SUCCESS includes deployment + cache-busted public byte verification.
 
 > ⚠️ `sync_and_push.bat` cũ dùng `git add .` — giờ chỉ nên dùng nó cho bước copy dữ liệu; việc push để `publish_dashboard.py` lo.
 
@@ -167,7 +168,7 @@ python -m http.server 8000
 
 - **Khu vực báo cáo/bảng báo "Chưa tải được..."** → thiếu file dữ liệu (`ai_report_latest.*` / `screen_snapshot.csv` chưa được copy/sinh ra), hoặc đang mở `file://` mà phần đó cần fetch — chạy qua web server ở trên.
 - **`publish_dashboard.py` báo lỗi git** → kiểm tra remote `origin` còn trỏ đúng repo không (`git remote -v`); lỗi `index.lock` lặp lại thường do OneDrive đang sync — chờ rồi chạy lại.
-- **GitHub Pages không đổi sau khi push** → chờ 1-2 phút, hard-refresh (Ctrl+F5).
+- **GitHub Pages không đổi sau khi push** → Deploy Pages SUCCESS includes deployment + cache-busted public byte verification. Nếu job đó FAIL, origin công khai chưa khớp byte với commit đã deploy. Hard-refresh (Ctrl+F5) chỉ sau khi Deploy Pages xanh.
 - **PowerShell báo "không nhận diện lệnh"** khi gõ tên script mà thiếu `python` phía trước — xem [USER_GUIDE.md](USER_GUIDE.md#️-lỗi-thường-gặp-powershell-báo-không-nhận-diện-lệnh).
 
 ---

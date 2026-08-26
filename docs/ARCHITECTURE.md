@@ -48,7 +48,8 @@ vn_stock_pipeline / meta_sync / macro_sync / news_sync / shareholders_sync
                                               python publish_dashboard.py --live
                                               (whitelist tự bóc, không git add .)
                                                                                   ▼
-                                              git push ──► GitHub Pages (1-2 phút)
+                                              git push ──► Dashboard CI ──► Deploy Pages
+                                              (deploy + cache-busted public byte verification)
 ```
 
 ## Nhánh BCTC

@@ -176,3 +176,181 @@ test("the statement taxonomy is published as generated evidence, below the manua
     assert.match(html, /not a manually verified issuer type/i);
   }
 });
+
+const { spawnSync } = require("node:child_process");
+
+const DEPLOY_WORKFLOW = path.join(ROOT, ".github/workflows/deploy-pages.yml");
+
+function sessionUnderscore(session) {
+  return session.replaceAll("-", "_");
+}
+
+function findBash() {
+  const candidates = process.platform === "win32"
+    ? ["bash", "C:\\Program Files\\Git\\bin\\bash.exe"]
+    : ["bash"];
+  for (const candidate of candidates) {
+    const probe = spawnSync(candidate, ["-n", "-c", "true"], { encoding: "utf8" });
+    if (probe.status === 0) return candidate;
+  }
+  return null;
+}
+
+function extractRunBlocks(yamlText) {
+  const blocks = [];
+  const lines = yamlText.split(/\r?\n/);
+  let collecting = false;
+  let current = [];
+  let indent = 0;
+  for (const line of lines) {
+    if (!collecting) {
+      if (/^\s+run:\s*\|\s*$/.test(line)) {
+        collecting = true;
+        current = [];
+        indent = line.search(/\S/);
+        continue;
+      }
+    } else if (line.trim() === "") {
+      current.push("");
+    } else {
+      const leading = line.search(/\S/);
+      if (leading > indent) {
+        current.push(line.slice(indent + 2));
+      } else {
+        blocks.push(current.join("\n"));
+        collecting = false;
+        current = [];
+        if (/^\s+run:\s*\|\s*$/.test(line)) {
+          collecting = true;
+          indent = line.search(/\S/);
+        }
+      }
+    }
+  }
+  if (collecting) blocks.push(current.join("\n"));
+  return blocks;
+}
+
+test("checked-out source session is coherent for public verification", () => {
+  const buildInfo = readJson("data/build_info.json");
+  const analysis = readJson("analysis_latest.json");
+  const expectedSession = buildInfo.market_session;
+  assert.match(expectedSession, /^\d{4}-\d{2}-\d{2}$/);
+  assert.equal(manifest.freshness.reference_session, expectedSession);
+  assert.equal(analysis.summary.session_date, expectedSession);
+  const sessionManifestName = `data/session_${sessionUnderscore(expectedSession)}_manifest.json`;
+  const sessionManifest = readJson(sessionManifestName);
+  assert.equal(sessionManifest.dashboard_session, expectedSession);
+  const publicFiles = [
+    "data/build_info.json",
+    "bundle_manifest.json",
+    "analysis_latest.json",
+    "screen_snapshot.csv",
+    "market_breadth.csv",
+    sessionManifestName,
+    `report-${expectedSession}.html`,
+    "dashboard.html",
+  ];
+  for (const file of publicFiles) {
+    const full = path.join(ROOT, file);
+    assert.ok(fs.existsSync(full), `${file} is missing`);
+    assert.ok(fs.statSync(full).size > 0, `${file} is empty`);
+    const digest = sha256(file);
+    assert.match(digest, /^[0-9a-f]{64}$/, `${file} sha256`);
+    assert.equal(digest, sha256(file), `${file} hash comparison is not stable`);
+  }
+  assert.notEqual(sha256("dashboard.html"), sha256("analysis_latest.json"));
+});
+
+test("Deploy Pages workflow verifies cache-busted public bytes before SUCCESS", () => {
+  const yamlText = fs.readFileSync(DEPLOY_WORKFLOW, "utf8");
+  assert.match(yamlText, /workflow_run:/);
+  assert.match(yamlText, /workflows:\s*\[["']Dashboard CI["']\]/);
+  assert.match(yamlText, /branches:\s*\[main\]/);
+  assert.match(yamlText, /types:\s*\[completed\]/);
+  assert.match(yamlText, /ref:\s*\$\{\{\s*github\.event\.workflow_run\.head_sha\s*\}\}/);
+  assert.match(yamlText, /uses:\s*actions\/configure-pages@/);
+  assert.match(yamlText, /uses:\s*actions\/upload-pages-artifact@/);
+  assert.match(yamlText, /uses:\s*actions\/deploy-pages@/);
+  assert.match(yamlText, /id:\s*deployment/);
+  assert.match(yamlText, /PAGE_URL:\s*\$\{\{\s*steps\.deployment\.outputs\.page_url\s*\}\}/);
+  assert.match(yamlText, /HEAD_SHA:\s*\$\{\{\s*github\.event\.workflow_run\.head_sha\s*\}\}/);
+  assert.match(yamlText, /jq -r '\.market_session/);
+  assert.doesNotMatch(yamlText, /\bdate\s+\+%Y-%m-%d\b/);
+  assert.doesNotMatch(yamlText, /github\.event\.workflow_run\.(created_at|run_started_at|updated_at)/);
+  assert.match(yamlText, /PAGE_URL="\$\{PAGE_URL%\/\}"/);
+  assert.match(yamlText, /MAX_ATTEMPTS=12/);
+  assert.match(yamlText, /SLEEP_SECONDS=10/);
+  assert.match(yamlText, /while \[ "\$attempt" -le "\$MAX_ATTEMPTS" \]/);
+  assert.doesNotMatch(yamlText, /while\s+true/);
+  assert.match(yamlText, /\$\{url\}\?verify=\$\{HEAD_SHA\}-\$\{attempt\}/);
+  assert.match(yamlText, /sha256sum -- "\$f"/);
+  assert.match(yamlText, /sha256sum -- "\$tmp"/);
+  assert.match(yamlText, /public_sha" != "\$expected_sha"/);
+  assert.match(yamlText, /set -euo pipefail/);
+  assert.match(yamlText, /mktemp -d "\$\{RUNNER_TEMP:-\/tmp\}\/pages-verify\.XXXXXX"/);
+  assert.match(yamlText, /trap 'rm -rf "\$WORKDIR"' EXIT/);
+  assert.match(yamlText, /contents:\s*read/);
+  assert.match(yamlText, /pages:\s*write/);
+  assert.match(yamlText, /id-token:\s*write/);
+  assert.doesNotMatch(yamlText, /contents:\s*write/);
+  assert.match(yamlText, /session_\$\{EXPECTED_SESSION\/\/-\/_\}_manifest\.json/);
+  assert.match(yamlText, /report-\$\{EXPECTED_SESSION\}\.html/);
+  for (const file of [
+    "data/build_info.json",
+    "bundle_manifest.json",
+    "analysis_latest.json",
+    "screen_snapshot.csv",
+    "market_breadth.csv",
+    "dashboard.html",
+  ]) {
+    assert.ok(yamlText.includes(`"${file}"`), `workflow must verify ${file}`);
+  }
+  assert.match(yamlText, /echo "  expected_sha256=/);
+  assert.match(yamlText, /echo "  observed=/);
+  assert.match(yamlText, /echo "  attempts=\$\{MAX_ATTEMPTS\}"/);
+  assert.match(yamlText, /PUBLIC_BYTE_IDENTITY_FAIL after \$\{MAX_ATTEMPTS\} attempts/);
+  const failExit = yamlText.lastIndexOf("exit 1");
+  const failBanner = yamlText.lastIndexOf("PUBLIC_BYTE_IDENTITY_FAIL");
+  assert.ok(failBanner >= 0 && failExit > failBanner, "terminal failure must exit non-zero");
+
+  const runBlocks = extractRunBlocks(yamlText);
+  assert.equal(runBlocks.length, 2, "expected local-coherence and public-verify run blocks");
+  const bash = findBash();
+  assert.ok(bash, "bash is required to syntax-check the deploy workflow scripts");
+  for (const block of runBlocks) {
+    assert.match(block, /set -euo pipefail/);
+    const checked = spawnSync(bash, ["-n", "-c", block], { encoding: "utf8" });
+    assert.equal(checked.status, 0, checked.stderr || "bash -n failed");
+  }
+
+  const maxAttempts = 12;
+  let attemptsUsed = 0;
+  let matched = false;
+  const expected = "abc";
+  const staleThenFresh = ["stale", "stale", "abc"];
+  for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+    attemptsUsed = attempt;
+    const token = `deadbeef-${attempt}`;
+    assert.match(token, /-[0-9]+$/);
+    const observed = staleThenFresh[attempt - 1] || "abc";
+    if (observed === expected) {
+      matched = true;
+      break;
+    }
+  }
+  assert.equal(matched, true);
+  assert.equal(attemptsUsed, 3);
+
+  let exhausted = 0;
+  let exhaustedMatch = false;
+  for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+    exhausted = attempt;
+    if ("stale" === expected) {
+      exhaustedMatch = true;
+      break;
+    }
+  }
+  assert.equal(exhaustedMatch, false);
+  assert.equal(exhausted, maxAttempts);
+});
