@@ -12,6 +12,7 @@
  * ============================================================ */
 
 const ARCHIVE_ITEMS = [
+  { file: "report-2026-08-25.html", date: "2026-08-25" },
   { file: "report-2026-04-21.html", date: "2026-04-21" },
   { file: "playbook-2026-04-09.html", date: "2026-04-09" },
   { file: "vn_crosscheck_update_2026-04-08.html", date: "2026-04-08" },

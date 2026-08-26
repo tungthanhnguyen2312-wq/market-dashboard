@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="vi" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Báo cáo phiên 25/08/2026 | Stock Lookup</title>
+  <meta name="description" content="Báo cáo phân tích thị trường chứng khoán Việt Nam phiên 25/08/2026: Canonical Producer Completed, độ rộng thị trường, 95 cơ hội chiến thuật chọn lọc (Breakout, Base Building, Early Reversal).">
+  <link rel="canonical" href="https://tungthanhnguyen2312-wq.github.io/market-dashboard/report-2026-08-25.html">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2303080A'/%3E%3Crect x='6' y='18' width='5' height='8' rx='1' fill='%2320E7CF'/%3E%3Crect x='14' y='12' width='5' height='14' rx='1' fill='%2327E6A1'/%3E%3Crect x='22' y='6' width='5' height='20' rx='1' fill='%2327E6A1'/%3E%3C/svg%3E">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://unpkg.com">
+
+  <!-- Bootstrap 5 + Design System -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css?v=2026-08-25-canonical-v1">
+  <link rel="stylesheet" href="assets/css/tailwind.generated.css?v=2026-08-25-canonical-v1">
+  <link rel="stylesheet" href="assets/css/shell.css?v=2026-08-25-canonical-v1">
+
+  <style>
+    .tab-btn {
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-md);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      background: transparent;
+      border: 1px solid transparent;
+      transition: all var(--motion-fast);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .tab-btn:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .tab-btn.active {
+      color: var(--primary);
+      background: rgba(32, 231, 207, 0.12);
+      border-color: rgba(32, 231, 207, 0.35);
+    }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; animation: fadeIn 0.25s ease-in-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+    .tactical-badge {
+      display: inline-block;
+      padding: 0.2rem 0.55rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .tb-breakout { background: rgba(34, 197, 94, 0.18); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.4); }
+    .tb-base { background: rgba(59, 130, 246, 0.18); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.4); }
+    .tb-reversal { background: rgba(245, 158, 11, 0.18); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
+    .tb-uptrend { background: rgba(168, 85, 247, 0.18); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.4); }
+    .tb-easing { background: rgba(148, 163, 184, 0.18); color: #cbd5e1; border: 1px solid rgba(148, 163, 184, 0.4); }
+    .tb-downtrend { background: rgba(239, 68, 68, 0.18); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.4); }
+
+    .action-badge {
+      display: inline-block;
+      padding: 0.15rem 0.45rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+    .ab-buy { background: #064e3b; color: #6ee7b7; }
+    .ab-accumulate { background: #1e3a8a; color: #93c5fd; }
+    .ab-early { background: #78350f; color: #fde68a; }
+    .ab-wait { background: #1e293b; color: #94a3b8; }
+    .ab-avoid { background: #7f1d1d; color: #fca5a5; }
+
+    .ticker-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 0.75rem 1rem;
+      transition: all var(--motion-fast);
+      cursor: pointer;
+    }
+    .ticker-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(32, 231, 207, 0.1);
+    }
+    .provenance-table td, .provenance-table th {
+      padding: 0.45rem 0.75rem;
+      font-size: 0.8rem;
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .code-pill {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.75rem;
+      background: rgba(0, 0, 0, 0.35);
+      padding: 0.15rem 0.35rem;
+      border-radius: 4px;
+      color: var(--accent-text);
+    }
+  </style>
+</head>
+<body class="bg-bg text-white font-sans" data-page="archive">
+
+  <div class="vs-shell">
+    <!-- ===== MOBILE NAVIGATION DRAWER ===== -->
+    <aside class="vs-sidebar" id="sidebar">
+      <a class="vs-sidebar-brand" href="dashboard.html"><span class="vs-brand-dot"></span><span class="vs-sidebar-brand-label">Stock Lookup</span></a>
+      <button class="vs-sidebar-toggle ms-auto" id="sidebar-close" style="position:absolute; top:0.9rem; right:0.9rem;" aria-label="Đóng menu">
+        <i data-lucide="x"></i>
+      </button>
+      <nav class="vs-sidebar-nav">
+        <a class="vs-sidebar-link" href="dashboard.html" data-nav="dashboard" title="Tổng quan"><i data-lucide="layout-dashboard"></i><span class="vs-sidebar-link-label">Tổng quan</span></a>
+        <a class="vs-sidebar-link" href="screener.html" data-nav="screener" title="Bộ lọc thị trường"><i data-lucide="filter"></i><span class="vs-sidebar-link-label">Bộ lọc thị trường</span></a>
+        <a class="vs-sidebar-link" href="analysis.html" data-nav="analysis" title="Phân tích"><i data-lucide="brain-circuit"></i><span class="vs-sidebar-link-label">Phân tích</span></a>
+        <a class="vs-sidebar-link" href="signals.html" data-nav="signals" title="Tín hiệu"><i data-lucide="activity"></i><span class="vs-sidebar-link-label">Tín hiệu</span></a>
+        <a class="vs-sidebar-link" href="macro.html" data-nav="macro" title="Vĩ mô & Hàng hóa"><i data-lucide="globe"></i><span class="vs-sidebar-link-label">Vĩ mô & Hàng hóa</span></a>
+        <a class="vs-sidebar-link" href="about.html" data-nav="about" title="Giới thiệu"><i data-lucide="info"></i><span class="vs-sidebar-link-label">Giới thiệu</span></a>
+      </nav>
+      <div class="vs-sidebar-foot">Stock Lookup</div>
+    </aside>
+    <div class="vs-sidebar-overlay" id="sidebar-overlay"></div>
+
+    <div class="vs-shell-main">
+      <!-- ===== STICKY HORIZONTAL TOPBAR ===== -->
+      <header class="vs-topbar">
+        <button class="vs-sidebar-toggle" id="sidebar-toggle" aria-label="Mở menu"><i data-lucide="menu"></i></button>
+        <a class="vs-topbar-brand" href="dashboard.html"><span class="vs-brand-dot"></span><span>Stock Lookup</span></a>
+        <nav class="vs-topbar-nav" aria-label="Điều hướng chính">
+          <a class="vs-topnav-link" href="dashboard.html" data-nav="dashboard" title="Tổng quan"><i data-lucide="layout-dashboard"></i><span>Tổng quan</span></a>
+          <a class="vs-topnav-link" href="screener.html" data-nav="screener" title="Bộ lọc thị trường"><i data-lucide="filter"></i><span>Bộ lọc thị trường</span></a>
+          <a class="vs-topnav-link" href="analysis.html" data-nav="analysis" title="Phân tích"><i data-lucide="brain-circuit"></i><span>Phân tích</span></a>
+          <a class="vs-topnav-link" href="signals.html" data-nav="signals" title="Tín hiệu"><i data-lucide="activity"></i><span>Tín hiệu</span></a>
+          <a class="vs-topnav-link" href="macro.html" data-nav="macro" title="Vĩ mô & Hàng hóa"><i data-lucide="globe"></i><span>Vĩ mô & Hàng hóa</span></a>
+          <a class="vs-topnav-link" href="about.html" data-nav="about" title="Giới thiệu"><i data-lucide="info"></i><span>Giới thiệu</span></a>
+        </nav>
+        <span class="vs-topbar-spacer"></span>
+        <a class="vs-topbar-link is-active" href="archive.html"><i data-lucide="history"></i>Lịch sử</a>
+        <span class="vs-topbar-meta">Phiên 2026-08-25 · Canonical Completed</span>
+        <button type="button" class="vs-icon-btn" onclick="location.reload()" aria-label="Làm mới dữ liệu" title="Làm mới dữ liệu"><i data-lucide="refresh-cw"></i></button>
+      </header>
+
+      <main class="vs-content">
+
+        <!-- ===== HEADER & STATUS BANNER ===== -->
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+          <div>
+            <div class="section-eyebrow mb-1">Báo cáo phiên thị trường</div>
+            <h1 class="text-xl font-bold tracking-tight text-white mb-0 flex items-center gap-2">
+              <span>📊 Phiên giao dịch 25/08/2026</span>
+              <span class="badge-soft bs-green">Canonical Completed</span>
+            </h1>
+          </div>
+          <div class="d-flex align-items-center gap-2 flex-wrap">
+            <span class="badge-soft bs-blue" title="Phân tích cơ hội & kỹ thuật phiên 25/08/2026">Analysis: AVAILABLE</span>
+            <span class="badge-soft bs-green" title="95 mã thuộc tập cơ hội chọn lọc">95 Entry-Relevant Triage</span>
+            <span class="badge-soft bs-gray" title="Phạm vi phủ dữ liệu kỹ thuật">888 / 893 Khảo sát</span>
+          </div>
+        </div>
+
+        <!-- ===== OPERATING PRINCIPLE CALLOUT ===== -->
+        <div class="card mb-4" style="border-left: 4px solid var(--primary); background: rgba(32, 231, 207, 0.04);">
+          <div class="card-body py-3">
+            <div class="d-flex align-items-start gap-3">
+              <i data-lucide="compass" class="text-primary mt-1" style="width: 22px; height: 22px;"></i>
+              <div>
+                <div class="font-bold text-white text-sm mb-1">
+                  NGUYÊN TẮC VẬN HÀNH: RỦI RO THỊ TRƯỜNG CAO SONG HÀNH CÙNG CƠ HỘI CHỌN LỌC
+                </div>
+                <div class="text-muted text-xs leading-relaxed">
+                  Độ rộng thị trường chung ở trạng thái phòng thủ (246 tăng / 437 giảm, 67% mã có momentum 20 ngày âm). Tuy nhiên, hệ thống không áp đặt trạng thái dừng giao dịch toàn diện (<code class="code-pill">WAIT</code>). <strong>95 cơ hội kỹ thuật độc lập</strong> đạt chuẩn tham gia có kỷ luật vẫn được phân loại rõ ràng theo từng kịch bản hành động.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== BENTO KPI GRID ===== -->
+        <section class="kpi-grid dashboard-kpi-band mb-4" aria-label="Chỉ số tổng quan phiên 25/08/2026">
+          <div class="kpi kpi-featured">
+            <div class="kpi-label"><i data-lucide="gauge"></i>Độ rộng phiên (Breadth)</div>
+            <div class="kpi-value text-warning">MIXED</div>
+            <div class="kpi-sub">246 tăng · 437 giảm · 205 đứng</div>
+            <div class="kpi-bar" style="background: rgba(239, 68, 68, 0.4);">
+              <span style="width: 27.7%; background: var(--success);" title="27.7% tăng"></span>
+            </div>
+          </div>
+
+          <div class="kpi kpi-featured">
+            <div class="kpi-label"><i data-lucide="activity"></i>Độ rộng đà (Momentum)</div>
+            <div class="kpi-value text-danger">NEGATIVE</div>
+            <div class="kpi-sub">595 âm (67.0%) · 290 dương (32.7%)</div>
+            <div class="kpi-bar" style="background: rgba(239, 68, 68, 0.4);">
+              <span style="width: 32.7%; background: var(--success);" title="32.7% đà dương"></span>
+            </div>
+          </div>
+
+          <div class="kpi">
+            <div class="kpi-label"><i data-lucide="trending-up"></i>Xu hướng &gt; MA20</div>
+            <div class="kpi-value">264 <span class="text-xs text-muted font-normal">/ 888 mã</span></div>
+            <div class="kpi-sub">29.7% trên MA20 · 70.3% dưới MA20</div>
+            <div class="kpi-bar"><span style="width: 29.7%; background: var(--primary);"></span></div>
+          </div>
+
+          <div class="kpi">
+            <div class="kpi-label"><i data-lucide="sparkles"></i>Cơ hội sẵn sàng (Breakout)</div>
+            <div class="kpi-value text-success">14 mã</div>
+            <div class="kpi-sub">Hành động: BUY_ON_CONFIRMATION</div>
+          </div>
+
+          <div class="kpi">
+            <div class="kpi-label"><i data-lucide="layers"></i>Tích lũy nền (Base Building)</div>
+            <div class="kpi-value text-info">17 mã</div>
+            <div class="kpi-sub">Hành động: ACCUMULATE_IN_BASE</div>
+          </div>
+        </section>
+
+        <!-- ===== TAB BAR NAVIGATION ===== -->
+        <div class="d-flex align-items-center gap-2 border-b border-gray-800 pb-2 mb-4 overflow-x-auto">
+          <button type="button" class="tab-btn active" onclick="switchReportTab('tab-tactical')">
+            <i data-lucide="crosshair"></i><span>Cơ hội chiến thuật (95)</span>
+          </button>
+          <button type="button" class="tab-btn" onclick="switchReportTab('tab-watchlist')">
+            <i data-lucide="star"></i><span>Watchlist tiêu biểu</span>
+          </button>
+          <button type="button" class="tab-btn" onclick="switchReportTab('tab-sectors')">
+            <i data-lucide="pie-chart"></i><span>Độ rộng &amp; Ngành dẫn dắt</span>
+          </button>
+          <button type="button" class="tab-btn" onclick="switchReportTab('tab-corp')">
+            <i data-lucide="building-2"></i><span>Sự kiện doanh nghiệp</span>
+          </button>
+          <button type="button" class="tab-btn" onclick="switchReportTab('tab-risk')">
+            <i data-lucide="shield-alert"></i><span>Sổ rủi ro &amp; Ranh giới</span>
+          </button>
+          <button type="button" class="tab-btn" onclick="switchReportTab('tab-manifest')">
+            <i data-lucide="file-check"></i><span>Nguồn gốc (Provenance)</span>
+          </button>
+        </div>
+
+        <!-- ==================== TAB 1: TACTICAL OPPORTUNITY SURFACE ==================== -->
+        <div id="tab-tactical" class="tab-panel active space-y-4">
+          <div class="card">
+            <div class="card-header d-flex align-items-center justify-content-between flex-wrap gap-2">
+              <h5 class="mb-0 flex items-center gap-2">
+                <i data-lucide="target" class="card-icon"></i>
+                <span>Tập cơ hội chiến thuật phiên 25/08/2026 (95 mã đủ điều kiện)</span>
+              </h5>
+              <div class="d-flex align-items-center gap-2">
+                <input type="search" id="tactical-search" class="vs-input vs-input-sm" placeholder="Tìm mã hoặc trạng thái…" style="max-width: 220px;" oninput="filterTacticalCards()">
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="chip-row mb-3">
+                <button type="button" class="chip active" onclick="setTacticalFilter('ALL', this)">Tất cả (95)</button>
+                <button type="button" class="chip" onclick="setTacticalFilter('BREAKOUT_READY', this)">🔥 Breakout Ready (14)</button>
+                <button type="button" class="chip" onclick="setTacticalFilter('BASE_BUILDING', this)">🧱 Base Building (17)</button>
+                <button type="button" class="chip" onclick="setTacticalFilter('EARLY_REVERSAL', this)">⚡ Early Reversal (64)</button>
+                <button type="button" class="chip" onclick="setTacticalFilter('PRIORITY_NOW', this)">⭐ Priority Now (62)</button>
+              </div>
+
+              <!-- CARDS GRID -->
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3" id="tactical-grid">
+                <!-- Javascript will populate this or initial server render -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== TAB 2: WATCHLIST SPOTLIGHT ==================== -->
+        <div id="tab-watchlist" class="tab-panel space-y-4">
+          <div class="card">
+            <div class="card-header">
+              <h5><i data-lucide="star" class="card-icon"></i>Danh mục theo dõi tiêu biểu (Watchlist Examples)</h5>
+            </div>
+            <div class="card-body p-0">
+              <div class="table-responsive">
+                <table class="an-table">
+                  <thead>
+                    <tr>
+                      <th>Mã</th>
+                      <th>Giá đóng cửa (₫)</th>
+                      <th>% Phiên</th>
+                      <th>Trạng thái kỹ thuật</th>
+                      <th>Hành động kỹ thuật</th>
+                      <th>Ưu tiên nghiên cứu</th>
+                      <th>Ghi chú vận hành</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="ticker-cell">QNS</td>
+                      <td>46,800</td>
+                      <td class="val-pos">+0.43%</td>
+                      <td><span class="tactical-badge tb-breakout">BREAKOUT_READY</span></td>
+                      <td><span class="action-badge ab-buy">BUY_ON_CONFIRMATION</span></td>
+                      <td><span class="badge-soft bs-green">PRIORITY_NOW</span></td>
+                      <td class="text-muted text-xs">Vượt đỉnh ngắn hạn, KL gia tăng, đà 20 phiên tích cực.</td>
+                    </tr>
+                    <tr>
+                      <td class="ticker-cell">PVD</td>
+                      <td>19,200</td>
+                      <td class="val-neg">-0.78%</td>
+                      <td><span class="tactical-badge tb-uptrend">UPTREND_CONFIRMED</span></td>
+                      <td><span class="action-badge ab-wait">WAIT (HOLD)</span></td>
+                      <td><span class="badge-soft bs-green">PRIORITY_NOW</span></td>
+                      <td class="text-muted text-xs">Xu hướng tăng xác nhận trên MA20; chờ điểm gia tăng tỷ trọng.</td>
+                    </tr>
+                    <tr>
+                      <td class="ticker-cell">VNM</td>
+                      <td>62,600</td>
+                      <td class="val-neg">-0.95%</td>
+                      <td><span class="tactical-badge tb-uptrend">UPTREND_CONFIRMED</span></td>
+                      <td><span class="action-badge ab-wait">WAIT (HOLD)</span></td>
+                      <td><span class="badge-soft bs-green">PRIORITY_NOW</span></td>
+                      <td class="text-muted text-xs">Cấu trúc phòng thủ ổn định, giữ vị thế theo xu hướng.</td>
+                    </tr>
+                    <tr>
+                      <td class="ticker-cell">HPG</td>
+                      <td>21,800</td>
+                      <td class="val-neg">-2.02%</td>
+                      <td><span class="tactical-badge tb-easing">SELLING_PRESSURE_EASING</span></td>
+                      <td><span class="action-badge ab-wait">WAIT</span></td>
+                      <td><span class="badge-soft bs-blue">SETUP_WATCH</span></td>
+                      <td class="text-muted text-xs">Áp lực bán hạ nhiệt, đã thực hiện chi trả cổ tức cổ phiếu.</td>
+                    </tr>
+                    <tr>
+                      <td class="ticker-cell">EVF</td>
+                      <td>12,500</td>
+                      <td class="val-neg">-1.19%</td>
+                      <td><span class="tactical-badge tb-easing">SELLING_PRESSURE_EASING</span></td>
+                      <td><span class="action-badge ab-wait">WAIT</span></td>
+                      <td><span class="badge-soft bs-gray">MONITOR</span></td>
+                      <td class="text-muted text-xs">Nén biên độ hẹp; chờ xác nhận dòng tiền vượt cản.</td>
+                    </tr>
+                    <tr>
+                      <td class="ticker-cell">NVL</td>
+                      <td>13,300</td>
+                      <td class="val-neg">-1.85%</td>
+                      <td><span class="tactical-badge tb-easing">SIDEWAYS_NEUTRAL</span></td>
+                      <td><span class="action-badge ab-wait">WAIT</span></td>
+                      <td><span class="badge-soft bs-gray">MONITOR</span></td>
+                      <td class="text-muted text-xs">Đi ngang tích lũy biên độ trung tính.</td>
+                    </tr>
+                    <tr>
+                      <td class="ticker-cell">POW</td>
+                      <td>13,300</td>
+                      <td class="val-neg">-1.85%</td>
+                      <td><span class="tactical-badge tb-easing">SIDEWAYS_NEUTRAL</span></td>
+                      <td><span class="action-badge ab-wait">WAIT</span></td>
+                      <td><span class="badge-soft bs-gray">MONITOR</span></td>
+                      <td class="text-muted text-xs">Cân bằng đáy, chưa xuất hiện tín hiệu đảo chiều sớm.</td>
+                    </tr>
+                    <tr>
+                      <td class="ticker-cell">FPT</td>
+                      <td>70,700</td>
+                      <td class="val-neg">-0.98%</td>
+                      <td><span class="tactical-badge tb-downtrend">DOWNTREND</span></td>
+                      <td><span class="action-badge ab-avoid">AVOID</span></td>
+                      <td><span class="badge-soft bs-gray">MONITOR</span></td>
+                      <td class="text-muted text-xs">Dưới MA20 &amp; đà âm, tránh bắt đáy trước khi hình thành nền.</td>
+                    </tr>
+                    <tr>
+                      <td class="ticker-cell">PAN</td>
+                      <td>20,050</td>
+                      <td class="val-flat">0.00%</td>
+                      <td><span class="tactical-badge tb-downtrend">DOWNTREND</span></td>
+                      <td><span class="action-badge ab-avoid">AVOID</span></td>
+                      <td><span class="badge-soft bs-gray">MONITOR</span></td>
+                      <td class="text-muted text-xs">Tiếp tục xu hướng giảm điều chỉnh, giữ kỷ luật phòng thủ.</td>
+                    </tr>
+                    <tr>
+                      <td class="ticker-cell">PNJ</td>
+                      <td>42,650</td>
+                      <td class="val-flat">0.00%</td>
+                      <td><span class="tactical-badge tb-downtrend">DOWNTREND</span></td>
+                      <td><span class="action-badge ab-avoid">AVOID</span></td>
+                      <td><span class="badge-soft bs-gray">MONITOR</span></td>
+                      <td class="text-muted text-xs">Dưới ngưỡng kỹ thuật trung hạn, chưa có tín hiệu gom.</td>
+                    </tr>
+                    <tr>
+                      <td class="ticker-cell">SSI</td>
+                      <td>21,250</td>
+                      <td class="val-flat">0.00%</td>
+                      <td><span class="tactical-badge tb-downtrend">DOWNTREND</span></td>
+                      <td><span class="action-badge ab-avoid">AVOID</span></td>
+                      <td><span class="badge-soft bs-gray">MONITOR</span></td>
+                      <td class="text-muted text-xs">Chịu áp lực điều chỉnh ngành chứng khoán; quan sát vùng hỗ trợ.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== TAB 3: SECTOR LEADERSHIP ==================== -->
+        <div id="tab-sectors" class="tab-panel space-y-4">
+          <div class="card">
+            <div class="card-header">
+              <h5><i data-lucide="pie-chart" class="card-icon"></i>Độ rộng &amp; Sức mạnh ngành (Sector Leadership Context)</h5>
+            </div>
+            <div class="card-body p-0">
+              <div class="table-responsive">
+                <table class="an-table">
+                  <thead>
+                    <tr>
+                      <th>Ngành (Sector)</th>
+                      <th>Trạng thái</th>
+                      <th>Số mã khảo sát</th>
+                      <th>% Trên MA20</th>
+                      <th>% Đà dương (20D)</th>
+                      <th>Tăng / Giảm phiên</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="ticker-cell">Bán lẻ (Retail)</td>
+                      <td><span class="badge-soft bs-green">MIXED_LEADERSHIP</span></td>
+                      <td>13</td>
+                      <td class="val-pos">69.2% (9 mã)</td>
+                      <td class="val-pos">76.9% (10 mã)</td>
+                      <td>3 tăng / 7 giảm / 3 đứng</td>
+                    </tr>
+                    <tr>
+                      <td class="ticker-cell">Bảo hiểm (Insurance)</td>
+                      <td><span class="badge-soft bs-amber">DETERIORATING</span></td>
+                      <td>9</td>
+                      <td>33.3% (3 mã)</td>
+                      <td>33.3% (3 mã)</td>
+                      <td>1 tăng / 6 giảm / 2 đứng</td>
+                    </tr>
+                    <tr>
+                      <td class="ticker-cell">Bất động sản (Real Estate)</td>
+                      <td><span class="badge-soft bs-amber">DEFENSIVE</span></td>
+                      <td>114</td>
+                      <td>25.4% (29 mã)</td>
+                      <td>28.1% (32 mã)</td>
+                      <td>28 tăng / 62 giảm / 24 đứng</td>
+                    </tr>
+                    <tr>
+                      <td class="ticker-cell">Ngân hàng (Banking)</td>
+                      <td><span class="badge-soft bs-blue">SELECTIVE</span></td>
+                      <td>27</td>
+                      <td>40.7% (11 mã)</td>
+                      <td>37.0% (10 mã)</td>
+                      <td>6 tăng / 15 giảm / 6 đứng</td>
+                    </tr>
+                    <tr>
+                      <td class="ticker-cell">Tài nguyên Cơ bản / Thép</td>
+                      <td><span class="badge-soft bs-amber">DEFENSIVE</span></td>
+                      <td>38</td>
+                      <td>21.1% (8 mã)</td>
+                      <td>26.3% (10 mã)</td>
+                      <td>8 tăng / 22 giảm / 8 đứng</td>
+                    </tr>
+                    <tr>
+                      <td class="ticker-cell">Dầu khí (Oil &amp; Gas)</td>
+                      <td><span class="badge-soft bs-green">MIXED_LEADERSHIP</span></td>
+                      <td>18</td>
+                      <td class="val-pos">55.6% (10 mã)</td>
+                      <td class="val-pos">61.1% (11 mã)</td>
+                      <td>5 tăng / 10 giảm / 3 đứng</td>
+                    </tr>
+                    <tr>
+                      <td class="ticker-cell">Thực phẩm &amp; Đồ uống</td>
+                      <td><span class="badge-soft bs-blue">SELECTIVE</span></td>
+                      <td>54</td>
+                      <td>37.0% (20 mã)</td>
+                      <td>42.6% (23 mã)</td>
+                      <td>14 tăng / 26 giảm / 14 đứng</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== TAB 4: CORPORATE INTELLIGENCE ==================== -->
+        <div id="tab-corp" class="tab-panel space-y-4">
+          <div class="card">
+            <div class="card-header">
+              <h5><i data-lucide="building-2" class="card-icon"></i>Thông tin sự kiện doanh nghiệp được xác thực (Corporate Intelligence)</h5>
+            </div>
+            <div class="card-body">
+              <div class="p-3 mb-3" style="background: rgba(15, 23, 42, 0.55); border: 1px solid var(--border-soft); border-radius: var(--radius-md);">
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                  <div>
+                    <span class="ticker-cell text-base font-bold text-primary">HPG</span>
+                    <span class="text-xs text-muted ms-2">Tập đoàn Hòa Phát · HOSE</span>
+                  </div>
+                  <span class="badge-soft bs-green">EXECUTED</span>
+                </div>
+                <div class="text-xs text-white mb-2 font-medium">Sự kiện: Phát hành cổ phiếu trả cổ tức năm 2025</div>
+                <div class="text-xs text-muted space-y-1">
+                  <div>• <strong>Ngày thông báo:</strong> 07/07/2026 · <strong>Ngày hiệu lực:</strong> 02/07/2026</div>
+                  <div>• <strong>Nguồn xác thực:</strong> Cổng thông tin Quan hệ Cổ đông (IR) &amp; Sổ cái chính thức (ISSUER_IR_AND_OFFICIAL_LEDGER).</div>
+                  <div>• <strong>Ranh giới quản trị:</strong> Sự kiện đã thực hiện trên sổ sách pháp lý; không suy diễn tác động định giá tức thì hay khuyến nghị điểm mua.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== TAB 5: RISK REGISTER & BOUNDARIES ==================== -->
+        <div id="tab-risk" class="tab-panel space-y-4">
+          <div class="card">
+            <div class="card-header">
+              <h5><i data-lucide="shield-alert" class="card-icon"></i>Sổ đăng ký rủi ro nghiên cứu (Research Risk Register) &amp; Ranh giới thẩm quyền</h5>
+            </div>
+            <div class="card-body">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
+                <div class="p-3" style="background: rgba(15, 23, 42, 0.55); border: 1px solid var(--border-soft); border-radius: var(--radius-md);">
+                  <div class="text-xs font-bold text-white mb-2 flex items-center gap-1.5">
+                    <i data-lucide="alert-triangle" class="text-warning" style="width: 16px; height: 16px;"></i>
+                    <span>RỦI RO ĐỘ RỘNG &amp; KỸ THUẬT (MARKET &amp; TECHNICAL)</span>
+                  </div>
+                  <ul class="text-xs text-muted space-y-1.5 ps-3 mb-0">
+                    <li>• 595/888 mã (67.0%) ghi nhận đà 20 phiên âm (Negative 20D Momentum).</li>
+                    <li>• 624/888 mã (70.3%) giao dịch dưới đường trung bình MA20.</li>
+                    <li>• Độ biến động chéo thị trường ở mức trung vị 2.49% (Shadow descriptive).</li>
+                  </ul>
+                </div>
+
+                <div class="p-3" style="background: rgba(15, 23, 42, 0.55); border: 1px solid var(--border-soft); border-radius: var(--radius-md);">
+                  <div class="text-xs font-bold text-white mb-2 flex items-center gap-1.5">
+                    <i data-lucide="lock" class="text-info" style="width: 16px; height: 16px;"></i>
+                    <span>RANH GIỚI BẢO VỆ NHÀ ĐẦU TƯ (GOVERNANCE BOUNDARIES)</span>
+                  </div>
+                  <ul class="text-xs text-muted space-y-1.5 ps-3 mb-0">
+                    <li>• <code class="code-pill">NO_MATERIAL_RISK_ESTABLISHED != LOW_RISK</code> (Chưa ghi nhận rủi ro lớn không đồng nghĩa với rủi ro thấp).</li>
+                    <li>• <code class="code-pill">RESEARCH_USABLE != authoritative valuation READY</code> (Dữ liệu phục vụ nghiên cứu, không phải định giá độc lập).</li>
+                    <li>• <strong>KHÔNG hiển thị:</strong> Xác suất dự đoán, giá mục tiêu, tỷ suất sinh lời kỳ vọng, khuyến nghị Mua/Bán tự động, quy mô phân bổ danh mục.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== TAB 6: SOURCE PROVENANCE MANIFEST ==================== -->
+        <div id="tab-manifest" class="tab-panel space-y-4">
+          <div class="card">
+            <div class="card-header">
+              <h5><i data-lucide="file-check" class="card-icon"></i>Bảng kê nguồn gốc dữ liệu xác thực (Deterministic Source Manifest)</h5>
+            </div>
+            <div class="card-body p-0">
+              <div class="p-3 border-b border-gray-800 text-xs text-muted">
+                <strong>Producer Git Commit:</strong> <code class="code-pill">42d8da32f75e1b085ed1b02e86aff274196bf737</code> ("Recover full-universe triage generator and complete 2026-08-25 Daily Producer") · <strong>Session:</strong> <code class="code-pill">2026-08-25</code> · <strong>Operation:</strong> <code class="code-pill">daily_research_session_operation:377cdcc6…</code>
+              </div>
+              <div class="table-responsive">
+                <table class="provenance-table w-full">
+                  <thead>
+                    <tr class="bg-surface-head text-muted text-xs text-left">
+                      <th>Thành phần (Component)</th>
+                      <th>Mã định danh Artifact (Artifact Identity)</th>
+                      <th>Phiên nguồn</th>
+                      <th>Trạng thái xác thực</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="font-semibold text-white">Exact-Session Snapshot</td>
+                      <td><code class="code-pill">p3f9_exact_session_snapshot:ce30d85d…</code></td>
+                      <td>2026-08-25</td>
+                      <td><span class="badge-soft bs-green">EXACT_SESSION_CLEAN</span></td>
+                    </tr>
+                    <tr>
+                      <td class="font-semibold text-white">Breadth Foundation</td>
+                      <td><code class="code-pill">current_market_universe_breadth_foundation:13e8a0fd…</code></td>
+                      <td>2026-08-25</td>
+                      <td><span class="badge-soft bs-green">EXACT_SESSION_CLEAN</span></td>
+                    </tr>
+                    <tr>
+                      <td class="font-semibold text-white">Technical Recovery</td>
+                      <td><code class="code-pill">market_wide_current_technical_coverage_scaleout:559bac21…</code></td>
+                      <td>2026-08-25</td>
+                      <td><span class="badge-soft bs-green">EXACT_SESSION_CLEAN</span></td>
+                    </tr>
+                    <tr>
+                      <td class="font-semibold text-white">Descriptive Research</td>
+                      <td><code class="code-pill">market_wide_current_descriptive_research:0fded586…</code></td>
+                      <td>2026-08-25</td>
+                      <td><span class="badge-soft bs-green">EXACT_SESSION_CLEAN</span></td>
+                    </tr>
+                    <tr>
+                      <td class="font-semibold text-white">Screening Foundation</td>
+                      <td><code class="code-pill">current_market_screening_opportunity_comparison_foundation:19d78fef…</code></td>
+                      <td>2026-08-25</td>
+                      <td><span class="badge-soft bs-green">EXACT_SESSION_CLEAN</span></td>
+                    </tr>
+                    <tr>
+                      <td class="font-semibold text-white">Tactical Classifier</td>
+                      <td><code class="code-pill">watchlist_tactical_entry_classifier:cb2bbefb…</code></td>
+                      <td>2026-08-25</td>
+                      <td><span class="badge-soft bs-green">EXACT_SESSION_CLEAN</span></td>
+                    </tr>
+                    <tr>
+                      <td class="font-semibold text-white">Full-Universe Triage</td>
+                      <td><code class="code-pill">full_universe_entry_candidate_triage:97d80cf0…</code></td>
+                      <td>2026-08-25</td>
+                      <td><span class="badge-soft bs-green">EXACT_SESSION_CLEAN</span></td>
+                    </tr>
+                    <tr>
+                      <td class="font-semibold text-white">Decision Queue</td>
+                      <td><code class="code-pill">daily_opportunity_decision_queue:47189fb6…</code></td>
+                      <td>2026-08-25</td>
+                      <td><span class="badge-soft bs-green">EXACT_SESSION_CLEAN</span></td>
+                    </tr>
+                    <tr>
+                      <td class="font-semibold text-white">Corporate Intelligence</td>
+                      <td><code class="code-pill">market_wide_current_corporate_intelligence:8380d2f1…</code></td>
+                      <td>2026-08-25</td>
+                      <td><span class="badge-soft bs-green">EXACT_SESSION_CLEAN</span></td>
+                    </tr>
+                    <tr>
+                      <td class="font-semibold text-white">Sector Leadership</td>
+                      <td><code class="code-pill">current_market_sector_leadership_context:fc129338…</code></td>
+                      <td>2026-08-25</td>
+                      <td><span class="badge-soft bs-green">EXACT_SESSION_CLEAN</span></td>
+                    </tr>
+                    <tr>
+                      <td class="font-semibold text-white">Risk Register</td>
+                      <td><code class="code-pill">current_research_risk_register:972869d2…</code></td>
+                      <td>2026-08-25</td>
+                      <td><span class="badge-soft bs-green">EXACT_SESSION_CLEAN</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </main>
+
+      <footer class="vs-statusfooter">
+        <span>Stock Lookup — Dữ liệu phiên 25/08/2026 hoàn thành theo chuẩn quản trị Canonical Producer · Báo cáo phục vụ mục đích nghiên cứu, không cấu thành lời mời hay khuyến nghị đầu tư.</span>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/lucide@1.24.0"></script>
+  <script src="assets/js/shell.js?v=2026-08-25-canonical-v1"></script>
+  <script>
+    const TACTICAL_DATA = [
+      // 14 BREAKOUT READY
+      { ticker: "DHC", name: "Đông Hải Bến Tre", state: "BREAKOUT_READY", action: "BUY_ON_CONFIRMATION", priority: "PRIORITY_NOW", note: "Nén biên độ hẹp, vượt cản kỹ thuật ngắn hạn." },
+      { ticker: "DHM", name: "Thương mại & Khai thác Khoáng sản Dương Hiếu", state: "BREAKOUT_READY", action: "BUY_ON_CONFIRMATION", priority: "PRIORITY_NOW", note: "Khối lượng gia tăng đột biến, thoát nền tích lũy." },
+      { ticker: "FOC", name: "FPT Online", state: "BREAKOUT_READY", action: "BUY_ON_CONFIRMATION", priority: "PRIORITY_NOW", note: "Đà 20 phiên tích cực, tạo nền giá vững." },
+      { ticker: "GMD", name: "Gemadept", state: "BREAKOUT_READY", action: "BUY_ON_CONFIRMATION", priority: "PRIORITY_NOW", note: "Dẫn dắt nhóm cảng biển, bứt phá kênh kháng cự." },
+      { ticker: "HHP", name: "Giấy Hoàng Hà Hải Phòng", state: "BREAKOUT_READY", action: "BUY_ON_CONFIRMATION", priority: "PRIORITY_NOW", note: "Khối lượng tích cực, vượt cản ngắn hạn." },
+      { ticker: "LPB", name: "LPBank", state: "BREAKOUT_READY", action: "BUY_ON_CONFIRMATION", priority: "PRIORITY_NOW", note: "Dẫn dắt sức mạnh ngành ngân hàng, giữ kênh trên MA20." },
+      { ticker: "MCH", name: "Masan Consumer", state: "BREAKOUT_READY", action: "BUY_ON_CONFIRMATION", priority: "PRIORITY_NOW", note: "Cấu trúc hàng tiêu dùng vượt đỉnh lịch sử." },
+      { ticker: "PHR", name: "Cao su Phước Hòa", state: "BREAKOUT_READY", action: "BUY_ON_CONFIRMATION", priority: "PRIORITY_NOW", note: "Bứt phá vùng nén, đà tăng trưởng kỹ thuật tốt." },
+      { ticker: "QNS", name: "Đường Quảng Ngãi", state: "BREAKOUT_READY", action: "BUY_ON_CONFIRMATION", priority: "PRIORITY_NOW", note: "Vượt đỉnh ngắn hạn, dòng tiền xác nhận hỗ trợ vững." },
+      { ticker: "SCL", name: "Sông Đà Cao Cường", state: "BREAKOUT_READY", action: "BUY_ON_CONFIRMATION", priority: "PRIORITY_NOW", note: "Mô hình đảo chiều hoàn tất, vượt cản MA20." },
+      { ticker: "TDT", name: "May TDT", state: "BREAKOUT_READY", action: "BUY_ON_CONFIRMATION", priority: "PRIORITY_NOW", note: "Bứt phá nền tích lũy dệt may." },
+      { ticker: "TRC", name: "Cao su Tây Ninh", state: "BREAKOUT_READY", action: "BUY_ON_CONFIRMATION", priority: "PRIORITY_NOW", note: "Nhóm cao su bứt phá đồng thuận." },
+      { ticker: "VPI", name: "Văn Phú Invest", state: "BREAKOUT_READY", action: "BUY_ON_CONFIRMATION", priority: "PRIORITY_NOW", note: "Bứt phá kháng cự nhóm bất động sản chọn lọc." },
+      { ticker: "VNC", name: "Vinacontrol", state: "BREAKOUT_READY", action: "BUY_ON_CONFIRMATION", priority: "SETUP_WATCH", note: "Theo dõi phiên bứt phá tiếp diễn." },
+
+      // 17 BASE BUILDING
+      { ticker: "CDN", name: "Cảng Đà Nẵng", state: "BASE_BUILDING", action: "ACCUMULATE_IN_BASE", priority: "PRIORITY_NOW", note: "Tích lũy nền giá chặt chẽ 4 tuần." },
+      { ticker: "CLL", name: "Cảng Cát Lái", state: "BASE_BUILDING", action: "ACCUMULATE_IN_BASE", priority: "PRIORITY_NOW", note: "Biên độ co hẹp (VCP), khối lượng cạn kiệt." },
+      { ticker: "CTI", name: "Cường Thuận IDICO", state: "BASE_BUILDING", action: "ACCUMULATE_IN_BASE", priority: "PRIORITY_NOW", note: "Giữ vững nền hỗ trợ đầu tư công." },
+      { ticker: "D2D", name: "Phát triển Đô thị CN số 2", state: "BASE_BUILDING", action: "ACCUMULATE_IN_BASE", priority: "PRIORITY_NOW", note: "Nền tích lũy bền vững, tài chính cải thiện." },
+      { ticker: "DSN", name: "Công viên nước Đầm Sen", state: "BASE_BUILDING", action: "ACCUMULATE_IN_BASE", priority: "PRIORITY_NOW", note: "Dòng tiền phòng thủ, cổ tức đều đặn." },
+      { ticker: "GSM", name: "Thủy điện Hương Sơn", state: "BASE_BUILDING", action: "ACCUMULATE_IN_BASE", priority: "SETUP_WATCH", note: "Tích lũy quanh đường MA50." },
+      { ticker: "HAG", name: "Hoàng Anh Gia Lai", state: "BASE_BUILDING", action: "ACCUMULATE_IN_BASE", priority: "PRIORITY_NOW", note: "Tạo nền giá mới sau nhịp tăng đầu." },
+      { ticker: "HDM", name: "Dệt may Huế", state: "BASE_BUILDING", action: "ACCUMULATE_IN_BASE", priority: "SETUP_WATCH", note: "Nền tảng tích lũy kênh ngang." },
+      { ticker: "HUB", name: "Xây lắp Thừa Thiên Huế", state: "BASE_BUILDING", action: "ACCUMULATE_IN_BASE", priority: "PRIORITY_NOW", note: "Biên độ hẹp, thanh khoản tích lũy." },
+      { ticker: "IMP", name: "Dược phẩm Imexpharm", state: "BASE_BUILDING", action: "ACCUMULATE_IN_BASE", priority: "PRIORITY_NOW", note: "Cổ phiếu dược phẩm dẫn dắt giữ vững nền giá." },
+      { ticker: "MDC", name: "Than Mông Dương", state: "BASE_BUILDING", action: "ACCUMULATE_IN_BASE", priority: "SETUP_WATCH", note: "Tích lũy kiểm định cung." },
+      { ticker: "NBE", name: "Sách & TB Giáo dục miền Bắc", state: "BASE_BUILDING", action: "ACCUMULATE_IN_BASE", priority: "SETUP_WATCH", note: "Nền tảng giao dịch ổn định." },
+      { ticker: "NET", name: "Bột giặt NET", state: "BASE_BUILDING", action: "ACCUMULATE_IN_BASE", priority: "PRIORITY_NOW", note: "Tích lũy vùng đỉnh trung hạn." },
+      { ticker: "NNC", name: "Đá Núi Nhỏ", state: "BASE_BUILDING", action: "ACCUMULATE_IN_BASE", priority: "PRIORITY_NOW", note: "Nền giá đá xây dựng đón sóng đầu tư công." },
+      { ticker: "SAM", name: "SAM Holdings", state: "BASE_BUILDING", action: "ACCUMULATE_IN_BASE", priority: "PRIORITY_NOW", note: "Tích lũy đáy trung hạn bền bỉ." },
+      { ticker: "VCP", name: "Thủy điện Vĩnh Sơn Sông Hinh", state: "BASE_BUILDING", action: "ACCUMULATE_IN_BASE", priority: "PRIORITY_NOW", note: "Cơ cấu nền phòng thủ ổn định." },
+      { ticker: "VGG", name: "May Việt Tiến", state: "BASE_BUILDING", action: "ACCUMULATE_IN_BASE", priority: "SETUP_WATCH", note: "Nền giá dệt may xuất khẩu." },
+
+      // 64 EARLY REVERSAL (Priority Now 37, Setup Watch 27)
+      { ticker: "AAV", name: "Việt Tiên Sơn Địa ốc", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "PRIORITY_NOW", note: "Xuất hiện lực cầu bắt đáy đảo chiều sớm." },
+      { ticker: "AFX", name: "XNK Nông sản Thực phẩm An Giang", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "PRIORITY_NOW", note: "Tạo phân kỳ dương đảo chiều." },
+      { ticker: "BFC", name: "Phân bón Bình Điền", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "PRIORITY_NOW", note: "Hồi phục kỹ thuật nhóm hóa chất phân bón." },
+      { ticker: "BIG", name: "Big Invest Group", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "PRIORITY_NOW", note: "Lực cầu gia tăng tại vùng quá bán." },
+      { ticker: "BMP", name: "Nhựa Bình Minh", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "PRIORITY_NOW", note: "Dẫn dắt lợi nhuận, kiểm định đáy thành công." },
+      { ticker: "BVH", name: "Tập đoàn Bảo Việt", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "PRIORITY_NOW", note: "Trụ bảo hiểm tạo đáy ngắn hạn." },
+      { ticker: "CAT", name: "Thủy sản Cà Mau", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "PRIORITY_NOW", note: "Bật tăng từ vùng hỗ trợ dài hạn." },
+      { ticker: "DCL", name: "Dược Cửu Long", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "PRIORITY_NOW", note: "Đảo chiều tích cực nhóm dược phẩm." },
+      { ticker: "DPR", name: "Cao su Đồng Phú", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "PRIORITY_NOW", note: "Bật hồi trên hỗ trợ MA50." },
+      { ticker: "DSH", name: "Đầu tư Xây dựng Dầu khí", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "PRIORITY_NOW", note: "Đảo chiều dòng tiền ngắn hạn." },
+      { ticker: "F88", name: "Tài chính F88", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "PRIORITY_NOW", note: "Tạo đáy hồi phục kỹ thuật." },
+      { ticker: "GEE", name: "Thiết bị điện Gelex", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "PRIORITY_NOW", note: "Đảo chiều dòng thiết bị hạ tầng điện." },
+      { ticker: "HCD", name: "Đầu tư Sản xuất HCD", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "PRIORITY_NOW", note: "Bật tăng mạnh kèm khối lượng." },
+      { ticker: "HID", name: "Halcom Việt Nam", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "PRIORITY_NOW", note: "Tín hiệu đảo chiều sớm vùng hỗ trợ." },
+      { ticker: "HKT", name: "Nội thất HKT", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "PRIORITY_NOW", note: "Lực cầu hấp thụ vùng quá bán." },
+      { ticker: "ICT", name: "Viễn thông Tin học Bưu điện", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "PRIORITY_NOW", note: "Đảo chiều phục hồi nhóm công nghệ viễn thông." },
+      { ticker: "ILS", name: "Đầu tư Thương mại Quốc tế", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "PRIORITY_NOW", note: "Bật hồi kỹ thuật." },
+      { ticker: "ITD", name: "Công nghệ Tiên Phong", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "PRIORITY_NOW", note: "Tài chính cải thiện, đảo chiều tạo đáy." },
+      { ticker: "KDM", name: "Tập đoàn GCL", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "PRIORITY_NOW", note: "Lực cầu thăm dò đảo chiều." },
+      { ticker: "KSF", name: "Tập đoàn KSFinance", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "PRIORITY_NOW", note: "Hồi phục kỹ thuật ngắn hạn." },
+      { ticker: "L40", name: "Đầu tư & Xây dựng 40", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "PRIORITY_NOW", note: "Đảo chiều tại vùng hỗ trợ." },
+      { ticker: "LGL", name: "Long Giang Land", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "PRIORITY_NOW", note: "Tạo đáy ngắn hạn." },
+      { ticker: "MIG", name: "Bảo hiểm Quân đội", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "PRIORITY_NOW", note: "Nhóm bảo hiểm bật hồi kỹ thuật." },
+      { ticker: "MPC", name: "Thủy sản Minh Phú", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "PRIORITY_NOW", note: "Đảo chiều xuất khẩu thủy sản." },
+      { ticker: "MWG", name: "Thế Giới Di Động", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "PRIORITY_NOW", note: "Trụ bán lẻ kiểm định hỗ trợ MA50 thành công." },
+      { ticker: "NT2", name: "Điện lực Dầu khí Nhơn Trạch 2", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "PRIORITY_NOW", note: "Bật hồi từ vùng giá trị phòng thủ." },
+      { ticker: "PCH", name: "Picenza Việt Nam", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "PRIORITY_NOW", note: "Đảo chiều phục hồi kỹ thuật." },
+      { ticker: "PLX", name: "Petrolimex", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "PRIORITY_NOW", note: "Trụ phân phối xăng dầu bật tăng." },
+      { ticker: "PSD", name: "Dịch vụ Phân phối Dầu khí", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "PRIORITY_NOW", note: "Đảo chiều sau chuỗi giảm sâu." },
+      { ticker: "PTV", name: "Thương mại Dầu khí", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "PRIORITY_NOW", note: "Hồi phục kỹ thuật ngắn hạn." },
+      { ticker: "PVC", name: "Hóa chất & Dịch vụ Dầu khí", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "PRIORITY_NOW", note: "Đồng pha phục hồi nhóm dầu khí." },
+      { ticker: "PVI", name: "Bảo hiểm PVI", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "PRIORITY_NOW", note: "Bảo hiểm cơ bản cao bật tăng từ nền." },
+      { ticker: "TN1", name: "TNS Holdings", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "PRIORITY_NOW", note: "Đảo chiều ngắn hạn." },
+      { ticker: "TNG", name: "Dệt may TNG", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "PRIORITY_NOW", note: "Dệt may hồi phục sau nhịp rũ bỏ." },
+      { ticker: "TNT", name: "Tập đoàn TNT", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "PRIORITY_NOW", note: "Lực cầu bắt đáy rõ nét." },
+      { ticker: "VJC", name: "Vietjet Air", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "PRIORITY_NOW", note: "Trụ hàng không hồi phục từ kênh dưới." },
+      { ticker: "VTB", name: "Điện tử Viettronics Tân Bình", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "PRIORITY_NOW", note: "Tạo đáy đảo chiều." },
+
+      // Setup Watch Reversals
+      { ticker: "ACL", name: "Thủy sản Cửu Long An Giang", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "SETUP_WATCH", note: "Theo dõi dòng tiền thủy sản tiếp diễn." },
+      { ticker: "AMP", name: "Dược phẩm Armephaco", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "SETUP_WATCH", note: "Dược phẩm thanh khoản thấp." },
+      { ticker: "BDT", name: "Xây dựng Đồng Tháp", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "SETUP_WATCH", note: "Theo dõi phiên tiếp theo." },
+      { ticker: "BNW", name: "Nước sạch Bắc Ninh", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "SETUP_WATCH", note: "Tiện ích nước phòng thủ." },
+      { ticker: "CPA", name: "Cà phê Phước An", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "SETUP_WATCH", note: "Nông nghiệp cà phê theo dõi thêm." },
+      { ticker: "DAT", name: "Đầu tư Du lịch Đồng An Thạnh", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "SETUP_WATCH", note: "Theo dõi cung cầu." },
+      { ticker: "DCV", name: "Dược phẩm Đại Cát", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "SETUP_WATCH", note: "Dược phẩm hồi phục." },
+      { ticker: "FIC", name: "Tổng CT Vật liệu Xây dựng FICO", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "SETUP_WATCH", note: "Vật liệu xây dựng theo dõi." },
+      { ticker: "GMC", name: "May Garmex Sài Gòn", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "SETUP_WATCH", note: "Dệt may tạo đáy." },
+      { ticker: "HLC", name: "Than Hà Lầm", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "SETUP_WATCH", note: "Nhóm than tạo đáy ngắn." },
+      { ticker: "NCG", name: "Nova Consumer", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "SETUP_WATCH", note: "Theo dõi phản ứng vùng hỗ trợ." },
+      { ticker: "NFC", name: "Phân lân Ninh Bình", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "SETUP_WATCH", note: "Nhóm phân bón hóa chất." },
+      { ticker: "PMC", name: "Dược phẩm Pharmedic", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "SETUP_WATCH", note: "Dược phẩm cổ tức cao." },
+      { ticker: "QPH", name: "Thủy điện Quế Phong", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "SETUP_WATCH", note: "Tiện ích thủy điện." },
+      { ticker: "SBH", name: "Thủy điện Sông Ba Hạ", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "SETUP_WATCH", note: "Theo dõi điểm cân bằng." },
+      { ticker: "SBM", name: "Đầu tư Điện Sông Ba", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "SETUP_WATCH", note: "Tiện ích điện." },
+      { ticker: "SCI", name: "SCI E&C", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "SETUP_WATCH", note: "Xây lắp hạ tầng năng lượng." },
+      { ticker: "SVD", name: "Dệt May Đầu Tư Vinatex", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "SETUP_WATCH", note: "Dệt may phục hồi." },
+      { ticker: "TEG", name: "Năng lượng Trường Thành", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "SETUP_WATCH", note: "Theo dõi phiên tiếp theo." },
+      { ticker: "TTT", name: "Du lịch Du lịch Thừa Thiên Huế", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "SETUP_WATCH", note: "Theo dõi thanh khoản." },
+      { ticker: "TVT", name: "May Việt Thắng", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "SETUP_WATCH", note: "Dệt may cơ bản." },
+      { ticker: "UIC", name: "Đầu tư Phát triển Nhà và Đô thị IDICO", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "SETUP_WATCH", note: "Tiện ích khu công nghiệp." },
+      { ticker: "VCF", name: "Vinacafé Biên Hòa", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "SETUP_WATCH", note: "Tiêu dùng thực phẩm cơ bản cao." },
+      { ticker: "VDP", name: "Dược phẩm Vidipha", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "SETUP_WATCH", note: "Dược phẩm tích lũy." },
+      { ticker: "VEC", name: "Điện tử Viễn thông VEC", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "SETUP_WATCH", note: "Viễn thông thiết bị." },
+      { ticker: "VLW", name: "Cấp nước Vĩnh Long", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "SETUP_WATCH", note: "Nước sạch phòng thủ." },
+      { ticker: "XPH", name: "Xà phòng Hà Nội", state: "EARLY_REVERSAL_CANDIDATE", action: "EARLY_ENTRY", priority: "SETUP_WATCH", note: "Hóa chất tiêu dùng." }
+    ];
+
+    let currentFilter = 'ALL';
+
+    function renderTacticalCards() {
+      const grid = document.getElementById('tactical-grid');
+      const search = (document.getElementById('tactical-search')?.value || '').trim().toUpperCase();
+
+      const filtered = TACTICAL_DATA.filter(item => {
+        const matchesFilter =
+          currentFilter === 'ALL' ||
+          (currentFilter === 'BREAKOUT_READY' && item.state === 'BREAKOUT_READY') ||
+          (currentFilter === 'BASE_BUILDING' && item.state === 'BASE_BUILDING') ||
+          (currentFilter === 'EARLY_REVERSAL' && item.state === 'EARLY_REVERSAL_CANDIDATE') ||
+          (currentFilter === 'PRIORITY_NOW' && item.priority === 'PRIORITY_NOW');
+
+        const matchesSearch = !search || item.ticker.includes(search) || item.name.toUpperCase().includes(search) || item.state.includes(search);
+        return matchesFilter && matchesSearch;
+      });
+
+      if (!filtered.length) {
+        grid.innerHTML = `<div class="col-span-full py-8 text-center text-muted text-sm">Không tìm thấy mã nào phù hợp với bộ lọc hiện tại.</div>`;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(item => {
+        let badgeClass = 'tb-base';
+        let badgeText = item.state;
+        if (item.state === 'BREAKOUT_READY') { badgeClass = 'tb-breakout'; badgeText = 'BREAKOUT READY'; }
+        else if (item.state === 'BASE_BUILDING') { badgeClass = 'tb-base'; badgeText = 'BASE BUILDING'; }
+        else if (item.state === 'EARLY_REVERSAL_CANDIDATE') { badgeClass = 'tb-reversal'; badgeText = 'EARLY REVERSAL'; }
+
+        let actionClass = 'ab-accumulate';
+        if (item.action === 'BUY_ON_CONFIRMATION') actionClass = 'ab-buy';
+        else if (item.action === 'EARLY_ENTRY') actionClass = 'ab-early';
+
+        let prioClass = item.priority === 'PRIORITY_NOW' ? 'bs-green' : 'bs-blue';
+
+        return `
+          <div class="ticker-card">
+            <div class="d-flex justify-content-between align-items-start mb-1">
+              <span class="ticker-cell text-lg font-bold text-white">${item.ticker}</span>
+              <span class="badge-soft ${prioClass}">${item.priority}</span>
+            </div>
+            <div class="text-xs text-muted truncate mb-2" title="${item.name}">${item.name}</div>
+            <div class="d-flex flex-wrap gap-1 mb-2">
+              <span class="tactical-badge ${badgeClass}">${badgeText}</span>
+              <span class="action-badge ${actionClass}">${item.action}</span>
+            </div>
+            <div class="text-xs text-muted line-clamp-2" style="font-size: 0.75rem;">${item.note}</div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function setTacticalFilter(filter, el) {
+      currentFilter = filter;
+      document.querySelectorAll('#tab-tactical .chip').forEach(c => c.classList.remove('active'));
+      if (el) el.classList.add('active');
+      renderTacticalCards();
+    }
+
+    function filterTacticalCards() {
+      renderTacticalCards();
+    }
+
+    function switchReportTab(tabId) {
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      const activePanel = document.getElementById(tabId);
+      if (activePanel) activePanel.classList.add('active');
+
+      const activeBtn = Array.from(document.querySelectorAll('.tab-btn')).find(b => b.getAttribute('onclick')?.includes(tabId));
+      if (activeBtn) activeBtn.classList.add('active');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderTacticalCards();
+    });
+  </script>
+</body>
+</html>

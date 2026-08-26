@@ -1,0 +1,201 @@
+{
+  "schema_version": "1.0.0",
+  "dashboard_session": "2026-08-25",
+  "producer_commit": "42d8da32f75e1b085ed1b02e86aff274196bf737",
+  "producer_commit_summary": "Recover full-universe triage generator and complete 2026-08-25 Daily Producer",
+  "canonical_producer_status": {
+    "status": "COMPLETED",
+    "operation_identity": "daily_research_session_operation:377cdcc60a2b61a19ba3cb44ef6760d6ae226f33631e20d54ba561f06095537c",
+    "run_identity": "daily_producer_run:b1d7c83884ffb5fa0b4685ffbfdc494d41b63da68a35ee789965a94372990a42",
+    "registration_state": "COMPLETED_RETAINED_EVIDENCE",
+    "technical_coverage": 888,
+    "observed_session_cohort": 893,
+    "active_equity_universe": 1506
+  },
+  "market_summary": {
+    "advancing": 246,
+    "declining": 437,
+    "unchanged": 205,
+    "advance_ratio": 0.277027,
+    "decline_ratio": 0.492117,
+    "above_ma20": 264,
+    "at_or_below_ma20": 624,
+    "negative_20d_momentum_count": 595,
+    "positive_20d_momentum_count": 290,
+    "median_20d_cross_sectional_volatility": 0.02490932,
+    "breadth_descriptor": "MARKET_BREADTH_MIXED",
+    "momentum_descriptor": "MOMENTUM_BREADTH_NEGATIVE",
+    "operating_principle": "MARKET WEAKNESS CAN COEXIST WITH SELECTIVE OPPORTUNITIES"
+  },
+  "tactical_triage_counts": {
+    "total_entry_relevant": 95,
+    "high_priority_review": 91,
+    "breakout_ready": 14,
+    "base_building": 17,
+    "early_reversal_candidate": 64,
+    "uptrend_confirmed": 188,
+    "selling_pressure_easing": 183,
+    "sideways_neutral": 65,
+    "downtrend": 271,
+    "breakdown_risk": 59,
+    "distribution_risk": 27
+  },
+  "source_artifacts": {
+    "canonical_current_session": [
+      {
+        "component_id": "exact_session_market_snapshot",
+        "identity": "p3f9_exact_session_snapshot:ce30d85d132db0cebfa85d1f7a2b0c8f3258ba9da39d5b093ea88cd5fc5c8ab7",
+        "session": "2026-08-25",
+        "path": "operations-review/p3f9b-market-wide-exact-session-scaleout-20260825/p3f9b_mva_exact_session_snapshot.json",
+        "status": "EXACT_SESSION_CLEAN"
+      },
+      {
+        "component_id": "breadth_foundation",
+        "identity": "current_market_universe_breadth_foundation:13e8a0fdb66308a0c98028415fc846efbff6626b0c189e409df16a1574050a8c",
+        "session": "2026-08-25",
+        "path": "operations-review/current-market-universe-breadth-foundation-v1-20260825/current_market_universe_breadth_foundation_artifact.json",
+        "status": "EXACT_SESSION_CLEAN"
+      },
+      {
+        "component_id": "universe_resolution",
+        "identity": "current_universe_status_and_session_coverage_resolution:344d18e9109ceed22d80c6b30b81437439f2b7b8c4614417a7cc0ff3a7da7823",
+        "session": "2026-08-25",
+        "path": "operations-review/current-universe-status-and-session-coverage-resolution-v1-20260825/current_universe_status_and_session_coverage_resolution_artifact.json",
+        "status": "EXACT_SESSION_CLEAN"
+      },
+      {
+        "component_id": "descriptive_research",
+        "identity": "market_wide_current_descriptive_research:0fded5867d1863dc7dcae47bb5e07a963fb2cc00d48418db3d2437f6c34d9c3c",
+        "session": "2026-08-25",
+        "path": "operations-review/market-wide-current-descriptive-research-v1-20260825/market_wide_current_descriptive_research_artifact.json",
+        "status": "EXACT_SESSION_CLEAN"
+      },
+      {
+        "component_id": "screening_foundation",
+        "identity": "current_market_screening_opportunity_comparison_foundation:19d78fef4f72769a9e1c4395593296de123f6272261c37b036baa9b0505f2f8a",
+        "session": "2026-08-25",
+        "path": "operations-review/current-market-screening-opportunity-comparison-foundation-v1-20260825/current_market_screening_opportunity_comparison_foundation_artifact.json",
+        "status": "EXACT_SESSION_CLEAN"
+      },
+      {
+        "component_id": "tactical_classifier",
+        "identity": "watchlist_tactical_entry_classifier:cb2bbefb51a74d6bf19af402ee146ec45a45d34e5f294e6740a125752f097b07",
+        "session": "2026-08-25",
+        "path": "operations-review/watchlist-tactical-entry-decision-v1-20260825/watchlist_tactical_entry_classifier_artifact.json",
+        "status": "EXACT_SESSION_CLEAN"
+      },
+      {
+        "component_id": "triage",
+        "identity": "full_universe_entry_candidate_triage:97d80cf07e1d02207553431b96bf109b33146b7f27f99ced74d942e1ba63df30",
+        "session": "2026-08-25",
+        "path": "operations-review/full-universe-entry-candidate-triage-v1-20260825/full_universe_entry_candidate_triage_20260825.json",
+        "status": "EXACT_SESSION_CLEAN"
+      },
+      {
+        "component_id": "scenario",
+        "identity": "current_evidence_bound_scenario:3efcefe4d77b4117a40165dcbcfee4aaf6bb60783d47901a23c32fb778ff1314",
+        "session": "2026-08-25",
+        "status": "EXACT_SESSION_CLEAN"
+      },
+      {
+        "component_id": "strategy_classification",
+        "identity": "polymorphic_current_strategy_classification:2dbb1a7ede2433a8509b53cb13cceaacdbe0c76cefc7bc49da536bba75b6f4fc",
+        "session": "2026-08-25",
+        "status": "EXACT_SESSION_CLEAN"
+      },
+      {
+        "component_id": "opportunity_prioritization",
+        "identity": "current_opportunity_prioritization:5e454e747cfea940f7e162bd76a0374f0d58c74588493d38b4b8016f21409f50",
+        "session": "2026-08-25",
+        "status": "EXACT_SESSION_CLEAN"
+      },
+      {
+        "component_id": "daily_opportunity_decision_queue",
+        "identity": "daily_opportunity_decision_queue:47189fb6c9f061664af0f0eb77f5fb43e9d02824d2d73b98d7f98a1b835752ee",
+        "session": "2026-08-25",
+        "path": "operations-review/daily-research-session-operations-v1/2026-08-25/377cdcc60a2b61a19ba3cb44ef6760d6ae226f33631e20d54ba561f06095537c/daily_opportunity_decision_queue_artifact.json",
+        "status": "EXACT_SESSION_CLEAN"
+      },
+      {
+        "component_id": "corporate_intelligence",
+        "identity": "market_wide_current_corporate_intelligence:8380d2f17186adeb03d515dcda62df9874510935433fd675be82cac49d829c80",
+        "session": "2026-08-25",
+        "path": "operations-review/market-wide-current-corporate-intelligence-v1-20260825/market_wide_current_corporate_intelligence_artifact.json",
+        "status": "EXACT_SESSION_CLEAN"
+      },
+      {
+        "component_id": "valuation_context",
+        "identity": "market_wide_current_valuation:3a8ced45a6eff209beef7c28e2e6bef34fd311cdf04163b06cf67caf1327d764",
+        "session": "2026-08-25",
+        "path": "operations-review/market-wide-current-valuation-v1-20260825-session20260825/market_wide_current_valuation_artifact.json",
+        "status": "EXACT_SESSION_CLEAN"
+      },
+      {
+        "component_id": "sector_leadership",
+        "identity": "current_market_sector_leadership_context:fc1293386667413bd3e88f55e95ecb4e713797466ae8a5091b4771c34293aa87",
+        "session": "2026-08-25",
+        "path": "operations-review/current-market-sector-leadership-context-v1-20260825/current_market_sector_leadership_context_artifact.json",
+        "status": "EXACT_SESSION_CLEAN"
+      },
+      {
+        "component_id": "peer_relative",
+        "identity": "sector_aware_relative_research:bf04222a9b6b00c32441988fef9918dc04ddbff2a0915c8b2d02cc486ea821b3",
+        "session": "2026-08-25",
+        "path": "operations-review/sector-aware-relative-research-v1-20260825/sector_aware_relative_research_artifact.json",
+        "status": "EXACT_SESSION_CLEAN"
+      },
+      {
+        "component_id": "technical_coverage_recovery",
+        "identity": "market_wide_current_technical_coverage_scaleout:559bac21a27a8850e78dcbcb806f5dec6b168697f3dcf775515fa94a118bb013",
+        "session": "2026-08-25",
+        "path": "operations-review/market-wide-current-technical-coverage-scaleout-v1-20260825/market_wide_current_technical_coverage_recovery_artifact.json",
+        "status": "EXACT_SESSION_CLEAN"
+      },
+      {
+        "component_id": "risk_register",
+        "identity": "current_research_risk_register:972869d2a1ec77c63b541b43e63314598ac5ec835418452abff37774825c3fb4",
+        "session": "2026-08-25",
+        "path": "operations-review/current-research-risk-register-v1-20260825/current_research_risk_register_artifact.json",
+        "status": "EXACT_SESSION_CLEAN"
+      }
+    ],
+    "reusable_prior_context": [
+      {
+        "component_id": "fundamental_research",
+        "identity": "market_wide_current_fundamental_research:fc7619fcd7d0f5077a396c9e05fcdce14e97bdcdc078722c49e67070990d0feb",
+        "source_as_of": "retained_undated",
+        "policy": "REUSE_HISTORICAL_CONTEXT"
+      },
+      {
+        "component_id": "official_market_universe",
+        "identity": "current_official_market_universe:d77e16f82893df419689b24356d066d6a6431bd3c27e09190e3c319e004abb55",
+        "source_as_of": "current_as_of_build",
+        "policy": "ACCEPTED_CURRENT_ASOF_BUILD_NOT_SESSION_LOCKED"
+      },
+      {
+        "component_id": "official_event_context",
+        "identity": "current_official_event_context:ba62a516b3c2189e27be8e98f653e9e4a14509495795b5ce956a6a2183d9127b",
+        "source_as_of": "2026-08-21",
+        "policy": "ACCEPTED_CURRENT_ASOF_BUILD_NOT_SESSION_LOCKED"
+      },
+      {
+        "component_id": "catalyst_context",
+        "identity": "catalyst_event_research_context:fcbada853866b0136a6c106da17b687dced1a8fe1a5c4021923b7582ed0c50fb",
+        "source_as_of": "2026-08-20",
+        "policy": "ACCEPTED_DEGRADED_EARLIER_RETAINED_CATALYST_CONTEXT"
+      }
+    ]
+  },
+  "governed_boundaries": {
+    "strict_valuation_shares": "BLOCKED_SHADOW_ISSUED_SHARE_PROXY_FORBIDDEN",
+    "liquidity_sizing_execution": "BLOCKED_NO_SIZING_EXECUTION_AUTHORITY",
+    "pit_raw_as_traded": "NOT_PROMOTED",
+    "prohibited_claims": [
+      "No price targets or expected returns.",
+      "No buy/sell/hold recommendations.",
+      "No portfolio weighting or position sizing.",
+      "No probabilistic predictions or bull/bear directional certainty.",
+      "No unqualified liquidity or execution-capacity assertions."
+    ]
+  }
+}
