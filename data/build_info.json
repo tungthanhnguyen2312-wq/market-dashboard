@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "build_id": "2026-08-25-79c5c3c-e0cc1b266c",
-  "generated_at": "2026-08-26T14:53:37+07:00",
-  "published_at": "2026-08-26T14:53:37+07:00",
-  "market_session": "2026-08-25",
-  "git_commit": "79c5c3c4ad48189d42c25346c51308cd163cefdd",
+  "build_id": "2026-08-26-f54d70f-cff1036856",
+  "generated_at": "2026-08-26T22:55:17+07:00",
+  "published_at": "2026-08-26T22:55:17+07:00",
+  "market_session": "2026-08-26",
+  "git_commit": "f54d70fd519037c2e293355691eabf333febc1c4",
   "git_commit_semantics": "pre_publication_source_head",
   "row_counts": {
-    "screen_snapshot": 1583,
-    "market_breadth": 20
+    "screen_snapshot": 1683,
+    "market_breadth": 1
   },
   "price_basis_contract": {
     "price_basis": "unknown",
@@ -24,19 +24,19 @@
   },
   "files": {
     "screen_snapshot.csv": {
-      "sha256": "9335af137d8af21591b06cd858e26277e8a252f5bdddf287852ce39284cb82d4",
-      "size": 547786,
-      "mtime": "2026-08-26T13:23:08+07:00"
+      "sha256": "82fefa950c72264d2e9de83156ea141fd5357ebad8706c4227554ec6ce0c7917",
+      "size": 560190,
+      "mtime": "2026-08-26T20:56:38+07:00"
     },
     "market_breadth.csv": {
-      "sha256": "4f4ed0570ecf392bf39a25e4a4771964403d1a0550710086a8be175d2d8a67ca",
-      "size": 1672,
-      "mtime": "2026-08-26T13:23:08+07:00"
+      "sha256": "946c0826bd50d23ffe78e220c0a52c0b7b1985e38c78dbffeeac7e075c0ccd5e",
+      "size": 143,
+      "mtime": "2026-08-26T20:56:38+07:00"
     },
     "analysis_latest.json": {
-      "sha256": "8d4c3a05470f116b0f9fe5ee11d7b352f0bd22303c1abc48cfe7073ec62fb773",
-      "size": 52204,
-      "mtime": "2026-08-26T13:28:21+07:00"
+      "sha256": "c33239d9d124e745bef08a6e8f22ea49507e1c5c2631286432c158d0116ac9f0",
+      "size": 4478,
+      "mtime": "2026-08-26T20:56:38+07:00"
     },
     "ai_report_latest.md": {
       "sha256": "5ca7bad344ed82d9034c39c96a338a6ae988bb931e0127776782d516109cd0cf",
@@ -49,9 +49,9 @@
       "mtime": "2026-07-11T05:48:59+07:00"
     },
     "data/screener_data.js": {
-      "sha256": "697410e2d52b4cf10d34f9209f73fe8713afe3ca6fa603f8c7c72dec261085f2",
-      "size": 1541404,
-      "mtime": "2026-08-26T14:53:39+07:00"
+      "sha256": "c5531f4697f6ab4926ec51379350fad2eda2e381934a7994d57ffe954de41598",
+      "size": 1942607,
+      "mtime": "2026-08-26T22:55:18+07:00"
     }
   }
 }
