@@ -1,0 +1,103 @@
+{
+  "artifact_identity": "shadow_recommendation_product_surface_validation:aeb06304792bc7908eff3d9a6407fb92574272a1e388a4cfed25593aebba873a",
+  "artifact_sha256": "aeb06304792bc7908eff3d9a6407fb92574272a1e388a4cfed25593aebba873a",
+  "backward_compatibility": "RECOMMENDATION_OPTIONAL_EXISTING_DASHBOARD_PAGES_UNCHANGED",
+  "consumer_observed_head": "605fc9b84fd211ee92ae97fa71a82bf481223679",
+  "contract_version": "shadow_recommendation_product_surface/v1",
+  "contracts_consumed": [
+    "shadow_security_recommendation/v1",
+    "shadow_recommendation_consumer_narrative/v1"
+  ],
+  "dashboard_start_head": "691b63dedec8625bfab7f6b126d8928a2184abf4",
+  "full_denominator_coverage": 523,
+  "label_drift_count": 0,
+  "milestone": "SHADOW_RECOMMENDATION_PRODUCT_SURFACE_V1",
+  "narrative_transport_state": "NO_NARRATIVE_AVAILABLE",
+  "producer_observed_head": "f4f95c6dcc757e41136ef08f9badba39fb00aad2",
+  "product_artifact_identity": "shadow_recommendation_product_surface:4f7421bb17252e5cea437f79baadb4814ea9e3c41f29318db4906b7ea4d87ab4",
+  "readiness_counts": {
+    "RECOMMENDATION_CONDITIONAL": 406,
+    "RECOMMENDATION_NOT_READY": 77,
+    "RECOMMENDATION_READY": 40
+  },
+  "readiness_drift_count": 0,
+  "recommendation_counts": {
+    "ACCUMULATE_RESEARCH_CANDIDATE": 30,
+    "AVOID_NEW_ENTRY": 70,
+    "HIGH_RISK_SPECULATION_ONLY": 17,
+    "INITIATE_RESEARCH_CANDIDATE": 13,
+    "INSUFFICIENT_EVIDENCE": 77,
+    "WAIT_FOR_CONFIRMATION": 316
+  },
+  "representatives": {
+    "avoid": {
+      "fundamental_boundary": "READY",
+      "label": "AVOID_NEW_ENTRY",
+      "readiness": "RECOMMENDATION_CONDITIONAL",
+      "risk_context": "ABSENT",
+      "technical_boundary": "UNAVAILABLE",
+      "ticker": "AAH"
+    },
+    "conditional_accumulate": {
+      "fundamental_boundary": "READY",
+      "label": "ACCUMULATE_RESEARCH_CANDIDATE",
+      "readiness": "RECOMMENDATION_CONDITIONAL",
+      "risk_context": "ABSENT",
+      "technical_boundary": "CONDITIONAL",
+      "ticker": "HAG"
+    },
+    "high_risk": {
+      "fundamental_boundary": "CONDITIONAL",
+      "label": "HIGH_RISK_SPECULATION_ONLY",
+      "readiness": "RECOMMENDATION_CONDITIONAL",
+      "risk_context": "ABSENT",
+      "technical_boundary": "READY",
+      "ticker": "AAV"
+    },
+    "insufficient": {
+      "fundamental_boundary": "UNAVAILABLE",
+      "label": "INSUFFICIENT_EVIDENCE",
+      "readiness": "RECOMMENDATION_NOT_READY",
+      "risk_context": "ABSENT",
+      "technical_boundary": "UNAVAILABLE",
+      "ticker": "AAS"
+    },
+    "ready_accumulate": {
+      "fundamental_boundary": "READY",
+      "label": "ACCUMULATE_RESEARCH_CANDIDATE",
+      "readiness": "RECOMMENDATION_READY",
+      "risk_context": "AVAILABLE",
+      "technical_boundary": "READY",
+      "ticker": "AIG"
+    },
+    "ready_initiate": {
+      "fundamental_boundary": "READY",
+      "label": "INITIATE_RESEARCH_CANDIDATE",
+      "readiness": "RECOMMENDATION_READY",
+      "risk_context": "AVAILABLE",
+      "technical_boundary": "READY",
+      "ticker": "BFC"
+    },
+    "wait": {
+      "fundamental_boundary": "CONDITIONAL",
+      "label": "WAIT_FOR_CONFIRMATION",
+      "readiness": "RECOMMENDATION_CONDITIONAL",
+      "risk_context": "ABSENT",
+      "technical_boundary": "UNAVAILABLE",
+      "ticker": "AAA"
+    }
+  },
+  "residual": 0,
+  "semantic_drift_audit": {
+    "BUY_action_count": 0,
+    "HOLD_action_count": 0,
+    "SELL_action_count": 0,
+    "order_control_count": 0,
+    "portfolio_weight_control_count": 0,
+    "position_size_control_count": 0,
+    "probability_generated_count": 0,
+    "target_price_generated_count": 0
+  },
+  "session_mismatch_state": "SESSION_MISMATCH",
+  "stale_narrative_state": "NARRATIVE_STALE_FOR_CURRENT_RECOMMENDATION"
+}

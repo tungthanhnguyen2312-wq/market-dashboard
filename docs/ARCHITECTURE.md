@@ -29,6 +29,7 @@ Hệ thống gồm 2 nửa:
 - `screener.html` — bảng lọc đầy đủ, có panel chi tiết mã (`company-panel.js`).
 - `analysis.html` — Quant Engine offline (10 chiến lược, chấm điểm 0-100), đọc `analysis_latest.json`.
 - `signals.html` — tín hiệu nến / SMC theo phiên.
+- `shadow-recommendations.html` — read-only shadow research stance table and security detail, backed by a compact serialized projection; it does not create trade controls or recommendation policy.
 - `macro.html` — dashboard vĩ mô đọc web snapshot đã chuẩn hóa; `about.html`, `archive.html` — giới thiệu dự án và kho báo cáo tĩnh.
 
 ## Sơ đồ luồng dữ liệu
@@ -100,6 +101,7 @@ Nguyên tắc: dữ liệu nằm im trong parquet/db; Excel chỉ trỏ tới, n
 | `screener.html` | Bảng lọc SMC/nến đầy đủ (đọc `data/screener_data.*` + CSV) + panel chi tiết mã khi bấm vào dòng |
 | `analysis.html` + `analysis.js` | Quant Engine offline: đọc `analysis_latest.json` (nguồn DUY NHẤT, không có fallback `.js`) |
 | `signals.html` | Dashboard tín hiệu nến / SMC; tab mẫu hình đọc JSON-first + JS fallback, lọc/sort và mở panel mã |
+| `shadow-recommendations.html` + `assets/js/shadow-recommendations.js` | Surface nghiên cứu stance/readiness; chỉ render Producer/Consumer serialized contracts, với trạng thái unavailable rõ ràng khi packet/narrative không được gắn. |
 | `assets/js/candlestick-patterns.js` + `assets/css/candlestick-patterns.css` | Loader/validation/render và layout responsive riêng cho bảng mẫu nến |
 | `data/candlestick_patterns.json` + `.js` | Snapshot schema v1: 1D/1W/1M, lịch sử gần đây, trạng thái, confidence, confirmations/warnings; không chứa OHLCV thô/path local |
 | `macro.html` + `assets/js/macro.js` | Dashboard vĩ mô: ưu tiên fetch JSON, fallback `window.MACRO_SNAPSHOT`; chỉ vẽ chart khi chuỗi có ít nhất hai điểm |
