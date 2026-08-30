@@ -48,6 +48,9 @@ jobs:
       - name: Screener state contract tests
         run: node --test tests/screener-state.test.js
 
+      - name: Canonical daily coherence and Vietnamese presentation tests
+        run: python tests/test_canonical_daily_coherence_and_vi_localization.py -v
+
       - name: Navigation contract tests
         run: python tests/test_navigation_contract.py -v
 
