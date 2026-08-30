@@ -1,11 +1,11 @@
 window.BUILD_INFO = {
   "schema_version": "dashboard_build_info/v1",
   "market_session": "2026-08-28",
-  "producer_run_identity": "4526232cea2220ae89fc1a2fca4695ff17e00415e5bd0a51547688e2f2046074",
-  "dashboard_release_identity": "dashboard_release:7efbecec38c30dcb1d48118ae11aac5ec1b83ab4851de3c1c0ae9308d34d2429",
-  "build_id": "7efbecec38",
-  "generated_at": "2026-08-30T12:32:37.717053+00:00",
-  "published_at": "2026-08-30T12:32:37.717053+00:00",
+  "producer_run_identity": "712c7aeaf4b734875008edc3275fe7199e318ff85fa88ead8f61453f009c2e1f",
+  "dashboard_release_identity": "dashboard_release:508ef1892f7c84afd15e2439d71f4288f24aadc14cad915211182a8f106dfcd5",
+  "build_id": "508ef1892f",
+  "generated_at": "2026-08-30T14:36:36.497174+00:00",
+  "published_at": "2026-08-30T14:36:36.497174+00:00",
   "release_status": "READY",
   "domains": {
     "screening": {
@@ -64,7 +64,7 @@ window.BUILD_INFO = {
       "status": "CURRENT",
       "source_session": null,
       "data_as_of": "2026-08-30",
-      "generated_at": "2026-08-30T19:32:29+07:00",
+      "generated_at": "2026-08-30T21:34:54+07:00",
       "freshness": "CADENCE_AWARE",
       "reason_codes": [],
       "stale_series_count": 0
@@ -91,11 +91,11 @@ window.BUILD_INFO = {
       "size_bytes": 141
     },
     "analysis_latest.json": {
-      "sha256": "3d25c591d2cf5a82feda5840d2a9796f66dde991dc9fd9c6a98b7ebddc325369",
+      "sha256": "8d3e98acab69b76206a3a405d471a1dc463f655e23b82f5028393e1b82de48d9",
       "size_bytes": 4571
     },
     "bundle_manifest.json": {
-      "sha256": "8f5f61e1bbcd347f9ec7a80d0f2126e6ee8c18b04f4df90dd7bf58242c6c2baa",
+      "sha256": "731eb7d2a0781f73a620afafe96a8489e0d7657290838a274cc51e35bbb9e0d5",
       "size_bytes": 9117
     },
     "analysis_bundle.json": {
@@ -111,15 +111,15 @@ window.BUILD_INFO = {
       "size_bytes": 1684422
     },
     "data/macro_snapshot.json": {
-      "sha256": "6cf3ca59ea67a540baa2102abf18c5333934b096316f89654673cea4061f3b53",
-      "size_bytes": 378695
+      "sha256": "f248419b2cf54b6de0c48b8ac05f45c7de7b263a8916df1e5a544b8448a42327",
+      "size_bytes": 378677
     },
     "data/macro_snapshot.js": {
-      "sha256": "d1fafdb72c9aa7c55a8f23f930a6c8cecb14e6e003f4e356e36d6c1fbc283084",
-      "size_bytes": 378720
+      "sha256": "02a33a5fbe873690a035baca31b58965cc8dad2065fa3d0f933d92d0b90d5947",
+      "size_bytes": 378702
     },
     "data/current_decision_cockpit.json": {
-      "sha256": "4b0969c85556dcd2a16cbdcdc4e51a46f69473b035044dde87fa0fc30e6c7e2b",
+      "sha256": "3fc11175b5fd9aa739f2e0d28e977084e3ca944c0805a2a4871c9eb929d6ef5e",
       "size_bytes": 2412457
     },
     "data/screener_data.js": {
@@ -127,11 +127,11 @@ window.BUILD_INFO = {
       "size_bytes": 2007320
     },
     "data/session_2026_08_28_manifest.json": {
-      "sha256": "d5fee8305d28f5bbdbe570ca16d833b3a0b83a753af57c05634fe1fb25b07065",
+      "sha256": "1082c80fb4285863ce0d263aaaec071e735b5b24c8a0ebf75e928bf1d1440eed",
       "size_bytes": 9106
     },
     "report-2026-08-28.html": {
-      "sha256": "0e291072a4c8761fcbe8f0af4cbd99e6c5793cddda4d2e17a0a9b8ba8b3047dd",
+      "sha256": "1c182bb5608db05a0b7892efbbaa7b6fe8a78dcab7f55289af55c3b2289c42d1",
       "size_bytes": 6456
     }
   },

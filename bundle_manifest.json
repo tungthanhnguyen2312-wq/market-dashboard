@@ -225,19 +225,19 @@
         "path": "operations-review\\current-official-market-universe-integration-v1-20260824\\current_official_market_universe_artifact.json"
       },
       "daily_producer_run": {
-        "run_identity": "daily_producer_run:a349cb9a5cade29fb18e4fe3296e7b9dd98ff3030e9e2ddd2a5ee326b4a92737",
-        "sha256": "8dda3d9d5eb63d39d4139c797f25c5fde2173066a2c85b0862481b024e4138f5",
-        "path": "operations-review\\daily-producer-runs-v1\\2026-08-28\\a349cb9a5cade29fb18e4fe3296e7b9dd98ff3030e9e2ddd2a5ee326b4a92737\\run_manifest.json"
+        "run_identity": "daily_producer_run:11f6ac4daaa7d7d426fcb934afcdd8b508f4d0c1e4793eeccf483aca5a61a4c8",
+        "sha256": "8387ec48cf0e2ebc1dfff769d6ccb4d611b179f9b53b06a86af98884882d11da",
+        "path": "operations-review\\daily-producer-runs-v1\\2026-08-28\\11f6ac4daaa7d7d426fcb934afcdd8b508f4d0c1e4793eeccf483aca5a61a4c8\\run_manifest.json"
       },
       "daily_producer_bundle": {
-        "sha256": "73781621758bd0d77ef73fdd6e3a238ce2c71ea8267fdee4564e0f1095c97702",
-        "path": "operations-review\\daily-producer-runs-v1\\2026-08-28\\a349cb9a5cade29fb18e4fe3296e7b9dd98ff3030e9e2ddd2a5ee326b4a92737\\ai_research_session_bundle.json"
+        "sha256": "2c2ec0132bbd37f210f8a56fbb20d416f80815780aad429523d937b1a64279fb",
+        "path": "operations-review\\daily-producer-runs-v1\\2026-08-28\\11f6ac4daaa7d7d426fcb934afcdd8b508f4d0c1e4793eeccf483aca5a61a4c8\\ai_research_session_bundle.json"
       },
       "retained_tier_handoff": {
-        "sha256": "911e4c4e734ff00fd4d948cee2b721959884de469adb5df15b42aa70a814b691",
+        "sha256": "b5532f75a2c751085b1cc8880df02db6a08080b5cfe4d79416f9ab15fbcfa31b",
         "path": "operations-review\\canonical-post-close-v1\\2026-08-28\\session_handoff_bundle.json",
-        "retained_daily_producer_run_identity": "daily_producer_run:2a1d7c3e9a336abbc2332cbd1f4aafb12033757aff230045aee5eec03f29486a",
-        "runtime_daily_producer_run_identity": "daily_producer_run:a349cb9a5cade29fb18e4fe3296e7b9dd98ff3030e9e2ddd2a5ee326b4a92737",
+        "retained_daily_producer_run_identity": "daily_producer_run:e671f5c232b3955bb5614758c78a27e062b5dd536071a25d14bd17489fc71499",
+        "runtime_daily_producer_run_identity": "daily_producer_run:11f6ac4daaa7d7d426fcb934afcdd8b508f4d0c1e4793eeccf483aca5a61a4c8",
         "source_lineage_status": "PASS",
         "current_research_packet_identity": "current_research_decision_packet:594bd40f98ba0aebefdcad2eb8c3064efacb26e070cb678690c6718eb0cf93ac",
         "prospective_cohort_snapshot_identity": "prospective_research_cohort_snapshot:573653738d6e400207f80c96c3b1a4f22a82e5b6a927d8e97ec0e29ddb4fc2aa"

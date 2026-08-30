@@ -1,7 +1,7 @@
 window.MACRO_SNAPSHOT = {
   "schema_version": 1,
-  "generated_at": "2026-08-30T19:32:29+07:00",
-  "pipeline_completed_at": "2026-08-30T19:32:29+07:00",
+  "generated_at": "2026-08-30T21:34:54+07:00",
+  "pipeline_completed_at": "2026-08-30T21:34:54+07:00",
   "published_at": null,
   "data_as_of": "2026-08-30",
   "source_type": "local_pipeline",
@@ -31,7 +31,7 @@ window.MACRO_SNAPSHOT = {
       "frequency_label": "Hằng tháng",
       "source": "FRED",
       "source_url": "https://fred.stlouisfed.org/series/FEDFUNDS",
-      "pipeline_updated_at": "2026-08-30T19:32:29+07:00",
+      "pipeline_updated_at": "2026-08-30T21:34:54+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
@@ -58,7 +58,7 @@ window.MACRO_SNAPSHOT = {
       "frequency_label": "Hằng ngày",
       "source": "FRED",
       "source_url": "https://fred.stlouisfed.org/series/DGS10",
-      "pipeline_updated_at": "2026-08-30T19:32:29+07:00",
+      "pipeline_updated_at": "2026-08-30T21:34:54+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
@@ -85,7 +85,7 @@ window.MACRO_SNAPSHOT = {
       "frequency_label": "Hằng tháng",
       "source": "FRED",
       "source_url": "https://fred.stlouisfed.org/series/CPIAUCSL",
-      "pipeline_updated_at": "2026-08-30T19:32:29+07:00",
+      "pipeline_updated_at": "2026-08-30T21:34:54+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
@@ -112,7 +112,7 @@ window.MACRO_SNAPSHOT = {
       "frequency_label": "Hằng ngày",
       "source": "FRED",
       "source_url": "https://fred.stlouisfed.org/series/DTWEXBGS",
-      "pipeline_updated_at": "2026-08-30T19:32:29+07:00",
+      "pipeline_updated_at": "2026-08-30T21:34:54+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
@@ -139,7 +139,7 @@ window.MACRO_SNAPSHOT = {
       "frequency_label": "Hằng ngày",
       "source": "FRED",
       "source_url": "https://fred.stlouisfed.org/series/DCOILWTICO",
-      "pipeline_updated_at": "2026-08-30T19:32:29+07:00",
+      "pipeline_updated_at": "2026-08-30T21:34:54+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
@@ -166,7 +166,7 @@ window.MACRO_SNAPSHOT = {
       "frequency_label": "Hằng ngày",
       "source": "Yahoo Finance",
       "source_url": "https://finance.yahoo.com/quote/%5EGSPC",
-      "pipeline_updated_at": "2026-08-30T19:32:29+07:00",
+      "pipeline_updated_at": "2026-08-30T21:34:54+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
@@ -193,7 +193,7 @@ window.MACRO_SNAPSHOT = {
       "frequency_label": "Hằng ngày",
       "source": "Yahoo Finance",
       "source_url": "https://finance.yahoo.com/quote/%5EIXIC",
-      "pipeline_updated_at": "2026-08-30T19:32:29+07:00",
+      "pipeline_updated_at": "2026-08-30T21:34:54+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
@@ -220,7 +220,7 @@ window.MACRO_SNAPSHOT = {
       "frequency_label": "Hằng ngày",
       "source": "Yahoo Finance",
       "source_url": "https://finance.yahoo.com/quote/%5EVIX",
-      "pipeline_updated_at": "2026-08-30T19:32:29+07:00",
+      "pipeline_updated_at": "2026-08-30T21:34:54+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
@@ -247,7 +247,7 @@ window.MACRO_SNAPSHOT = {
       "frequency_label": "Hằng ngày",
       "source": "Yahoo Finance",
       "source_url": "https://finance.yahoo.com/quote/%5EN225",
-      "pipeline_updated_at": "2026-08-30T19:32:29+07:00",
+      "pipeline_updated_at": "2026-08-30T21:34:54+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
@@ -274,7 +274,7 @@ window.MACRO_SNAPSHOT = {
       "frequency_label": "Hằng ngày",
       "source": "Yahoo Finance",
       "source_url": "https://finance.yahoo.com/quote/%5EHSI",
-      "pipeline_updated_at": "2026-08-30T19:32:29+07:00",
+      "pipeline_updated_at": "2026-08-30T21:34:54+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
@@ -301,7 +301,7 @@ window.MACRO_SNAPSHOT = {
       "frequency_label": "Hằng ngày",
       "source": "Yahoo Finance",
       "source_url": "https://finance.yahoo.com/quote/GC=F",
-      "pipeline_updated_at": "2026-08-30T19:32:29+07:00",
+      "pipeline_updated_at": "2026-08-30T21:34:54+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
@@ -328,7 +328,7 @@ window.MACRO_SNAPSHOT = {
       "frequency_label": "Hằng ngày",
       "source": "Yahoo Finance",
       "source_url": "https://finance.yahoo.com/quote/BZ=F",
-      "pipeline_updated_at": "2026-08-30T19:32:29+07:00",
+      "pipeline_updated_at": "2026-08-30T21:34:54+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
@@ -343,19 +343,19 @@ window.MACRO_SNAPSHOT = {
       "label": "USD/VND (quốc tế)",
       "category": "currency",
       "value": 26070.0,
-      "previous_value": 26076.0,
-      "change": -6.0,
-      "change_pct": -0.02300966405890474,
+      "previous_value": 26070.0,
+      "change": 0.0,
+      "change_pct": 0.0,
       "change_basis": "percent",
-      "direction": "down",
+      "direction": "flat",
       "interpretation": "unknown",
       "unit": "đồng/USD",
-      "period": "2026-08-28",
+      "period": "2026-08-30",
       "frequency": "daily",
       "frequency_label": "Hằng ngày",
       "source": "Yahoo Finance",
       "source_url": "https://finance.yahoo.com/quote/VND=X",
-      "pipeline_updated_at": "2026-08-30T19:32:29+07:00",
+      "pipeline_updated_at": "2026-08-30T21:34:54+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
@@ -382,7 +382,7 @@ window.MACRO_SNAPSHOT = {
       "frequency_label": "Hằng ngày",
       "source": "Vietcombank",
       "source_url": "https://www.vietcombank.com.vn/vi-VN/KHCN/Cong-cu-tien-ich/Ty-gia",
-      "pipeline_updated_at": "2026-08-30T19:32:29+07:00",
+      "pipeline_updated_at": "2026-08-30T21:34:54+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
@@ -409,7 +409,7 @@ window.MACRO_SNAPSHOT = {
       "frequency_label": "Hằng ngày",
       "source": "SJC",
       "source_url": "https://sjc.com.vn/",
-      "pipeline_updated_at": "2026-08-30T19:32:29+07:00",
+      "pipeline_updated_at": "2026-08-30T21:34:54+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
@@ -436,7 +436,7 @@ window.MACRO_SNAPSHOT = {
       "frequency_label": "Hằng năm",
       "source": "World Bank",
       "source_url": "https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG?locations=VN",
-      "pipeline_updated_at": "2026-08-30T19:32:29+07:00",
+      "pipeline_updated_at": "2026-08-30T21:34:54+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
@@ -463,7 +463,7 @@ window.MACRO_SNAPSHOT = {
       "frequency_label": "Hằng năm",
       "source": "World Bank",
       "source_url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=VN",
-      "pipeline_updated_at": "2026-08-30T19:32:29+07:00",
+      "pipeline_updated_at": "2026-08-30T21:34:54+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
@@ -17461,10 +17461,6 @@ window.MACRO_SNAPSHOT = {
     ],
     "usdvnd_mkt": [
       {
-        "date": "2025-02-19",
-        "value": 25500.0
-      },
-      {
         "date": "2025-02-20",
         "value": 25515.0
       },
@@ -19058,6 +19054,10 @@ window.MACRO_SNAPSHOT = {
       },
       {
         "date": "2026-08-28",
+        "value": 26070.0
+      },
+      {
+        "date": "2026-08-30",
         "value": 26070.0
       }
     ],
