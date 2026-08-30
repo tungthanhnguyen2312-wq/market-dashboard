@@ -11,8 +11,8 @@ const patterns = fs.readFileSync(path.join(root, "assets", "js", "candlestick-pa
 
 test("Signals UI exposes unavailable exact-session evidence instead of silently rendering it", () => {
   assert.match(signals, /Chưa có tín hiệu exact-session/);
-  assert.match(signals, /domain\.status !== "CURRENT" && domain\.status !== "STALE"/);
-  assert.match(signals, /Dữ liệu lịch sử/);
+  assert.match(signals, /domain\.status !== "CURRENT"/);
+  assert.match(signals, /Dữ liệu gần nhất/);
 });
 
 test("Candlestick fallback is guarded by the published component state", () => {

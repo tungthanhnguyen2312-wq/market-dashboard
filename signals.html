@@ -329,7 +329,7 @@ function renderHeatmap(sectors) {
 (async () => {
   const domain = signalDomainState();
   const currentSession = window.BUILD_INFO && window.BUILD_INFO.market_session;
-  if (domain && domain.status !== "CURRENT" && domain.status !== "STALE") {
+  if (domain && domain.status !== "CURRENT") {
     const latest = Object.values(domain.components || {}).map(x => x && x.source_session).find(Boolean);
     document.getElementById("meta").textContent =
       `Chưa có tín hiệu exact-session cho phiên ${viSession(currentSession)}.${latest ? ` Dữ liệu gần nhất: phiên ${viSession(latest)}.` : ""}`;
