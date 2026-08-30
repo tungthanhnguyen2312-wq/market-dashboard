@@ -49,16 +49,20 @@ function render(items) {
     return;
   }
   empty.style.display = "none";
+  const currentSession = window.BUILD_INFO?.market_session || window.STOCK_LOOKUP_BUILD_INFO?.market_session || "";
   const groups = groupByMonth(items);
   root.innerHTML = Array.from(groups.values()).map((g) => `
     <div class="mb-4">
       <div class="form-label-sm mb-2">${esc(g.label)}</div>
       <div>
-        ${g.items.map((it) => `
+        ${g.items.map((it) => {
+          const isLatest = currentSession && it.date === currentSession;
+          return `
           <a href="${encodeURI(it.file)}" class="vs-list-item flex justify-between items-center">
             <span>${fmtDate(it.date)}</span>
+            ${isLatest ? `<span class="badge-soft bs-green">Phiên mới nhất</span>` : `<span class="text-muted text-xs">Lịch sử</span>`}
           </a>
-        `).join("")}
+        `;}).join("")}
       </div>
     </div>
   `).join("");

@@ -66,9 +66,13 @@ function cellHtml(field, v) {
     return `<span class="badge-soft ${cls}">${fmt(v, 0)}</span>`;
   }
   if (field === "structure") {
+    if (typeof formatStructureBadge === "function") {
+      return formatStructureBadge(v);
+    }
     const s = String(v).toLowerCase();
     const cls = s === "up" ? "bs-green" : s === "side" ? "bs-amber" : s === "down" ? "bs-red" : "bs-gray";
-    return `<span class="badge-soft ${cls}">${esc(String(v).toUpperCase())}</span>`;
+    const label = s === "up" ? "Tăng giá" : s === "side" ? "Đi ngang" : s === "down" ? "Giảm giá" : (v || "–");
+    return `<span class="badge-soft ${cls}">${esc(label)}</span>`;
   }
   if (typeof v === "number" && SIGNED_FIELDS.has(field)) {
     return `<span class="${signClass(v)}">${fmt(v, 2)}</span>`;
@@ -357,11 +361,11 @@ function renderResearchChanges(p) {
   const valid = raw.events.filter((event) => event && typeof event.event_id === "string" &&
     typeof event.family === "string" && Array.isArray(event.provenance_references));
   if (valid.length !== raw.events.length) {
-    target.innerHTML = '<span class="text-muted small">Research-change data is unavailable.</span>';
+    target.innerHTML = '<span class="text-muted small">Chưa có dữ liệu thay đổi nghiên cứu.</span>';
     return;
   }
   if (!valid.length || raw.status === "NO_CHANGE") {
-    target.innerHTML = '<span class="text-muted small">No qualified research change.</span>';
+    target.innerHTML = '<span class="text-muted small">Không có thay đổi nghiên cứu đủ chuẩn trong phiên.</span>';
     return;
   }
   target.innerHTML = valid.map((event) => `<div class="small mb-2"><b>${esc(event.ticker || "")}</b> · ${esc(event.family)}<br>${esc(event.previous)} → ${esc(event.current)}<br><span class="text-muted">${esc((event.provenance_references || []).join(", "))}</span></div>`).join("");

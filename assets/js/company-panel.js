@@ -518,7 +518,7 @@
         ${stat("% phiên", `<span class="${valueSignClass(r.chg_today_pct ?? r.change_pct)}">${num(r.chg_today_pct ?? r.change_pct, 2)}%</span>`)}
         ${stat("RS Rating", num(r.rs_rating, 0))}
         ${stat("RSI 14", num(r.rsi14, 0))}
-        ${stat("Cấu trúc", `<span class="badge-soft ${structCls(r.structure)}">${esc(String(r.structure || "–").toUpperCase())}</span>`)}
+        ${stat("Cấu trúc", (typeof formatStructureBadge === "function" ? formatStructureBadge(r.structure) : `<span class="badge-soft ${structCls(r.structure)}">${esc(typeof formatStructure === "function" ? formatStructure(r.structure).label : (r.structure || "–"))}</span>`))}
         ${stat("% từ đỉnh 52 tuần", `<span class="${valueSignClass(r.pct_from_52w_high)}">${num(r.pct_from_52w_high, 1)}%</span>`)}
         ${stat("GTGD 20 phiên (tỷ)", num(r.gtgd20_ty, 1))}
         ${stat("KL tương đối", num(r.rel_vol, 2))}

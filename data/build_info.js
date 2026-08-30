@@ -1,2 +1,50 @@
-window.STOCK_LOOKUP_BUILD_INFO = {"schema_version":1,"build_id":"2026-08-26-f54d70f-cff1036856","generated_at":"2026-08-26T22:55:17+07:00","published_at":"2026-08-26T22:55:17+07:00","market_session":"2026-08-26","git_commit":"f54d70fd519037c2e293355691eabf333febc1c4","git_commit_semantics":"pre_publication_source_head","row_counts":{"screen_snapshot":1683,"market_breadth":1},"price_basis_contract":{"price_basis":"unknown","price_basis_verified":false,"is_actionable":false,"volume_basis":"unknown","volume_basis_verified":false,"adjustment_source":null,"effective_date":null,"limitations":["Price basis is unverified or unknown; corporate actions may affect price and return calculations."]},"files":{"screen_snapshot.csv":{"sha256":"82fefa950c72264d2e9de83156ea141fd5357ebad8706c4227554ec6ce0c7917","size":560190,"mtime":"2026-08-26T20:56:38+07:00"},"market_breadth.csv":{"sha256":"946c0826bd50d23ffe78e220c0a52c0b7b1985e38c78dbffeeac7e075c0ccd5e","size":143,"mtime":"2026-08-26T20:56:38+07:00"},"analysis_latest.json":{"sha256":"c33239d9d124e745bef08a6e8f22ea49507e1c5c2631286432c158d0116ac9f0","size":4478,"mtime":"2026-08-26T20:56:38+07:00"},"ai_report_latest.md":{"sha256":"5ca7bad344ed82d9034c39c96a338a6ae988bb931e0127776782d516109cd0cf","size":7194,"mtime":"2026-07-22T19:10:37+07:00"},"ai_report_latest.json":{"sha256":"60b662727d69a05d8258b6924a7c2bdeb30df0d19d35d56a5524288480628a60","size":8285,"mtime":"2026-07-11T05:48:59+07:00"},"data/screener_data.js":{"sha256":"c5531f4697f6ab4926ec51379350fad2eda2e381934a7994d57ffe954de41598","size":1942607,"mtime":"2026-08-26T22:55:18+07:00"}}};
-window.BUILD_INFO = window.STOCK_LOOKUP_BUILD_INFO;
+window.BUILD_INFO = {
+  "schema_version": "dashboard_build_info/v1",
+  "market_session": "2026-08-28",
+  "producer_run_identity": "9d7679e048cc78fc55b0c91b3b2df09ec7cb17e8794ca7b6837d51ede1a214d6",
+  "dashboard_release_identity": "dashboard_release:5d778c385dc5dd0b990b509ec1d1d45436f217f03e71d602ed647009339e56e5",
+  "build_id": "5d778c385d",
+  "generated_at": "2026-08-30T08:48:08.121479+00:00",
+  "published_at": "2026-08-30T08:48:08.121479+00:00",
+  "release_status": "READY",
+  "domains": {
+    "screening": "current",
+    "breadth": "current",
+    "analysis": "current",
+    "signals": "current",
+    "macro": "current"
+  },
+  "files": {
+    "screen_snapshot.csv": {
+      "sha256": "d5c00efb6af7bab14d5f9e13ad5d29ac93f215dd0936a826063c25de0899af5d",
+      "size_bytes": 568638,
+      "mtime": "2026-08-30T08:48:07.678943+00:00"
+    },
+    "market_breadth.csv": {
+      "sha256": "593072693c96270db01cd757bb7598fb96dc0f09882a4ce83ceaaf166ace5887",
+      "size_bytes": 141,
+      "mtime": "2026-08-30T08:48:07.689458+00:00"
+    },
+    "analysis_latest.json": {
+      "sha256": "de82e8e1f81888810dd41d76ae3b9fdde34e7dfb76fe0b638dca2a13c39860bc",
+      "size_bytes": 4267,
+      "mtime": "2026-08-30T08:48:07.694443+00:00"
+    },
+    "data/screener_data.js": {
+      "sha256": "6312b859dc454ce64c15a87302df15a98bf3ae4edab4c17d149388ef59765ec6",
+      "size_bytes": 2007320,
+      "mtime": "2026-08-30T08:48:08.060591+00:00"
+    },
+    "data/macro_snapshot.json": {
+      "sha256": "f1b4a79d58acc5e9d1802fd1b72614da1a5ff72fffd9cdff66f08417e02c7273",
+      "size_bytes": 378422,
+      "mtime": "2026-08-30T08:48:07.953564+00:00"
+    }
+  },
+  "hero_summary": {
+    "market_session": "2026-08-28",
+    "total_surveyed": 1211,
+    "up_count": 0,
+    "rs80_count": 0
+  }
+};

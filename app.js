@@ -151,9 +151,9 @@ function initReportToggle() {
  * KPI + WATCHLIST + ACTION PLAN (từ ai_report_latest.json)
  * ============================================================ */
 const REGIME_MAP = {
-  bull: { label: "BULL", cls: "text-success" },
-  neutral: { label: "NEUTRAL", cls: "text-warning" },
-  bear: { label: "BEAR", cls: "text-danger" },
+  bull: { label: "TĂNG GIÁ", cls: "text-success" },
+  neutral: { label: "TRUNG TÍNH", cls: "text-warning" },
+  bear: { label: "GIẢM GIÁ", cls: "text-danger" },
 };
 
 const RISK_MAP = {
@@ -449,9 +449,13 @@ function formatCell(field, value) {
     return esc(value);
   }
   if (field === "structure") {
-    const s = String(value).toLowerCase();
+    if (typeof formatStructureBadge === "function") {
+      return formatStructureBadge(value);
+    }
+    const s = String(value || "").toLowerCase();
     const cls = s === "up" ? "bs-green" : s === "side" ? "bs-amber" : s === "down" ? "bs-red" : "bs-gray";
-    return `<span class="badge-soft ${cls}">${esc(String(value).toUpperCase())}</span>`;
+    const label = s === "up" ? "Tăng giá" : s === "side" ? "Đi ngang" : s === "down" ? "Giảm giá" : (value || "–");
+    return `<span class="badge-soft ${cls}">${esc(label)}</span>`;
   }
   if (field === "gtgd20_ty") {
     const v = num(value);
@@ -658,20 +662,70 @@ function initMarketTable(rows, fields) {
 }
 
 function activeMarketSession(rows) {
-  return rows.filter((r) => normalizeExchange(r.exchange) !== "DELISTED")
+  return (rows || []).filter((r) => normalizeExchange(r.exchange) !== "DELISTED")
     .map((r) => String(r.date || "")).filter(Boolean).sort().at(-1) || "?";
+}
+
+function renderHeroBanner(buildInfo, rows) {
+  const host = document.getElementById("dashboard-hero-banner");
+  if (!host) return;
+  const session = buildInfo?.market_session || activeMarketSession(rows);
+  if (!session || session === "?") {
+    host.innerHTML = `
+      <div class="card" style="border-left: 4px solid var(--border); background: var(--surface);">
+        <div class="card-body py-3 px-4">
+          <span class="badge-soft bs-gray">Chưa có dữ liệu phiên thị trường</span>
+        </div>
+      </div>`;
+    return;
+  }
+  const dateMatch = String(session).match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  const displayDate = dateMatch ? `${dateMatch[3]}/${dateMatch[2]}/${dateMatch[1]}` : session;
+  const activeRows = (rows || []).filter((r) => normalizeExchange(r.exchange) !== "DELISTED");
+  const upCount = activeRows.filter((r) => String(r.structure || "").toLowerCase() === "up").length;
+  const rsCount = activeRows.filter((r) => num(r.rs_rating) >= 80).length;
+  const totalCount = activeRows.length || (rows || []).length;
+  const reportHref = buildInfo?.hero_summary?.report_href || `report-${session}.html`;
+  const reportExists = Boolean(buildInfo?.hero_summary?.report_href || buildInfo?.files?.[`report-${session}.html`]);
+
+  host.innerHTML = `
+    <div class="card" style="border-left: 4px solid var(--primary); background: linear-gradient(90deg, rgba(32, 231, 207, 0.08) 0%, rgba(15, 23, 42, 0.6) 100%);">
+      <div class="card-body py-3 px-4 d-flex align-items-center justify-content-between flex-wrap gap-3">
+        <div>
+          <div class="d-flex align-items-center gap-2 flex-wrap mb-1">
+            <span class="badge-soft bs-green">Phiên ${esc(displayDate)}</span>
+            <span class="badge-soft bs-blue">Bản phân tích chính thức</span>
+            <span class="badge-soft bs-green">${upCount} Mã cấu trúc tăng giá</span>
+            <span class="badge-soft bs-gray">${totalCount} Mã khảo sát</span>
+          </div>
+          <div class="text-xs text-muted">
+            Dữ liệu tổng hợp phiên <strong>${esc(displayDate)}</strong>: ${upCount} mã giữ cấu trúc tăng giá (UP) · ${rsCount} mã dẫn dắt RS ≥ 80 · Độ rộng thị trường &amp; Ngành.
+          </div>
+        </div>
+        <div>
+          <a href="${esc(reportHref)}" class="vs-btn" style="background: var(--primary); color: #03080A; font-weight: 700; border: none; font-size: 0.8rem; padding: 0.4rem 0.9rem;">
+            ${reportExists ? `Xem báo cáo phiên ${esc(displayDate)} →` : `Xem phân tích chi tiết →`}
+          </a>
+        </div>
+      </div>
+    </div>`;
 }
 
 function updateMarketFreshness(rows, source) {
   const session = currentBuildInfo?.market_session || activeMarketSession(rows);
-  const published = currentBuildInfo?.generated_at || "chưa có manifest";
-  // build_info.files[*].mtime is raw filesystem mtime of the source CSV, not a data/session
-  // timestamp -- session (above) is the content-derived market session; this is diagnostic
-  // file metadata only, labeled accordingly rather than as "snapshot".
-  const fileMtime = currentBuildInfo?.files?.["screen_snapshot.csv"]?.mtime || published;
+  const published = currentBuildInfo?.published_at || currentBuildInfo?.generated_at || "chưa có manifest";
+  const dateMatch = String(session).match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  const displayDate = dateMatch ? `${dateMatch[3]}/${dateMatch[2]}/${dateMatch[1]}` : session;
   const buildId = currentBuildInfo?.build_id || "legacy";
-  document.getElementById("market-last-updated").textContent = `Phiên ${session} · file mtime ${fileMtime} · pipeline local`;
-  document.getElementById("build-status").textContent = `Xuất bản ${published} · build ${buildId} · ${source}`;
+  const pubText = published !== "chưa có manifest" ? published.slice(0, 16).replace("T", " ") : "pipeline local";
+  const lastUpdatedEl = document.getElementById("market-last-updated");
+  if (lastUpdatedEl) {
+    lastUpdatedEl.textContent = `Phiên ${displayDate} · ${pubText}`;
+  }
+  const buildStatusEl = document.getElementById("build-status");
+  if (buildStatusEl) {
+    buildStatusEl.textContent = `Xuất bản ${published} · build ${buildId} · ${source}`;
+  }
 }
 
 async function loadBuildInfo() {
@@ -721,6 +775,7 @@ async function loadMarketTable() {
   initMarketTable(rows, fields);
   fillMarketKpis(rows);
   renderCharts(rows);
+  renderHeroBanner(currentBuildInfo, rows);
   updateMarketFreshness(rows, source);
 }
 

@@ -102,11 +102,11 @@
           </div>
           <div class="card-body">
             <div class="text-muted mb-2" id="meta" style="font-size:0.78rem;">đang tải dữ liệu…</div>
-            <div class="screen-presets" aria-label="Quick screen presets">
-              <button type="button" class="screen-preset" data-screen-preset="leaders">Leaders</button><button type="button" class="screen-preset" data-screen-preset="momentum">Momentum</button><button type="button" class="screen-preset" data-screen-preset="liquid">Liquid</button><button type="button" class="screen-preset" data-screen-preset="clean">Clean</button>
+            <div class="screen-presets" aria-label="Bộ lọc nhanh">
+              <button type="button" class="screen-preset" data-screen-preset="leaders">Dẫn đầu</button><button type="button" class="screen-preset" data-screen-preset="momentum">Động lượng</button><button type="button" class="screen-preset" data-screen-preset="liquid">Thanh khoản</button><button type="button" class="screen-preset" data-screen-preset="clean">Mã sạch</button>
             </div>
-            <div class="screen-toolbar mb-2" id="screen-toolbar" aria-label="Detailed screener filters">
-              <label>Exchange<select id="screen-exchange"><option value="">All</option></select></label><label>Min RS<input id="screen-min-rs" type="number" min="0" max="100" inputmode="numeric"></label><label>Min RelVol<input id="screen-min-relvol" type="number" min="0" step="0.1" inputmode="decimal"></label><label>Min GTGD<input id="screen-min-liquidity" type="number" min="0" step="1" inputmode="decimal"></label><label>Max P/E<input id="screen-max-pe" type="number" min="0" step="0.1" inputmode="decimal"></label><label>Signal<select id="screen-signal-state"><option value="">All</option><option value="current">Current</option><option value="stale">Stale</option></select></label>
+            <div class="screen-toolbar mb-2" id="screen-toolbar" aria-label="Bộ lọc chi tiết">
+              <label>Sàn<select id="screen-exchange"><option value="">Tất cả</option></select></label><label>Min RS<input id="screen-min-rs" type="number" min="0" max="100" inputmode="numeric"></label><label>Min RelVol<input id="screen-min-relvol" type="number" min="0" step="0.1" inputmode="decimal"></label><label>Min GTGD<input id="screen-min-liquidity" type="number" min="0" step="1" inputmode="decimal"></label><label>Max P/E<input id="screen-max-pe" type="number" min="0" step="0.1" inputmode="decimal"></label><label>Tín hiệu<select id="screen-signal-state"><option value="">Tất cả</option><option value="current">Hiện tại</option><option value="stale">Đã cũ</option></select></label>
             </div>
             <div class="vs-checkbox-row mb-3">
               <input class="vs-checkbox" type="checkbox" id="cleanOnly">
@@ -245,8 +245,8 @@ document.addEventListener("DOMContentLoaded", () => {
       { data: "rel_vol", title: "RelVol", className: "text-end", render: v => num(v, 2) },
       { data: "gtgd20_ty", title: "GTGD(tỷ)", className: "text-end", render: v => num(v, 1) },
       { data: "pct_from_52w_high", title: "%từ đỉnh 52w", className: "text-end", render: pct(1) },
-      { data: "structure", title: "Cấu trúc", defaultContent: "–" },
-      { data: null, title: "Signal", className: "text-end", render: (v, type, row) => { const signal = ScreenerPhase5B.signal(row, marketSession); const label = signal.state === "current" ? signal.momentum : (signal.state === "stale" ? "stale" : "unavailable"); return `<span class="screen-signal screen-signal-${esc(signal.state)}">${esc(label)}</span>`; } },
+      { data: "structure", title: "Cấu trúc", defaultContent: "–", render: v => formatStructureBadge ? formatStructureBadge(v) : esc(v || "–") },
+      { data: null, title: "Tín hiệu", className: "text-end", render: (v, type, row) => { const signal = ScreenerPhase5B.signal(row, marketSession); const label = signal.state === "current" ? formatMomentum(signal.momentum) : formatFreshness(signal.state); return `<span class="screen-signal screen-signal-${esc(signal.state)}">${esc(label)}</span>`; } },
       { data: "pe", title: "P/E", className: "text-end", render: v => num(v, 1) },
       { data: "pb", title: "P/B", className: "text-end", render: v => num(v, 2) },
       { data: "roe", title: "ROE%", className: "text-end", render: v => num(v, 1) },
