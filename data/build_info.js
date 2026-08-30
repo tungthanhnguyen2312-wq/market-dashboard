@@ -2,10 +2,10 @@ window.BUILD_INFO = {
   "schema_version": "dashboard_build_info/v1",
   "market_session": "2026-08-28",
   "producer_run_identity": "b6352fa60ed64ee8218c1e6ee2ea7cba03d1aca22ab8034c5bb3414a045f3da6",
-  "dashboard_release_identity": "dashboard_release:538bd1fb4142a2554fc7683573d3cb77c9ca6c3ef25c9c2362a26477bbf14d6e",
-  "build_id": "538bd1fb41",
-  "generated_at": "2026-08-30T10:56:33.020547+00:00",
-  "published_at": "2026-08-30T10:56:33.020547+00:00",
+  "dashboard_release_identity": "dashboard_release:93b60ad938cdd48cde30b79e3da92dc575b4ebc87856d3b7fa27dfdf0017ebd9",
+  "build_id": "93b60ad938",
+  "generated_at": "2026-08-30T10:59:58.803681+00:00",
+  "published_at": "2026-08-30T10:59:58.803681+00:00",
   "release_status": "READY",
   "domains": {
     "screening": "current",
@@ -28,11 +28,11 @@ window.BUILD_INFO = {
       "size_bytes": 141
     },
     "analysis_latest.json": {
-      "sha256": "581e79fe21742cbf87956e723fb817a0c4d82ce65f5b02d904f91718c5e3eacc",
+      "sha256": "7d49afad79870d8f4f5a545933ee782d74c236e33851001f7370aad9b1fdcc7d",
       "size_bytes": 4571
     },
     "bundle_manifest.json": {
-      "sha256": "13d0ba5c585f729b25271bde2e5367ff9c61857a72195681d3809496837cc35d",
+      "sha256": "c3b3d37fa9c7847c745ffa312be6e235ec82623bbe74c6e02a43cec98b28e506",
       "size_bytes": 9117
     },
     "analysis_bundle.json": {
