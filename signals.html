@@ -218,6 +218,17 @@ async function loadData(path, globalName, fallbackSrc) {
   await loadFallbackScript(fallbackSrc, globalName);
   return window[globalName] || null;
 }
+
+function signalDomainState() {
+  const domains = window.BUILD_INFO && window.BUILD_INFO.domains;
+  const state = domains && domains.signals;
+  return state && typeof state === "object" ? state : null;
+}
+
+function viSession(value) {
+  const match = String(value || "").match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  return match ? `${match[3]}/${match[2]}/${match[1]}` : "—";
+}
 const fmt = (v, d = 1) => (v === null || v === undefined || Number.isNaN(v)) ? "–" : Number(v).toLocaleString("vi-VN", {maximumFractionDigits: d});
 const dirCls = d => d === "bullish" ? "up" : d === "bearish" ? "down" : "flat";
 const esc = s => String(s ?? "").replace(/[&<>"]/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch]));
@@ -316,6 +327,14 @@ function renderHeatmap(sectors) {
 }
 
 (async () => {
+  const domain = signalDomainState();
+  const currentSession = window.BUILD_INFO && window.BUILD_INFO.market_session;
+  if (domain && domain.status !== "CURRENT" && domain.status !== "STALE") {
+    const latest = Object.values(domain.components || {}).map(x => x && x.source_session).find(Boolean);
+    document.getElementById("meta").textContent =
+      `Chưa có tín hiệu exact-session cho phiên ${viSession(currentSession)}.${latest ? ` Dữ liệu gần nhất: phiên ${viSession(latest)}.` : ""}`;
+    return;
+  }
   const sig = await loadData("data/candle_signals.json", "CANDLE_SIGNALS", "data/candle_signals.js");
   const heat = await loadData("data/sector_heatmap.json", "SECTOR_HEATMAP", "data/sector_heatmap.js");
   // candlestick-patterns.js đã tự fetch data/candlestick_patterns.json từ lúc trang tải
@@ -326,8 +345,11 @@ function renderHeatmap(sectors) {
     document.getElementById("meta").textContent = "Chưa có dữ liệu cho phiên này — vui lòng chạy lại pipeline tín hiệu.";
     return;
   }
-  document.getElementById("meta").textContent =
-    `Phiên ${sig?.scan_date || heat?.scan_date} · sinh lúc ${sig?.generated_at || heat?.generated_at} · nguồn: dữ liệu pipeline (cục bộ, 0 API)`;
+  const sourceSession = sig?.scan_date || heat?.scan_date;
+  const historical = domain && domain.status === "STALE";
+  document.getElementById("meta").textContent = historical
+    ? `Dữ liệu lịch sử: phiên ${viSession(sourceSession)} · không phải tín hiệu exact-session ${viSession(currentSession)}.`
+    : `Phiên ${sourceSession} · sinh lúc ${sig?.generated_at || heat?.generated_at} · nguồn: dữ liệu pipeline (cục bộ, 0 API)`;
   if (sig) { renderWatchlist(sig.watchlist, confidenceIndex); renderConfluence(sig.signals, confidenceIndex); renderDividend(sig.dividend_investing, sig.dividend_note); }
   if (heat) renderHeatmap(heat.sectors);
 })();

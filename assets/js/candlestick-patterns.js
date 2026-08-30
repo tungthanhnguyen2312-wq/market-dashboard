@@ -344,6 +344,12 @@
   }
 
   async function loadSnapshot() {
+    const component = window.BUILD_INFO && window.BUILD_INFO.domains &&
+      window.BUILD_INFO.domains.signals && window.BUILD_INFO.domains.signals.components &&
+      window.BUILD_INFO.domains.signals.components.candlestick_patterns;
+    if (component && component.status !== "CURRENT" && component.status !== "STALE") {
+      throw new Error("Candlestick patterns are unavailable for the current market session.");
+    }
     // Ưu tiên fetch JSON qua http(s); file:// (fetch luôn bị CORS chặn) hoặc fetch lỗi thì
     // nạp fallback data/candlestick_patterns.js (13,5MB) CHỈ lúc đó, không tải song song.
     if (!isFileProtocol()) {
