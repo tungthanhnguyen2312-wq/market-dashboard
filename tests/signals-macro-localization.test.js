@@ -392,7 +392,12 @@ test("every mapped candlestick pattern's color stays within its pattern's real d
   } else if (fs.existsSync(jsonPath)) {
     registry = JSON.parse(fs.readFileSync(jsonPath, "utf8")).registry;
   } else {
-    assert.fail("Neither data/candlestick_patterns.js nor data/candlestick_patterns.json exists");
+    const buildInfo = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "data", "build_info.json"), "utf8"));
+    const component = buildInfo.domains && buildInfo.domains.signals &&
+      buildInfo.domains.signals.components && buildInfo.domains.signals.components.candlestick_patterns;
+    assert.ok(component && component.status !== "CURRENT",
+      "an absent candlestick sidecar is valid only when the release marks it non-current");
+    return;
   }
   const FAMILY = {
     bullish: new Set(["emerald", "teal", "cyan"]),
