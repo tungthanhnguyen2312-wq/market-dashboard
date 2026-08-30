@@ -1,11 +1,11 @@
 window.BUILD_INFO = {
   "schema_version": "dashboard_build_info/v1",
   "market_session": "2026-08-28",
-  "producer_run_identity": "e3694bda237c407be59efd0a2668d0b9e7d71476c03f71092bf9370f060baa0a",
-  "dashboard_release_identity": "dashboard_release:7257307f01e8d4d73146f2ffc7135ce509fa84c108963a8ec2c37fab0dc19758",
-  "build_id": "7257307f01",
-  "generated_at": "2026-08-30T10:43:48.473190+00:00",
-  "published_at": "2026-08-30T10:43:48.473190+00:00",
+  "producer_run_identity": "b6352fa60ed64ee8218c1e6ee2ea7cba03d1aca22ab8034c5bb3414a045f3da6",
+  "dashboard_release_identity": "dashboard_release:538bd1fb4142a2554fc7683573d3cb77c9ca6c3ef25c9c2362a26477bbf14d6e",
+  "build_id": "538bd1fb41",
+  "generated_at": "2026-08-30T10:56:33.020547+00:00",
+  "published_at": "2026-08-30T10:56:33.020547+00:00",
   "release_status": "READY",
   "domains": {
     "screening": "current",
@@ -28,16 +28,16 @@ window.BUILD_INFO = {
       "size_bytes": 141
     },
     "analysis_latest.json": {
-      "sha256": "401fd0e7e59119b8cad2727a627e5d66eecfdc103af386e0c3276e4d1fec2ee1",
+      "sha256": "581e79fe21742cbf87956e723fb817a0c4d82ce65f5b02d904f91718c5e3eacc",
       "size_bytes": 4571
     },
     "bundle_manifest.json": {
-      "sha256": "69d593f9ea5cdbb571d766a30811848a2398a7b151f79602f2234b9a499ed478",
-      "size_bytes": 5275
+      "sha256": "13d0ba5c585f729b25271bde2e5367ff9c61857a72195681d3809496837cc35d",
+      "size_bytes": 9117
     },
     "analysis_bundle.json": {
-      "sha256": "a62759f076e714d64f2958179bd688945672c725f95c4645786ac77fab657324",
-      "size_bytes": 36811
+      "sha256": "63fb7c9cea1f9bb9f7c9c7721d1562e791d7173c3c7ec4300d2fd3ef73977570",
+      "size_bytes": 37102
     },
     "focus_extract.json": {
       "sha256": "2efb1d884d04c382efc6d747691e5dc7fcca845d9679041dee6d7e653ce50f0d",
@@ -76,12 +76,12 @@ window.BUILD_INFO = {
       "size_bytes": 2007320
     },
     "data/session_2026_08_28_manifest.json": {
-      "sha256": "802b976accad80ff9797acb58ffcc5a9e48e1b1cc677b4e8d5ed1ae79f8a06fe",
-      "size_bytes": 9116
+      "sha256": "a8e520b07d850cd6a5992ecd651ee94dd8a68800236a0223fa5d4a762e35c12e",
+      "size_bytes": 9127
     },
     "report-2026-08-28.html": {
-      "sha256": "512f9e7e99ab65fb6f24f9736dcaeb66d00a560916bff04502e76708caf7bb60",
-      "size_bytes": 6466
+      "sha256": "5a2c0ee8bc8e2033c823886103ce657f418372f2f6d3cd7837a8dde9c053aa50",
+      "size_bytes": 6477
     }
   },
   "hero_summary": {

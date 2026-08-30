@@ -30,7 +30,17 @@
   },
   "canonical_sources": {
     "contract_version": "canonical_trusted_subset_release/v1",
-    "runtime_release": null
+    "runtime_release": {
+      "source": "retained_canonical_daily_producer",
+      "session": "2026-08-28",
+      "unavailable_legacy_fields": [
+        "historical_indicator_suite",
+        "strict_valuation",
+        "liquidity_sizing_execution",
+        "macro_optional",
+        "explicit_portfolio"
+      ]
+    }
   },
   "tickers": {
     "POW": {

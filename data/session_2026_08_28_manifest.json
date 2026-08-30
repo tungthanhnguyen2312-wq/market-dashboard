@@ -4,9 +4,9 @@
     "active_equity_universe": 1506,
     "input_candidates": 1683,
     "observed_session_cohort": 943,
-    "operation_identity": "daily_research_session_operation:e3694bda237c407be59efd0a2668d0b9e7d71476c03f71092bf9370f060baa0a",
+    "operation_identity": "daily_research_session_operation:b6352fa60ed64ee8218c1e6ee2ea7cba03d1aca22ab8034c5bb3414a045f3da6",
     "registration_state": "COMPLETED_RETAINED_EVIDENCE",
-    "run_identity": "daily_producer_run:e4773596b856627886f06883e6d0e129da840e65765237684ffd81657c00360b",
+    "run_identity": "daily_producer_run:2a1d7c3e9a336abbc2332cbd1f4aafb12033757aff230045aee5eec03f29486a",
     "status": "COMPLETED",
     "technical_coverage": 942
   },
@@ -61,9 +61,9 @@
     "positive_20d_momentum_count": 281,
     "unchanged": 280
   },
-  "producer_commit": "5b010460dbb96ac539f3b9f30d93895246e633b1",
+  "producer_commit": "c5cd55d90db5958d5288dba617082293422e8fd8",
   "producer_commit_semantics": "pre_publication_producer_head",
-  "producer_commit_summary": "test(release): preserve generated dashboard artifact bytes",
+  "producer_commit_summary": "fix(release): publish trusted subset artifacts in dashboard publisher",
   "prospective_cohort_identity": "prospective_research_cohort_snapshot:573653738d6e400207f80c96c3b1a4f22a82e5b6a927d8e97ec0e29ddb4fc2aa",
   "schema_version": "1.0.0",
   "source_artifacts": {
@@ -118,8 +118,8 @@
       }
     ],
     "daily_producer_run_manifest": {
-      "path": "operations-review/daily-producer-runs-v1/2026-08-28/e4773596b856627886f06883e6d0e129da840e65765237684ffd81657c00360b/run_manifest.json",
-      "run_identity": "daily_producer_run:e4773596b856627886f06883e6d0e129da840e65765237684ffd81657c00360b"
+      "path": "operations-review/daily-producer-runs-v1/2026-08-28/2a1d7c3e9a336abbc2332cbd1f4aafb12033757aff230045aee5eec03f29486a/run_manifest.json",
+      "run_identity": "daily_producer_run:2a1d7c3e9a336abbc2332cbd1f4aafb12033757aff230045aee5eec03f29486a"
     },
     "retained_tier_handoff": {
       "path": "operations-review/canonical-post-close-v1/2026-08-28/session_handoff_bundle.json",
