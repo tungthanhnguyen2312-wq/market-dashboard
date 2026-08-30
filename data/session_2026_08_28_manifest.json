@@ -4,9 +4,9 @@
     "active_equity_universe": 1506,
     "input_candidates": 1683,
     "observed_session_cohort": 943,
-    "operation_identity": "daily_research_session_operation:b6352fa60ed64ee8218c1e6ee2ea7cba03d1aca22ab8034c5bb3414a045f3da6",
+    "operation_identity": "daily_research_session_operation:4526232cea2220ae89fc1a2fca4695ff17e00415e5bd0a51547688e2f2046074",
     "registration_state": "COMPLETED_RETAINED_EVIDENCE",
-    "run_identity": "daily_producer_run:2a1d7c3e9a336abbc2332cbd1f4aafb12033757aff230045aee5eec03f29486a",
+    "run_identity": "daily_producer_run:a349cb9a5cade29fb18e4fe3296e7b9dd98ff3030e9e2ddd2a5ee326b4a92737",
     "status": "COMPLETED",
     "technical_coverage": 942
   },
@@ -61,9 +61,9 @@
     "positive_20d_momentum_count": 281,
     "unchanged": 280
   },
-  "producer_commit": "c5cd55d90db5958d5288dba617082293422e8fd8",
+  "producer_commit": "6e63a2a2d937a83b0ae9fa0aa5732a2a1f203aef",
   "producer_commit_semantics": "pre_publication_producer_head",
-  "producer_commit_summary": "fix(release): publish trusted subset artifacts in dashboard publisher",
+  "producer_commit_summary": "fix(release): enforce dashboard domain freshness",
   "prospective_cohort_identity": "prospective_research_cohort_snapshot:573653738d6e400207f80c96c3b1a4f22a82e5b6a927d8e97ec0e29ddb4fc2aa",
   "schema_version": "1.0.0",
   "source_artifacts": {
@@ -118,8 +118,8 @@
       }
     ],
     "daily_producer_run_manifest": {
-      "path": "operations-review/daily-producer-runs-v1/2026-08-28/2a1d7c3e9a336abbc2332cbd1f4aafb12033757aff230045aee5eec03f29486a/run_manifest.json",
-      "run_identity": "daily_producer_run:2a1d7c3e9a336abbc2332cbd1f4aafb12033757aff230045aee5eec03f29486a"
+      "path": "operations-review/daily-producer-runs-v1/2026-08-28/a349cb9a5cade29fb18e4fe3296e7b9dd98ff3030e9e2ddd2a5ee326b4a92737/run_manifest.json",
+      "run_identity": "daily_producer_run:a349cb9a5cade29fb18e4fe3296e7b9dd98ff3030e9e2ddd2a5ee326b4a92737"
     },
     "retained_tier_handoff": {
       "path": "operations-review/canonical-post-close-v1/2026-08-28/session_handoff_bundle.json",

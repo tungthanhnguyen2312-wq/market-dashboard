@@ -1,18 +1,81 @@
 window.BUILD_INFO = {
   "schema_version": "dashboard_build_info/v1",
   "market_session": "2026-08-28",
-  "producer_run_identity": "b6352fa60ed64ee8218c1e6ee2ea7cba03d1aca22ab8034c5bb3414a045f3da6",
-  "dashboard_release_identity": "dashboard_release:93b60ad938cdd48cde30b79e3da92dc575b4ebc87856d3b7fa27dfdf0017ebd9",
-  "build_id": "93b60ad938",
-  "generated_at": "2026-08-30T10:59:58.803681+00:00",
-  "published_at": "2026-08-30T10:59:58.803681+00:00",
+  "producer_run_identity": "4526232cea2220ae89fc1a2fca4695ff17e00415e5bd0a51547688e2f2046074",
+  "dashboard_release_identity": "dashboard_release:7efbecec38c30dcb1d48118ae11aac5ec1b83ab4851de3c1c0ae9308d34d2429",
+  "build_id": "7efbecec38",
+  "generated_at": "2026-08-30T12:32:37.717053+00:00",
+  "published_at": "2026-08-30T12:32:37.717053+00:00",
   "release_status": "READY",
   "domains": {
-    "screening": "current",
-    "breadth": "current",
-    "analysis": "current",
-    "signals": "current",
-    "macro": "current"
+    "screening": {
+      "status": "CURRENT",
+      "source_session": "2026-08-28",
+      "freshness": "EXACT_SESSION",
+      "reason_codes": []
+    },
+    "breadth": {
+      "status": "CURRENT",
+      "source_session": "2026-08-28",
+      "freshness": "EXACT_SESSION",
+      "reason_codes": []
+    },
+    "analysis": {
+      "status": "CURRENT",
+      "source_session": "2026-08-28",
+      "freshness": "EXACT_SESSION",
+      "reason_codes": []
+    },
+    "signals": {
+      "status": "STALE",
+      "source_session": null,
+      "freshness": "EXACT_SESSION",
+      "reason_codes": [
+        "SIGNAL_COMPONENT_NOT_EXACT_SESSION"
+      ],
+      "components": {
+        "candle_signals": {
+          "status": "STALE",
+          "source_session": "2026-08-25",
+          "generated_at": "2026-08-26T06:23:51Z",
+          "reason_codes": [
+            "SIGNAL_SOURCE_SESSION_MISMATCH"
+          ]
+        },
+        "sector_heatmap": {
+          "status": "STALE",
+          "source_session": "2026-08-25",
+          "generated_at": "2026-08-26T06:23:51Z",
+          "reason_codes": [
+            "SIGNAL_SOURCE_SESSION_MISMATCH"
+          ]
+        },
+        "candlestick_patterns": {
+          "status": "STALE",
+          "source_session": "2026-08-25",
+          "generated_at": "2026-08-26T06:23:51.785327+00:00",
+          "reason_codes": [
+            "SIGNAL_SOURCE_SESSION_MISMATCH"
+          ]
+        }
+      }
+    },
+    "macro": {
+      "status": "CURRENT",
+      "source_session": null,
+      "data_as_of": "2026-08-30",
+      "generated_at": "2026-08-30T19:32:29+07:00",
+      "freshness": "CADENCE_AWARE",
+      "reason_codes": [],
+      "stale_series_count": 0
+    },
+    "cockpit": {
+      "status": "CURRENT",
+      "source_session": "2026-08-28",
+      "freshness": "EXACT_SESSION",
+      "generated_at": null,
+      "reason_codes": []
+    }
   },
   "files": {
     "screen_snapshot.csv": {
@@ -28,11 +91,11 @@ window.BUILD_INFO = {
       "size_bytes": 141
     },
     "analysis_latest.json": {
-      "sha256": "7d49afad79870d8f4f5a545933ee782d74c236e33851001f7370aad9b1fdcc7d",
+      "sha256": "3d25c591d2cf5a82feda5840d2a9796f66dde991dc9fd9c6a98b7ebddc325369",
       "size_bytes": 4571
     },
     "bundle_manifest.json": {
-      "sha256": "c3b3d37fa9c7847c745ffa312be6e235ec82623bbe74c6e02a43cec98b28e506",
+      "sha256": "8f5f61e1bbcd347f9ec7a80d0f2126e6ee8c18b04f4df90dd7bf58242c6c2baa",
       "size_bytes": 9117
     },
     "analysis_bundle.json": {
@@ -47,41 +110,29 @@ window.BUILD_INFO = {
       "sha256": "01762c205187af6416d49fe9a4e60ed6a8c5679b1c8ccae002b93ec2a8a49d97",
       "size_bytes": 1684422
     },
-    "data/candle_signals.js": {
-      "sha256": "0b2e84c0c9b89764296ffdc049eeb2c5495996cf3cfde4332b9c6830e8ec1a18",
-      "size_bytes": 2962363
-    },
-    "data/sector_heatmap.js": {
-      "sha256": "5eb11c4e9962e44f5c28d427e299378ade027f243d6da7c1809b4a60b05a4007",
-      "size_bytes": 4034
-    },
-    "data/candlestick_patterns.js": {
-      "sha256": "8d3b3352d91f36b134688480a7f4fcef74c8a2a89b102aa874313a70c1bddfad",
-      "size_bytes": 14146218
-    },
     "data/macro_snapshot.json": {
-      "sha256": "f1b4a79d58acc5e9d1802fd1b72614da1a5ff72fffd9cdff66f08417e02c7273",
-      "size_bytes": 378422
+      "sha256": "6cf3ca59ea67a540baa2102abf18c5333934b096316f89654673cea4061f3b53",
+      "size_bytes": 378695
     },
     "data/macro_snapshot.js": {
-      "sha256": "dc339b0387eb5474ce2e60da25d3864e212259f1d2d337be4da96809c627dd2c",
-      "size_bytes": 378447
+      "sha256": "d1fafdb72c9aa7c55a8f23f930a6c8cecb14e6e003f4e356e36d6c1fbc283084",
+      "size_bytes": 378720
     },
     "data/current_decision_cockpit.json": {
-      "sha256": "176c7bf7ac740437d7864df8c006712baa888c54f614a20ab62bef994674dfb3",
-      "size_bytes": 1595275
+      "sha256": "4b0969c85556dcd2a16cbdcdc4e51a46f69473b035044dde87fa0fc30e6c7e2b",
+      "size_bytes": 2412457
     },
     "data/screener_data.js": {
       "sha256": "6312b859dc454ce64c15a87302df15a98bf3ae4edab4c17d149388ef59765ec6",
       "size_bytes": 2007320
     },
     "data/session_2026_08_28_manifest.json": {
-      "sha256": "a8e520b07d850cd6a5992ecd651ee94dd8a68800236a0223fa5d4a762e35c12e",
-      "size_bytes": 9127
+      "sha256": "d5fee8305d28f5bbdbe570ca16d833b3a0b83a753af57c05634fe1fb25b07065",
+      "size_bytes": 9106
     },
     "report-2026-08-28.html": {
-      "sha256": "5a2c0ee8bc8e2033c823886103ce657f418372f2f6d3cd7837a8dde9c053aa50",
-      "size_bytes": 6477
+      "sha256": "0e291072a4c8761fcbe8f0af4cbd99e6c5793cddda4d2e17a0a9b8ba8b3047dd",
+      "size_bytes": 6456
     }
   },
   "hero_summary": {
