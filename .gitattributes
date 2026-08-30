@@ -10,6 +10,29 @@ bundle_manifest.json            -text
 focus_extract.json              -text
 statement_taxonomy_sidecar.json -text
 
+# Canonical Daily publishes this exact generated Dashboard release set.  These
+# are hash-verified before commit and again from the public site; never let a
+# platform checkout transform their bytes.
+screen_snapshot.csv             -text
+screen_snapshot_live.csv        -text
+market_breadth.csv              -text
+analysis_latest.json            -text
+bundle_manifest.json            -text
+data/candle_signals.json        -text
+data/candle_signals.js          -text
+data/sector_heatmap.json        -text
+data/sector_heatmap.js          -text
+data/candlestick_patterns.json  -text
+data/candlestick_patterns.js    -text
+data/macro_snapshot.json        -text
+data/macro_snapshot.js          -text
+data/current_decision_cockpit.json -text
+data/screener_data.js           -text
+data/build_info.json            -text
+data/build_info.js              -text
+data/session_*_manifest.json    -text
+report-*.html                   -text
+
 # Deterministic line endings for the public-OSS-hardened documentation files ported from
 # dashboard-runtime (see operations-review/public-oss-hardening-v1-20260818.md and
 # operations-review/local-publication-assembly-v1-20260818.md). Scoped to exactly the paths
