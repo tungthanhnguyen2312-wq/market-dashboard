@@ -75,13 +75,13 @@
     "session_identity": "2026-08-28",
     "generated_at": "2026-08-28T00:00:00+00:00",
     "bundle_filename": "analysis_bundle.json",
-    "bundle_sha256": "63fb7c9cea1f9bb9f7c9c7721d1562e791d7173c3c7ec4300d2fd3ef73977570",
+    "bundle_sha256": "a62759f076e714d64f2958179bd688945672c725f95c4645786ac77fab657324",
     "bundle_reference_session_date": "2026-08-28",
     "bundle_generated_at": "2026-08-28T00:00:00+00:00",
     "required_artifacts": [
       {
         "file": "analysis_bundle.json",
-        "sha256": "63fb7c9cea1f9bb9f7c9c7721d1562e791d7173c3c7ec4300d2fd3ef73977570"
+        "sha256": "a62759f076e714d64f2958179bd688945672c725f95c4645786ac77fab657324"
       },
       {
         "file": "focus_extract.json",
@@ -187,61 +187,7 @@
     }
   },
   "canonical_runtime_release": {
-    "release_contract": {
-      "source": "retained_canonical_daily_producer",
-      "session": "2026-08-28",
-      "unavailable_legacy_fields": [
-        "historical_indicator_suite",
-        "strict_valuation",
-        "liquidity_sizing_execution",
-        "macro_optional",
-        "explicit_portfolio"
-      ]
-    },
-    "lineage": {
-      "descriptive": {
-        "artifact_identity": "market_wide_current_descriptive_research:22632464bd88f631ecd67b8121542b6429bbc8e302de24f07c31bd09775eb920",
-        "sha256": "58c946ca36feba88ec51435b9e7c09a61518fdcc3d0ae5a4126646a376824d9a",
-        "path": "operations-review\\market-wide-current-descriptive-research-v1-20260828\\market_wide_current_descriptive_research_artifact.json"
-      },
-      "screening": {
-        "artifact_identity": "current_market_screening_opportunity_comparison_foundation:2d56978adf004f13d59085a1930e565a11be1f1b4aa4d38ff77eddac9eae7ba6",
-        "sha256": "67b3cfdcfe29baf8262808e23ab521523235b14ec7a8d98eeb3b151b4a583beb",
-        "path": "operations-review\\current-market-screening-opportunity-comparison-foundation-v1-20260828\\current_market_screening_opportunity_comparison_foundation_artifact.json"
-      },
-      "tactical": {
-        "artifact_identity": "watchlist_tactical_entry_classifier:83ed28bb1599bdf4a3b670bc4e447489a8ccecd5cb667311d7d2072ef052daad",
-        "sha256": "9cc26ed44a74ac5f51e4c59b327233f43d4181434f44d4220824dd3d8f5acd11",
-        "path": "operations-review\\watchlist-tactical-entry-decision-v1-20260828\\watchlist_tactical_entry_classifier_artifact.json"
-      },
-      "triage": {
-        "artifact_identity": "full_universe_entry_candidate_triage:1595e0c56a66d4d96e6fe83810985b8dffdff89183fe1e91aeb72f49273f7497",
-        "sha256": "ada7627881b4cca9f1a6a742028d3849f2e748acd85f5c2d5fa3980b19bad8b3",
-        "path": "operations-review\\full-universe-entry-candidate-triage-v1-20260828\\full_universe_entry_candidate_triage_20260828.json"
-      },
-      "official_universe": {
-        "artifact_identity": "current_official_market_universe:d77e16f82893df419689b24356d066d6a6431bd3c27e09190e3c319e004abb55",
-        "sha256": "a12b6e66ef19d03386f4cb600a07b00d4e849b93857676ea8174dff1e546e885",
-        "path": "operations-review\\current-official-market-universe-integration-v1-20260824\\current_official_market_universe_artifact.json"
-      },
-      "daily_producer_run": {
-        "run_identity": "daily_producer_run:e4773596b856627886f06883e6d0e129da840e65765237684ffd81657c00360b",
-        "sha256": "33b226d9624426e4caf453b512d1d096fab5356929abdad66145fb50c2907b62",
-        "path": "operations-review\\daily-producer-runs-v1\\2026-08-28\\e4773596b856627886f06883e6d0e129da840e65765237684ffd81657c00360b\\run_manifest.json"
-      },
-      "daily_producer_bundle": {
-        "sha256": "758d078763ae5dc8180fe91e986d580d3de5eef03ae4b2cb12d8a9af6240caa9",
-        "path": "operations-review\\daily-producer-runs-v1\\2026-08-28\\e4773596b856627886f06883e6d0e129da840e65765237684ffd81657c00360b\\ai_research_session_bundle.json"
-      },
-      "retained_tier_handoff": {
-        "sha256": "92b69eaf9f577626923e8a077f01165b611ef70090f011adfa43ae3e168237b8",
-        "path": "operations-review\\canonical-post-close-v1\\2026-08-28\\session_handoff_bundle.json",
-        "retained_daily_producer_run_identity": "daily_producer_run:1d807bbb92e629071810eaa2f5ff662394585464cc4b78459b102037e26a4d82",
-        "runtime_daily_producer_run_identity": "daily_producer_run:e4773596b856627886f06883e6d0e129da840e65765237684ffd81657c00360b",
-        "source_lineage_status": "PASS",
-        "current_research_packet_identity": "current_research_decision_packet:594bd40f98ba0aebefdcad2eb8c3064efacb26e070cb678690c6718eb0cf93ac",
-        "prospective_cohort_snapshot_identity": "prospective_research_cohort_snapshot:573653738d6e400207f80c96c3b1a4f22a82e5b6a927d8e97ec0e29ddb4fc2aa"
-      }
-    }
+    "release_contract": null,
+    "lineage": null
   }
 }

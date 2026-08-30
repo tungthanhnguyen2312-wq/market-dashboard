@@ -381,9 +381,19 @@ test("colorTokenForPattern matches every specific example named in the spec", ()
   assert.equal(cp.colorTokenForPattern("doji"), "amber");
 });
 
-test("every mapped candlestick pattern's color stays within its pattern's real directional family (cross-checked against data/candlestick_patterns.json registry)", () => {
-  const registryPath = path.join(__dirname, "..", "data", "candlestick_patterns.json");
-  const registry = JSON.parse(fs.readFileSync(registryPath, "utf8")).registry;
+test("every mapped candlestick pattern's color stays within its pattern's real directional family (cross-checked against data/candlestick_patterns.js registry)", () => {
+  const jsPath = path.join(__dirname, "..", "data", "candlestick_patterns.js");
+  const jsonPath = path.join(__dirname, "..", "data", "candlestick_patterns.json");
+  let registry;
+  if (fs.existsSync(jsPath)) {
+    const raw = fs.readFileSync(jsPath, "utf8");
+    const jsonText = raw.replace(/^\s*window\.CANDLESTICK_PATTERNS\s*=\s*/, "").replace(/;\s*$/, "");
+    registry = JSON.parse(jsonText).registry;
+  } else if (fs.existsSync(jsonPath)) {
+    registry = JSON.parse(fs.readFileSync(jsonPath, "utf8")).registry;
+  } else {
+    assert.fail("Neither data/candlestick_patterns.js nor data/candlestick_patterns.json exists");
+  }
   const FAMILY = {
     bullish: new Set(["emerald", "teal", "cyan"]),
     bearish: new Set(["rose", "red", "orange", "magenta"]),
