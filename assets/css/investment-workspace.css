@@ -1,0 +1,8 @@
+.ws-filter-chips { display: flex; flex-wrap: wrap; gap: .9rem 1.2rem; }
+.ws-filter-group { display: flex; align-items: center; gap: .4rem; flex-wrap: wrap; }
+.ws-filter-group-label { text-transform: uppercase; font-size: .68rem; letter-spacing: .04em; margin-right: .15rem; }
+.ws-filter-chip { border: 1px solid var(--border-soft); }
+.ws-filter-chip.active { background: rgba(var(--primary-rgb), .28); color: var(--accent-text-strong); border-color: var(--border-active); }
+.ws-list-scroll { max-height: 560px; overflow-y: auto; }
+.ws-row-selected { background: rgba(var(--primary-rgb), .08); }
+#opportunity-rows tr:hover { background: rgba(148, 163, 184, .06); }
