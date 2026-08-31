@@ -51,6 +51,24 @@
     return ticker.toUpperCase().includes(q) || String(card.sector || "").toUpperCase().includes(q);
   }
 
+  // Research Stance is the primary product research conclusion; entry_action (Tactical Entry
+  // Readiness) is underlying tactical context only. These two governed-vocabulary sets and this
+  // deterministic template function make the pairing understandable without ever restating or
+  // overriding either raw value (both stay verbatim from the Producer).
+  const VETO_RESEARCH_STANCES = new Set(["HIGH_RISK_SPECULATION_ONLY", "AVOID_NEW_ENTRY"]);
+  const TACTICAL_ACTIONABLE_ENTRY_READINESS = new Set(["EARLY_ENTRY", "BUY_ON_CONFIRMATION", "ACCUMULATE_IN_BASE"]);
+
+  function stanceEntryGuidance(researchStance, entryAction) {
+    if (VETO_RESEARCH_STANCES.has(researchStance)) {
+      return "Research Stance is this security's primary research conclusion and is a new-entry risk veto. Tactical Entry Readiness below is underlying tactical context only -- it must never be read as a buy signal.";
+    }
+    if ((researchStance === "ACCUMULATE_RESEARCH_CANDIDATE" || researchStance === "INITIATE_RESEARCH_CANDIDATE")
+        && entryAction && !TACTICAL_ACTIONABLE_ENTRY_READINESS.has(entryAction)) {
+      return `Research Stance is this security's primary research conclusion: a research ${researchStance === "ACCUMULATE_RESEARCH_CANDIDATE" ? "accumulation" : "initiation"} candidate. Tactical Entry Readiness (${entryAction}) reflects only the current tactical confirmation state and is not itself permission to enter.`;
+    }
+    return "";
+  }
+
   // Client-side portfolio-fit join -- mirrors investment_decision_workspace_projection.py's
   // _portfolio_view() exactly (ticker lookup, breach match, sector-concentration lookup). No
   // covariance/volatility/correlation is computed here; every number it displays was already
@@ -239,12 +257,14 @@
         document.getElementById("decision-card").innerHTML = `
           <div class="cockpit-grid mb-3">
             ${kpi("Research stance", card.research_stance)}${kpi("Readiness", card.research_stance_readiness)}
-            ${kpi("Tactical setup", card.entry_state)}${kpi("Entry readiness", card.entry_action)}
+            ${kpi("Tactical setup", card.entry_state)}${kpi("Tactical Entry Readiness", card.entry_action)}
           </div>
           <div class="cockpit-detail-grid">
             <div class="card"><div class="card-header"><h6>A. Current stance</h6></div><div class="card-body">
               <b>Ticker</b> ${esc(ticker)} · <b>Sector</b> ${esc(card.sector)}<br>
-              ${pill(card.research_stance)} ${pill(card.entry_state)} ${pill(card.entry_action)}
+              <div class="mt-1"><b>Research Stance</b> ${pill(card.research_stance)} <span class="cockpit-note">(primary research conclusion)</span></div>
+              <div class="mt-1"><b>Tactical Entry Readiness</b> ${pill(card.entry_action)} <span class="cockpit-note">tactical setup: ${pill(card.entry_state)}</span>${VETO_RESEARCH_STANCES.has(card.research_stance) ? ' <span class="cockpit-state blocked">NOT A BUY SIGNAL</span>' : ""}</div>
+              ${stanceEntryGuidance(card.research_stance, card.entry_action) ? `<div class="cockpit-note mt-2">${esc(stanceEntryGuidance(card.research_stance, card.entry_action))}</div>` : ""}
               <div class="mt-2"><b>Setup tags</b>${list(card.setup_tags)}</div>
             </div></div>
             <div class="card"><div class="card-header"><h6>B. Why</h6></div><div class="card-body">
@@ -255,6 +275,7 @@
               <b>Market/sector</b> ${esc(JSON.stringify((why.market_sector_evidence || {}).sector_relative_context || {}))}<br>
               <b>Catalyst</b> ${pill((why.catalyst_evidence || {}).status)}
               <div class="mt-2"><b>Deterministic reasons</b>${list(why.deterministic_reasons)}</div>
+              <div class="mt-2"><b>Counterbalancing context</b>${list(why.counterbalancing_context)}</div>
             </div></div>
             <div class="card"><div class="card-header"><h6>C. Counter-thesis</h6></div><div class="card-body">
               <b>Warnings</b>${list((card.counter_thesis || {}).warnings)}
@@ -262,11 +283,13 @@
               <b>Unavailable dimensions</b>${list((card.counter_thesis || {}).unavailable_dimensions)}
             </div></div>
             <div class="card"><div class="card-header"><h6>D. Confirmation</h6></div><div class="card-body">
-              ${pill((card.confirmation || {}).status)}
+              <div class="cockpit-grid mb-2">${kpi("Boundary status", (card.confirmation || {}).status)}${kpi("Actual trigger state", (card.confirmation || {}).confirmation_trigger_state)}</div>
+              <div class="cockpit-note mb-2">Boundary status shows whether a confirmation trigger is instrumented (a real baseline value/operator exists) -- it is not evidence the trigger has fired. Only an actual TRIGGERED trigger state can promote research stance to INITIATE.</div>
               <pre class="cockpit-code">${esc(JSON.stringify(card.confirmation || {}, null, 2))}</pre>
             </div></div>
             <div class="card"><div class="card-header"><h6>E. Invalidation</h6></div><div class="card-body">
-              <b>Technical</b> ${pill(((card.invalidation || {}).technical || {}).status)}
+              <b>${((card.invalidation || {}).technical || {}).semantic === "STANCE_RECONSIDERATION_WATCH" ? "What would improve/reconsider this stance" : "Technical (thesis invalidation)"}</b> ${pill(((card.invalidation || {}).technical || {}).status)}
+              ${((card.invalidation || {}).technical || {}).semantic === "STANCE_RECONSIDERATION_WATCH" ? '<div class="cockpit-note mb-1">This stance is a new-entry veto with no long thesis to invalidate -- this boundary is what would make the veto worth reconsidering, not a thesis-invalidation trigger.</div>' : ""}
               <pre class="cockpit-code">${esc(JSON.stringify((card.invalidation || {}).technical || {}, null, 2))}</pre>
               <b>Fundamental</b> ${pill(((card.invalidation || {}).fundamental || {}).status)}
               <pre class="cockpit-code">${esc(JSON.stringify((card.invalidation || {}).fundamental || {}, null, 2))}</pre>
@@ -385,5 +408,6 @@
     DATA_URL, SCHEMA_VERSION, PORTFOLIO_STORAGE_KEY, RELATIVE_VALUATION_LABELS, FILTERS,
     matchesFilters, matchesSearch, hasStaleAxis, joinPortfolioResearch,
     readLocalPortfolioHoldings, localHoldingFor, buildT0Export,
+    VETO_RESEARCH_STANCES, TACTICAL_ACTIONABLE_ENTRY_READINESS, stanceEntryGuidance,
   };
 });
