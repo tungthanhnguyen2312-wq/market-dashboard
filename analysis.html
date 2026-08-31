@@ -1,288 +1,31 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi" data-bs-theme="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Analysis | Stock Look Up</title>
-  <meta name="description" content="Báo cáo Quant Engine hàng ngày: điểm 0-100 toàn thị trường, 10 chiến lược lọc, gợi ý danh mục, rủi ro và xoay ngành — phân tích chạy offline trên máy local.">
-  <link rel="canonical" href="https://tungthanhnguyen2312-wq.github.io/market-dashboard/analysis.html">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2303080A'/%3E%3Crect x='6' y='18' width='5' height='8' rx='1' fill='%2320E7CF'/%3E%3Crect x='14' y='12' width='5' height='14' rx='1' fill='%2327E6A1'/%3E%3Crect x='22' y='6' width='5' height='20' rx='1' fill='%2327E6A1'/%3E%3C/svg%3E">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Stock Look Up — Phân tích Quant">
-  <meta property="og:description" content="Báo cáo Quant Engine hàng ngày: điểm 0-100 toàn thị trường, 10 chiến lược lọc, gợi ý danh mục, rủi ro và xoay ngành — phân tích chạy offline trên máy local.">
-  <meta property="og:url" content="https://tungthanhnguyen2312-wq.github.io/market-dashboard/analysis.html">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Stock Look Up — Phân tích Quant">
-  <meta name="twitter:description" content="Báo cáo Quant Engine hàng ngày: điểm 0-100 toàn thị trường, 10 chiến lược lọc, gợi ý danh mục, rủi ro và xoay ngành — phân tích chạy offline trên máy local.">
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <!-- Preconnect sớm cho CDN thư viện — chỉ warm-up kết nối, không đổi hành vi tải -->
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  <link rel="preconnect" href="https://unpkg.com">
-
-  <!-- Bootstrap 5 — giữ nguyên, analysis.js sinh HTML dùng class row/col/card/badge-soft -->
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Phân tích nghiên cứu | Stock Lookup</title>
+  <meta name="description" content="So sánh các trục nghiên cứu xác định từ Investment Decision Workspace.">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-  <!-- CSS dùng chung + design system — KHÔNG đổi -->
-  <link rel="stylesheet" href="style.css?v=2026-08-26-f54d70f-cff1036856">
-
-  <!-- Tailwind CSS build sẵn bằng CLI standalone (xem build_frontend.bat + tailwind.config.js)
-       — thay cho Play CDN chạy JIT trong trình duyệt. Giữ NGUYÊN behavior cũ
-       (corePlugins.preflight:false, theme.extend colors/fontFamily như cũ). -->
-  <link rel="stylesheet" href="assets/css/tailwind.generated.css?v=2026-08-26-f54d70f-cff1036856">
-  <link rel="stylesheet" href="assets/css/shell.css?v=2026-08-26-f54d70f-cff1036856">
-
+  <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="assets/css/shell.css">
   <style>
-    /* CSS riêng của trang phân tích — chỉ bổ sung, mọi thứ khác tái dùng style.css.
-       KHÔNG đổi so với bản gốc: analysis.js sinh HTML dùng đúng các class này. */
-    .an-table { width: 100%; border-collapse: collapse; font-size: 0.82rem;
-                font-variant-numeric: tabular-nums; white-space: nowrap; }
-    .an-table thead th { background: var(--surface-head); color: var(--text-muted); font-size: 0.68rem;
-                         font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;
-                         padding: 0.5rem 0.65rem; border-bottom: 1px solid var(--border);
-                         position: sticky; top: 0; }
-    .an-table tbody td { padding: 0.42rem 0.65rem; border-bottom: 1px solid rgba(99,255,233,0.06); }
-    .an-table tbody tr:hover { background: rgba(var(--primary-rgb),0.08); }
-    .an-table td.ticker-cell { font-weight: 700; color: var(--accent-text-strong); }
-    .an-scroll { overflow-x: auto; }
-    .an-scroll--tall { max-height: 62vh; overflow-y: auto; }
-
-    /* Dòng giải thích điểm (mở khi bấm vào dòng Top 20) */
-    tr.an-row-click { cursor: pointer; }
-    tr.an-explain td { background: rgba(15,23,42,0.55); font-size: 0.76rem;
-                       color: var(--text-muted); white-space: normal; padding: 0.6rem 0.9rem; }
-    tr.an-explain li { margin-bottom: 0.15rem; }
-
-    /* Thanh tỷ lệ nhỏ trong bảng (sector / danh mục) — tăng độ dày cho dễ đọc hơn */
-    .mini-bar { height: 6px; border-radius: 3px; background: var(--border);
-                overflow: hidden; min-width: 70px; }
-    .mini-bar > span { display: block; height: 100%; border-radius: 3px;
-                       background: var(--primary); transition: width 0.6s ease; }
-
-    /* Thanh tăng/giảm/đứng của thị trường */
-    .updown-bar { display: flex; height: 10px; border-radius: 5px; overflow: hidden;
-                  background: var(--border); }
-    .updown-bar .u { background: var(--success); }
-    .updown-bar .d { background: var(--danger); }
-    .updown-bar .f { background: var(--flat); }
-
-    /* Skeleton khi analysis.js CHƯA render (không đụng analysis.js — chỉ phản
-       ứng theo trạng thái :empty của chính element, tự tắt khi có nội dung) */
-    @keyframes an-shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
-    #top20-table:empty, #sector-table:empty,
-    #opportunities:empty, #strategies:empty, #portfolio:empty,
-    #macro:empty, #risks:empty, #run-summary:empty {
-      display: block;
-      min-height: 90px;
-      border-radius: var(--radius-md);
-      background: linear-gradient(90deg, var(--surface-2) 25%, rgba(148,163,184,0.14) 37%, var(--surface-2) 63%);
-      background-size: 400% 100%;
-      animation: an-shimmer 1.4s ease-in-out infinite;
-    }
-    #top20-table:empty, #sector-table:empty { min-height: 220px; }
-
-    /* Thẻ Top cơ hội */
-    .opp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.75rem; }
-    .opp-card { border: 1px solid var(--border-soft); border-radius: var(--radius-md);
-                background: rgba(15,23,42,0.45); padding: 0.75rem 0.9rem;
-                transition: border-color 0.15s ease, transform 0.15s ease; }
-    .opp-card:hover { border-color: var(--primary); transform: translateY(-2px); }
-    .opp-ticker { font-weight: 800; font-size: 1.05rem; letter-spacing: 0.02em; }
-    .opp-industry { font-size: 0.7rem; color: var(--text-muted); margin-bottom: 0.35rem; }
-    .opp-strats { margin-top: 0.4rem; display: flex; flex-wrap: wrap; gap: 0.25rem; }
-
-    @media (max-width: 768px) {
-      .an-table { font-size: 0.76rem; }
-      .opp-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
-    }
+    .product-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:.75rem}.product-kpi{padding:.85rem;border:1px solid var(--border);border-radius:var(--radius-md);background:var(--surface)}.product-kpi b{font-size:1.25rem;display:block}.product-table{width:100%;border-collapse:collapse;font-size:.82rem}.product-table th,.product-table td{padding:.55rem;border-bottom:1px solid var(--border);vertical-align:top}.product-table th{font-size:.7rem;text-transform:uppercase;color:var(--text-muted);position:sticky;top:0;background:var(--surface)}.product-table-wrap{max-height:62vh;overflow:auto}.product-chips{display:flex;flex-wrap:wrap;gap:.4rem}.product-chip{border:1px solid var(--border);border-radius:999px;padding:.25rem .55rem;color:var(--text-muted);font-size:.8rem}.product-link{color:var(--accent-text-strong);font-weight:700;text-decoration:none}.product-muted{color:var(--text-muted)}
   </style>
 </head>
-<body class="bg-bg text-white font-sans" data-page="analysis">
-
-  <div class="vs-shell">
-    <!-- ===== MOBILE NAVIGATION DRAWER ===== -->
-    <aside class="vs-sidebar" id="sidebar">
-      <a class="vs-sidebar-brand" href="dashboard.html"><span class="vs-brand-dot"></span><span class="vs-sidebar-brand-label">Stock Lookup</span></a>
-      <button class="vs-sidebar-toggle ms-auto" id="sidebar-close" style="position:absolute; top:0.9rem; right:0.9rem;" aria-label="Đóng menu">
-        <i data-lucide="x"></i>
-      </button>
-      <nav class="vs-sidebar-nav">
-        <a class="vs-sidebar-link" href="dashboard.html" data-nav="dashboard" title="Tổng quan"><i data-lucide="layout-dashboard"></i><span class="vs-sidebar-link-label">Tổng quan</span></a>
-        <a class="vs-sidebar-link" href="screener.html" data-nav="screener" title="Bộ lọc thị trường"><i data-lucide="filter"></i><span class="vs-sidebar-link-label">Bộ lọc thị trường</span></a>
-        <a class="vs-sidebar-link" href="analysis.html" data-nav="analysis" title="Phân tích"><i data-lucide="brain-circuit"></i><span class="vs-sidebar-link-label">Phân tích</span></a>
-        <a class="vs-sidebar-link" href="signals.html" data-nav="signals" title="Tín hiệu"><i data-lucide="activity"></i><span class="vs-sidebar-link-label">Tín hiệu</span></a>
-        <a class="vs-sidebar-link" href="macro.html" data-nav="macro" title="Vĩ mô & Hàng hóa"><i data-lucide="globe"></i><span class="vs-sidebar-link-label">Vĩ mô & Hàng hóa</span></a>
-        <a class="vs-sidebar-link" href="about.html" data-nav="about" title="Giới thiệu"><i data-lucide="info"></i><span class="vs-sidebar-link-label">Giới thiệu</span></a>
-      </nav>
-      <div class="vs-sidebar-foot">Stock Lookup</div>
-    </aside>
-    <div class="vs-sidebar-overlay" id="sidebar-overlay"></div>
-
-    <div class="vs-shell-main">
-      <!-- ===== STICKY HORIZONTAL TOPBAR ===== -->
-      <header class="vs-topbar">
-        <button class="vs-sidebar-toggle" id="sidebar-toggle" aria-label="Mở menu"><i data-lucide="menu"></i></button>
-        <a class="vs-topbar-brand" href="dashboard.html"><span class="vs-brand-dot"></span><span>Stock Lookup</span></a>
-        <nav class="vs-topbar-nav" aria-label="Điều hướng chính">
-          <a class="vs-topnav-link" href="dashboard.html" data-nav="dashboard" title="Tổng quan"><i data-lucide="layout-dashboard"></i><span>Tổng quan</span></a>
-          <a class="vs-topnav-link" href="screener.html" data-nav="screener" title="Bộ lọc thị trường"><i data-lucide="filter"></i><span>Bộ lọc thị trường</span></a>
-          <a class="vs-topnav-link" href="analysis.html" data-nav="analysis" title="Phân tích"><i data-lucide="brain-circuit"></i><span>Phân tích</span></a>
-          <a class="vs-topnav-link" href="signals.html" data-nav="signals" title="Tín hiệu"><i data-lucide="activity"></i><span>Tín hiệu</span></a>
-          <a class="vs-topnav-link" href="macro.html" data-nav="macro" title="Vĩ mô & Hàng hóa"><i data-lucide="globe"></i><span>Vĩ mô & Hàng hóa</span></a>
-          <a class="vs-topnav-link" href="about.html" data-nav="about" title="Giới thiệu"><i data-lucide="info"></i><span>Giới thiệu</span></a>
-        </nav>
-        <span class="badge-soft bs-amber">Local Snapshot</span>
-        <span class="vs-topbar-spacer"></span>
-        <a class="vs-topbar-link" href="archive.html"><i data-lucide="history"></i>Lịch sử</a>
-        <span class="vs-topbar-meta" id="last-updated">Đang tải dữ liệu…</span>
-        <button type="button" class="vs-icon-btn" onclick="location.reload()" aria-label="Làm mới dữ liệu" title="Làm mới dữ liệu"><i data-lucide="refresh-cw"></i></button>
-      </header>
-
-      <main class="vs-content">
-
-        <!-- Hộp lỗi khi thiếu/hỏng analysis_latest.json — mặc định ẩn -->
-        <div id="fatal-error" class="vs-alert vs-alert-warning" style="display:none"></div>
-
-        <!-- ===== KPI: TÓM TẮT THỊ TRƯỜNG ===== -->
-        <div class="section-eyebrow">Tóm tắt thị trường</div>
-        <section class="kpi-grid mb-4" id="kpi-section" aria-label="Tóm tắt Quant Engine">
-          <div class="kpi kpi-featured">
-            <div class="kpi-label">Chế độ thị trường</div>
-            <div class="kpi-value" id="kpi-regime">—</div>
-            <div class="kpi-sub" id="kpi-regime-sub">từ độ rộng thị trường</div>
-          </div>
-          <div class="kpi">
-            <div class="kpi-label">Breadth &gt; MA200</div>
-            <div class="kpi-value" id="kpi-breadth">—</div>
-            <div class="kpi-sub" id="kpi-breadth-sub">độ rộng thị trường</div>
-            <div class="kpi-bar"><span id="kpi-breadth-bar" style="width:0%"></span></div>
-          </div>
-          <div class="kpi">
-            <div class="kpi-label">Xu hướng phiên</div>
-            <div class="kpi-value" id="kpi-updown">—</div>
-            <div class="kpi-sub">tăng / giảm / đứng giá</div>
-            <div class="updown-bar mt-2" id="kpi-updown-bar"></div>
-          </div>
-          <div class="kpi">
-            <div class="kpi-label">Điểm TB thị trường</div>
-            <div class="kpi-value" id="kpi-avgscore">—</div>
-            <div class="kpi-sub" id="kpi-avgscore-sub">trên thang 0-100</div>
-          </div>
-          <div class="kpi">
-            <div class="kpi-label">Điểm cao nhất</div>
-            <div class="kpi-value" id="kpi-top">—</div>
-            <div class="kpi-sub" id="kpi-top-sub">mã dẫn đầu hôm nay</div>
-          </div>
-        </section>
-
-        <div class="flex flex-col xl:flex-row gap-4" data-resizable data-resize-key="analysis-main">
-
-          <!-- ===== CỘT NỘI DUNG CHÍNH ===== -->
-          <div class="xl:flex-[2] min-w-0">
-
-            <!-- TOP CƠ HỘI -->
-            <div class="card mb-4" id="card-opportunities">
-              <div class="card-header">
-                <h5><i data-lucide="trophy" class="card-icon"></i>Top cơ hội</h5>
-                <span class="badge-soft bs-blue" id="opp-session"></span>
-              </div>
-              <div class="card-body">
-                <div class="opp-grid" id="opportunities"></div>
-              </div>
-            </div>
-
-            <!-- TOP 20 THEO ĐIỂM -->
-            <div class="card mb-4" id="card-top20">
-              <div class="card-header">
-                <h5><i data-lucide="list-ordered" class="card-icon"></i>Top 20 cổ phiếu theo điểm tổng</h5>
-                <span class="text-muted fw-normal" style="font-size:.75rem">bấm vào dòng để xem giải thích điểm</span>
-              </div>
-              <div class="card-body an-scroll an-scroll--tall p-0">
-                <table class="an-table" id="top20-table"></table>
-              </div>
-              <div class="card-footer small py-2" id="score-method">
-              </div>
-            </div>
-
-            <!-- KẾT QUẢ CHIẾN LƯỢC -->
-            <div class="card mb-4" id="card-strategies">
-              <div class="card-header">
-                <h5><i data-lucide="compass" class="card-icon"></i>Kết quả 10 chiến lược lọc</h5>
-              </div>
-              <div class="card-body" id="strategies"></div>
-            </div>
-          </div>
-
-          <div class="vs-resize-handle"></div>
-
-          <!-- ===== CỘT PHẢI ===== -->
-          <div class="xl:flex-1 min-w-0">
-
-            <!-- GỢI Ý DANH MỤC -->
-            <div class="card mb-4" id="card-portfolio">
-              <div class="card-header">
-                <h5><i data-lucide="briefcase" class="card-icon"></i>Gợi ý danh mục (cơ học)</h5>
-              </div>
-              <div class="card-body" id="portfolio"></div>
-            </div>
-
-            <!-- XOAY NGÀNH -->
-            <div class="card mb-4" id="card-sectors">
-              <div class="card-header">
-                <h5><i data-lucide="rotate-cw" class="card-icon"></i>Xoay ngành — sức mạnh theo ngành</h5>
-              </div>
-              <div class="card-body an-scroll p-0">
-                <table class="an-table" id="sector-table"></table>
-              </div>
-              <div class="card-footer small py-2">% mã trên MA200 của từng ngành (dữ liệu breadth pipeline).</div>
-            </div>
-
-            <!-- VĨ MÔ -->
-            <div class="card mb-4" id="card-macro">
-              <div class="card-header">
-                <h5><i data-lucide="globe" class="card-icon"></i>Vĩ mô</h5>
-              </div>
-              <div class="card-body" id="macro"></div>
-            </div>
-
-            <!-- RỦI RO & CẢNH BÁO -->
-            <div class="card mb-4" id="card-risks">
-              <div class="card-header">
-                <h5><i data-lucide="triangle-alert" class="card-icon"></i>Rủi ro &amp; cảnh báo</h5>
-              </div>
-              <div class="card-body" id="risks"></div>
-            </div>
-
-            <!-- TÓM TẮT PHIÊN CHẠY -->
-            <div class="card mb-4" id="card-summary">
-              <div class="card-header">
-                <h5><i data-lucide="wrench" class="card-icon"></i>Phiên chạy Quant Engine</h5>
-              </div>
-              <div class="card-body" id="run-summary"></div>
-            </div>
-            <div class="card mb-4" id="card-research-changes">
-              <div class="card-header"><strong>Research Changes</strong></div>
-              <div class="card-body" id="research-changes"></div>
-            </div>
-          </div>
-
-        </div>
-      </main>
-
-      <footer class="vs-statusfooter">
-        <span>Stock Look Up — Báo cáo Quant Engine, phân tích chạy offline trên máy local · chỉ mang tính tham khảo, không phải khuyến nghị đầu tư.</span>
-        <span class="badge-soft bs-amber">Local Snapshot</span>
-      </footer>
-    </div>
-  </div>
-
-  <script src="https://unpkg.com/lucide@1.24.0"></script>
-  <script src="assets/js/shell.js?v=2026-08-26-f54d70f-cff1036856"></script>
-  <script src="assets/js/resizable-panels.js?v=2026-08-26-f54d70f-cff1036856"></script>
-  <script src="data/build_info.js?v=2026-08-26-f54d70f-cff1036856"></script>
-  <script src="assets/js/value-format.js?v=2026-08-26-f54d70f-cff1036856"></script>
-  <script src="analysis.js?v=2026-08-26-f54d70f-cff1036856"></script>
-</body>
-</html>
+<body class="bg-bg text-white" data-page="analysis">
+<div class="vs-shell"><div class="vs-shell-main"><header class="vs-topbar">
+  <a class="vs-topbar-brand" href="dashboard.html"><span class="vs-brand-dot"></span><span>Stock Lookup</span></a>
+  <nav class="vs-topbar-nav" aria-label="Điều hướng chính"><a class="vs-topnav-link" href="dashboard.html">Tổng quan</a><a class="vs-topnav-link" href="screener.html">Bộ lọc</a><a class="vs-topnav-link active" href="analysis.html">Phân tích</a><a class="vs-topnav-link" href="signals.html">Tín hiệu</a><a class="vs-topnav-link" href="investment-workspace.html">Investment Workspace</a><a class="vs-topnav-link" href="portfolio.html">Danh mục</a><a class="vs-topnav-link" href="macro.html">Vĩ mô</a><a class="vs-topnav-link" href="about.html">Giới thiệu</a></nav>
+  <span class="vs-topbar-spacer"></span><a class="vs-topbar-link" href="archive.html">Lịch sử</a>
+</header><main class="vs-content">
+  <div class="section-eyebrow">Research comparison</div><h1 class="h3">Phân tích đa trục</h1>
+  <p id="analysis-meta" class="product-muted">Đang tải Investment Decision Workspace…</p>
+  <div id="analysis-error" class="vs-alert vs-alert-warning" hidden></div>
+  <section id="analysis-content" hidden>
+    <div id="analysis-summary" class="product-kpis mb-4"></div>
+    <div class="card mb-4"><div class="card-header"><h5>Cohort nghiên cứu</h5></div><div class="card-body"><div id="stance-cohorts" class="product-chips"></div></div></div>
+    <div class="card mb-4"><div class="card-header"><h5>Độ phủ và freshness</h5></div><div class="card-body"><div id="coverage-summary" class="product-chips"></div></div></div>
+    <div class="card mb-4"><div class="card-header"><h5>Bằng chứng xung đột cần đọc kỹ</h5></div><div class="card-body" id="conflicting-evidence"></div></div>
+    <div class="card"><div class="card-header d-flex flex-wrap gap-2 align-items-center justify-content-between"><h5 class="mb-0">Bảng nghiên cứu đa trục</h5><div class="d-flex gap-2"><label class="visually-hidden" for="stance-filter">Lọc stance</label><select id="stance-filter" class="form-select form-select-sm"><option value="">Mọi stance</option></select><label class="visually-hidden" for="tactical-filter">Lọc tactical</label><select id="tactical-filter" class="form-select form-select-sm"><option value="">Mọi tactical state</option></select></div></div><div class="card-body p-0"><div class="product-table-wrap"><table class="product-table"><thead><tr><th>Mã</th><th>Stance</th><th>Tactical setup</th><th>Fundamental</th><th>Valuation / method</th><th>Liquidity</th><th>Catalyst</th><th>Confirmation</th><th>Invalidation</th><th>Freshness</th></tr></thead><tbody id="analysis-rows"></tbody></table></div><p id="analysis-count" class="product-muted p-3 mb-0"></p></div></div>
+  </section>
+</main><footer class="vs-statusfooter"><span>Deterministic research rendering. Research stance không phải lệnh thực hiện; không có điểm tổng, xếp hạng trọng số hoặc khuyến nghị mua/bán.</span></footer></div></div>
+<script src="analysis.js"></script>
+</body></html>

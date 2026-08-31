@@ -260,6 +260,19 @@
 
 @media (max-width: 1023px) {
   .vs-sidebar-toggle { display: inline-flex; }
+
+  /* Product surfaces that intentionally use one top navigation (rather than a
+     second mobile drawer) retain every destination on small screens. */
+  .vs-shell:not(:has(.vs-sidebar)) .vs-topbar {
+    overflow-x: auto;
+    align-items: center;
+  }
+
+  .vs-shell:not(:has(.vs-sidebar)) .vs-topbar-nav {
+    display: flex;
+    flex: 0 0 auto;
+    min-width: max-content;
+  }
 }
 
 .vs-topbar-title {

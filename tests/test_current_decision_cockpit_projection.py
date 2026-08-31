@@ -33,17 +33,9 @@ def test_projection_rejects_product_identity_mix(tmp_path):
     except ValueError as exc: assert str(exc) == 'COCKPIT_PRODUCT_IDENTITY_MISMATCH'
     else: raise AssertionError('mixed artifact must fail closed')
 
-def test_cockpit_is_in_release_whitelist_when_given_explicit_projection_source(tmp_path):
-    publisher_spec = importlib.util.spec_from_file_location("publisher", ROOT / "publish_dashboard.py")
-    publisher = importlib.util.module_from_spec(publisher_spec); publisher_spec.loader.exec_module(publisher)
-    projection = tmp_path / "projection.json"
-    projection.write_text('{"schema_version":"current_decision_cockpit_projection/v2","session":"2026-08-21","source":{"operation_identity":"operation:1","product_identity":"product:1"},"authority_boundary":{"is_actionable":false}}', encoding="utf-8")
-    old_web, old_source = publisher.WEB_ROOT, publisher.COCKPIT_SOURCE
-    try:
-        publisher.WEB_ROOT = ROOT
-        publisher.COCKPIT_SOURCE = projection
-        whitelist = publisher.build_whitelist()
-    finally:
-        publisher.WEB_ROOT, publisher.COCKPIT_SOURCE = old_web, old_source
-    assert "decision-cockpit.html" in whitelist
-    assert "data/current_decision_cockpit.json" in whitelist
+def test_cockpit_consumes_the_published_static_projection_contract():
+    html = (ROOT / "decision-cockpit.html").read_text(encoding="utf-8")
+    source = (ROOT / "assets" / "js" / "decision-cockpit.js").read_text(encoding="utf-8")
+    assert "assets/js/decision-cockpit.js" in html
+    assert "data/current_decision_cockpit.json" in source
+    assert "current_decision_cockpit_projection/v2" in source

@@ -10,6 +10,20 @@
 
 ## Tổng quan
 
+### Product surfaces hiện hành (2026-09-01)
+
+`data/investment_decision_workspace.json` là projection Workspace do Producer tạo và publish;
+frontend chỉ validate/render, không tự tính lại research state. Đây là nguồn hiện hành cho tóm
+tắt Home, Analysis, Tactical Signals, liên kết từ Screener, Workspace detail và ngữ cảnh
+Portfolio. Mỗi record giữ research stance, tactical state, confirmation boundary tách với actual
+trigger state, invalidation, valuation method, catalyst/downside, liquidity research proxy và
+freshness. Không có score tổng hợp, xếp hạng, target price, xác suất, sizing hay lệnh thực hiện.
+Candlestick/sector artifacts là sidecar legacy tùy chọn, không thay thế Workspace khi thiếu.
+
+`publish_dashboard.py` thuộc Producer private là publisher duy nhất: nó kiểm tra schema,
+session, producer identity, denominator và zero-silent-drop của projection trước khi copy atomic
+vào Dashboard. Repository này chỉ là target static, không phát sinh quyền publish.
+
 Hệ thống gồm 2 nửa:
 
 **Backend (local, không lên GitHub)** — 7 chân kiềng quanh kho `vn_stock.db` (hiện **1.686 mã**, ~1,9 triệu dòng giá + metadata + macro + news + cổ đông):
@@ -27,8 +41,10 @@ Hệ thống gồm 2 nửa:
 **Frontend (GitHub Pages)** — terminal tĩnh (sidebar + top bar dùng chung, khung `assets/`), không cần build, thư viện load qua CDN:
 - `dashboard.html` — trang chính: báo cáo AI + KPI + watchlist + bảng thị trường (`index.html` chỉ redirect sang đây để giữ URL gốc).
 - `screener.html` — bảng lọc đầy đủ, có panel chi tiết mã (`company-panel.js`).
-- `analysis.html` — Quant Engine offline (10 chiến lược, chấm điểm 0-100), đọc `analysis_latest.json`.
-- `signals.html` — tín hiệu nến / SMC theo phiên.
+- `analysis.html` — bảng research đa trục từ Workspace hiện hành; `analysis_latest.json` chỉ là legacy artifact, không phải nguồn render chính.
+- `signals.html` — Tactical V2 từ Workspace, hiển thị setup/confirmation/actual-trigger/invalidation; candle/SMC là sidecar tùy chọn.
+- `investment-workspace.html` — chi tiết Workspace theo ticker, bao gồm deep link từ Analysis/Screener/Signals.
+- `portfolio.html` — editor dữ liệu portfolio local, giữ ranh giới portfolio fit khác với security stance.
 - `shadow-recommendations.html` — read-only shadow research stance table and security detail, backed by a compact serialized projection; it does not create trade controls or recommendation policy.
 - `macro.html` — dashboard vĩ mô đọc web snapshot đã chuẩn hóa; `about.html`, `archive.html` — giới thiệu dự án và kho báo cáo tĩnh.
 
@@ -99,8 +115,10 @@ Nguyên tắc: dữ liệu nằm im trong parquet/db; Excel chỉ trỏ tới, n
 | `index.html` | CHỈ redirect (`meta refresh` + `location.replace`) sang `dashboard.html` — giữ nguyên URL gốc GitHub Pages, không còn chứa nội dung |
 | `dashboard.html` | Trang chính: báo cáo AI + KPI + watchlist + bảng thị trường + lối tắt kho lưu trữ |
 | `screener.html` | Bảng lọc SMC/nến đầy đủ (đọc `data/screener_data.*` + CSV) + panel chi tiết mã khi bấm vào dòng |
-| `analysis.html` + `analysis.js` | Quant Engine offline: đọc `analysis_latest.json` (nguồn DUY NHẤT, không có fallback `.js`) |
-| `signals.html` | Dashboard tín hiệu nến / SMC; tab mẫu hình đọc JSON-first + JS fallback, lọc/sort và mở panel mã |
+| `analysis.html` + `analysis.js` | Workspace research đa trục: fetch `data/investment_decision_workspace.json`, filter bản sao projection, deep link ticker sang Workspace; không dùng score/rank legacy làm corpus chính |
+| `signals.html` + `assets/js/signals-product.js` | Tactical V2 từ Workspace: stance, tactical/entry state, setup tags, confirmation boundary, actual trigger state, invalidation, market/sector, liquidity/freshness; candle sidecars là optional |
+| `investment-workspace.html` + `assets/js/investment-workspace.js` | Chi tiết decision Workspace; nhận `?ticker=HPG` hoặc hash ticker và vẫn giữ contract filter/detail hiện hữu |
+| `portfolio.html` + `portfolio.js` | Portfolio local editor hiện hữu; UI không biến portfolio availability thành security stance hay execution instruction |
 | `shadow-recommendations.html` + `assets/js/shadow-recommendations.js` | Surface nghiên cứu stance/readiness; chỉ render Producer/Consumer serialized contracts, với trạng thái unavailable rõ ràng khi packet/narrative không được gắn. |
 | `assets/js/candlestick-patterns.js` + `assets/css/candlestick-patterns.css` | Loader/validation/render và layout responsive riêng cho bảng mẫu nến |
 | `data/candlestick_patterns.json` + `.js` | Snapshot schema v1: 1D/1W/1M, lịch sử gần đây, trạng thái, confidence, confirmations/warnings; không chứa OHLCV thô/path local |

@@ -51,6 +51,13 @@
     return ticker.toUpperCase().includes(q) || String(card.sector || "").toUpperCase().includes(q);
   }
 
+  function selectedTickerForDeepLink(tickers, requestedTicker) {
+    const normalized = String(requestedTicker || "").trim().toUpperCase();
+    if (tickers.includes(normalized)) return normalized;
+    if (tickers.includes("HPG")) return "HPG";
+    return tickers[0] || null;
+  }
+
   // Research Stance is the primary product research conclusion; entry_action (Tactical Entry
   // Readiness) is underlying tactical context only. These two governed-vocabulary sets and this
   // deterministic template function make the pairing understandable without ever restating or
@@ -344,7 +351,10 @@
         const select = document.getElementById("ticker-select");
         const tickers = Object.keys(data.cards).sort();
         select.innerHTML = tickers.map((t) => `<option>${esc(t)}</option>`).join("");
-        selectTicker(tickers.includes("HPG") ? "HPG" : tickers[0], { scrollIntoView: false });
+        const queryTicker = new URLSearchParams(window.location.search).get("ticker");
+        const hashTicker = window.location.hash.replace(/^#/, "");
+        const requestedTicker = queryTicker || hashTicker;
+        selectTicker(selectedTickerForDeepLink(tickers, requestedTicker), { scrollIntoView: false });
 
         document.getElementById("filter-chips").addEventListener("click", (e) => {
           const btn = e.target.closest("[data-filter]");
@@ -406,7 +416,7 @@
 
   return {
     DATA_URL, SCHEMA_VERSION, PORTFOLIO_STORAGE_KEY, RELATIVE_VALUATION_LABELS, FILTERS,
-    matchesFilters, matchesSearch, hasStaleAxis, joinPortfolioResearch,
+    matchesFilters, matchesSearch, selectedTickerForDeepLink, hasStaleAxis, joinPortfolioResearch,
     readLocalPortfolioHoldings, localHoldingFor, buildT0Export,
     VETO_RESEARCH_STANCES, TACTICAL_ACTIONABLE_ENTRY_READINESS, stanceEntryGuidance,
   };

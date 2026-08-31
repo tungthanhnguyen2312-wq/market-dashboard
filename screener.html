@@ -68,6 +68,8 @@
         <a class="vs-sidebar-link" href="screener.html" data-nav="screener" title="Bộ lọc thị trường"><i data-lucide="filter"></i><span class="vs-sidebar-link-label">Bộ lọc thị trường</span></a>
         <a class="vs-sidebar-link" href="analysis.html" data-nav="analysis" title="Phân tích"><i data-lucide="brain-circuit"></i><span class="vs-sidebar-link-label">Phân tích</span></a>
         <a class="vs-sidebar-link" href="signals.html" data-nav="signals" title="Tín hiệu"><i data-lucide="activity"></i><span class="vs-sidebar-link-label">Tín hiệu</span></a>
+        <a class="vs-sidebar-link" href="investment-workspace.html" title="Investment Workspace"><i data-lucide="layout-list"></i><span class="vs-sidebar-link-label">Investment Workspace</span></a>
+        <a class="vs-sidebar-link" href="portfolio.html" title="Danh mục"><i data-lucide="wallet-cards"></i><span class="vs-sidebar-link-label">Danh mục</span></a>
         <a class="vs-sidebar-link" href="macro.html" data-nav="macro" title="Vĩ mô & Hàng hóa"><i data-lucide="globe"></i><span class="vs-sidebar-link-label">Vĩ mô & Hàng hóa</span></a>
         <a class="vs-sidebar-link" href="about.html" data-nav="about" title="Giới thiệu"><i data-lucide="info"></i><span class="vs-sidebar-link-label">Giới thiệu</span></a>
       </nav>
@@ -85,6 +87,8 @@
           <a class="vs-topnav-link" href="screener.html" data-nav="screener" title="Bộ lọc thị trường"><i data-lucide="filter"></i><span>Bộ lọc thị trường</span></a>
           <a class="vs-topnav-link" href="analysis.html" data-nav="analysis" title="Phân tích"><i data-lucide="brain-circuit"></i><span>Phân tích</span></a>
           <a class="vs-topnav-link" href="signals.html" data-nav="signals" title="Tín hiệu"><i data-lucide="activity"></i><span>Tín hiệu</span></a>
+          <a class="vs-topnav-link" href="investment-workspace.html" title="Investment Workspace"><i data-lucide="layout-list"></i><span>Workspace</span></a>
+          <a class="vs-topnav-link" href="portfolio.html" title="Danh mục"><i data-lucide="wallet-cards"></i><span>Danh mục</span></a>
           <a class="vs-topnav-link" href="macro.html" data-nav="macro" title="Vĩ mô & Hàng hóa"><i data-lucide="globe"></i><span>Vĩ mô & Hàng hóa</span></a>
           <a class="vs-topnav-link" href="about.html" data-nav="about" title="Giới thiệu"><i data-lucide="info"></i><span>Giới thiệu</span></a>
         </nav>
@@ -195,6 +199,18 @@ async function loadCsv(path, globalName) {
   if (!fallback) console.error("Không tải được dữ liệu (cả HTTP và fallback):", fetchErr);
   return fallback;
 }
+async function loadWorkspaceProjection() {
+  try {
+    const response = await fetch("data/investment_decision_workspace.json", { cache: "no-store" });
+    if (!response.ok) throw new Error(response.status);
+    const payload = await response.json();
+    if (payload.schema_version !== "investment_decision_workspace_dashboard_projection/v1" || !payload.cards) throw new Error("unsupported schema");
+    return payload;
+  } catch (error) {
+    console.warn("CURRENT_PRODUCT_ARTIFACT_NOT_PUBLISHED", error);
+    return null;
+  }
+}
 const num = (v, d = 1) => (v === null || v === undefined || v === "" || Number.isNaN(v))
   ? "–" : Number(v).toLocaleString("vi-VN", { maximumFractionDigits: d });
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -211,8 +227,11 @@ let screenTable;
 // đảm bảo chạy sau khi mọi script defer khác đã chạy xong.
 document.addEventListener("DOMContentLoaded", () => {
 (async () => {
-  const rows = await loadCsv("screen_snapshot.csv", "SCREEN_ROWS");
-  const breadth = await loadCsv("market_breadth.csv", "BREADTH_ROWS");
+  const [rows, breadth, workspace] = await Promise.all([
+    loadCsv("screen_snapshot.csv", "SCREEN_ROWS"),
+    loadCsv("market_breadth.csv", "BREADTH_ROWS"),
+    loadWorkspaceProjection(),
+  ]);
   if (!rows) {
     document.getElementById("tblScreen-skeleton").style.display = "none";
     document.getElementById("tblBreadth-skeleton").style.display = "none";
@@ -222,11 +241,19 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
   rows.forEach(row => { row.exchange = normalizeExchange(row.exchange); });
+  const workspaceCards = workspace?.cards || {};
+  rows.forEach((row) => {
+    const card = workspaceCards[String(row.ticker || "").toUpperCase()];
+    row.workspace_stance = card?.research_stance || "UNAVAILABLE";
+    row.workspace_tactical = card?.entry_state || card?.tactical?.primary_entry_state || "UNAVAILABLE";
+    row.workspace_freshness = Object.values(card?.lineage?.per_axis_freshness || {}).some((state) => state !== "CURRENT") ? "STALE_AXIS_PRESENT" : (card ? "CURRENT" : "UNAVAILABLE");
+  });
   const marketSession = rows.filter(row => normalizeExchange(row.exchange) !== "DELISTED")
     .map(row => String(row.date || "")).filter(Boolean).sort().at(-1)
     || window.BUILD_INFO?.market_session || breadth?.[0]?.date || "?";
   document.getElementById("meta").textContent =
     `${rows.length} mã · phiên ${marketSession} · build ${window.BUILD_INFO?.build_id || "legacy"} · nguồn: dữ liệu pipeline`
+    + (workspace ? ` · current research session ${workspace.as_of_session}` : " · CURRENT_PRODUCT_ARTIFACT_NOT_PUBLISHED")
     + (window.SCREENER_LOAD_WARNING ? ` · ${window.SCREENER_LOAD_WARNING}` : "");
   document.getElementById("tblScreen-skeleton").style.display = "none";
   document.getElementById("tblBreadth-skeleton").style.display = "none";
@@ -236,6 +263,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const screenColumns = [
       { data: "ticker", title: "Mã", render: v => `<b>${esc(v)}</b>` },
+      { data: "workspace_stance", title: "Research stance", defaultContent: "UNAVAILABLE", render: (v, _type, row) => `<a href="investment-workspace.html?ticker=${encodeURIComponent(row.ticker)}">${esc(v)}</a>` },
+      { data: "workspace_tactical", title: "Tactical setup", defaultContent: "UNAVAILABLE", render: v => esc(v) },
+      { data: "workspace_freshness", title: "Freshness", defaultContent: "UNAVAILABLE", render: v => esc(v) },
       { data: "exchange", title: "Sàn", defaultContent: "–", render: v => esc(displayExchange(v) || "–") },
       { data: "industry", title: "Ngành", defaultContent: "–" },
       { data: "close", title: "Giá", className: "text-end", render: v => num(v, 0) },

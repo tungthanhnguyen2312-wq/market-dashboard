@@ -2,6 +2,15 @@
 
 This repository is the GitHub-facing dashboard and its publishable assets. It does not contain the producer pipeline, runtime database, backups, or private AI artifacts.
 
+## Current product surfaces
+
+The current research surface is `data/investment_decision_workspace.json`, a serialized
+Producer-owned Workspace projection. Home, Analysis, Tactical Signals, Screener links,
+Workspace detail, and Portfolio use it as descriptive research context. The Dashboard does not
+calculate a score, ranking, target price, probability, sizing, or execution command. Legacy
+candlestick and sector assets remain optional secondary sidecars; publication authority remains
+in the private Producer repository.
+
 ## Repository boundary
 
 - Keep dashboard source, static assets, and reusable developer documentation in this repository.

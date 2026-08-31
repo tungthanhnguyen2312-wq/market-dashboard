@@ -309,18 +309,19 @@ test("signals.html no longer displays raw English 'Bullish'/'Bearish'/'Neutral' 
   assert.doesNotMatch(html, />Neutral</);
 });
 
-test("signals.html filter option values stay the lowercase English data contract while their visible text is Vietnamese", () => {
+test("signals.html makes Tactical V2 cohort filtering its primary control", () => {
   const html = fs.readFileSync(path.join(__dirname, "..", "signals.html"), "utf8");
-  assert.match(html, /<option value="bullish">Tăng giá<\/option>/);
-  assert.match(html, /<option value="bearish">Giảm giá<\/option>/);
-  assert.match(html, /<option value="neutral">Trung tính<\/option>/);
+  const product = fs.readFileSync(path.join(__dirname, "..", "assets", "js", "signals-product.js"), "utf8");
+  assert.match(html, /<select id="tactical-filter"/);
+  assert.match(product, /investment_decision_workspace\.json/);
+  assert.doesNotMatch(html, /<option value="bullish">/);
 });
 
-test("signals.html KPI summary labels are Vietnamese while their ids (JS data contract) are unchanged", () => {
+test("signals.html separates confirmation boundaries, actual trigger state, and invalidation", () => {
   const html = fs.readFileSync(path.join(__dirname, "..", "signals.html"), "utf8");
-  assert.match(html, /<span>Tăng giá<\/span><strong id="pattern-summary-bullish">/);
-  assert.match(html, /<span>Giảm giá<\/span><strong id="pattern-summary-bearish">/);
-  assert.match(html, /<span>Trung tính<\/span><strong id="pattern-summary-neutral">/);
+  assert.match(html, />Confirmation boundary</);
+  assert.match(html, />Actual trigger state</);
+  assert.match(html, />Invalidation</);
 });
 
 test("candlestick-patterns.js source has no hardcoded capitalized English direction word as a rendered label", () => {
@@ -328,36 +329,29 @@ test("candlestick-patterns.js source has no hardcoded capitalized English direct
   assert.doesNotMatch(src, /"Bullish"|"Bearish"|"Neutral"/);
 });
 
-// ---------- Overview tab: confluence/dividend tables stay responsive on mobile
-// (follow-up fix) — a plain <table> with no wrapper can force the whole page to
-// scroll horizontally on narrow viewports; both small Overview-tab tables must be
-// wrapped in a bounded, keyboard-focusable horizontal-scroll container instead. ----------
+// ---------- Tactical V2 table remains responsive on mobile ----------
 
-test("renderConfluence()'s table is wrapped in a keyboard-focusable horizontal-scroll container (no page-level overflow on mobile)", () => {
+test("the primary Tactical V2 table is wrapped in a keyboard-focusable horizontal-scroll container", () => {
   const html = fs.readFileSync(path.join(__dirname, "..", "signals.html"), "utf8");
   assert.match(
     html,
-    /document\.getElementById\("confluence"\)\.innerHTML = `<div class="overview-table-wrap" tabindex="0" aria-label="[^"]+"><table>/,
-    "confluence table must be wrapped in .overview-table-wrap with tabindex=0 and an aria-label",
-  );
-  assert.match(html, /join\(""\) \+ "<\/table><\/div>";\s*\n}\s*\nfunction renderDividend/, "the wrapper div must be closed after </table> in renderConfluence's output");
-});
-
-test("renderDividend()'s table is also wrapped in the same horizontal-scroll container", () => {
-  const html = fs.readFileSync(path.join(__dirname, "..", "signals.html"), "utf8");
-  assert.match(
-    html,
-    /document\.getElementById\("dividend"\)\.innerHTML = `<div class="overview-table-wrap" tabindex="0" aria-label="[^"]+"><table>/,
-    "dividend table must be wrapped in .overview-table-wrap with tabindex=0 and an aria-label",
+    /<div class="tactical-wrap" tabindex="0" aria-label="[^"]+"><table class="tactical-table">/,
+    "the primary Tactical V2 table must be wrapped in .tactical-wrap with tabindex=0 and an aria-label",
   );
 });
 
-test("signals.html defines .overview-table-wrap as overflow-x:auto only — no max-height, so short Overview tables never get an unwanted vertical scrollbar on desktop", () => {
+test("legacy candlestick data remains an explicitly optional secondary sidecar", () => {
   const html = fs.readFileSync(path.join(__dirname, "..", "signals.html"), "utf8");
-  const rule = html.match(/\.overview-table-wrap\s*\{([^}]*)\}/);
-  assert.ok(rule, ".overview-table-wrap rule must exist");
-  assert.match(rule[1], /overflow-x\s*:\s*auto/);
-  assert.doesNotMatch(rule[1], /max-height/, "must not inherit the patterns table's max-height:70vh constraint");
+  const product = fs.readFileSync(path.join(__dirname, "..", "assets", "js", "signals-product.js"), "utf8");
+  assert.match(html, /Legacy candlestick sidecars \(optional\)/);
+  assert.match(product, /OPTIONAL_CANDLE_SIGNAL_SIDECAR_UNAVAILABLE/);
+});
+
+test("signals.html keeps the Tactical V2 table itself inside a bounded responsive scroller", () => {
+  const html = fs.readFileSync(path.join(__dirname, "..", "signals.html"), "utf8");
+  const rule = html.match(/\.tactical-wrap\s*\{([^}]*)\}/);
+  assert.ok(rule, ".tactical-wrap rule must exist");
+  assert.match(rule[1], /overflow\s*:\s*auto/);
 });
 
 // ---------- Phase 4D: deterministic, canonical-key-based candlestick colors ----------
