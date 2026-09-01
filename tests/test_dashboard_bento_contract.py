@@ -23,10 +23,11 @@ VOID_ELEMENTS = {
 
 REQUIRED_UNIQUE_IDS = [
     "kpi-regime", "kpi-risk",
-    "kpi-breadth", "kpi-breadth-sub", "kpi-breadth-bar",
-    "kpi-structure", "kpi-structure-sub", "kpi-structure-bar",
-    "kpi-liquidity",
-    "chart-sector", "chart-structure",
+    "kpi-session-up", "kpi-session-up-sub",
+    "kpi-session-flat", "kpi-session-flat-sub",
+    "kpi-session-down", "kpi-session-down-sub",
+    "kpi-liquidity-proxy", "kpi-execution-capacity",
+    "chart-sector", "chart-tactical",
     "watchlist", "watchlist-filters", "action-plan",
     "action-plan-historical-card", "action-plan-historical", "action-plan-historical-date",
     "market-table", "screener-cards",
@@ -34,9 +35,16 @@ REQUIRED_UNIQUE_IDS = [
     "build-status", "table-status",
     "ai-report", "report-toggle", "report-date",
     "sidebar", "sidebar-toggle", "sidebar-overlay", "sidebar-close",
+    "current-product-summary",
 ]
 
-KPI_ORDER = ["kpi-regime", "kpi-risk", "kpi-breadth", "kpi-structure", "kpi-liquidity"]
+KPI_ORDER = [
+    "kpi-session-up",
+    "kpi-session-flat",
+    "kpi-session-down",
+    "kpi-liquidity-proxy",
+    "kpi-execution-capacity",
+]
 
 
 class Node:
@@ -154,12 +162,12 @@ class DashboardBentoContractTests(unittest.TestCase):
             node = _find_by_id(self.root, node_id)[0]
             return _nearest_ancestor(node, lambda n: n.tag == "div" and n.has_class("kpi"))
 
-        for featured_id in ("kpi-regime", "kpi-risk"):
+        for featured_id in ("kpi-session-up", "kpi-session-flat"):
             tile = kpi_tile(featured_id)
             self.assertIsNotNone(tile)
             self.assertTrue(tile.has_class("kpi-featured"), f"{featured_id} tile should carry .kpi-featured emphasis")
 
-        for plain_id in ("kpi-breadth", "kpi-structure", "kpi-liquidity"):
+        for plain_id in ("kpi-session-down", "kpi-liquidity-proxy", "kpi-execution-capacity"):
             tile = kpi_tile(plain_id)
             self.assertIsNotNone(tile)
             self.assertFalse(tile.has_class("kpi-featured"), f"{plain_id} tile must not be artificially featured")
@@ -168,7 +176,7 @@ class DashboardBentoContractTests(unittest.TestCase):
         indices = [self.order_list.index(_find_by_id(self.root, kid)[0]) for kid in KPI_ORDER]
         self.assertEqual(
             indices, sorted(indices),
-            "KPI tiles must appear in Regime -> Risk -> Breadth -> Structure -> Liquidity DOM order",
+            "KPI tiles must appear in Up -> Flat -> Down -> Liquidity proxy -> Execution capacity DOM order",
         )
 
     def test_7_resizable_container_has_exact_direct_child_structure(self):
@@ -189,7 +197,7 @@ class DashboardBentoContractTests(unittest.TestCase):
             return any(n.attrs.get("id") == node_id for n in container.iter_all())
 
         self.assertTrue(contains_id(left, "chart-sector"), "Left panel must contain the sector chart")
-        self.assertTrue(contains_id(left, "chart-structure"), "Left panel must contain the structure chart")
+        self.assertTrue(contains_id(left, "chart-tactical"), "Left panel must contain the tactical chart")
         self.assertTrue(contains_id(right, "watchlist"), "Right panel must contain the watchlist")
         self.assertTrue(contains_id(right, "action-plan"), "Right panel must contain the action plan")
 
@@ -226,8 +234,12 @@ class DashboardBentoContractTests(unittest.TestCase):
         self.assertEqual(len(nodes), 1)
         self.assertTrue(nodes[0].has_class("screener-records"))
 
+    def test_10b_legacy_unsupported_kpis_are_absent(self):
+        for banned in ("Breadth > MA200", "% mã trên MA200 theo ngành", "Cấu trúc UP", "GTGD20 ≥ 50 tỷ", 'id="kpi-breadth"', 'id="chart-structure"'):
+            self.assertNotIn(banned, self.html_text, f"Legacy unsupported KPI/chart remains: {banned}")
+
     def test_11_chart_canvases_present_with_accessible_labels(self):
-        for canvas_id in ("chart-sector", "chart-structure"):
+        for canvas_id in ("chart-sector", "chart-tactical"):
             nodes = _find_by_id(self.root, canvas_id)
             self.assertEqual(len(nodes), 1, f"canvas#{canvas_id} must be present exactly once")
             canvas = nodes[0]

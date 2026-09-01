@@ -62,7 +62,14 @@ class CanonicalDailyCoherenceAndViLocalizationTests(unittest.TestCase):
         assert.strictEqual(vf.formatResearchState('EARLY_REVERSAL_CANDIDATE'), 'Ứng viên đảo chiều sớm');
         assert.strictEqual(vf.formatResearchState('WAIT_FOR_CONFIRMATION'), 'Chờ xác nhận');
         assert.strictEqual(vf.formatResearchState('AVOID_NEW_ENTRY'), 'Tránh mở vị thế mới');
-        assert.strictEqual(vf.formatResearchState('HIGH_RISK_SPECULATION_ONLY'), 'Chỉ phù hợp đầu cơ rủi ro cao');
+        assert.strictEqual(vf.formatResearchState('HIGH_RISK_SPECULATION_ONLY'), 'Chỉ đầu cơ rủi ro cao');
+
+        // 5b. Governed domain formatter
+        assert.strictEqual(vf.formatResearchStance('INITIATE_RESEARCH_CANDIDATE'), 'Ứng viên nghiên cứu mở vị thế');
+        assert.strictEqual(vf.formatTacticalState('SELLING_PRESSURE_EASING'), 'Áp lực bán đang hạ nhiệt');
+        assert.strictEqual(vf.formatDomainState('WAIT_FOR_CONFIRMATION', 'research_stance').raw, 'WAIT_FOR_CONFIRMATION');
+        assert.strictEqual(vf.formatDomainState('LIQUIDITY_RESEARCH_PROXY', 'liquidity_state').label, 'Thanh khoản nghiên cứu');
+        assert.ok(!/Mua|Nên mua/.test(vf.formatConfirmationState('READY')));
 
         // 6. Screener labels
         assert.strictEqual(vf.SCREENER_UI_LABELS.presets.leaders, 'Dẫn đầu');

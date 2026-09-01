@@ -29,23 +29,24 @@ function card(overrides) {
 }
 
 test("page declares the opportunity list, filters, seven decision-card sections, and no-execution boundary", () => {
-  for (const label of ["Filters", "Opportunity list", "Decision card"]) assert.match(html, new RegExp(label));
-  for (const label of ["A. Current stance", "B. Why", "C. Counter-thesis", "D. Confirmation", "E. Invalidation", "F. Portfolio impact", "G. Data / authority"]) {
+  for (const label of ["Bộ lọc", "Danh sách cơ hội", "Thẻ quyết định"]) assert.match(html, new RegExp(label));
+  for (const label of ["A. Trạng thái hiện tại", "B. Lý do", "C. Phản luận", "D. Xác nhận", "E. Điều kiện vô hiệu", "F. Tác động danh mục", "G. Dữ liệu / thẩm quyền"]) {
     assert.match(script, new RegExp(label.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
   }
-  assert.match(html, /RESEARCH ONLY/);
-  assert.match(html, /PRIORITY_NOW is not BUY_NOW/);
+  assert.match(html, /CHỈ MANG TÍNH NGHIÊN CỨU/);
+  assert.match(html, /không phải lệnh thực hiện/i);
   assert.doesNotMatch(html + script, /execute trade|place order|sell order/i);
 });
 
 test("decision card renderer is reusable without changing stance semantics", () => {
   const html = ws.decisionCardHtml(card(), { ticker: "AAA" });
   assert.match(html, /data-decision-ticker="AAA"/);
-  assert.match(html, /INITIATE_RESEARCH_CANDIDATE/);
-  assert.match(html, /A\. Current stance/);
+  assert.match(html, /data-state="INITIATE_RESEARCH_CANDIDATE"/);
+  assert.match(html, /Ứng viên nghiên cứu mở vị thế/);
+  assert.match(html, /A\. Trạng thái hiện tại/);
   assert.doesNotMatch(html, /BUY NOW|place order/i);
   const missing = ws.decisionCardHtml(null, { ticker: "AAA" });
-  assert.match(missing, /Workspace card unavailable for AAA/);
+  assert.match(missing, /Không có thẻ Không gian quyết định cho AAA/);
   assert.doesNotMatch(missing, /HPG/);
 });
 
@@ -157,8 +158,8 @@ test("readLocalPortfolioHoldings tolerates missing/invalid storage and reads the
 // confirmation trigger-state exposure, and stance-reconsideration labeling.
 // ---------------------------------------------------------------------------
 
-test("entry_action is labeled Tactical Entry Readiness, never bare 'Entry readiness'", () => {
-  assert.match(script, /Tactical Entry Readiness/);
+test("entry_action is labeled Mức sẵn sàng kỹ thuật, never bare 'Entry readiness'", () => {
+  assert.match(script, /Mức sẵn sàng kỹ thuật/);
   assert.doesNotMatch(script, /Entry readiness/);
 });
 
@@ -166,17 +167,17 @@ test("veto research stances never present tactical entry readiness as a buy sign
   for (const stance of ["HIGH_RISK_SPECULATION_ONLY", "AVOID_NEW_ENTRY"]) {
     assert.ok(ws.VETO_RESEARCH_STANCES.has(stance));
     const guidance = ws.stanceEntryGuidance(stance, "EARLY_ENTRY");
-    assert.match(guidance, /risk veto/i);
-    assert.match(guidance, /never be read as a buy signal/i);
+    assert.match(guidance, /cấm mở vị thế mới/);
+    assert.match(guidance, /không phải tín hiệu mua/i);
   }
 });
 
 test("accumulate/initiate stance with a non-actionable tactical readiness explains the pairing", () => {
   const guidance = ws.stanceEntryGuidance("ACCUMULATE_RESEARCH_CANDIDATE", "WAIT");
-  assert.match(guidance, /primary research conclusion/i);
-  assert.match(guidance, /WAIT/);
+  assert.match(guidance, /kết luận nghiên cứu chính/);
+  assert.match(guidance, /Chờ|WAIT/);
   const guidance2 = ws.stanceEntryGuidance("INITIATE_RESEARCH_CANDIDATE", "AVOID");
-  assert.match(guidance2, /primary research conclusion/i);
+  assert.match(guidance2, /kết luận nghiên cứu chính/);
 });
 
 test("no guidance banner when tactical entry readiness is already actionable or the stance is neutral", () => {
@@ -186,18 +187,18 @@ test("no guidance banner when tactical entry readiness is already actionable or 
 });
 
 test("page exposes confirmation boundary status and actual trigger state as distinct fields", () => {
-  assert.match(script, /Boundary status/);
-  assert.match(script, /Actual trigger state/);
+  assert.match(script, /Trạng thái biên/);
+  assert.match(script, /Trạng thái kích hoạt thực tế/);
   assert.match(script, /confirmation_trigger_state/);
-  assert.match(script, /not evidence the trigger has fired/i);
+  assert.match(script, /không phải bằng chứng điều kiện đã kích hoạt/i);
 });
 
 test("page relabels an AVOID_NEW_ENTRY technical-invalidation boundary as a reconsideration watch", () => {
   assert.match(script, /STANCE_RECONSIDERATION_WATCH/);
-  assert.match(script, /what would improve\/reconsider this stance/i);
+  assert.match(script, /đáng xem xét lại/i);
 });
 
 test("why section surfaces counterbalancing context distinctly from deterministic reasons", () => {
-  assert.match(script, /Counterbalancing context/);
+  assert.match(script, /Bối cảnh đối trọng/);
   assert.match(script, /why\.counterbalancing_context/);
 });

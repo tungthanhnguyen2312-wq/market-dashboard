@@ -36,6 +36,20 @@
        dữ liệu bên trong, theme.extend colors/fontFamily như cũ). -->
   <link rel="stylesheet" href="assets/css/tailwind.generated.css?v=2026-08-26-f54d70f-cff1036856">
   <link rel="stylesheet" href="assets/css/shell.css?v=2026-08-26-f54d70f-cff1036856">
+  <style>
+    .decision-summary-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:.6rem; }
+    .decision-stance-card { border:1px solid var(--border); border-radius:var(--radius-md); padding:.75rem; background:var(--surface); }
+    .decision-stance-card .count { font-size:1.2rem; font-weight:700; display:block; }
+    .decision-stance-card .label { font-size:.78rem; color:var(--text-muted); }
+    .decision-stance-card.is-constructive { border-color: rgba(32,231,207,.45); }
+    .decision-stance-card.is-wait { border-color: rgba(240,196,90,.45); }
+    .decision-stance-card.is-risk { border-color: rgba(255,147,93,.55); }
+    .decision-stance-card.is-neutral { border-color: var(--border); }
+    .decision-summary-actions { display:flex; flex-wrap:wrap; gap:.5rem; align-items:center; }
+    .decision-summary-actions .vs-btn-primary { background:#128f84; color:#031014; font-weight:700; border:none; }
+    .decision-summary-actions .vs-btn-primary:hover { background:#20e7cf; color:#031014; }
+    .optional-ai-research { font-size:.8rem; color:var(--text-muted); }
+  </style>
 </head>
 <body class="bg-bg text-white font-sans" data-page="dashboard">
 
@@ -53,10 +67,10 @@
         <a class="vs-sidebar-link" href="signals.html" data-nav="signals" title="Tín hiệu"><i data-lucide="activity"></i><span class="vs-sidebar-link-label">Tín hiệu</span></a>
         <a class="vs-sidebar-link" href="macro.html" data-nav="macro" title="Vĩ mô & Hàng hóa"><i data-lucide="globe"></i><span class="vs-sidebar-link-label">Vĩ mô & Hàng hóa</span></a>
         <a class="vs-sidebar-link" href="about.html" data-nav="about" title="Giới thiệu"><i data-lucide="info"></i><span class="vs-sidebar-link-label">Giới thiệu</span></a>
-        <a class="vs-sidebar-link" href="shadow-recommendations.html" title="Research stances"><i data-lucide="scan-search"></i><span class="vs-sidebar-link-label">Research stances</span></a>
-        <a class="vs-sidebar-link" href="decision-cockpit.html" title="Decision Cockpit"><i data-lucide="notebook-tabs"></i><span class="vs-sidebar-link-label">Decision Cockpit</span></a>
-        <a class="vs-sidebar-link" href="investment-workspace.html" title="Investment Decision Workspace"><i data-lucide="layout-list"></i><span class="vs-sidebar-link-label">Investment Workspace</span></a>
-        <a class="vs-sidebar-link" href="portfolio.html" title="Portfolio research"><i data-lucide="wallet-cards"></i><span class="vs-sidebar-link-label">Portfolio research</span></a>
+        <a class="vs-sidebar-link" href="shadow-recommendations.html" title="Tư thế nghiên cứu"><i data-lucide="scan-search"></i><span class="vs-sidebar-link-label">Tư thế nghiên cứu</span></a>
+        <a class="vs-sidebar-link" href="decision-cockpit.html" title="Bàn quyết định"><i data-lucide="notebook-tabs"></i><span class="vs-sidebar-link-label">Bàn quyết định</span></a>
+        <a class="vs-sidebar-link" href="investment-workspace.html" title="Không gian quyết định"><i data-lucide="layout-list"></i><span class="vs-sidebar-link-label">Không gian quyết định</span></a>
+        <a class="vs-sidebar-link" href="portfolio.html" title="Danh mục"><i data-lucide="wallet-cards"></i><span class="vs-sidebar-link-label">Danh mục</span></a>
       </nav>
       <div class="vs-sidebar-foot">Stock Lookup</div>
     </aside>
@@ -76,10 +90,10 @@
         <a class="vs-topnav-link" href="about.html" data-nav="about" title="Giới thiệu"><i data-lucide="info"></i><span>Giới thiệu</span></a>
         </nav>
         <span class="vs-topbar-spacer"></span>
-        <a class="vs-topbar-link" href="decision-cockpit.html"><i data-lucide="notebook-tabs"></i>Decision Cockpit</a>
-        <a class="vs-topbar-link" href="investment-workspace.html"><i data-lucide="layout-list"></i>Investment Workspace</a>
-        <a class="vs-topbar-link" href="portfolio.html"><i data-lucide="wallet-cards"></i>Portfolio</a>
-        <a class="vs-topbar-link" href="shadow-recommendations.html"><i data-lucide="scan-search"></i>Research stances</a>
+        <a class="vs-topbar-link" href="decision-cockpit.html"><i data-lucide="notebook-tabs"></i>Bàn quyết định</a>
+        <a class="vs-topbar-link" href="investment-workspace.html"><i data-lucide="layout-list"></i>Không gian quyết định</a>
+        <a class="vs-topbar-link" href="portfolio.html"><i data-lucide="wallet-cards"></i>Danh mục</a>
+        <a class="vs-topbar-link" href="shadow-recommendations.html"><i data-lucide="scan-search"></i>Tư thế nghiên cứu</a>
         <a class="vs-topbar-link" href="archive.html"><i data-lucide="history"></i>Lịch sử</a>
         <span class="vs-topbar-meta" id="market-last-updated">Đang tải phiên thị trường…</span>
         <button type="button" class="vs-icon-btn" onclick="location.reload()" aria-label="Làm mới dữ liệu" title="Làm mới dữ liệu"><i data-lucide="refresh-cw"></i></button>
@@ -93,50 +107,46 @@
         <div id="dashboard-hero-banner" class="mb-3"></div>
 
         <section class="card mb-4" aria-labelledby="current-product-heading">
-          <div class="card-header d-flex flex-wrap align-items-center justify-content-between gap-2">
-            <h5 id="current-product-heading"><i data-lucide="layout-list" class="card-icon"></i>Current decision research</h5>
-            <a class="vs-btn" href="investment-workspace.html">Open Investment Workspace →</a>
+          <div class="card-header">
+            <h5 id="current-product-heading"><i data-lucide="layout-list" class="card-icon"></i>Quyết định nghiên cứu hiện tại</h5>
           </div>
           <div class="card-body" id="current-product-summary">
-            <span class="text-muted">Đang tải current deterministic product artifact…</span>
+            <span class="text-muted">Đang tải tóm tắt tư thế nghiên cứu…</span>
           </div>
         </section>
 
-        <!-- ===== BENTO: BĂNG KPI TỔNG QUAN (Regime/Rủi ro nổi bật + Breadth/Cấu trúc/Thanh khoản) ===== -->
+        <!-- ===== BENTO: BĂNG KPI TỔNG QUAN (độ rộng phiên / thanh khoản nghiên cứu / năng lực lệnh) ===== -->
         <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
           <div class="section-eyebrow mb-0">Tổng quan thị trường</div>
           <div class="d-flex align-items-center gap-2 flex-wrap">
-            <span class="badge-soft bs-amber" title="Chỉ thay đổi sau khi chạy phân tích AI cục bộ và tải lên">Local Snapshot</span>
             <span class="badge-soft bs-blue" title="Cập nhật mỗi khi chạy lại pipeline dữ liệu">Dữ liệu pipeline</span>
           </div>
         </div>
         <section class="kpi-grid dashboard-kpi-band mb-4" aria-label="Chỉ số tổng quan thị trường">
           <div class="kpi kpi-featured">
-            <div class="kpi-label"><i data-lucide="gauge"></i>Regime thị trường</div>
-            <div class="kpi-value" id="kpi-regime">—</div>
-            <div class="kpi-sub" id="kpi-regime-sub">từ báo cáo AI</div>
+            <div class="kpi-label"><i data-lucide="trending-up"></i>Mã tăng</div>
+            <div class="kpi-value" id="kpi-session-up">—</div>
+            <div class="kpi-sub" id="kpi-session-up-sub">Độ rộng phiên trong số mã có dữ liệu giá</div>
           </div>
           <div class="kpi kpi-featured">
-            <div class="kpi-label"><i data-lucide="shield-alert"></i>Rủi ro danh mục</div>
-            <div class="kpi-value" id="kpi-risk">—</div>
-            <div class="kpi-sub">khuyến nghị tỷ trọng</div>
+            <div class="kpi-label"><i data-lucide="minus"></i>Mã tham chiếu / gần 0</div>
+            <div class="kpi-value" id="kpi-session-flat">—</div>
+            <div class="kpi-sub" id="kpi-session-flat-sub">tham chiếu / không đổi</div>
           </div>
           <div class="kpi">
-            <div class="kpi-label"><i data-lucide="trending-up"></i>Breadth &gt; MA200</div>
-            <div class="kpi-value" id="kpi-breadth">—</div>
-            <div class="kpi-sub" id="kpi-breadth-sub">độ rộng thị trường</div>
-            <div class="kpi-bar"><span id="kpi-breadth-bar" style="width:0%"></span></div>
+            <div class="kpi-label"><i data-lucide="trending-down"></i>Mã giảm</div>
+            <div class="kpi-value" id="kpi-session-down">—</div>
+            <div class="kpi-sub" id="kpi-session-down-sub">chỉ mã có dữ liệu giá</div>
           </div>
           <div class="kpi">
-            <div class="kpi-label"><i data-lucide="arrow-up-right"></i>Cấu trúc UP</div>
-            <div class="kpi-value" id="kpi-structure">—</div>
-            <div class="kpi-sub" id="kpi-structure-sub">mã có structure = up</div>
-            <div class="kpi-bar"><span id="kpi-structure-bar" style="width:0%"></span></div>
+            <div class="kpi-label"><i data-lucide="droplets"></i>Thanh khoản nghiên cứu có dữ liệu</div>
+            <div class="kpi-value" id="kpi-liquidity-proxy">—</div>
+            <div class="kpi-sub" id="kpi-liquidity-proxy-sub">proxy nghiên cứu, không phải GTGD20</div>
           </div>
           <div class="kpi">
-            <div class="kpi-label"><i data-lucide="droplets"></i>Thanh khoản cao</div>
-            <div class="kpi-value" id="kpi-liquidity">—</div>
-            <div class="kpi-sub">mã GTGD20 ≥ 50 tỷ</div>
+            <div class="kpi-label"><i data-lucide="ban"></i>Năng lực thực hiện lệnh chính xác</div>
+            <div class="kpi-value" id="kpi-execution-capacity">—</div>
+            <div class="kpi-sub" id="kpi-execution-capacity-sub">chưa xác lập nếu thiếu ADV20 đủ điều kiện</div>
           </div>
         </section>
 
@@ -148,17 +158,19 @@
             <!-- BIỂU ĐỒ TỔNG QUAN -->
             <div class="card mb-4">
               <div class="card-header">
-                <h5><i data-lucide="line-chart" class="card-icon"></i>Tổng quan ngành &amp; cấu trúc</h5>
+                <h5><i data-lucide="line-chart" class="card-icon"></i>Tổng quan ngành &amp; trạng thái kỹ thuật</h5>
               </div>
               <div class="card-body">
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
                   <div class="md:col-span-7">
-                    <div class="form-label-sm">% mã trên MA200 theo ngành (top 10)</div>
-                    <div class="chart-box"><canvas id="chart-sector" role="img" aria-label="Biểu đồ cột: phần trăm mã cổ phiếu trên MA200 theo 10 ngành dẫn đầu"></canvas></div>
+                    <div class="form-label-sm">Phân bố mã theo ngành (nhãn ngành thực, top 10 theo số mã)</div>
+                    <div class="chart-box"><canvas id="chart-sector" role="img" aria-label="Biểu đồ cột: số mã theo 10 ngành có nhãn ngành thực"></canvas></div>
+                    <div class="form-label-sm mt-2" id="sector-coverage-note">Đang đọc độ phủ ngành…</div>
                   </div>
                   <div class="md:col-span-5">
-                    <div class="form-label-sm">Phân bố cấu trúc giá toàn thị trường</div>
-                    <div class="chart-box"><canvas id="chart-structure" role="img" aria-label="Biểu đồ tròn: phân bố cấu trúc giá toàn thị trường theo UP, SIDE, DOWN"></canvas></div>
+                    <div class="form-label-sm">Phân bố trạng thái kỹ thuật (chỉ mã có dữ liệu)</div>
+                    <div class="chart-box"><canvas id="chart-tactical" role="img" aria-label="Biểu đồ tròn: phân bố trạng thái kỹ thuật trong số mã có dữ liệu"></canvas></div>
+                    <div class="form-label-sm mt-2" id="tactical-coverage-note">Đang đọc độ phủ kỹ thuật…</div>
                   </div>
                 </div>
               </div>
@@ -252,6 +264,13 @@
           <div class="card-header">
             <h5><i data-lucide="bot" class="card-icon"></i>Báo cáo AI — bản local gần nhất</h5>
             <span class="badge-soft bs-amber" id="report-date"></span>
+          </div>
+          <div class="card-body pb-0">
+            <p class="optional-ai-research mb-2">Phần này là nghiên cứu AI cục bộ tùy chọn — không phải chỉ số pipeline hiện tại. Nếu không có snapshot phiên hiện tại, hiển thị "Chưa có dữ liệu hiện tại".</p>
+            <div class="d-flex flex-wrap gap-3 mb-3">
+              <div><span class="form-label-sm">Regime thị trường (AI cục bộ)</span><div class="kpi-value" id="kpi-regime">Chưa có dữ liệu hiện tại</div></div>
+              <div><span class="form-label-sm">Rủi ro danh mục (AI cục bộ)</span><div class="kpi-value" id="kpi-risk">Chưa có dữ liệu hiện tại</div></div>
+            </div>
           </div>
           <div class="card-body report-content collapsed" id="ai-report">
             <div class="space-y-2">

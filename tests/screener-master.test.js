@@ -31,7 +31,7 @@ test("screener primary source is the master projection with JS fallback only", (
   assert.match(combined, /data\/screener_master_projection\.js/);
   assert.match(html, /assets\/js\/screener-master\.js/);
   assert.doesNotMatch(html, /loadCsv\("screen_snapshot\.csv"/);
-  assert.match(html, /Decision Drawer/);
+  assert.match(html, /decision-drawer/);
 });
 
 test("percent formatting uses fraction * 100 once", () => {
@@ -103,7 +103,8 @@ test("workspace renderer is reused and does not recompute decisions", () => {
     lineage: { per_axis_freshness: {} }, prospective_case: {},
   }, { ticker: "HPG" });
   assert.match(htmlCard, /data-decision-ticker="HPG"/);
-  assert.match(htmlCard, /WAIT_FOR_CONFIRMATION/);
+  assert.match(htmlCard, /data-state="WAIT_FOR_CONFIRMATION"/);
+  assert.match(htmlCard, /Chờ xác nhận/);
   assert.doesNotMatch(htmlCard, /BUY NOW|place order/i);
   assert.doesNotMatch(script, /entry_state\s*=\s*["']BUY/);
 });

@@ -78,7 +78,7 @@
         <a class="vs-sidebar-link" href="screener.html" data-nav="screener" title="Bộ lọc thị trường"><i data-lucide="filter"></i><span class="vs-sidebar-link-label">Bộ lọc thị trường</span></a>
         <a class="vs-sidebar-link" href="analysis.html" data-nav="analysis" title="Phân tích"><i data-lucide="brain-circuit"></i><span class="vs-sidebar-link-label">Phân tích</span></a>
         <a class="vs-sidebar-link" href="signals.html" data-nav="signals" title="Tín hiệu"><i data-lucide="activity"></i><span class="vs-sidebar-link-label">Tín hiệu</span></a>
-        <a class="vs-sidebar-link" href="investment-workspace.html" title="Investment Workspace"><i data-lucide="layout-list"></i><span class="vs-sidebar-link-label">Investment Workspace</span></a>
+        <a class="vs-sidebar-link" href="investment-workspace.html" title="Không gian quyết định"><i data-lucide="layout-list"></i><span class="vs-sidebar-link-label">Không gian quyết định</span></a>
         <a class="vs-sidebar-link" href="portfolio.html" title="Danh mục"><i data-lucide="wallet-cards"></i><span class="vs-sidebar-link-label">Danh mục</span></a>
         <a class="vs-sidebar-link" href="macro.html" data-nav="macro" title="Vĩ mô & Hàng hóa"><i data-lucide="globe"></i><span class="vs-sidebar-link-label">Vĩ mô & Hàng hóa</span></a>
         <a class="vs-sidebar-link" href="about.html" data-nav="about" title="Giới thiệu"><i data-lucide="info"></i><span class="vs-sidebar-link-label">Giới thiệu</span></a>
@@ -97,7 +97,7 @@
           <a class="vs-topnav-link" href="screener.html" data-nav="screener" title="Bộ lọc thị trường"><i data-lucide="filter"></i><span>Bộ lọc thị trường</span></a>
           <a class="vs-topnav-link" href="analysis.html" data-nav="analysis" title="Phân tích"><i data-lucide="brain-circuit"></i><span>Phân tích</span></a>
           <a class="vs-topnav-link" href="signals.html" data-nav="signals" title="Tín hiệu"><i data-lucide="activity"></i><span>Tín hiệu</span></a>
-          <a class="vs-topnav-link" href="investment-workspace.html" title="Investment Workspace"><i data-lucide="layout-list"></i><span>Workspace</span></a>
+          <a class="vs-topnav-link" href="investment-workspace.html" title="Không gian quyết định"><i data-lucide="layout-list"></i><span>Không gian quyết định</span></a>
           <a class="vs-topnav-link" href="portfolio.html" title="Danh mục"><i data-lucide="wallet-cards"></i><span>Danh mục</span></a>
           <a class="vs-topnav-link" href="macro.html" data-nav="macro" title="Vĩ mô & Hàng hóa"><i data-lucide="globe"></i><span>Vĩ mô & Hàng hóa</span></a>
           <a class="vs-topnav-link" href="about.html" data-nav="about" title="Giới thiệu"><i data-lucide="info"></i><span>Giới thiệu</span></a>
@@ -160,7 +160,7 @@
       <div class="decision-drawer-backdrop" id="decision-drawer-backdrop" hidden>
         <aside class="decision-drawer" id="decision-drawer" role="dialog" aria-modal="true" aria-labelledby="decision-drawer-title">
           <div class="decision-drawer-header">
-            <h5 id="decision-drawer-title">Decision Drawer</h5>
+            <h5 id="decision-drawer-title">Ngăn quyết định</h5>
             <div class="d-flex gap-2">
               <button type="button" class="screen-preset" id="decision-drawer-company">Chi tiết kỹ thuật</button>
               <button type="button" class="vs-icon-btn" id="decision-drawer-close" aria-label="Đóng">×</button>
@@ -274,7 +274,13 @@ function fillSelect(id, values) {
   values.forEach((value) => {
     if (!value || keep.has(value)) return;
     const opt = document.createElement("option");
-    opt.value = value; opt.textContent = value;
+    opt.value = value;
+    const vf = window.VSValueFormat;
+    if (vf && (id === "screen-stance" || id === "screen-tactical")) {
+      opt.textContent = vf.formatDomainState(value, id === "screen-stance" ? "research_stance" : "tactical_state").label;
+    } else {
+      opt.textContent = value;
+    }
     el.appendChild(opt);
   });
   if ([...el.options].some((o) => o.value === current)) el.value = current;
@@ -357,8 +363,8 @@ document.addEventListener("DOMContentLoaded", () => {
     { data: "price", title: "Giá", className: "text-end", render: v => { const s = SM.formatPrice(v && v.value, v && v.status); return `<span class="${s.cls}">${esc(s.text)}</span>`; } },
     { data: "price", title: "% Phiên", className: "text-end", render: v => { const s = SM.formatSessionPercent(v && v.change_pct); return `<span class="${s.cls}">${esc(s.text)}</span>`; } },
     { data: null, title: "Thanh khoản nghiên cứu", render: (_v, _t, row) => { const s = SM.formatLiquidity(row.liquidity, row.execution); return `<span class="${s.cls}">${esc(s.text)}</span>`; } },
-    { data: "research", title: "Tư thế nghiên cứu", render: v => esc((v && v.stance) || "Chưa đủ dữ liệu") },
-    { data: "tactical", title: "Trạng thái kỹ thuật", render: v => esc((v && v.entry_state) || SM.translateStatus((v && v.status) || "UNKNOWN")) },
+    { data: "research", title: "Tư thế nghiên cứu", render: v => { const raw = (v && v.stance) || ""; const vf = window.VSValueFormat; const label = raw && vf ? vf.formatResearchStance(raw) : "Chưa đủ dữ liệu"; return `<span data-state="${esc(raw)}" title="${esc(raw)}">${esc(label)}</span>`; } },
+    { data: "tactical", title: "Trạng thái kỹ thuật", render: v => { const raw = (v && v.entry_state) || ""; const vf = window.VSValueFormat; const label = raw && vf ? vf.formatTacticalState(raw) : SM.translateStatus((v && v.status) || "UNKNOWN"); return `<span data-state="${esc(raw)}" title="${esc(raw)}">${esc(label)}</span>`; } },
     { data: "financial_v2", title: "Tài chính", render: v => { const s = SM.formatFinancial(v); return `<span class="${s.cls}">${esc(s.text)}</span>`; } },
     { data: "freshness", title: "Độ mới dữ liệu", render: v => { const s = SM.formatFreshness(v); return `<span class="${s.cls}">${esc(s.text)}</span>`; } },
   ];

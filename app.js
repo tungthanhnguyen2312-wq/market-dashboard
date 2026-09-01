@@ -199,16 +199,20 @@ async function loadJsonReport() {
       cls: "",
     };
     const kpiRegime = document.getElementById("kpi-regime");
-    kpiRegime.textContent = regime.label;
-    kpiRegime.className = "kpi-value " + regime.cls;
+    if (kpiRegime) {
+      kpiRegime.textContent = regime.label || "Chưa có dữ liệu hiện tại";
+      kpiRegime.className = "kpi-value " + regime.cls;
+    }
 
     const risk = RISK_MAP[String(data.portfolio_risk).toLowerCase()] || {
-      label: String(data.portfolio_risk || "—").toUpperCase(),
+      label: String(data.portfolio_risk || "Chưa có dữ liệu hiện tại").toUpperCase(),
       cls: "",
     };
     const kpiRisk = document.getElementById("kpi-risk");
-    kpiRisk.textContent = risk.label;
-    kpiRisk.className = "kpi-value " + risk.cls;
+    if (kpiRisk) {
+      kpiRisk.textContent = risk.label || "Chưa có dữ liệu hiện tại";
+      kpiRisk.className = "kpi-value " + risk.cls;
+    }
 
     // --- Watchlist từ stock_notes ---
     if (Array.isArray(data.stock_notes) && data.stock_notes.length) {
@@ -302,6 +306,9 @@ function initWatchlistFilter(notes) {
  * KPI TỪ DỮ LIỆU CSV (breadth, cấu trúc, thanh khoản)
  * ============================================================ */
 function fillMarketKpis(rows) {
+  // Legacy MA200 / structure / GTGD20 KPIs were removed from the primary
+  // Dashboard. Missing features must not render as numeric zero.
+  if (!document.getElementById("kpi-breadth")) return;
   const total = rows.length;
   if (!total) return;
   let above200 = 0, structUp = 0, hiLiq = 0;
@@ -337,6 +344,7 @@ function fillMarketKpis(rows) {
  * ============================================================ */
 function renderCharts(rows) {
   if (!window.Chart) return;
+  if (!document.getElementById("chart-structure")) return;
   applyChartTheme();
 
   // --- Sector breadth: % mã trên MA200 theo ngành (ngành >= 8 mã) ---
@@ -682,8 +690,6 @@ function renderHeroBanner(buildInfo, rows) {
   const dateMatch = String(session).match(/^(\d{4})-(\d{2})-(\d{2})$/);
   const displayDate = dateMatch ? `${dateMatch[3]}/${dateMatch[2]}/${dateMatch[1]}` : session;
   const activeRows = (rows || []).filter((r) => normalizeExchange(r.exchange) !== "DELISTED");
-  const upCount = activeRows.filter((r) => String(r.structure || "").toLowerCase() === "up").length;
-  const rsCount = activeRows.filter((r) => num(r.rs_rating) >= 80).length;
   const totalCount = activeRows.length || (rows || []).length;
   const reportHref = buildInfo?.hero_summary?.report_href || `report-${session}.html`;
   const reportExists = Boolean(buildInfo?.hero_summary?.report_href || buildInfo?.files?.[`report-${session}.html`]);
@@ -693,13 +699,12 @@ function renderHeroBanner(buildInfo, rows) {
       <div class="card-body py-3 px-4 d-flex align-items-center justify-content-between flex-wrap gap-3">
         <div>
           <div class="d-flex align-items-center gap-2 flex-wrap mb-1">
-            <span class="badge-soft bs-green">Phiên ${esc(displayDate)}</span>
+            <span class="badge-soft bs-blue">Phiên ${esc(displayDate)}</span>
             <span class="badge-soft bs-blue">Bản phân tích chính thức</span>
-            <span class="badge-soft bs-green">${upCount} Mã cấu trúc tăng giá</span>
-            <span class="badge-soft bs-gray">${totalCount} Mã khảo sát</span>
+            <span class="badge-soft bs-gray">${totalCount} mã khảo sát</span>
           </div>
           <div class="text-xs text-muted">
-            Dữ liệu tổng hợp phiên <strong>${esc(displayDate)}</strong>: ${upCount} mã giữ cấu trúc tăng giá (UP) · ${rsCount} mã dẫn dắt RS ≥ 80 · Độ rộng thị trường &amp; Ngành.
+            Dữ liệu tổng hợp phiên <strong>${esc(displayDate)}</strong>. Độ rộng, tư thế nghiên cứu và thanh khoản nghiên cứu được đọc từ projection hiện tại — không suy từ MA200 / GTGD20 khi các trường đó không được công bố.
           </div>
         </div>
         <div>
