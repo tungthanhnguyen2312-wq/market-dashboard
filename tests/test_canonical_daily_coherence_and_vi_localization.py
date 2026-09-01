@@ -92,16 +92,38 @@ class CanonicalDailyCoherenceAndViLocalizationTests(unittest.TestCase):
         self.assertIn('id="dashboard-hero-banner"', dashboard_html)
 
     def test_screener_controls_localized_in_html(self):
-        """Verify screener controls and presets in screener.html are in Vietnamese."""
+        """Verify current master-projection Screener controls are presented in Vietnamese."""
         screener_html = (DASHBOARD_ROOT / "screener.html").read_text(encoding="utf-8")
-        self.assertIn(">Dẫn đầu</button>", screener_html)
-        self.assertIn(">Động lượng</button>", screener_html)
-        self.assertIn(">Thanh khoản</button>", screener_html)
-        self.assertIn(">Mã sạch</button>", screener_html)
-        self.assertIn("<label>Sàn<select", screener_html)
-        self.assertIn("<label>Tín hiệu<select", screener_html)
-        self.assertIn('<option value="current">Hiện tại</option>', screener_html)
-        self.assertIn('<option value="stale">Đã cũ</option>', screener_html)
+        localized_controls = (
+            "<label>Tìm<input",
+            "<label>Sàn<select",
+            "<label>Ngành<select",
+            "<label>Tư thế nghiên cứu<select",
+            "<label>Trạng thái kỹ thuật<select",
+            "<label>Tài chính<select",
+            "<label>Thanh khoản nghiên cứu<select",
+            "<label>Độ mới<select",
+        )
+        for markup in localized_controls:
+            self.assertIn(markup, screener_html)
+
+        english_regressions = (
+            "<label>Search",
+            "<label>Exchange",
+            "<label>Industry",
+            "<label>Research stance",
+            "<label>Technical status",
+            "<label>Financials",
+            "<label>Research liquidity",
+            "<label>Freshness",
+        )
+        for markup in english_regressions:
+            self.assertNotIn(markup, screener_html)
+
+        self.assertIn('<option value="CURRENT">Hiện tại</option>', screener_html)
+        self.assertIn('<option value="NOT_CURRENT">Không hiện tại</option>', screener_html)
+        self.assertIn('<option value="ABSENT">Chưa có dữ liệu tài chính</option>', screener_html)
+        self.assertIn('<option value="PROXY">Proxy nghiên cứu</option>', screener_html)
 
     def test_release_session_contract_mismatch_fails_closed(self):
         """Verify release_session_contract fails closed on mixed sessions."""
