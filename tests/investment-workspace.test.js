@@ -50,6 +50,39 @@ test("decision card renderer is reusable without changing stance semantics", () 
   assert.doesNotMatch(missing, /HPG/);
 });
 
+test("rule conditions localize visible headlines and keep raw identity in collapsed technical detail", () => {
+  const html = ws.decisionCardHtml(card({
+    confirmation: {
+      status: "READY",
+      confirmation_trigger_state: "NOT_AVAILABLE",
+      boundary_type: "EASING_TO_REVERSAL_UPGRADE",
+      comparison_operator: "FUTURE_CLOSE_GT_FUTURE_MA20",
+    },
+    invalidation: {
+      technical: { status: "CONDITIONAL", semantic: "THESIS_INVALIDATION", boundary_type: "RENEWED_BREAKDOWN_RISK" },
+      fundamental: { status: "CONDITIONAL", trigger_type: "COMPATIBLE_PROFITABILITY_QUALITY_DETERIORATION" },
+    },
+    why: { deterministic_reasons: ["TACTICAL_STATE_AWAITING_CONFIRMATION", "TECHNICAL_DETERIORATION"], counterbalancing_context: [] },
+  }), { ticker: "AAA", sourceArtifacts: { producer_artifact_identity: "workspace/v1:test" } });
+  const visible = html
+    .replace(/<details[\s\S]*?<\/details>/gi, (block) => {
+      const match = block.match(/<summary[^>]*>([\s\S]*?)<\/summary>/i);
+      return match ? ` ${match[1]} ` : " ";
+    })
+    .replace(/<pre[\s\S]*?<\/pre>/gi, " ")
+    .replace(/<[^>]+>/g, " ");
+  assert.match(visible, /Điều kiện nâng cấp sang đảo chiều/);
+  assert.match(visible, /Rủi ro phá vỡ hỗ trợ tái diễn/);
+  assert.match(visible, /Suy giảm chất lượng lợi nhuận/);
+  assert.match(visible, /Chờ xác nhận điều kiện kỹ thuật/);
+  assert.doesNotMatch(visible, /EASING_TO_REVERSAL_UPGRADE|FUTURE_CLOSE_GT_FUTURE_MA20|RENEWED_BREAKDOWN_RISK|COMPATIBLE_PROFITABILITY_QUALITY_DETERIORATION|TACTICAL_STATE_AWAITING_CONFIRMATION/);
+  assert.match(html, /Chi tiết kỹ thuật/);
+  assert.match(html, /Chi tiết dữ liệu/);
+  assert.match(html, /Nguồn dữ liệu/);
+  assert.match(html, /data-condition="EASING_TO_REVERSAL_UPGRADE"/);
+  assert.match(html, /FUTURE_CLOSE_GT_FUTURE_MA20/);
+});
+
 test("page declares the data source path and portfolio editor link", () => {
   assert.match(script, /data\/investment_decision_workspace\.json/);
   assert.match(html, /portfolio\.html/);

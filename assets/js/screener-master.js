@@ -64,6 +64,14 @@
     return { text: "Dữ liệu nghiên cứu", cls: "text-muted", kind: "status" };
   }
 
+  function getValueFormat() {
+    if (typeof window !== "undefined" && window.VSValueFormat) return window.VSValueFormat;
+    if (typeof require === "function") {
+      try { return require("./value-format.js"); } catch (err) { return null; }
+    }
+    return null;
+  }
+
   function translateStatus(code) {
     const map = {
       LIQUIDITY_RESEARCH_PROXY: "Dữ liệu nghiên cứu",
@@ -83,7 +91,16 @@
       PRICE_AVAILABLE: "Có giá",
     };
     if (code === "READY") return "Sẵn sàng nghiên cứu";
-    return map[code] || code || "Chưa đủ dữ liệu";
+    if (Object.prototype.hasOwnProperty.call(map, code)) return map[code];
+    const vf = getValueFormat();
+    if (vf && typeof vf.formatDomainState === "function" && code) {
+      const domains = ["data_fitness", "liquidity_state", "freshness", "fundamental_state", "entity_type", "evidence_state", "structure_state"];
+      for (let i = 0; i < domains.length; i++) {
+        const formatted = vf.formatDomainState(code, domains[i]);
+        if (formatted.known) return formatted.label;
+      }
+    }
+    return code || "Chưa đủ dữ liệu";
   }
 
   function formatFinancial(financial) {
@@ -91,7 +108,7 @@
       return { text: "Chưa có dữ liệu tài chính", cls: "text-muted" };
     }
     if (financial.current_research_ready) return { text: "Sẵn sàng nghiên cứu", cls: "" };
-    if (financial.profitability_state) return { text: String(financial.profitability_state), cls: "" };
+    if (financial.profitability_state) return { text: translateStatus(financial.profitability_state), cls: "" };
     return { text: translateStatus(financial.status || financial.fitness), cls: "" };
   }
 

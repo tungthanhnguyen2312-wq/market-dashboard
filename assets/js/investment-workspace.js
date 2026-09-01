@@ -172,8 +172,85 @@
   }
   function formatWorkspaceState(value, domain) {
     const vf = getValueFormat();
+    if (domain === "rule_condition" && vf && typeof vf.formatKnownLabel === "function") {
+      return vf.formatKnownLabel(value, domain);
+    }
     if (vf && typeof vf.formatDomainState === "function") return vf.formatDomainState(value, domain).label;
     return unavailableLabel(value);
+  }
+  function sectorDisplayHtml(value) {
+    const vf = getValueFormat();
+    if (vf && typeof vf.sectorLineageHtml === "function") return vf.sectorLineageHtml(value);
+    return escHtml(value);
+  }
+  function sectorDisplayLabel(value) {
+    const vf = getValueFormat();
+    if (vf && typeof vf.formatSectorLineage === "function") return vf.formatSectorLineage(value).label;
+    return String(value || "Chưa phân loại ngành");
+  }
+  function axisDisplayLabel(axis) {
+    const vf = getValueFormat();
+    if (vf && typeof vf.formatAxisLabel === "function") return vf.formatAxisLabel(axis) || axis;
+    return axis;
+  }
+  function detailsHtml(payload, summary) {
+    const vf = getValueFormat();
+    if (vf && typeof vf.technicalDetailsHtml === "function") return vf.technicalDetailsHtml(payload, summary);
+    return `<details class="vs-tech-details"><summary>${escHtml(summary || "Chi tiết kỹ thuật")}</summary><pre class="cockpit-code">${escHtml(JSON.stringify(payload ?? {}, null, 2))}</pre></details>`;
+  }
+  function provenanceBlock(identity) {
+    const vf = getValueFormat();
+    if (vf && typeof vf.provenanceHtml === "function") return vf.provenanceHtml(identity);
+    return identity ? detailsHtml(identity, "Chi tiết dữ liệu") : "";
+  }
+  function conditionHeadline(obj) {
+    if (!obj || typeof obj !== "object") {
+      return { raw: "", label: formatWorkspaceState("", "rule_condition") };
+    }
+    const candidates = [obj.boundary_type, obj.trigger_type, obj.comparison_operator];
+    const vf = getValueFormat();
+    for (let i = 0; i < candidates.length; i++) {
+      const raw = candidates[i];
+      if (!raw) continue;
+      if (vf && typeof vf.formatDomainState === "function") {
+        const formatted = vf.formatDomainState(raw, "rule_condition");
+        if (formatted.known) return formatted;
+      }
+    }
+    return {
+      raw: obj.boundary_type || obj.trigger_type || obj.comparison_operator || "",
+      label: formatWorkspaceState(obj.boundary_type || obj.trigger_type || "", "rule_condition"),
+    };
+  }
+  function conditionVisibleHtml(obj) {
+    if (!obj || typeof obj !== "object" || !Object.keys(obj).length) {
+      return '<span class="cockpit-note">Chưa có dữ liệu / không có mục được giữ lại</span>';
+    }
+    const headline = conditionHeadline(obj);
+    const operator = obj.comparison_operator ? formatWorkspaceState(obj.comparison_operator, "rule_condition") : "";
+    const direction = obj.direction ? formatWorkspaceState(obj.direction, "rule_condition") : "";
+    const extra = [];
+    if (operator && operator !== headline.label) extra.push(operator);
+    if (direction && direction !== headline.label && direction !== operator) extra.push(direction);
+    return `<div class="cockpit-condition" data-condition="${escHtml(headline.raw)}" title="${escHtml(headline.raw)}"><div>${escHtml(headline.label)}</div>${
+      extra.map((line) => `<div class="cockpit-note">${escHtml(line)}</div>`).join("")
+    }</div>${detailsHtml(obj, "Chi tiết kỹ thuật")}`;
+  }
+  function marketContextHtml(ctx) {
+    if (!ctx || typeof ctx !== "object" || !Object.keys(ctx).length) {
+      return '<span class="cockpit-note">Chưa có dữ liệu</span>';
+    }
+    const fieldLabels = {
+      leadership_state: "Dẫn dắt ngành",
+      market_relative_momentum_bucket: "Động lượng so với thị trường",
+      sector_relative_momentum_bucket: "Động lượng so với ngành",
+    };
+    const lines = Object.entries(ctx).map(([key, value]) => {
+      const field = fieldLabels[key] || key;
+      const label = formatWorkspaceState(value, "data_fitness");
+      return `<div class="cockpit-note">${escHtml(field)}: <span data-state="${escHtml(value)}" title="${escHtml(value)}">${escHtml(label)}</span></div>`;
+    });
+    return `${lines.join("")}${detailsHtml(ctx, "Chi tiết dữ liệu")}`;
   }
   function escHtml(v) {
     return String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -210,7 +287,15 @@
   }
   function listHtml(values, domain) {
     return (Array.isArray(values) && values.length
-      ? `<ul class="cockpit-list">${values.map((x) => `<li>${escHtml(typeof x === "string" ? (domain ? formatWorkspaceState(x, domain) : x) : JSON.stringify(x))}</li>`).join("")}</ul>`
+      ? `<ul class="cockpit-list">${values.map((x) => {
+          if (typeof x === "string") {
+            if (!domain) return `<li>${escHtml(x)}</li>`;
+            return `<li><span data-state="${escHtml(x)}" title="${escHtml(x)}">${escHtml(formatWorkspaceState(x, domain))}</span></li>`;
+          }
+          const raw = (x && (x.value || x.metric_or_state || x.source_dimension)) || "";
+          const label = raw ? formatWorkspaceState(String(raw), domain || "rule_condition") : formatWorkspaceState("", "rule_condition");
+          return `<li><span data-state="${escHtml(raw)}" title="${escHtml(raw)}">${escHtml(label)}</span>${detailsHtml(x, "Chi tiết kỹ thuật")}</li>`;
+        }).join("")}</ul>`
       : '<span class="cockpit-note">Chưa có dữ liệu / không có mục được giữ lại</span>');
   }
   function kpiHtml(label, value, domain) {
@@ -243,7 +328,7 @@
           </div>
           <div class="cockpit-detail-grid">
             <div class="card"><div class="card-header"><h6>A. Trạng thái hiện tại</h6></div><div class="card-body">
-              <b>Mã</b> ${escHtml(ticker)} · <b>Ngành</b> ${escHtml(card.sector)}<br>
+              <b>Mã</b> ${escHtml(ticker)} · <b>Ngành</b> ${sectorDisplayHtml(card.sector)}<br>
               <div class="mt-1"><b>Tư thế nghiên cứu</b> ${pill(card.research_stance, "research_stance")} <span class="cockpit-note">(kết luận nghiên cứu chính)</span></div>
               <div class="mt-1"><b>Mức sẵn sàng kỹ thuật</b> ${pill(card.entry_action, "entry_action")} <span class="cockpit-note">thiết lập kỹ thuật: ${pill(card.entry_state, "tactical_state")}</span>${VETO_RESEARCH_STANCES.has(card.research_stance) ? ' <span class="cockpit-state blocked">Không phải tín hiệu mua</span>' : ""}</div>
               ${stanceEntryGuidance(card.research_stance, card.entry_action) ? `<div class="cockpit-note mt-2">${escHtml(stanceEntryGuidance(card.research_stance, card.entry_action))}</div>` : ""}
@@ -251,30 +336,30 @@
             </div></div>
             <div class="card"><div class="card-header"><h6>B. Lý do</h6></div><div class="card-body">
               <b>Nền tảng doanh nghiệp</b> ${pill((why.fundamental_evidence || {}).state, "fundamental_state")} ${escHtml(formatWorkspaceState((why.fundamental_evidence || {}).trajectory, "fundamental_trajectory"))}<br>
-              <b>Định giá</b> ${pill(val.relative_research_state, "valuation_state")} (${escHtml(val.usable_relative_method_count)} phương pháp dùng được, cơ sở ${escHtml(val.share_basis)})
+              <b>Định giá</b> ${pill(val.relative_research_state, "valuation_state")} (${escHtml(val.usable_relative_method_count)} phương pháp dùng được, cơ sở ${escHtml(formatWorkspaceState(val.share_basis, "data_fitness"))})
               ${supportingMethodsHtml(val.supporting_methods)}
               <b>Kỹ thuật</b> ${pill((why.tactical_evidence || {}).primary_entry_state, "tactical_state")}<br>
-              <b>Thị trường/ngành</b> ${escHtml(JSON.stringify((why.market_sector_evidence || {}).sector_relative_context || {}))}<br>
+              <b>Thị trường/ngành</b> ${marketContextHtml((why.market_sector_evidence || {}).sector_relative_context || {})}
               <b>Chất xúc tác</b> ${pill((why.catalyst_evidence || {}).status, "evidence_state")}
-              <div class="mt-2"><b>Lý do xác định</b>${listHtml(why.deterministic_reasons)}</div>
+              <div class="mt-2"><b>Lý do xác định</b>${listHtml(why.deterministic_reasons, "rule_condition")}</div>
               <div class="mt-2"><b>Bối cảnh đối trọng</b>${listHtml(why.counterbalancing_context)}</div>
             </div></div>
             <div class="card"><div class="card-header"><h6>C. Phản luận</h6></div><div class="card-body">
-              <b>Cảnh báo</b>${listHtml((card.counter_thesis || {}).warnings)}
-              <b>Phản luận chính</b>${listHtml((card.counter_thesis || {}).key_counter_thesis)}
-              <b>Trục chưa có dữ liệu</b>${listHtml((card.counter_thesis || {}).unavailable_dimensions)}
+              <b>Cảnh báo</b>${listHtml((card.counter_thesis || {}).warnings, "rule_condition")}
+              <b>Phản luận chính</b>${listHtml((card.counter_thesis || {}).key_counter_thesis, "rule_condition")}
+              <b>Trục chưa có dữ liệu</b>${listHtml((card.counter_thesis || {}).unavailable_dimensions, "rule_condition")}
             </div></div>
             <div class="card"><div class="card-header"><h6>D. Xác nhận</h6></div><div class="card-body">
               <div class="cockpit-grid mb-2">${kpiHtml("Trạng thái biên", pill((card.confirmation || {}).status, "confirmation_state"))}${kpiHtml("Trạng thái kích hoạt thực tế", pill((card.confirmation || {}).confirmation_trigger_state, "confirmation_state"))}</div>
-              <div class="cockpit-note mb-2">Trạng thái biên cho biết điều kiện kích hoạt đã được gắn (có giá trị/toán tử cơ sở) — không phải bằng chứng điều kiện đã kích hoạt. Chỉ trạng thái TRIGGERED mới có thể nâng tư thế nghiên cứu lên ứng viên mở vị thế.</div>
-              <pre class="cockpit-code">${escHtml(JSON.stringify(card.confirmation || {}, null, 2))}</pre>
+              <div class="cockpit-note mb-2">Trạng thái biên cho biết điều kiện kích hoạt đã được gắn (có giá trị/toán tử cơ sở) — không phải bằng chứng điều kiện đã kích hoạt. Chỉ trạng thái đã kích hoạt mới có thể nâng tư thế nghiên cứu lên ứng viên mở vị thế.</div>
+              ${conditionVisibleHtml(card.confirmation || {})}
             </div></div>
             <div class="card"><div class="card-header"><h6>E. Điều kiện vô hiệu</h6></div><div class="card-body">
               <b>${((card.invalidation || {}).technical || {}).semantic === "STANCE_RECONSIDERATION_WATCH" ? "Điều gì sẽ làm tư thế này đáng xem xét lại" : "Kỹ thuật (vô hiệu luận điểm)"}</b> ${pill(((card.invalidation || {}).technical || {}).status, "invalidation_state")}
               ${((card.invalidation || {}).technical || {}).semantic === "STANCE_RECONSIDERATION_WATCH" ? '<div class="cockpit-note mb-1">Tư thế này là điều kiện cấm mở vị thế mới, không có luận điểm dài hạn để vô hiệu — biên này cho biết khi nào lệnh cấm đáng được xem xét lại, không phải điều kiện vô hiệu luận điểm.</div>' : ""}
-              <pre class="cockpit-code">${escHtml(JSON.stringify((card.invalidation || {}).technical || {}, null, 2))}</pre>
+              ${conditionVisibleHtml((card.invalidation || {}).technical || {})}
               <b>Nền tảng doanh nghiệp</b> ${pill(((card.invalidation || {}).fundamental || {}).status, "invalidation_state")}
-              <pre class="cockpit-code">${escHtml(JSON.stringify((card.invalidation || {}).fundamental || {}, null, 2))}</pre>
+              ${conditionVisibleHtml((card.invalidation || {}).fundamental || {})}
             </div></div>
             <div class="card"><div class="card-header"><h6>F. Tác động danh mục</h6></div><div class="card-body">
               ${portfolio && portfolio.evaluated ? `
@@ -297,11 +382,11 @@
             </div></div>
             <div class="card"><div class="card-header"><h6>G. Dữ liệu / thẩm quyền</h6></div><div class="card-body">
               <div class="table-responsive"><table class="cockpit-table"><thead><tr><th>Trục</th><th>Độ mới dữ liệu</th><th>Phiên/kỳ nguồn</th><th>Proxy / đã xác nhận</th></tr></thead><tbody>
-                ${Object.keys((card.lineage || {}).per_axis_freshness || {}).sort().map((axis) => `<tr><td>${escHtml(axis)}</td><td>${pill((card.lineage.per_axis_freshness || {})[axis], "freshness")}</td><td>${escHtml(unavailableLabel((card.lineage.per_axis_source_session || {})[axis]))}</td><td>${pill((card.lineage.per_axis_proxy_or_qualified_state || {})[axis], "data_fitness")}</td></tr>`).join("")}
+                ${Object.keys((card.lineage || {}).per_axis_freshness || {}).sort().map((axis) => `<tr><td>${escHtml(axisDisplayLabel(axis))}</td><td>${pill((card.lineage.per_axis_freshness || {})[axis], "freshness")}</td><td>${escHtml(unavailableLabel((card.lineage.per_axis_source_session || {})[axis]))}</td><td>${pill((card.lineage.per_axis_proxy_or_qualified_state || {})[axis], "data_fitness")}</td></tr>`).join("")}
               </tbody></table></div>
-              <div class="cockpit-note mt-2">Bằng chứng sâu: ${escHtml(card.lineage && card.lineage.deep_evidence_availability)}</div>
-              <b>Điều kiện chặn</b>${listHtml(((card.lineage || {}).blockers || []).map((b) => `${b.axis}: ${b.readiness} (${b.freshness_status})`))}
-              <div class="mt-2"><b>Định danh lineage</b><pre class="cockpit-code">${escHtml(JSON.stringify(sourceArtifacts, null, 2))}</pre></div>
+              <div class="cockpit-note mt-2">Bằng chứng sâu: ${pill(card.lineage && card.lineage.deep_evidence_availability, "data_fitness")}</div>
+              <b>Điều kiện chặn</b>${listHtml(((card.lineage || {}).blockers || []).map((b) => `${axisDisplayLabel(b.axis)}: ${formatWorkspaceState(b.readiness, "research_readiness")} (${formatWorkspaceState(b.freshness_status, "freshness")})`))}
+              <div class="mt-2">${provenanceBlock(sourceArtifacts && Object.keys(sourceArtifacts).length ? JSON.stringify(sourceArtifacts, null, 2) : "")}</div>
             </div></div>
           </div>`;
   }
@@ -388,7 +473,7 @@
           .map((x) => (x || {}).status).find((s) => s === "READY") || ((card.invalidation || {}).technical || {}).status || "UNAVAILABLE";
         return `<tr data-row-ticker="${esc(ticker)}" class="${ticker === SELECTED_TICKER ? "ws-row-selected" : ""}">
           <td><button type="button" class="cockpit-chip" data-select-ticker="${esc(ticker)}">${esc(ticker)}</button></td>
-          <td class="cockpit-note">${esc(card.sector)}</td>
+          <td class="cockpit-note">${sectorDisplayHtml(card.sector)}</td>
           <td>${pill(card.research_stance, "research_stance")}</td>
           <td>${pill(card.entry_state, "tactical_state")}${card.entry_action ? `<div class="cockpit-note">${esc(formatWorkspaceState(card.entry_action, "entry_action"))}</div>` : ""}</td>
           <td>${pill((card.fundamental || {}).state, "fundamental_state")}</td>
@@ -440,7 +525,7 @@
       function render(data) {
         WORKSPACE = data;
         document.getElementById("workspace").hidden = false;
-        document.getElementById("session-line").textContent = `Phiên ${data.as_of_session} · ${Object.keys(data.cards).length} mã · ${data.producer_artifact_identity}`;
+        document.getElementById("session-line").innerHTML = `Phiên ${esc(data.as_of_session)} · ${Object.keys(data.cards).length} mã${provenanceBlock(data.producer_artifact_identity)}`;
         renderFilterChips();
         renderList();
         const select = document.getElementById("ticker-select");

@@ -41,6 +41,9 @@ test("Signals renders Tactical V2 without optional candle sidecars", () => {
   const source = fs.readFileSync(path.join(root, "signals.html"), "utf8") + fs.readFileSync(path.join(root, "assets", "js", "signals-product.js"), "utf8");
   assert.match(source, /OPTIONAL_CANDLE_SIGNAL_SIDECAR_UNAVAILABLE/);
   assert.match(source, /investment-workspace\.html\?ticker=/);
+  const html = signals.renderRowHtml(rows.find((row) => row.ticker === "HPG") || rows[0]);
+  assert.match(html, /data-state="/);
+  assert.doesNotMatch(html.replace(/<[^>]+>/g, " "), /WAIT_FOR_CONFIRMATION|SELLING_PRESSURE_EASING|NOT_AVAILABLE/);
 });
 
 test("main product pages expose valid Workspace and Portfolio navigation", () => {

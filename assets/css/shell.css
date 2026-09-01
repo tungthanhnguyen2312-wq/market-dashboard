@@ -730,6 +730,12 @@
 .cp-hv-details { margin-top: 0.65rem; font-size: 0.72rem; color: var(--text-muted); }
 .cp-hv-details summary { cursor: pointer; color: var(--accent-text); }
 .cp-hv-details code { overflow-wrap: anywhere; }
+.vs-tech-details { margin-top: 0.45rem; font-size: 0.75rem; color: var(--text-muted); }
+.vs-tech-details summary { cursor: pointer; color: var(--accent-text); font-weight: 600; }
+.vs-tech-details .cockpit-code,
+.vs-tech-details pre { margin: 0.4rem 0 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+.vs-provenance-label { margin-top: 0.35rem; font-weight: 600; }
+.vs-lineage-qual { font-size: 0.78em; }
 .qrs2-states { display: grid; gap: 0.4rem; margin-top: 0.65rem; }
 .qrs2-state { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.15rem 0.65rem; padding: 0.5rem 0.6rem; border: 1px solid var(--border-soft); border-radius: 0.35rem; font-size: 0.74rem; }
 .qrs2-state span { color: var(--text-muted); }

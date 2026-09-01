@@ -163,13 +163,35 @@
     down: { label: "Giảm giá", cls: "bs-red", code: "DOWN" },
   });
 
+  const STRUCTURE_STATE_MAP = Object.freeze({
+    BELOW_MA20_MOMENTUM_NEGATIVE: "Dưới MA20, động lượng tiêu cực",
+    ABOVE_MA20_MOMENTUM_POSITIVE: "Trên MA20, động lượng tích cực",
+    BELOW_MA20_MOMENTUM_POSITIVE: "Dưới MA20, động lượng tích cực",
+    ABOVE_MA20_MOMENTUM_NEGATIVE: "Trên MA20, động lượng tiêu cực",
+    NEAR_MA20_NEUTRAL: "Gần MA20, trung tính",
+    NOT_AVAILABLE: "Chưa có",
+  });
+
+  function structureTone(code) {
+    const key = String(code || "").toUpperCase();
+    if (key === "UP" || key.includes("POSITIVE")) return "bs-green";
+    if (key === "DOWN" || key.includes("NEGATIVE")) return "bs-red";
+    if (key === "SIDE" || key.includes("NEUTRAL")) return "bs-amber";
+    return "bs-gray";
+  }
+
   function formatStructure(val) {
     if (val === null || val === undefined || val === "") {
       return { label: "–", cls: "bs-gray", code: "" };
     }
-    const key = String(val).trim().toLowerCase();
+    const raw = String(val).trim();
+    const key = raw.toLowerCase();
     if (STRUCTURE_MAP[key]) return STRUCTURE_MAP[key];
-    return { label: esc(String(val)), cls: "bs-gray", code: String(val) };
+    const upper = raw.toUpperCase();
+    if (Object.prototype.hasOwnProperty.call(STRUCTURE_STATE_MAP, upper)) {
+      return { label: STRUCTURE_STATE_MAP[upper], cls: structureTone(upper), code: raw };
+    }
+    return { label: EMPTY_LABELS.default, cls: "bs-gray", code: raw };
   }
 
   function formatStructureBadge(val) {
@@ -204,6 +226,9 @@
     "below ma50 momentum negative": "Dưới MA50, động lượng tiêu cực",
     "above ma200 momentum positive": "Trên MA200, động lượng tích cực",
     "below ma200 momentum negative": "Dưới MA200, động lượng tiêu cực",
+    "above ma20 momentum negative": "Trên MA20, động lượng tiêu cực",
+    "below ma20 momentum positive": "Dưới MA20, động lượng tích cực",
+    "near ma20 neutral": "Gần MA20, trung tính",
     "momentum_breadth_positive": "Độ rộng đà tích cực",
     "momentum_breadth_negative": "Độ rộng đà tiêu cực",
     "momentum": "Động lượng",
@@ -212,9 +237,12 @@
 
   function formatMomentum(text) {
     if (!text) return "–";
-    const key = String(text).trim().toLowerCase();
+    const raw = String(text).trim();
+    const key = raw.toLowerCase();
+    const spaced = key.replace(/_/g, " ");
     if (MOMENTUM_PHRASES[key]) return MOMENTUM_PHRASES[key];
-    return String(text);
+    if (MOMENTUM_PHRASES[spaced]) return MOMENTUM_PHRASES[spaced];
+    return raw;
   }
 
   /* 4. Governed domain tables — SCREAMING_SNAKE keys, presentation only. */
@@ -321,6 +349,7 @@
     finance_company: "Công ty tài chính",
     QUALIFIED_CLASSIFICATION: "Phân loại đã xác nhận",
     QUALIFIED_ENTITY_CLASS: "Loại hình doanh nghiệp đã xác nhận",
+    PROVIDER_DESCRIPTIVE_CLASSIFICATION: "Phân loại mô tả từ nguồn",
     ENTITY_TYPE_UNKNOWN: "Chưa xác định loại hình",
     AVAILABLE: "Có dữ liệu",
     UNKNOWN: "Chưa xác định",
@@ -355,6 +384,7 @@
     RESEARCH_PROXY: "Dữ liệu nghiên cứu",
     QUALIFIED_CLASSIFICATION: "Phân loại đã xác nhận",
     QUALIFIED_ENTITY_CLASS: "Loại hình doanh nghiệp đã xác nhận",
+    PROVIDER_DESCRIPTIVE_CLASSIFICATION: "Phân loại mô tả từ nguồn",
     READY: "Sẵn sàng nghiên cứu",
     ABSENT: "Chưa có dữ liệu",
     RESEARCH_CONTEXT: "Bối cảnh nghiên cứu",
@@ -368,12 +398,18 @@
     INSUFFICIENT_DATA: "Chưa đủ dữ liệu",
     NOT_APPLICABLE: "Không áp dụng",
     MIXED: "Hỗn hợp",
+    UNAVAILABLE: "Chưa có dữ liệu",
+    MIXED_BREADTH: "Độ rộng hỗn hợp",
+    UPPER_MIDDLE: "Trên trung bình",
+    LOWER_MIDDLE: "Dưới trung bình",
+    DEEP_EVIDENCE_ARTIFACT_NOT_MATERIALIZED_LOCALLY: "Bằng chứng sâu chưa có trên máy này",
   });
 
   const RESEARCH_READINESS_MAP = Object.freeze({
     RESEARCH_CONDITIONAL: "Nghiên cứu có điều kiện",
     RESEARCH_READY_CONDITIONAL: "Sẵn sàng nghiên cứu có điều kiện",
     RESEARCH_NOT_READY: "Chưa sẵn sàng nghiên cứu",
+    CONDITIONAL_RESEARCH_STATE: "Trạng thái nghiên cứu có điều kiện",
   });
 
   const PORTFOLIO_STATE_MAP = Object.freeze({
@@ -415,6 +451,76 @@
     NEGATIVE_EARNINGS: "Lợi nhuận âm",
   });
 
+  const RULE_CONDITION_MAP = Object.freeze({
+    TACTICAL_STATE_AWAITING_CONFIRMATION: "Chờ xác nhận điều kiện kỹ thuật",
+    TECHNICAL_DETERIORATION: "Suy yếu kỹ thuật",
+    PROFITABLE_FUNDAMENTAL: "Nền tảng doanh nghiệp có lợi nhuận",
+    ADVERSE_TACTICAL_ENTRY_STATE: "Trạng thái kỹ thuật bất lợi",
+    ATTRACTIVE_RELATIVE_RESEARCH: "Định giá hấp dẫn tương đối",
+    BREAKOUT_READY_AWAITING_CONFIRMATION: "Sẵn sàng bứt phá, chờ xác nhận",
+    CONSTRUCTIVE_NON_BREAKOUT_WITH_USABLE_FUNDAMENTAL: "Kỹ thuật mang tính xây dựng, có nền tảng dùng được",
+    CONSTRUCTIVE_TACTICAL_WITH_FUNDAMENTAL_EVIDENCE_UNAVAILABLE: "Kỹ thuật mang tính xây dựng, chưa có bằng chứng nền tảng",
+    CONSTRUCTIVE_TACTICAL_WITH_OBSERVED_WEAK_OR_LOSS_FUNDAMENTAL: "Kỹ thuật mang tính xây dựng, nền tảng yếu hoặc đang lỗ",
+    EARLY_REVERSAL_CANDIDATE: "Ứng viên đảo chiều sớm",
+    LOSS_MAKING: "Đang lỗ",
+    LOSS_WIDENED: "Lỗ mở rộng",
+    NO_USABLE_FUNDAMENTAL_OR_TACTICAL_AXIS: "Chưa có trục nền tảng hoặc kỹ thuật dùng được",
+    PRICE_VOLUME_DISTRIBUTION_RISK: "Rủi ro phân phối giá-khối lượng",
+    QUALIFIED_CATALYST_PRESENT: "Có chất xúc tác đã xác nhận",
+    TACTICAL_AXIS_NOT_CURRENT: "Trục kỹ thuật không thuộc phiên hiện tại",
+    TURNAROUND_CONTEXT: "Bối cảnh chuyển biến lợi nhuận",
+    WAIT_FOR_CONFIRMATION: "Chờ xác nhận điều kiện kỹ thuật",
+    COUNTER_THESIS_PRESENT: "Có phản luận",
+    EXECUTION_CAPACITY_EXACT_BLOCKED_NOT_A_STANCE_GATE: "Thiếu năng lực lệnh chính xác không chặn tư thế",
+    SHARE_BASIS_RESEARCH_PROXY: "Cơ sở số cổ phiếu là dữ liệu nghiên cứu",
+    NEGATIVE_EARNINGS: "Lợi nhuận âm",
+    EXPENSIVE_RELATIVE_RESEARCH: "Đắt tương đối",
+    EASING_TO_REVERSAL_UPGRADE: "Điều kiện nâng cấp sang đảo chiều",
+    BASE_RESOLUTION: "Chờ phân giải nền giá",
+    BREAKDOWN_EXTENSION_CONFIRMATION: "Xác nhận mở rộng phá vỡ hỗ trợ",
+    BREAKOUT_EXTENSION_CONFIRMATION: "Xác nhận mở rộng bứt phá",
+    DIRECTIONAL_RESOLUTION: "Chờ phân giải hướng",
+    DISTRIBUTION_ROLLOVER_CONFIRMATION: "Xác nhận đảo chiều phân phối",
+    EARLY_REVERSAL_CONFIRMATION_MA20_RECLAIM: "Xác nhận đảo chiều sớm khi lấy lại MA20",
+    ONGOING_TREND_CONTINUATION: "Xu hướng hiện tại tiếp diễn",
+    FUTURE_CLOSE_GT_FUTURE_MA20: "Giá đóng cửa tương lai trên MA20",
+    FUTURE_CLOSE_GT_RESISTANCE_LEVEL: "Giá đóng cửa tương lai trên kháng cự",
+    FUTURE_CLOSE_LT_FUTURE_MA20: "Giá đóng cửa tương lai dưới MA20",
+    FUTURE_CLOSE_LT_SUPPORT_LEVEL: "Giá đóng cửa tương lai dưới hỗ trợ",
+    FUTURE_CLOSE_LT_RESISTANCE_LEVEL: "Giá đóng cửa tương lai dưới kháng cự",
+    FUTURE_MOMENTUM_20D_GT_0: "Động lượng 20 phiên tương lai dương",
+    FUTURE_MOMENTUM_20D_LT_0: "Động lượng 20 phiên tương lai âm",
+    ABOVE_TO_CONFIRM: "Xác nhận khi vượt lên",
+    BELOW_TO_CONFIRM: "Xác nhận khi thủng xuống",
+    STATE_TRANSITION: "Chuyển trạng thái",
+    BASE_FAILURE: "Nền giá thất bại",
+    BREAKDOWN_RECLAIM: "Lấy lại sau phá vỡ hỗ trợ",
+    BREAKOUT_LEVEL_FAILURE: "Mức bứt phá thất bại",
+    DISTRIBUTION_RECOVERY: "Phục hồi sau phân phối",
+    DOWNTREND_STABILIZATION: "Xu hướng giảm ổn định lại",
+    EARLY_REVERSAL_MOMENTUM_FAILURE: "Đảo chiều sớm thất bại về động lượng",
+    MOMENTUM_ROLLOVER: "Động lượng đảo chiều",
+    RENEWED_BREAKDOWN_RISK: "Rủi ro phá vỡ hỗ trợ tái diễn",
+    COMPATIBLE_PROFITABILITY_QUALITY_DETERIORATION: "Suy giảm chất lượng lợi nhuận",
+    RETAINED_TACTICAL_RULE_FAILURE: "Quy tắc kỹ thuật được giữ lại không còn thỏa",
+    NOT_AVAILABLE: "Chưa có",
+  });
+
+  const AXIS_LABELS = Object.freeze({
+    tactical: "Kỹ thuật",
+    fundamental: "Nền tảng doanh nghiệp",
+    liquidity: "Thanh khoản",
+    valuation: "Định giá",
+    valuation_share_basis: "Cơ sở số cổ phiếu định giá",
+    catalyst: "Chất xúc tác",
+    confirmation: "Xác nhận",
+    invalidation: "Điều kiện vô hiệu",
+    downside_invalidation: "Điều kiện vô hiệu giảm giá",
+    market_sector: "Thị trường / ngành",
+  });
+
+  const ENTITY_CLASS_VOCABULARY = Object.freeze(["corporate", "bank", "securities", "insurance", "finance_company"]);
+
   const DOMAIN_TABLES = Object.freeze({
     research_stance: RESEARCH_STANCE_MAP,
     tactical_state: TACTICAL_STATE_MAP,
@@ -434,6 +540,8 @@
     prospective_case: PROSPECTIVE_CASE_MAP,
     setup_tag: SETUP_TAG_MAP,
     earnings_state: EARNINGS_STATE_MAP,
+    rule_condition: RULE_CONDITION_MAP,
+    structure_state: STRUCTURE_STATE_MAP,
   });
 
   const EMPTY_LABELS = Object.freeze({
@@ -445,6 +553,8 @@
     evidence_state: "Chưa có dữ liệu",
     confirmation_state: "Chưa có dữ liệu",
     invalidation_state: "Chưa có dữ liệu",
+    rule_condition: "Điều kiện kỹ thuật",
+    structure_state: "Chưa có",
   });
 
   function lookupDomainTable(table, raw) {
@@ -474,10 +584,22 @@
     }
     return {
       raw,
-      label: EMPTY_LABELS.default,
+      label: domain === "rule_condition" ? EMPTY_LABELS.rule_condition : EMPTY_LABELS.default,
       domain: domain || "",
       known: false,
     };
+  }
+
+  function formatKnownLabel(value, preferredDomain) {
+    const formatted = formatDomainState(value, preferredDomain);
+    if (formatted.known || !formatted.raw) return formatted.label;
+    const domains = Object.keys(DOMAIN_TABLES);
+    for (let i = 0; i < domains.length; i++) {
+      if (domains[i] === preferredDomain) continue;
+      const alt = formatDomainState(formatted.raw, domains[i]);
+      if (alt.known) return alt.label;
+    }
+    return formatted.label;
   }
 
   function formatStateLabel(value, domain) {
@@ -500,6 +622,66 @@
     const opts = options || {};
     const cls = opts.className ? ` ${opts.className}` : "";
     return `<span class="vs-state-label${cls}" data-state="${esc(formatted.raw)}" data-domain="${esc(domain || "")}" title="${esc(formatted.raw)}">${esc(formatted.label)}</span>`;
+  }
+
+  function formatRuleCondition(value) { return formatStateLabel(value, "rule_condition"); }
+  function formatAxisLabel(axis) { return AXIS_LABELS[axis] || String(axis || ""); }
+
+  function formatSectorLineage(value) {
+    const raw = (value === null || value === undefined) ? "" : String(value).trim();
+    if (!raw || raw.toUpperCase() === "UNKNOWN") {
+      return { raw, label: "Chưa phân loại ngành", qualification: "", identity: "", known: false };
+    }
+    const parts = raw.includes("|") ? raw.split("|").map((part) => part.trim()).filter(Boolean) : [raw];
+    const qualifications = [];
+    let identity = "";
+    let displayName = "";
+    parts.forEach((part) => {
+      const folded = part.toLowerCase();
+      if (ENTITY_CLASS_VOCABULARY.includes(folded)) {
+        displayName = displayName || lookupDomainTable(ENTITY_TYPE_MAP, part) || part;
+        return;
+      }
+      if (/^[A-Z][A-Z0-9_]+$/.test(part)) {
+        const mapped = lookupDomainTable(DATA_FITNESS_MAP, part)
+          || lookupDomainTable(ENTITY_TYPE_MAP, part)
+          || lookupDomainTable(RULE_CONDITION_MAP, part);
+        if (mapped) {
+          qualifications.push(mapped);
+          return;
+        }
+      }
+      if (/[\/:]/.test(part)) {
+        identity = identity || part;
+        return;
+      }
+      displayName = displayName || part;
+    });
+    return {
+      raw,
+      label: displayName || qualifications[0] || "Chưa phân loại ngành",
+      qualification: qualifications.join(" · "),
+      identity,
+      known: Boolean(displayName || qualifications.length),
+    };
+  }
+
+  function sectorLineageHtml(value) {
+    const formatted = formatSectorLineage(value);
+    const extra = formatted.qualification
+      ? `<span class="product-muted vs-lineage-qual"> · ${esc(formatted.qualification)}</span>`
+      : "";
+    return `<span data-sector="${esc(formatted.raw)}" title="${esc(formatted.raw)}">${esc(formatted.label)}</span>${extra}`;
+  }
+
+  function technicalDetailsHtml(payload, summary) {
+    const body = typeof payload === "string" ? payload : JSON.stringify(payload ?? {}, null, 2);
+    return `<details class="vs-tech-details"><summary>${esc(summary || "Chi tiết kỹ thuật")}</summary><pre class="cockpit-code">${esc(body)}</pre></details>`;
+  }
+
+  function provenanceHtml(identity, summary) {
+    if (!identity) return "";
+    return `<details class="vs-tech-details" data-provenance="true"><summary>${esc(summary || "Chi tiết dữ liệu")}</summary><div class="vs-provenance-label">Nguồn dữ liệu</div><pre class="cockpit-code">${esc(identity)}</pre></details>`;
   }
 
   /* Backward-compatible freshness + mixed research-state helpers. */
@@ -600,6 +782,13 @@
     formatEntityType,
     formatConfirmationState,
     formatInvalidationState,
+    formatRuleCondition,
+    formatKnownLabel,
+    formatAxisLabel,
+    formatSectorLineage,
+    sectorLineageHtml,
+    technicalDetailsHtml,
+    provenanceHtml,
     visibleStateHtml,
     DOMAIN_TABLES,
     SCREENER_UI_LABELS,

@@ -78,8 +78,18 @@
   function methodLabel(methods) {
     return methods && methods.length ? methods.join(", ") : "Chưa có phương pháp hỗ trợ";
   }
+  function sectorHtml(sector) {
+    const vf = getValueFormat();
+    if (vf && typeof vf.sectorLineageHtml === "function") return vf.sectorLineageHtml(sector);
+    return esc(sector);
+  }
+  function provenanceHtml(identity) {
+    const vf = getValueFormat();
+    if (vf && typeof vf.provenanceHtml === "function") return vf.provenanceHtml(identity);
+    return "";
+  }
   function renderRowHtml(row) {
-    return `<tr><td><a class="product-link" href="${workspaceHref(row.ticker)}">${esc(row.ticker)}</a><div class="product-muted">${esc(row.sector)}</div></td><td>${stateHtml(row.stance, "research_stance")}</td><td>${stateHtml(row.tactical, "tactical_state")}<div class="product-muted">${stateHtml(row.action, "entry_action")}</div></td><td>${stateHtml(row.fundamental, "fundamental_state")}</td><td>${stateHtml(row.valuation, "valuation_state")}<div class="product-muted">${esc(methodLabel(row.methods))}</div></td><td>${stateHtml(row.liquidity, "liquidity_state")}</td><td>${stateHtml(row.catalyst, "evidence_state")}</td><td>${stateHtml(row.confirmation, "confirmation_state")}<div class="product-muted">điều kiện kích hoạt: ${stateHtml(row.trigger, "confirmation_state")}</div></td><td>${stateHtml(row.invalidation, "invalidation_state")}</td><td>${stateHtml(row.freshness, "freshness")}</td></tr>`;
+    return `<tr><td><a class="product-link" href="${workspaceHref(row.ticker)}">${esc(row.ticker)}</a><div class="product-muted">${sectorHtml(row.sector)}</div></td><td>${stateHtml(row.stance, "research_stance")}</td><td>${stateHtml(row.tactical, "tactical_state")}<div class="product-muted">${stateHtml(row.action, "entry_action")}</div></td><td>${stateHtml(row.fundamental, "fundamental_state")}</td><td>${stateHtml(row.valuation, "valuation_state")}<div class="product-muted">${esc(methodLabel(row.methods))}</div></td><td>${stateHtml(row.liquidity, "liquidity_state")}</td><td>${stateHtml(row.catalyst, "evidence_state")}</td><td>${stateHtml(row.confirmation, "confirmation_state")}<div class="product-muted">điều kiện kích hoạt: ${stateHtml(row.trigger, "confirmation_state")}</div></td><td>${stateHtml(row.invalidation, "invalidation_state")}</td><td>${stateHtml(row.freshness, "freshness")}</td></tr>`;
   }
   function renderRows(rows) {
     const stance = document.getElementById("stance-filter").value;
@@ -104,7 +114,7 @@
   function render(workspace) {
     const rows = analysisRows(workspace); const stanceCounts = countBy(rows, "stance"); const tacticalCounts = countBy(rows, "tactical"); const dataCoverage = coverage(rows);
     document.getElementById("analysis-content").hidden = false;
-    document.getElementById("analysis-meta").textContent = `Phiên quyết định được giữ lại ${workspace.as_of_session} · ${rows.length.toLocaleString("vi-VN")} thẻ · ${workspace.producer_artifact_identity}`;
+    document.getElementById("analysis-meta").innerHTML = `Phiên quyết định được giữ lại ${esc(workspace.as_of_session)} · ${rows.length.toLocaleString("vi-VN")} thẻ${provenanceHtml(workspace.producer_artifact_identity)}`;
     document.getElementById("analysis-summary").innerHTML = [
       `Phạm vi thị trường<b>${rows.length.toLocaleString("vi-VN")}</b>thẻ quyết định`,
       `Tư thế nghiên cứu<b>${Object.keys(stanceCounts).length}</b>nhóm nghiên cứu`,
@@ -123,5 +133,5 @@
   }
   function showError(message) { const error = document.getElementById("analysis-error"); error.hidden = false; error.textContent = message; }
   if (typeof document !== "undefined") fetch(DATA_URL, {cache:"no-store"}).then((response) => { if (!response.ok) throw new Error(`HTTP ${response.status}`); return response.json(); }).then((workspace) => { if (workspace.schema_version !== SCHEMA || !workspace.cards || !Object.keys(workspace.cards).length) throw new Error("invalid or empty workspace artifact"); render(workspace); }).catch((error) => showError(`CURRENT_PRODUCT_ARTIFACT_NOT_PUBLISHED: ${error.message}. Hãy công bố artifact Investment Decision Workspace đã được kiểm định.`));
-  const api = {DATA_URL, SCHEMA, record, analysisRows, coverage, conflictReasons, conflictReasonLabel, renderRowHtml, labelOf, optionSpec}; if (typeof window !== "undefined") window.StockLookupAnalysis = api; if (typeof module !== "undefined") module.exports = api;
+  const api = {DATA_URL, SCHEMA, record, analysisRows, coverage, conflictReasons, conflictReasonLabel, renderRowHtml, labelOf, optionSpec, sectorHtml}; if (typeof window !== "undefined") window.StockLookupAnalysis = api; if (typeof module !== "undefined") module.exports = api;
 })();

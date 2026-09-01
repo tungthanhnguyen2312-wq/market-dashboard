@@ -345,9 +345,14 @@ document.addEventListener("DOMContentLoaded", () => {
   WORKSPACE = workspace || { cards: {} };
   MASTER_ROWS = SM.projectionRows(projection);
   const marketSession = projection.as_of_session || window.BUILD_INFO?.market_session || "?";
-  document.getElementById("meta").textContent =
-    `${MASTER_ROWS.length} mã · phiên ${marketSession} · contract ${projection.contract_version} · ${projection.artifact_identity || ""}`
-    + (workspace && workspace.as_of_session ? ` · workspace ${workspace.as_of_session}` : " · CURRENT_PRODUCT_ARTIFACT_NOT_PUBLISHED");
+  const vf = window.VSValueFormat;
+  const provenance = vf && typeof vf.provenanceHtml === "function"
+    ? vf.provenanceHtml([projection.contract_version, projection.artifact_identity, workspace && workspace.producer_artifact_identity].filter(Boolean).join("\n"))
+    : "";
+  document.getElementById("meta").innerHTML =
+    `${MASTER_ROWS.length} mã · phiên ${esc(marketSession)}`
+    + (workspace && workspace.as_of_session ? ` · workspace ${esc(workspace.as_of_session)}` : " · CURRENT_PRODUCT_ARTIFACT_NOT_PUBLISHED")
+    + provenance;
   document.getElementById("tblScreen-skeleton").style.display = "none";
   document.getElementById("tblBreadth-skeleton").style.display = "none";
 

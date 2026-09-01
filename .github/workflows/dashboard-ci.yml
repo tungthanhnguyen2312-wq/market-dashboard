@@ -85,6 +85,7 @@ jobs:
           node --check assets/js/investment-workspace.js
           node --check assets/js/dashboard-product-summary.js
           node --check assets/js/screener-master.js
+          node --check assets/js/signals-product.js
 
       # Navigation-contract and visual-foundation-contract above already assert
       # HTML/CSS structure (required nav markup, design tokens, no conflict

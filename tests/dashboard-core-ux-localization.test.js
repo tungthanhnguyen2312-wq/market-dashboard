@@ -10,6 +10,8 @@ const vf = require(path.join(root, "assets/js/value-format.js"));
 const overview = require(path.join(root, "assets/js/dashboard-product-summary.js"));
 const analysis = require(path.join(root, "assets/js/analysis-product.js"));
 const ws = require(path.join(root, "assets/js/investment-workspace.js"));
+const signals = require(path.join(root, "assets/js/signals-product.js"));
+const sm = require(path.join(root, "assets/js/screener-master.js"));
 
 const dashboardHtml = fs.readFileSync(path.join(root, "dashboard.html"), "utf8");
 const analysisHtml = fs.readFileSync(path.join(root, "analysis.html"), "utf8");
@@ -26,6 +28,40 @@ function visibleText(html) {
     .replace(/\s+/g, " ")
     .trim();
 }
+
+function primaryVisibleText(html) {
+  const stripped = String(html || "").replace(/<details[\s\S]*?<\/details>/gi, (block) => {
+    const match = block.match(/<summary[^>]*>([\s\S]*?)<\/summary>/i);
+    return match ? ` ${match[1]} ` : " ";
+  });
+  return visibleText(stripped);
+}
+
+const REPORTED_RAW_ENUMS = [
+  "NOT_AVAILABLE",
+  "BELOW_MA20_MOMENTUM_NEGATIVE",
+  "NEAR_MA20_NEUTRAL",
+  "BELOW_MA20_MOMENTUM_POSITIVE",
+  "QUALIFIED_CLASSIFICATION",
+  "QUALIFIED_ENTITY_CLASS",
+  "PROVIDER_DESCRIPTIVE_CLASSIFICATION",
+  "TACTICAL_STATE_AWAITING_CONFIRMATION",
+  "TECHNICAL_DETERIORATION",
+  "PROFITABLE_FUNDAMENTAL",
+  "FUTURE_CLOSE_GT_FUTURE_MA20",
+  "EASING_TO_REVERSAL_UPGRADE",
+  "RENEWED_BREAKDOWN_RISK",
+  "COMPATIBLE_PROFITABILITY_QUALITY_DETERIORATION",
+  "BREAKOUT_READY",
+  "BASE_BUILDING",
+  "EARLY_REVERSAL_CANDIDATE",
+  "UPTREND_CONFIRMED",
+  "SELLING_PRESSURE_EASING",
+  "DISTRIBUTION_RISK",
+  "BREAKDOWN_RISK",
+  "WAIT_FOR_CONFIRMATION",
+  "AVOID_NEW_ENTRY",
+];
 
 const STANCES = [
   "INITIATE_RESEARCH_CANDIDATE",
@@ -198,4 +234,121 @@ test("analysis page chrome is Vietnamese", () => {
   assert.match(analysisHtml, /Điều kiện vô hiệu/);
   assert.match(analysisHtml, /Độ mới dữ liệu/);
   assert.doesNotMatch(analysisHtml, /Research comparison/);
+});
+
+test("technical structure pills localize visible text and keep raw identity in data/title", () => {
+  const cases = {
+    BELOW_MA20_MOMENTUM_NEGATIVE: "Dưới MA20, động lượng tiêu cực",
+    NEAR_MA20_NEUTRAL: "Gần MA20, trung tính",
+    BELOW_MA20_MOMENTUM_POSITIVE: "Dưới MA20, động lượng tích cực",
+    ABOVE_MA20_MOMENTUM_POSITIVE: "Trên MA20, động lượng tích cực",
+    NOT_AVAILABLE: "Chưa có",
+  };
+  for (const [raw, label] of Object.entries(cases)) {
+    const formatted = vf.formatDomainState(raw, "structure_state");
+    assert.equal(formatted.raw, raw);
+    assert.equal(formatted.label, label);
+    const html = vf.formatStructureBadge(raw);
+    assert.match(html, new RegExp(`data-structure="${raw}"`));
+    assert.match(html, new RegExp(`title="${raw}"`));
+    assert.match(html, new RegExp(label.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+    assert.doesNotMatch(primaryVisibleText(html), new RegExp(raw));
+  }
+});
+
+test("rule-condition visible text is localized with raw identity in technical detail", () => {
+  assert.equal(vf.formatRuleCondition("TACTICAL_STATE_AWAITING_CONFIRMATION"), "Chờ xác nhận điều kiện kỹ thuật");
+  assert.equal(vf.formatRuleCondition("WAIT_FOR_CONFIRMATION"), "Chờ xác nhận điều kiện kỹ thuật");
+  assert.equal(vf.formatDomainState("UNKNOWN_MACHINE_RULE_XYZ", "rule_condition").label, "Điều kiện kỹ thuật");
+  assert.equal(vf.formatDomainState("UNKNOWN_MACHINE_RULE_XYZ", "rule_condition").raw, "UNKNOWN_MACHINE_RULE_XYZ");
+  const card = workspace.cards.HPG;
+  const html = ws.decisionCardHtml(card, { ticker: "HPG", sourceArtifacts: workspace.source_artifacts });
+  const visible = primaryVisibleText(html);
+  assert.match(visible, /Chờ xác nhận điều kiện kỹ thuật/);
+  assert.match(visible, /Suy yếu kỹ thuật/);
+  assert.match(visible, /Nền tảng doanh nghiệp có lợi nhuận/);
+  assert.match(visible, /Điều kiện nâng cấp sang đảo chiều/);
+  assert.match(visible, /Giá đóng cửa tương lai trên MA20/);
+  assert.match(visible, /Rủi ro phá vỡ hỗ trợ tái diễn/);
+  assert.match(visible, /Suy giảm chất lượng lợi nhuận/);
+  assert.match(html, /data-state="TACTICAL_STATE_AWAITING_CONFIRMATION"|data-condition="EASING_TO_REVERSAL_UPGRADE"/);
+  assert.match(html, /<details class="vs-tech-details">[\s\S]*FUTURE_CLOSE_GT_FUTURE_MA20/);
+  assert.match(html, /<details class="vs-tech-details">[\s\S]*RENEWED_BREAKDOWN_RISK/);
+  for (const raw of [
+    "TACTICAL_STATE_AWAITING_CONFIRMATION",
+    "TECHNICAL_DETERIORATION",
+    "PROFITABLE_FUNDAMENTAL",
+    "FUTURE_CLOSE_GT_FUTURE_MA20",
+    "EASING_TO_REVERSAL_UPGRADE",
+    "RENEWED_BREAKDOWN_RISK",
+    "COMPATIBLE_PROFITABILITY_QUALITY_DETERIORATION",
+  ]) {
+    assert.doesNotMatch(visible, new RegExp(raw));
+  }
+});
+
+test("provenance presentation uses a Vietnamese label and keeps the raw identifier in technical detail", () => {
+  const qualified = vf.formatSectorLineage("QUALIFIED_CLASSIFICATION|QUALIFIED_ENTITY_CLASS|corporate");
+  assert.equal(qualified.label, "Doanh nghiệp");
+  assert.match(qualified.qualification, /Phân loại đã xác nhận/);
+  assert.equal(qualified.raw, "QUALIFIED_CLASSIFICATION|QUALIFIED_ENTITY_CLASS|corporate");
+  const provider = vf.formatSectorLineage("PROVIDER_DESCRIPTIVE_CLASSIFICATION|VCI.symbols_by_industries/retained-20260728|tài nguyên cơ bản");
+  assert.equal(provider.label, "tài nguyên cơ bản");
+  assert.equal(provider.qualification, "Phân loại mô tả từ nguồn");
+  assert.equal(provider.identity, "VCI.symbols_by_industries/retained-20260728");
+  const sectorHtml = vf.sectorLineageHtml("QUALIFIED_CLASSIFICATION|QUALIFIED_ENTITY_CLASS|corporate");
+  assert.doesNotMatch(primaryVisibleText(sectorHtml), /QUALIFIED_CLASSIFICATION|QUALIFIED_ENTITY_CLASS/);
+  assert.match(sectorHtml, /data-sector="QUALIFIED_CLASSIFICATION\|QUALIFIED_ENTITY_CLASS\|corporate"/);
+  const provenance = vf.provenanceHtml("investment_decision_workspace_projection/v1:abc");
+  assert.match(primaryVisibleText(provenance), /Chi tiết dữ liệu/);
+  assert.doesNotMatch(primaryVisibleText(provenance), /investment_decision_workspace_projection/);
+  assert.match(provenance, /Nguồn dữ liệu/);
+  assert.match(provenance, /investment_decision_workspace_projection\/v1:abc/);
+  const analysisRow = analysis.renderRowHtml(analysis.record(workspace.cards.HPG));
+  assert.doesNotMatch(primaryVisibleText(analysisRow), /QUALIFIED_CLASSIFICATION|QUALIFIED_ENTITY_CLASS/);
+  assert.match(analysisRow, /Doanh nghiệp/);
+});
+
+test("normal renderer output has no raw primary enums outside technical detail", () => {
+  const card = workspace.cards.HPG;
+  const workspaceHtml = ws.decisionCardHtml(card, { ticker: "HPG", sourceArtifacts: { producer_artifact_identity: workspace.producer_artifact_identity } });
+  const analysisHtmlRow = analysis.renderRowHtml(analysis.record(card));
+  const signalHtml = signals.renderRowHtml(signals.records({ cards: { HPG: card } })[0]);
+  const structureHtml = vf.formatStructureBadge("BELOW_MA20_MOMENTUM_NEGATIVE");
+  const overviewHtml = overview.renderDecisionSummaryHtml(overview.summarizeScreenerOverview(projection));
+  for (const html of [workspaceHtml, analysisHtmlRow, signalHtml, structureHtml, overviewHtml]) {
+    const visible = primaryVisibleText(html);
+    for (const raw of REPORTED_RAW_ENUMS.concat(STANCES, TACTICAL)) {
+      assert.doesNotMatch(visible, new RegExp(`\\b${raw}\\b`));
+    }
+  }
+});
+
+test("filter option.value remains the raw backend enum", () => {
+  const spec = analysis.optionSpec("WAIT_FOR_CONFIRMATION", "research_stance");
+  assert.equal(spec.value, "WAIT_FOR_CONFIRMATION");
+  assert.equal(spec.text, "Chờ xác nhận");
+  const wait = ws.FILTERS.find((item) => item.id === "wait");
+  assert.equal(wait.test({ research_stance: "WAIT_FOR_CONFIRMATION" }), true);
+  assert.equal(sm.matchesScreenerFilters({
+    ticker: "HPG", display_exchange: "HSX", research: { stance: "WAIT_FOR_CONFIRMATION" },
+    tactical: { entry_state: "SELLING_PRESSURE_EASING" }, sector: { status: "AVAILABLE", label: "Thép" },
+    financial_v2: { status: "AVAILABLE" }, liquidity: { method: "LIQUIDITY_RESEARCH_PROXY" },
+    freshness: { row: "CURRENT" },
+  }, { stance: "WAIT_FOR_CONFIRMATION", tactical: "SELLING_PRESSURE_EASING" }), true);
+});
+
+test("screener financial and status formatters stay localized without changing predicates", () => {
+  assert.equal(sm.formatFinancial({ status: "ABSENT" }).text, "Chưa có dữ liệu tài chính");
+  assert.equal(sm.formatFinancial({ status: "AVAILABLE", profitability_state: "PROFITABLE" }).text, "Có lợi nhuận");
+  assert.equal(sm.translateStatus("READY"), "Sẵn sàng nghiên cứu");
+  assert.equal(sm.translateStatus("QUALIFIED_CLASSIFICATION"), "Phân loại đã xác nhận");
+  const row = {
+    ticker: "HPG", display_exchange: "HSX", research: { stance: "WAIT_FOR_CONFIRMATION" },
+    tactical: { entry_state: "DOWNTREND" }, sector: { status: "AVAILABLE", label: "Thép" },
+    financial_v2: { status: "AVAILABLE" }, liquidity: { method: "LIQUIDITY_RESEARCH_PROXY" },
+    freshness: { row: "CURRENT" },
+  };
+  assert.equal(sm.matchesScreenerFilters(row, { tactical: "DOWNTREND" }), true);
+  assert.equal(sm.matchesScreenerFilters(row, { tactical: "BREAKOUT_READY" }), false);
 });
