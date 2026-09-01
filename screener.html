@@ -33,6 +33,8 @@
      (corePlugins.preflight:false, theme.extend colors/fontFamily như cũ). -->
 <link rel="stylesheet" href="assets/css/tailwind.generated.css?v=2026-08-26-f54d70f-cff1036856">
 <link rel="stylesheet" href="assets/css/shell.css?v=2026-08-26-f54d70f-cff1036856">
+<link rel="stylesheet" href="assets/css/decision-cockpit.css?v=2026-08-26-f54d70f-cff1036856">
+<link rel="stylesheet" href="assets/css/investment-workspace.css?v=2026-08-26-f54d70f-cff1036856">
 <style>
   /* Lớp màu do script bảng bên dưới (giữ nguyên, không sửa) sinh ra trong HTML */
   .up { color: var(--success); }
@@ -52,6 +54,14 @@
   .screen-signal { font-size:.68rem; white-space:nowrap; }
   .screen-signal-stale { opacity:.62; }
   @media (max-width: 700px) { .screen-toolbar label { min-width:calc(50% - .3rem); } .screen-toolbar { align-items:stretch; } }
+  .screener-proxy { color: var(--text-muted); }
+  .decision-drawer-backdrop { position:fixed; inset:0; background:rgba(0,0,0,.45); z-index:40; display:none; }
+  .decision-drawer-backdrop.is-open { display:block; }
+  .decision-drawer { position:fixed; top:0; right:0; height:100%; width:min(640px,100%); background:var(--bg-deep, #071416); z-index:41; overflow:auto; transform:translateX(100%); transition:transform .2s ease; box-shadow:-12px 0 32px rgba(0,0,0,.35); }
+  .decision-drawer-backdrop.is-open .decision-drawer { transform:translateX(0); }
+  .decision-drawer-header { display:flex; align-items:center; justify-content:space-between; gap:.75rem; padding:1rem 1.1rem; border-bottom:1px solid rgba(255,255,255,.08); position:sticky; top:0; background:inherit; z-index:1; }
+  .decision-drawer-body { padding:1rem 1.1rem 2rem; }
+  @media (max-width: 700px) { .decision-drawer { width:100%; } }
 </style>
 </head>
 <body class="bg-bg text-white font-sans" data-page="screener">
@@ -106,17 +116,15 @@
           </div>
           <div class="card-body">
             <div class="text-muted mb-2" id="meta" style="font-size:0.78rem;">đang tải dữ liệu…</div>
-            <div class="screen-presets" aria-label="Bộ lọc nhanh">
-              <button type="button" class="screen-preset" data-screen-preset="leaders">Dẫn đầu</button><button type="button" class="screen-preset" data-screen-preset="momentum">Động lượng</button><button type="button" class="screen-preset" data-screen-preset="liquid">Thanh khoản</button><button type="button" class="screen-preset" data-screen-preset="clean">Mã sạch</button>
-            </div>
             <div class="screen-toolbar mb-2" id="screen-toolbar" aria-label="Bộ lọc chi tiết">
-              <label>Sàn<select id="screen-exchange"><option value="">Tất cả</option></select></label><label>Min RS<input id="screen-min-rs" type="number" min="0" max="100" inputmode="numeric"></label><label>Min RelVol<input id="screen-min-relvol" type="number" min="0" step="0.1" inputmode="decimal"></label><label>Min GTGD<input id="screen-min-liquidity" type="number" min="0" step="1" inputmode="decimal"></label><label>Max P/E<input id="screen-max-pe" type="number" min="0" step="0.1" inputmode="decimal"></label><label>Tín hiệu<select id="screen-signal-state"><option value="">Tất cả</option><option value="current">Hiện tại</option><option value="stale">Đã cũ</option></select></label>
-            </div>
-            <div class="vs-checkbox-row mb-3">
-              <input class="vs-checkbox" type="checkbox" id="cleanOnly">
-              <label class="vs-checkbox-label" for="cleanOnly">
-                Chỉ hiện mã <b>sạch</b> (không dính cờ margin) &amp; GTGD ≥ 3 tỷ/phiên
-              </label>
+              <label>Tìm<input id="screen-query" type="search" placeholder="Mã / ngành"></label>
+              <label>Sàn<select id="screen-exchange"><option value="">Tất cả</option></select></label>
+              <label>Ngành<select id="screen-sector"><option value="">Tất cả</option><option value="UNKNOWN">Chưa phân loại ngành</option></select></label>
+              <label>Tư thế nghiên cứu<select id="screen-stance"><option value="">Tất cả</option></select></label>
+              <label>Trạng thái kỹ thuật<select id="screen-tactical"><option value="">Tất cả</option></select></label>
+              <label>Tài chính<select id="screen-financial"><option value="">Tất cả</option><option value="AVAILABLE">Có dữ liệu</option><option value="ABSENT">Chưa có dữ liệu tài chính</option></select></label>
+              <label>Thanh khoản nghiên cứu<select id="screen-liquidity"><option value="">Tất cả</option><option value="PROXY">Proxy nghiên cứu</option></select></label>
+              <label>Độ mới<select id="screen-freshness"><option value="">Tất cả</option><option value="CURRENT">Hiện tại</option><option value="NOT_CURRENT">Không hiện tại</option></select></label>
             </div>
             <div class="table-responsive">
               <table id="tblScreen" class="table table-striped table-hover table-sm vs-datatable w-100"></table>
@@ -149,6 +157,19 @@
 
       </main>
 
+      <div class="decision-drawer-backdrop" id="decision-drawer-backdrop" hidden>
+        <aside class="decision-drawer" id="decision-drawer" role="dialog" aria-modal="true" aria-labelledby="decision-drawer-title">
+          <div class="decision-drawer-header">
+            <h5 id="decision-drawer-title">Decision Drawer</h5>
+            <div class="d-flex gap-2">
+              <button type="button" class="screen-preset" id="decision-drawer-company">Chi tiết kỹ thuật</button>
+              <button type="button" class="vs-icon-btn" id="decision-drawer-close" aria-label="Đóng">×</button>
+            </div>
+          </div>
+          <div class="decision-drawer-body" id="decision-drawer-body"></div>
+        </aside>
+      </div>
+
       <footer class="vs-statusfooter">
         <span>Dữ liệu sinh cục bộ bởi pipeline Stock Look Up — trạng thái point-in-time, chỉ mang tính tham khảo, không phải khuyến nghị đầu tư.</span>
         <span class="badge-soft bs-blue">Dữ liệu pipeline</span>
@@ -168,10 +189,9 @@
 <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js" defer></script>
 <script src="data/build_info.js?v=2026-08-26-f54d70f-cff1036856" defer></script>
-<!-- data/screener_data.js (fallback file://) KHÔNG còn tải tĩnh — loadCsv() bên dưới
-     chỉ nạp động qua loadFallbackScript() khi thật sự cần (file:// hoặc fetch lỗi). -->
 <script src="assets/js/value-format.js?v=2026-08-26-f54d70f-cff1036856" defer></script>
-<script src="assets/js/screener-workflow.js?v=2026-08-26-f54d70f-cff1036856" defer></script>
+<script src="assets/js/investment-workspace.js?v=2026-08-26-f54d70f-cff1036856" defer></script>
+<script src="assets/js/screener-master.js?v=2026-08-26-f54d70f-cff1036856" defer></script>
 <script defer>
 // Ưu tiên fetch CSV thật (chạy qua http.server / GitHub Pages luôn tươi);
 // mở trực tiếp bằng double-click thì rơi về window.SCREEN_ROWS/BREADTH_ROWS trong .js
@@ -188,140 +208,207 @@ async function loadCsv(path, globalName) {
       if (parsed && parsed.length) return parsed;
     } catch (e) { fetchErr = e; }
   }
-  // file:// hoặc fetch vừa thất bại — nạp fallback .js CHỈ lúc này.
   await loadFallbackScript("data/screener_data.js", globalName);
   const fallback = window[globalName] || null;
-  const fallbackSession = window.SCREENER_DATA_META?.market_session;
-  if (fallback && window.BUILD_INFO?.market_session && fallbackSession < window.BUILD_INFO.market_session) {
-    console.warn(`Fallback ${globalName} cũ: ${fallbackSession} < ${window.BUILD_INFO.market_session}`);
-    window.SCREENER_LOAD_WARNING = `Cảnh báo: fallback ${fallbackSession} cũ hơn manifest ${window.BUILD_INFO.market_session}.`;
+  if (!fallback) console.error("Không tải được dữ liệu breadth (cả HTTP và fallback):", fetchErr);
+  return fallback;
+}
+async function loadJson(url) {
+  if (isFileProtocol()) return null;
+  const r = await fetch(`${url}?v=${Date.now()}`, { cache: "no-store" });
+  if (!r.ok) throw new Error(r.status);
+  return r.json();
+}
+async function loadMasterProjection() {
+  const SM = window.VSScreenerMaster;
+  try {
+    const payload = await loadJson(SM.DATA_URL);
+    if (SM.validateProjection(payload)) return payload;
+  } catch (error) {
+    console.warn("screener_master_projection.json fetch failed", error);
   }
-  if (!fallback) console.error("Không tải được dữ liệu (cả HTTP và fallback):", fetchErr);
+  await loadFallbackScript(SM.JS_FALLBACK, "SCREENER_MASTER_PROJECTION");
+  const fallback = window.SCREENER_MASTER_PROJECTION;
+  if (!SM.validateProjection(fallback)) {
+    throw new Error("SCREENER_MASTER_PROJECTION_UNAVAILABLE");
+  }
   return fallback;
 }
 async function loadWorkspaceProjection() {
   try {
-    const response = await fetch("data/investment_decision_workspace.json", { cache: "no-store" });
-    if (!response.ok) throw new Error(response.status);
-    const payload = await response.json();
-    if (payload.schema_version !== "investment_decision_workspace_dashboard_projection/v1" || !payload.cards) throw new Error("unsupported schema");
-    return payload;
+    const payload = await loadJson(window.VSScreenerMaster.WORKSPACE_URL);
+    if (payload && payload.schema_version === window.VSScreenerMaster.WORKSPACE_SCHEMA && payload.cards) return payload;
   } catch (error) {
     console.warn("CURRENT_PRODUCT_ARTIFACT_NOT_PUBLISHED", error);
-    return null;
   }
+  return { schema_version: window.VSScreenerMaster.WORKSPACE_SCHEMA, cards: {}, as_of_session: null };
 }
-const num = (v, d = 1) => (v === null || v === undefined || v === "" || Number.isNaN(v))
-  ? "–" : Number(v).toLocaleString("vi-VN", { maximumFractionDigits: d });
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-
 const VI = { search: "Tìm:", info: "Hiện _START_–_END_ / _TOTAL_ dòng",
              lengthMenu: "Hiện _MENU_ dòng", paginate: { next: "›", previous: "‹" },
              zeroRecords: "Không có dòng nào khớp", infoFiltered: "(lọc từ _MAX_ dòng)" };
 
 let screenTable;
-// Bọc trong DOMContentLoaded: script inline này có "defer" nhưng defer KHÔNG có tác
-// dụng với script không có src (chạy ngay lúc parse HTML, trước khi các script
-// defer có src ở trên — jQuery/DataTables/Papa — kịp chạy) → nếu gọi thẳng IIFE ở
-// đây thì Papa/DataTable có thể chưa tồn tại, rows/breadth rơi về null. Bọc lại để
-// đảm bảo chạy sau khi mọi script defer khác đã chạy xong.
+let MASTER_ROWS = [];
+let WORKSPACE = { cards: {} };
+let SELECTED_TICKER = null;
+
+function currentFilters() {
+  return {
+    query: document.getElementById("screen-query").value,
+    exchange: document.getElementById("screen-exchange").value,
+    sector: document.getElementById("screen-sector").value,
+    stance: document.getElementById("screen-stance").value,
+    tactical: document.getElementById("screen-tactical").value,
+    financial: document.getElementById("screen-financial").value,
+    liquidity: document.getElementById("screen-liquidity").value,
+    freshness: document.getElementById("screen-freshness").value,
+  };
+}
+function fillSelect(id, values) {
+  const el = document.getElementById(id);
+  const current = el.value;
+  const extras = Array.from(el.querySelectorAll("option")).filter((o) => o.value && ["UNKNOWN","AVAILABLE","ABSENT","PROXY","CURRENT","NOT_CURRENT"].includes(o.value));
+  const keep = new Set(extras.map((o) => o.value));
+  el.querySelectorAll("option").forEach((o) => { if (o.value && !keep.has(o.value)) o.remove(); });
+  values.forEach((value) => {
+    if (!value || keep.has(value)) return;
+    const opt = document.createElement("option");
+    opt.value = value; opt.textContent = value;
+    el.appendChild(opt);
+  });
+  if ([...el.options].some((o) => o.value === current)) el.value = current;
+}
+function openDrawer(ticker) {
+  const SM = window.VSScreenerMaster;
+  const selected = SM.normalizeTicker(ticker);
+  const row = MASTER_ROWS.find((r) => r.ticker === selected);
+  if (!row) return;
+  SELECTED_TICKER = selected;
+  const workspaceCard = WORKSPACE.cards[selected] || null;
+  const identity = SM.drawerIdentity(row.ticker, selected, workspaceCard);
+  const backdrop = document.getElementById("decision-drawer-backdrop");
+  const body = document.getElementById("decision-drawer-body");
+  document.getElementById("decision-drawer-title").textContent = selected;
+  backdrop.hidden = false;
+  backdrop.classList.add("is-open");
+  if (window.VSInvestmentWorkspace && window.VSInvestmentWorkspace.renderDecisionCard) {
+    window.VSInvestmentWorkspace.renderDecisionCard(workspaceCard, body, {
+      ticker: selected,
+      sourceArtifacts: WORKSPACE.source_artifacts || { producer_artifact_identity: WORKSPACE.producer_artifact_identity },
+    });
+  } else {
+    body.innerHTML = `<div class="cockpit-note">Workspace renderer unavailable for ${esc(selected)}.</div>`;
+  }
+  if (!identity.ok || !workspaceCard) {
+    const note = document.createElement("div");
+    note.className = "cockpit-note mt-2";
+    note.textContent = workspaceCard
+      ? `Ticker identity ${identity.table} / ${identity.selected} / ${identity.workspace}`
+      : `Workspace card unavailable for ${selected}. No substitute ticker was selected.`;
+    body.prepend(note);
+  }
+  document.body.style.overflow = "hidden";
+}
+function closeDrawer() {
+  const backdrop = document.getElementById("decision-drawer-backdrop");
+  backdrop.classList.remove("is-open");
+  backdrop.hidden = true;
+  document.body.style.overflow = "";
+}
+
 document.addEventListener("DOMContentLoaded", () => {
 (async () => {
-  const [rows, breadth, workspace] = await Promise.all([
-    loadCsv("screen_snapshot.csv", "SCREEN_ROWS"),
-    loadCsv("market_breadth.csv", "BREADTH_ROWS"),
-    loadWorkspaceProjection(),
-  ]);
-  if (!rows) {
+  const SM = window.VSScreenerMaster;
+  let projection = null;
+  try {
+    projection = await loadMasterProjection();
+  } catch (error) {
     document.getElementById("tblScreen-skeleton").style.display = "none";
     document.getElementById("tblBreadth-skeleton").style.display = "none";
     const metaEl = document.getElementById("meta");
-    metaEl.textContent = "Chưa có dữ liệu cho phiên này — vui lòng chạy lại pipeline dữ liệu.";
+    metaEl.textContent = "Chưa có screener_master_projection/v1 cho phiên này.";
     metaEl.classList.add("vs-alert", "vs-alert-warning");
+    console.error(error);
     return;
   }
-  rows.forEach(row => { row.exchange = normalizeExchange(row.exchange); });
-  const workspaceCards = workspace?.cards || {};
-  rows.forEach((row) => {
-    const card = workspaceCards[String(row.ticker || "").toUpperCase()];
-    row.workspace_stance = card?.research_stance || "UNAVAILABLE";
-    row.workspace_tactical = card?.entry_state || card?.tactical?.primary_entry_state || "UNAVAILABLE";
-    row.workspace_freshness = Object.values(card?.lineage?.per_axis_freshness || {}).some((state) => state !== "CURRENT") ? "STALE_AXIS_PRESENT" : (card ? "CURRENT" : "UNAVAILABLE");
-  });
-  const marketSession = rows.filter(row => normalizeExchange(row.exchange) !== "DELISTED")
-    .map(row => String(row.date || "")).filter(Boolean).sort().at(-1)
-    || window.BUILD_INFO?.market_session || breadth?.[0]?.date || "?";
+  const [breadth, workspace] = await Promise.all([
+    loadCsv("market_breadth.csv", "BREADTH_ROWS"),
+    loadWorkspaceProjection(),
+  ]);
+  WORKSPACE = workspace || { cards: {} };
+  MASTER_ROWS = SM.projectionRows(projection);
+  const marketSession = projection.as_of_session || window.BUILD_INFO?.market_session || "?";
   document.getElementById("meta").textContent =
-    `${rows.length} mã · phiên ${marketSession} · build ${window.BUILD_INFO?.build_id || "legacy"} · nguồn: dữ liệu pipeline`
-    + (workspace ? ` · current research session ${workspace.as_of_session}` : " · CURRENT_PRODUCT_ARTIFACT_NOT_PUBLISHED")
-    + (window.SCREENER_LOAD_WARNING ? ` · ${window.SCREENER_LOAD_WARNING}` : "");
+    `${MASTER_ROWS.length} mã · phiên ${marketSession} · contract ${projection.contract_version} · ${projection.artifact_identity || ""}`
+    + (workspace && workspace.as_of_session ? ` · workspace ${workspace.as_of_session}` : " · CURRENT_PRODUCT_ARTIFACT_NOT_PUBLISHED");
   document.getElementById("tblScreen-skeleton").style.display = "none";
   document.getElementById("tblBreadth-skeleton").style.display = "none";
 
-  const pct = d => v => v === null || v === "" || v === undefined ? "–"
-    : `<span class="${signClass(v)}">${num(v, d)}</span>`;
+  fillSelect("screen-exchange", [...new Set(MASTER_ROWS.map((r) => r.display_exchange).filter(Boolean))].sort());
+  fillSelect("screen-sector", [...new Set(MASTER_ROWS.map((r) => (r.sector || {}).label).filter(Boolean))].sort());
+  fillSelect("screen-stance", [...new Set(MASTER_ROWS.map((r) => (r.research || {}).stance).filter(Boolean))].sort());
+  fillSelect("screen-tactical", [...new Set(MASTER_ROWS.map((r) => (r.tactical || {}).entry_state).filter(Boolean))].sort());
 
   const screenColumns = [
-      { data: "ticker", title: "Mã", render: v => `<b>${esc(v)}</b>` },
-      { data: "workspace_stance", title: "Research stance", defaultContent: "UNAVAILABLE", render: (v, _type, row) => `<a href="investment-workspace.html?ticker=${encodeURIComponent(row.ticker)}">${esc(v)}</a>` },
-      { data: "workspace_tactical", title: "Tactical setup", defaultContent: "UNAVAILABLE", render: v => esc(v) },
-      { data: "workspace_freshness", title: "Freshness", defaultContent: "UNAVAILABLE", render: v => esc(v) },
-      { data: "exchange", title: "Sàn", defaultContent: "–", render: v => esc(displayExchange(v) || "–") },
-      { data: "industry", title: "Ngành", defaultContent: "–" },
-      { data: "close", title: "Giá", className: "text-end", render: v => num(v, 0) },
-      { data: "chg_today_pct", title: "%Phiên", className: "text-end", render: pct(2) },
-      { data: "rs_rating", title: "RS", className: "text-end", render: v => num(v, 0) },
-      { data: "rsi14", title: "RSI", className: "text-end", render: v => num(v, 0) },
-      { data: "rel_vol", title: "RelVol", className: "text-end", render: v => num(v, 2) },
-      { data: "gtgd20_ty", title: "GTGD(tỷ)", className: "text-end", render: v => num(v, 1) },
-      { data: "pct_from_52w_high", title: "%từ đỉnh 52w", className: "text-end", render: pct(1) },
-      { data: "structure", title: "Cấu trúc", defaultContent: "–", render: v => formatStructureBadge ? formatStructureBadge(v) : esc(v || "–") },
-      { data: null, title: "Tín hiệu", className: "text-end", render: (v, type, row) => { const signal = ScreenerPhase5B.signal(row, marketSession); const label = signal.state === "current" ? formatMomentum(signal.momentum) : formatFreshness(signal.state); return `<span class="screen-signal screen-signal-${esc(signal.state)}">${esc(label)}</span>`; } },
-      { data: "pe", title: "P/E", className: "text-end", render: v => num(v, 1) },
-      { data: "pb", title: "P/B", className: "text-end", render: v => num(v, 2) },
-      { data: "roe", title: "ROE%", className: "text-end", render: v => num(v, 1) },
-      { data: "foreign_room_pct", title: "Room%", className: "text-end", render: v => num(v, 1) },
-      { data: "margin_status", title: "Cờ", defaultContent: "",
-        render: v => v ? `<span class="badge-margin">${esc(v)}</span>` : "" },
+    { data: "ticker", title: "Mã", render: v => `<b>${esc(v)}</b>` },
+    { data: "display_exchange", title: "Sàn", render: v => esc(v || "–") },
+    { data: "sector", title: "Ngành", render: v => { const s = SM.formatSector(v); return `<span class="${s.cls}">${esc(s.text)}</span>`; } },
+    { data: "price", title: "Giá", className: "text-end", render: v => { const s = SM.formatPrice(v && v.value, v && v.status); return `<span class="${s.cls}">${esc(s.text)}</span>`; } },
+    { data: "price", title: "% Phiên", className: "text-end", render: v => { const s = SM.formatSessionPercent(v && v.change_pct); return `<span class="${s.cls}">${esc(s.text)}</span>`; } },
+    { data: null, title: "Thanh khoản nghiên cứu", render: (_v, _t, row) => { const s = SM.formatLiquidity(row.liquidity, row.execution); return `<span class="${s.cls}">${esc(s.text)}</span>`; } },
+    { data: "research", title: "Tư thế nghiên cứu", render: v => esc((v && v.stance) || "Chưa đủ dữ liệu") },
+    { data: "tactical", title: "Trạng thái kỹ thuật", render: v => esc((v && v.entry_state) || SM.translateStatus((v && v.status) || "UNKNOWN")) },
+    { data: "financial_v2", title: "Tài chính", render: v => { const s = SM.formatFinancial(v); return `<span class="${s.cls}">${esc(s.text)}</span>`; } },
+    { data: "freshness", title: "Độ mới dữ liệu", render: v => { const s = SM.formatFreshness(v); return `<span class="${s.cls}">${esc(s.text)}</span>`; } },
   ];
   screenTable = new DataTable("#tblScreen", {
-    data: rows, language: VI, pageLength: 15, lengthMenu: [10, 15, 25], order: [[5, "desc"]],
+    data: MASTER_ROWS, language: VI, pageLength: 15, lengthMenu: [10, 15, 25], order: [[0, "asc"]],
     columns: screenColumns,
   });
-  // Tooltip header (COLUMN_HINTS) gắn SAU khi <thead> đã dựng xong — xem lý do trong
-  // value-format.js applyColumnHints() (tránh lộ HTML vào aria-label DataTables sinh ra).
-  applyColumnHints(document.getElementById("tblScreen"), screenColumns);
-
-  // Phase 5A: nạp thẳng ?ticker=XXX trên URL (link chia sẻ/bookmark/back-forward) —
-  // company-panel.js tự quyết định push/bootstrap lịch sử, ở đây chỉ tìm đúng row.
-  // Tìm trong "rows" gốc (không qua bộ lọc/sort hiện tại của bảng) để mở đúng mã
-  // dù đang bị ẩn bởi bộ lọc đang áp dụng.
-  if (window.VSCompanyPanel) {
-    const urlTicker = VSCompanyPanel.tickerFromSearch(location.search);
-    if (urlTicker) {
-      const match = rows.find((r) => VSCompanyPanel.normalizeTicker(r.ticker) === urlTicker);
-      if (match) VSCompanyPanel.open(match);
-      else console.warn(`Không tìm thấy mã "${urlTicker}" từ URL trong dữ liệu phiên này.`);
+  $("#tblScreen tbody").on("click", "tr", function () {
+    const row = screenTable.row(this).data();
+    if (row) openDrawer(row.ticker);
+  });
+  const applyFilters = () => {
+    const filters = currentFilters();
+    const filtered = MASTER_ROWS.filter((row) => SM.matchesScreenerFilters(row, filters));
+    screenTable.clear();
+    screenTable.rows.add(filtered);
+    screenTable.draw();
+  };
+  ["screen-query","screen-exchange","screen-sector","screen-stance","screen-tactical","screen-financial","screen-liquidity","screen-freshness"]
+    .forEach((id) => document.getElementById(id).addEventListener("input", applyFilters));
+  document.getElementById("decision-drawer-close").addEventListener("click", closeDrawer);
+  document.getElementById("decision-drawer-backdrop").addEventListener("click", (e) => {
+    if (e.target.id === "decision-drawer-backdrop") closeDrawer();
+  });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeDrawer(); });
+  document.getElementById("decision-drawer-company").addEventListener("click", () => {
+    if (SELECTED_TICKER && window.VSCompanyPanel) {
+      const row = MASTER_ROWS.find((r) => r.ticker === SELECTED_TICKER);
+      if (row) window.VSCompanyPanel.open({ ticker: row.ticker, close: row.price && row.price.value, exchange: row.display_exchange });
     }
-  }
+  });
+  const params = new URLSearchParams(location.search);
+  const urlTicker = SM.normalizeTicker(params.get("ticker"));
+  if (urlTicker && MASTER_ROWS.some((r) => r.ticker === urlTicker)) openDrawer(urlTicker);
 
-  // Bộ lọc "mã sạch": margin_status trống + GTGD >= 3 tỷ
-  // Phase 5B attaches one scoped DataTables predicate; opening the drawer never redraws or rebuilds this table.
-  ScreenerPhase5B.attach({ table: screenTable, rows, marketSession, tableNode: document.getElementById("tblScreen") });
-
+  const pct = d => v => v === null || v === "" || v === undefined ? "–"
+    : `<span class="${signClass(v)}">${Number(v).toLocaleString("vi-VN", { maximumFractionDigits: d })}</span>`;
   if (breadth) {
     new DataTable("#tblBreadth", {
       data: breadth, language: VI, paging: false, searching: false, info: false,
-      order: [[7, "desc"]],
+      order: [[1, "desc"]],
       columns: [
         { data: "group", title: "Nhóm", render: v => `<b>${esc(v)}</b>` },
         { data: "n_symbols", title: "Số mã", className: "text-end" },
         { data: "n_up", title: "Tăng", className: "text-end", render: v => `<span class="up">${v}</span>` },
         { data: "n_down", title: "Giảm", className: "text-end", render: v => `<span class="down">${v}</span>` },
         { data: "n_flat", title: "Đứng", className: "text-end" },
-        { data: "pct_above_ma200", title: "%trên MA200", className: "text-end", render: v => num(v, 1) },
+        { data: "pct_above_ma200", title: "%trên MA200", className: "text-end", render: v => v == null || v === "" ? "–" : Number(v).toLocaleString("vi-VN", { maximumFractionDigits: 1 }) },
         { data: "avg_ret_1m", title: "TB 1 tháng %", className: "text-end", render: pct(1) },
-        { data: "avg_rs_rating", title: "RS TB", className: "text-end", render: v => num(v, 1) },
+        { data: "avg_rs_rating", title: "RS TB", className: "text-end", render: v => v == null || v === "" ? "–" : Number(v).toLocaleString("vi-VN", { maximumFractionDigits: 1 }) },
       ],
     });
   }

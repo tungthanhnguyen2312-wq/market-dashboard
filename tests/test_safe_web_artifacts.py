@@ -228,15 +228,19 @@ class StaticReferenceValidationTests(unittest.TestCase):
         workspace_js = (ROOT / "assets/js/investment-workspace.js").read_text(encoding="utf-8")
         screener = (ROOT / "screener.html").read_text(encoding="utf-8")
         self.assertIn("data/investment_decision_workspace.json", workspace_js)
-        self.assertIn("data/investment_decision_workspace.json", screener)
+        screener_js = (ROOT / "assets/js/screener-master.js").read_text(encoding="utf-8")
+        self.assertIn("data/investment_decision_workspace.json", screener_js)
         self.assertTrue((ROOT / "data/investment_decision_workspace.json").is_file())
-        self.assertNotIn("screener_master_projection", screener)
         self.assertNotIn("screener_master_projection", workspace_js)
 
-    def test_screener_primary_row_source_remains_screen_snapshot(self):
+    def test_screener_primary_row_source_is_master_projection(self):
         screener = (ROOT / "screener.html").read_text(encoding="utf-8")
-        self.assertIn('loadCsv("screen_snapshot.csv"', screener)
-        self.assertNotIn("screener_master_projection", screener)
+        screener_js = (ROOT / "assets/js/screener-master.js").read_text(encoding="utf-8")
+        self.assertIn("data/screener_master_projection.json", screener_js)
+        self.assertIn("data/screener_master_projection.js", screener_js)
+        self.assertNotIn('loadCsv("screen_snapshot.csv"', screener)
+        self.assertTrue((ROOT / "data/screener_master_projection.json").is_file())
+        self.assertTrue((ROOT / "data/screener_master_projection.js").is_file())
 
     def test_tracked_required_surfaces_exist(self):
         for relative in REQUIRED_PRODUCT_SURFACES:

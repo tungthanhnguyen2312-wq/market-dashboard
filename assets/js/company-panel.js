@@ -748,6 +748,7 @@
   if (typeof document !== "undefined") document.addEventListener("DOMContentLoaded", () => {
     if (!backdrop) buildPanelShell();
     document.addEventListener("click", (e) => {
+      if (isScreenerPage()) return;
       const tr = e.target.closest("#tblScreen tbody tr");
       if (!tr || typeof jQuery === "undefined") return;
       const data = jQuery("#tblScreen").DataTable().row(tr).data();

@@ -36,6 +36,7 @@
     HOSE: "HSX",
     HCM: "HSX",
     HNX: "HNX",
+    HNX_LISTED: "HNX",
     UPCOM: "UPCOM",
     UPCoM: "UPCOM",
     DELISTED: "DELISTED",

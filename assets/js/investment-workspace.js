@@ -152,10 +152,142 @@
     };
   }
 
+  function escHtml(v) {
+    return String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  }
+  function unavailableLabel(v) {
+    return (v === null || v === undefined || v === "" ? "UNAVAILABLE" : v);
+  }
+  const POSITIVE_STATES = new Set([
+    "INITIATE_RESEARCH_CANDIDATE", "ACCUMULATE_RESEARCH_CANDIDATE",
+    "BREAKOUT_READY", "UPTREND_CONFIRMED", "EARLY_REVERSAL_CANDIDATE", "BASE_BUILDING",
+    "PROFITABLE", "ATTRACTIVE_RELATIVE_RESEARCH", "LIQUIDITY_RESEARCH_PROXY",
+    "CONFIRMED", "READY", "CURRENT", "EXECUTION_CAPACITY_EXACT_READY",
+    "ACTIVE_CASES_AVAILABLE", "NO_CONCENTRATION_FLAGGED", "BUY_ON_CONFIRMATION",
+    "EARLY_ENTRY", "ACCUMULATE_IN_BASE",
+  ]);
+  const NEGATIVE_STATES = new Set([
+    "AVOID_NEW_ENTRY", "DISTRIBUTION_RISK", "BREAKDOWN_RISK", "DOWNTREND", "AVOID",
+    "LOSS_MAKING", "EXPENSIVE_RELATIVE_RESEARCH", "TRIGGERED",
+    "STALE_NOT_USABLE_FOR_THIS_AXIS", "EXCEEDS_USER_POLICY_LIMIT",
+  ]);
+  function stateBucket(v) {
+    const s = unavailableLabel(v);
+    const key = String(s).toUpperCase();
+    if (POSITIVE_STATES.has(key)) return "available";
+    if (NEGATIVE_STATES.has(key)) return "blocked";
+    const k = key.toLowerCase();
+    if (k === "unavailable" || k === "none" || k.includes("insufficient") || k.includes("not_evaluated") || k.includes("not_held") || k.includes("no_retained") || k.includes("case_data_unavailable")) return "unavailable";
+    return "partial";
+  }
+  function pill(v) {
+    return `<span class="cockpit-state ${stateBucket(v)}">${escHtml(unavailableLabel(v))}</span>`;
+  }
+  function listHtml(values) {
+    return (Array.isArray(values) && values.length
+      ? `<ul class="cockpit-list">${values.map((x) => `<li>${escHtml(typeof x === "string" ? x : JSON.stringify(x))}</li>`).join("")}</ul>`
+      : '<span class="cockpit-note">UNAVAILABLE / none retained</span>');
+  }
+  function kpiHtml(label, value) {
+    return `<div class="cockpit-kpi"><div class="label">${escHtml(label)}</div><div class="value">${typeof value === "string" ? pill(value) : escHtml(unavailableLabel(value))}</div></div>`;
+  }
+  function supportingMethodsHtml(methods) {
+    if (!methods || !methods.length) return '<span class="cockpit-note">No ready relative-valuation method supports this label.</span>';
+    return `<table class="cockpit-table"><thead><tr><th>Method</th><th>Percentile</th><th>Peer count</th><th>Premium/discount vs peer median</th></tr></thead><tbody>${
+      methods.map((m) => `<tr><td>${escHtml(m.method)}</td><td>${escHtml(m.percentile)}</td><td>${escHtml(m.peer_count)}</td><td>${escHtml(m.premium_or_discount_to_peer_median)}</td></tr>`).join("")
+    }</tbody></table>`;
+  }
+
+  function decisionCardHtml(card, options) {
+    const opts = options || {};
+    const ticker = String((opts.ticker || (card && card.ticker) || "")).trim().toUpperCase();
+    if (!card) {
+      return `<div class="cockpit-note" data-drawer-unavailable="true">Workspace card unavailable for ${escHtml(ticker) || "UNKNOWN"}. No substitute ticker was selected.</div>`;
+    }
+    const portfolio = opts.portfolio || card.portfolio || { evaluated: false, status: "NOT_EVALUATED" };
+    const val = card.valuation || {};
+    const why = card.why || {};
+    const sourceArtifacts = opts.sourceArtifacts || {};
+    return `
+          <div class="cockpit-grid mb-3" data-decision-ticker="${escHtml(ticker)}">
+            ${kpiHtml("Research stance", card.research_stance)}${kpiHtml("Readiness", card.research_stance_readiness)}
+            ${kpiHtml("Tactical setup", card.entry_state)}${kpiHtml("Tactical Entry Readiness", card.entry_action)}
+          </div>
+          <div class="cockpit-detail-grid">
+            <div class="card"><div class="card-header"><h6>A. Current stance</h6></div><div class="card-body">
+              <b>Ticker</b> ${escHtml(ticker)} · <b>Sector</b> ${escHtml(card.sector)}<br>
+              <div class="mt-1"><b>Research Stance</b> ${pill(card.research_stance)} <span class="cockpit-note">(primary research conclusion)</span></div>
+              <div class="mt-1"><b>Tactical Entry Readiness</b> ${pill(card.entry_action)} <span class="cockpit-note">tactical setup: ${pill(card.entry_state)}</span>${VETO_RESEARCH_STANCES.has(card.research_stance) ? ' <span class="cockpit-state blocked">NOT A BUY SIGNAL</span>' : ""}</div>
+              ${stanceEntryGuidance(card.research_stance, card.entry_action) ? `<div class="cockpit-note mt-2">${escHtml(stanceEntryGuidance(card.research_stance, card.entry_action))}</div>` : ""}
+              <div class="mt-2"><b>Setup tags</b>${listHtml(card.setup_tags)}</div>
+            </div></div>
+            <div class="card"><div class="card-header"><h6>B. Why</h6></div><div class="card-body">
+              <b>Fundamental</b> ${pill((why.fundamental_evidence || {}).state)} ${escHtml((why.fundamental_evidence || {}).trajectory)}<br>
+              <b>Valuation</b> ${pill(val.relative_research_state)} (${escHtml(val.usable_relative_method_count)} usable method(s), basis ${escHtml(val.share_basis)})
+              ${supportingMethodsHtml(val.supporting_methods)}
+              <b>Tactical</b> ${pill((why.tactical_evidence || {}).primary_entry_state)}<br>
+              <b>Market/sector</b> ${escHtml(JSON.stringify((why.market_sector_evidence || {}).sector_relative_context || {}))}<br>
+              <b>Catalyst</b> ${pill((why.catalyst_evidence || {}).status)}
+              <div class="mt-2"><b>Deterministic reasons</b>${listHtml(why.deterministic_reasons)}</div>
+              <div class="mt-2"><b>Counterbalancing context</b>${listHtml(why.counterbalancing_context)}</div>
+            </div></div>
+            <div class="card"><div class="card-header"><h6>C. Counter-thesis</h6></div><div class="card-body">
+              <b>Warnings</b>${listHtml((card.counter_thesis || {}).warnings)}
+              <b>Key counter-thesis</b>${listHtml((card.counter_thesis || {}).key_counter_thesis)}
+              <b>Unavailable dimensions</b>${listHtml((card.counter_thesis || {}).unavailable_dimensions)}
+            </div></div>
+            <div class="card"><div class="card-header"><h6>D. Confirmation</h6></div><div class="card-body">
+              <div class="cockpit-grid mb-2">${kpiHtml("Boundary status", (card.confirmation || {}).status)}${kpiHtml("Actual trigger state", (card.confirmation || {}).confirmation_trigger_state)}</div>
+              <div class="cockpit-note mb-2">Boundary status shows whether a confirmation trigger is instrumented (a real baseline value/operator exists) -- it is not evidence the trigger has fired. Only an actual TRIGGERED trigger state can promote research stance to INITIATE.</div>
+              <pre class="cockpit-code">${escHtml(JSON.stringify(card.confirmation || {}, null, 2))}</pre>
+            </div></div>
+            <div class="card"><div class="card-header"><h6>E. Invalidation</h6></div><div class="card-body">
+              <b>${((card.invalidation || {}).technical || {}).semantic === "STANCE_RECONSIDERATION_WATCH" ? "What would improve/reconsider this stance" : "Technical (thesis invalidation)"}</b> ${pill(((card.invalidation || {}).technical || {}).status)}
+              ${((card.invalidation || {}).technical || {}).semantic === "STANCE_RECONSIDERATION_WATCH" ? '<div class="cockpit-note mb-1">This stance is a new-entry veto with no long thesis to invalidate -- this boundary is what would make the veto worth reconsidering, not a thesis-invalidation trigger.</div>' : ""}
+              <pre class="cockpit-code">${escHtml(JSON.stringify((card.invalidation || {}).technical || {}, null, 2))}</pre>
+              <b>Fundamental</b> ${pill(((card.invalidation || {}).fundamental || {}).status)}
+              <pre class="cockpit-code">${escHtml(JSON.stringify((card.invalidation || {}).fundamental || {}, null, 2))}</pre>
+            </div></div>
+            <div class="card"><div class="card-header"><h6>F. Portfolio impact</h6></div><div class="card-body">
+              ${portfolio && portfolio.evaluated ? `
+                ${pill(portfolio.status)} · Holding: ${pill(portfolio.holding_status)} ${portfolio.weight != null ? `(${escHtml(portfolio.weight)})` : ""}<br>
+                <b>Sector concentration (existing)</b> ${escHtml(portfolio.existing_sector_concentration_weight)}<br>
+                <b>Tactical concentration</b>${listHtml(Object.entries(portfolio.tactical_concentration || {}).map(([k, v]) => `${k}: ${v}`))}
+                <b>Joint risk horizon</b> ${escHtml(portfolio.selected_joint_risk_horizon)} · ${pill(portfolio.joint_risk_status)}<br>
+                <b>Pairwise correlation</b> ${pill(portfolio.pairwise_correlation_status)}<br>
+                <b>User policy breaches</b>${listHtml((portfolio.user_limit_breaches || []).map((b) => JSON.stringify(b)))}
+                <b>Liquidity (held position)</b> ${pill(portfolio.liquidity_research_context)} · Exact execution: ${pill(portfolio.exact_execution_capacity_status)}
+              ` : `${pill("NOT_EVALUATED")}<div class="cockpit-note mt-1">${escHtml((portfolio || {}).reason || "No portfolio research context supplied. Load one below, or open the Portfolio Editor.")}</div>`}
+              <div class="cockpit-note mt-2">Security research stance is separate from portfolio fit and is never mutated by it.</div>
+            </div></div>
+          </div>
+          <div class="cockpit-detail-grid mt-3">
+            <div class="card"><div class="card-header"><h6>Prospective research case</h6></div><div class="card-body">
+              ${pill((card.prospective_case || {}).status)}
+              <div class="cockpit-note mt-1">Thesis lifecycle: ${escHtml(unavailableLabel((card.prospective_case || {}).thesis_lifecycle_state))}</div>
+              <div class="cockpit-note">Forward outcome (T+5/T+20/T+60, MFE, MAE, benchmark-relative): ${pill((card.prospective_case || {}).forward_outcome_status)}</div>
+            </div></div>
+            <div class="card"><div class="card-header"><h6>G. Data / authority</h6></div><div class="card-body">
+              <div class="table-responsive"><table class="cockpit-table"><thead><tr><th>Axis</th><th>Freshness</th><th>Source session/period</th><th>Proxy / qualified</th></tr></thead><tbody>
+                ${Object.keys((card.lineage || {}).per_axis_freshness || {}).sort().map((axis) => `<tr><td>${escHtml(axis)}</td><td>${pill((card.lineage.per_axis_freshness || {})[axis])}</td><td>${escHtml(unavailableLabel((card.lineage.per_axis_source_session || {})[axis]))}</td><td>${escHtml(unavailableLabel((card.lineage.per_axis_proxy_or_qualified_state || {})[axis]))}</td></tr>`).join("")}
+              </tbody></table></div>
+              <div class="cockpit-note mt-2">Deep evidence: ${escHtml(card.lineage && card.lineage.deep_evidence_availability)}</div>
+              <b>Blockers</b>${listHtml(((card.lineage || {}).blockers || []).map((b) => `${b.axis}: ${b.readiness} (${b.freshness_status})`))}
+              <div class="mt-2"><b>Lineage identities</b><pre class="cockpit-code">${escHtml(JSON.stringify(sourceArtifacts, null, 2))}</pre></div>
+            </div></div>
+          </div>`;
+  }
+
+  function renderDecisionCard(card, container, options) {
+    const html = decisionCardHtml(card, options);
+    if (container) container.innerHTML = html;
+    return html;
+  }
+
   // ---------------------------------------------------------------------
   // Browser-only rendering
   // ---------------------------------------------------------------------
-  if (typeof document !== "undefined") {
+  if (typeof document !== "undefined" && document.body && document.body.dataset.page === "investment-workspace") {
     (function renderInBrowser() {
       const esc = (v) => String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
       const unavailable = (v) => (v === null || v === undefined || v === "" ? "UNAVAILABLE" : v);
@@ -255,87 +387,22 @@
         }</tbody></table>`;
       }
 
-      function renderDecisionCard(ticker) {
+      function showDecisionCard(ticker) {
         const card = WORKSPACE.cards[ticker];
-        if (!card) { document.getElementById("decision-card").innerHTML = '<div class="cockpit-note">Ticker not found.</div>'; return; }
-        const portfolio = effectivePortfolio(ticker, card);
-        const val = card.valuation || {};
-        const why = card.why || {};
-        document.getElementById("decision-card").innerHTML = `
-          <div class="cockpit-grid mb-3">
-            ${kpi("Research stance", card.research_stance)}${kpi("Readiness", card.research_stance_readiness)}
-            ${kpi("Tactical setup", card.entry_state)}${kpi("Tactical Entry Readiness", card.entry_action)}
-          </div>
-          <div class="cockpit-detail-grid">
-            <div class="card"><div class="card-header"><h6>A. Current stance</h6></div><div class="card-body">
-              <b>Ticker</b> ${esc(ticker)} · <b>Sector</b> ${esc(card.sector)}<br>
-              <div class="mt-1"><b>Research Stance</b> ${pill(card.research_stance)} <span class="cockpit-note">(primary research conclusion)</span></div>
-              <div class="mt-1"><b>Tactical Entry Readiness</b> ${pill(card.entry_action)} <span class="cockpit-note">tactical setup: ${pill(card.entry_state)}</span>${VETO_RESEARCH_STANCES.has(card.research_stance) ? ' <span class="cockpit-state blocked">NOT A BUY SIGNAL</span>' : ""}</div>
-              ${stanceEntryGuidance(card.research_stance, card.entry_action) ? `<div class="cockpit-note mt-2">${esc(stanceEntryGuidance(card.research_stance, card.entry_action))}</div>` : ""}
-              <div class="mt-2"><b>Setup tags</b>${list(card.setup_tags)}</div>
-            </div></div>
-            <div class="card"><div class="card-header"><h6>B. Why</h6></div><div class="card-body">
-              <b>Fundamental</b> ${pill((why.fundamental_evidence || {}).state)} ${esc((why.fundamental_evidence || {}).trajectory)}<br>
-              <b>Valuation</b> ${pill(val.relative_research_state)} (${esc(val.usable_relative_method_count)} usable method(s), basis ${esc(val.share_basis)})
-              ${renderSupportingMethods(val.supporting_methods)}
-              <b>Tactical</b> ${pill((why.tactical_evidence || {}).primary_entry_state)}<br>
-              <b>Market/sector</b> ${esc(JSON.stringify((why.market_sector_evidence || {}).sector_relative_context || {}))}<br>
-              <b>Catalyst</b> ${pill((why.catalyst_evidence || {}).status)}
-              <div class="mt-2"><b>Deterministic reasons</b>${list(why.deterministic_reasons)}</div>
-              <div class="mt-2"><b>Counterbalancing context</b>${list(why.counterbalancing_context)}</div>
-            </div></div>
-            <div class="card"><div class="card-header"><h6>C. Counter-thesis</h6></div><div class="card-body">
-              <b>Warnings</b>${list((card.counter_thesis || {}).warnings)}
-              <b>Key counter-thesis</b>${list((card.counter_thesis || {}).key_counter_thesis)}
-              <b>Unavailable dimensions</b>${list((card.counter_thesis || {}).unavailable_dimensions)}
-            </div></div>
-            <div class="card"><div class="card-header"><h6>D. Confirmation</h6></div><div class="card-body">
-              <div class="cockpit-grid mb-2">${kpi("Boundary status", (card.confirmation || {}).status)}${kpi("Actual trigger state", (card.confirmation || {}).confirmation_trigger_state)}</div>
-              <div class="cockpit-note mb-2">Boundary status shows whether a confirmation trigger is instrumented (a real baseline value/operator exists) -- it is not evidence the trigger has fired. Only an actual TRIGGERED trigger state can promote research stance to INITIATE.</div>
-              <pre class="cockpit-code">${esc(JSON.stringify(card.confirmation || {}, null, 2))}</pre>
-            </div></div>
-            <div class="card"><div class="card-header"><h6>E. Invalidation</h6></div><div class="card-body">
-              <b>${((card.invalidation || {}).technical || {}).semantic === "STANCE_RECONSIDERATION_WATCH" ? "What would improve/reconsider this stance" : "Technical (thesis invalidation)"}</b> ${pill(((card.invalidation || {}).technical || {}).status)}
-              ${((card.invalidation || {}).technical || {}).semantic === "STANCE_RECONSIDERATION_WATCH" ? '<div class="cockpit-note mb-1">This stance is a new-entry veto with no long thesis to invalidate -- this boundary is what would make the veto worth reconsidering, not a thesis-invalidation trigger.</div>' : ""}
-              <pre class="cockpit-code">${esc(JSON.stringify((card.invalidation || {}).technical || {}, null, 2))}</pre>
-              <b>Fundamental</b> ${pill(((card.invalidation || {}).fundamental || {}).status)}
-              <pre class="cockpit-code">${esc(JSON.stringify((card.invalidation || {}).fundamental || {}, null, 2))}</pre>
-            </div></div>
-            <div class="card"><div class="card-header"><h6>F. Portfolio impact</h6></div><div class="card-body">
-              ${portfolio && portfolio.evaluated ? `
-                ${pill(portfolio.status)} · Holding: ${pill(portfolio.holding_status)} ${portfolio.weight != null ? `(${esc(portfolio.weight)})` : ""}<br>
-                <b>Sector concentration (existing)</b> ${esc(portfolio.existing_sector_concentration_weight)}<br>
-                <b>Tactical concentration</b>${list(Object.entries(portfolio.tactical_concentration || {}).map(([k, v]) => `${k}: ${v}`))}
-                <b>Joint risk horizon</b> ${esc(portfolio.selected_joint_risk_horizon)} · ${pill(portfolio.joint_risk_status)}<br>
-                <b>Pairwise correlation</b> ${pill(portfolio.pairwise_correlation_status)}<br>
-                <b>User policy breaches</b>${list((portfolio.user_limit_breaches || []).map((b) => JSON.stringify(b)))}
-                <b>Liquidity (held position)</b> ${pill(portfolio.liquidity_research_context)} · Exact execution: ${pill(portfolio.exact_execution_capacity_status)}
-              ` : `${pill("NOT_EVALUATED")}<div class="cockpit-note mt-1">${esc((portfolio || {}).reason || "No portfolio research context supplied. Load one below, or open the Portfolio Editor.")}</div>`}
-              <div class="cockpit-note mt-2">Security research stance is separate from portfolio fit and is never mutated by it.</div>
-            </div></div>
-          </div>
-          <div class="cockpit-detail-grid mt-3">
-            <div class="card"><div class="card-header"><h6>Prospective research case</h6></div><div class="card-body">
-              ${pill((card.prospective_case || {}).status)}
-              <div class="cockpit-note mt-1">Thesis lifecycle: ${esc(unavailable((card.prospective_case || {}).thesis_lifecycle_state))}</div>
-              <div class="cockpit-note">Forward outcome (T+5/T+20/T+60, MFE, MAE, benchmark-relative): ${pill((card.prospective_case || {}).forward_outcome_status)}</div>
-            </div></div>
-            <div class="card"><div class="card-header"><h6>G. Data / authority</h6></div><div class="card-body">
-              <div class="table-responsive"><table class="cockpit-table"><thead><tr><th>Axis</th><th>Freshness</th><th>Source session/period</th><th>Proxy / qualified</th></tr></thead><tbody>
-                ${Object.keys((card.lineage || {}).per_axis_freshness || {}).sort().map((axis) => `<tr><td>${esc(axis)}</td><td>${pill((card.lineage.per_axis_freshness || {})[axis])}</td><td>${esc(unavailable((card.lineage.per_axis_source_session || {})[axis]))}</td><td>${esc(unavailable((card.lineage.per_axis_proxy_or_qualified_state || {})[axis]))}</td></tr>`).join("")}
-              </tbody></table></div>
-              <div class="cockpit-note mt-2">Deep evidence: ${esc(card.lineage && card.lineage.deep_evidence_availability)}</div>
-              <b>Blockers</b>${list((card.lineage.blockers || []).map((b) => `${b.axis}: ${b.readiness} (${b.freshness_status})`))}
-              <div class="mt-2"><b>Lineage identities</b><pre class="cockpit-code">${esc(JSON.stringify(WORKSPACE.source_artifacts, null, 2))}</pre></div>
-            </div></div>
-          </div>`;
+        const el = document.getElementById("decision-card");
+        if (!card) { el.innerHTML = '<div class="cockpit-note">Ticker not found.</div>'; return; }
+        renderDecisionCard(card, el, {
+          ticker,
+          portfolio: effectivePortfolio(ticker, card),
+          sourceArtifacts: WORKSPACE.source_artifacts,
+        });
       }
 
       function selectTicker(ticker, opts) {
         if (!WORKSPACE.cards[ticker]) return;
         SELECTED_TICKER = ticker;
         document.getElementById("ticker-select").value = ticker;
-        renderDecisionCard(ticker);
+        showDecisionCard(ticker);
         renderList();
         if (opts && opts.scrollIntoView) {
           document.getElementById("decision-card-section").scrollIntoView({ behavior: "smooth", block: "start" });
@@ -391,7 +458,7 @@
               PORTFOLIO_OVERRIDE = payload.portfolio_research_context || payload;
               if (!PORTFOLIO_OVERRIDE || !PORTFOLIO_OVERRIDE.portfolio_id) throw new Error("missing portfolio_id");
               renderList();
-              if (SELECTED_TICKER) renderDecisionCard(SELECTED_TICKER);
+              if (SELECTED_TICKER) showDecisionCard(SELECTED_TICKER);
             } catch (err) {
               alert("Invalid portfolio_research_context JSON");
             }
@@ -419,5 +486,6 @@
     matchesFilters, matchesSearch, selectedTickerForDeepLink, hasStaleAxis, joinPortfolioResearch,
     readLocalPortfolioHoldings, localHoldingFor, buildT0Export,
     VETO_RESEARCH_STANCES, TACTICAL_ACTIONABLE_ENTRY_READINESS, stanceEntryGuidance,
+    decisionCardHtml, renderDecisionCard,
   };
 });

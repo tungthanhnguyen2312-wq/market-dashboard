@@ -38,6 +38,17 @@ test("page declares the opportunity list, filters, seven decision-card sections,
   assert.doesNotMatch(html + script, /execute trade|place order|sell order/i);
 });
 
+test("decision card renderer is reusable without changing stance semantics", () => {
+  const html = ws.decisionCardHtml(card(), { ticker: "AAA" });
+  assert.match(html, /data-decision-ticker="AAA"/);
+  assert.match(html, /INITIATE_RESEARCH_CANDIDATE/);
+  assert.match(html, /A\. Current stance/);
+  assert.doesNotMatch(html, /BUY NOW|place order/i);
+  const missing = ws.decisionCardHtml(null, { ticker: "AAA" });
+  assert.match(missing, /Workspace card unavailable for AAA/);
+  assert.doesNotMatch(missing, /HPG/);
+});
+
 test("page declares the data source path and portfolio editor link", () => {
   assert.match(script, /data\/investment_decision_workspace\.json/);
   assert.match(html, /portfolio\.html/);
