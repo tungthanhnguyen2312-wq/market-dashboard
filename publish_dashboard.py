@@ -39,7 +39,19 @@ import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from atomic_io import atomic_copy_file, atomic_write_file, validate_json_file
+try:
+    from atomic_io import atomic_copy_file, atomic_write_file, validate_json_file
+except ImportError:
+    # Dashboard target checkout is not publisher authority; allowlist helpers
+    # must still import for contract tests without Producer on sys.path.
+    def atomic_copy_file(*_args, **_kwargs):
+        raise RuntimeError("atomic_io is unavailable in the Dashboard target checkout")
+
+    def atomic_write_file(*_args, **_kwargs):
+        raise RuntimeError("atomic_io is unavailable in the Dashboard target checkout")
+
+    def validate_json_file(*_args, **_kwargs):
+        raise RuntimeError("atomic_io is unavailable in the Dashboard target checkout")
 import release_session_contract
 import trusted_subset_contract
 try:
@@ -50,12 +62,21 @@ try:
         emit_observability_event,
     )
 except ImportError:
-    from stock_core_private.observability_events import (
-        EventOutcome,
-        EventStage,
-        build_observability_event,
-        emit_observability_event,
-    )
+    try:
+        from stock_core_private.observability_events import (
+            EventOutcome,
+            EventStage,
+            build_observability_event,
+            emit_observability_event,
+        )
+    except ImportError:
+        EventOutcome = EventStage = object  # type: ignore[misc,assignment]
+
+        def build_observability_event(*_args, **_kwargs):
+            raise RuntimeError("observability_events is unavailable in the Dashboard target checkout")
+
+        def emit_observability_event(*_args, **_kwargs):
+            raise RuntimeError("observability_events is unavailable in the Dashboard target checkout")
 
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -97,13 +118,56 @@ COPY_ARTIFACTS = (
     "data/candle_signals.json", "data/candle_signals.js",
     "data/sector_heatmap.json", "data/sector_heatmap.js",
 )
+REQUIRED_PRODUCT_SURFACE_ARTIFACTS = {
+    "investment-workspace.html",
+    "portfolio.html",
+    "data/investment_decision_workspace.json",
+}
+# Exact future Screener projection filenames. Allowed when present; never required.
+OPTIONAL_SAFE_WEB_ARTIFACTS = {
+    "data/screener_master_projection.json",
+    "data/screener_master_projection.js",
+}
 SAFE_WEB_ARTIFACTS = set(COPY_ARTIFACTS) | {
     "data/screener_data.js", "data/build_info.json", "data/build_info.js",
-}
+} | REQUIRED_PRODUCT_SURFACE_ARTIFACTS
 NEVER_PUBLISH = {
     "vn_stock.db", "config.json", "publish_log.txt", "tickers.txt",
     "sync_and_publish.bat", "sync_and_push.bat",
 }
+
+
+def normalize_web_artifact_relative(raw: str) -> str | None:
+    """Return a repo-relative web path, or None if the input is unsafe."""
+    if raw is None:
+        return None
+    relative = str(raw).replace("\\", "/").split("?", 1)[0].split("#", 1)[0].strip()
+    if not relative or relative in {".", "./"}:
+        return None
+    if relative.startswith(("http://", "https://", "//", "/", "data:", "file:")):
+        return None
+    if len(relative) >= 2 and relative[1] == ":":
+        return None
+    parts = relative.split("/")
+    if any(part in {"", ".", ".."} for part in parts):
+        return None
+    return relative
+
+
+def is_safe_web_artifact(raw: str) -> bool:
+    """Exact allowlist membership for Dashboard publication artifacts.
+
+    Required product surfaces and existing SAFE_WEB_ARTIFACTS are accepted.
+    Future screener projection filenames are accepted so publication can include
+    them once they exist. Arbitrary paths, traversal, and NEVER_PUBLISH names
+    are rejected.
+    """
+    relative = normalize_web_artifact_relative(raw)
+    if relative is None or relative in NEVER_PUBLISH:
+        return False
+    return relative in SAFE_WEB_ARTIFACTS or relative in OPTIONAL_SAFE_WEB_ARTIFACTS
+
+
 COCKPIT_ARTIFACT = "data/current_decision_cockpit.json"
 COCKPIT_SOURCE: Path | None = None
 REQUIRED_SNAPSHOT_COLUMNS = {"ticker", "exchange", "date"}
@@ -563,36 +627,53 @@ def validate_json_artifacts() -> None:
         if not path.exists() or path.stat().st_size == 0:
             raise ValueError(f"artifact JSON thiếu/rỗng: {relative}")
         json.loads(path.read_text(encoding="utf-8-sig"))
+    # Optional future projection is allowlisted, not required.
+    for relative in sorted(OPTIONAL_SAFE_WEB_ARTIFACTS):
+        if not relative.endswith(".json"):
+            continue
+        path = WEB_ROOT / relative
+        if not path.exists():
+            continue
+        if path.stat().st_size == 0:
+            raise ValueError(f"artifact JSON thiếu/rỗng: {relative}")
+        json.loads(path.read_text(encoding="utf-8-sig"))
 
 
 def build_whitelist() -> list[str]:
     pages = sorted(path.name for path in WEB_ROOT.glob("*.html"))
     paths = set(pages) | SAFE_WEB_ARTIFACTS
+    for relative in OPTIONAL_SAFE_WEB_ARTIFACTS:
+        if source_path(relative).is_file():
+            paths.add(relative)
     attr_re = re.compile(r'(?:src|href)=["\']([^"\']+)["\']', re.I)
     data_re = re.compile(r'["\']([\w./-]+\.(?:csv|json|md))["\']', re.I)
     for relative in pages:
         text = (WEB_ROOT / relative).read_text(encoding="utf-8")
         paths.update(attr_re.findall(text))
         paths.update(data_re.findall(text))
-    for script in list(WEB_ROOT.glob("*.js")) + list((WEB_ROOT / "assets/js").glob("*.js")):
+    assets_js = WEB_ROOT / "assets/js"
+    scripts = list(WEB_ROOT.glob("*.js"))
+    if assets_js.is_dir():
+        scripts.extend(assets_js.glob("*.js"))
+    for script in scripts:
         paths.update(data_re.findall(script.read_text(encoding="utf-8")))
     cleaned: set[str] = set()
     for raw in paths:
-        relative = raw.replace("\\", "/").split("?", 1)[0].split("#", 1)[0]
-        if not relative:
-            continue
-        if relative.startswith(("http://", "https://", "//", "/", "data:")) or ".." in relative.split("/"):
-            continue
-        if relative in NEVER_PUBLISH:
+        relative = normalize_web_artifact_relative(raw)
+        if relative is None or relative in NEVER_PUBLISH:
             continue
         cleaned.add(relative)
-    missing = sorted(relative for relative in cleaned if not source_path(relative).is_file())
+    present = {relative for relative in cleaned if source_path(relative).is_file()}
+    missing = sorted(
+        relative for relative in cleaned
+        if relative not in present and relative not in OPTIONAL_SAFE_WEB_ARTIFACTS
+    )
     if missing:
         raise ValueError(f"whitelist tham chiếu file thiếu: {', '.join(missing)}")
-    leaked = sorted(set(cleaned) & NEVER_PUBLISH)
+    leaked = sorted(present & NEVER_PUBLISH)
     if leaked:
         raise ValueError(f"denylist lọt vào whitelist: {', '.join(leaked)}")
-    return sorted(cleaned)
+    return sorted(present)
 
 
 def run_release_smoke_tests() -> int:

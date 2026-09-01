@@ -57,6 +57,9 @@ jobs:
       - name: Visual-foundation contract tests
         run: python tests/test_visual_foundation_contract.py -v
 
+      - name: Safe web artifact publication contract tests
+        run: python tests/test_safe_web_artifacts.py -v
+
       - name: JavaScript syntax checks
         run: |
           node --check assets/js/candlestick-patterns.js

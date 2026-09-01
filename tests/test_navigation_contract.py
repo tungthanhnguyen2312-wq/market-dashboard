@@ -3,14 +3,27 @@ import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-PAGE_NAMES = [
+SHELL_PAGES = [
     "dashboard.html",
     "screener.html",
-    "analysis.html",
-    "signals.html",
     "macro.html",
     "archive.html",
+]
+SINGLE_TOPBAR_PAGES = [
+    "analysis.html",
+    "signals.html",
     "about.html",
+    "investment-workspace.html",
+    "portfolio.html",
+]
+PAGE_NAMES = SHELL_PAGES + [
+    "analysis.html",
+    "signals.html",
+    "about.html",
+]
+PRODUCT_SURFACE_PAGES = PAGE_NAMES + [
+    "investment-workspace.html",
+    "portfolio.html",
 ]
 EXPECTED_DATA_PAGES = {
     "dashboard.html": "dashboard",
@@ -20,6 +33,8 @@ EXPECTED_DATA_PAGES = {
     "macro.html": "macro",
     "archive.html": "archive",
     "about.html": "about",
+    "investment-workspace.html": "investment-workspace",
+    "portfolio.html": "portfolio",
 }
 VN_NAV_LABELS = [
     "Tổng quan",
@@ -30,12 +45,18 @@ VN_NAV_LABELS = [
     "Giới thiệu",
     "Lịch sử",
 ]
+COMPACT_NAV_LABELS = [
+    "Tổng quan",
+    "Bộ lọc",
+    "Phân tích",
+    "Tín hiệu",
+]
 OLD_ENGLISH_NAV_LABELS = ["Dashboard", "Screener", "Analysis", "Signals", "Macro", "About"]
 
 
 class NavigationContractTests(unittest.TestCase):
     def test_1_all_seven_html_pages_exist(self):
-        for name in PAGE_NAMES:
+        for name in PRODUCT_SURFACE_PAGES:
             path = ROOT / name
             self.assertTrue(path.is_file(), f"Thiếu file HTML: {name}")
 
@@ -51,22 +72,30 @@ class NavigationContractTests(unittest.TestCase):
             content = (ROOT / name).read_text(encoding="utf-8")
             for route in PAGE_NAMES:
                 self.assertIn(f'href="{route}"', content, f"Thiếu href={route} trong {name}")
+        for name in PRODUCT_SURFACE_PAGES:
+            content = (ROOT / name).read_text(encoding="utf-8")
+            for route in ("investment-workspace.html", "portfolio.html"):
+                self.assertIn(f'href="{route}"', content, f"Thiếu href={route} trong {name}")
 
     def test_4_data_nav_keys_unchanged(self):
         expected_nav_keys = {"dashboard", "screener", "analysis", "signals", "macro", "about"}
-        for name in PAGE_NAMES:
+        for name in SHELL_PAGES:
             content = (ROOT / name).read_text(encoding="utf-8")
             found_keys = set(re.findall(r'data-nav=["\']([^"\']+)["\']', content))
             self.assertEqual(found_keys, expected_nav_keys, f"Mismatch data-nav keys trong {name}")
 
     def test_5_vietnamese_labels_present(self):
-        for name in PAGE_NAMES:
+        for name in SHELL_PAGES:
             content = (ROOT / name).read_text(encoding="utf-8")
             for label in VN_NAV_LABELS:
                 self.assertIn(label, content, f"Thiếu nhãn tiếng Việt '{label}' trong {name}")
+        for name in SINGLE_TOPBAR_PAGES:
+            content = (ROOT / name).read_text(encoding="utf-8")
+            for label in COMPACT_NAV_LABELS:
+                self.assertIn(label, content, f"Thiếu nhãn tiếng Việt '{label}' trong {name}")
 
     def test_6_visible_branding_uses_stock_lookup(self):
-        for name in PAGE_NAMES:
+        for name in PRODUCT_SURFACE_PAGES:
             content = (ROOT / name).read_text(encoding="utf-8")
             self.assertIn("Stock Lookup", content, f"Thiếu thương hiệu 'Stock Lookup' trong {name}")
             shell_chunks = re.findall(r'<aside[^>]*>.*?<\/aside>|<header[^>]*>.*?<\/header>', content, re.S)
@@ -75,14 +104,18 @@ class NavigationContractTests(unittest.TestCase):
 
     def test_7_required_mobile_ids_present(self):
         required_ids = ["sidebar", "sidebar-toggle", "sidebar-overlay"]
-        for name in PAGE_NAMES:
+        for name in SHELL_PAGES:
             content = (ROOT / name).read_text(encoding="utf-8")
             for req_id in required_ids:
                 self.assertIn(f'id="{req_id}"', content, f"Thiếu id='{req_id}' trong {name}")
+        for name in SINGLE_TOPBAR_PAGES:
+            content = (ROOT / name).read_text(encoding="utf-8")
+            self.assertIn('class="vs-topbar-nav"', content, f"Thiếu topbar nav trong {name}")
+            self.assertNotIn('class="vs-sidebar"', content, f"Single-topbar {name} không được nhân bản sidebar")
 
     def test_8_no_legal_crawler_terms(self):
         banned_terms = ["LegalCrawler", "legal_crawler", "legal-crawler", "crawler_db"]
-        for name in PAGE_NAMES:
+        for name in PRODUCT_SURFACE_PAGES:
             content = (ROOT / name).read_text(encoding="utf-8")
             for term in banned_terms:
                 self.assertNotIn(term, content, f"Tìm thấy thuật ngữ cấm '{term}' trong {name}")
@@ -93,22 +126,25 @@ class NavigationContractTests(unittest.TestCase):
             self.assertIn(contract, js_content, f"Thiếu contract '{contract}' trong assets/js/shell.js")
 
     def test_10_old_english_labels_not_used_in_nav_links(self):
-        for name in PAGE_NAMES:
+        for name in PRODUCT_SURFACE_PAGES:
             content = (ROOT / name).read_text(encoding="utf-8")
             nav_links = re.findall(r'<a[^>]*\bdata-nav="[^"]*"[^>]*>(.*?)<\/a>', content, re.S)
+            nav_links += re.findall(r'<a[^>]*\bclass="[^"]*vs-topnav-link[^"]*"[^>]*>(.*?)<\/a>', content, re.S)
             for link_inner in nav_links:
                 clean_text = re.sub(r'<[^>]+>', '', link_inner).strip()
                 for old_label in OLD_ENGLISH_NAV_LABELS:
                     self.assertNotEqual(clean_text, old_label, f"Link nav vẫn dùng nhãn tiếng Anh '{old_label}' trong {name}")
 
     def test_11_valid_asset_references(self):
-        for name in PAGE_NAMES:
+        for name in PRODUCT_SURFACE_PAGES:
             content = (ROOT / name).read_text(encoding="utf-8")
             self.assertIn('href="assets/css/shell.css', content, f"Thiếu shell.css reference trong {name}")
+        for name in SHELL_PAGES:
+            content = (ROOT / name).read_text(encoding="utf-8")
             self.assertIn('src="assets/js/shell.js', content, f"Thiếu shell.js reference trong {name}")
 
     def test_12_no_duplicate_ids_in_html(self):
-        for name in PAGE_NAMES:
+        for name in PRODUCT_SURFACE_PAGES:
             content = (ROOT / name).read_text(encoding="utf-8")
             ids = re.findall(r'\bid=["\']([^"\']+)["\']', content)
             seen = set()

@@ -149,7 +149,19 @@ jobs:
             "$SESSION_MANIFEST"
             "$SESSION_REPORT"
             "dashboard.html"
+            "investment-workspace.html"
+            "portfolio.html"
+            "data/investment_decision_workspace.json"
           )
+          OPTIONAL_PUBLIC_FILES=(
+            "data/screener_master_projection.json"
+            "data/screener_master_projection.js"
+          )
+          for f in "${OPTIONAL_PUBLIC_FILES[@]}"; do
+            if [ -s "$f" ]; then
+              FILES+=("$f")
+            fi
+          done
           for f in "${FILES[@]}"; do
             if [ ! -s "$f" ]; then
               echo "ERROR: missing or empty source file: $f"
@@ -227,7 +239,19 @@ jobs:
             "$SESSION_MANIFEST"
             "$SESSION_REPORT"
             "dashboard.html"
+            "investment-workspace.html"
+            "portfolio.html"
+            "data/investment_decision_workspace.json"
           )
+          OPTIONAL_PUBLIC_FILES=(
+            "data/screener_master_projection.json"
+            "data/screener_master_projection.js"
+          )
+          for f in "${OPTIONAL_PUBLIC_FILES[@]}"; do
+            if [ -s "$f" ]; then
+              FILES+=("$f")
+            fi
+          done
           WORKDIR="$(mktemp -d "${RUNNER_TEMP:-/tmp}/pages-verify.XXXXXX")"
           trap 'rm -rf "$WORKDIR"' EXIT
           mkdir -p "$WORKDIR/expected" "$WORKDIR/observed"
