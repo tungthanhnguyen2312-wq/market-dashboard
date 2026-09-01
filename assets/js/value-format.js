@@ -253,6 +253,7 @@
     HIGH_RISK_SPECULATION_ONLY: "Chỉ đầu cơ rủi ro cao",
     AVOID_NEW_ENTRY: "Tránh mở vị thế mới",
     INSUFFICIENT_EVIDENCE: "Chưa đủ bằng chứng",
+    UNAVAILABLE: "Chưa có dữ liệu",
     PRIORITY_NOW: "Ưu tiên nghiên cứu hiện tại",
     SETUP_WATCH: "Theo dõi vị thế",
   });
@@ -267,6 +268,7 @@
     DISTRIBUTION_RISK: "Rủi ro phân phối",
     BASE_BUILDING: "Đang tạo nền",
     BREAKOUT_READY: "Sẵn sàng bứt phá",
+    UNAVAILABLE: "Chưa có dữ liệu",
   });
 
   const ENTRY_ACTION_MAP = Object.freeze({
@@ -275,6 +277,7 @@
     EARLY_ENTRY: "Mở vị thế sớm",
     ACCUMULATE_IN_BASE: "Tích lũy trong nền",
     BUY_ON_CONFIRMATION: "Mở vị thế khi xác nhận",
+    UNAVAILABLE: "Chưa có dữ liệu",
   });
 
   const FUNDAMENTAL_STATE_MAP = Object.freeze({
@@ -359,7 +362,7 @@
     READY: "Sẵn sàng nghiên cứu",
     CONDITIONAL: "Có điều kiện",
     UNAVAILABLE: "Chưa có dữ liệu",
-    NOT_AVAILABLE: "Chưa có",
+    NOT_AVAILABLE: "Chưa ghi nhận kích hoạt",
     TRIGGERED: "Đã kích hoạt",
     CONFIRMED: "Đã xác nhận",
   });

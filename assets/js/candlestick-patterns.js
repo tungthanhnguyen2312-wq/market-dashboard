@@ -572,6 +572,10 @@
 
   async function init() {
     initTooltips();
+    if (!$("pattern-table-body")) {
+      resolveReady(null);
+      return;
+    }
     setupTabs();
     setState("Đang tải dữ liệu mẫu hình nến…");
     try {
@@ -601,6 +605,7 @@
       getConfidenceIndex,
       confidenceFor,
       patternInfo,
+      lookupPatternInfo,
       smcInfo,
       smcDisplayLabel,
       labelFor,

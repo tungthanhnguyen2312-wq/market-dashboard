@@ -319,9 +319,9 @@ test("signals.html makes Tactical V2 cohort filtering its primary control", () =
 
 test("signals.html separates confirmation boundaries, actual trigger state, and invalidation", () => {
   const html = fs.readFileSync(path.join(__dirname, "..", "signals.html"), "utf8");
-  assert.match(html, />Confirmation boundary</);
-  assert.match(html, />Actual trigger state</);
-  assert.match(html, />Invalidation</);
+  assert.match(html, />Điều kiện xác nhận</);
+  assert.match(html, />Trạng thái kích hoạt thực tế</);
+  assert.match(html, />Điều kiện vô hiệu</);
 });
 
 test("candlestick-patterns.js source has no hardcoded capitalized English direction word as a rendered label", () => {
@@ -335,7 +335,7 @@ test("the primary Tactical V2 table is wrapped in a keyboard-focusable horizonta
   const html = fs.readFileSync(path.join(__dirname, "..", "signals.html"), "utf8");
   assert.match(
     html,
-    /<div class="tactical-wrap" tabindex="0" aria-label="[^"]+"><table class="tactical-table">/,
+    /<div class="tactical-wrap" tabindex="0" aria-label="[^"]+">\s*<table class="tactical-table">/,
     "the primary Tactical V2 table must be wrapped in .tactical-wrap with tabindex=0 and an aria-label",
   );
 });
@@ -343,8 +343,10 @@ test("the primary Tactical V2 table is wrapped in a keyboard-focusable horizonta
 test("legacy candlestick data remains an explicitly optional secondary sidecar", () => {
   const html = fs.readFileSync(path.join(__dirname, "..", "signals.html"), "utf8");
   const product = fs.readFileSync(path.join(__dirname, "..", "assets", "js", "signals-product.js"), "utf8");
-  assert.match(html, /Legacy candlestick sidecars \(optional\)/);
+  assert.match(html, /Mẫu hình nến &amp; SMC/);
   assert.match(product, /OPTIONAL_CANDLE_SIGNAL_SIDECAR_UNAVAILABLE/);
+  assert.match(product, /Chưa có dữ liệu mẫu hình nến phù hợp cho phiên hiện tại/);
+  assert.doesNotMatch(html, /Legacy candlestick sidecars/);
 });
 
 test("signals.html keeps the Tactical V2 table itself inside a bounded responsive scroller", () => {

@@ -33,6 +33,9 @@ jobs:
       - name: Signals/macro localization tests
         run: node --test tests/signals-macro-localization.test.js
 
+      - name: Signals product localization tests
+        run: node --test tests/signals-product-localization.test.js
+
       - name: Company-panel JavaScript tests
         run: node --test tests/company-panel.test.js
 
