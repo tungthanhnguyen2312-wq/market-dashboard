@@ -1,25 +1,25 @@
 <!doctype html>
 <html lang="vi" data-bs-theme="dark"><head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Decision Cockpit V2 | Stock Lookup</title>
+  <title>Bàn quyết định V2 | Stock Lookup</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css?v=2026-08-26-f54d70f-cff1036856"><link rel="stylesheet" href="assets/css/shell.css?v=2026-08-26-f54d70f-cff1036856"><link rel="stylesheet" href="assets/css/decision-cockpit.css?v=2026-08-26-f54d70f-cff1036856">
 </head><body class="bg-bg text-white" data-page="decision-cockpit">
 <div class="vs-shell"><div class="vs-shell-main"><header class="vs-topbar">
   <a class="vs-topbar-brand" href="dashboard.html"><span class="vs-brand-dot"></span><span>Stock Lookup</span></a>
   <nav class="vs-topbar-nav" aria-label="Điều hướng chính"><a class="vs-topnav-link" href="dashboard.html">Tổng quan</a><a class="vs-topnav-link" href="screener.html">Bộ lọc</a><a class="vs-topnav-link" href="analysis.html">Phân tích</a><a class="vs-topnav-link" href="signals.html">Tín hiệu</a><a class="vs-topnav-link active" href="decision-cockpit.html">Bàn quyết định</a><a class="vs-topnav-link" href="investment-workspace.html">Không gian quyết định</a><a class="vs-topnav-link" href="portfolio.html">Danh mục</a></nav>
-  <span class="vs-topbar-spacer"></span><span class="badge-soft bs-amber">RETAINED RESEARCH SESSION</span>
+  <span class="vs-topbar-spacer"></span><span class="badge-soft bs-amber">Phiên nghiên cứu đã lưu</span>
 </header><main class="vs-content">
   <div id="cockpit-error" class="vs-alert vs-alert-warning" hidden></div>
   <div id="cockpit" hidden>
-    <div class="cockpit-hero"><div><div class="section-eyebrow">Sản phẩm nghiên cứu quyết định hàng ngày V2</div><h1 class="h3 mb-1">Bàn quyết định</h1><div class="cockpit-note" id="session-line"></div></div><a class="btn btn-sm btn-outline-light" href="investment-workspace.html">Không gian quyết định &rarr;</a> <a class="btn btn-sm btn-outline-light" href="decision-cockpit.html#lineage">Lineage / Evidence</a></div>
-    <div class="cockpit-warning">Human-review research only. No target, recommendation, probability, sizing, or execution instruction is emitted.</div>
-    <section class="cockpit-section card mb-4"><div class="card-header"><h5>Market overview</h5></div><div class="card-body"><div id="market-overview" class="cockpit-grid"></div><div id="market-warnings" class="cockpit-note mt-3"></div></div></section>
-    <section class="cockpit-section card mb-4"><div class="card-header"><h5>Research discovery <small class="text-muted">ticker order is alphabetical, not ranking</small></h5></div><div class="card-body"><div id="cohorts"></div><hr><div id="priority-review"></div></div></section>
-    <section class="cockpit-section card mb-4"><div class="card-header"><h5>Watchlist <span id="watch-count" class="badge-soft bs-blue"></span></h5></div><div class="card-body p-0"><div class="table-responsive"><table class="cockpit-table"><thead><tr><th>Ticker</th><th>Entry state / action</th><th>Strategy</th><th>Scenario</th><th>Evidence / conflicts</th><th>Quality</th></tr></thead><tbody id="watchlist"></tbody></table></div></div></section>
-    <section class="cockpit-section card mb-4"><div class="card-header"><h5>Ticker research detail</h5></div><div class="card-body"><div class="d-flex gap-2 align-items-center mb-3"><label class="cockpit-note" for="ticker-select">Ticker</label><select id="ticker-select" class="form-select form-select-sm" style="max-width:160px"></select></div><div id="ticker-card"></div></div></section>
-    <section class="cockpit-section card mb-4"><div class="card-header"><h5>Portfolio risk</h5></div><div class="card-body" id="portfolio-risk"></div></section>
-    <section class="cockpit-section card mb-4"><div class="card-header"><h5>Data gaps &amp; what to verify</h5></div><div class="card-body"><div id="gaps" class="cockpit-grid"></div><ul id="verify-next" class="cockpit-list mt-3"></ul></div></section>
-    <section id="lineage" class="cockpit-section card mb-4"><div class="card-header"><h5>Lineage / evidence</h5></div><div class="card-body"><div id="lineage-content"></div></div></section>
+    <div class="cockpit-hero"><div><div class="section-eyebrow">Sản phẩm nghiên cứu quyết định hàng ngày V2</div><h1 class="h3 mb-1">Bàn quyết định</h1><div class="cockpit-note" id="session-line"></div></div><div class="d-flex gap-2"><a class="btn btn-sm btn-outline-light" href="investment-workspace.html">Không gian quyết định &rarr;</a> <a class="btn btn-sm btn-outline-light" href="decision-cockpit.html#lineage">Nguồn dữ liệu / Bằng chứng</a></div></div>
+    <div class="cockpit-warning">Chỉ phục vụ nghiên cứu có người kiểm tra. Không tạo giá mục tiêu, khuyến nghị, xác suất, quy mô vị thế hoặc chỉ thị giao dịch.</div>
+    <section class="cockpit-section card mb-4"><div class="card-header"><h5>Tổng quan thị trường</h5></div><div class="card-body"><div id="market-overview" class="cockpit-grid"></div><div id="market-warnings" class="cockpit-note mt-3"></div></div></section>
+    <section class="cockpit-section card mb-4"><div class="card-header"><h5>Khám phá cơ hội nghiên cứu <small class="text-muted">sắp xếp theo mã, không phải xếp hạng</small></h5></div><div class="card-body"><div id="cohorts"></div><hr><div id="priority-review"></div></div></section>
+    <section class="cockpit-section card mb-4"><div class="card-header"><h5>Danh sách theo dõi <span id="watch-count" class="badge-soft bs-blue"></span></h5></div><div class="card-body p-0"><div class="table-responsive"><table class="cockpit-table"><thead><tr><th>Mã</th><th>Trạng thái / Hành động nghiên cứu</th><th>Chiến lược</th><th>Kịch bản</th><th>Bằng chứng / Xung đột</th><th>Chất lượng dữ liệu</th></tr></thead><tbody id="watchlist"></tbody></table></div></div></section>
+    <section id="ticker-research" class="cockpit-section card mb-4"><div class="card-header"><h5>Chi tiết nghiên cứu mã</h5></div><div class="card-body"><div class="d-flex gap-2 align-items-center mb-3"><label class="cockpit-note" for="ticker-select">Mã</label><select id="ticker-select" class="form-select form-select-sm" style="max-width:160px"></select></div><div id="ticker-card"></div></div></section>
+    <section class="cockpit-section card mb-4"><div class="card-header"><h5>Rủi ro danh mục</h5></div><div class="card-body" id="portfolio-risk"></div></section>
+    <section class="cockpit-section card mb-4"><div class="card-header"><h5>Khoảng trống dữ liệu &amp; nội dung cần kiểm chứng</h5></div><div class="card-body"><div id="gaps" class="cockpit-grid"></div><ul id="verify-next" class="cockpit-list mt-3"></ul></div></section>
+    <section id="lineage" class="cockpit-section card mb-4"><div class="card-header"><h5>Nguồn dữ liệu / Bằng chứng</h5></div><div class="card-body"><div id="lineage-content"></div></div></section>
   </div>
-</main></div></div><script src="assets/js/decision-cockpit.js?v=2026-08-26-f54d70f-cff1036856"></script></body></html>
+</main></div></div><script src="assets/js/value-format.js?v=2026-08-26-f54d70f-cff1036856"></script><script src="assets/js/decision-cockpit.js?v=2026-08-26-f54d70f-cff1036856"></script></body></html>

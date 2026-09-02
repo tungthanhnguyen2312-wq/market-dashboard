@@ -4,9 +4,12 @@
 .cockpit-kpi .label { color:var(--text-muted); font-size:.72rem; text-transform:uppercase; letter-spacing:.04em; }
 .cockpit-kpi .value { color:var(--text); font-size:1rem; font-weight:800; margin-top:.3rem; overflow-wrap:anywhere; }
 .cockpit-section { scroll-margin-top:80px; }
-.cockpit-chip-row { display:flex; flex-wrap:wrap; gap:.4rem; }
+.cockpit-chip-row { display:flex; flex-wrap:wrap; gap:.4rem; align-items:center; }
 .cockpit-chip { background:rgba(var(--primary-rgb),.12); color:var(--accent-text-strong); border:1px solid rgba(var(--primary-rgb),.25); border-radius:999px; padding:.22rem .55rem; font-size:.76rem; font-weight:650; cursor:pointer; }
 .cockpit-chip:hover { background:rgba(var(--primary-rgb),.22); }
+.cockpit-chip-extra { display:contents; }
+.cockpit-toggle-btn { background:rgba(var(--primary-rgb),.08); color:var(--accent-text-strong); border:1px dashed rgba(var(--primary-rgb),.4); border-radius:999px; padding:.22rem .65rem; font-size:.76rem; font-weight:650; cursor:pointer; }
+.cockpit-toggle-btn:hover { background:rgba(var(--primary-rgb),.2); }
 .cockpit-table { width:100%; border-collapse:collapse; font-size:.82rem; }
 .cockpit-table th,.cockpit-table td { padding:.5rem .6rem; border-bottom:1px solid var(--border-soft); text-align:left; vertical-align:top; }
 .cockpit-table th { color:var(--text-muted); font-size:.69rem; text-transform:uppercase; letter-spacing:.04em; }
