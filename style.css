@@ -283,7 +283,7 @@ h2 svg.card-icon { width: 16px; height: 16px; flex-shrink: 0; color: var(--prima
 }
 
 /* ---------- Badges (conditional formatting) ---------- */
-.badge-soft {
+.badge-soft, .vs-state-label {
   display: inline-block;
   padding: 0.14rem 0.5rem;
   border-radius: var(--radius-pill);
@@ -291,13 +291,14 @@ h2 svg.card-icon { width: 16px; height: 16px; flex-shrink: 0; color: var(--prima
   font-weight: 600;
   line-height: 1.35;
   font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
 
-.bs-green  { background: var(--success-soft); color: var(--success); border: 1px solid rgba(var(--success-rgb), 0.35); }
-.bs-amber  { background: var(--warning-soft); color: var(--warning); border: 1px solid rgba(var(--warning-rgb), 0.35); }
-.bs-red    { background: var(--danger-soft);  color: var(--danger);  border: 1px solid rgba(var(--danger-rgb), 0.35); }
-.bs-blue   { background: var(--primary-soft); color: var(--accent-text); border: 1px solid rgba(var(--primary-rgb), 0.35); }
-.bs-gray   { background: rgba(140, 163, 168, 0.12); color: var(--text-muted); border: 1px solid var(--border-soft); }
+.bs-green, .tone-constructive { background: var(--success-soft); color: var(--success); border: 1px solid rgba(var(--success-rgb), 0.35); }
+.bs-amber, .tone-watch        { background: var(--warning-soft); color: var(--warning); border: 1px solid rgba(var(--warning-rgb), 0.35); }
+.bs-red,   .tone-adverse      { background: var(--danger-soft);  color: var(--danger);  border: 1px solid rgba(var(--danger-rgb), 0.35); }
+.bs-blue,  .tone-info         { background: var(--primary-soft); color: var(--accent-text); border: 1px solid rgba(var(--primary-rgb), 0.35); }
+.bs-gray,  .tone-neutral      { background: rgba(140, 163, 168, 0.12); color: var(--text-muted); border: 1px solid var(--border-soft); }
 
 /* Quy tắc màu số liệu dùng chung — xem thêm helper JS signClass() trong
    assets/js/value-format.js: dương -> --success, âm -> --danger, bằng 0

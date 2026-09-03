@@ -1,1 +1,132 @@
-<!doctype html><html lang="vi" data-bs-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Danh mục local | Stock Lookup</title><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="assets/css/shell.css"></head><body class="bg-bg text-white" data-page="portfolio"><div class="vs-shell"><div class="vs-shell-main"><header class="vs-topbar"><a class="vs-topbar-brand" href="dashboard.html"><span class="vs-brand-dot"></span><span>Stock Lookup</span></a><nav class="vs-topbar-nav" aria-label="Điều hướng chính"><a class="vs-topnav-link" href="dashboard.html">Tổng quan</a><a class="vs-topnav-link" href="screener.html">Bộ lọc</a><a class="vs-topnav-link" href="analysis.html">Phân tích</a><a class="vs-topnav-link" href="signals.html">Tín hiệu</a><a class="vs-topnav-link" href="investment-workspace.html">Không gian quyết định</a><a class="vs-topnav-link active" href="portfolio.html">Danh mục</a><a class="vs-topnav-link" href="macro.html">Vĩ mô</a><a class="vs-topnav-link" href="about.html">Giới thiệu</a></nav></header><main class="vs-content"><div class="section-eyebrow">Browser-local portfolio editor</div><h1 class="h3">Danh mục nghiên cứu</h1><p class="text-muted">Lưu trong trình duyệt này. Editor không gửi holdings, không tối ưu hóa danh mục và không tạo khuyến nghị.</p><div class="card mb-4"><div class="card-body"><form id="portfolio-form" class="d-flex flex-wrap gap-2 align-items-end"><label>Portfolio ID <input id="portfolio-id" class="form-control" required value="local-portfolio"></label><label>Cash <input id="cash" class="form-control" type="number" min="0" value="0"></label><label>Ticker <input id="ticker" class="form-control" maxlength="12"></label><label>Quantity or weight <input id="amount" class="form-control" type="number" min="0" step="any"></label><label>Basis <select id="basis" class="form-select"><option value="explicit_weight">Weight</option><option value="quantity">Quantity</option></select></label><button class="vs-btn" type="submit">Add position</button></form><p class="mt-3 mb-0"><button id="save" class="vs-btn" type="button">Save locally</button> <button id="export" class="vs-btn" type="button">Export JSON</button> <label>Import JSON <input id="import" type="file" accept="application/json"></label> <button id="clear" class="vs-btn" type="button">Clear/reset</button></p></div></div><div class="card mb-4"><div class="card-header"><h5>Positions</h5></div><div class="card-body p-0"><div class="table-responsive"><table class="table table-dark mb-0"><thead><tr><th>Ticker</th><th>Input</th><th></th></tr></thead><tbody id="positions"></tbody></table></div></div></div><div class="card"><div class="card-header"><h5>Research capability boundary</h5></div><div class="card-body"><p>Liquidity research proxy is descriptive when precomputed evidence is available. Exact execution capacity remains separately blocked or partial. Python/Producer remains numerical authority for volatility, correlation, and joint-risk horizons.</p><a class="vs-btn" href="investment-workspace.html">Mở thẻ Không gian quyết định →</a></div></div></main><footer class="vs-statusfooter"><span>Local portfolio input → Producer evaluation → Portfolio research display. No execution instruction.</span></footer></div></div><script src="portfolio.js"></script></body></html>
+<!doctype html>
+<html lang="vi" data-bs-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Danh mục nghiên cứu | Stock Lookup</title>
+  <meta name="description" content="Trình biên tập danh mục nội bộ trên trình duyệt (Stored only in this browser).">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="assets/css/shell.css">
+  <style>
+    .portfolio-weight-bar { height: 28px; border-radius: 6px; overflow: hidden; display: flex; background: var(--surface); border: 1px solid var(--border); }
+    .portfolio-weight-segment { display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; color: #031014; transition: width 0.3s ease; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; padding: 0 4px; }
+  </style>
+</head>
+<body class="bg-bg text-white" data-page="portfolio">
+<div class="vs-shell">
+  <div class="vs-shell-main">
+    <header class="vs-topbar">
+      <a class="vs-topbar-brand" href="dashboard.html"><span class="vs-brand-dot"></span><span>Stock Lookup</span></a>
+      <nav class="vs-topbar-nav" aria-label="Điều hướng chính">
+        <a class="vs-topnav-link" href="dashboard.html" data-nav="dashboard" title="Tổng quan">Tổng quan</a>
+        <a class="vs-topnav-link" href="screener.html" data-nav="screener" title="Bộ lọc">Bộ lọc</a>
+        <a class="vs-topnav-link" href="signals.html" data-nav="signals" title="Tín hiệu">Tín hiệu</a>
+        <a class="vs-topnav-link" href="analysis.html" data-nav="analysis" title="Phân tích">Phân tích</a>
+        <a class="vs-topnav-link" href="investment-workspace.html" data-nav="investment-workspace" title="Bàn quyết định">Bàn quyết định</a>
+        <a class="vs-topnav-link is-active active" href="portfolio.html" data-nav="portfolio" title="Danh mục" aria-current="page">Danh mục</a>
+        <a class="vs-topnav-link" href="macro.html" data-nav="macro" title="Vĩ mô">Vĩ mô</a>
+        <a class="vs-topnav-link" href="about.html" data-nav="about" title="Giới thiệu">Giới thiệu</a>
+      </nav>
+      <span class="vs-topbar-spacer"></span>
+      <a class="vs-topbar-link" href="archive.html"><i data-lucide="history"></i>Lịch sử</a>
+    </header>
+
+    <main class="vs-content">
+      <div class="section-eyebrow">Biên tập danh mục nội bộ trên trình duyệt</div>
+      <h1 class="h3">Danh mục nghiên cứu</h1>
+      <p class="text-muted">Lưu trữ cục bộ trong trình duyệt này (Stored only in this browser). Trình biên tập không gửi danh mục lên máy chủ, không tối ưu hóa danh mục và không tạo khuyến nghị.</p>
+
+      <div class="card mb-4">
+        <div class="card-header"><h5>Thông tin &amp; Thêm vị thế</h5></div>
+        <div class="card-body">
+          <form id="portfolio-form" class="row g-3 align-items-end">
+            <div class="col-md-3 col-sm-6">
+              <label class="form-label" for="portfolio-id">Mã danh mục</label>
+              <input id="portfolio-id" class="form-control form-control-sm" required value="local-portfolio">
+            </div>
+            <div class="col-md-2 col-sm-6">
+              <label class="form-label" for="cash">Tiền mặt (VND)</label>
+              <input id="cash" class="form-control form-control-sm" type="number" min="0" value="0">
+            </div>
+            <div class="col-md-2 col-sm-4">
+              <label class="form-label" for="ticker">Mã cổ phiếu</label>
+              <input id="ticker" class="form-control form-control-sm text-uppercase font-monospace" placeholder="VD: HPG" maxlength="12">
+            </div>
+            <div class="col-md-3 col-sm-4">
+              <label class="form-label" for="amount">Số lượng hoặc tỷ trọng</label>
+              <input id="amount" class="form-control form-control-sm" type="number" min="0" step="any" placeholder="VD: 1000 hoặc 0.15">
+            </div>
+            <div class="col-md-2 col-sm-4">
+              <label class="form-label" for="basis">Cơ sở phân bổ</label>
+              <select id="basis" class="form-select form-select-sm">
+                <option value="explicit_weight">Tỷ trọng xác định (%)</option>
+                <option value="quantity">Khối lượng</option>
+              </select>
+            </div>
+            <div class="col-12 d-flex flex-wrap gap-2 pt-2">
+              <button class="vs-btn vs-btn-primary" type="submit" id="add-position" title="Add position">Thêm vị thế (Add position)</button>
+              <button id="save" class="vs-btn" type="button">Lưu trên trình duyệt</button>
+              <button id="export" class="vs-btn" type="button" title="Export JSON">Xuất file JSON (Export JSON)</button>
+              <label class="vs-btn mb-0" style="cursor: pointer;" title="Import JSON">Nhập file JSON (Import JSON) <input id="import" type="file" accept="application/json" hidden></label>
+              <button id="clear" class="vs-btn text-danger" type="button" title="Clear/reset">Xóa / Đặt lại (Clear/reset)</button>
+            </div>
+          </form>
+          <div id="save-status" class="cockpit-note mt-2 text-success" style="display:none;">Đã lưu danh mục vào bộ nhớ trình duyệt (localStorage).</div>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <h5 class="mb-0">Các vị thế nắm giữ</h5>
+          <span id="pos-count" class="badge-soft bs-blue">0 vị thế</span>
+        </div>
+        <div class="card-body p-0">
+          <div class="table-responsive">
+            <table class="table table-dark table-hover mb-0">
+              <thead>
+                <tr>
+                  <th>Mã</th>
+                  <th>Cơ sở phân bổ</th>
+                  <th>Thông số nhập</th>
+                  <th class="text-end">Thao tác</th>
+                </tr>
+              </thead>
+              <tbody id="positions"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trực quan hóa phân bổ danh mục -->
+      <div class="card mb-4" id="allocation-card">
+        <div class="card-header"><h5>Trực quan hóa phân bổ tỷ trọng</h5></div>
+        <div class="card-body" id="allocation-body">
+          <div class="cockpit-note">Chưa có vị thế nào trong danh mục.</div>
+        </div>
+      </div>
+
+      <!-- Giới hạn năng lực nghiên cứu -->
+      <div class="card mb-4">
+        <div class="card-header"><h5>Giới hạn năng lực nghiên cứu</h5></div>
+        <div class="card-body">
+          <div id="portfolio-evaluation-state" class="mb-3">
+            <div class="vs-alert vs-alert-warning mb-2">
+              <b>Chưa có phân tích danh mục</b>
+              <p class="mb-0 mt-1">Dữ liệu danh mục trên trình duyệt là dữ liệu nhập cục bộ. Để hiển thị các thước đo rủi ro liên hợp, ma trận tương quan và độ biến động, danh mục phải được đối soát và đánh giá qua các artifact tính toán của Producer.</p>
+            </div>
+          </div>
+          <p class="text-muted mb-3">Thanh khoản nghiên cứu (Liquidity research proxy) mang tính mô tả khi có sẵn bằng chứng tính toán trước. Năng lực thực hiện lệnh chính xác (Exact execution capacity) vẫn được tách biệt hoặc chặn độc lập. Producer/Python là thẩm quyền tính toán số học cho độ biến động, tương quan và chân trời rủi ro liên hợp.</p>
+          <a class="vs-btn" href="investment-workspace.html">Mở Bàn quyết định &rarr;</a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="vs-statusfooter">
+      <span>Phục vụ nghiên cứu, không phải lệnh giao dịch. Dữ liệu và phân tích là bản snapshot phục vụ nghiên cứu độc lập.</span>
+    </footer>
+  </div>
+</div>
+<script src="portfolio.js"></script>
+</body>
+</html>

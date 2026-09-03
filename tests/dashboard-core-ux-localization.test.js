@@ -210,9 +210,9 @@ test("overview uses current projection facts with explicit denominators", () => 
   assert.equal(summary.research_stance.counts.WAIT_FOR_CONFIRMATION, 886);
   const html = overview.renderDecisionSummaryHtml(summary);
   assert.match(html, /Quyết định nghiên cứu hiện tại|Phiên 2026-08-28/);
-  assert.match(html, /Mở Không gian quyết định/);
+  assert.match(html, /Mở Bàn quyết định|Mở Không gian quyết định/);
   assert.match(html, /Phân tích đa trục/);
-  assert.match(html, /Bộ lọc thị trường/);
+  assert.match(html, /Bộ lọc/);
   assert.doesNotMatch(html, /Xem Tactical V2/);
   assert.doesNotMatch(visibleText(html), /WAIT_FOR_CONFIRMATION/);
 });

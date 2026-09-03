@@ -707,11 +707,137 @@
   function formatConfirmationState(value) { return formatStateLabel(value, "confirmation_state"); }
   function formatInvalidationState(value) { return formatStateLabel(value, "invalidation_state"); }
 
+  /* ============================================================
+   * 6. CENTRALIZED SEMANTIC TONE CONTRACT
+   * Constructive / Confirmed / Positive -> "constructive" (green/teal)
+   * Watch / Base / Caution / Stale-Usable -> "watch" (amber)
+   * Adverse / Breakdown / Risk / Invalidated -> "adverse" (red)
+   * Informational -> "info" (blue)
+   * Unavailable / Insufficient / Unknown -> "neutral" (neutral gray)
+   * ============================================================ */
+
+  const SEMANTIC_TONES = Object.freeze({
+    CONSTRUCTIVE: "constructive",
+    WATCH: "watch",
+    ADVERSE: "adverse",
+    INFO: "info",
+    NEUTRAL: "neutral",
+  });
+
+  const GOVERNED_STATE_TONES = Object.freeze({
+    // Constructive / Confirmed / Positive (green/teal tone)
+    BREAKOUT_READY: "constructive",
+    UPTREND_CONFIRMED: "constructive",
+    INITIATE_RESEARCH_CANDIDATE: "constructive",
+    ACCUMULATE_RESEARCH_CANDIDATE: "constructive",
+    PROFITABLE: "constructive",
+    PROFIT_GROWTH: "constructive",
+    ATTRACTIVE_RELATIVE_RESEARCH: "constructive",
+    CONFIRMED: "constructive",
+    CURRENT: "constructive",
+    READY: "constructive",
+    ACTIVE_CASES_AVAILABLE: "constructive",
+    NO_CONCENTRATION_FLAGGED: "constructive",
+    BUY_ON_CONFIRMATION: "constructive",
+    EARLY_ENTRY: "constructive",
+    ACCUMULATE_IN_BASE: "constructive",
+    EXECUTION_CAPACITY_EXACT_READY: "constructive",
+    UP: "constructive",
+
+    // Watch / Base / Early Setup / Caution (amber tone)
+    BASE_BUILDING: "watch",
+    EARLY_REVERSAL_CANDIDATE: "watch",
+    WAIT_FOR_CONFIRMATION: "watch",
+    WAIT: "watch",
+    SELLING_PRESSURE_EASING: "watch",
+    SIDEWAYS_NEUTRAL: "watch",
+    HIGH_RISK_SPECULATION_ONLY: "watch",
+    STANCE_RECONSIDERATION_WATCH: "watch",
+    CONDITIONAL: "watch",
+    WATCH_FOR_EXECUTION: "watch",
+    TURNAROUND_CONTEXT: "watch",
+    STALE_BUT_RESEARCH_USABLE: "watch",
+    STALE_AXIS_PRESENT: "watch",
+    STALE: "watch",
+    MIXED: "watch",
+    PENDING_NOT_ENOUGH_FUTURE_SESSIONS: "watch",
+    RESEARCH_READY_CONDITIONAL: "watch",
+    CONDITIONAL_RESEARCH_STATE: "watch",
+    SIDE: "watch",
+
+    // Adverse / Breakdown / Risk / Invalidated (red tone)
+    DISTRIBUTION_RISK: "adverse",
+    BREAKDOWN_RISK: "adverse",
+    DOWNTREND: "adverse",
+    AVOID_NEW_ENTRY: "adverse",
+    AVOID: "adverse",
+    LOSS_MAKING: "adverse",
+    LOSS_WIDENED: "adverse",
+    TURNED_TO_LOSS: "adverse",
+    EXPENSIVE_RELATIVE_RESEARCH: "adverse",
+    TRIGGERED: "adverse",
+    THESIS_INVALIDATION: "adverse",
+    STALE_NOT_USABLE_FOR_THIS_AXIS: "adverse",
+    EXCEEDS_USER_POLICY_LIMIT: "adverse",
+    DOWN: "adverse",
+
+    // Informational (blue tone)
+    AVAILABLE: "info",
+    PRICE_AVAILABLE: "info",
+    RESEARCH_PROXY: "info",
+    LIQUIDITY_RESEARCH_PROXY: "info",
+    QUALIFIED_CLASSIFICATION: "info",
+    SHORT_TERM_FEW_SESSIONS: "info",
+    MEDIUM_TERM: "info",
+    LONG_TERM: "info",
+
+    // Unavailable / Insufficient / Unknown (neutral gray tone)
+    UNAVAILABLE: "neutral",
+    INSUFFICIENT_EVIDENCE: "neutral",
+    INSUFFICIENT_DATA: "neutral",
+    UNKNOWN: "neutral",
+    NOT_AVAILABLE: "neutral",
+    NOT_EVALUATED: "neutral",
+    NOT_APPLICABLE: "neutral",
+    ABSENT: "neutral",
+    NO_RETAINED_CURRENT_CASES: "neutral",
+    CASE_DATA_UNAVAILABLE: "neutral",
+    BLOCKED: "neutral",
+    EXECUTION_CAPACITY_EXACT_BLOCKED: "neutral",
+    EXECUTION_CAPACITY_EXACT_NOT_QUALIFIED: "neutral",
+    LIQUIDITY_RESEARCH_UNAVAILABLE: "neutral",
+  });
+
+  const TONE_BADGE_CLASS = Object.freeze({
+    constructive: "bs-green",
+    watch: "bs-amber",
+    adverse: "bs-red",
+    info: "bs-blue",
+    neutral: "bs-gray",
+  });
+
+  function getSemanticTone(value, domain) {
+    if (value === null || value === undefined || value === "") return "neutral";
+    const raw = String(value).trim().toUpperCase();
+    if (GOVERNED_STATE_TONES[raw]) return GOVERNED_STATE_TONES[raw];
+    if (raw.includes("CONFIRM") || raw.includes("CONSTRUCTIVE") || raw.includes("POSITIVE")) return "constructive";
+    if (raw.includes("RISK") || raw.includes("BREAKDOWN") || raw.includes("INVALID") || raw.includes("DETERIORAT") || raw.includes("LOSS")) return "adverse";
+    if (raw.includes("WAIT") || raw.includes("WATCH") || raw.includes("BASE") || raw.includes("REVERSAL") || raw.includes("STALE") || raw.includes("CONDITIONAL")) return "watch";
+    if (raw.includes("UNAVAILABLE") || raw.includes("UNKNOWN") || raw.includes("INSUFFICIENT") || raw.includes("BLOCKED") || raw.includes("NOT_")) return "neutral";
+    return "neutral";
+  }
+
+  function getToneBadgeClass(tone) {
+    return TONE_BADGE_CLASS[tone] || "bs-gray";
+  }
+
   function visibleStateHtml(value, domain, options) {
     const formatted = formatDomainState(value, domain);
     const opts = options || {};
+    const tone = opts.tone || getSemanticTone(formatted.raw, domain);
+    const badgeCls = getToneBadgeClass(tone);
     const cls = opts.className ? ` ${opts.className}` : "";
-    return `<span class="vs-state-label${cls}" data-state="${esc(formatted.raw)}" data-domain="${esc(domain || "")}" title="${esc(formatted.raw)}">${esc(formatted.label)}</span>`;
+    return `<span class="vs-state-label tone-${tone} ${badgeCls}${cls}" data-state="${esc(formatted.raw)}" data-domain="${esc(domain || "")}" data-tone="${tone}" title="${esc(formatted.raw)}">${esc(formatted.label)}</span>`;
   }
 
   function formatRuleCondition(value) { return formatStateLabel(value, "rule_condition"); }
@@ -880,6 +1006,10 @@
     technicalDetailsHtml,
     provenanceHtml,
     visibleStateHtml,
+    SEMANTIC_TONES,
+    GOVERNED_STATE_TONES,
+    getSemanticTone,
+    getToneBadgeClass,
     DOMAIN_TABLES,
     SCREENER_UI_LABELS,
     esc,

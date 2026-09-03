@@ -6,13 +6,13 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const root = path.join(__dirname, "..");
-const signals = fs.readFileSync(path.join(root, "signals.html"), "utf8");
+const signalsSource = fs.readFileSync(path.join(root, "assets", "js", "signals-product.js"), "utf8");
 const patterns = fs.readFileSync(path.join(root, "assets", "js", "candlestick-patterns.js"), "utf8");
 
 test("Signals UI exposes unavailable exact-session evidence instead of silently rendering it", () => {
-  assert.match(signals, /Chưa có tín hiệu exact-session/);
-  assert.match(signals, /domain\.status !== "CURRENT"/);
-  assert.match(signals, /Dữ liệu gần nhất/);
+  assert.match(signalsSource, /classifySidecarAvailability/);
+  assert.match(signalsSource, /OPTIONAL_CANDLE_SIGNAL_SIDECAR_UNAVAILABLE|SIGNAL_SOURCE_SESSION_MISMATCH/);
+  assert.match(signalsSource, /Chưa có dữ liệu mẫu hình nến phù hợp cho phiên hiện tại/);
 });
 
 test("Candlestick fallback is guarded by the published component state", () => {

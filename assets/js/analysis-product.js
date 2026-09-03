@@ -89,7 +89,7 @@
     return "";
   }
   function renderRowHtml(row) {
-    return `<tr><td><a class="product-link" href="${workspaceHref(row.ticker)}">${esc(row.ticker)}</a><div class="product-muted">${sectorHtml(row.sector)}</div></td><td>${stateHtml(row.stance, "research_stance")}</td><td>${stateHtml(row.tactical, "tactical_state")}<div class="product-muted">${stateHtml(row.action, "entry_action")}</div></td><td>${stateHtml(row.fundamental, "fundamental_state")}</td><td>${stateHtml(row.valuation, "valuation_state")}<div class="product-muted">${esc(methodLabel(row.methods))}</div></td><td>${stateHtml(row.liquidity, "liquidity_state")}</td><td>${stateHtml(row.catalyst, "evidence_state")}</td><td>${stateHtml(row.confirmation, "confirmation_state")}<div class="product-muted">điều kiện kích hoạt: ${stateHtml(row.trigger, "confirmation_state")}</div></td><td>${stateHtml(row.invalidation, "invalidation_state")}</td><td>${stateHtml(row.freshness, "freshness")}</td></tr>`;
+    return `<tr data-ticker="${esc(row.ticker)}"><td class="sticky-col"><a class="product-link" href="${workspaceHref(row.ticker)}">${esc(row.ticker)}</a><div class="product-muted">${sectorHtml(row.sector)}</div></td><td>${stateHtml(row.stance, "research_stance")}</td><td>${stateHtml(row.tactical, "tactical_state")}<div class="product-muted">${stateHtml(row.action, "entry_action")}</div></td><td>${stateHtml(row.fundamental, "fundamental_state")}</td><td>${stateHtml(row.valuation, "valuation_state")}<div class="product-muted">${esc(methodLabel(row.methods))}</div></td><td>${stateHtml(row.liquidity, "liquidity_state")}</td><td>${stateHtml(row.catalyst, "evidence_state")}</td><td>${stateHtml(row.confirmation, "confirmation_state")}<div class="product-muted">điều kiện kích hoạt: ${stateHtml(row.trigger, "confirmation_state")}</div></td><td>${stateHtml(row.invalidation, "invalidation_state")}</td><td>${stateHtml(row.freshness, "freshness")}</td></tr>`;
   }
   function renderRows(rows) {
     const stance = document.getElementById("stance-filter").value;
@@ -97,6 +97,16 @@
     const visible = rows.filter((row) => (!stance || row.stance === stance) && (!tactical || row.tactical === tactical));
     document.getElementById("analysis-rows").innerHTML = visible.map(renderRowHtml).join("");
     document.getElementById("analysis-count").textContent = `${visible.length} / ${rows.length} thẻ mã được hiển thị · sắp xếp alphabet, không phải xếp hạng.`;
+    const queryTicker = typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("ticker") : null;
+    if (queryTicker) {
+      setTimeout(() => {
+        const targetRow = document.querySelector(`tr[data-ticker="${queryTicker}"]`);
+        if (targetRow) {
+          targetRow.scrollIntoView({ behavior: "smooth", block: "center" });
+          targetRow.style.outline = "2px solid var(--primary, #20e7cf)";
+        }
+      }, 50);
+    }
   }
   function optionSpec(value, domain) {
     return { value, text: labelOf(value, domain) };

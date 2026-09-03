@@ -198,9 +198,9 @@
       <p class="product-muted mb-3">Phiên ${esc(session)} · ${summary.denominator.toLocaleString("vi-VN")} mã. Đây là tóm tắt tư thế nghiên cứu, không phải lệnh thực hiện.</p>
       <div class="decision-summary-grid mb-3">${cards}</div>
       <div class="decision-summary-actions">
-        <a class="vs-btn vs-btn-primary" href="investment-workspace.html">Mở Không gian quyết định</a>
+        <a class="vs-btn vs-btn-primary" href="investment-workspace.html">Mở Bàn quyết định</a>
         <a class="vs-btn" href="analysis.html">Phân tích đa trục</a>
-        <a class="vs-btn" href="screener.html">Bộ lọc thị trường</a>
+        <a class="vs-btn" href="screener.html">Bộ lọc</a>
       </div>`;
   }
 

@@ -38,18 +38,24 @@ EXPECTED_DATA_PAGES = {
 }
 VN_NAV_LABELS = [
     "Tổng quan",
-    "Bộ lọc thị trường",
-    "Phân tích",
+    "Bộ lọc",
     "Tín hiệu",
-    "Vĩ mô & Hàng hóa",
+    "Phân tích",
+    "Bàn quyết định",
+    "Danh mục",
+    "Vĩ mô",
     "Giới thiệu",
     "Lịch sử",
 ]
 COMPACT_NAV_LABELS = [
     "Tổng quan",
     "Bộ lọc",
-    "Phân tích",
     "Tín hiệu",
+    "Phân tích",
+    "Bàn quyết định",
+    "Danh mục",
+    "Vĩ mô",
+    "Giới thiệu",
 ]
 OLD_ENGLISH_NAV_LABELS = ["Dashboard", "Screener", "Analysis", "Signals", "Macro", "About"]
 
@@ -78,7 +84,7 @@ class NavigationContractTests(unittest.TestCase):
                 self.assertIn(f'href="{route}"', content, f"Thiếu href={route} trong {name}")
 
     def test_4_data_nav_keys_unchanged(self):
-        expected_nav_keys = {"dashboard", "screener", "analysis", "signals", "macro", "about"}
+        expected_nav_keys = {"dashboard", "screener", "signals", "analysis", "investment-workspace", "portfolio", "macro", "about", "archive"}
         for name in SHELL_PAGES:
             content = (ROOT / name).read_text(encoding="utf-8")
             found_keys = set(re.findall(r'data-nav=["\']([^"\']+)["\']', content))

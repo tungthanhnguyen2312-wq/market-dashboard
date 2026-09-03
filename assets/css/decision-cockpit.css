@@ -15,7 +15,11 @@
 .cockpit-table th { color:var(--text-muted); font-size:.69rem; text-transform:uppercase; letter-spacing:.04em; }
 .cockpit-note { color:var(--text-muted); font-size:.82rem; }
 .cockpit-state { display:inline-block; border-radius:999px; padding:.18rem .45rem; font-size:.7rem; font-weight:700; background:rgba(148,163,184,.15); color:var(--text-muted); }
-.cockpit-state.available { color:#86efac; background:rgba(34,197,94,.12); }.cockpit-state.partial,.cockpit-state.degraded { color:#fcd34d; background:rgba(245,158,11,.12); }.cockpit-state.blocked,.cockpit-state.unavailable { color:#fca5a5; background:rgba(239,68,68,.12); }
+.cockpit-state.available, .cockpit-state.tone-constructive { color:#86efac; background:rgba(34,197,94,.14); border: 1px solid rgba(34,197,94,.35); }
+.cockpit-state.partial, .cockpit-state.degraded, .cockpit-state.tone-watch { color:#fcd34d; background:rgba(245,158,11,.14); border: 1px solid rgba(245,158,11,.35); }
+.cockpit-state.blocked, .cockpit-state.tone-adverse { color:#fca5a5; background:rgba(239,68,68,.14); border: 1px solid rgba(239,68,68,.35); }
+.cockpit-state.tone-info { color:#93c5fd; background:rgba(59,130,246,.14); border: 1px solid rgba(59,130,246,.35); }
+.cockpit-state.unavailable, .cockpit-state.tone-neutral { color:var(--text-muted); background:rgba(140,163,168,.12); border: 1px solid var(--border-soft); }
 .cockpit-detail-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:.75rem; }.cockpit-detail-grid .card { margin:0; }
 .cockpit-list { margin:0; padding-left:1.1rem; }.cockpit-list li { margin:.26rem 0; }.cockpit-code { font-family:ui-monospace,SFMono-Regular,Consolas,monospace; font-size:.72rem; overflow-wrap:anywhere; }
 .cockpit-warning { border-left:3px solid var(--warning); padding-left:.75rem; margin:.45rem 0; color:var(--text-muted); }

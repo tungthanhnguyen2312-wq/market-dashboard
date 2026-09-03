@@ -236,7 +236,7 @@
       var details = element("div", "macro-kpi-details");
       details.append(detailRow("Kỳ dữ liệu", formatPeriod(item)));
       details.append(detailRow("Tần suất", item.frequency_label || item.frequency || "—"));
-      details.append(detailRow("Pipeline tải", formatGeneratedAt(item.pipeline_updated_at)));
+      details.append(detailRow("Cập nhật", formatGeneratedAt(item.pipeline_updated_at)));
       details.append(detailRow("Nguồn", externalLink(item.source || "Nguồn", item.source_url)));
       if (item.history_scope) details.append(detailRow("Phạm vi", item.history_scope));
 

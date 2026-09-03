@@ -468,21 +468,18 @@
 
       function renderRow(ticker) {
         const card = WORKSPACE.cards[ticker];
-        const portfolio = effectivePortfolio(ticker, card);
-        const invalidationWorst = [(card.invalidation || {}).technical, (card.invalidation || {}).fundamental]
-          .map((x) => (x || {}).status).find((s) => s === "READY") || ((card.invalidation || {}).technical || {}).status || "UNAVAILABLE";
-        return `<tr data-row-ticker="${esc(ticker)}" class="${ticker === SELECTED_TICKER ? "ws-row-selected" : ""}">
-          <td><button type="button" class="cockpit-chip" data-select-ticker="${esc(ticker)}">${esc(ticker)}</button></td>
-          <td class="cockpit-note">${sectorDisplayHtml(card.sector)}</td>
+        const isSelected = ticker === SELECTED_TICKER;
+        return `<tr data-row-ticker="${esc(ticker)}" class="${isSelected ? "ws-row-selected" : ""}" style="cursor: pointer;">
+          <td class="sticky-col">
+            <button type="button" class="btn btn-link p-0 ws-ticker-link fw-bold font-monospace text-start" data-select-ticker="${esc(ticker)}">${esc(ticker)}</button>
+          </td>
+          <td class="cockpit-note text-truncate" style="max-width: 140px;">${sectorDisplayHtml(card.sector)}</td>
           <td>${pill(card.research_stance, "research_stance")}</td>
           <td>${pill(card.entry_state, "tactical_state")}${card.entry_action ? `<div class="cockpit-note">${esc(formatWorkspaceState(card.entry_action, "entry_action"))}</div>` : ""}</td>
-          <td>${pill((card.fundamental || {}).state, "fundamental_state")}</td>
           <td>${pill((card.valuation || {}).relative_research_state, "valuation_state")}${(card.valuation || {}).market_cap_semantic_guard_applied ? '<div class="cockpit-note">đã chắn ngữ nghĩa</div>' : ""}</td>
-          <td>${pill((card.liquidity || {}).readiness, "liquidity_state")}</td>
-          <td>${pill((card.catalyst || {}).status, "evidence_state")}</td>
-          <td>${hasStaleAxis(card) ? `<span class="cockpit-state partial" data-state="STALE_AXIS_PRESENT" title="STALE_AXIS_PRESENT">${esc(formatWorkspaceState("STALE_AXIS_PRESENT", "freshness"))}</span>` : `<span class="cockpit-state available" data-state="CURRENT" title="CURRENT">${esc(formatWorkspaceState("CURRENT", "freshness"))}</span>`}</td>
-          <td>${pill((card.confirmation || {}).status, "confirmation_state")}</td>
-          <td>${pill(invalidationWorst, "invalidation_state")}</td>
+          <td class="text-end">
+            <button type="button" class="btn btn-sm btn-outline-light ws-btn-detail" data-select-ticker="${esc(ticker)}" data-action="detail">Xem chi tiết</button>
+          </td>
         </tr>`;
       }
 
@@ -500,26 +497,145 @@
         }</tbody></table>`;
       }
 
+      let lastFocusedElement = null;
+
+      function openDrawer(ticker) {
+        const backdrop = document.getElementById("decision-drawer-backdrop");
+        const drawer = document.getElementById("decision-drawer");
+        if (!backdrop || !drawer) return;
+        lastFocusedElement = document.activeElement;
+        backdrop.hidden = false;
+        drawer.hidden = false;
+        requestAnimationFrame(() => {
+          backdrop.classList.add("is-open");
+          drawer.classList.add("is-open");
+          const closeBtn = document.getElementById("decision-drawer-close");
+          if (closeBtn) closeBtn.focus();
+        });
+      }
+
+      function closeDrawer() {
+        const backdrop = document.getElementById("decision-drawer-backdrop");
+        const drawer = document.getElementById("decision-drawer");
+        if (!backdrop || !drawer) return;
+        backdrop.classList.remove("is-open");
+        drawer.classList.remove("is-open");
+        setTimeout(() => {
+          backdrop.hidden = true;
+          drawer.hidden = true;
+          if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+            lastFocusedElement.focus();
+          }
+          lastFocusedElement = null;
+        }, 250);
+      }
+
       function showDecisionCard(ticker) {
         const card = WORKSPACE.cards[ticker];
-        const el = document.getElementById("decision-card");
-        if (!card) { el.innerHTML = '<div class="cockpit-note">Không tìm thấy mã.</div>'; return; }
-        renderDecisionCard(card, el, {
+        const inPageEl = document.getElementById("decision-card");
+        const drawerEl = document.getElementById("decision-drawer-body");
+        if (!card) {
+          const err = '<div class="cockpit-note">Không tìm thấy mã.</div>';
+          if (inPageEl) inPageEl.innerHTML = err;
+          if (drawerEl) drawerEl.innerHTML = err;
+          return;
+        }
+        const cardOpts = {
           ticker,
           portfolio: effectivePortfolio(ticker, card),
           sourceArtifacts: WORKSPACE.source_artifacts,
-        });
+        };
+        renderDecisionCard(card, inPageEl, cardOpts);
+        renderDecisionCard(card, drawerEl, cardOpts);
+
+        const drawerTicker = document.getElementById("decision-drawer-ticker");
+        if (drawerTicker) drawerTicker.textContent = ticker;
+        const drawerBadge = document.getElementById("decision-drawer-badge");
+        if (drawerBadge) drawerBadge.innerHTML = pill(card.research_stance, "research_stance");
+        const screenerLink = document.getElementById("drawer-screener-link");
+        if (screenerLink) screenerLink.href = `screener.html?ticker=${encodeURIComponent(ticker)}`;
       }
 
       function selectTicker(ticker, opts) {
         if (!WORKSPACE.cards[ticker]) return;
         SELECTED_TICKER = ticker;
-        document.getElementById("ticker-select").value = ticker;
+        const select = document.getElementById("ticker-select");
+        if (select) select.value = ticker;
         showDecisionCard(ticker);
         renderList();
-        if (opts && opts.scrollIntoView) {
-          document.getElementById("decision-card-section").scrollIntoView({ behavior: "smooth", block: "start" });
+
+        try {
+          const url = new URL(window.location.href);
+          if (url.searchParams.get("ticker") !== ticker) {
+            url.searchParams.set("ticker", ticker);
+            window.history.replaceState({ ticker }, "", url.toString());
+          }
+        } catch (_) {}
+
+        if (opts && opts.openDrawer) {
+          openDrawer(ticker);
         }
+        if (opts && opts.scrollIntoView) {
+          const sec = document.getElementById("decision-card-section");
+          if (sec) sec.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }
+
+      function renderCockpitCohorts(cohorts, container) {
+        const entries = Object.entries(cohorts);
+        if (!entries.length) {
+          container.innerHTML = '<div class="cockpit-note">Chưa có nhóm cơ hội nào được ghi nhận.</div>';
+          return;
+        }
+        container.innerHTML = `<div class="cockpit-grid">${entries.map(([key, cohort], idx) => {
+          const list = Array.isArray(cohort.tickers) ? cohort.tickers : [];
+          const count = list.length;
+          const initialLimit = 8;
+          const needsToggle = count > initialLimit;
+          const visibleList = needsToggle ? list.slice(0, initialLimit) : list;
+          const hiddenList = needsToggle ? list.slice(initialLimit) : [];
+          const cohortId = `cohort-${idx}`;
+          return `<div class="card mb-2"><div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-1">
+              <h6 class="mb-0 font-monospace">${esc(cohort.label || key)}</h6>
+              <span class="badge-soft bs-blue">${count} mã</span>
+            </div>
+            <div class="cockpit-note mb-2">${esc(cohort.description || "")}</div>
+            <div id="${cohortId}-chips" class="d-flex flex-wrap gap-1">
+              ${visibleList.map((t) => `<button type="button" class="cockpit-chip" data-select-ticker="${esc(t)}">${esc(t)}</button>`).join("")}
+              ${needsToggle ? `<span id="${cohortId}-hidden" class="d-none gap-1 flex-wrap">${hiddenList.map((t) => `<button type="button" class="cockpit-chip" data-select-ticker="${esc(t)}">${esc(t)}</button>`).join("")}</span>` : ""}
+            </div>
+            ${needsToggle ? `<button type="button" class="btn btn-link btn-sm p-0 mt-2 text-decoration-none cockpit-note" data-cohort-toggle="${cohortId}" data-expanded="false">Xem thêm ${hiddenList.length} mã &darr;</button>` : ""}
+          </div></div>`;
+        }).join("")}</div>`;
+
+        container.addEventListener("click", (e) => {
+          const toggleBtn = e.target.closest("[data-cohort-toggle]");
+          if (toggleBtn) {
+            const cohortId = toggleBtn.dataset.cohortToggle;
+            const hiddenSpan = document.getElementById(`${cohortId}-hidden`);
+            const isExpanded = toggleBtn.dataset.expanded === "true";
+            if (hiddenSpan) {
+              if (isExpanded) {
+                hiddenSpan.classList.add("d-none");
+                hiddenSpan.classList.remove("d-inline-flex");
+                toggleBtn.dataset.expanded = "false";
+                const totalHidden = hiddenSpan.querySelectorAll("[data-select-ticker]").length;
+                toggleBtn.textContent = `Xem thêm ${totalHidden} mã \u2193`;
+              } else {
+                hiddenSpan.classList.remove("d-none");
+                hiddenSpan.classList.add("d-inline-flex");
+                toggleBtn.dataset.expanded = "true";
+                toggleBtn.textContent = "Thu gọn \u2191";
+              }
+            }
+            return;
+          }
+          const chip = e.target.closest("[data-select-ticker]");
+          if (chip) {
+            selectTicker(chip.dataset.selectTicker, { openDrawer: true });
+          }
+        });
       }
 
       function render(data) {
@@ -534,7 +650,8 @@
         const queryTicker = new URLSearchParams(window.location.search).get("ticker");
         const hashTicker = window.location.hash.replace(/^#/, "");
         const requestedTicker = queryTicker || hashTicker;
-        selectTicker(selectedTickerForDeepLink(tickers, requestedTicker), { scrollIntoView: false });
+        const targetTicker = selectedTickerForDeepLink(tickers, requestedTicker);
+        selectTicker(targetTicker, { openDrawer: Boolean(queryTicker || hashTicker), scrollIntoView: false });
 
         document.getElementById("filter-chips").addEventListener("click", (e) => {
           const btn = e.target.closest("[data-filter]");
@@ -549,18 +666,64 @@
           renderFilterChips(); renderList();
         });
         document.getElementById("ticker-search").addEventListener("input", (e) => { SEARCH_QUERY = e.target.value; renderList(); });
+
         document.getElementById("opportunity-rows").addEventListener("click", (e) => {
-          const btn = e.target.closest("[data-select-ticker]");
-          if (btn) selectTicker(btn.dataset.selectTicker, { scrollIntoView: true });
+          const row = e.target.closest("tr[data-row-ticker]");
+          if (!row) return;
+          const ticker = row.dataset.rowTicker;
+          selectTicker(ticker, { openDrawer: true });
         });
-        select.addEventListener("change", () => selectTicker(select.value, { scrollIntoView: true }));
-        document.getElementById("export-t0").addEventListener("click", () => {
-          const payload = buildT0Export(SELECTED_TICKER, WORKSPACE.cards[SELECTED_TICKER], WORKSPACE.producer_artifact_identity);
+
+        select.addEventListener("change", () => selectTicker(select.value, { openDrawer: true }));
+
+        const openSelectedBtn = document.getElementById("ws-open-selected-drawer");
+        if (openSelectedBtn) {
+          openSelectedBtn.addEventListener("click", () => {
+            if (SELECTED_TICKER) openDrawer(SELECTED_TICKER);
+          });
+        }
+
+        const closeBtn = document.getElementById("decision-drawer-close");
+        if (closeBtn) closeBtn.addEventListener("click", closeDrawer);
+        const backdrop = document.getElementById("decision-drawer-backdrop");
+        if (backdrop) backdrop.addEventListener("click", closeDrawer);
+
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") {
+            const drawer = document.getElementById("decision-drawer");
+            if (drawer && drawer.classList.contains("is-open")) {
+              closeDrawer();
+            }
+          }
+        });
+
+        window.addEventListener("popstate", () => {
+          const qTicker = new URLSearchParams(window.location.search).get("ticker");
+          if (qTicker && WORKSPACE && WORKSPACE.cards[qTicker]) {
+            selectTicker(qTicker, { openDrawer: true });
+          } else if (!qTicker) {
+            closeDrawer();
+          }
+        });
+
+        function triggerExport(t) {
+          const payload = buildT0Export(t, WORKSPACE.cards[t], WORKSPACE.producer_artifact_identity);
           const a = document.createElement("a");
           a.href = URL.createObjectURL(new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" }));
-          a.download = `t0-candidate-${SELECTED_TICKER}.json`;
+          a.download = `t0-candidate-${t}.json`;
           a.click();
+        }
+
+        document.getElementById("export-t0").addEventListener("click", () => {
+          if (SELECTED_TICKER) triggerExport(SELECTED_TICKER);
         });
+        const drawerExport = document.getElementById("drawer-export-t0");
+        if (drawerExport) {
+          drawerExport.addEventListener("click", () => {
+            if (SELECTED_TICKER) triggerExport(SELECTED_TICKER);
+          });
+        }
+
         document.getElementById("import-portfolio-research").addEventListener("change", (e) => {
           const file = e.target.files[0];
           if (!file) return;
@@ -578,6 +741,100 @@
           };
           reader.readAsText(file);
         });
+
+        // Enrich with current_decision_cockpit.json data
+        fetch("data/current_decision_cockpit.json", { cache: "no-store" })
+          .then((r) => (r.ok ? r.json() : null))
+          .then((cockpit) => {
+            if (!cockpit) return;
+            const moEl = document.getElementById("cockpit-market-overview");
+            if (moEl && cockpit.market_overview) {
+              const mo = cockpit.market_overview;
+              moEl.innerHTML = `
+                ${kpiHtml("Trạng thái thị trường", mo.status_label || mo.status || "Chưa có dữ liệu")}
+                ${kpiHtml("Độ rộng thị trường", mo.breadth_summary || "—")}
+                ${kpiHtml("Cảnh báo rủi ro", mo.risk_alert_level || "Bình thường")}
+                ${kpiHtml("Phiên nguồn", mo.source_session || cockpit.session || "—")}
+              `;
+            }
+            const mwEl = document.getElementById("cockpit-market-warnings");
+            if (mwEl && cockpit.market_overview && cockpit.market_overview.warnings) {
+              mwEl.innerHTML = Array.isArray(cockpit.market_overview.warnings) && cockpit.market_overview.warnings.length
+                ? cockpit.market_overview.warnings.map((w) => `<div class="cockpit-warning">${esc(w)}</div>`).join("")
+                : "";
+            }
+
+            const cohortsEl = document.getElementById("cockpit-cohorts-grid");
+            if (cohortsEl && cockpit.research_discovery && cockpit.research_discovery.cohorts) {
+              renderCockpitCohorts(cockpit.research_discovery.cohorts, cohortsEl);
+            }
+
+            const wlEl = document.getElementById("cockpit-watchlist");
+            const wlCountEl = document.getElementById("cockpit-watch-count");
+            if (wlEl && cockpit.watchlist) {
+              const rows = Array.isArray(cockpit.watchlist.items || cockpit.watchlist.tickers)
+                ? (cockpit.watchlist.items || cockpit.watchlist.tickers)
+                : [];
+              if (wlCountEl) wlCountEl.textContent = `${rows.length} mã`;
+              wlEl.innerHTML = rows.map((item) => {
+                const t = typeof item === "string" ? item : (item.ticker || "—");
+                const action = typeof item === "object" ? (item.action || item.research_action || "—") : "THEO_DÕI";
+                const strat = typeof item === "object" ? (item.strategy || "—") : "—";
+                const scen = typeof item === "object" ? (item.scenario || "—") : "—";
+                const conf = typeof item === "object" ? (item.evidence || "—") : "—";
+                const quality = typeof item === "object" ? (item.data_quality || "AVAILABLE") : "AVAILABLE";
+                return `<tr>
+                  <td><button type="button" class="cockpit-chip font-monospace fw-bold" data-select-ticker="${esc(t)}">${esc(t)}</button></td>
+                  <td>${pill(action, "entry_action")}</td>
+                  <td><span class="cockpit-note">${esc(strat)}</span></td>
+                  <td><span class="cockpit-note">${esc(scen)}</span></td>
+                  <td><span class="cockpit-note">${esc(conf)}</span></td>
+                  <td>${pill(quality, "data_fitness")}</td>
+                </tr>`;
+              }).join("");
+              wlEl.addEventListener("click", (e) => {
+                const chip = e.target.closest("[data-select-ticker]");
+                if (chip) selectTicker(chip.dataset.selectTicker, { openDrawer: true });
+              });
+            }
+
+            const prEl = document.getElementById("cockpit-portfolio-risk");
+            if (prEl && cockpit.portfolio_risk) {
+              const pr = cockpit.portfolio_risk;
+              prEl.innerHTML = `
+                <div class="cockpit-grid mb-3">
+                  ${kpiHtml("Mức độ rủi ro", pill(pr.risk_level || "Chưa đánh giá", "data_fitness"))}
+                  ${kpiHtml("Số vị thế nắm giữ", esc(pr.position_count ?? "0"))}
+                  ${kpiHtml("Mức tập trung", esc(pr.concentration_summary || "Không có cảnh báo"))}
+                </div>
+                <div class="cockpit-note">${esc(pr.risk_notes || "Chưa phát hiện rủi ro tập trung vượt ngưỡng cho phép.")}</div>
+              `;
+            }
+
+            const gapsEl = document.getElementById("cockpit-gaps");
+            if (gapsEl && cockpit.risk_data_gaps) {
+              const gaps = cockpit.risk_data_gaps;
+              gapsEl.innerHTML = Array.isArray(gaps)
+                ? gaps.map((g) => `<div class="cockpit-kpi"><div class="label">${esc(g.dimension || g.label || "Trục")}</div><div class="value">${pill(g.status || "UNAVAILABLE", "data_fitness")}</div><div class="cockpit-note mt-1">${esc(g.note || g.description || "")}</div></div>`).join("")
+                : "";
+            }
+            const vnEl = document.getElementById("cockpit-verify-next");
+            if (vnEl && cockpit.what_to_verify_next) {
+              const items = Array.isArray(cockpit.what_to_verify_next) ? cockpit.what_to_verify_next : [];
+              vnEl.innerHTML = items.map((x) => `<li>${esc(typeof x === "string" ? x : (x.item || x.description || JSON.stringify(x)))}</li>`).join("");
+            }
+
+            const linEl = document.getElementById("cockpit-lineage-content");
+            if (linEl && cockpit.source) {
+              linEl.innerHTML = `
+                <div class="cockpit-note mb-2">Operation: <code>${esc(cockpit.source.operation_identity || "daily_research_session")}</code> · Schema: <code>${esc(cockpit.schema_version || "—")}</code></div>
+                <div class="table-responsive"><table class="cockpit-table"><thead><tr><th>Thành phần nguồn</th><th>Độ mới / Phiên</th><th>Mã kiểm tra</th></tr></thead><tbody>
+                  ${Object.entries(cockpit.source.manifest_hashes || {}).map(([k, v]) => `<tr><td>${esc(k)}</td><td>${pill("CURRENT", "freshness")}</td><td><code class="cockpit-code">${esc(v)}</code></td></tr>`).join("")}
+                </tbody></table></div>
+              `;
+            }
+          })
+          .catch(() => {});
       }
 
       fetch(DATA_URL, { cache: "no-store" })

@@ -62,6 +62,22 @@
   .decision-drawer-header { display:flex; align-items:center; justify-content:space-between; gap:.75rem; padding:1rem 1.1rem; border-bottom:1px solid rgba(255,255,255,.08); position:sticky; top:0; background:inherit; z-index:1; }
   .decision-drawer-body { padding:1rem 1.1rem 2rem; }
   @media (max-width: 700px) { .decision-drawer { width:100%; } }
+
+  /* Sticky ticker column on horizontal scroll */
+  #tblScreen th:first-child, #tblScreen td:first-child, .sticky-col {
+    position: sticky;
+    left: 0;
+    background: var(--surface);
+    z-index: 2;
+    box-shadow: 2px 0 6px rgba(0,0,0,0.25);
+  }
+  #tblScreen tr:hover td:first-child {
+    background: var(--surface-2);
+  }
+  .table-responsive {
+    overflow-x: auto;
+    max-width: 100%;
+  }
 </style>
 </head>
 <body class="bg-bg text-white font-sans" data-page="screener">
@@ -75,13 +91,14 @@
       </button>
       <nav class="vs-sidebar-nav">
         <a class="vs-sidebar-link" href="dashboard.html" data-nav="dashboard" title="Tổng quan"><i data-lucide="layout-dashboard"></i><span class="vs-sidebar-link-label">Tổng quan</span></a>
-        <a class="vs-sidebar-link" href="screener.html" data-nav="screener" title="Bộ lọc thị trường"><i data-lucide="filter"></i><span class="vs-sidebar-link-label">Bộ lọc thị trường</span></a>
-        <a class="vs-sidebar-link" href="analysis.html" data-nav="analysis" title="Phân tích"><i data-lucide="brain-circuit"></i><span class="vs-sidebar-link-label">Phân tích</span></a>
+        <a class="vs-sidebar-link is-active active" href="screener.html" data-nav="screener" title="Bộ lọc"><i data-lucide="filter"></i><span class="vs-sidebar-link-label">Bộ lọc</span></a>
         <a class="vs-sidebar-link" href="signals.html" data-nav="signals" title="Tín hiệu"><i data-lucide="activity"></i><span class="vs-sidebar-link-label">Tín hiệu</span></a>
-        <a class="vs-sidebar-link" href="investment-workspace.html" title="Không gian quyết định"><i data-lucide="layout-list"></i><span class="vs-sidebar-link-label">Không gian quyết định</span></a>
-        <a class="vs-sidebar-link" href="portfolio.html" title="Danh mục"><i data-lucide="wallet-cards"></i><span class="vs-sidebar-link-label">Danh mục</span></a>
-        <a class="vs-sidebar-link" href="macro.html" data-nav="macro" title="Vĩ mô & Hàng hóa"><i data-lucide="globe"></i><span class="vs-sidebar-link-label">Vĩ mô & Hàng hóa</span></a>
+        <a class="vs-sidebar-link" href="analysis.html" data-nav="analysis" title="Phân tích"><i data-lucide="brain-circuit"></i><span class="vs-sidebar-link-label">Phân tích</span></a>
+        <a class="vs-sidebar-link" href="investment-workspace.html" data-nav="investment-workspace" title="Bàn quyết định"><i data-lucide="layout-list"></i><span class="vs-sidebar-link-label">Bàn quyết định</span></a>
+        <a class="vs-sidebar-link" href="portfolio.html" data-nav="portfolio" title="Danh mục"><i data-lucide="wallet-cards"></i><span class="vs-sidebar-link-label">Danh mục</span></a>
+        <a class="vs-sidebar-link" href="macro.html" data-nav="macro" title="Vĩ mô"><i data-lucide="globe"></i><span class="vs-sidebar-link-label">Vĩ mô</span></a>
         <a class="vs-sidebar-link" href="about.html" data-nav="about" title="Giới thiệu"><i data-lucide="info"></i><span class="vs-sidebar-link-label">Giới thiệu</span></a>
+        <a class="vs-sidebar-link" href="archive.html" data-nav="archive" title="Lịch sử"><i data-lucide="history"></i><span class="vs-sidebar-link-label">Lịch sử</span></a>
       </nav>
       <div class="vs-sidebar-foot">Stock Lookup</div>
     </aside>
@@ -94,12 +111,12 @@
         <a class="vs-topbar-brand" href="dashboard.html"><span class="vs-brand-dot"></span><span>Stock Lookup</span></a>
         <nav class="vs-topbar-nav" aria-label="Điều hướng chính">
           <a class="vs-topnav-link" href="dashboard.html" data-nav="dashboard" title="Tổng quan"><i data-lucide="layout-dashboard"></i><span>Tổng quan</span></a>
-          <a class="vs-topnav-link" href="screener.html" data-nav="screener" title="Bộ lọc thị trường"><i data-lucide="filter"></i><span>Bộ lọc thị trường</span></a>
-          <a class="vs-topnav-link" href="analysis.html" data-nav="analysis" title="Phân tích"><i data-lucide="brain-circuit"></i><span>Phân tích</span></a>
+          <a class="vs-topnav-link is-active active" href="screener.html" data-nav="screener" title="Bộ lọc"><i data-lucide="filter"></i><span>Bộ lọc</span></a>
           <a class="vs-topnav-link" href="signals.html" data-nav="signals" title="Tín hiệu"><i data-lucide="activity"></i><span>Tín hiệu</span></a>
-          <a class="vs-topnav-link" href="investment-workspace.html" title="Không gian quyết định"><i data-lucide="layout-list"></i><span>Không gian quyết định</span></a>
-          <a class="vs-topnav-link" href="portfolio.html" title="Danh mục"><i data-lucide="wallet-cards"></i><span>Danh mục</span></a>
-          <a class="vs-topnav-link" href="macro.html" data-nav="macro" title="Vĩ mô & Hàng hóa"><i data-lucide="globe"></i><span>Vĩ mô & Hàng hóa</span></a>
+          <a class="vs-topnav-link" href="analysis.html" data-nav="analysis" title="Phân tích"><i data-lucide="brain-circuit"></i><span>Phân tích</span></a>
+          <a class="vs-topnav-link" href="investment-workspace.html" data-nav="investment-workspace" title="Bàn quyết định"><i data-lucide="layout-list"></i><span>Bàn quyết định</span></a>
+          <a class="vs-topnav-link" href="portfolio.html" data-nav="portfolio" title="Danh mục"><i data-lucide="wallet-cards"></i><span>Danh mục</span></a>
+          <a class="vs-topnav-link" href="macro.html" data-nav="macro" title="Vĩ mô"><i data-lucide="globe"></i><span>Vĩ mô</span></a>
           <a class="vs-topnav-link" href="about.html" data-nav="about" title="Giới thiệu"><i data-lucide="info"></i><span>Giới thiệu</span></a>
         </nav>
         <span class="vs-topbar-spacer"></span>
@@ -160,9 +177,10 @@
       <div class="decision-drawer-backdrop" id="decision-drawer-backdrop" hidden>
         <aside class="decision-drawer" id="decision-drawer" role="dialog" aria-modal="true" aria-labelledby="decision-drawer-title">
           <div class="decision-drawer-header">
-            <h5 id="decision-drawer-title">Ngăn quyết định</h5>
-            <div class="d-flex gap-2">
-              <button type="button" class="screen-preset" id="decision-drawer-company">Chi tiết kỹ thuật</button>
+            <h5 id="decision-drawer-title" class="mb-0 font-monospace">HPG</h5>
+            <div class="d-flex gap-2 align-items-center">
+              <a id="decision-drawer-workspace-link" href="#" class="btn btn-sm btn-outline-light text-decoration-none" title="Mở Bàn quyết định">Bàn quyết định &rarr;</a>
+              <button type="button" class="screen-preset" id="decision-drawer-company">Hồ sơ doanh nghiệp</button>
               <button type="button" class="vs-icon-btn" id="decision-drawer-close" aria-label="Đóng">×</button>
             </div>
           </div>
@@ -171,8 +189,7 @@
       </div>
 
       <footer class="vs-statusfooter">
-        <span>Dữ liệu sinh cục bộ bởi pipeline Stock Look Up — trạng thái point-in-time, chỉ mang tính tham khảo, không phải khuyến nghị đầu tư.</span>
-        <span class="badge-soft bs-blue">Dữ liệu pipeline</span>
+        <span>Phục vụ nghiên cứu, không phải lệnh giao dịch. Dữ liệu và phân tích là bản snapshot phục vụ nghiên cứu độc lập.</span>
       </footer>
     </div>
   </div>
@@ -296,6 +313,8 @@ function openDrawer(ticker) {
   const backdrop = document.getElementById("decision-drawer-backdrop");
   const body = document.getElementById("decision-drawer-body");
   document.getElementById("decision-drawer-title").textContent = selected;
+  const wsLink = document.getElementById("decision-drawer-workspace-link");
+  if (wsLink) wsLink.href = `investment-workspace.html?ticker=${encodeURIComponent(selected)}`;
   backdrop.hidden = false;
   backdrop.classList.add("is-open");
   if (window.VSInvestmentWorkspace && window.VSInvestmentWorkspace.renderDecisionCard) {
@@ -351,7 +370,7 @@ document.addEventListener("DOMContentLoaded", () => {
     : "";
   document.getElementById("meta").innerHTML =
     `${MASTER_ROWS.length} mã · phiên ${esc(marketSession)}`
-    + (workspace && workspace.as_of_session ? ` · workspace ${esc(workspace.as_of_session)}` : " · CURRENT_PRODUCT_ARTIFACT_NOT_PUBLISHED")
+    + (workspace && workspace.as_of_session ? ` · Bàn quyết định ${esc(workspace.as_of_session)}` : "")
     + provenance;
   document.getElementById("tblScreen-skeleton").style.display = "none";
   document.getElementById("tblBreadth-skeleton").style.display = "none";
@@ -362,7 +381,7 @@ document.addEventListener("DOMContentLoaded", () => {
   fillSelect("screen-tactical", [...new Set(MASTER_ROWS.map((r) => (r.tactical || {}).entry_state).filter(Boolean))].sort());
 
   const screenColumns = [
-    { data: "ticker", title: "Mã", render: v => `<b>${esc(v)}</b>` },
+    { data: "ticker", title: "Mã", className: "sticky-col", render: v => `<b>${esc(v)}</b>` },
     { data: "display_exchange", title: "Sàn", render: v => esc(v || "–") },
     { data: "sector", title: "Ngành", render: v => { const s = SM.formatSector(v); return `<span class="${s.cls}">${esc(s.text)}</span>`; } },
     { data: "price", title: "Giá", className: "text-end", render: v => { const s = SM.formatPrice(v && v.value, v && v.status); return `<span class="${s.cls}">${esc(s.text)}</span>`; } },

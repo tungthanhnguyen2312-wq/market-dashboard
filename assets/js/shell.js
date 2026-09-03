@@ -6,13 +6,47 @@
  * riêng từng trang) — file này chỉ lo phần khung.
  * ============================================================ */
 
-(function () {
+(function (root, factory) {
+  const api = factory();
+  if (typeof module === "object" && module.exports) {
+    module.exports = api;
+  }
+  if (root) {
+    root.VSShellNav = api;
+  }
+})(typeof window !== "undefined" ? window : globalThis, function () {
+  "use strict";
+
+  const CANONICAL_PRIMARY_NAV = Object.freeze([
+    { href: "dashboard.html", id: "dashboard", label: "Tổng quan", icon: "layout-dashboard" },
+    { href: "screener.html", id: "screener", label: "Bộ lọc", icon: "filter" },
+    { href: "signals.html", id: "signals", label: "Tín hiệu", icon: "activity" },
+    { href: "analysis.html", id: "analysis", label: "Phân tích", icon: "brain-circuit" },
+    { href: "investment-workspace.html", id: "investment-workspace", label: "Bàn quyết định", icon: "layout-list" },
+    { href: "portfolio.html", id: "portfolio", label: "Danh mục", icon: "wallet-cards" },
+    { href: "macro.html", id: "macro", label: "Vĩ mô", icon: "globe" },
+    { href: "about.html", id: "about", label: "Giới thiệu", icon: "info" },
+  ]);
+
+  const CANONICAL_UTILITY_NAV = Object.freeze([
+    { href: "archive.html", id: "archive", label: "Lịch sử", icon: "history" }
+  ]);
+
   function initActiveLink() {
-    var page = document.body.dataset.page;
-    if (!page) return;
-    document.querySelectorAll("[data-nav]").forEach(function (link) {
-      if (link.dataset.nav === page) {
-        link.classList.add("is-active");
+    if (typeof document === "undefined") return;
+    var page = document.body && document.body.dataset && document.body.dataset.page;
+    var currentFile = (typeof window !== "undefined" && window.location && window.location.pathname)
+      ? window.location.pathname.split("/").pop() || ""
+      : "";
+    document.querySelectorAll(".vs-topnav-link, .vs-sidebar-link, [data-nav]").forEach(function (link) {
+      var navKey = link.dataset.nav;
+      var href = link.getAttribute("href") || "";
+      var hrefBase = href.split("?")[0].split("#")[0];
+      var matches = (navKey && page && navKey === page)
+        || (currentFile && hrefBase === currentFile)
+        || (page && hrefBase === (page + ".html"));
+      if (matches) {
+        link.classList.add("is-active", "active");
         link.setAttribute("aria-current", "page");
       }
     });
@@ -94,10 +128,20 @@
     });
   }
 
-  document.addEventListener("DOMContentLoaded", function () {
-    initActiveLink();
-    initSidebarToggle();
-    initSidebarCollapse();
-    initIcons();
-  });
-})();
+  if (typeof document !== "undefined") {
+    document.addEventListener("DOMContentLoaded", function () {
+      initActiveLink();
+      initSidebarToggle();
+      initSidebarCollapse();
+      initIcons();
+    });
+  }
+
+  return {
+    CANONICAL_PRIMARY_NAV,
+    CANONICAL_UTILITY_NAV,
+    initActiveLink,
+    initSidebarToggle,
+    initIcons,
+  };
+});

@@ -74,13 +74,23 @@
     return tags.map((tag) => stateHtml(tag, "setup_tag")).join(" ");
   }
   function renderRowHtml(row) {
-    return `<tr><td><a class="tactical-link" href="${href(row.ticker)}">${esc(row.ticker)}</a></td><td>${stateHtml(row.stance, "research_stance")}</td><td>${stateHtml(row.state, "tactical_state")}<div class="tactical-muted">${actionHtml(row.action)}</div></td><td>${tagHtml(row.tags)}</td><td>${stateHtml(row.confirmation, "confirmation_state")}</td><td>${stateHtml(row.trigger, "confirmation_state")}</td><td>${stateHtml(row.invalidation, "invalidation_state")}</td><td>${stateHtml(row.market, "data_fitness")}<div class="tactical-muted">${stateHtml(row.sector, "data_fitness")}</div></td><td>${stateHtml(row.liquidity, "liquidity_state")}</td><td>${stateHtml(row.freshness, "freshness")}</td></tr>`;
+    return `<tr data-ticker="${esc(row.ticker)}"><td class="sticky-col"><a class="tactical-link" href="${href(row.ticker)}">${esc(row.ticker)}</a></td><td>${stateHtml(row.stance, "research_stance")}</td><td>${stateHtml(row.state, "tactical_state")}<div class="tactical-muted">${actionHtml(row.action)}</div></td><td>${tagHtml(row.tags)}</td><td>${stateHtml(row.confirmation, "confirmation_state")}</td><td>${stateHtml(row.trigger, "confirmation_state")}</td><td>${stateHtml(row.invalidation, "invalidation_state")}</td><td>${stateHtml(row.market, "data_fitness")}<div class="tactical-muted">${stateHtml(row.sector, "data_fitness")}</div></td><td>${stateHtml(row.liquidity, "liquidity_state")}</td><td>${stateHtml(row.freshness, "freshness")}</td></tr>`;
   }
   function renderRows(rows) {
     const state = document.getElementById("tactical-filter").value;
     const visible = rows.filter((row) => !state || row.state === state);
     document.getElementById("signals-rows").innerHTML = visible.map(renderRowHtml).join("");
     document.getElementById("signals-count").textContent = `${visible.length} / ${rows.length} mã đang hiển thị · sắp xếp theo mã, không phải xếp hạng.`;
+    const queryTicker = typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("ticker") : null;
+    if (queryTicker) {
+      setTimeout(() => {
+        const targetRow = document.querySelector(`tr[data-ticker="${queryTicker}"]`);
+        if (targetRow) {
+          targetRow.scrollIntoView({ behavior: "smooth", block: "center" });
+          targetRow.style.outline = "2px solid var(--primary, #20e7cf)";
+        }
+      }, 50);
+    }
   }
 
   function classifySidecarAvailability(httpOk, component, currentSession) {
@@ -199,7 +209,7 @@
     const vf = getValueFormat();
     document.getElementById("signals-content").hidden = false;
     document.getElementById("signals-meta").innerHTML = `Phiên tín hiệu kỹ thuật được giữ lại ${esc(workspace.as_of_session)} · ${rows.length.toLocaleString("vi-VN")} mã${vf && vf.provenanceHtml ? vf.provenanceHtml(workspace.producer_artifact_identity) : ""}`;
-    document.getElementById("tactical-cohorts").innerHTML = cohortStates.map((state) => `<a class="tactical-card" href="#tactical-table" data-state="${esc(state)}" title="${esc(state)}"><span>${esc(labelOf(state, "tactical_state"))}</span><strong>${counts[state] || 0}</strong><small>Mở Không gian quyết định để xem thẻ đầy đủ</small></a>`).join("");
+    document.getElementById("tactical-cohorts").innerHTML = cohortStates.map((state) => `<a class="tactical-card" href="#tactical-table" data-state="${esc(state)}" title="${esc(state)}"><span>${esc(labelOf(state, "tactical_state"))}</span><strong>${counts[state] || 0}</strong><small>Mở Bàn quyết định để xem thẻ đầy đủ</small></a>`).join("");
     const filter = document.getElementById("tactical-filter");
     Object.keys(counts).sort().forEach((state) => {
       const option = document.createElement("option");

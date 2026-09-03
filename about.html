@@ -1,1 +1,125 @@
-<!doctype html><html lang="vi" data-bs-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Giới thiệu | Stock Lookup</title><meta name="description" content="Kiến trúc evidence-first và giới hạn của Stock Lookup."><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="assets/css/shell.css"></head><body class="bg-bg text-white" data-page="about"><div class="vs-shell"><div class="vs-shell-main"><header class="vs-topbar"><a class="vs-topbar-brand" href="dashboard.html"><span class="vs-brand-dot"></span><span>Stock Lookup</span></a><nav class="vs-topbar-nav" aria-label="Điều hướng chính"><a class="vs-topnav-link" href="dashboard.html">Tổng quan</a><a class="vs-topnav-link" href="screener.html">Bộ lọc</a><a class="vs-topnav-link" href="analysis.html">Phân tích</a><a class="vs-topnav-link" href="signals.html">Tín hiệu</a><a class="vs-topnav-link" href="investment-workspace.html">Không gian quyết định</a><a class="vs-topnav-link" href="portfolio.html">Danh mục</a><a class="vs-topnav-link" href="macro.html">Vĩ mô</a><a class="vs-topnav-link active" href="about.html">Giới thiệu</a></nav></header><main class="vs-content"><div class="section-eyebrow">Product architecture</div><h1 class="h3">Stock Lookup hiện tại</h1><div class="card mb-4"><div class="card-body report-content"><p>Stock Lookup is an evidence-first Vietnamese-market research product. Python/deterministic contracts are the numerical authority; this Dashboard is a static rendering layer for retained product artifacts.</p><p class="mb-0"><strong>Structured evidence → deterministic financial features → Tactical V2 → liquidity/risk and explicit portfolio context → valuation/opportunity → security decision → Investment Decision Workspace → prospective outcome measurement.</strong></p></div></div><div class="row g-4"><div class="col-lg-6"><div class="card h-100"><div class="card-header"><h5>What the visible surfaces do</h5></div><div class="card-body"><ul><li><a href="dashboard.html">Tổng quan</a>: what is happening and entry points.</li><li><a href="screener.html">Bộ lọc</a>: find a ticker, then open its decision card.</li><li><a href="analysis.html">Phân tích</a>: compare retained research axes and conflicts.</li><li><a href="signals.html">Tín hiệu</a>: Tactical V2 state, confirmation and invalidation.</li><li><a href="investment-workspace.html">Không gian quyết định</a>: thẻ quyết định bảy phần.</li><li><a href="portfolio.html">Danh mục</a>: explicit browser-local input and research context.</li></ul></div></div></div><div class="col-lg-6"><div class="card h-100"><div class="card-header"><h5>Important limits</h5></div><div class="card-body"><ul><li>Research stance is not an execution order.</li><li>Proxy, qualified, unavailable and stale dimensions remain distinct.</li><li>No opaque total score, weighted investment ranking, target price, probability, or exact execution sizing is rendered as current product authority.</li><li>Freshness is retained per axis; a usable financial or catalyst period is not silently relabelled as today’s market session.</li><li>Prospective outcomes begin only after a genuine retained T0 case; historical artifacts are not promoted retroactively.</li></ul></div></div></div></div><div class="vs-alert vs-alert-warning mt-4">Static dashboard content is research-only and for reference. It does not expose private data, credentials, or implementation secrets.</div></main><footer class="vs-statusfooter"><span>Stock Lookup · deterministic research rendering · not investment advice.</span><a class="vs-topbar-link" href="archive.html">Archive</a></footer></div></div></body></html>
+<!doctype html>
+<html lang="vi" data-bs-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Giới thiệu | Stock Lookup</title>
+  <meta name="description" content="Kiến trúc nghiên cứu bằng chứng và giới hạn phương pháp của Stock Lookup.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="assets/css/shell.css">
+  <style>
+    .about-flow-step { display: inline-flex; align-items: center; gap: 0.5rem; }
+    .about-flow-arrow { color: var(--text-muted); }
+  </style>
+</head>
+<body class="bg-bg text-white" data-page="about">
+<div class="vs-shell">
+  <div class="vs-shell-main">
+    <header class="vs-topbar">
+      <a class="vs-topbar-brand" href="dashboard.html"><span class="vs-brand-dot"></span><span>Stock Lookup</span></a>
+      <nav class="vs-topbar-nav" aria-label="Điều hướng chính">
+        <a class="vs-topnav-link" href="dashboard.html" data-nav="dashboard" title="Tổng quan">Tổng quan</a>
+        <a class="vs-topnav-link" href="screener.html" data-nav="screener" title="Bộ lọc">Bộ lọc</a>
+        <a class="vs-topnav-link" href="signals.html" data-nav="signals" title="Tín hiệu">Tín hiệu</a>
+        <a class="vs-topnav-link" href="analysis.html" data-nav="analysis" title="Phân tích">Phân tích</a>
+        <a class="vs-topnav-link" href="investment-workspace.html" data-nav="investment-workspace" title="Bàn quyết định">Bàn quyết định</a>
+        <a class="vs-topnav-link" href="portfolio.html" data-nav="portfolio" title="Danh mục">Danh mục</a>
+        <a class="vs-topnav-link" href="macro.html" data-nav="macro" title="Vĩ mô">Vĩ mô</a>
+        <a class="vs-topnav-link is-active active" href="about.html" data-nav="about" title="Giới thiệu" aria-current="page">Giới thiệu</a>
+      </nav>
+      <span class="vs-topbar-spacer"></span>
+      <a class="vs-topbar-link" href="archive.html"><i data-lucide="history"></i>Lịch sử</a>
+    </header>
+
+    <main class="vs-content">
+      <div class="section-eyebrow">Kiến trúc sản phẩm &amp; Phương pháp luận</div>
+      <h1 class="h3">Giới thiệu Stock Lookup</h1>
+
+      <div class="card mb-4">
+        <div class="card-header"><h5>Tổng quan sản phẩm</h5></div>
+        <div class="card-body report-content">
+          <p>Stock Lookup là sản phẩm nghiên cứu thị trường chứng khoán Việt Nam theo định hướng ưu tiên bằng chứng (evidence-first). Các hợp đồng tất định và mô hình tính toán số học là thẩm quyền dữ liệu; giao diện Dashboard là tầng hiển thị tĩnh phục vụ nhà đầu tư và nhà nghiên cứu độc lập.</p>
+          <div class="p-3 bg-surface rounded border border-secondary mb-0">
+            <h6 class="text-primary mb-2">Quy trình xử lý dữ liệu (Data Pipeline Flow):</h6>
+            <div class="d-flex flex-wrap gap-2 align-items-center font-monospace" style="font-size: 0.85rem;">
+              <span>Bằng chứng có cấu trúc</span>
+              <span class="about-flow-arrow">&rarr;</span>
+              <span>Đặc trưng tài chính tất định</span>
+              <span class="about-flow-arrow">&rarr;</span>
+              <span>Tín hiệu kỹ thuật V2</span>
+              <span class="about-flow-arrow">&rarr;</span>
+              <span>Thanh khoản &amp; Rủi ro danh mục</span>
+              <span class="about-flow-arrow">&rarr;</span>
+              <span>Định giá tương đối &amp; Cơ hội</span>
+              <span class="about-flow-arrow">&rarr;</span>
+              <span>Quyết định nghiên cứu cổ phiếu</span>
+              <span class="about-flow-arrow">&rarr;</span>
+              <span class="text-primary fw-bold">Bàn quyết định (Investment Decision Workspace)</span>
+              <span class="about-flow-arrow">&rarr;</span>
+              <span>Đánh giá kết quả tương lai (Prospective Outcomes)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4 mb-4">
+        <div class="col-lg-6">
+          <div class="card h-100">
+            <div class="card-header"><h5>Các không gian chức năng chính</h5></div>
+            <div class="card-body">
+              <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+                <li><a href="dashboard.html" class="fw-bold text-decoration-none">Tổng quan</a>: Nhịp đập thị trường, độ rộng phiên, thanh khoản nghiên cứu và các điểm truy cập nhanh.</li>
+                <li><a href="screener.html" class="fw-bold text-decoration-none">Bộ lọc</a>: Bộ lọc đa tiêu chí toàn diện, xem nhanh và mở thẻ quyết định chi tiết cho từng mã.</li>
+                <li><a href="signals.html" class="fw-bold text-decoration-none">Tín hiệu</a>: Tín hiệu kỹ thuật V2, các nhóm thiết lập, điều kiện xác nhận và điều kiện vô hiệu hóa.</li>
+                <li><a href="analysis.html" class="fw-bold text-decoration-none">Phân tích</a>: So sánh đa trục nghiên cứu độc lập, phát hiện và hiển thị rõ các bằng chứng xung đột.</li>
+                <li><a href="investment-workspace.html" class="fw-bold text-decoration-none">Bàn quyết định</a>: Không gian ra quyết định trung tâm thống nhất với thẻ quyết định 7 phần toàn diện.</li>
+                <li><a href="portfolio.html" class="fw-bold text-decoration-none">Danh mục</a>: Quản lý danh mục cục bộ trên trình duyệt, theo dõi tỷ trọng và kết nối bối cảnh nghiên cứu.</li>
+                <li><a href="macro.html" class="fw-bold text-decoration-none">Vĩ mô</a>: Bối cảnh lãi suất, tỷ giá, tăng trưởng kinh tế, chỉ số quốc tế và thị trường hàng hóa.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="card h-100">
+            <div class="card-header"><h5>Ý nghĩa tư thế nghiên cứu</h5></div>
+            <div class="card-body">
+              <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+                <li><span class="badge-soft bs-green">TÍCH LŨY NGHIÊN CỨU</span>: Cổ phiếu có định giá hợp lý hoặc chiết khấu, nền tảng cơ bản ổn định và rủi ro giảm giá có thể kiểm soát.</li>
+                <li><span class="badge-soft bs-green">MỞ VỊ THẾ NGHIÊN CỨU</span>: Cổ phiếu hội tụ điều kiện kỹ thuật và nền tảng hỗ trợ để bắt đầu nghiên cứu giải ngân thăm dò.</li>
+                <li><span class="badge-soft bs-amber">CHỜ XÁC NHẬN</span>: Thiết lập kỹ thuật hoặc xu hướng đang hình thành nhưng cần thêm tín hiệu xác nhận qua biên giá/khối lượng.</li>
+                <li><span class="badge-soft bs-red">TRÁNH VỊ THẾ MỚI</span>: Cổ phiếu có rủi ro kỹ thuật suy yếu, phân phối, gãy xu hướng hoặc nền tảng cơ bản xấu đi.</li>
+                <li><span class="badge-soft bs-red">CHỈ ĐẦU CƠ RỦI RO CAO</span>: Biến động mạnh, thanh khoản thấp hoặc cấu trúc rủi ro cao, không phù hợp đầu tư bền vững.</li>
+                <li><span class="badge-soft bs-gray">CHƯA ĐỦ DỮ LIỆU</span>: Thiếu dữ liệu lịch sử hoặc chưa đủ bằng chứng định giá độc lập để đưa ra kết luận.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-header"><h5>Giới hạn phương pháp luận &amp; Nguyên tắc an toàn</h5></div>
+        <div class="card-body">
+          <ul class="mb-0 d-flex flex-column gap-2">
+            <li><strong>Tư thế nghiên cứu không phải lệnh giao dịch:</strong> Mọi thông tin chỉ phục vụ mục đích nghiên cứu, học thuật và đối sánh dữ liệu độc lập.</li>
+            <li><strong>Tách bạch rõ ràng tính sẵn sàng của dữ liệu:</strong> Dữ liệu đại diện (proxy), dữ liệu đủ điều kiện (qualified), dữ liệu thiếu hụt (unavailable) và dữ liệu cũ (stale) luôn được hiển thị phân biệt rõ ràng, không làm mờ ranh giới.</li>
+            <li><strong>Không điểm tổng số học tùy tiện:</strong> Không sử dụng điểm số tổng hợp bí mật (black-box score), không xếp hạng đầu tư trọng số chủ quan, không tạo giá mục tiêu giả định hay gán ghép xác suất tùy tiện.</li>
+            <li><strong>Giữ nguyên độ mới theo từng trục dữ liệu:</strong> Một kỳ báo cáo tài chính hay sự kiện xúc tác trong quá khứ không bao giờ bị dán nhãn sai lệch thành phiên giao dịch hôm nay.</li>
+            <li><strong>Đánh giá tương lai khách quan:</strong> Kết quả tương lai chỉ bắt đầu được ghi nhận sau khi trường hợp nghiên cứu T0 thực tế được thiết lập; không truy thu hay thêu dệt quá khứ.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="vs-alert vs-alert-warning">
+        Nội dung Dashboard phục vụ nghiên cứu độc lập. Sản phẩm không lưu trữ thông tin đăng nhập, dữ liệu tài khoản giao dịch hay bí mật triển khai riêng tư.
+      </div>
+    </main>
+
+    <footer class="vs-statusfooter">
+      <span>Phục vụ nghiên cứu, không phải lệnh giao dịch. Dữ liệu và phân tích là bản snapshot phục vụ nghiên cứu độc lập.</span>
+    </footer>
+  </div>
+</div>
+</body>
+</html>
