@@ -199,7 +199,7 @@
       <div class="decision-summary-grid mb-3">${cards}</div>
       <div class="decision-summary-actions">
         <a class="vs-btn vs-btn-primary" href="investment-workspace.html">Mở Bàn quyết định</a>
-        <a class="vs-btn" href="analysis.html">Phân tích đa trục</a>
+        <a class="vs-btn" href="investment-workspace.html?view=analysis">Phân tích đa trục</a>
         <a class="vs-btn" href="screener.html">Bộ lọc</a>
       </div>`;
   }

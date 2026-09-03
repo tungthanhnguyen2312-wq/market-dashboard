@@ -21,7 +21,6 @@
     { href: "dashboard.html", id: "dashboard", label: "Tổng quan", icon: "layout-dashboard" },
     { href: "screener.html", id: "screener", label: "Bộ lọc", icon: "filter" },
     { href: "signals.html", id: "signals", label: "Tín hiệu", icon: "activity" },
-    { href: "analysis.html", id: "analysis", label: "Phân tích", icon: "brain-circuit" },
     { href: "investment-workspace.html", id: "investment-workspace", label: "Bàn quyết định", icon: "layout-list" },
     { href: "portfolio.html", id: "portfolio", label: "Danh mục", icon: "wallet-cards" },
     { href: "macro.html", id: "macro", label: "Vĩ mô", icon: "globe" },

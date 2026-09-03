@@ -14,35 +14,45 @@ const PRIMARY_PAGES = [
   "dashboard.html",
   "screener.html",
   "signals.html",
-  "analysis.html",
   "investment-workspace.html",
   "portfolio.html",
   "macro.html",
   "about.html",
 ];
 
-const CANONICAL_8_LABELS = [
+// analysis.html is a compatibility redirect (same pattern as decision-cockpit.html) and carries
+// no primary nav of its own; it is checked separately in analysis.html's own redirect tests.
+const REDIRECT_ONLY_PAGES = ["analysis.html", "decision-cockpit.html"];
+
+const CANONICAL_7_LABELS = [
   "Tổng quan",
   "Bộ lọc",
   "Tín hiệu",
-  "Phân tích",
   "Bàn quyết định",
   "Danh mục",
   "Vĩ mô",
   "Giới thiệu",
 ];
 
-test("A. Navigation exposes the 8 canonical items across all primary pages", () => {
-  assert.equal(shell.CANONICAL_PRIMARY_NAV.length, 8);
-  for (let i = 0; i < 8; i++) {
-    assert.equal(shell.CANONICAL_PRIMARY_NAV[i].label, CANONICAL_8_LABELS[i]);
+test("A. Navigation exposes the 7 canonical items across all primary pages", () => {
+  assert.equal(shell.CANONICAL_PRIMARY_NAV.length, 7);
+  for (let i = 0; i < 7; i++) {
+    assert.equal(shell.CANONICAL_PRIMARY_NAV[i].label, CANONICAL_7_LABELS[i]);
   }
   for (const page of PRIMARY_PAGES) {
     const html = fs.readFileSync(path.join(root, page), "utf8");
-    for (const label of CANONICAL_8_LABELS) {
+    for (const label of CANONICAL_7_LABELS) {
       assert.match(html, new RegExp(`>${label}<|title="${label}"`), `Missing ${label} in ${page}`);
     }
     assert.doesNotMatch(html, />Không gian quyết định</, `Found obsolete 'Không gian quyết định' in nav of ${page}`);
+  }
+  assert.doesNotMatch(fs.readFileSync(path.join(root, "assets/js/shell.js"), "utf8"), /"analysis"/, "analysis must no longer be a primary nav entry");
+});
+
+test("A2. Analysis is not a primary nav destination anywhere", () => {
+  for (const page of PRIMARY_PAGES) {
+    const html = fs.readFileSync(path.join(root, page), "utf8");
+    assert.doesNotMatch(html, /data-nav="analysis"/, `Found stale analysis nav link in ${page}`);
   }
 });
 
@@ -51,7 +61,6 @@ test("B. Active link correctly configured for each primary page", () => {
     "dashboard.html": "dashboard",
     "screener.html": "screener",
     "signals.html": "signals",
-    "analysis.html": "analysis",
     "investment-workspace.html": "investment-workspace",
     "portfolio.html": "portfolio",
     "macro.html": "macro",
@@ -87,16 +96,24 @@ test("D. Deep-link handling in investment-workspace preserves ticker selection a
   assert.match(wsJs, /popstate/);
 });
 
-test("E. Workspace opportunity table has exactly the 6 compact columns", () => {
+test("E. Workspace opportunity table has exactly the 5 compact columns", () => {
   const html = fs.readFileSync(path.join(root, "investment-workspace.html"), "utf8");
-  const thMatches = html.match(/<thead[^>]*>[\s\S]*?<\/thead>/);
+  const thMatches = html.match(/id="opportunity-table"[\s\S]*?<thead[^>]*>[\s\S]*?<\/thead>/);
   assert.ok(thMatches);
   const thHeaders = [...thMatches[0].matchAll(/<th[^>]*>(.*?)<\/th>/g)].map(m => m[1].trim());
-  assert.deepEqual(thHeaders, ["Mã", "Ngành", "Tư thế", "Kỹ thuật", "Định giá", "Thao tác"]);
+  assert.deepEqual(thHeaders, ["Mã", "Ngành", "Tư thế", "Kỹ thuật", "Định giá"]);
+});
+
+test("E2. Phân tích matrix has exactly the 6 target columns, not the old 10-column table", () => {
+  const html = fs.readFileSync(path.join(root, "investment-workspace.html"), "utf8");
+  const thMatches = html.match(/id="analysis-table"[\s\S]*?<thead[^>]*>[\s\S]*?<\/thead>/);
+  assert.ok(thMatches);
+  const thHeaders = [...thMatches[0].matchAll(/<th[^>]*>(.*?)<\/th>/g)].map(m => m[1].trim());
+  assert.deepEqual(thHeaders, ["Mã", "Tư thế", "Cơ bản", "Định giá", "Kỹ thuật", "Bằng chứng"]);
 });
 
 test("F. Ticker column is sticky during horizontal scroll on table pages", () => {
-  for (const page of ["screener.html", "signals.html", "analysis.html", "investment-workspace.html"]) {
+  for (const page of ["screener.html", "signals.html", "investment-workspace.html"]) {
     const html = fs.readFileSync(path.join(root, page), "utf8");
     assert.match(html, /sticky-col|th:first-child,\s*[^\{]*td:first-child/, `Missing sticky column in ${page}`);
   }
@@ -133,12 +150,16 @@ test("G & H. Semantic tones map correctly (UNAVAILABLE is neutral gray, not red;
   assert.doesNotMatch(cockpitCss, /\.cockpit-state\.unavailable\s*\{[^}]*color:\s*#fca5a5/);
 });
 
-test("I. Cohort progressive disclosure: <= 8 renders all; > 8 renders with toggle", () => {
+test("I. Cohorts operate as Workspace-native filter chips, not a giant duplicate ticker-chip list", () => {
+  const wsHtml = fs.readFileSync(path.join(root, "investment-workspace.html"), "utf8");
   const wsJs = fs.readFileSync(path.join(root, "assets/js/investment-workspace.js"), "utf8");
-  assert.match(wsJs, /data-cohort-toggle/);
-  assert.match(wsJs, /initialLimit = 8/);
-  assert.match(wsJs, /Xem thêm/);
-  assert.match(wsJs, /Thu gọn/);
+  // The Cockpit-sourced giant expandable cohort chip grid was retired: same discovery job, one
+  // fewer data source, no second ticker-universe denominator to reconcile with the Workspace cards.
+  assert.doesNotMatch(wsHtml, /cockpit-cohorts-grid/);
+  assert.doesNotMatch(wsJs, /cockpit-cohorts-grid|renderCohortsHtml/);
+  assert.match(wsHtml, /id="filter-chips"/);
+  const presetIds = ["initiate", "accumulate", "wait", "avoid", "breakout_ready", "base_building", "early_reversal", "valuation_available", "liquidity_available"];
+  for (const id of presetIds) assert.match(wsJs, new RegExp(`id: "${id}"`));
 });
 
 test("J & K. Drawer closes on Esc/backdrop and handles accessibility", () => {
@@ -210,7 +231,7 @@ test("Q. About page has no English architectural sentences", () => {
 });
 
 test("R. Branding is consistently 'Stock Lookup'", () => {
-  for (const page of PRIMARY_PAGES.concat(["decision-cockpit.html", "archive.html"])) {
+  for (const page of PRIMARY_PAGES.concat(REDIRECT_ONLY_PAGES).concat(["archive.html"])) {
     const html = fs.readFileSync(path.join(root, page), "utf8");
     const shellText = (html.match(/<header[^>]*>[\s\S]*?<\/header>/) || [""])[0] +
                       (html.match(/<aside[^>]*>[\s\S]*?<\/aside>/) || [""])[0] +

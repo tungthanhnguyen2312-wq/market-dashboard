@@ -120,3 +120,50 @@
   border-color: var(--border-medium);
 }
 
+/* ---------- Defensive one-liner ---------- */
+.ws-defensive-line { margin: -0.35rem 0 1rem; }
+
+/* ---------- Compact market context strip ---------- */
+.ws-market-strip {
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  background: rgba(15, 23, 42, 0.3);
+}
+.ws-market-strip-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+.ws-market-strip .cockpit-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.5rem; }
+.ws-market-strip .cockpit-kpi { padding: 0.5rem 0.7rem; }
+.ws-market-strip .cockpit-kpi .value { font-size: 0.88rem; }
+
+/* ---------- View switcher tabs (Cơ hội / Phân tích / Theo dõi) ---------- */
+.ws-view-tabs {
+  display: flex;
+  gap: 0.35rem;
+  border-bottom: 1px solid var(--border-soft);
+  margin-bottom: 1rem;
+}
+.ws-view-tab {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-weight: 650;
+  font-size: 0.9rem;
+  padding: 0.6rem 0.9rem;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  margin-bottom: -1px;
+}
+.ws-view-tab:hover { color: var(--text); }
+.ws-view-tab.active {
+  color: var(--accent-text-strong);
+  border-bottom-color: var(--primary);
+}
+.ws-view-tab:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+

@@ -267,8 +267,11 @@ test("15. Session mismatch clears every Cockpit-derived node on the Workspace pa
       await new Promise((resolve) => setTimeout(resolve, 0));
     }
 
+    // cockpit-cohorts-grid was retired: the giant duplicate cohort chip list was replaced by the
+    // Workspace-native FILTERS chip bar (single source of truth, one cards universe). There is no
+    // longer a Cockpit-sourced cohorts DOM node to clear on session mismatch.
     const cockpitHtmlNodeIds = [
-      "cockpit-market-overview", "cockpit-market-warnings", "cockpit-cohorts-grid",
+      "cockpit-market-overview", "cockpit-market-warnings",
       "cockpit-watchlist", "cockpit-portfolio-risk", "cockpit-gaps",
       "cockpit-verify-next", "cockpit-lineage-content",
     ];

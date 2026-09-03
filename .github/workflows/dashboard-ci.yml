@@ -60,6 +60,9 @@ jobs:
       - name: Analysis/product surface tests
         run: node --test tests/product-surface-convergence.test.js
 
+      - name: Unified decision workspace v2 architecture contract tests
+        run: node --test tests/unified-decision-workspace-v2.test.js
+
       - name: Dashboard localization and governed overview tests
         run: node --test tests/dashboard-core-ux-localization.test.js
 
@@ -84,7 +87,6 @@ jobs:
           node --check assets/js/macro.js
           node --check assets/js/company-panel.js
           node --check assets/js/value-format.js
-          node --check assets/js/analysis-product.js
           node --check assets/js/investment-workspace.js
           node --check assets/js/dashboard-product-summary.js
           node --check assets/js/screener-master.js

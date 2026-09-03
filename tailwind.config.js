@@ -18,7 +18,6 @@ module.exports = {
     "./about.html",
     "./decision-cockpit.html",
     "./app.js",
-    "./analysis.js",
     "./assets/js/*.js",
   ],
   corePlugins: { preflight: false },

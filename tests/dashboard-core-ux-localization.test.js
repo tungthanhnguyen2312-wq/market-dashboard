@@ -8,13 +8,11 @@ const test = require("node:test");
 const root = path.resolve(__dirname, "..");
 const vf = require(path.join(root, "assets/js/value-format.js"));
 const overview = require(path.join(root, "assets/js/dashboard-product-summary.js"));
-const analysis = require(path.join(root, "assets/js/analysis-product.js"));
 const ws = require(path.join(root, "assets/js/investment-workspace.js"));
 const signals = require(path.join(root, "assets/js/signals-product.js"));
 const sm = require(path.join(root, "assets/js/screener-master.js"));
 
 const dashboardHtml = fs.readFileSync(path.join(root, "dashboard.html"), "utf8");
-const analysisHtml = fs.readFileSync(path.join(root, "analysis.html"), "utf8");
 const workspaceHtml = fs.readFileSync(path.join(root, "investment-workspace.html"), "utf8");
 const projection = JSON.parse(fs.readFileSync(path.join(root, "data/screener_master_projection.json"), "utf8"));
 const workspace = JSON.parse(fs.readFileSync(path.join(root, "data/investment_decision_workspace.json"), "utf8"));
@@ -124,18 +122,9 @@ test("entity, data, and freshness states are translated without strengthening au
   assert.doesNotMatch(vf.formatLiquidityState("RESEARCH_PROXY"), /Chính xác/i);
 });
 
-test("localized select option text retains raw option.value", () => {
-  const spec = analysis.optionSpec("WAIT_FOR_CONFIRMATION", "research_stance");
-  assert.equal(spec.value, "WAIT_FOR_CONFIRMATION");
-  assert.equal(spec.text, "Chờ xác nhận");
-  const tactical = analysis.optionSpec("BASE_BUILDING", "tactical_state");
-  assert.equal(tactical.value, "BASE_BUILDING");
-  assert.equal(tactical.text, "Đang tạo nền");
-});
-
-test("analysis renderer visible text has no raw stance/tactical enums", () => {
-  const row = analysis.record(workspace.cards.HPG || Object.values(workspace.cards)[0]);
-  const html = analysis.renderRowHtml(row);
+test("Phân tích row renderer visible text has no raw stance/tactical enums", () => {
+  const row = ws.analysisRecord(workspace.cards.HPG || Object.values(workspace.cards)[0]);
+  const html = ws.analysisRowHtml(row);
   const visible = visibleText(html);
   for (const raw of STANCES.concat(TACTICAL)) {
     assert.doesNotMatch(visible, new RegExp(raw));
@@ -218,22 +207,10 @@ test("overview uses current projection facts with explicit denominators", () => 
 });
 
 test("research stance remains distinct from execution instruction", () => {
-  assert.match(analysisHtml, /Tư thế nghiên cứu không phải lệnh thực hiện/);
   assert.match(workspaceHtml, /không phải lệnh thực hiện/i);
   assert.match(dashboardHtml, /Quyết định nghiên cứu hiện tại/);
   assert.doesNotMatch(vf.formatResearchStance("INITIATE_RESEARCH_CANDIDATE"), /Mua|Khuyến nghị mua/i);
   assert.doesNotMatch(overview.renderDecisionSummaryHtml(overview.summarizeScreenerOverview(projection)), /vs-btn-primary[^>]*>Mua/);
-});
-
-test("analysis page chrome is Vietnamese", () => {
-  assert.match(analysisHtml, /So sánh nghiên cứu/);
-  assert.match(analysisHtml, /Mọi tư thế nghiên cứu/);
-  assert.match(analysisHtml, /Mọi trạng thái kỹ thuật/);
-  assert.match(analysisHtml, /Nền tảng doanh nghiệp/);
-  assert.match(analysisHtml, /Định giá \/ phương pháp/);
-  assert.match(analysisHtml, /Điều kiện vô hiệu/);
-  assert.match(analysisHtml, /Độ mới dữ liệu/);
-  assert.doesNotMatch(analysisHtml, /Research comparison/);
 });
 
 test("technical structure pills localize visible text and keep raw identity in data/title", () => {
@@ -304,7 +281,7 @@ test("provenance presentation uses a Vietnamese label and keeps the raw identifi
   assert.doesNotMatch(primaryVisibleText(provenance), /investment_decision_workspace_projection/);
   assert.match(provenance, /Nguồn dữ liệu/);
   assert.match(provenance, /investment_decision_workspace_projection\/v1:abc/);
-  const analysisRow = analysis.renderRowHtml(analysis.record(workspace.cards.HPG));
+  const analysisRow = ws.analysisRowHtml(ws.analysisRecord(workspace.cards.HPG));
   assert.doesNotMatch(primaryVisibleText(analysisRow), /QUALIFIED_CLASSIFICATION|QUALIFIED_ENTITY_CLASS/);
   assert.match(analysisRow, /Doanh nghiệp/);
 });
@@ -312,7 +289,7 @@ test("provenance presentation uses a Vietnamese label and keeps the raw identifi
 test("normal renderer output has no raw primary enums outside technical detail", () => {
   const card = workspace.cards.HPG;
   const workspaceHtml = ws.decisionCardHtml(card, { ticker: "HPG", sourceArtifacts: { producer_artifact_identity: workspace.producer_artifact_identity } });
-  const analysisHtmlRow = analysis.renderRowHtml(analysis.record(card));
+  const analysisHtmlRow = ws.analysisRowHtml(ws.analysisRecord(card));
   const signalHtml = signals.renderRowHtml(signals.records({ cards: { HPG: card } })[0]);
   const structureHtml = vf.formatStructureBadge("BELOW_MA20_MOMENTUM_NEGATIVE");
   const overviewHtml = overview.renderDecisionSummaryHtml(overview.summarizeScreenerOverview(projection));
@@ -324,10 +301,7 @@ test("normal renderer output has no raw primary enums outside technical detail",
   }
 });
 
-test("filter option.value remains the raw backend enum", () => {
-  const spec = analysis.optionSpec("WAIT_FOR_CONFIRMATION", "research_stance");
-  assert.equal(spec.value, "WAIT_FOR_CONFIRMATION");
-  assert.equal(spec.text, "Chờ xác nhận");
+test("filters and screener predicates operate on the raw backend enum", () => {
   const wait = ws.FILTERS.find((item) => item.id === "wait");
   assert.equal(wait.test({ research_stance: "WAIT_FOR_CONFIRMATION" }), true);
   assert.equal(sm.matchesScreenerFilters({

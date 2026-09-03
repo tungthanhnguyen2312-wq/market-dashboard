@@ -30,9 +30,11 @@ function card(overrides) {
 
 test("page declares the opportunity list, filters, seven decision-card sections, and no-execution boundary", () => {
   for (const label of ["Bộ lọc", "Danh sách cơ hội", "Thẻ quyết định"]) assert.match(html, new RegExp(label));
-  for (const label of ["A. Trạng thái hiện tại", "B. Lý do", "C. Phản luận", "D. Xác nhận", "E. Điều kiện vô hiệu", "F. Tác động danh mục", "G. Dữ liệu / thẩm quyền"]) {
-    assert.match(script, new RegExp(label.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  for (const label of ["Quyết định", "Doanh nghiệp", "Định giá", "Kỹ thuật", "Kích hoạt / Vô hiệu", "Danh mục"]) {
+    assert.match(script, new RegExp(`<h6>${label.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}`));
   }
+  // Dữ liệu (freshness/gaps/provenance) is progressive disclosure inside the drawer, not a plain h6.
+  assert.match(script, /<details class="mt-3">\s*<summary[^>]*>Dữ liệu/);
   assert.match(html, /CHỈ MANG TÍNH NGHIÊN CỨU/);
   assert.match(html, /không phải lệnh thực hiện/i);
   assert.doesNotMatch(html + script, /execute trade|place order|sell order/i);
@@ -43,7 +45,7 @@ test("decision card renderer is reusable without changing stance semantics", () 
   assert.match(html, /data-decision-ticker="AAA"/);
   assert.match(html, /data-state="INITIATE_RESEARCH_CANDIDATE"/);
   assert.match(html, /Ứng viên nghiên cứu mở vị thế/);
-  assert.match(html, /A\. Trạng thái hiện tại/);
+  assert.match(html, /<h6>Quyết định/);
   assert.doesNotMatch(html, /BUY NOW|place order/i);
   const missing = ws.decisionCardHtml(null, { ticker: "AAA" });
   assert.match(missing, /Không có thẻ Không gian quyết định cho AAA/);

@@ -10,14 +10,12 @@ SHELL_PAGES = [
     "archive.html",
 ]
 SINGLE_TOPBAR_PAGES = [
-    "analysis.html",
     "signals.html",
     "about.html",
     "investment-workspace.html",
     "portfolio.html",
 ]
 PAGE_NAMES = SHELL_PAGES + [
-    "analysis.html",
     "signals.html",
     "about.html",
 ]
@@ -25,10 +23,16 @@ PRODUCT_SURFACE_PAGES = PAGE_NAMES + [
     "investment-workspace.html",
     "portfolio.html",
 ]
+# analysis.html is a compatibility redirect (like decision-cockpit.html before it) and is
+# intentionally excluded from PRODUCT_SURFACE_PAGES / the primary-nav contract below: it carries
+# no primary nav of its own to verify. REDIRECT_PAGES exists so it still gets an existence check.
+REDIRECT_PAGES = [
+    "analysis.html",
+    "decision-cockpit.html",
+]
 EXPECTED_DATA_PAGES = {
     "dashboard.html": "dashboard",
     "screener.html": "screener",
-    "analysis.html": "analysis",
     "signals.html": "signals",
     "macro.html": "macro",
     "archive.html": "archive",
@@ -40,7 +44,6 @@ VN_NAV_LABELS = [
     "Tổng quan",
     "Bộ lọc",
     "Tín hiệu",
-    "Phân tích",
     "Bàn quyết định",
     "Danh mục",
     "Vĩ mô",
@@ -51,7 +54,6 @@ COMPACT_NAV_LABELS = [
     "Tổng quan",
     "Bộ lọc",
     "Tín hiệu",
-    "Phân tích",
     "Bàn quyết định",
     "Danh mục",
     "Vĩ mô",
@@ -62,9 +64,17 @@ OLD_ENGLISH_NAV_LABELS = ["Dashboard", "Screener", "Analysis", "Signals", "Macro
 
 class NavigationContractTests(unittest.TestCase):
     def test_1_all_seven_html_pages_exist(self):
-        for name in PRODUCT_SURFACE_PAGES:
+        for name in PRODUCT_SURFACE_PAGES + REDIRECT_PAGES:
             path = ROOT / name
             self.assertTrue(path.is_file(), f"Thiếu file HTML: {name}")
+
+    def test_1b_analysis_is_a_compatibility_redirect_preserving_query_and_hash(self):
+        content = (ROOT / "analysis.html").read_text(encoding="utf-8")
+        self.assertNotRegex(content, r'<meta http-equiv="refresh"')
+        self.assertIn('window.location.replace("investment-workspace.html?" + params.toString() + hash)', content)
+        self.assertIn('params.set("view", "analysis")', content)
+        self.assertNotIn('class="vs-topbar-nav"', content)
+        self.assertNotIn('class="vs-sidebar"', content)
 
     def test_2_body_data_page_preserved(self):
         for name, expected_page in EXPECTED_DATA_PAGES.items():
@@ -84,7 +94,7 @@ class NavigationContractTests(unittest.TestCase):
                 self.assertIn(f'href="{route}"', content, f"Thiếu href={route} trong {name}")
 
     def test_4_data_nav_keys_unchanged(self):
-        expected_nav_keys = {"dashboard", "screener", "signals", "analysis", "investment-workspace", "portfolio", "macro", "about", "archive"}
+        expected_nav_keys = {"dashboard", "screener", "signals", "investment-workspace", "portfolio", "macro", "about", "archive"}
         for name in SHELL_PAGES:
             content = (ROOT / name).read_text(encoding="utf-8")
             found_keys = set(re.findall(r'data-nav=["\']([^"\']+)["\']', content))

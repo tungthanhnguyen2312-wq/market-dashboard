@@ -7,25 +7,29 @@ const test = require("node:test");
 
 const root = path.resolve(__dirname, "..");
 const workspace = JSON.parse(fs.readFileSync(path.join(root, "data", "investment_decision_workspace.json"), "utf8"));
-const analysis = require(path.join(root, "assets", "js", "analysis-product.js"));
 const signals = require(path.join(root, "assets", "js", "signals-product.js"));
 const workspaceApi = require(path.join(root, "assets", "js", "investment-workspace.js"));
 
-test("Analysis uses the current workspace artifact and has a real retained corpus", () => {
-  assert.equal(workspace.schema_version, analysis.SCHEMA);
-  const rows = analysis.analysisRows(workspace);
+// The old standalone analysis.html + assets/js/analysis-product.js were retired into the Phân
+// tích view of investment-workspace.html; analysisRows/analysisRecord now live in
+// assets/js/investment-workspace.js and are exercised here instead.
+test("Phân tích view uses the current workspace artifact and has a real retained corpus", () => {
+  assert.equal(workspace.schema_version, workspaceApi.SCHEMA_VERSION);
+  const rows = workspaceApi.analysisRows(workspace);
   assert.equal(rows.length, 1699);
   assert.ok(rows.some((row) => row.stance === "INITIATE_RESEARCH_CANDIDATE"));
-  assert.ok(rows.some((row) => row.freshness === "STALE_AXIS_PRESENT"));
-  const source = fs.readFileSync(path.join(root, "analysis.html"), "utf8") + fs.readFileSync(path.join(root, "analysis.js"), "utf8");
+  assert.ok(Object.values(workspace.cards).some((c) => workspaceApi.hasStaleAxis(c)));
+  const source = fs.readFileSync(path.join(root, "investment-workspace.html"), "utf8") + fs.readFileSync(path.join(root, "assets", "js", "investment-workspace.js"), "utf8");
   assert.match(source, /investment_decision_workspace/);
   assert.doesNotMatch(source, /analysis_latest\.json/);
   assert.doesNotMatch(source, /0-100|weighted investment ranking/i);
+  // The retired analysis-product.js conflictReasons() heuristic must not have resurfaced.
+  assert.doesNotMatch(source, /conflictReasons/);
 });
 
-test("Analysis filters are derived and never mutate the retained workspace cards", () => {
+test("Phân tích rows are derived and never mutate the retained workspace cards", () => {
   const before = JSON.stringify(workspace.cards);
-  const rows = analysis.analysisRows(workspace);
+  const rows = workspaceApi.analysisRows(workspace);
   const filtered = rows.filter((row) => row.stance === "WAIT_FOR_CONFIRMATION");
   assert.ok(filtered.length > 0);
   assert.equal(JSON.stringify(workspace.cards), before);
@@ -48,7 +52,7 @@ test("Signals renders Tactical V2 without optional candle sidecars", () => {
 });
 
 test("main product pages expose valid Workspace and Portfolio navigation", () => {
-  for (const page of ["dashboard.html", "screener.html", "analysis.html", "signals.html", "investment-workspace.html", "portfolio.html", "about.html"]) {
+  for (const page of ["dashboard.html", "screener.html", "signals.html", "investment-workspace.html", "portfolio.html", "about.html"]) {
     const source = fs.readFileSync(path.join(root, page), "utf8");
     assert.match(source, /investment-workspace\.html/);
     assert.match(source, /portfolio\.html/);
@@ -59,7 +63,7 @@ test("main product pages expose valid Workspace and Portfolio navigation", () =>
 test("single-topbar product surfaces retain navigation on mobile without duplicating a drawer", () => {
   const shell = fs.readFileSync(path.join(root, "assets", "css", "shell.css"), "utf8");
   assert.match(shell, /\.vs-shell:not\(:has\(\.vs-sidebar\)\) \.vs-topbar-nav\s*\{\s*display:\s*flex/);
-  for (const page of ["analysis.html", "signals.html", "investment-workspace.html", "portfolio.html", "about.html"]) {
+  for (const page of ["signals.html", "investment-workspace.html", "portfolio.html", "about.html"]) {
     const html = fs.readFileSync(path.join(root, page), "utf8");
     assert.match(html, /class="vs-topbar-nav"/);
     assert.doesNotMatch(html, /class="vs-sidebar"/);

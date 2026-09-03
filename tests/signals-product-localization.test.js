@@ -9,7 +9,6 @@ const root = path.resolve(__dirname, "..");
 const vf = require(path.join(root, "assets/js/value-format.js"));
 const signals = require(path.join(root, "assets/js/signals-product.js"));
 const cp = require(path.join(root, "assets/js/candlestick-patterns.js"));
-const analysis = require(path.join(root, "assets/js/analysis-product.js"));
 const ws = require(path.join(root, "assets/js/investment-workspace.js"));
 const sm = require(path.join(root, "assets/js/screener-master.js"));
 
@@ -180,7 +179,6 @@ test("primary public pages keep the centralized Vietnamese presentation layer", 
   const pages = {
     "dashboard.html": ["assets/js/value-format.js", "assets/js/dashboard-product-summary.js"],
     "screener.html": ["assets/js/value-format.js", "assets/js/screener-master.js"],
-    "analysis.html": ["assets/js/value-format.js"],
     "signals.html": ["assets/js/value-format.js", "assets/js/signals-product.js"],
     "investment-workspace.html": ["assets/js/value-format.js", "assets/js/investment-workspace.js"],
     "portfolio.html": [],
@@ -192,15 +190,10 @@ test("primary public pages keep the centralized Vietnamese presentation layer", 
     scripts.forEach((script) => assert.match(source, new RegExp(script.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))));
   }
   assert.match(product, /formatDomainState/);
-  const analysisSource = fs.readFileSync(path.join(root, "assets/js/analysis-product.js"), "utf8");
   const workspaceSource = fs.readFileSync(path.join(root, "assets/js/investment-workspace.js"), "utf8");
   const dashboardSource = fs.readFileSync(path.join(root, "assets/js/dashboard-product-summary.js"), "utf8");
-  assert.match(analysisSource, /formatDomainState/);
   assert.match(workspaceSource, /formatDomainState/);
   assert.match(dashboardSource, /formatDomainState/);
-  const spec = analysis.optionSpec("WAIT_FOR_CONFIRMATION", "research_stance");
-  assert.equal(spec.value, "WAIT_FOR_CONFIRMATION");
-  assert.equal(spec.text, "Chờ xác nhận");
   assert.equal(sm.matchesScreenerFilters({
     ticker: "HPG", display_exchange: "HSX", research: { stance: "WAIT_FOR_CONFIRMATION" },
     tactical: { entry_state: "SELLING_PRESSURE_EASING" }, sector: { status: "AVAILABLE", label: "Thép" },
