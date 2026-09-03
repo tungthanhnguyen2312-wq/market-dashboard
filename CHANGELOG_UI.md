@@ -1,5 +1,19 @@
 # CHANGELOG UI — Refactor giao diện toàn dự án
 
+## Cập nhật 2026-09-03 — Rà soát sửa lỗi hậu hội tụ (Post-Convergence Corrective Pass)
+
+Sửa 9 lỗi trình bày/hợp đồng dữ liệu phát hiện qua audit độc lập trên bản hội tụ bên dưới, không đổi luồng UX:
+
+- Ngăn `decision-cockpit.js` tự fetch/render khi được nạp lại làm thư viện hàm thuần cho Bàn quyết định (tránh ghi đè `#session-line`, `#ticker-select`, `location.hash`).
+- Rủi ro danh mục nay xét đúng theo `status` hợp đồng thay vì `is_actionable` (trường này luôn `false` theo thiết kế, kể cả khi danh mục đã được cung cấp và đánh giá đầy đủ).
+- Mã không xác định trong deep-link (`?ticker=` hoặc hash) không còn tự động mở HPG; hash tương thích cũ (`#lineage`, `#market-overview`...) không còn bị hiểu nhầm là mã.
+- Hợp nhất tông màu ngữ nghĩa: Bàn quyết định và Cockpit dùng chung `getSemanticTone()` theo domain thay vì bộ quy tắc từ khóa cũ độc lập (từng khiến `TRIGGERED` luôn đỏ bất kể domain).
+- Tách "Định giá nghiêm ngặt sẵn sàng" ra khỏi danh sách khoảng trống dữ liệu thiếu.
+- Sửa nhãn "SHA-256" chỉ hiển thị khi có mã băm thật; nếu không chỉ có định danh thì ghi "Định danh thao tác/sản phẩm".
+- Ô theo dõi thiếu context Cockpit không còn lấy nhầm trường từ thẻ Bàn quyết định.
+- Sửa bản dịch `NOT_AUTHORITATIVE_ACTIVE_UNIVERSE` cho đúng nghĩa gốc (phạm vi vũ trụ hoạt động chưa authoritative, không phải mã không thuộc vũ trụ niêm yết).
+- Khi phiên Cockpit lệch phiên Bàn quyết định, toàn bộ khối lấy dữ liệu từ Cockpit đều bị xóa/thay cảnh báo — trước đây bỏ sót 3 khối.
+
 ## Cập nhật 2026-09-03 — Hội tụ bề mặt sản phẩm Dashboard & Củng cố UX V1 (MARKET_DASHBOARD_PRODUCT_SURFACE_CONVERGENCE_AND_UX_HARDENING_V1)
 
 - **Hợp nhất Bàn quyết định (Canonical Decision Surface Convergence)**:
