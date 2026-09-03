@@ -59,7 +59,7 @@ test("main product pages expose valid Workspace and Portfolio navigation", () =>
 test("single-topbar product surfaces retain navigation on mobile without duplicating a drawer", () => {
   const shell = fs.readFileSync(path.join(root, "assets", "css", "shell.css"), "utf8");
   assert.match(shell, /\.vs-shell:not\(:has\(\.vs-sidebar\)\) \.vs-topbar-nav\s*\{\s*display:\s*flex/);
-  for (const page of ["analysis.html", "signals.html", "investment-workspace.html", "portfolio.html", "about.html", "decision-cockpit.html"]) {
+  for (const page of ["analysis.html", "signals.html", "investment-workspace.html", "portfolio.html", "about.html"]) {
     const html = fs.readFileSync(path.join(root, page), "utf8");
     assert.match(html, /class="vs-topbar-nav"/);
     assert.doesNotMatch(html, /class="vs-sidebar"/);

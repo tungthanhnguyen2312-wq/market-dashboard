@@ -221,6 +221,246 @@
     });
   }
 
+  const GAP_DIMENSION_LABELS = Object.freeze({
+    corporate_intelligence_unavailable: "Thông tin doanh nghiệp thiếu",
+    fundamental_context_unavailable: "Cơ bản doanh nghiệp thiếu context",
+    market_flow_unavailable: "Dòng tiền thị trường thiếu",
+    peer_context_unavailable: "Bối cảnh cùng ngành thiếu",
+    strategy_classification_unavailable: "Phân loại chiến lược chưa sẵn sàng",
+    strict_valuation_ready: "Định giá nghiêm ngặt sẵn sàng",
+    technical_unavailable: "Kỹ thuật thiếu dữ liệu",
+    valuation_peer_context_unavailable: "Định giá cùng ngành thiếu",
+  });
+
+  function renderMarketOverviewHtml(data) {
+    if (!data) return '<div class="cockpit-note">Chưa có dữ liệu tổng quan thị trường</div>';
+    const market = data.market_overview || {};
+    const cov = market.coverage || {};
+    const trend = market.trend_state || {};
+    const trendStr = (trend.above_ma20 != null || trend.at_or_below_ma20 != null)
+      ? `${trend.above_ma20 ?? '—'} trên MA20 / ${trend.at_or_below_ma20 ?? '—'} tại/dưới`
+      : 'Chưa có';
+    const covStr = (cov.same_session_technical_feature_available_count != null || cov.current_active_equity_denominator != null)
+      ? `${cov.same_session_technical_feature_available_count ?? '—'} / ${cov.current_active_equity_denominator ?? '—'}`
+      : 'Chưa có';
+    const cards = [
+      card('Độ rộng thị trường', market.breadth_state, 'data_fitness'),
+      card('Động lượng', market.momentum_state, 'data_fitness'),
+      card('Độ bao phủ xu hướng', trendStr),
+      card('Độ bao phủ kỹ thuật', covStr),
+      card('Phiên nguồn', market.source_market_session || data.session || '—')
+    ];
+    if (market.volatility_context && market.volatility_context.median != null) {
+      cards.push(card('Biến động (Shadow)', `${(market.volatility_context.median * 100).toFixed(2)}%`));
+    }
+    return cards.join('');
+  }
+
+  function renderMarketWarningsHtml(data) {
+    if (!data) return '';
+    const market = data.market_overview || {};
+    const warnings = [
+      ...(market.data_quality_limitations || []).map(x => formatLabel(x, 'rule_condition')),
+      ...(data.source?.warnings || []).map(x => formatLabel(x, 'rule_condition'))
+    ];
+    return warnings.length ? list(warnings) : '';
+  }
+
+  function renderCohortsHtml(data, defaultVisible) {
+    const DEFAULT_VISIBLE_COHORT = defaultVisible || 8;
+    const cohorts = data?.research_discovery?.cohorts || {};
+    return Object.entries(cohorts).map(([name, v], idx) => {
+      const sorted = [...(v.tickers || [])].sort();
+      const total = sorted.length;
+      const cohortId = `cohort-${idx}`;
+      const cohortTitle = formatLabel(name, 'tactical_state');
+      const initialChips = sorted.slice(0, DEFAULT_VISIBLE_COHORT).map(t => `<button type="button" class="cockpit-chip font-monospace fw-bold" data-ticker="${esc(t)}">${esc(t)}</button>`).join('');
+      let extraMarkup = '';
+      if (total > DEFAULT_VISIBLE_COHORT) {
+        const remaining = total - DEFAULT_VISIBLE_COHORT;
+        const extraChips = sorted.slice(DEFAULT_VISIBLE_COHORT).map(t => `<button type="button" class="cockpit-chip font-monospace fw-bold" data-ticker="${esc(t)}">${esc(t)}</button>`).join('');
+        extraMarkup = `<span id="${cohortId}-extra" class="cockpit-chip-extra" hidden>${extraChips}</span><button type="button" class="cockpit-toggle-btn" aria-expanded="false" aria-controls="${cohortId}-extra" data-action="toggle-cohort" data-target="${cohortId}-extra" data-remaining="${remaining}">Xem thêm ${remaining} mã</button>`;
+      }
+      return `<div class="mb-3">
+        <div class="d-flex align-items-center gap-2 mb-1">
+          <b>${esc(cohortTitle)}</b> <span class="cockpit-state available">${total} mã</span>
+        </div>
+        <div class="cockpit-note">${esc(v.ordering ? 'sắp xếp theo mã, không phải xếp hạng' : '')}</div>
+        <div class="cockpit-chip-row mt-1" id="${cohortId}-chips">
+          ${initialChips}
+          ${extraMarkup}
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  function renderPriorityReviewHtml(data, defaultVisible) {
+    const DEFAULT_VISIBLE_PRIORITY = defaultVisible || 10;
+    const review = data?.research_discovery?.high_priority_review || {};
+    const reviewSorted = [...(review.tickers || [])].sort();
+    const reviewTotal = reviewSorted.length;
+    if (!reviewTotal) return '';
+    const reviewInitial = reviewSorted.slice(0, DEFAULT_VISIBLE_PRIORITY).map(t => `<button type="button" class="cockpit-chip font-monospace fw-bold" data-ticker="${esc(t)}">${esc(t)}</button>`).join('');
+    let reviewExtraMarkup = '';
+    if (reviewTotal > DEFAULT_VISIBLE_PRIORITY) {
+      const remaining = reviewTotal - DEFAULT_VISIBLE_PRIORITY;
+      const reviewExtra = reviewSorted.slice(DEFAULT_VISIBLE_PRIORITY).map(t => `<button type="button" class="cockpit-chip font-monospace fw-bold" data-ticker="${esc(t)}">${esc(t)}</button>`).join('');
+      reviewExtraMarkup = `<span id="priority-extra" class="cockpit-chip-extra" hidden>${reviewExtra}</span><button type="button" class="cockpit-toggle-btn" aria-expanded="false" aria-controls="priority-extra" data-action="toggle-cohort" data-target="priority-extra" data-remaining="${remaining}">Xem thêm ${remaining} mã</button>`;
+    }
+    return `
+      <b>Nhóm ưu tiên xem xét: ${reviewTotal} mã</b>
+      <div class="cockpit-note">${esc(review.meaning ? 'Ứng viên cho nghiên cứu có người kiểm tra, không phải cấu phần danh mục.' : '')}</div>
+      <div class="cockpit-chip-row mt-2" id="priority-chips">
+        ${reviewInitial}
+        ${reviewExtraMarkup}
+      </div>`;
+  }
+
+  function renderOwnerFocusHtml(data, workspaceCards, overrideTickers) {
+    const focus = data?.owner_focus;
+    const rawList = overrideTickers || (focus && Array.isArray(focus.tickers) && focus.tickers.length ? focus.tickers : (data?.watchlist?.tickers || []));
+    const tickers = rawList.slice().sort();
+    if (!tickers.length) {
+      return '<tr><td colspan="6" class="cockpit-note text-center">Chưa có mã trong danh sách theo dõi</td></tr>';
+    }
+    return tickers.map(t => {
+      const c = (data?.ticker_cards && data.ticker_cards[t]) || (workspaceCards && workspaceCards[t]) || null;
+      if (!c) {
+        return `<tr>
+          <td><button type="button" class="cockpit-chip font-monospace fw-bold" data-ticker="${esc(t)}">${esc(t)}</button></td>
+          <td colspan="5"><button type="button" class="btn btn-sm btn-outline-light" data-ticker="${esc(t)}">Xem chi tiết &rarr;</button></td>
+        </tr>`;
+      }
+      const s = c.current_decision_state || { entry_state: c.entry_state, entry_action: c.entry_action };
+      const st = c.strategy_fit || {};
+      const sc = c.scenario || {};
+      const actionHtml = s.entry_action
+        ? `${state(s.entry_state, 'tactical_state')} ${state(s.entry_action, 'entry_action')}`
+        : state(s.entry_state, 'tactical_state');
+      const stratHtml = st.status ? state(st.status, 'data_fitness') : state(c.research_stance, 'research_stance');
+      const scenHtml = state(st.scenario_relationship?.scenario_disposition || sc.base_case?.case_status || (c.prospective_case && c.prospective_case.status), 'data_fitness');
+      const rawReason = (c.why_it_is_on_radar?.deterministic_reasons || c.why?.deterministic_reasons || [])[0] || '';
+      const reasons = rawReason ? (formatLabel(rawReason) || rawReason) : 'Chưa có dữ liệu';
+      const limitations = (c.what_argues_against?.limitations || c.counter_thesis?.warnings || [])[0] || '';
+      const quality = state(c.data_quality?.market_breadth_quality_state || (c.data_quality?.technical_eligible ? 'AVAILABLE' : (c.research_stance_readiness || 'UNAVAILABLE')), 'data_fitness');
+      return `<tr>
+        <td><button type="button" class="cockpit-chip font-monospace fw-bold" data-ticker="${esc(t)}">${esc(t)}</button></td>
+        <td>${actionHtml}</td>
+        <td>${stratHtml}</td>
+        <td>${scenHtml}</td>
+        <td>${esc(reasons)}${limitations ? `<br><span class="cockpit-note">${esc(limitations)}</span>` : ''}</td>
+        <td>${quality}</td>
+      </tr>`;
+    }).join('');
+  }
+
+  function renderPortfolioRiskHtml(data) {
+    const pr = data?.portfolio_risk;
+    if (!pr || pr.status === "NO_EXPLICIT_PORTFOLIO_SUPPLIED" || !pr.is_actionable) {
+      const msg = (pr?.message && pr.message !== "No explicit portfolio-risk envelope was supplied for this operation.")
+        ? (formatLabel(pr.message) || pr.message)
+        : "Không có danh mục cụ thể để đối chiếu trong phiên nghiên cứu hiện tại.";
+      return `
+        <div class="vs-alert vs-alert-warning mb-0">
+          <div class="d-flex align-items-center gap-2 mb-1">
+            <b>Chưa cung cấp danh mục cụ thể</b>
+            ${state(pr?.status || "NO_EXPLICIT_PORTFOLIO_SUPPLIED", "portfolio_state")}
+          </div>
+          <p class="mb-0 mt-1">${esc(msg)}</p>
+        </div>
+      `;
+    }
+    const kpis = [];
+    if (pr.risk_level != null) kpis.push(card("Mức độ rủi ro", state(pr.risk_level, "data_fitness")));
+    if (pr.position_count != null) kpis.push(card("Số vị thế nắm giữ", esc(pr.position_count)));
+    if (pr.concentration_summary != null) kpis.push(card("Mức tập trung", esc(pr.concentration_summary)));
+    return `
+      ${kpis.length ? `<div class="cockpit-grid mb-3">${kpis.join('')}</div>` : ''}
+      ${pr.risk_notes ? `<div class="cockpit-note">${esc(pr.risk_notes)}</div>` : ''}
+    `;
+  }
+
+  function renderDataGapsHtml(data) {
+    const gaps = data?.risk_data_gaps;
+    if (!gaps || typeof gaps !== "object") return '<div class="cockpit-note">Chưa ghi nhận khoảng trống dữ liệu</div>';
+    if (Array.isArray(gaps)) {
+      return gaps.map(g => card(g.dimension || g.label || "Trục", g.status || g.count || "UNAVAILABLE")).join('');
+    }
+    return Object.entries(gaps).map(([k, count]) => {
+      const label = GAP_DIMENSION_LABELS[k] || formatLabel(k, 'risk_data_gaps') || k;
+      const countDisplay = typeof count === "number" ? `${count.toLocaleString("vi-VN")} mã` : String(count);
+      return `<div class="cockpit-kpi"><div class="label">${esc(label)}</div><div class="value font-monospace">${esc(countDisplay)}</div></div>`;
+    }).join('');
+  }
+
+  function renderVerifyNextHtml(data) {
+    const items = Array.isArray(data?.what_to_verify_next) ? data.what_to_verify_next : [];
+    return items.length
+      ? items.map(x => `<li>${esc(formatLabel(x) || x)}</li>`).join('')
+      : '<li>Chưa có nội dung cần kiểm chứng đặc biệt</li>';
+  }
+
+  function renderLineageHtml(data) {
+    const source = data?.source || {};
+    const inputArtifacts = source.input_artifacts || {};
+    const inputRows = Object.entries(inputArtifacts).map(([k, v]) => {
+      const axisName = formatLabel(k, 'axis_label') || k;
+      const contractVer = v?.contract_version || v?.artifact_identity || '—';
+      const fState = v?.freshness_state || 'UNAVAILABLE';
+      const sess = v?.session || '—';
+      return `<tr>
+        <td><b>${esc(axisName)}</b> <span class="cockpit-note d-block font-monospace" style="font-size:0.75rem">${esc(k)}</span></td>
+        <td class="cockpit-code font-monospace">${esc(contractVer)}</td>
+        <td>${state(fState, 'freshness')}</td>
+        <td class="font-monospace">${esc(unavailable(sess))}</td>
+      </tr>`;
+    }).join('');
+
+    const manifestSha = source.operation_manifest_sha256 || source.operation_identity || '';
+    const productSha = source.product_artifact_sha256 || source.product_identity || '';
+
+    return `
+      <div class="cockpit-warning mb-3">
+        <div>Mã băm bảng kê (Manifest SHA-256): <span class="cockpit-code">${esc(source.operation_manifest_sha256 || manifestSha)}</span></div>
+        <div>Mã băm sản phẩm (Product SHA-256): <span class="cockpit-code">${esc(source.product_artifact_sha256 || productSha)}</span></div>
+      </div>
+      <div class="table-responsive">
+        <table class="cockpit-table">
+          <thead>
+            <tr>
+              <th>Đầu vào</th>
+              <th>Định danh dữ liệu</th>
+              <th>Độ mới dữ liệu</th>
+              <th>Phiên</th>
+            </tr>
+          </thead>
+          <tbody>${inputRows || '<tr><td colspan="4" class="cockpit-note">Chưa có thông tin artifact nguồn</td></tr>'}</tbody>
+        </table>
+      </div>
+      <h6 class="mt-3">Tính nhất quán phiên</h6>
+      <details class="vs-tech-details">
+        <summary>Chi tiết kỹ thuật</summary>
+        <pre class="cockpit-code">${esc(JSON.stringify(source.session_coherence || {}, null, 2))}</pre>
+      </details>
+    `;
+  }
+
+  function renderSessionMismatchHtml(wsSession, cpSession, reasonCode) {
+    return `
+      <div class="vs-alert vs-alert-warning mb-0">
+        <b>Thông tin bổ sung chưa đồng bộ với phiên hiện tại.</b>
+        <details class="vs-tech-details mt-2">
+          <summary>Chi tiết kỹ thuật</summary>
+          <div class="cockpit-code mt-1">
+            <div><strong>Phiên Bàn quyết định:</strong> ${esc(wsSession || "Chưa xác định")}</div>
+            <div><strong>Phiên dữ liệu bổ sung:</strong> ${esc(cpSession || "Chưa xác định")}</div>
+            <div><strong>Mã nguyên nhân:</strong> ${esc(reasonCode || "SESSION_MISMATCH")}</div>
+          </div>
+        </details>
+      </div>
+    `;
+  }
+
   function render(data) {
     if (typeof document === "undefined") return;
     const cockpitEl = document.getElementById('cockpit');
@@ -238,107 +478,39 @@
         </details>`;
     }
 
-    const market = data.market_overview || {},
-      cov = market.coverage || {},
-      flow = data.source?.input_artifacts?.market_flow_positioning;
-
     const marketOverviewEl = document.getElementById('market-overview');
     if (marketOverviewEl) {
-      marketOverviewEl.innerHTML = [
-        card('Độ rộng thị trường', market.breadth_state, 'data_fitness'),
-        card('Động lượng', market.momentum_state, 'data_fitness'),
-        card('Độ bao phủ xu hướng', `${market.trend_state?.above_ma20 ?? 'Chưa có'} trên MA20 / ${market.trend_state?.at_or_below_ma20 ?? 'Chưa có'} tại/dưới`),
-        card('Độ bao phủ kỹ thuật', `${cov.same_session_technical_feature_available_count ?? 'Chưa có'} / ${cov.current_active_equity_denominator ?? 'Chưa có'}`),
-        card('Bối cảnh dòng tiền', flow ? (data.source?.session_coherence?.session === data.session ? 'PARTIAL' : 'UNAVAILABLE') : 'UNAVAILABLE', 'liquidity_state'),
-        card('Vĩ mô', data.macro_context?.status, 'data_fitness')
-      ].join('');
+      marketOverviewEl.innerHTML = renderMarketOverviewHtml(data);
     }
 
     const marketWarningsEl = document.getElementById('market-warnings');
     if (marketWarningsEl) {
-      marketWarningsEl.innerHTML = list([
-        ...(market.data_quality_limitations || []).map(x => formatLabel(x)),
-        ...(data.source?.warnings || []).map(x => formatLabel(x))
-      ]);
+      marketWarningsEl.innerHTML = renderMarketWarningsHtml(data);
     }
 
-    const DEFAULT_VISIBLE_COHORT = 8;
-    const cohorts = data.research_discovery?.cohorts || {};
     const cohortsEl = document.getElementById('cohorts');
     if (cohortsEl) {
-      cohortsEl.innerHTML = Object.entries(cohorts).map(([name, v], idx) => {
-        const sorted = [...(v.tickers || [])].sort();
-        const total = sorted.length;
-        const cohortId = `cohort-${idx}`;
-        const cohortTitle = formatLabel(name, 'tactical_state');
-        const initialChips = sorted.slice(0, DEFAULT_VISIBLE_COHORT).map(t => `<button type="button" class="cockpit-chip" data-ticker="${esc(t)}">${esc(t)}</button>`).join('');
-        let extraMarkup = '';
-        if (total > DEFAULT_VISIBLE_COHORT) {
-          const remaining = total - DEFAULT_VISIBLE_COHORT;
-          const extraChips = sorted.slice(DEFAULT_VISIBLE_COHORT).map(t => `<button type="button" class="cockpit-chip" data-ticker="${esc(t)}">${esc(t)}</button>`).join('');
-          extraMarkup = `<span id="${cohortId}-extra" class="cockpit-chip-extra" hidden>${extraChips}</span><button type="button" class="cockpit-toggle-btn" aria-expanded="false" aria-controls="${cohortId}-extra" data-action="toggle-cohort" data-target="${cohortId}-extra" data-remaining="${remaining}">Xem thêm ${remaining} mã</button>`;
-        }
-        return `<div class="mb-3">
-          <div class="d-flex align-items-center gap-2 mb-1">
-            <b>${esc(cohortTitle)}</b> <span class="cockpit-state available">${total} mã</span>
-          </div>
-          <div class="cockpit-note">${esc(v.ordering ? 'sắp xếp theo mã, không phải xếp hạng' : '')}</div>
-          <div class="cockpit-chip-row mt-1" id="${cohortId}-chips">
-            ${initialChips}
-            ${extraMarkup}
-          </div>
-        </div>`;
-      }).join('');
+      cohortsEl.innerHTML = renderCohortsHtml(data, 8);
     }
 
-    const DEFAULT_VISIBLE_PRIORITY = 10;
-    const review = data.research_discovery?.high_priority_review || {};
     const priorityReviewEl = document.getElementById('priority-review');
     if (priorityReviewEl) {
-      const reviewSorted = [...(review.tickers || [])].sort();
-      const reviewTotal = reviewSorted.length;
-      const reviewInitial = reviewSorted.slice(0, DEFAULT_VISIBLE_PRIORITY).map(t => `<button type="button" class="cockpit-chip" data-ticker="${esc(t)}">${esc(t)}</button>`).join('');
-      let reviewExtraMarkup = '';
-      if (reviewTotal > DEFAULT_VISIBLE_PRIORITY) {
-        const remaining = reviewTotal - DEFAULT_VISIBLE_PRIORITY;
-        const reviewExtra = reviewSorted.slice(DEFAULT_VISIBLE_PRIORITY).map(t => `<button type="button" class="cockpit-chip" data-ticker="${esc(t)}">${esc(t)}</button>`).join('');
-        reviewExtraMarkup = `<span id="priority-extra" class="cockpit-chip-extra" hidden>${reviewExtra}</span><button type="button" class="cockpit-toggle-btn" aria-expanded="false" aria-controls="priority-extra" data-action="toggle-cohort" data-target="priority-extra" data-remaining="${remaining}">Xem thêm ${remaining} mã</button>`;
-      }
-      priorityReviewEl.innerHTML = `
-        <b>Nhóm ưu tiên xem xét: ${reviewTotal} mã</b>
-        <div class="cockpit-note">${esc(review.meaning ? 'Ứng viên cho nghiên cứu có người kiểm tra, không phải cấu phần danh mục.' : '')}</div>
-        <div class="cockpit-chip-row mt-2" id="priority-chips">
-          ${reviewInitial}
-          ${reviewExtraMarkup}
-        </div>`;
+      priorityReviewEl.innerHTML = renderPriorityReviewHtml(data, 10);
     }
 
-    const watch = (data.watchlist?.tickers || []).slice().sort();
+    const tickers = (data.watchlist?.tickers || data.owner_focus?.tickers || []).slice().sort();
     const watchCountEl = document.getElementById('watch-count');
-    if (watchCountEl) watchCountEl.textContent = `${watch.length} mã`;
+    if (watchCountEl) watchCountEl.textContent = `${tickers.length} mã`;
 
     const watchlistEl = document.getElementById('watchlist');
     if (watchlistEl) {
-      watchlistEl.innerHTML = watch.map(t => {
-        const c = (data.ticker_cards && data.ticker_cards[t]) || {},
-          s = c.current_decision_state || {},
-          st = c.strategy_fit || {},
-          sc = c.scenario || {};
-        return `<tr>
-          <td><button type="button" class="cockpit-chip" data-ticker="${esc(t)}">${esc(t)}</button></td>
-          <td>${state(s.entry_state, 'tactical_state')} ${state(s.entry_action, 'entry_action')}</td>
-          <td>${state(st.status, 'data_fitness')}</td>
-          <td>${state(st.scenario_relationship?.scenario_disposition, 'data_fitness')}</td>
-          <td>${esc((c.why_it_is_on_radar?.deterministic_reasons || [])[0] || 'Chưa có dữ liệu')}<br><span class="cockpit-note">${esc((c.what_argues_against?.limitations || [])[0] || '')}</span></td>
-          <td>${state(c.data_quality?.market_breadth_quality_state, 'data_fitness')}</td>
-        </tr>`;
-      }).join('');
+      watchlistEl.innerHTML = renderOwnerFocusHtml(data, null, tickers);
     }
 
     const select = document.getElementById('ticker-select');
-    const tickers = Object.keys(data.ticker_cards || {}).sort();
+    const allCards = Object.keys(data.ticker_cards || {}).sort();
     if (select) {
-      select.innerHTML = tickers.map(t => `<option value="${esc(t)}">${esc(t)}</option>`).join('');
+      select.innerHTML = allCards.map(t => `<option value="${esc(t)}">${esc(t)}</option>`).join('');
     }
 
     const setTicker = t => {
@@ -358,56 +530,29 @@
 
     const initialTicker = (typeof location !== "undefined" && location.hash === '#ticker-research' && select && data.ticker_cards && data.ticker_cards[select.value])
       ? select.value
-      : (data.ticker_cards && data.ticker_cards.HPG ? 'HPG' : tickers[0]);
+      : (data.ticker_cards && data.ticker_cards.HPG ? 'HPG' : allCards[0]);
     if (initialTicker) {
       setTicker(initialTicker);
     }
 
     const portfolioRiskEl = document.getElementById('portfolio-risk');
     if (portfolioRiskEl) {
-      portfolioRiskEl.innerHTML = `${state(data.portfolio_risk?.status, 'portfolio_state')}<div class="cockpit-note mt-2">${esc(formatLabel(data.portfolio_risk?.message) || data.portfolio_risk?.message || '')}</div>`;
+      portfolioRiskEl.innerHTML = renderPortfolioRiskHtml(data);
     }
 
     const gapsEl = document.getElementById('gaps');
     if (gapsEl) {
-      gapsEl.innerHTML = Object.entries(data.risk_data_gaps || {}).map(([k, v]) => card(formatLabel(k, 'risk_data_gaps'), v)).join('');
+      gapsEl.innerHTML = renderDataGapsHtml(data);
     }
 
     const verifyNextEl = document.getElementById('verify-next');
     if (verifyNextEl) {
-      verifyNextEl.innerHTML = (data.what_to_verify_next || []).map(x => `<li>${esc(formatLabel(x) || x)}</li>`).join('');
+      verifyNextEl.innerHTML = renderVerifyNextHtml(data);
     }
-
-    const source = data.source || {};
-    const inputRows = Object.entries(source.input_artifacts || {}).map(([k, v]) =>
-      `<tr><td>${esc(formatLabel(k, 'axis_label') || k)}</td><td class="cockpit-code">${esc(v?.artifact_identity || 'Chưa có dữ liệu')}</td><td>${state(v?.freshness_state, 'freshness')}</td><td>${esc(unavailable(v?.session))}</td></tr>`
-    ).join('');
 
     const lineageEl = document.getElementById('lineage-content');
     if (lineageEl) {
-      lineageEl.innerHTML = `
-        <div class="cockpit-warning mb-3">
-          <div>Mã băm bảng kê (Manifest SHA-256): <span class="cockpit-code">${esc(source.operation_manifest_sha256)}</span></div>
-          <div>Mã băm sản phẩm (Product SHA-256): <span class="cockpit-code">${esc(source.product_artifact_sha256)}</span></div>
-        </div>
-        <div class="table-responsive">
-          <table class="cockpit-table">
-            <thead>
-              <tr>
-                <th>Đầu vào</th>
-                <th>Định danh dữ liệu</th>
-                <th>Độ mới dữ liệu</th>
-                <th>Phiên</th>
-              </tr>
-            </thead>
-            <tbody>${inputRows}</tbody>
-          </table>
-        </div>
-        <h6 class="mt-3">Tính nhất quán phiên</h6>
-        <details class="vs-tech-details">
-          <summary>Chi tiết kỹ thuật</summary>
-          <pre class="cockpit-code">${esc(JSON.stringify(source.session_coherence || {}, null, 2))}</pre>
-        </details>`;
+      lineageEl.innerHTML = renderLineageHtml(data);
     }
   }
 
@@ -440,5 +585,15 @@
     list,
     card,
     bindInteractiveEvents,
+    renderMarketOverviewHtml,
+    renderMarketWarningsHtml,
+    renderCohortsHtml,
+    renderPriorityReviewHtml,
+    renderOwnerFocusHtml,
+    renderPortfolioRiskHtml,
+    renderDataGapsHtml,
+    renderVerifyNextHtml,
+    renderLineageHtml,
+    renderSessionMismatchHtml,
   };
 });

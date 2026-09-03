@@ -530,14 +530,15 @@
         }, 250);
       }
 
-      function showDecisionCard(ticker) {
+      function showDecisionCard(ticker, options) {
         const card = WORKSPACE.cards[ticker];
+        const inPageSec = document.getElementById("decision-card-section");
         const inPageEl = document.getElementById("decision-card");
         const drawerEl = document.getElementById("decision-drawer-body");
         if (!card) {
           const err = '<div class="cockpit-note">Không tìm thấy mã.</div>';
-          if (inPageEl) inPageEl.innerHTML = err;
           if (drawerEl) drawerEl.innerHTML = err;
+          if (inPageEl && inPageSec && inPageSec.open) inPageEl.innerHTML = err;
           return;
         }
         const cardOpts = {
@@ -545,8 +546,13 @@
           portfolio: effectivePortfolio(ticker, card),
           sourceArtifacts: WORKSPACE.source_artifacts,
         };
-        renderDecisionCard(card, inPageEl, cardOpts);
+        // The drawer is the canonical interaction surface
         renderDecisionCard(card, drawerEl, cardOpts);
+
+        // Render to in-page fallback only if open or explicitly requested
+        if (inPageEl && inPageSec && (inPageSec.open || (options && options.renderInPage))) {
+          renderDecisionCard(card, inPageEl, cardOpts);
+        }
 
         const drawerTicker = document.getElementById("decision-drawer-ticker");
         if (drawerTicker) drawerTicker.textContent = ticker;
@@ -742,96 +748,95 @@
           reader.readAsText(file);
         });
 
-        // Enrich with current_decision_cockpit.json data
+        const inPageSec = document.getElementById("decision-card-section");
+        if (inPageSec) {
+          inPageSec.addEventListener("toggle", () => {
+            if (inPageSec.open && SELECTED_TICKER) {
+              showDecisionCard(SELECTED_TICKER, { renderInPage: true });
+            }
+          });
+        }
+
+        // Enrich with current_decision_cockpit.json data (strictly guarded by session coherence)
         fetch("data/current_decision_cockpit.json", { cache: "no-store" })
           .then((r) => (r.ok ? r.json() : null))
           .then((cockpit) => {
             if (!cockpit) return;
+            const dc = (typeof window !== "undefined" && window.VSDecisionCockpit)
+              ? window.VSDecisionCockpit
+              : (typeof require === "function" ? require("./decision-cockpit.js") : null);
+
+            const wsSession = (WORKSPACE && WORKSPACE.as_of_session) || null;
+            const cpSession = (cockpit && cockpit.session) || null;
+
+            // Session Coherence Gate: require exact session match before merging Cockpit values
+            if (!wsSession || !cpSession || wsSession !== cpSession) {
+              const mismatchHtml = (dc && dc.renderSessionMismatchHtml)
+                ? dc.renderSessionMismatchHtml(wsSession, cpSession, "SESSION_MISMATCH")
+                : `<div class="vs-alert vs-alert-warning mb-0"><b>Thông tin bổ sung chưa đồng bộ với phiên hiện tại.</b></div>`;
+              const containerIds = [
+                "cockpit-market-overview",
+                "cockpit-cohorts-grid",
+                "cockpit-watchlist",
+                "cockpit-portfolio-risk",
+                "cockpit-gaps",
+                "cockpit-lineage-content",
+              ];
+              containerIds.forEach((id) => {
+                const el = document.getElementById(id);
+                if (el) el.innerHTML = id === "cockpit-watchlist" ? `<tr><td colspan="6">${mismatchHtml}</td></tr>` : mismatchHtml;
+              });
+              return;
+            }
+
+            // Real contract rendering via pure helpers
             const moEl = document.getElementById("cockpit-market-overview");
-            if (moEl && cockpit.market_overview) {
-              const mo = cockpit.market_overview;
-              moEl.innerHTML = `
-                ${kpiHtml("Trạng thái thị trường", mo.status_label || mo.status || "Chưa có dữ liệu")}
-                ${kpiHtml("Độ rộng thị trường", mo.breadth_summary || "—")}
-                ${kpiHtml("Cảnh báo rủi ro", mo.risk_alert_level || "Bình thường")}
-                ${kpiHtml("Phiên nguồn", mo.source_session || cockpit.session || "—")}
-              `;
+            if (moEl && dc && dc.renderMarketOverviewHtml) {
+              moEl.innerHTML = dc.renderMarketOverviewHtml(cockpit);
             }
             const mwEl = document.getElementById("cockpit-market-warnings");
-            if (mwEl && cockpit.market_overview && cockpit.market_overview.warnings) {
-              mwEl.innerHTML = Array.isArray(cockpit.market_overview.warnings) && cockpit.market_overview.warnings.length
-                ? cockpit.market_overview.warnings.map((w) => `<div class="cockpit-warning">${esc(w)}</div>`).join("")
-                : "";
+            if (mwEl && dc && dc.renderMarketWarningsHtml) {
+              mwEl.innerHTML = dc.renderMarketWarningsHtml(cockpit);
             }
 
             const cohortsEl = document.getElementById("cockpit-cohorts-grid");
-            if (cohortsEl && cockpit.research_discovery && cockpit.research_discovery.cohorts) {
-              renderCockpitCohorts(cockpit.research_discovery.cohorts, cohortsEl);
+            if (cohortsEl && dc && dc.renderCohortsHtml) {
+              cohortsEl.innerHTML = dc.renderCohortsHtml(cockpit, 8);
+              if (dc.bindInteractiveEvents) {
+                dc.bindInteractiveEvents(cockpit, (t) => selectTicker(t, { openDrawer: true }));
+              }
             }
 
             const wlEl = document.getElementById("cockpit-watchlist");
             const wlCountEl = document.getElementById("cockpit-watch-count");
-            if (wlEl && cockpit.watchlist) {
-              const rows = Array.isArray(cockpit.watchlist.items || cockpit.watchlist.tickers)
-                ? (cockpit.watchlist.items || cockpit.watchlist.tickers)
-                : [];
-              if (wlCountEl) wlCountEl.textContent = `${rows.length} mã`;
-              wlEl.innerHTML = rows.map((item) => {
-                const t = typeof item === "string" ? item : (item.ticker || "—");
-                const action = typeof item === "object" ? (item.action || item.research_action || "—") : "THEO_DÕI";
-                const strat = typeof item === "object" ? (item.strategy || "—") : "—";
-                const scen = typeof item === "object" ? (item.scenario || "—") : "—";
-                const conf = typeof item === "object" ? (item.evidence || "—") : "—";
-                const quality = typeof item === "object" ? (item.data_quality || "AVAILABLE") : "AVAILABLE";
-                return `<tr>
-                  <td><button type="button" class="cockpit-chip font-monospace fw-bold" data-select-ticker="${esc(t)}">${esc(t)}</button></td>
-                  <td>${pill(action, "entry_action")}</td>
-                  <td><span class="cockpit-note">${esc(strat)}</span></td>
-                  <td><span class="cockpit-note">${esc(scen)}</span></td>
-                  <td><span class="cockpit-note">${esc(conf)}</span></td>
-                  <td>${pill(quality, "data_fitness")}</td>
-                </tr>`;
-              }).join("");
+            if (wlEl && dc && dc.renderOwnerFocusHtml) {
+              const tickers = (cockpit.owner_focus && Array.isArray(cockpit.owner_focus.tickers) && cockpit.owner_focus.tickers.length ? cockpit.owner_focus.tickers : (cockpit.watchlist?.tickers || [])).slice().sort();
+              if (wlCountEl) wlCountEl.textContent = `${tickers.length} mã`;
+              wlEl.innerHTML = dc.renderOwnerFocusHtml(cockpit, WORKSPACE ? WORKSPACE.cards : null, tickers);
               wlEl.addEventListener("click", (e) => {
-                const chip = e.target.closest("[data-select-ticker]");
-                if (chip) selectTicker(chip.dataset.selectTicker, { openDrawer: true });
+                const btn = e.target.closest("[data-ticker]");
+                if (btn) selectTicker(btn.dataset.ticker, { openDrawer: true });
               });
             }
 
             const prEl = document.getElementById("cockpit-portfolio-risk");
-            if (prEl && cockpit.portfolio_risk) {
-              const pr = cockpit.portfolio_risk;
-              prEl.innerHTML = `
-                <div class="cockpit-grid mb-3">
-                  ${kpiHtml("Mức độ rủi ro", pill(pr.risk_level || "Chưa đánh giá", "data_fitness"))}
-                  ${kpiHtml("Số vị thế nắm giữ", esc(pr.position_count ?? "0"))}
-                  ${kpiHtml("Mức tập trung", esc(pr.concentration_summary || "Không có cảnh báo"))}
-                </div>
-                <div class="cockpit-note">${esc(pr.risk_notes || "Chưa phát hiện rủi ro tập trung vượt ngưỡng cho phép.")}</div>
-              `;
+            if (prEl && dc && dc.renderPortfolioRiskHtml) {
+              prEl.innerHTML = dc.renderPortfolioRiskHtml(cockpit);
             }
 
             const gapsEl = document.getElementById("cockpit-gaps");
-            if (gapsEl && cockpit.risk_data_gaps) {
-              const gaps = cockpit.risk_data_gaps;
-              gapsEl.innerHTML = Array.isArray(gaps)
-                ? gaps.map((g) => `<div class="cockpit-kpi"><div class="label">${esc(g.dimension || g.label || "Trục")}</div><div class="value">${pill(g.status || "UNAVAILABLE", "data_fitness")}</div><div class="cockpit-note mt-1">${esc(g.note || g.description || "")}</div></div>`).join("")
-                : "";
+            if (gapsEl && dc && dc.renderDataGapsHtml) {
+              gapsEl.innerHTML = dc.renderDataGapsHtml(cockpit);
             }
+
             const vnEl = document.getElementById("cockpit-verify-next");
-            if (vnEl && cockpit.what_to_verify_next) {
-              const items = Array.isArray(cockpit.what_to_verify_next) ? cockpit.what_to_verify_next : [];
-              vnEl.innerHTML = items.map((x) => `<li>${esc(typeof x === "string" ? x : (x.item || x.description || JSON.stringify(x)))}</li>`).join("");
+            if (vnEl && dc && dc.renderVerifyNextHtml) {
+              vnEl.innerHTML = dc.renderVerifyNextHtml(cockpit);
             }
 
             const linEl = document.getElementById("cockpit-lineage-content");
-            if (linEl && cockpit.source) {
-              linEl.innerHTML = `
-                <div class="cockpit-note mb-2">Operation: <code>${esc(cockpit.source.operation_identity || "daily_research_session")}</code> · Schema: <code>${esc(cockpit.schema_version || "—")}</code></div>
-                <div class="table-responsive"><table class="cockpit-table"><thead><tr><th>Thành phần nguồn</th><th>Độ mới / Phiên</th><th>Mã kiểm tra</th></tr></thead><tbody>
-                  ${Object.entries(cockpit.source.manifest_hashes || {}).map(([k, v]) => `<tr><td>${esc(k)}</td><td>${pill("CURRENT", "freshness")}</td><td><code class="cockpit-code">${esc(v)}</code></td></tr>`).join("")}
-                </tbody></table></div>
-              `;
+            if (linEl && dc && dc.renderLineageHtml) {
+              linEl.innerHTML = dc.renderLineageHtml(cockpit);
             }
           })
           .catch(() => {});

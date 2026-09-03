@@ -1,37 +1,48 @@
 <!doctype html>
-<html lang="vi" data-bs-theme="dark"><head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Bàn quyết định V2 | Stock Lookup</title>
-  <meta http-equiv="refresh" content="0;url=investment-workspace.html">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="style.css?v=2026-09-03-convergence-v1"><link rel="stylesheet" href="assets/css/shell.css?v=2026-09-03-convergence-v1"><link rel="stylesheet" href="assets/css/decision-cockpit.css?v=2026-09-03-convergence-v1">
+<html lang="vi" data-bs-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Chuyển hướng sang Bàn quyết định | Stock Lookup</title>
   <script>
-    (function() {
+    (function () {
       var search = window.location.search || "";
       var hash = window.location.hash || "";
       window.location.replace("investment-workspace.html" + search + hash);
     })();
   </script>
-</head><body class="bg-bg text-white" data-page="decision-cockpit">
-<div class="vs-shell"><div class="vs-shell-main"><header class="vs-topbar">
-  <a class="vs-topbar-brand" href="dashboard.html"><span class="vs-brand-dot"></span><span>Stock Lookup</span></a>
-  <nav class="vs-topbar-nav" aria-label="Điều hướng chính"><a class="vs-topnav-link" href="dashboard.html" data-nav="dashboard">Tổng quan</a><a class="vs-topnav-link" href="screener.html" data-nav="screener">Bộ lọc</a><a class="vs-topnav-link" href="signals.html" data-nav="signals">Tín hiệu</a><a class="vs-topnav-link" href="analysis.html" data-nav="analysis">Phân tích</a><a class="vs-topnav-link" href="investment-workspace.html" data-nav="investment-workspace">Bàn quyết định</a><a class="vs-topnav-link" href="portfolio.html" data-nav="portfolio">Danh mục</a><a class="vs-topnav-link" href="macro.html" data-nav="macro">Vĩ mô</a><a class="vs-topnav-link" href="about.html" data-nav="about">Giới thiệu</a></nav>
-  <span class="vs-topbar-spacer"></span><span class="badge-soft bs-amber">Phiên nghiên cứu đã lưu</span><a class="vs-topbar-link" href="archive.html">Lịch sử</a>
-</header><main class="vs-content">
-  <div class="alert alert-info d-flex align-items-center justify-content-between mb-4">
-    <div><strong>Bàn quyết định đã được hợp nhất:</strong> Giao diện này đã chuyển sang <a href="investment-workspace.html" class="alert-link fw-bold">Bàn quyết định chính thức</a>. Đang tự động chuyển hướng...</div>
-    <a href="investment-workspace.html" class="btn btn-sm btn-primary">Chuyển ngay &rarr;</a>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="assets/css/shell.css">
+</head>
+<body class="bg-bg text-white" data-page="decision-cockpit">
+  <div class="container py-5 text-center" style="max-width: 640px;">
+    <div class="mb-4">
+      <span class="badge-soft bs-amber mb-2 d-inline-block">Hợp nhất bề mặt sản phẩm</span>
+      <h1 class="h3 mb-2">Bàn quyết định đã được hợp nhất</h1>
+      <p class="text-muted">Giao diện Bàn quyết định cũ đã được tích hợp hoàn toàn vào <strong>Bàn quyết định</strong> duy nhất của hệ thống.</p>
+    </div>
+    <div class="cockpit-warning mb-4">
+      Chỉ phục vụ nghiên cứu có người kiểm tra. Không tạo giá mục tiêu, khuyến nghị, xác suất, quy mô vị thế hoặc chỉ thị giao dịch.
+    </div>
+    <div class="mb-4">
+      <a id="redirect-link" href="investment-workspace.html" class="btn btn-primary px-4 py-2">Chuyển sang Bàn quyết định &rarr;</a>
+    </div>
+    <noscript>
+      <div class="alert alert-warning text-start">
+        Trình duyệt của bạn đang tắt JavaScript. Vui lòng bấm vào liên kết trên để chuyển sang Bàn quyết định.
+      </div>
+    </noscript>
+    <script>
+      (function() {
+        var link = document.getElementById("redirect-link");
+        if (link) {
+          link.href = "investment-workspace.html" + (window.location.search || "") + (window.location.hash || "");
+        }
+      })();
+    </script>
   </div>
-  <div id="cockpit-error" class="vs-alert vs-alert-warning" hidden></div>
-  <div id="cockpit" hidden>
-    <div class="cockpit-hero"><div><div class="section-eyebrow">Sản phẩm nghiên cứu quyết định hàng ngày V2</div><h1 class="h3 mb-1">Bàn quyết định</h1><div class="cockpit-note" id="session-line"></div></div><div class="d-flex gap-2"><a class="btn btn-sm btn-outline-light" href="investment-workspace.html">Không gian quyết định &rarr;</a> <a class="btn btn-sm btn-outline-light" href="decision-cockpit.html#lineage">Nguồn dữ liệu / Bằng chứng</a></div></div>
-    <div class="cockpit-warning">Chỉ phục vụ nghiên cứu có người kiểm tra. Không tạo giá mục tiêu, khuyến nghị, xác suất, quy mô vị thế hoặc chỉ thị giao dịch.</div>
-    <section class="cockpit-section card mb-4"><div class="card-header"><h5>Tổng quan thị trường</h5></div><div class="card-body"><div id="market-overview" class="cockpit-grid"></div><div id="market-warnings" class="cockpit-note mt-3"></div></div></section>
-    <section class="cockpit-section card mb-4"><div class="card-header"><h5>Khám phá cơ hội nghiên cứu <small class="text-muted">sắp xếp theo mã, không phải xếp hạng</small></h5></div><div class="card-body"><div id="cohorts"></div><hr><div id="priority-review"></div></div></section>
-    <section class="cockpit-section card mb-4"><div class="card-header"><h5>Danh sách theo dõi <span id="watch-count" class="badge-soft bs-blue"></span></h5></div><div class="card-body p-0"><div class="table-responsive"><table class="cockpit-table"><thead><tr><th>Mã</th><th>Trạng thái / Hành động nghiên cứu</th><th>Chiến lược</th><th>Kịch bản</th><th>Bằng chứng / Xung đột</th><th>Chất lượng dữ liệu</th></tr></thead><tbody id="watchlist"></tbody></table></div></div></section>
-    <section id="ticker-research" class="cockpit-section card mb-4"><div class="card-header"><h5>Chi tiết nghiên cứu mã</h5></div><div class="card-body"><div class="d-flex gap-2 align-items-center mb-3"><label class="cockpit-note" for="ticker-select">Mã</label><select id="ticker-select" class="form-select form-select-sm" style="max-width:160px"></select></div><div id="ticker-card"></div></div></section>
-    <section class="cockpit-section card mb-4"><div class="card-header"><h5>Rủi ro danh mục</h5></div><div class="card-body" id="portfolio-risk"></div></section>
-    <section class="cockpit-section card mb-4"><div class="card-header"><h5>Khoảng trống dữ liệu &amp; nội dung cần kiểm chứng</h5></div><div class="card-body"><div id="gaps" class="cockpit-grid"></div><ul id="verify-next" class="cockpit-list mt-3"></ul></div></section>
-    <section id="lineage" class="cockpit-section card mb-4"><div class="card-header"><h5>Nguồn dữ liệu / Bằng chứng</h5></div><div class="card-body"><div id="lineage-content"></div></div></section>
-  </div>
-</main></div></div><script src="assets/js/value-format.js?v=2026-08-26-f54d70f-cff1036856"></script><script src="assets/js/decision-cockpit.js?v=2026-08-26-f54d70f-cff1036856"></script></body></html>
+  <script src="assets/js/value-format.js"></script>
+  <script src="assets/js/decision-cockpit.js"></script>
+</body>
+</html>

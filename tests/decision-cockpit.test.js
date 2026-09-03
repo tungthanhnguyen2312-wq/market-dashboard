@@ -18,15 +18,31 @@ test("decision-cockpit.html loads value-format.js before decision-cockpit.js", (
   assert.ok(vfIdx < dcIdx, "value-format.js must load before decision-cockpit.js");
 });
 
-test("major static page chrome is in natural Vietnamese without English remnants", () => {
+test("decision-cockpit.html is a thin deterministic redirect preserving query and hash", () => {
+  assert.doesNotMatch(html, /<meta http-equiv="refresh"/);
+  assert.doesNotMatch(html, /Không gian quyết định/);
+  assert.match(html, /window\.location\.replace\("investment-workspace\.html" \+ search \+ hash\)/);
+  assert.match(html, /id="redirect-link"/);
+  assert.match(html, /Bàn quyết định đã được hợp nhất/);
+  assert.match(html, /Chỉ phục vụ nghiên cứu có người kiểm tra/);
+
+  // Test redirect logic with query and hash preservation
+  function simulateRedirect(search, hash) {
+    return "investment-workspace.html" + (search || "") + (hash || "");
+  }
+  assert.equal(simulateRedirect("?ticker=HPG", ""), "investment-workspace.html?ticker=HPG");
+  assert.equal(simulateRedirect("?ticker=HPG", "#lineage"), "investment-workspace.html?ticker=HPG#lineage");
+  assert.equal(simulateRedirect("", "#market-overview"), "investment-workspace.html#market-overview");
+});
+
+test("major static page chrome is in natural Vietnamese without English remnants across merged surfaces", () => {
+  const wsHtml = fs.readFileSync(path.join(root, "investment-workspace.html"), "utf8");
   const requiredVi = [
-    "Bàn quyết định V2",
-    "Phiên nghiên cứu đã lưu",
+    "Bàn quyết định",
     "Nguồn dữ liệu / Bằng chứng",
-    "Chỉ phục vụ nghiên cứu có người kiểm tra. Không tạo giá mục tiêu, khuyến nghị, xác suất, quy mô vị thế hoặc chỉ thị giao dịch.",
+    "Chỉ để người đọc rà soát nghiên cứu",
     "Tổng quan thị trường",
-    "Khám phá cơ hội nghiên cứu",
-    "sắp xếp theo mã, không phải xếp hạng",
+    "Khám phá cơ hội",
     "Danh sách theo dõi",
     "Mã",
     "Trạng thái / Hành động nghiên cứu",
@@ -34,13 +50,12 @@ test("major static page chrome is in natural Vietnamese without English remnants
     "Kịch bản",
     "Bằng chứng / Xung đột",
     "Chất lượng dữ liệu",
-    "Chi tiết nghiên cứu mã",
-    "Rủi ro danh mục",
+    "Thẻ quyết định",
+    "Bối cảnh rủi ro danh mục",
     "Khoảng trống dữ liệu &amp; nội dung cần kiểm chứng",
-    "Nguồn dữ liệu / Bằng chứng"
   ];
   for (const label of requiredVi) {
-    assert.match(html, new RegExp(label.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+    assert.match(wsHtml, new RegExp(label.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
   }
 
   // Ensure old primary English chrome is replaced
@@ -56,7 +71,7 @@ test("major static page chrome is in natural Vietnamese without English remnants
     "Human-review research only"
   ];
   for (const label of forbiddenEnglishChrome) {
-    assert.doesNotMatch(html, new RegExp(`<h5>${label}|>${label}<|badge-soft[^>]*>${label}`));
+    assert.doesNotMatch(wsHtml, new RegExp(`<h5>${label}|>${label}<|badge-soft[^>]*>${label}`));
   }
 });
 

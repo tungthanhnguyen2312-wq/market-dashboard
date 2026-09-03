@@ -39,7 +39,7 @@
       <div class="card mb-4">
         <div class="card-header"><h5>Tổng quan sản phẩm</h5></div>
         <div class="card-body report-content">
-          <p>Stock Lookup là sản phẩm nghiên cứu thị trường chứng khoán Việt Nam theo định hướng ưu tiên bằng chứng (evidence-first). Các hợp đồng tất định và mô hình tính toán số học là thẩm quyền dữ liệu; giao diện Dashboard là tầng hiển thị tĩnh phục vụ nhà đầu tư và nhà nghiên cứu độc lập.</p>
+          <p>Stock Lookup là sản phẩm nghiên cứu thị trường chứng khoán Việt Nam theo định hướng ưu tiên bằng chứng (evidence-first). Bằng chứng có điều kiện và nguồn gốc (qualified evidence / provenance) là thẩm quyền sự thật; các động cơ tất định (deterministic engines) là thẩm quyền số học cho các tính toán có thể chuẩn hóa; các mô hình AI chỉ phục vụ giải thích, tổng hợp và phản biện (explanation, synthesis, counter-thesis), không phải thẩm quyền sự thật hay thẩm quyền số học. Giao diện Dashboard là tầng hiển thị tĩnh phục vụ nhà đầu tư và nhà nghiên cứu độc lập.</p>
           <div class="p-3 bg-surface rounded border border-secondary mb-0">
             <h6 class="text-primary mb-2">Quy trình xử lý dữ liệu (Data Pipeline Flow):</h6>
             <div class="d-flex flex-wrap gap-2 align-items-center font-monospace" style="font-size: 0.85rem;">
@@ -47,7 +47,7 @@
               <span class="about-flow-arrow">&rarr;</span>
               <span>Đặc trưng tài chính tất định</span>
               <span class="about-flow-arrow">&rarr;</span>
-              <span>Tín hiệu kỹ thuật V2</span>
+              <span>Phân tích kỹ thuật và cấu trúc giá</span>
               <span class="about-flow-arrow">&rarr;</span>
               <span>Thanh khoản &amp; Rủi ro danh mục</span>
               <span class="about-flow-arrow">&rarr;</span>
@@ -71,7 +71,7 @@
               <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
                 <li><a href="dashboard.html" class="fw-bold text-decoration-none">Tổng quan</a>: Nhịp đập thị trường, độ rộng phiên, thanh khoản nghiên cứu và các điểm truy cập nhanh.</li>
                 <li><a href="screener.html" class="fw-bold text-decoration-none">Bộ lọc</a>: Bộ lọc đa tiêu chí toàn diện, xem nhanh và mở thẻ quyết định chi tiết cho từng mã.</li>
-                <li><a href="signals.html" class="fw-bold text-decoration-none">Tín hiệu</a>: Tín hiệu kỹ thuật V2, các nhóm thiết lập, điều kiện xác nhận và điều kiện vô hiệu hóa.</li>
+                <li><a href="signals.html" class="fw-bold text-decoration-none">Tín hiệu</a>: Phân tích kỹ thuật và cấu trúc giá, các nhóm thiết lập, điều kiện xác nhận và điều kiện vô hiệu hóa.</li>
                 <li><a href="analysis.html" class="fw-bold text-decoration-none">Phân tích</a>: So sánh đa trục nghiên cứu độc lập, phát hiện và hiển thị rõ các bằng chứng xung đột.</li>
                 <li><a href="investment-workspace.html" class="fw-bold text-decoration-none">Bàn quyết định</a>: Không gian ra quyết định trung tâm thống nhất với thẻ quyết định 7 phần toàn diện.</li>
                 <li><a href="portfolio.html" class="fw-bold text-decoration-none">Danh mục</a>: Quản lý danh mục cục bộ trên trình duyệt, theo dõi tỷ trọng và kết nối bối cảnh nghiên cứu.</li>
@@ -86,12 +86,12 @@
             <div class="card-header"><h5>Ý nghĩa tư thế nghiên cứu</h5></div>
             <div class="card-body">
               <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
-                <li><span class="badge-soft bs-green">TÍCH LŨY NGHIÊN CỨU</span>: Cổ phiếu có định giá hợp lý hoặc chiết khấu, nền tảng cơ bản ổn định và rủi ro giảm giá có thể kiểm soát.</li>
-                <li><span class="badge-soft bs-green">MỞ VỊ THẾ NGHIÊN CỨU</span>: Cổ phiếu hội tụ điều kiện kỹ thuật và nền tảng hỗ trợ để bắt đầu nghiên cứu giải ngân thăm dò.</li>
-                <li><span class="badge-soft bs-amber">CHỜ XÁC NHẬN</span>: Thiết lập kỹ thuật hoặc xu hướng đang hình thành nhưng cần thêm tín hiệu xác nhận qua biên giá/khối lượng.</li>
-                <li><span class="badge-soft bs-red">TRÁNH VỊ THẾ MỚI</span>: Cổ phiếu có rủi ro kỹ thuật suy yếu, phân phối, gãy xu hướng hoặc nền tảng cơ bản xấu đi.</li>
-                <li><span class="badge-soft bs-red">CHỈ ĐẦU CƠ RỦI RO CAO</span>: Biến động mạnh, thanh khoản thấp hoặc cấu trúc rủi ro cao, không phù hợp đầu tư bền vững.</li>
-                <li><span class="badge-soft bs-gray">CHƯA ĐỦ DỮ LIỆU</span>: Thiếu dữ liệu lịch sử hoặc chưa đủ bằng chứng định giá độc lập để đưa ra kết luận.</li>
+                <li><span class="badge-soft bs-green">ỨNG VIÊN NGHIÊN CỨU MỞ VỊ THẾ</span> (INITIATE_RESEARCH_CANDIDATE): Mã đang ở nhóm cần xem xét mở vị thế theo chính sách nghiên cứu hiện hành; xem điều kiện kích hoạt, điều kiện vô hiệu và bằng chứng hỗ trợ trước khi diễn giải.</li>
+                <li><span class="badge-soft bs-green">TÍCH LŨY NGHIÊN CỨU</span> (ACCUMULATE_RESEARCH_CANDIDATE): Nhóm nghiên cứu tích lũy theo chính sách hiện hành.</li>
+                <li><span class="badge-soft bs-amber">CHỜ XÁC NHẬN</span> (WAIT_FOR_CONFIRMATION): Chưa đạt đủ điều kiện xác nhận hiện tại.</li>
+                <li><span class="badge-soft bs-red">TRÁNH MỞ VỊ THẾ MỚI</span> (AVOID_NEW_ENTRY): Chính sách hiện tại không ủng hộ mở vị thế mới.</li>
+                <li><span class="badge-soft bs-amber">CHỈ ĐẦU CƠ RỦI RO CAO</span> (HIGH_RISK_SPECULATION_ONLY): Thuộc diện cảnh báo rủi ro cao theo chính sách nghiên cứu hiện hành.</li>
+                <li><span class="badge-soft bs-gray">CHƯA ĐỦ BẰNG CHỨNG</span> (INSUFFICIENT_EVIDENCE): Bằng chứng nghiên cứu hiện tại chưa đủ cho kết luận đó.</li>
               </ul>
             </div>
           </div>

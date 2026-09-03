@@ -508,6 +508,7 @@
     HELD: "Đang nắm giữ",
     NOT_HELD: "Chưa nắm giữ",
     NO_PORTFOLIO_RESEARCH_CONTEXT_SUPPLIED: "Chưa có bối cảnh danh mục",
+    NO_EXPLICIT_PORTFOLIO_SUPPLIED: "Chưa cung cấp danh mục cụ thể",
   });
 
   const PROSPECTIVE_CASE_MAP = Object.freeze({
@@ -594,8 +595,8 @@
   });
 
   const AXIS_LABELS = Object.freeze({
-    tactical: "Kỹ thuật",
-    fundamental: "Nền tảng doanh nghiệp",
+    tactical: "Thiết lập kỹ thuật",
+    fundamental: "Cơ bản doanh nghiệp",
     liquidity: "Thanh khoản",
     valuation: "Định giá",
     valuation_share_basis: "Cơ sở số cổ phiếu định giá",
@@ -604,6 +605,17 @@
     invalidation: "Điều kiện vô hiệu",
     downside_invalidation: "Điều kiện vô hiệu giảm giá",
     market_sector: "Thị trường / ngành",
+    corporate_intelligence: "Thông tin doanh nghiệp",
+    descriptive: "Hồ sơ doanh nghiệp",
+    event_context: "Bối cảnh sự kiện",
+    official_universe: "Vũ trụ niêm yết chính thức",
+    screening: "Sàng lọc cơ hội",
+    triage: "Phân loại ứng viên",
+    market_flow: "Dòng tiền thị trường",
+    market_flow_positioning: "Dòng tiền thị trường",
+    peer_context: "Bối cảnh cùng ngành",
+    strategy_classification: "Phân loại chiến lược",
+    scenario: "Kịch bản",
   });
 
   const ENTITY_CLASS_VOCABULARY = Object.freeze(["corporate", "bank", "securities", "insurance", "finance_company"]);
@@ -775,7 +787,6 @@
     LOSS_WIDENED: "adverse",
     TURNED_TO_LOSS: "adverse",
     EXPENSIVE_RELATIVE_RESEARCH: "adverse",
-    TRIGGERED: "adverse",
     THESIS_INVALIDATION: "adverse",
     STALE_NOT_USABLE_FOR_THIS_AXIS: "adverse",
     EXCEEDS_USER_POLICY_LIMIT: "adverse",
@@ -808,6 +819,83 @@
     LIQUIDITY_RESEARCH_UNAVAILABLE: "neutral",
   });
 
+  /* Domain-specific tone maps to avoid cross-domain token collisions (e.g. TRIGGERED) */
+  const DOMAIN_SPECIFIC_TONES = Object.freeze({
+    confirmation_state: {
+      TRIGGERED: "constructive",
+      CONFIRMED: "constructive",
+      READY: "constructive",
+      WAIT_FOR_CONFIRMATION: "watch",
+      PENDING: "watch",
+      NOT_CONFIRMED: "watch",
+      UNTRIGGERED: "watch",
+      UNAVAILABLE: "neutral",
+      ABSENT: "neutral",
+      NOT_EVALUATED: "neutral",
+    },
+    invalidation_state: {
+      TRIGGERED: "adverse",
+      INVALIDATED: "adverse",
+      BREACHED: "adverse",
+      THESIS_INVALIDATION: "adverse",
+      WATCH: "watch",
+      STANCE_RECONSIDERATION_WATCH: "watch",
+      NOT_TRIGGERED: "neutral",
+      UNTRIGGERED: "neutral",
+      INTACT: "neutral",
+      UNAVAILABLE: "neutral",
+      ABSENT: "neutral",
+    },
+    data_fitness: {
+      AVAILABLE: "info",
+      AVAILABLE_SHADOW_ONLY: "info",
+      PRICE_AVAILABLE: "info",
+      PARTIAL: "watch",
+      DEGRADED: "watch",
+      BLOCKED: "neutral",
+      UNAVAILABLE: "neutral",
+      NOT_AVAILABLE: "neutral",
+      UNKNOWN: "neutral",
+      ABSENT: "neutral",
+      NOT_EVALUATED: "neutral",
+      NOT_APPLICABLE: "neutral",
+      READY: "constructive",
+    },
+    data_readiness: {
+      READY: "constructive",
+      AVAILABLE: "info",
+      PARTIAL: "watch",
+      BLOCKED: "neutral",
+      UNAVAILABLE: "neutral",
+    },
+    research_stance: {
+      INITIATE_RESEARCH_CANDIDATE: "constructive",
+      ACCUMULATE_RESEARCH_CANDIDATE: "constructive",
+      WAIT_FOR_CONFIRMATION: "watch",
+      HIGH_RISK_SPECULATION_ONLY: "watch",
+      AVOID_NEW_ENTRY: "adverse",
+      INSUFFICIENT_EVIDENCE: "neutral",
+    },
+    tactical_state: {
+      BREAKOUT_READY: "constructive",
+      UPTREND_CONFIRMED: "constructive",
+      EARLY_REVERSAL_CANDIDATE: "constructive",
+      ACCUMULATE_IN_BASE: "constructive",
+      BASE_BUILDING: "watch",
+      SELLING_PRESSURE_EASING: "watch",
+      SIDEWAYS_NEUTRAL: "watch",
+      DISTRIBUTION_RISK: "adverse",
+      BREAKDOWN_RISK: "adverse",
+      DOWNTREND: "adverse",
+      UNAVAILABLE: "neutral",
+    },
+    risk_breach: {
+      BREACHED: "adverse",
+      TRIGGERED: "adverse",
+      CLEAR: "neutral",
+    },
+  });
+
   const TONE_BADGE_CLASS = Object.freeze({
     constructive: "bs-green",
     watch: "bs-amber",
@@ -819,11 +907,39 @@
   function getSemanticTone(value, domain) {
     if (value === null || value === undefined || value === "") return "neutral";
     const raw = String(value).trim().toUpperCase();
+    const d = String(domain || "").trim().toLowerCase();
+
+    // 1. Explicit domain-specific mapping first
+    if (d && DOMAIN_SPECIFIC_TONES[d] && DOMAIN_SPECIFIC_TONES[d][raw]) {
+      return DOMAIN_SPECIFIC_TONES[d][raw];
+    }
+    if (d.includes("confirm") && DOMAIN_SPECIFIC_TONES.confirmation_state[raw]) {
+      return DOMAIN_SPECIFIC_TONES.confirmation_state[raw];
+    }
+    if (d.includes("invalid") && DOMAIN_SPECIFIC_TONES.invalidation_state[raw]) {
+      return DOMAIN_SPECIFIC_TONES.invalidation_state[raw];
+    }
+    if ((d.includes("fitness") || d.includes("readiness") || d.includes("quality")) && DOMAIN_SPECIFIC_TONES.data_fitness[raw]) {
+      return DOMAIN_SPECIFIC_TONES.data_fitness[raw];
+    }
+
+    // 2. Global governed state tone mapping
     if (GOVERNED_STATE_TONES[raw]) return GOVERNED_STATE_TONES[raw];
-    if (raw.includes("CONFIRM") || raw.includes("CONSTRUCTIVE") || raw.includes("POSITIVE")) return "constructive";
+
+    // 3. Negation guard: NEVER let NOT_ / UN_ / NO_ become constructive by substring accident
+    if (raw.startsWith("NOT_") || raw.startsWith("NON_") || raw.startsWith("NO_") || raw.startsWith("UN_") || raw.startsWith("DIS_")) {
+      if (raw.includes("CONFIRM")) return "watch";
+      if (raw.includes("AVAIL") || raw.includes("APPLICABLE") || raw.includes("EVALUAT")) return "neutral";
+      if (raw.includes("TRIGGER")) return "neutral";
+      return "neutral";
+    }
+
+    // 4. Safe substring checks only if unambiguous
+    if (raw.includes("CONSTRUCTIVE") || raw.includes("BREAKOUT") || raw.includes("UPTREND")) return "constructive";
     if (raw.includes("RISK") || raw.includes("BREAKDOWN") || raw.includes("INVALID") || raw.includes("DETERIORAT") || raw.includes("LOSS")) return "adverse";
     if (raw.includes("WAIT") || raw.includes("WATCH") || raw.includes("BASE") || raw.includes("REVERSAL") || raw.includes("STALE") || raw.includes("CONDITIONAL")) return "watch";
-    if (raw.includes("UNAVAILABLE") || raw.includes("UNKNOWN") || raw.includes("INSUFFICIENT") || raw.includes("BLOCKED") || raw.includes("NOT_")) return "neutral";
+    if (raw.includes("UNAVAILABLE") || raw.includes("UNKNOWN") || raw.includes("INSUFFICIENT") || raw.includes("BLOCKED")) return "neutral";
+
     return "neutral";
   }
 
@@ -840,8 +956,19 @@
     return `<span class="vs-state-label tone-${tone} ${badgeCls}${cls}" data-state="${esc(formatted.raw)}" data-domain="${esc(domain || "")}" data-tone="${tone}" title="${esc(formatted.raw)}">${esc(formatted.label)}</span>`;
   }
 
+  function formatKnownLabel(val, domain) {
+    if (val === null || val === undefined || val === "") return "";
+    const raw = String(val).trim();
+    if (domain === "axis_label" && AXIS_LABELS[raw.toLowerCase()]) {
+      return AXIS_LABELS[raw.toLowerCase()];
+    }
+    const formatted = formatDomainState(raw, domain);
+    if (formatted && formatted.known) return formatted.label;
+    return raw;
+  }
+
   function formatRuleCondition(value) { return formatStateLabel(value, "rule_condition"); }
-  function formatAxisLabel(axis) { return AXIS_LABELS[axis] || String(axis || ""); }
+  function formatAxisLabel(axis) { return AXIS_LABELS[String(axis || "").toLowerCase()] || String(axis || ""); }
 
   function formatSectorLineage(value) {
     const raw = (value === null || value === undefined) ? "" : String(value).trim();
@@ -1008,6 +1135,7 @@
     visibleStateHtml,
     SEMANTIC_TONES,
     GOVERNED_STATE_TONES,
+    DOMAIN_SPECIFIC_TONES,
     getSemanticTone,
     getToneBadgeClass,
     DOMAIN_TABLES,

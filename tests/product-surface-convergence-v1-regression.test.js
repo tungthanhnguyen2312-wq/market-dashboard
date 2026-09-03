@@ -69,10 +69,11 @@ test("B. Active link correctly configured for each primary page", () => {
 
 test("C. decision-cockpit.html redirects to investment-workspace.html and preserves query params", () => {
   const html = fs.readFileSync(path.join(root, "decision-cockpit.html"), "utf8");
-  assert.match(html, /<meta http-equiv="refresh" content="0;url=investment-workspace\.html">/);
+  assert.doesNotMatch(html, /<meta http-equiv="refresh"/);
   assert.match(html, /window\.location\.replace/);
   assert.match(html, /window\.location\.search/);
   assert.match(html, /window\.location\.hash/);
+  assert.match(html, /id="redirect-link"/);
   assert.match(html, /Bàn quyết định đã được hợp nhất/);
 });
 
