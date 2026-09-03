@@ -447,7 +447,7 @@
     MOMENTUM_BREADTH_POSITIVE: "Độ rộng động lượng tích cực",
     MIXED_NO_CLEAR_MARKET_REGIME: "Hỗn hợp, chưa rõ trạng thái thị trường",
     PARTIAL_COVERAGE_EXPLICIT: "Độ bao phủ một phần rõ ràng",
-    NOT_AUTHORITATIVE_ACTIVE_UNIVERSE: "Không thuộc vũ trụ niêm yết chính thức",
+    NOT_AUTHORITATIVE_ACTIVE_UNIVERSE: "Vũ trụ hoạt động hiện tại chưa phải phạm vi authoritative",
     VOLATILITY_CONTEMPORANEOUS_CROSS_SECTION_ONLY: "Biến động chỉ tính lát cắt cùng phiên",
     SHADOW_ONLY: "Chỉ dùng tham chiếu nghiên cứu",
     SHADOW_RESEARCH_ONLY: "Chỉ dùng tham chiếu nghiên cứu",
@@ -509,6 +509,8 @@
     NOT_HELD: "Chưa nắm giữ",
     NO_PORTFOLIO_RESEARCH_CONTEXT_SUPPLIED: "Chưa có bối cảnh danh mục",
     NO_EXPLICIT_PORTFOLIO_SUPPLIED: "Chưa cung cấp danh mục cụ thể",
+    LIMIT_BREACH: "Vượt hạn mức",
+    WITHIN_LIMIT: "Trong hạn mức",
   });
 
   const PROSPECTIVE_CASE_MAP = Object.freeze({
@@ -750,6 +752,7 @@
     READY: "constructive",
     ACTIVE_CASES_AVAILABLE: "constructive",
     NO_CONCENTRATION_FLAGGED: "constructive",
+    WITHIN_LIMIT: "constructive",
     BUY_ON_CONFIRMATION: "constructive",
     EARLY_ENTRY: "constructive",
     ACCUMULATE_IN_BASE: "constructive",
@@ -790,6 +793,7 @@
     THESIS_INVALIDATION: "adverse",
     STALE_NOT_USABLE_FOR_THIS_AXIS: "adverse",
     EXCEEDS_USER_POLICY_LIMIT: "adverse",
+    LIMIT_BREACH: "adverse",
     DOWN: "adverse",
 
     // Informational (blue tone)

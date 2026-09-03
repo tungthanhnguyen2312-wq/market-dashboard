@@ -305,12 +305,14 @@ test("DOM rendering: full fixture verification with preserved analytical semanti
   assert.match(sessionLineHtml, new RegExp(fixtureData.source?.operation_identity));
   assert.match(sessionLineHtml, new RegExp(fixtureData.source?.product_identity));
 
-  // 4. Check lineage
+  // 4. Check lineage. The real fixture only has operation_identity/product_identity (no distinct
+  // *_sha256 field), so these must be labeled as identities, never as "SHA-256".
   const lineageHtml = elements["lineage-content"].innerHTML;
-  assert.match(lineageHtml, /Mã băm bảng kê/);
-  assert.match(lineageHtml, /Mã băm sản phẩm/);
+  assert.doesNotMatch(lineageHtml, /Mã băm bảng kê|Mã băm sản phẩm|SHA-256/);
+  assert.match(lineageHtml, /Định danh thao tác/);
+  assert.match(lineageHtml, /Định danh sản phẩm/);
   assert.match(lineageHtml, /Tính nhất quán phiên/);
-  assert.match(lineageHtml, new RegExp(fixtureData.source?.operation_manifest_sha256));
+  assert.match(lineageHtml, new RegExp(fixtureData.source?.operation_identity));
 
   // 5. Check ticker card detail rendering for HPG
   dc.renderTicker(fixtureData, "HPG");

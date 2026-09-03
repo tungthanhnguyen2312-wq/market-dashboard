@@ -147,7 +147,7 @@ test("F. Domain-aware semantic tones: data_fitness='UNAVAILABLE' formats to neut
   assert.equal(notAvailTone, "neutral");
 });
 
-test("G. Owner Focus: contains real tickers and enriches from real workspace cards", () => {
+test("G. Owner Focus: contains real tickers and renders from real Cockpit ticker_cards only", () => {
   const tickers = cockpit.owner_focus?.tickers || [];
   assert.ok(Array.isArray(tickers) && tickers.length > 0, "owner_focus must contain an array of tickers");
   assert.ok(tickers.includes("HPG"));
@@ -159,12 +159,15 @@ test("G. Owner Focus: contains real tickers and enriches from real workspace car
   assert.ok(htmlWithCockpitCards.includes("SSI"));
   assert.match(htmlWithCockpitCards, /Áp lực bán đang hạ nhiệt|Xu hướng giảm|Xu hướng tăng đã xác nhận/);
 
-  // 2. Fallback when cockpit lacks embedded ticker_cards: enriches directly from workspace.cards
+  // 2. Cockpit lacks embedded ticker_cards: must show the "no Cockpit context" fallback, never
+  // substitute a Workspace card's research_stance/why/prospective_case into the Cockpit-native
+  // Strategy/Scenario/Evidence columns (a Workspace card has a different shape entirely).
   const bareCockpit = { owner_focus: { tickers: ["HPG", "SSI"] } };
-  const htmlWithWorkspaceCards = dc.renderOwnerFocusHtml(bareCockpit, workspace.cards);
-  assert.ok(htmlWithWorkspaceCards.includes("HPG"));
-  assert.ok(htmlWithWorkspaceCards.includes("SSI"));
-  assert.match(htmlWithWorkspaceCards, /Chờ xác nhận|Tránh mở vị thế mới|Tích lũy nghiên cứu/);
+  const htmlNoCockpitCard = dc.renderOwnerFocusHtml(bareCockpit, workspace.cards);
+  assert.ok(htmlNoCockpitCard.includes("HPG"));
+  assert.ok(htmlNoCockpitCard.includes("SSI"));
+  assert.match(htmlNoCockpitCard, /Chưa có context Cockpit cho mã này/);
+  assert.doesNotMatch(htmlNoCockpitCard, /Chờ xác nhận|Tránh mở vị thế mới|Tích lũy nghiên cứu/);
 });
 
 test("H. Portfolio Risk: NO_EXPLICIT_PORTFOLIO_SUPPLIED is handled truthfully without fabricated positions", () => {

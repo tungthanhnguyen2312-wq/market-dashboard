@@ -42,18 +42,9 @@
   function state(v, domain) {
     const s = unavailable(v);
     const raw = String(s);
-    const k = raw.toLowerCase();
-    const c = (k.includes("available") && !k.includes("unavailable") && !k.includes("not_available"))
-      ? "available"
-      : (k.includes("partial") || k.includes("degraded") || k.includes("conditional") || k.includes("watch"))
-        ? "partial"
-        : (k.includes("blocked") || k.includes("risk") || k.includes("deterioration") || k.includes("failure"))
-          ? "blocked"
-          : (k.includes("unavailable") || k.includes("unknown") || k.includes("not_applicable") || k.includes("no_") || k.includes("absent"))
-            ? "unavailable"
-            : "";
+    const tone = vf.getSemanticTone ? vf.getSemanticTone(raw, domain) : "neutral";
     const label = formatLabel(raw, domain);
-    return `<span class="cockpit-state ${c}" data-state="${esc(raw)}" title="${esc(raw)}">${esc(label)}</span>`;
+    return `<span class="cockpit-state tone-${tone}" data-state="${esc(raw)}" data-tone="${tone}" title="${esc(raw)}">${esc(label)}</span>`;
   }
 
   const list = (values) => Array.isArray(values) && values.length
@@ -316,6 +307,10 @@
       </div>`;
   }
 
+  // workspaceCards is accepted for call-site/signature compatibility but intentionally never used
+  // to source a ticker's row: a Workspace card has a different shape than a Cockpit ticker_card
+  // (research_stance/why/prospective_case vs strategy_fit/scenario/why_it_is_on_radar), so falling
+  // back to it silently mixed Workspace fields into Cockpit-native Strategy/Scenario columns.
   function renderOwnerFocusHtml(data, workspaceCards, overrideTickers) {
     const focus = data?.owner_focus;
     const rawList = overrideTickers || (focus && Array.isArray(focus.tickers) && focus.tickers.length ? focus.tickers : (data?.watchlist?.tickers || []));
@@ -324,11 +319,11 @@
       return '<tr><td colspan="6" class="cockpit-note text-center">Chưa có mã trong danh sách theo dõi</td></tr>';
     }
     return tickers.map(t => {
-      const c = (data?.ticker_cards && data.ticker_cards[t]) || (workspaceCards && workspaceCards[t]) || null;
+      const c = data?.ticker_cards && data.ticker_cards[t];
       if (!c) {
         return `<tr>
           <td><button type="button" class="cockpit-chip font-monospace fw-bold" data-ticker="${esc(t)}">${esc(t)}</button></td>
-          <td colspan="5"><button type="button" class="btn btn-sm btn-outline-light" data-ticker="${esc(t)}">Xem chi tiết &rarr;</button></td>
+          <td colspan="5"><span class="cockpit-note">Chưa có context Cockpit cho mã này</span> <button type="button" class="btn btn-sm btn-outline-light ms-2" data-ticker="${esc(t)}">Xem chi tiết &rarr;</button></td>
         </tr>`;
       }
       const s = c.current_decision_state || { entry_state: c.entry_state, entry_action: c.entry_action };
@@ -356,7 +351,10 @@
 
   function renderPortfolioRiskHtml(data) {
     const pr = data?.portfolio_risk;
-    if (!pr || pr.status === "NO_EXPLICIT_PORTFOLIO_SUPPLIED" || !pr.is_actionable) {
+    // Absence test is the explicit contract status only. is_actionable is unconditionally false on
+    // every envelope current_portfolio_risk_envelope.py ever emits -- including a fully evaluated
+    // one with real positions -- so it is an authority boundary, never a presence/absence signal.
+    if (!pr || pr.status === "NO_EXPLICIT_PORTFOLIO_SUPPLIED") {
       const msg = (pr?.message && pr.message !== "No explicit portfolio-risk envelope was supplied for this operation.")
         ? (formatLabel(pr.message) || pr.message)
         : "Không có danh mục cụ thể để đối chiếu trong phiên nghiên cứu hiện tại.";
@@ -370,13 +368,32 @@
         </div>
       `;
     }
+
+    // Evaluated envelope: render only fields verified against current_portfolio_risk_envelope.py's
+    // real return shape. Never invent risk_level / concentration_summary / risk_notes.
     const kpis = [];
-    if (pr.risk_level != null) kpis.push(card("Mức độ rủi ro", state(pr.risk_level, "data_fitness")));
-    if (pr.position_count != null) kpis.push(card("Số vị thế nắm giữ", esc(pr.position_count)));
-    if (pr.concentration_summary != null) kpis.push(card("Mức tập trung", esc(pr.concentration_summary)));
+    if (pr.portfolio_id != null) kpis.push(card("Danh mục", esc(pr.portfolio_id)));
+    if (Array.isArray(pr.positions)) kpis.push(card("Số vị thế nắm giữ", esc(pr.positions.length)));
+
+    const concentrationBlocks = (pr.concentration && typeof pr.concentration === "object")
+      ? Object.entries(pr.concentration).map(([dim, weights]) => {
+          const rows = (weights && typeof weights === "object" && !Array.isArray(weights))
+            ? Object.entries(weights).map(([k, v]) => `<li>${esc(k)}: ${esc(typeof v === "number" ? `${(v * 100).toFixed(1)}%` : v)}</li>`).join('')
+            : `<li>${esc(String(weights))}</li>`;
+          return `<div class="mt-1"><span class="cockpit-note">${esc(formatLabel(dim) || dim)}</span><ul class="cockpit-list">${rows}</ul></div>`;
+        }).join('')
+      : '';
+
+    const limitResults = Array.isArray(pr.user_limit_results) ? pr.user_limit_results : [];
+    const limitHtml = limitResults.length
+      ? `<ul class="cockpit-list">${limitResults.map(b => `<li>${esc(b.limit_id || 'Hạn mức')}: ${state(b.status, 'portfolio_state')}</li>`).join('')}</ul>`
+      : '<span class="cockpit-note">Chưa thiết lập hạn mức người dùng để đối chiếu.</span>';
+
     return `
       ${kpis.length ? `<div class="cockpit-grid mb-3">${kpis.join('')}</div>` : ''}
-      ${pr.risk_notes ? `<div class="cockpit-note">${esc(pr.risk_notes)}</div>` : ''}
+      ${concentrationBlocks ? `<div class="mb-2"><b>Tập trung danh mục</b>${concentrationBlocks}</div>` : ''}
+      <div class="mb-2"><b>Đối chiếu hạn mức người dùng</b>${limitHtml}</div>
+      <div class="cockpit-note mt-2">Chỉ mang tính nghiên cứu mô tả — không phải khuyến nghị hành động, không tính quy mô vị thế hay phân bổ tối ưu.</div>
     `;
   }
 
@@ -386,11 +403,21 @@
     if (Array.isArray(gaps)) {
       return gaps.map(g => card(g.dimension || g.label || "Trục", g.status || g.count || "UNAVAILABLE")).join('');
     }
-    return Object.entries(gaps).map(([k, count]) => {
+    const renderEntry = ([k, count]) => {
       const label = GAP_DIMENSION_LABELS[k] || formatLabel(k, 'risk_data_gaps') || k;
       const countDisplay = typeof count === "number" ? `${count.toLocaleString("vi-VN")} mã` : String(count);
       return `<div class="cockpit-kpi"><div class="label">${esc(label)}</div><div class="value font-monospace">${esc(countDisplay)}</div></div>`;
-    }).join('');
+    };
+    // Field-name convention in the real artifact: every key is suffixed either "_unavailable"
+    // (a missing-data count) or "_ready" (positive readiness coverage) -- e.g. strict_valuation_ready
+    // is not another gap. Keep the two apart instead of rendering them as one undifferentiated list.
+    const entries = Object.entries(gaps);
+    const missingHtml = entries.filter(([k]) => !k.endsWith('_ready')).map(renderEntry).join('');
+    const readyEntries = entries.filter(([k]) => k.endsWith('_ready'));
+    const readyHtml = readyEntries.length
+      ? `<div class="mt-3"><div class="cockpit-note mb-2">Độ bao phủ / Sẵn sàng</div><div class="cockpit-grid">${readyEntries.map(renderEntry).join('')}</div></div>`
+      : '';
+    return missingHtml + readyHtml;
   }
 
   function renderVerifyNextHtml(data) {
@@ -416,13 +443,17 @@
       </tr>`;
     }).join('');
 
-    const manifestSha = source.operation_manifest_sha256 || source.operation_identity || '';
-    const productSha = source.product_artifact_sha256 || source.product_identity || '';
+    // An identity string is only labeled a hash when the real *_sha256 field is present; an
+    // operation_identity/product_identity fallback is a governed identity, not a SHA-256 digest.
+    const manifestValue = source.operation_manifest_sha256 || source.operation_identity || '';
+    const productValue = source.product_artifact_sha256 || source.product_identity || '';
+    const manifestLabel = source.operation_manifest_sha256 ? "Mã băm bảng kê (SHA-256)" : "Định danh thao tác";
+    const productLabel = source.product_artifact_sha256 ? "Mã băm sản phẩm (SHA-256)" : "Định danh sản phẩm";
 
     return `
       <div class="cockpit-warning mb-3">
-        <div>Mã băm bảng kê (Manifest SHA-256): <span class="cockpit-code">${esc(source.operation_manifest_sha256 || manifestSha)}</span></div>
-        <div>Mã băm sản phẩm (Product SHA-256): <span class="cockpit-code">${esc(source.product_artifact_sha256 || productSha)}</span></div>
+        <div>${esc(manifestLabel)}: <span class="cockpit-code">${esc(manifestValue)}</span></div>
+        <div>${esc(productLabel)}: <span class="cockpit-code">${esc(productValue)}</span></div>
       </div>
       <div class="table-responsive">
         <table class="cockpit-table">
@@ -556,7 +587,12 @@
     }
   }
 
-  if (typeof fetch === "function") {
+  // Standalone self-boot only when a real standalone Cockpit shell (the #cockpit root) is present.
+  // investment-workspace.html loads this module purely for its exported pure render*Html helpers
+  // and must never have this fetch/render run against it; decision-cockpit.html is now a thin
+  // redirect with no #cockpit element either, so in practice this never executes today -- kept as
+  // a guard rather than deleted so a future real standalone Cockpit page can still opt in.
+  if (typeof document !== "undefined" && document.getElementById("cockpit") && typeof fetch === "function") {
     fetch(URL, { cache: 'no-store' })
       .then(r => {
         if (!r.ok) throw Error(`HTTP ${r.status}`);

@@ -60,11 +60,15 @@
     return ticker.toUpperCase().includes(q) || String(card.sector || "").toUpperCase().includes(q);
   }
 
+  // No ticker requested -> deterministic default (HPG if present, else the first ticker).
+  // Ticker requested and known -> that ticker.
+  // Ticker requested but unknown -> null. Never silently substitutes another ticker: the caller
+  // is responsible for surfacing an explicit not-found state instead of opening a different card.
   function selectedTickerForDeepLink(tickers, requestedTicker) {
     const normalized = String(requestedTicker || "").trim().toUpperCase();
+    if (!normalized) return tickers.includes("HPG") ? "HPG" : (tickers[0] || null);
     if (tickers.includes(normalized)) return normalized;
-    if (tickers.includes("HPG")) return "HPG";
-    return tickers[0] || null;
+    return null;
   }
 
   // Research Stance is the primary product research conclusion; entry_action (Tactical Entry
@@ -258,32 +262,16 @@
   function unavailableLabel(v) {
     return (v === null || v === undefined || v === "" ? "UNAVAILABLE" : v);
   }
-  const POSITIVE_STATES = new Set([
-    "INITIATE_RESEARCH_CANDIDATE", "ACCUMULATE_RESEARCH_CANDIDATE",
-    "BREAKOUT_READY", "UPTREND_CONFIRMED", "EARLY_REVERSAL_CANDIDATE", "BASE_BUILDING",
-    "PROFITABLE", "ATTRACTIVE_RELATIVE_RESEARCH", "LIQUIDITY_RESEARCH_PROXY",
-    "CONFIRMED", "READY", "CURRENT", "EXECUTION_CAPACITY_EXACT_READY",
-    "ACTIVE_CASES_AVAILABLE", "NO_CONCENTRATION_FLAGGED", "BUY_ON_CONFIRMATION",
-    "EARLY_ENTRY", "ACCUMULATE_IN_BASE",
-  ]);
-  const NEGATIVE_STATES = new Set([
-    "AVOID_NEW_ENTRY", "DISTRIBUTION_RISK", "BREAKDOWN_RISK", "DOWNTREND", "AVOID",
-    "LOSS_MAKING", "EXPENSIVE_RELATIVE_RESEARCH", "TRIGGERED",
-    "STALE_NOT_USABLE_FOR_THIS_AXIS", "EXCEEDS_USER_POLICY_LIMIT",
-  ]);
-  function stateBucket(v) {
-    const s = unavailableLabel(v);
-    const key = String(s).toUpperCase();
-    if (POSITIVE_STATES.has(key)) return "available";
-    if (NEGATIVE_STATES.has(key)) return "blocked";
-    const k = key.toLowerCase();
-    if (k === "unavailable" || k === "none" || k.includes("insufficient") || k.includes("not_evaluated") || k.includes("not_held") || k.includes("no_retained") || k.includes("case_data_unavailable")) return "unavailable";
-    return "partial";
-  }
+  // Domain-aware tone contract (value-format.js DOMAIN_SPECIFIC_TONES / getSemanticTone) is the
+  // single source of truth for pill color -- a raw keyword bucket here would re-introduce the
+  // cross-domain collisions it was built to fix (e.g. TRIGGERED reading adverse in every domain,
+  // when it is constructive for confirmation_state and adverse for invalidation_state).
   function pill(v, domain) {
     const raw = unavailableLabel(v);
     const label = domain ? formatWorkspaceState(raw, domain) : raw;
-    return `<span class="cockpit-state ${stateBucket(v)}" data-state="${escHtml(raw)}" title="${escHtml(raw)}">${escHtml(label)}</span>`;
+    const vf = getValueFormat();
+    const tone = (vf && typeof vf.getSemanticTone === "function") ? vf.getSemanticTone(raw, domain) : "neutral";
+    return `<span class="cockpit-state tone-${tone}" data-state="${escHtml(raw)}" data-tone="${tone}" title="${escHtml(raw)}">${escHtml(label)}</span>`;
   }
   function listHtml(values, domain) {
     return (Array.isArray(values) && values.length
@@ -402,44 +390,10 @@
   // ---------------------------------------------------------------------
   if (typeof document !== "undefined" && document.body && document.body.dataset.page === "investment-workspace") {
     (function renderInBrowser() {
-      const esc = (v) => String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-      const unavailable = (v) => (v === null || v === undefined || v === "" ? "UNAVAILABLE" : v);
-      // Domain-accurate tri-state classification over this system's actual governed vocabulary
-      // (research stance / entry state / valuation / liquidity / freshness / confirmation /
-      // invalidation / portfolio-fit labels) -- a generic keyword guess would default most of
-      // these enum values to the "unavailable" (red) bucket, which reads as false alarm-fatigue.
-      const POSITIVE_STATES = new Set([
-        "INITIATE_RESEARCH_CANDIDATE", "ACCUMULATE_RESEARCH_CANDIDATE",
-        "BREAKOUT_READY", "UPTREND_CONFIRMED", "EARLY_REVERSAL_CANDIDATE", "BASE_BUILDING",
-        "PROFITABLE", "ATTRACTIVE_RELATIVE_RESEARCH", "LIQUIDITY_RESEARCH_PROXY",
-        "CONFIRMED", "READY", "CURRENT", "EXECUTION_CAPACITY_EXACT_READY",
-        "ACTIVE_CASES_AVAILABLE", "NO_CONCENTRATION_FLAGGED", "BUY_ON_CONFIRMATION",
-        "EARLY_ENTRY", "ACCUMULATE_IN_BASE",
-      ]);
-      const NEGATIVE_STATES = new Set([
-        "AVOID_NEW_ENTRY", "DISTRIBUTION_RISK", "BREAKDOWN_RISK", "DOWNTREND", "AVOID",
-        "LOSS_MAKING", "EXPENSIVE_RELATIVE_RESEARCH", "TRIGGERED",
-        "STALE_NOT_USABLE_FOR_THIS_AXIS", "EXCEEDS_USER_POLICY_LIMIT",
-      ]);
-      const stateBucket = (v) => {
-        const s = unavailable(v);
-        const key = String(s).toUpperCase();
-        if (POSITIVE_STATES.has(key)) return "available";
-        if (NEGATIVE_STATES.has(key)) return "blocked";
-        const k = key.toLowerCase();
-        if (k === "unavailable" || k === "none" || k.includes("insufficient") || k.includes("not_evaluated") || k.includes("not_held") || k.includes("no_retained") || k.includes("case_data_unavailable")) return "unavailable";
-        // Everything else (WAIT_FOR_CONFIRMATION, HIGH_RISK_SPECULATION_ONLY,
-        // SELLING_PRESSURE_EASING, SIDEWAYS_NEUTRAL, CONDITIONAL, STALE_BUT_RESEARCH_USABLE,
-        // PENDING_*, ALREADY_HELD, ADDS_SECTOR_CONCENTRATION, EXECUTION_CAPACITY_EXACT_BLOCKED,
-        // PE_NOT_MEANINGFUL, IN_LINE_RELATIVE_RESEARCH, ABSOLUTE_RESEARCH_ONLY, ...) is an
-        // informational/neutral state, not a failure -- shown as partial/amber, not red.
-        return "partial";
-      };
-      const pill = (v, domain) => {
-        const raw = unavailable(v);
-        const label = domain ? formatWorkspaceState(raw, domain) : raw;
-        return `<span class="cockpit-state ${stateBucket(v)}" data-state="${esc(raw)}" title="${esc(raw)}">${esc(label)}</span>`;
-      };
+      // Aliases only -- tone/pill computation lives once, at module scope (see pill() above),
+      // routed through value-format.js's domain-aware tone contract.
+      const esc = escHtml;
+      const unavailable = unavailableLabel;
 
       let WORKSPACE = null;
       let ACTIVE_FILTERS = [];
@@ -562,6 +516,20 @@
         if (screenerLink) screenerLink.href = `screener.html?ticker=${encodeURIComponent(ticker)}`;
       }
 
+      // Explicit not-found state for a requested ticker/hash that does not resolve to a real card.
+      // Never falls back to rendering a different ticker's decision card.
+      function showTickerNotFound(requestedTicker) {
+        const inPageEl = document.getElementById("decision-card");
+        const drawerEl = document.getElementById("decision-drawer-body");
+        const err = `<div class="cockpit-note" data-drawer-unavailable="true">Không tìm thấy mã "${escHtml(requestedTicker)}". Không chọn mã thay thế.</div>`;
+        if (drawerEl) drawerEl.innerHTML = err;
+        if (inPageEl) inPageEl.innerHTML = err;
+        const drawerTicker = document.getElementById("decision-drawer-ticker");
+        if (drawerTicker) drawerTicker.textContent = requestedTicker || "—";
+        const drawerBadge = document.getElementById("decision-drawer-badge");
+        if (drawerBadge) drawerBadge.innerHTML = "";
+      }
+
       function selectTicker(ticker, opts) {
         if (!WORKSPACE.cards[ticker]) return;
         SELECTED_TICKER = ticker;
@@ -654,10 +622,29 @@
         const tickers = Object.keys(data.cards).sort();
         select.innerHTML = tickers.map((t) => `<option>${esc(t)}</option>`).join("");
         const queryTicker = new URLSearchParams(window.location.search).get("ticker");
-        const hashTicker = window.location.hash.replace(/^#/, "");
+        const rawHash = window.location.hash.replace(/^#/, "");
+        // Legacy compatibility hashes from the pre-convergence Cockpit page name a page section,
+        // not a ticker -- e.g. #lineage must not be parsed as a request for ticker "LINEAGE".
+        const COMPAT_SECTION_HASHES = { lineage: "section-lineage", "market-overview": "section-market-overview", "ticker-research": null };
+        const hashKey = rawHash.toLowerCase();
+        const isCompatHash = Object.prototype.hasOwnProperty.call(COMPAT_SECTION_HASHES, hashKey);
+        if (isCompatHash) {
+          const sectionId = COMPAT_SECTION_HASHES[hashKey];
+          const sectionEl = sectionId && document.getElementById(sectionId);
+          if (sectionEl) {
+            sectionEl.open = true;
+            if (typeof sectionEl.scrollIntoView === "function") sectionEl.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }
+        const hashTicker = isCompatHash ? "" : rawHash;
         const requestedTicker = queryTicker || hashTicker;
         const targetTicker = selectedTickerForDeepLink(tickers, requestedTicker);
-        selectTicker(targetTicker, { openDrawer: Boolean(queryTicker || hashTicker), scrollIntoView: false });
+        if (targetTicker) {
+          selectTicker(targetTicker, { openDrawer: Boolean(queryTicker || hashTicker), scrollIntoView: false });
+        } else if (requestedTicker) {
+          showTickerNotFound(requestedTicker);
+          openDrawer();
+        }
 
         document.getElementById("filter-chips").addEventListener("click", (e) => {
           const btn = e.target.closest("[data-filter]");
@@ -774,18 +761,25 @@
               const mismatchHtml = (dc && dc.renderSessionMismatchHtml)
                 ? dc.renderSessionMismatchHtml(wsSession, cpSession, "SESSION_MISMATCH")
                 : `<div class="vs-alert vs-alert-warning mb-0"><b>Thông tin bổ sung chưa đồng bộ với phiên hiện tại.</b></div>`;
+              // Every element populated only from the Cockpit artifact must clear on mismatch --
+              // an incomplete list here lets a stale Cockpit-sourced value survive next to an
+              // explicit "not synced" warning, which is worse than showing nothing.
               const containerIds = [
                 "cockpit-market-overview",
+                "cockpit-market-warnings",
                 "cockpit-cohorts-grid",
                 "cockpit-watchlist",
                 "cockpit-portfolio-risk",
                 "cockpit-gaps",
+                "cockpit-verify-next",
                 "cockpit-lineage-content",
               ];
               containerIds.forEach((id) => {
                 const el = document.getElementById(id);
                 if (el) el.innerHTML = id === "cockpit-watchlist" ? `<tr><td colspan="6">${mismatchHtml}</td></tr>` : mismatchHtml;
               });
+              const watchCountEl = document.getElementById("cockpit-watch-count");
+              if (watchCountEl) watchCountEl.textContent = "—";
               return;
             }
 

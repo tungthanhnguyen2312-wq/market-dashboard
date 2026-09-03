@@ -66,11 +66,12 @@ test("single-topbar product surfaces retain navigation on mobile without duplica
   }
 });
 
-test("Workspace deep links select the requested retained ticker and preserve the HPG fallback", () => {
+test("Workspace deep links select the requested retained ticker, default to HPG when unrequested, and reject an unknown ticker without HPG substitution", () => {
   const tickers = Object.keys(workspace.cards).sort();
   assert.equal(workspaceApi.selectedTickerForDeepLink(tickers, "HPG"), "HPG");
   assert.equal(workspaceApi.selectedTickerForDeepLink(tickers, "hpg"), "HPG");
-  assert.equal(workspaceApi.selectedTickerForDeepLink(tickers, "NOT-A-TICKER"), "HPG");
+  assert.equal(workspaceApi.selectedTickerForDeepLink(tickers, ""), "HPG");
+  assert.equal(workspaceApi.selectedTickerForDeepLink(tickers, "NOT-A-TICKER"), null);
 });
 
 test("the retained workspace contract keeps its no-score authority boundary", () => {

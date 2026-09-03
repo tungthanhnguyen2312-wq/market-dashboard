@@ -77,9 +77,10 @@ test("C. decision-cockpit.html redirects to investment-workspace.html and preser
   assert.match(html, /Bàn quyết định đã được hợp nhất/);
 });
 
-test("D. Deep-link handling in investment-workspace preserves ticker selection", () => {
+test("D. Deep-link handling in investment-workspace preserves ticker selection and rejects unknown tickers without HPG substitution", () => {
   assert.equal(ws.selectedTickerForDeepLink(["HPG", "VNM", "FPT"], "VNM"), "VNM");
-  assert.equal(ws.selectedTickerForDeepLink(["HPG", "VNM", "FPT"], "UNKNOWN"), "HPG");
+  assert.equal(ws.selectedTickerForDeepLink(["HPG", "VNM", "FPT"], "UNKNOWN"), null);
+  assert.equal(ws.selectedTickerForDeepLink(["HPG", "VNM", "FPT"], ""), "HPG");
   const wsJs = fs.readFileSync(path.join(root, "assets/js/investment-workspace.js"), "utf8");
   assert.match(wsJs, /history\.replaceState/);
   assert.match(wsJs, /openDrawer/);
