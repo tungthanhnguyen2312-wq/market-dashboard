@@ -1,5 +1,48 @@
 # CHANGELOG UI — Refactor giao diện toàn dự án
 
+## Cập nhật 2026-09-03 — Hội tụ bề mặt sản phẩm Dashboard & Củng cố UX V1 (MARKET_DASHBOARD_PRODUCT_SURFACE_CONVERGENCE_AND_UX_HARDENING_V1)
+
+- **Hợp nhất Bàn quyết định (Canonical Decision Surface Convergence)**:
+  - Hợp nhất bề mặt quyết định từ `decision-cockpit.html` sang bề mặt chính thức duy nhất tại `investment-workspace.html` với tên hiển thị chuẩn hóa toàn diện: **BÀN QUYẾT ĐỊNH** (loại bỏ khái niệm phân mảnh "Không gian quyết định").
+  - Thiết lập meta-refresh tức thì và Javascript redirect trên `decision-cockpit.html`, bảo lưu đầy đủ tham số tìm kiếm (`?ticker=XYZ`) và neo hash (`#lineage`).
+  - Hợp nhất toàn bộ khối thông tin từ Cockpit vào Bàn quyết định: Tổng quan thị trường & Cảnh báo, Khám phá cơ hội theo nhóm (Cohorts) với cơ chế mở rộng/thu gọn (progressive disclosure cho nhóm >8 mã), Danh sách theo dõi (Watchlist), Rủi ro danh mục, Khoảng trống dữ liệu và Nguồn bằng chứng (Lineage).
+  - Tinh gọn bảng cơ hội (Opportunity table) từ 11 cột xuống 6 cột cô đọng: `Mã`, `Ngành`, `Tư thế`, `Kỹ thuật`, `Định giá`, `Thao tác`.
+  - Bổ sung ngăn trượt bên phải (Sliding Right Drawer `#decision-drawer`) xem thẻ quyết định 7 phần cho từng mã, hỗ trợ đồng bộ URL (`?ticker=XYZ`), phím Escape, click backdrop và bẫy/khôi phục tiêu điểm bàn phím.
+- **Hợp đồng điều hướng chính thống (Canonical Navigation Contract)**:
+  - Thống nhất thanh điều hướng trên toàn bộ 8 trang sản phẩm chính (`dashboard.html`, `screener.html`, `signals.html`, `analysis.html`, `investment-workspace.html`, `portfolio.html`, `macro.html`, `about.html`) với 8 điểm đến chuẩn hóa theo đúng thứ tự:
+    1. `Tổng quan` (`dashboard.html`, `data-nav="dashboard"`)
+    2. `Bộ lọc` (`screener.html`, `data-nav="screener"`)
+    3. `Tín hiệu` (`signals.html`, `data-nav="signals"`)
+    4. `Phân tích` (`analysis.html`, `data-nav="analysis"`)
+    5. `Bàn quyết định` (`investment-workspace.html`, `data-nav="investment-workspace"`)
+    6. `Danh mục` (`portfolio.html`, `data-nav="portfolio"`)
+    7. `Vĩ mô` (`macro.html`, `data-nav="macro"`)
+    8. `Giới thiệu` (`about.html`, `data-nav="about"`)
+    và điểm đến tiện ích phụ `Lịch sử` (`archive.html`, `data-nav="archive"`).
+  - Đồng nhất hoàn toàn nhãn hiển thị và trạng thái active giữa desktop topbar và mobile drawer.
+- **Hệ thống màu sắc ngữ nghĩa (Semantic Tone Mapping Contract)**:
+  - Thiết lập `SEMANTIC_TONES` tập trung trong `assets/js/value-format.js` với 5 nhóm tone: `constructive` (xanh), `watch` (vàng hổ phách), `adverse` (đỏ), `info` (xanh dương), `neutral` (xám).
+  - Sửa lỗi hiển thị trạng thái `UNAVAILABLE`: chuyển từ màu đỏ `#fca5a5` (adverse) sang màu xám trung tính (`tone-neutral`, `bs-gray`), phản ánh khách quan trạng thái thiếu dữ liệu.
+- **Trải nghiệm bảng biểu & Khả năng phản hồi (Responsive Tables)**:
+  - Thêm cột dính bên trái (`.sticky-col`) cho cột Mã cổ phiếu trên các bảng Screener, Signals, Analysis và Workspace.
+  - Bọc bảng trong các container cuộn ngang có giới hạn chiều cao và thuộc tính trợ năng (`tabindex="0"`, `aria-label`).
+- **Sản phẩm hóa Trình biên tập Danh mục (`portfolio.html` & `portfolio.js`)**:
+  - Việt hóa 100% các điều khiển form, nút bấm và tiêu đề bảng.
+  - Thêm thanh trực quan hóa phân bổ tỷ trọng danh mục (weights allocation bar) khi có dữ liệu `explicit_weight`.
+  - Thêm giải thích trung thực khi nhập khối lượng (`quantity-only`): tỷ trọng phân bổ đòi hỏi giá trị vốn hóa theo giá thị trường (mark-to-market).
+  - Thêm cảnh báo `"Chưa có phân tích danh mục"` khi chưa có context đánh giá rủi ro liên hợp từ Producer.
+- **Chuẩn hóa ngôn ngữ & Tinh gọn disclaimer**:
+  - Loại bỏ hoàn toàn các chuỗi lệnh Python CLI nội bộ (`tools/run_...`, `--portfolio-input`) trên UI.
+  - Chuẩn hóa thương hiệu thành **Stock Lookup** (loại bỏ biến thể có dấu cách `Stock Look Up`).
+  - Tinh gọn footer disclaimer trên toàn bộ trang: *"Phục vụ nghiên cứu, không phải lệnh giao dịch. Dữ liệu và phân tích là bản snapshot phục vụ nghiên cứu độc lập."*
+  - Viết lại toàn bộ trang `about.html` sang tiếng Việt mô tả luồng evidence-first, ý nghĩa các tư thế nghiên cứu và các giới hạn phương pháp luận.
+  - Thay thế thuật ngữ nội bộ tại `macro.html` và `assets/js/macro.js`: "Pipeline sinh dữ liệu" &rarr; "Thời điểm tạo", "Pipeline tải" &rarr; "Cập nhật".
+- **Kiểm thử hồi quy mở rộng**:
+  - Cập nhật `tests/test_navigation_contract.py` theo hợp đồng 8 điểm đến chuẩn hóa.
+  - Bổ sung bộ kiểm thử hồi quy `tests/product-surface-convergence-v1-regression.test.js` bao quát 16 tiêu chí từ A đến R. Toàn bộ 273 node tests và 48 python tests đều PASS.
+
+---
+
 ## Cập nhật 2026-07-14 — Bảng mẫu hình nến
 
 - `signals.html` có tab “Mẫu hình nến” nhưng giữ nguyên Watchlist, hợp lưu, cổ tức và heatmap trong tab Tổng quan.
