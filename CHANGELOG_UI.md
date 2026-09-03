@@ -1,5 +1,43 @@
 # CHANGELOG UI — Refactor giao diện toàn dự án
 
+## Cập nhật 2026-09-03 — Hợp nhất Phân tích vào Bàn quyết định (Unified Decision Workspace V2)
+
+Tiếp nối đợt hội tụ trước (đã gộp Decision Cockpit vào Bàn quyết định): gộp nốt trang Phân tích đa trục
+độc lập vào Bàn quyết định duy nhất, giảm điều hướng chính từ 8 xuống 7 mục.
+
+- **Điều hướng chính còn 7 mục**: Tổng quan, Bộ lọc, Tín hiệu, Bàn quyết định, Danh mục, Vĩ mô, Giới thiệu
+  — bỏ "Phân tích" khỏi điều hướng chính trên toàn bộ 8 trang sản phẩm và `assets/js/shell.js`.
+- **`analysis.html` trở thành redirect tương thích** (cùng mẫu với `decision-cockpit.html` trước đây):
+  chuyển hướng JS tức thì sang `investment-workspace.html?view=analysis`, bảo toàn `?ticker=` và hash qua
+  `URLSearchParams`. Xóa `analysis.js` và `assets/js/analysis-product.js` (không còn nơi dùng) — bao gồm cả
+  cơ chế `conflictReasons()` suy luận xung đột phía trình duyệt, không mang sang nơi khác.
+- **Bàn quyết định có 3 chế độ xem nội bộ** (`?view=opportunities|analysis|watchlist`, mặc định
+  `opportunities`), dùng chung một lần tải dữ liệu, một vũ trụ thẻ mã, một trạng thái mã đã chọn và một bộ
+  lọc/tìm kiếm:
+  - **Cơ hội**: bảng cơ hội rút gọn còn 5 cột (bỏ cột "Thao tác" — ô mã đã có sẵn nút mở chi tiết).
+  - **Phân tích**: kế thừa vai trò trang Phân tích cũ nhưng còn ~6 cột (Mã/Tư thế/Cơ bản/Định giá/Kỹ
+    thuật/Bằng chứng) thay vì bảng 10 cột cũ; cột Bằng chứng chỉ hiển thị bằng chứng thật từ Producer
+    (lý do xác định + phản luận), không suy luận thêm.
+  - **Theo dõi**: danh sách theo dõi (owner focus, không phải danh mục nắm giữ) chuyển từ khối tổng quan thị
+    trường cũ sang thành một chế độ xem riêng.
+- **Tổng quan thị trường** rút gọn thành dải KPI cô đọng luôn hiển thị (không còn khối lớn có thể thu gọn
+  gộp chung với cohorts/watchlist). **Khám phá cơ hội theo nhóm (Cockpit cohorts)** — danh sách chip khổng lồ
+  — bị loại bỏ hoàn toàn, thay bằng bộ lọc chip Bàn quyết định sẵn có (cùng vũ trụ thẻ mã duy nhất).
+- **Một bề mặt chi tiết mã duy nhất trên màn hình**: "Thẻ quyết định" hiển thị trong trang trước đây nay chỉ
+  còn phục vụ in ấn (`d-none d-print-block`), ngăn trượt bên phải là nơi tương tác duy nhất.
+- **"Dữ liệu & phương pháp"**: hợp nhất khoảng trống dữ liệu, nội dung cần kiểm chứng, nguồn dữ liệu/bằng
+  chứng và bối cảnh rủi ro danh mục tổng hợp vào một khối progressive disclosure thu gọn mặc định, thay cho
+  3 thẻ độc lập trước đây.
+- **Ngăn trượt chi tiết mã được tổ chức lại** theo tên thay vì chữ cái: Quyết định, Doanh nghiệp, Định giá,
+  Kỹ thuật, Kích hoạt / Vô hiệu, Danh mục, Dữ liệu (progressive disclosure) — toàn bộ dữ liệu và cơ chế hiển
+  thị giữ nguyên, chỉ đổi cách nhóm và tiêu đề.
+- **Rút gọn cảnh báo**: đoạn cảnh báo lớn lặp lại thay bằng một dòng ngắn gọn cạnh tiêu đề, cộng với dòng
+  disclaimer chân trang sẵn có.
+- **Kiểm thử**: bổ sung `tests/unified-decision-workspace-v2.test.js` chứng minh hợp đồng kiến trúc (7 mục
+  điều hướng, redirect bảo toàn tham số, 3 chế độ xem dùng chung dữ liệu, một bề mặt chi tiết duy nhất...);
+  cập nhật các test hồi quy điều hướng/hội tụ đã có theo kiến trúc mới. Toàn bộ 225/227 test JS thuộc CI
+  (2 skip có từ trước) và 83/83 test Python thuộc CI đều PASS.
+
 ## Cập nhật 2026-09-03 — Rà soát sửa lỗi hậu hội tụ (Post-Convergence Corrective Pass)
 
 Sửa 9 lỗi trình bày/hợp đồng dữ liệu phát hiện qua audit độc lập trên bản hội tụ bên dưới, không đổi luồng UX:
