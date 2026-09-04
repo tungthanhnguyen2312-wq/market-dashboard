@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-09-03T00:00:00+00:00",
-  "reference_session_date": "2026-09-03",
+  "generated_at": "2026-09-04T00:00:00+00:00",
+  "reference_session_date": "2026-09-04",
   "tickers_requested": [
     "POW",
     "SSI",
@@ -21,7 +21,7 @@
   "volume_basis_verified": false,
   "is_actionable": false,
   "freshness": {
-    "reference_session": "2026-09-03",
+    "reference_session": "2026-09-04",
     "status": "fresh",
     "blocked": false,
     "stale": [],
@@ -32,7 +32,7 @@
     "contract_version": "canonical_trusted_subset_release/v1",
     "runtime_release": {
       "source": "retained_canonical_daily_producer",
-      "session": "2026-09-03",
+      "session": "2026-09-04",
       "unavailable_legacy_fields": [
         "historical_indicator_suite",
         "strict_valuation",
@@ -46,13 +46,13 @@
     "POW": {
       "entity_type": "corporate",
       "snapshot": {
-        "date": "2026-09-03",
+        "date": "2026-09-04",
         "ticker": "POW",
-        "close": "12.95",
+        "close": "12.85",
         "exchange": "HSX",
         "industry": "corporate",
         "canonical_observation_status": "EXACT_SESSION_RETAINED",
-        "canonical_price_basis": "CURRENT_DESCRIPTIVE_DNSE_REST_ADJUSTED_RETROSPECTIVE_RAW_AS_TRADED_NOT_PROMOTED",
+        "canonical_price_basis": "CURRENT_DESCRIPTIVE_NOT_PROMOTED_RAW_AS_TRADED",
         "canonical_field_availability": "DIRECT_CANONICAL_MAPPING"
       },
       "ta_signal": null,
@@ -128,13 +128,13 @@
     "SSI": {
       "entity_type": "securities",
       "snapshot": {
-        "date": "2026-09-03",
+        "date": "2026-09-04",
         "ticker": "SSI",
-        "close": "20.9",
+        "close": "21.05",
         "exchange": "HSX",
         "industry": "securities",
         "canonical_observation_status": "EXACT_SESSION_RETAINED",
-        "canonical_price_basis": "CURRENT_DESCRIPTIVE_DNSE_REST_ADJUSTED_RETROSPECTIVE_RAW_AS_TRADED_NOT_PROMOTED",
+        "canonical_price_basis": "CURRENT_DESCRIPTIVE_NOT_PROMOTED_RAW_AS_TRADED",
         "canonical_field_availability": "DIRECT_CANONICAL_MAPPING"
       },
       "ta_signal": null,
@@ -214,13 +214,13 @@
     "HPG": {
       "entity_type": "corporate",
       "snapshot": {
-        "date": "2026-09-03",
+        "date": "2026-09-04",
         "ticker": "HPG",
-        "close": "21.6",
+        "close": "21.7",
         "exchange": "HSX",
         "industry": "corporate",
         "canonical_observation_status": "EXACT_SESSION_RETAINED",
-        "canonical_price_basis": "CURRENT_DESCRIPTIVE_DNSE_REST_ADJUSTED_RETROSPECTIVE_RAW_AS_TRADED_NOT_PROMOTED",
+        "canonical_price_basis": "CURRENT_DESCRIPTIVE_NOT_PROMOTED_RAW_AS_TRADED",
         "canonical_field_availability": "DIRECT_CANONICAL_MAPPING"
       },
       "ta_signal": null,
@@ -296,13 +296,13 @@
     "EVF": {
       "entity_type": "finance_company",
       "snapshot": {
-        "date": "2026-09-03",
+        "date": "2026-09-04",
         "ticker": "EVF",
-        "close": "12.4",
+        "close": "12.35",
         "exchange": "HSX",
         "industry": "finance_company",
         "canonical_observation_status": "EXACT_SESSION_RETAINED",
-        "canonical_price_basis": "CURRENT_DESCRIPTIVE_DNSE_REST_ADJUSTED_RETROSPECTIVE_RAW_AS_TRADED_NOT_PROMOTED",
+        "canonical_price_basis": "CURRENT_DESCRIPTIVE_NOT_PROMOTED_RAW_AS_TRADED",
         "canonical_field_availability": "DIRECT_CANONICAL_MAPPING"
       },
       "ta_signal": null,
@@ -377,13 +377,13 @@
     "PAN": {
       "entity_type": "corporate",
       "snapshot": {
-        "date": "2026-09-03",
+        "date": "2026-09-04",
         "ticker": "PAN",
-        "close": "19.2",
+        "close": "19.15",
         "exchange": "HSX",
         "industry": "corporate",
         "canonical_observation_status": "EXACT_SESSION_RETAINED",
-        "canonical_price_basis": "CURRENT_DESCRIPTIVE_DNSE_REST_ADJUSTED_RETROSPECTIVE_RAW_AS_TRADED_NOT_PROMOTED",
+        "canonical_price_basis": "CURRENT_DESCRIPTIVE_NOT_PROMOTED_RAW_AS_TRADED",
         "canonical_field_availability": "DIRECT_CANONICAL_MAPPING"
       },
       "ta_signal": null,
@@ -459,13 +459,13 @@
     "PNJ": {
       "entity_type": "corporate",
       "snapshot": {
-        "date": "2026-09-03",
+        "date": "2026-09-04",
         "ticker": "PNJ",
-        "close": "39.8",
+        "close": "40.05",
         "exchange": "HSX",
         "industry": "corporate",
         "canonical_observation_status": "EXACT_SESSION_RETAINED",
-        "canonical_price_basis": "CURRENT_DESCRIPTIVE_DNSE_REST_ADJUSTED_RETROSPECTIVE_RAW_AS_TRADED_NOT_PROMOTED",
+        "canonical_price_basis": "CURRENT_DESCRIPTIVE_NOT_PROMOTED_RAW_AS_TRADED",
         "canonical_field_availability": "DIRECT_CANONICAL_MAPPING"
       },
       "ta_signal": null,
@@ -541,13 +541,13 @@
     "FPT": {
       "entity_type": "corporate",
       "snapshot": {
-        "date": "2026-09-03",
+        "date": "2026-09-04",
         "ticker": "FPT",
-        "close": "72.2",
+        "close": "72.8",
         "exchange": "HSX",
         "industry": "corporate",
         "canonical_observation_status": "EXACT_SESSION_RETAINED",
-        "canonical_price_basis": "CURRENT_DESCRIPTIVE_DNSE_REST_ADJUSTED_RETROSPECTIVE_RAW_AS_TRADED_NOT_PROMOTED",
+        "canonical_price_basis": "CURRENT_DESCRIPTIVE_NOT_PROMOTED_RAW_AS_TRADED",
         "canonical_field_availability": "DIRECT_CANONICAL_MAPPING"
       },
       "ta_signal": null,
@@ -623,13 +623,13 @@
     "QNS": {
       "entity_type": "corporate",
       "snapshot": {
-        "date": "2026-09-03",
+        "date": "2026-09-04",
         "ticker": "QNS",
-        "close": "48.5",
+        "close": "48.9",
         "exchange": "UPCOM",
         "industry": "corporate",
         "canonical_observation_status": "EXACT_SESSION_RETAINED",
-        "canonical_price_basis": "CURRENT_DESCRIPTIVE_DNSE_REST_ADJUSTED_RETROSPECTIVE_RAW_AS_TRADED_NOT_PROMOTED",
+        "canonical_price_basis": "CURRENT_DESCRIPTIVE_NOT_PROMOTED_RAW_AS_TRADED",
         "canonical_field_availability": "DIRECT_CANONICAL_MAPPING"
       },
       "ta_signal": null,
@@ -705,13 +705,13 @@
     "VNM": {
       "entity_type": "corporate",
       "snapshot": {
-        "date": "2026-09-03",
+        "date": "2026-09-04",
         "ticker": "VNM",
-        "close": "61.2",
+        "close": "61.9",
         "exchange": "HSX",
         "industry": "corporate",
         "canonical_observation_status": "EXACT_SESSION_RETAINED",
-        "canonical_price_basis": "CURRENT_DESCRIPTIVE_DNSE_REST_ADJUSTED_RETROSPECTIVE_RAW_AS_TRADED_NOT_PROMOTED",
+        "canonical_price_basis": "CURRENT_DESCRIPTIVE_NOT_PROMOTED_RAW_AS_TRADED",
         "canonical_field_availability": "DIRECT_CANONICAL_MAPPING"
       },
       "ta_signal": null,
@@ -787,13 +787,13 @@
     "PVD": {
       "entity_type": "corporate",
       "snapshot": {
-        "date": "2026-09-03",
+        "date": "2026-09-04",
         "ticker": "PVD",
-        "close": "19.35",
+        "close": "19.2",
         "exchange": "HSX",
         "industry": "corporate",
         "canonical_observation_status": "EXACT_SESSION_RETAINED",
-        "canonical_price_basis": "CURRENT_DESCRIPTIVE_DNSE_REST_ADJUSTED_RETROSPECTIVE_RAW_AS_TRADED_NOT_PROMOTED",
+        "canonical_price_basis": "CURRENT_DESCRIPTIVE_NOT_PROMOTED_RAW_AS_TRADED",
         "canonical_field_availability": "DIRECT_CANONICAL_MAPPING"
       },
       "ta_signal": null,
@@ -869,13 +869,13 @@
     "NVL": {
       "entity_type": "corporate",
       "snapshot": {
-        "date": "2026-09-03",
+        "date": "2026-09-04",
         "ticker": "NVL",
-        "close": "13.15",
+        "close": "13.05",
         "exchange": "HSX",
         "industry": "corporate",
         "canonical_observation_status": "EXACT_SESSION_RETAINED",
-        "canonical_price_basis": "CURRENT_DESCRIPTIVE_DNSE_REST_ADJUSTED_RETROSPECTIVE_RAW_AS_TRADED_NOT_PROMOTED",
+        "canonical_price_basis": "CURRENT_DESCRIPTIVE_NOT_PROMOTED_RAW_AS_TRADED",
         "canonical_field_availability": "DIRECT_CANONICAL_MAPPING"
       },
       "ta_signal": null,
