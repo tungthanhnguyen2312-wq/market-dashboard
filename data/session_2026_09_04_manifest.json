@@ -4,9 +4,9 @@
     "active_equity_universe": 1506,
     "input_candidates": 1683,
     "observed_session_cohort": 958,
-    "operation_identity": "daily_research_session_operation:8d6a3f248288279d9afaabd46ca44f4dc7827761904f5a718033eee8e14c041c",
+    "operation_identity": "daily_research_session_operation:da72cffb2811612e9e4a2d3afb71db51dfaace31a3398cd47d95b48538aef18d",
     "registration_state": "COMPLETED_RETAINED_EVIDENCE",
-    "run_identity": "daily_producer_run:e5002833aa59ee9ca4a44264f0b6ea56d6a1117c3166111d7d3f122c2b9bf887",
+    "run_identity": "daily_producer_run:97b82ade8a32c8e2a7fddb2459991430794ca0b60981bec5f84d20c306c3978f",
     "status": "COMPLETED",
     "technical_coverage": 952
   },
@@ -61,9 +61,9 @@
     "positive_20d_momentum_count": 272,
     "unchanged": 230
   },
-  "producer_commit": "c7982bd1ec1b4589346da7f7547886e7b8778111",
+  "producer_commit": "62db133e00bb83ae12b93ed3f31628b133d66daa",
   "producer_commit_semantics": "pre_publication_producer_head",
-  "producer_commit_summary": "fix(daily): recovery_candidates must check tonight's own snapshot depth",
+  "producer_commit_summary": "docs: CORE_VALUATION_METHOD_COVERAGE_AND_CONSISTENCY_V1 terminal sync",
   "prospective_cohort_identity": "prospective_research_cohort_snapshot:38b31b7063ce9d97f692e46aba6322c8e62d39cb8d6dcdd812b962f931085b5c",
   "schema_version": "1.0.0",
   "source_artifacts": {
@@ -118,8 +118,8 @@
       }
     ],
     "daily_producer_run_manifest": {
-      "path": "operations-review/daily-producer-runs-v1/2026-09-04/e5002833aa59ee9ca4a44264f0b6ea56d6a1117c3166111d7d3f122c2b9bf887/run_manifest.json",
-      "run_identity": "daily_producer_run:e5002833aa59ee9ca4a44264f0b6ea56d6a1117c3166111d7d3f122c2b9bf887"
+      "path": "operations-review/daily-producer-runs-v1/2026-09-04/97b82ade8a32c8e2a7fddb2459991430794ca0b60981bec5f84d20c306c3978f/run_manifest.json",
+      "run_identity": "daily_producer_run:97b82ade8a32c8e2a7fddb2459991430794ca0b60981bec5f84d20c306c3978f"
     },
     "retained_tier_handoff": {
       "path": "operations-review/canonical-post-close-v1/2026-09-04/session_handoff_bundle.json",

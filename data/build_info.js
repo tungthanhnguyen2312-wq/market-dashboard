@@ -1,11 +1,11 @@
 window.BUILD_INFO = {
   "schema_version": "dashboard_build_info/v1",
   "market_session": "2026-09-04",
-  "producer_run_identity": "8d6a3f248288279d9afaabd46ca44f4dc7827761904f5a718033eee8e14c041c",
-  "dashboard_release_identity": "dashboard_release:382f36c8d709e7fbcf14b12218094e32268976d93f56d08f4ebcaf399afe0446",
-  "build_id": "382f36c8d7",
-  "generated_at": "2026-09-04T16:20:09.727687+00:00",
-  "published_at": "2026-09-04T16:20:09.727687+00:00",
+  "producer_run_identity": "da72cffb2811612e9e4a2d3afb71db51dfaace31a3398cd47d95b48538aef18d",
+  "dashboard_release_identity": "dashboard_release:73d10e108750f38983241c4f21dddf2051d6788db9f4246ede0285ebb81fa6c6",
+  "build_id": "73d10e1087",
+  "generated_at": "2026-09-04T23:57:59.937468+00:00",
+  "published_at": "2026-09-04T23:57:59.937468+00:00",
   "release_status": "READY",
   "domains": {
     "screening": {
@@ -63,8 +63,8 @@ window.BUILD_INFO = {
     "macro": {
       "status": "PARTIAL",
       "source_session": null,
-      "data_as_of": "2026-09-04",
-      "generated_at": "2026-09-04T23:17:44+07:00",
+      "data_as_of": "2026-09-05",
+      "generated_at": "2026-09-05T06:56:11+07:00",
       "freshness": "CADENCE_AWARE",
       "reason_codes": [
         "MACRO_CADENCE_STALE_SERIES_PRESENT"
@@ -93,12 +93,12 @@ window.BUILD_INFO = {
       "size_bytes": 143
     },
     "analysis_latest.json": {
-      "sha256": "a2992681d4e6b06505b7ec6ae409ec725739b9980cd166983b1615d6632518df",
-      "size_bytes": 3751
+      "sha256": "83a8963514b65f53542b2957afb6cf2bb30d25dffddd885e7a3dbfa0ff9c00c9",
+      "size_bytes": 4571
     },
     "bundle_manifest.json": {
-      "sha256": "54ae3e95f8218730af9729c3e37d12497e1bd63cb82afabab0b60e7694f5e24c",
-      "size_bytes": 8279
+      "sha256": "5c09615516a139d85dc89330c5fe4a93fad01bf0738c987c4e8119df169aaa5f",
+      "size_bytes": 9117
     },
     "analysis_bundle.json": {
       "sha256": "0892a51150110366d1c2a0dff04b94a05b4e252c0fdc668280e51339f31a63bf",
@@ -113,15 +113,15 @@ window.BUILD_INFO = {
       "size_bytes": 1684422
     },
     "data/macro_snapshot.json": {
-      "sha256": "4f1adc2fef1674e45bac4c7ba7ea40969d6a58013ea2c74975b794fd1a427aa2",
-      "size_bytes": 378802
+      "sha256": "4d0965c32a84bd969e899c23f328380ab2dd4e012a55c2fa7820fa09cefb23f5",
+      "size_bytes": 378960
     },
     "data/macro_snapshot.js": {
-      "sha256": "c5e7885fbe8d10bb1a3811c1c0a59618431ca493a2a8a0fafb0be241e1fc568a",
-      "size_bytes": 378827
+      "sha256": "b7415403e69767457c7e27bf2d465d7de4a3f835fdc0c763586a8b53f6f4c274",
+      "size_bytes": 378985
     },
     "data/current_decision_cockpit.json": {
-      "sha256": "3ebd42aefcdf2a7e25332b7f04a50d7bb8f7d4a2ba63b6fa8dba308564a8cde6",
+      "sha256": "123fc268b60407de4469e36ae4f4e6b06f2e9b254802215e22deb190d771aecb",
       "size_bytes": 2389601
     },
     "data/screener_data.js": {
@@ -129,12 +129,12 @@ window.BUILD_INFO = {
       "size_bytes": 1979351
     },
     "data/session_2026_09_04_manifest.json": {
-      "sha256": "32f7cce69907779a208dae67a840213a4e3257322a69b3bb41298993c41a781c",
-      "size_bytes": 9131
+      "sha256": "a245404cf5658b6b4814a2bc4b7f1c74d2b5cefa870beff8ffb317a404439efa",
+      "size_bytes": 9129
     },
     "report-2026-09-04.html": {
-      "sha256": "b5de2530c9101dc28b2f975cdad2e12797baf2b632d941eda9a01202f82e1965",
-      "size_bytes": 6484
+      "sha256": "6c983cae2f5e78f866045d7887d675d6f3dae96164bc56d1b8eee4308d77d2aa",
+      "size_bytes": 6477
     }
   },
   "hero_summary": {

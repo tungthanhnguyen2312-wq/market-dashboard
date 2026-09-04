@@ -225,13 +225,22 @@
         "path": "operations-review\\current-official-market-universe-integration-v1-20260824\\current_official_market_universe_artifact.json"
       },
       "daily_producer_run": {
-        "run_identity": "daily_producer_run:e5002833aa59ee9ca4a44264f0b6ea56d6a1117c3166111d7d3f122c2b9bf887",
-        "sha256": "45df41d9857ca0dccb3c246b1c92b5699a7c769e6c98f8726f90b6035b958459",
-        "path": "operations-review\\daily-producer-runs-v1\\2026-09-04\\e5002833aa59ee9ca4a44264f0b6ea56d6a1117c3166111d7d3f122c2b9bf887\\run_manifest.json"
+        "run_identity": "daily_producer_run:97b82ade8a32c8e2a7fddb2459991430794ca0b60981bec5f84d20c306c3978f",
+        "sha256": "fc3ceeeea72e83a449b82032fc9ea62b2091efc6142f145f62f05e02b58ddb7d",
+        "path": "operations-review\\daily-producer-runs-v1\\2026-09-04\\97b82ade8a32c8e2a7fddb2459991430794ca0b60981bec5f84d20c306c3978f\\run_manifest.json"
       },
       "daily_producer_bundle": {
-        "sha256": "836cf53644f33858caab127b294baf2676ade885ea30fbf9010562118862e099",
-        "path": "operations-review\\daily-producer-runs-v1\\2026-09-04\\e5002833aa59ee9ca4a44264f0b6ea56d6a1117c3166111d7d3f122c2b9bf887\\ai_research_session_bundle.json"
+        "sha256": "459d673cb0e419ff0948d626f01feeda39c19996a8a66cf8bdee081ebbae064e",
+        "path": "operations-review\\daily-producer-runs-v1\\2026-09-04\\97b82ade8a32c8e2a7fddb2459991430794ca0b60981bec5f84d20c306c3978f\\ai_research_session_bundle.json"
+      },
+      "retained_tier_handoff": {
+        "sha256": "bf20c65dd2e990ef665c49bb99169d0f934da21c969ed9f26bc5db786129dd0f",
+        "path": "operations-review\\canonical-post-close-v1\\2026-09-04\\session_handoff_bundle.json",
+        "retained_daily_producer_run_identity": "daily_producer_run:e5002833aa59ee9ca4a44264f0b6ea56d6a1117c3166111d7d3f122c2b9bf887",
+        "runtime_daily_producer_run_identity": "daily_producer_run:97b82ade8a32c8e2a7fddb2459991430794ca0b60981bec5f84d20c306c3978f",
+        "source_lineage_status": "PASS",
+        "current_research_packet_identity": "current_research_decision_packet:bae0b0a8ae7eaea725edbb7073e13201f21b514974521d9b203451e4fce0956a",
+        "prospective_cohort_snapshot_identity": "prospective_research_cohort_snapshot:38b31b7063ce9d97f692e46aba6322c8e62d39cb8d6dcdd812b962f931085b5c"
       }
     }
   }
