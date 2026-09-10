@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-09-04T00:00:00+00:00",
-  "reference_session_date": "2026-09-04",
+  "generated_at": "2026-09-10T00:00:00+00:00",
+  "reference_session_date": "2026-09-10",
   "tickers_requested": [
     "POW",
     "SSI",
@@ -23,133 +23,133 @@
   "tickers": {
     "POW": {
       "snapshot": {
-        "date": "2026-09-04",
+        "date": "2026-09-10",
         "ticker": "POW",
         "close": "12.85",
         "exchange": "HSX",
         "industry": "corporate",
         "canonical_observation_status": "EXACT_SESSION_RETAINED",
-        "canonical_price_basis": "CURRENT_DESCRIPTIVE_NOT_PROMOTED_RAW_AS_TRADED",
+        "canonical_price_basis": "CURRENT_DESCRIPTIVE_DNSE_REST_ADJUSTED_RETROSPECTIVE_RAW_AS_TRADED_NOT_PROMOTED",
         "canonical_field_availability": "DIRECT_CANONICAL_MAPPING"
       }
     },
     "SSI": {
       "snapshot": {
-        "date": "2026-09-04",
+        "date": "2026-09-10",
         "ticker": "SSI",
-        "close": "21.05",
+        "close": "21",
         "exchange": "HSX",
         "industry": "securities",
         "canonical_observation_status": "EXACT_SESSION_RETAINED",
-        "canonical_price_basis": "CURRENT_DESCRIPTIVE_NOT_PROMOTED_RAW_AS_TRADED",
+        "canonical_price_basis": "CURRENT_DESCRIPTIVE_DNSE_REST_ADJUSTED_RETROSPECTIVE_RAW_AS_TRADED_NOT_PROMOTED",
         "canonical_field_availability": "DIRECT_CANONICAL_MAPPING"
       }
     },
     "HPG": {
       "snapshot": {
-        "date": "2026-09-04",
+        "date": "2026-09-10",
         "ticker": "HPG",
-        "close": "21.7",
+        "close": "21.85",
         "exchange": "HSX",
         "industry": "corporate",
         "canonical_observation_status": "EXACT_SESSION_RETAINED",
-        "canonical_price_basis": "CURRENT_DESCRIPTIVE_NOT_PROMOTED_RAW_AS_TRADED",
+        "canonical_price_basis": "CURRENT_DESCRIPTIVE_DNSE_REST_ADJUSTED_RETROSPECTIVE_RAW_AS_TRADED_NOT_PROMOTED",
         "canonical_field_availability": "DIRECT_CANONICAL_MAPPING"
       }
     },
     "EVF": {
       "snapshot": {
-        "date": "2026-09-04",
+        "date": "2026-09-10",
         "ticker": "EVF",
-        "close": "12.35",
+        "close": "11.85",
         "exchange": "HSX",
         "industry": "finance_company",
         "canonical_observation_status": "EXACT_SESSION_RETAINED",
-        "canonical_price_basis": "CURRENT_DESCRIPTIVE_NOT_PROMOTED_RAW_AS_TRADED",
+        "canonical_price_basis": "CURRENT_DESCRIPTIVE_DNSE_REST_ADJUSTED_RETROSPECTIVE_RAW_AS_TRADED_NOT_PROMOTED",
         "canonical_field_availability": "DIRECT_CANONICAL_MAPPING"
       }
     },
     "PAN": {
       "snapshot": {
-        "date": "2026-09-04",
+        "date": "2026-09-10",
         "ticker": "PAN",
-        "close": "19.15",
+        "close": "18.5",
         "exchange": "HSX",
         "industry": "corporate",
         "canonical_observation_status": "EXACT_SESSION_RETAINED",
-        "canonical_price_basis": "CURRENT_DESCRIPTIVE_NOT_PROMOTED_RAW_AS_TRADED",
+        "canonical_price_basis": "CURRENT_DESCRIPTIVE_DNSE_REST_ADJUSTED_RETROSPECTIVE_RAW_AS_TRADED_NOT_PROMOTED",
         "canonical_field_availability": "DIRECT_CANONICAL_MAPPING"
       }
     },
     "PNJ": {
       "snapshot": {
-        "date": "2026-09-04",
+        "date": "2026-09-10",
         "ticker": "PNJ",
-        "close": "40.05",
+        "close": "38.2",
         "exchange": "HSX",
         "industry": "corporate",
         "canonical_observation_status": "EXACT_SESSION_RETAINED",
-        "canonical_price_basis": "CURRENT_DESCRIPTIVE_NOT_PROMOTED_RAW_AS_TRADED",
+        "canonical_price_basis": "CURRENT_DESCRIPTIVE_DNSE_REST_ADJUSTED_RETROSPECTIVE_RAW_AS_TRADED_NOT_PROMOTED",
         "canonical_field_availability": "DIRECT_CANONICAL_MAPPING"
       }
     },
     "FPT": {
       "snapshot": {
-        "date": "2026-09-04",
+        "date": "2026-09-10",
         "ticker": "FPT",
-        "close": "72.8",
+        "close": "74.5",
         "exchange": "HSX",
         "industry": "corporate",
         "canonical_observation_status": "EXACT_SESSION_RETAINED",
-        "canonical_price_basis": "CURRENT_DESCRIPTIVE_NOT_PROMOTED_RAW_AS_TRADED",
+        "canonical_price_basis": "CURRENT_DESCRIPTIVE_DNSE_REST_ADJUSTED_RETROSPECTIVE_RAW_AS_TRADED_NOT_PROMOTED",
         "canonical_field_availability": "DIRECT_CANONICAL_MAPPING"
       }
     },
     "QNS": {
       "snapshot": {
-        "date": "2026-09-04",
+        "date": "2026-09-10",
         "ticker": "QNS",
-        "close": "48.9",
+        "close": "49",
         "exchange": "UPCOM",
         "industry": "corporate",
         "canonical_observation_status": "EXACT_SESSION_RETAINED",
-        "canonical_price_basis": "CURRENT_DESCRIPTIVE_NOT_PROMOTED_RAW_AS_TRADED",
+        "canonical_price_basis": "CURRENT_DESCRIPTIVE_DNSE_REST_ADJUSTED_RETROSPECTIVE_RAW_AS_TRADED_NOT_PROMOTED",
         "canonical_field_availability": "DIRECT_CANONICAL_MAPPING"
       }
     },
     "VNM": {
       "snapshot": {
-        "date": "2026-09-04",
+        "date": "2026-09-10",
         "ticker": "VNM",
-        "close": "61.9",
+        "close": "61.6",
         "exchange": "HSX",
         "industry": "corporate",
         "canonical_observation_status": "EXACT_SESSION_RETAINED",
-        "canonical_price_basis": "CURRENT_DESCRIPTIVE_NOT_PROMOTED_RAW_AS_TRADED",
+        "canonical_price_basis": "CURRENT_DESCRIPTIVE_DNSE_REST_ADJUSTED_RETROSPECTIVE_RAW_AS_TRADED_NOT_PROMOTED",
         "canonical_field_availability": "DIRECT_CANONICAL_MAPPING"
       }
     },
     "PVD": {
       "snapshot": {
-        "date": "2026-09-04",
+        "date": "2026-09-10",
         "ticker": "PVD",
-        "close": "19.2",
+        "close": "18.5",
         "exchange": "HSX",
         "industry": "corporate",
         "canonical_observation_status": "EXACT_SESSION_RETAINED",
-        "canonical_price_basis": "CURRENT_DESCRIPTIVE_NOT_PROMOTED_RAW_AS_TRADED",
+        "canonical_price_basis": "CURRENT_DESCRIPTIVE_DNSE_REST_ADJUSTED_RETROSPECTIVE_RAW_AS_TRADED_NOT_PROMOTED",
         "canonical_field_availability": "DIRECT_CANONICAL_MAPPING"
       }
     },
     "NVL": {
       "snapshot": {
-        "date": "2026-09-04",
+        "date": "2026-09-10",
         "ticker": "NVL",
-        "close": "13.05",
+        "close": "12.85",
         "exchange": "HSX",
         "industry": "corporate",
         "canonical_observation_status": "EXACT_SESSION_RETAINED",
-        "canonical_price_basis": "CURRENT_DESCRIPTIVE_NOT_PROMOTED_RAW_AS_TRADED",
+        "canonical_price_basis": "CURRENT_DESCRIPTIVE_DNSE_REST_ADJUSTED_RETROSPECTIVE_RAW_AS_TRADED_NOT_PROMOTED",
         "canonical_field_availability": "DIRECT_CANONICAL_MAPPING"
       }
     }
