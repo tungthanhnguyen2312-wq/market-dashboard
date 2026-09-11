@@ -1,28 +1,28 @@
 window.BUILD_INFO = {
   "schema_version": "dashboard_build_info/v1",
-  "market_session": "2026-09-10",
-  "producer_run_identity": "048d3bfc7cb032fe76616344b326acf67507dc3116af237bd7baf93a8dd3bd7e",
-  "dashboard_release_identity": "dashboard_release:52c736f5d04f232c49ca66d45f6a7597daa394c0b1d3c7726cdf83126a8b6769",
-  "build_id": "52c736f5d0",
-  "generated_at": "2026-09-10T10:23:21.773388+00:00",
-  "published_at": "2026-09-10T10:23:21.773388+00:00",
+  "market_session": "2026-09-11",
+  "producer_run_identity": "5e5db7b46737b2170bb64880042eb581bd159dfebdcb7eb1372885822dafb4f1",
+  "dashboard_release_identity": "dashboard_release:08b40c53c469015960752972c9da193932f3a15079beffc2957edbbe420f89be",
+  "build_id": "08b40c53c4",
+  "generated_at": "2026-09-11T10:12:16.990212+00:00",
+  "published_at": "2026-09-11T10:12:16.990212+00:00",
   "release_status": "READY",
   "domains": {
     "screening": {
       "status": "CURRENT",
-      "source_session": "2026-09-10",
+      "source_session": "2026-09-11",
       "freshness": "EXACT_SESSION",
       "reason_codes": []
     },
     "breadth": {
       "status": "CURRENT",
-      "source_session": "2026-09-10",
+      "source_session": "2026-09-11",
       "freshness": "EXACT_SESSION",
       "reason_codes": []
     },
     "analysis": {
       "status": "CURRENT",
-      "source_session": "2026-09-10",
+      "source_session": "2026-09-11",
       "freshness": "EXACT_SESSION",
       "reason_codes": []
     },
@@ -63,17 +63,17 @@ window.BUILD_INFO = {
     "macro": {
       "status": "PARTIAL",
       "source_session": null,
-      "data_as_of": "2026-09-10",
-      "generated_at": "2026-09-10T17:21:59+07:00",
+      "data_as_of": "2026-09-11",
+      "generated_at": "2026-09-11T17:10:51+07:00",
       "freshness": "CADENCE_AWARE",
       "reason_codes": [
         "MACRO_CADENCE_STALE_SERIES_PRESENT"
       ],
-      "stale_series_count": 2
+      "stale_series_count": 1
     },
     "cockpit": {
       "status": "CURRENT",
-      "source_session": "2026-09-10",
+      "source_session": "2026-09-11",
       "freshness": "EXACT_SESSION",
       "generated_at": null,
       "reason_codes": []
@@ -81,64 +81,64 @@ window.BUILD_INFO = {
   },
   "files": {
     "screen_snapshot.csv": {
-      "sha256": "09370d6d24103b17cd91439c15cb76bfcf1735ff4d5a963b4b21cae454decc3b",
-      "size_bytes": 548733
+      "sha256": "86fd4a511b5ab6003914cc206eebfce8697c8ae5e4cb006108018ef1b0b431cd",
+      "size_bytes": 571728
     },
     "screen_snapshot_live.csv": {
-      "sha256": "2b9aa6d7f1806142d646848f7be0d685f7bf6dec33d0f1aad4f9b3fff706baf1",
-      "size_bytes": 345252
+      "sha256": "20552a996b7c2a041ad2b8079657ca1f05154c3c2cbb76b9759c05d3b09c7690",
+      "size_bytes": 399941
     },
     "market_breadth.csv": {
-      "sha256": "638f4b0c7c7f901d8b8380ab18d5c33fe9d204b32d4968d4fc4835b9bf53cbcf",
+      "sha256": "07d6b0096b4475ebfefc5749c98bc268b20dc840df206f8f938dce7c49cc4279",
       "size_bytes": 143
     },
     "analysis_latest.json": {
-      "sha256": "5efbb81767ac0d43cf186f5541c5745723ceacf8aad39a5b30641b59fddabd55",
-      "size_bytes": 3751
+      "sha256": "e83d3d669587ea2adc299421b758899595debeb346b76776d21dccfd5bce72e8",
+      "size_bytes": 4571
     },
     "bundle_manifest.json": {
-      "sha256": "6502bc75dbe312f3c4354db457351b7e492cba3328e733175c34f73f5d6e67dd",
-      "size_bytes": 8279
+      "sha256": "457dfe5cd8c5faf4c2ff598bffb40c9beb7cfa0e2101403762c5afeed35d77e4",
+      "size_bytes": 9117
     },
     "analysis_bundle.json": {
-      "sha256": "ee1f2d3f422f888e472c50fdc3c9234ae63f6feb6bc9089e16798fd395e806fb",
-      "size_bytes": 37098
+      "sha256": "29f4ab33fc7fa2b9aac14dc295e7f2b603012562762cad798404c25693153c1a",
+      "size_bytes": 37099
     },
     "focus_extract.json": {
-      "sha256": "f4f68b98df0bb9f0a67abd4c658eb493d8ed5acd8164130dec613e1341aaf122",
-      "size_bytes": 5256
+      "sha256": "7aac5684afede24abf3e533f1bc8c3d007190e0496d2fa952ee66d96071550b9",
+      "size_bytes": 5257
     },
     "statement_taxonomy_sidecar.json": {
-      "sha256": "67f6736390336abab1eb28c2b839c39404b38d663fd45b6a0b39337562581a16",
+      "sha256": "a8385ac1a41afc1069d6aa7399c178b9e7827c8b68d7c92e2701e955176ea12a",
       "size_bytes": 1684422
     },
     "data/macro_snapshot.json": {
-      "sha256": "c71d4505ae8e3c9506f745d27621f4adab69bfe39cacbdf5a20ed97c2c8f835f",
-      "size_bytes": 379406
+      "sha256": "bd253bf6ee7b80b4cd3bbabd6f67f9c74a0f2cbbb63445a3700ce4703a5a774e",
+      "size_bytes": 379565
     },
     "data/macro_snapshot.js": {
-      "sha256": "2779e17f61ceb5b744320db15917ca0a4e23fd512e23649ad8dbd8fa13bed602",
-      "size_bytes": 379431
+      "sha256": "e33a503371294381f3b1bac6b3b7e45f481b183891dcd6d1ddf227fb10c27ff2",
+      "size_bytes": 379590
     },
     "data/current_decision_cockpit.json": {
-      "sha256": "5221d0a9938f34c452483e23d470bf551ea72dda919edc3f80d21ec92c717581",
-      "size_bytes": 2312257
+      "sha256": "a11ed1b302f977a29df7cc62c0882be303468554b1a85c639670809dc5504aad",
+      "size_bytes": 2084109
     },
     "data/screener_data.js": {
-      "sha256": "c1d54ad5ff8646e64c87bfb178ce19ccfb644f17ee8362e19138d493914bb3e9",
-      "size_bytes": 1987417
+      "sha256": "9b8766c859d1b3353d02df05c7af1e442259805dd8d176d18b26d629fee5670a",
+      "size_bytes": 2010412
     },
-    "data/session_2026_09_10_manifest.json": {
-      "sha256": "53a6d913e3fb7392d1dca9a8208ae16e6fc384e9feb4b664c939c6836332e01e",
-      "size_bytes": 9215
+    "data/session_2026_09_11_manifest.json": {
+      "sha256": "0d596f2e185ced0c3ccb6fc63a3f355341547a55f74a3bc07b9db9a9cd5ab674",
+      "size_bytes": 9230
     },
-    "report-2026-09-10.html": {
-      "sha256": "8c0ea81939e78313406c9d0384072cbd2c376e2cc461926bf152fad2b389930a",
-      "size_bytes": 6564
+    "report-2026-09-11.html": {
+      "sha256": "d465bb68c4c9b36488de0d22bc00144acb0670d9b373629c1aa4ec8342b1dbae",
+      "size_bytes": 6580
     }
   },
   "hero_summary": {
-    "market_session": "2026-09-10",
+    "market_session": "2026-09-11",
     "total_surveyed": 1211,
     "up_count": 0,
     "rs80_count": 0
