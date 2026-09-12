@@ -203,12 +203,25 @@
     });
   }
 
+  function getSessionCoherence() {
+    if (typeof window !== "undefined" && window.VSSessionCoherence) return window.VSSessionCoherence;
+    if (typeof require === "function") {
+      try { return require("./session-coherence.js"); } catch (err) { return null; }
+    }
+    return null;
+  }
+
   function render(workspace) {
     const rows = records(workspace);
     const counts = rows.reduce((out, row) => ({ ...out, [row.state]: (out[row.state] || 0) + 1 }), {});
     const vf = getValueFormat();
+    const sc = getSessionCoherence();
+    const coherence = sc ? sc.classify(workspace.as_of_session, sc.currentReleaseSession()) : null;
+    const staleBanner = sc && coherence && sc.isConfirmedStale(coherence)
+      ? sc.staleBannerHtml("Tín hiệu kỹ thuật", coherence, "INVESTMENT_DECISION_WORKSPACE_STALE")
+      : "";
     document.getElementById("signals-content").hidden = false;
-    document.getElementById("signals-meta").innerHTML = `Phiên tín hiệu kỹ thuật được giữ lại ${esc(workspace.as_of_session)} · ${rows.length.toLocaleString("vi-VN")} mã${vf && vf.provenanceHtml ? vf.provenanceHtml(workspace.producer_artifact_identity) : ""}`;
+    document.getElementById("signals-meta").innerHTML = `${staleBanner}Phiên tín hiệu kỹ thuật được giữ lại ${esc(workspace.as_of_session)} · ${rows.length.toLocaleString("vi-VN")} mã${vf && vf.provenanceHtml ? vf.provenanceHtml(workspace.producer_artifact_identity) : ""}`;
     document.getElementById("tactical-cohorts").innerHTML = cohortStates.map((state) => `<a class="tactical-card" href="#tactical-table" data-state="${esc(state)}" title="${esc(state)}"><span>${esc(labelOf(state, "tactical_state"))}</span><strong>${counts[state] || 0}</strong><small>Mở Bàn quyết định để xem thẻ đầy đủ</small></a>`).join("");
     const filter = document.getElementById("tactical-filter");
     Object.keys(counts).sort().forEach((state) => {

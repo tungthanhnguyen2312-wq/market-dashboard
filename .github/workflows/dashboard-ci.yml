@@ -66,6 +66,19 @@ jobs:
       - name: Dashboard localization and governed overview tests
         run: node --test tests/dashboard-core-ux-localization.test.js
 
+      # Real-data contract + session-coherence lane: catches a stale artifact rendering as
+      # current session, a JSON/JS fallback pair diverging, or a domain claiming CURRENT for
+      # an artifact it does not actually cover. See
+      # docs/dashboard_current_session_surface_coherence_20260912.md.
+      - name: Real-data contract correctness tests
+        run: node --test tests/real-data-contract-correctness.test.js
+
+      - name: Domain-freshness tests
+        run: node --test tests/domain-freshness.test.js
+
+      - name: Session-coherence contract tests
+        run: node --test tests/session-coherence-contract.test.js
+
       - name: Canonical daily coherence and Vietnamese presentation tests
         run: python tests/test_canonical_daily_coherence_and_vi_localization.py -v
 
@@ -91,6 +104,7 @@ jobs:
           node --check assets/js/dashboard-product-summary.js
           node --check assets/js/screener-master.js
           node --check assets/js/signals-product.js
+          node --check assets/js/session-coherence.js
 
       # Navigation-contract and visual-foundation-contract above already assert
       # HTML/CSS structure (required nav markup, design tokens, no conflict

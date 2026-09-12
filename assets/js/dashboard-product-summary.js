@@ -5,6 +5,14 @@
 })(typeof window !== "undefined" ? window : globalThis, function () {
   "use strict";
 
+  function getSessionCoherence() {
+    if (typeof window !== "undefined" && window.VSSessionCoherence) return window.VSSessionCoherence;
+    if (typeof require === "function") {
+      try { return require("./session-coherence.js"); } catch (err) { return null; }
+    }
+    return null;
+  }
+
   const SCREENER_URL = "data/screener_master_projection.json";
   const SCREENER_CONTRACT = "screener_master_projection/v1";
   const ENTITY_CLASS_VOCABULARY = ["corporate", "bank", "securities", "insurance", "finance_company"];
@@ -184,17 +192,23 @@
     return true;
   }
 
-  function renderDecisionSummaryHtml(summary) {
+  function renderDecisionSummaryHtml(summary, releaseSession) {
     if (!summary || !summary.denominator) {
       return `<div class="vs-alert vs-alert-warning mb-0">CURRENT_PRODUCT_ARTIFACT_NOT_PUBLISHED: chưa có screener_master_projection/v1 cho phiên hiện tại.</div>`;
     }
-    const session = summary.as_of_session || "chưa xác định";
+    const sc = getSessionCoherence();
+    const coherence = sc ? sc.classify(summary.as_of_session, releaseSession) : null;
+    const staleBanner = sc && coherence && sc.isConfirmedStale(coherence)
+      ? sc.staleBannerHtml("Tóm tắt tư thế nghiên cứu", coherence, "SCREENER_MASTER_PROJECTION_STALE")
+      : "";
+    const session = (sc ? sc.sessionLabelText(coherence) : null) || summary.as_of_session || "chưa xác định";
     const cards = STANCE_ORDER.map((stance) => {
       const count = (summary.research_stance.counts || {})[stance] || 0;
       const tone = STANCE_TONE[stance] || "neutral";
       return `<div class="decision-stance-card is-${tone}" data-state="${esc(stance)}"><span class="count">${count.toLocaleString("vi-VN")}</span><span class="label">${esc(formatLabel(stance, "research_stance"))}</span></div>`;
     }).join("");
     return `
+      ${staleBanner}
       <p class="product-muted mb-3">Phiên ${esc(session)} · ${summary.denominator.toLocaleString("vi-VN")} mã. Đây là tóm tắt tư thế nghiên cứu, không phải lệnh thực hiện.</p>
       <div class="decision-summary-grid mb-3">${cards}</div>
       <div class="decision-summary-actions">

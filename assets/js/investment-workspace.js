@@ -627,7 +627,13 @@
       function render(data) {
         WORKSPACE = data;
         document.getElementById("workspace").hidden = false;
-        document.getElementById("session-line").innerHTML = `Phiên ${esc(data.as_of_session)} · ${Object.keys(data.cards).length} mã${provenanceBlock(data.producer_artifact_identity)}`;
+        const sc = window.VSSessionCoherence;
+        const coherence = sc ? sc.classify(data.as_of_session, sc.currentReleaseSession()) : null;
+        const sessionLabel = (sc && coherence ? sc.sessionLabelText(coherence) : null) || data.as_of_session;
+        const staleBanner = sc && coherence && sc.isConfirmedStale(coherence)
+          ? sc.staleBannerHtml("Bàn quyết định", coherence, "INVESTMENT_DECISION_WORKSPACE_STALE")
+          : "";
+        document.getElementById("session-line").innerHTML = `${staleBanner}Phiên ${esc(sessionLabel)} · ${Object.keys(data.cards).length} mã${provenanceBlock(data.producer_artifact_identity)}`;
         renderFilterChips();
         renderList();
         const queryView = new URLSearchParams(window.location.search).get("view");

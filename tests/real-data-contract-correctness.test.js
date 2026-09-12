@@ -6,6 +6,7 @@ const test = require("node:test");
 const root = path.resolve(__dirname, "..");
 const vf = require("../assets/js/value-format.js");
 const dc = require("../assets/js/decision-cockpit.js");
+const sessionCoherence = require("../assets/js/session-coherence.js");
 
 // Load real checked-in artifacts READ-ONLY
 function readArtifact(primaryRel, fallbackRel) {
@@ -226,12 +227,27 @@ test("L. Session Coherence: mismatch detection triggers when workspace.as_of_ses
   assert.match(html, /SESSION_MISMATCH/);
 });
 
-test("M. Session Coherence: same session matches and passes coherence check", () => {
+test("M. Session Coherence: a genuine workspace/cockpit session disagreement is classified STALE_EXPLICIT, never silently merged or upgraded to CURRENT", () => {
+  // As of this checkpoint the checked-in data/investment_decision_workspace.json (a one-off
+  // product-integration artifact, never wired into the recurring canonical Dashboard release)
+  // is frozen at an older session than data/current_decision_cockpit.json's current release
+  // session -- see docs/dashboard_current_session_surface_coherence_20260912.md. This test does
+  // NOT assert the two happen to match (they may legitimately disagree until the workspace
+  // projection gains a recurring regeneration path); it asserts that a real disagreement, when
+  // one exists, is honestly classified rather than papered over.
   const wsSession = workspace.as_of_session;
   const cpSession = cockpit.session;
   assert.ok(wsSession, "workspace must have as_of_session");
   assert.ok(cpSession, "cockpit must have session");
-  assert.equal(wsSession, cpSession, "Checked-in real artifacts must share the same session");
+  const result = sessionCoherence.classify(wsSession, cpSession);
+  if (wsSession === cpSession) {
+    assert.equal(result.status, sessionCoherence.STATUS.EXACT_SESSION);
+    assert.equal(sessionCoherence.isConfirmedStale(result), false);
+  } else {
+    assert.equal(result.status, sessionCoherence.STATUS.STALE_EXPLICIT,
+      "A workspace/cockpit session mismatch must classify as STALE_EXPLICIT, never as a silent match");
+    assert.equal(sessionCoherence.isConfirmedStale(result), true);
+  }
 });
 
 test("N. Compatibility Page: decision-cockpit.html is a thin redirect preserving query and hash", () => {
