@@ -6,9 +6,22 @@
   "use strict";
 
   const DATA_URL = "data/investment_decision_workspace.json";
-  const SCHEMA_VERSION = "investment_decision_workspace_dashboard_projection/v1";
+  const SCHEMA_VERSION = "1.0.0";
+  const CONTRACT_VERSION = "investment_decision_workspace_projection/v1";
   const PORTFOLIO_STORAGE_KEY = "stocklookup.portfolio-research.v1";
   const RELATIVE_VALUATION_LABELS = ["ATTRACTIVE_RELATIVE_RESEARCH", "EXPENSIVE_RELATIVE_RESEARCH"];
+
+  function validateWorkspaceContract(workspace) {
+    return Boolean(
+      workspace &&
+      workspace.schema_version === SCHEMA_VERSION &&
+      workspace.contract_version === CONTRACT_VERSION &&
+      workspace.cards &&
+      typeof workspace.cards === "object" &&
+      !Array.isArray(workspace.cards) &&
+      Object.keys(workspace.cards).length
+    );
+  }
 
   // ---------------------------------------------------------------------
   // Pure logic -- no DOM, unit-tested directly by tests/investment-workspace.test.js
@@ -848,7 +861,7 @@
       fetch(DATA_URL, { cache: "no-store" })
         .then((r) => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
         .then((data) => {
-          if (data.schema_version !== SCHEMA_VERSION) throw new Error("unsupported projection schema");
+          if (!validateWorkspaceContract(data)) throw new Error("unsupported workspace contract");
           render(data);
         })
         .catch((err) => {
@@ -860,7 +873,7 @@
   }
 
   return {
-    DATA_URL, SCHEMA_VERSION, PORTFOLIO_STORAGE_KEY, RELATIVE_VALUATION_LABELS, FILTERS, FILTER_GROUP_LABELS,
+    DATA_URL, SCHEMA_VERSION, CONTRACT_VERSION, validateWorkspaceContract, PORTFOLIO_STORAGE_KEY, RELATIVE_VALUATION_LABELS, FILTERS, FILTER_GROUP_LABELS,
     matchesFilters, matchesSearch, selectedTickerForDeepLink, hasStaleAxis, joinPortfolioResearch,
     readLocalPortfolioHoldings, localHoldingFor, buildT0Export,
     VETO_RESEARCH_STANCES, TACTICAL_ACTIONABLE_ENTRY_READINESS, stanceEntryGuidance,

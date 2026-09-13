@@ -1,7 +1,8 @@
 (() => {
   "use strict";
   const DATA_URL = "data/investment_decision_workspace.json";
-  const SCHEMA = "investment_decision_workspace_dashboard_projection/v1";
+  const SCHEMA_VERSION = "1.0.0";
+  const CONTRACT_VERSION = "investment_decision_workspace_projection/v1";
   const CANDLE_SIDECARS = Object.freeze({
     candlestick_patterns: "data/candlestick_patterns.json",
     candle_signals: "data/candle_signals.json",
@@ -11,6 +12,18 @@
   const SIDECAR_STALE = "SIGNAL_SOURCE_SESSION_MISMATCH";
   const CANDLE_UNAVAILABLE_LABEL = "Chưa có dữ liệu mẫu hình nến phù hợp cho phiên hiện tại.";
   const esc = (value) => String(value ?? "—").replace(/[&<>"']/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
+
+  function validateWorkspaceContract(workspace) {
+    return Boolean(
+      workspace &&
+      workspace.schema_version === SCHEMA_VERSION &&
+      workspace.contract_version === CONTRACT_VERSION &&
+      workspace.cards &&
+      typeof workspace.cards === "object" &&
+      !Array.isArray(workspace.cards) &&
+      Object.keys(workspace.cards).length
+    );
+  }
 
   function getValueFormat() {
     if (typeof window !== "undefined" && window.VSValueFormat) return window.VSValueFormat;
@@ -247,9 +260,7 @@
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       return response.json();
     }).then((workspace) => {
-      if (workspace.schema_version !== SCHEMA || !workspace.cards || !Object.keys(workspace.cards).length) {
-        throw new Error("invalid or empty workspace artifact");
-      }
+      if (!validateWorkspaceContract(workspace)) throw new Error("unsupported workspace contract");
       render(workspace);
     }).catch((reason) => {
       error(`Không tải được tín hiệu kỹ thuật cho phiên hiện tại. CURRENT_PRODUCT_ARTIFACT_NOT_PUBLISHED: ${reason.message}`);
@@ -257,7 +268,7 @@
   }
 
   const api = {
-    DATA_URL, SCHEMA, CANDLE_SIDECARS, SIDECAR_UNAVAILABLE, CANDLE_UNAVAILABLE_LABEL,
+    DATA_URL, SCHEMA_VERSION, CONTRACT_VERSION, validateWorkspaceContract, CANDLE_SIDECARS, SIDECAR_UNAVAILABLE, CANDLE_UNAVAILABLE_LABEL,
     actionLabel, records, cohortStates, renderRowHtml, labelOf, actionHtml,
     classifySidecarAvailability, candleUnavailableHtml, patternLabel, renderPatternRowHtml,
   };

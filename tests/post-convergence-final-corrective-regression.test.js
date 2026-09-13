@@ -206,7 +206,8 @@ test("15. Session mismatch clears every Cockpit-derived node on the Workspace pa
   const savedFetch = global.fetch;
 
   const mockWorkspace = {
-    schema_version: "investment_decision_workspace_dashboard_projection/v1",
+    schema_version: "1.0.0",
+    contract_version: "investment_decision_workspace_projection/v1",
     as_of_session: "2026-08-28",
     producer_artifact_identity: "workspace:test",
     cards: { AAA: minimalCard({ ticker: "AAA" }) },
