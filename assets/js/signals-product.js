@@ -110,6 +110,12 @@
     if (!httpOk) {
       return { status: "ABSENT_FROM_PUBLICATION", code: SIDECAR_UNAVAILABLE, count: null };
     }
+    // No published build_info component metadata for this sidecar is a session-freshness
+    // unknown, never an implicit "compatible" -- a fetched-but-unattested file must not render
+    // as current session data. Fail closed exactly like a missing exact-session Producer input.
+    if (!component) {
+      return { status: "ABSENT_FROM_PUBLICATION", code: SIDECAR_UNAVAILABLE, count: null };
+    }
     const session = component && component.source_session;
     const status = component && component.status;
     if (status === "STALE" || (session && currentSession && session !== currentSession)) {

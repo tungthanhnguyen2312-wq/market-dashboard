@@ -556,6 +556,7 @@
     LOSS_WIDENED: "Lỗ mở rộng",
     NO_USABLE_FUNDAMENTAL_OR_TACTICAL_AXIS: "Chưa có trục nền tảng hoặc kỹ thuật dùng được",
     PRICE_VOLUME_DISTRIBUTION_RISK: "Rủi ro phân phối giá-khối lượng",
+    SECTOR_LEADERSHIP_WEAKENING: "Vị thế dẫn dắt ngành suy yếu",
     QUALIFIED_CATALYST_PRESENT: "Có chất xúc tác đã xác nhận",
     TACTICAL_AXIS_NOT_CURRENT: "Trục kỹ thuật không thuộc phiên hiện tại",
     PIT_AUTHORITY_NOT_GRANTED: "Chưa có thẩm quyền dữ liệu PIT",

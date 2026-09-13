@@ -298,9 +298,11 @@ test("DOM rendering: full fixture verification with preserved analytical semanti
     assert.match(selectHtml, new RegExp(`value="${t}"`));
   }
 
-  // 3. Check session line has natural Vietnamese session and details
+  // 3. Check session line has natural Vietnamese session and details. Asserted against the
+  // fixture's own `session` field (never a hardcoded literal) so this stays valid as the
+  // retained fixture is refreshed to later sessions.
   const sessionLineHtml = elements["session-line"].innerHTML;
-  assert.match(sessionLineHtml, /Phiên nghiên cứu: 2026-08-28/);
+  assert.match(sessionLineHtml, new RegExp(`Phiên nghiên cứu: ${fixtureData.session}`));
   assert.match(sessionLineHtml, /Chi tiết kỹ thuật/);
   assert.match(sessionLineHtml, new RegExp(fixtureData.source?.operation_identity));
   assert.match(sessionLineHtml, new RegExp(fixtureData.source?.product_identity));

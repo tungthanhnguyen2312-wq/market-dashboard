@@ -61,19 +61,19 @@
       "path": "operations-review\\current-official-market-universe-integration-v1-20260824\\current_official_market_universe_artifact.json"
     },
     "daily_producer_run": {
-      "run_identity": "daily_producer_run:92e235a914c4fed69368e0d685d808b6d19f5df1f57e4c29ead95664c8a8a905",
-      "sha256": "767456cfae0a45dbadeacae2d95a297ddf57120204df7f768d21e5a6de0b1862",
-      "path": "operations-review\\daily-producer-runs-v1\\2026-09-11\\92e235a914c4fed69368e0d685d808b6d19f5df1f57e4c29ead95664c8a8a905\\run_manifest.json"
+      "run_identity": "daily_producer_run:df6e9703e3184d3a58b7df935c55c9108645e09867bb037dd1716b31f852c058",
+      "sha256": "e8c7925a589a452277d5f8b87aa6ab4907c272a3c8c79c95fc1f6286d5bc2b4c",
+      "path": "operations-review\\daily-producer-runs-v1\\2026-09-11\\df6e9703e3184d3a58b7df935c55c9108645e09867bb037dd1716b31f852c058\\run_manifest.json"
     },
     "daily_producer_bundle": {
-      "sha256": "187807db53ee77121986fc5d0663bce0e20cc9635db4846e925178f795d24bb4",
-      "path": "operations-review\\daily-producer-runs-v1\\2026-09-11\\92e235a914c4fed69368e0d685d808b6d19f5df1f57e4c29ead95664c8a8a905\\ai_research_session_bundle.json"
+      "sha256": "ad5f500a43851d6c73b95d86e2c4b3084b046f34cc5af51795ef2c74501f34c4",
+      "path": "operations-review\\daily-producer-runs-v1\\2026-09-11\\df6e9703e3184d3a58b7df935c55c9108645e09867bb037dd1716b31f852c058\\ai_research_session_bundle.json"
     },
     "retained_tier_handoff": {
-      "sha256": "856ad13646db74be998d4712b707209517723daf3bdf719f6caeeefffd77e90a",
+      "sha256": "dabdeaead40da442b42a69cdf542ea8cd7f1572f37cb6be3ae042288df523841",
       "path": "operations-review\\canonical-post-close-v1\\2026-09-11\\session_handoff_bundle.json",
-      "retained_daily_producer_run_identity": "daily_producer_run:ee3aefe96d1e7d358c990fd9de7f0e590e446edb1d66f8249873b6721f5d6cd9",
-      "runtime_daily_producer_run_identity": "daily_producer_run:92e235a914c4fed69368e0d685d808b6d19f5df1f57e4c29ead95664c8a8a905",
+      "retained_daily_producer_run_identity": "daily_producer_run:92e235a914c4fed69368e0d685d808b6d19f5df1f57e4c29ead95664c8a8a905",
+      "runtime_daily_producer_run_identity": "daily_producer_run:df6e9703e3184d3a58b7df935c55c9108645e09867bb037dd1716b31f852c058",
       "source_lineage_status": "PASS",
       "current_research_packet_identity": "current_research_decision_packet:96ac9e5b2f4a9841442d64563b37615d447bb7eaa138c90c37796fa6fe2b7cc9",
       "prospective_cohort_snapshot_identity": "prospective_research_cohort_snapshot:45079a6c35b843161ce13dc0220d4957316b6a78186619ba475a75cf094ddccf"

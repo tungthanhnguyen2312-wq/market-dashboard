@@ -137,11 +137,11 @@ test("workspace renderer visible text has no raw primary enums", () => {
   const card = workspace.cards.HPG;
   const html = ws.decisionCardHtml(card, { ticker: "HPG" });
   const visible = visibleText(html);
-  for (const raw of ["WAIT_FOR_CONFIRMATION", "SELLING_PRESSURE_EASING", "LIQUIDITY_RESEARCH_PROXY", "ATTRACTIVE_RELATIVE_RESEARCH", "STALE_AXIS_PRESENT"]) {
+  for (const raw of ["AVOID_NEW_ENTRY", "DOWNTREND", "LIQUIDITY_RESEARCH_PROXY", "ATTRACTIVE_RELATIVE_RESEARCH", "STALE_AXIS_PRESENT"]) {
     assert.doesNotMatch(visible, new RegExp(raw));
   }
-  assert.match(html, /data-state="WAIT_FOR_CONFIRMATION"/);
-  assert.match(html, /Chờ xác nhận/);
+  assert.match(html, /data-state="AVOID_NEW_ENTRY"/);
+  assert.match(html, /Tránh mở vị thế mới/);
   assert.match(html, /Không phải tín hiệu mua|Tư thế nghiên cứu/);
   assert.doesNotMatch(visible, /NOT A BUY SIGNAL/);
 });
@@ -253,20 +253,28 @@ test("rule-condition and current Workspace readiness text are localized with raw
   const card = workspace.cards.HPG;
   const html = ws.decisionCardHtml(card, { ticker: "HPG", sourceArtifacts: workspace.source_artifacts });
   const visible = primaryVisibleText(html);
-  assert.equal(card.research_stance_readiness, "RESEARCH_CONDITIONAL");
-  assert.equal(vf.formatDomainState(card.research_stance_readiness, "research_readiness").label, "Nghiên cứu có điều kiện");
-  assert.match(visible, /Nghiên cứu có điều kiện/);
-  assert.match(visible, /Trục kỹ thuật không thuộc phiên hiện tại/);
+  // Regression guard for TACTICAL_SESSION_DATE_AND_FRESHNESS_CONVERGENCE_V1: HPG's tactical axis
+  // is exact-session (technical_structure/tactical_setup_tags retained for 2026-09-11), so its
+  // rendered card must never carry TACTICAL_AXIS_NOT_CURRENT -- that reason belongs only to a
+  // ticker whose tactical_behavior_context source_session is genuinely older than the decision
+  // session (see current_valuation_opportunity_integration tests in the Producer repo).
+  assert.ok(!(card.why?.deterministic_reasons || []).includes("TACTICAL_AXIS_NOT_CURRENT"));
+  assert.equal(card.research_stance_readiness, "RESEARCH_READY_CONDITIONAL");
+  assert.equal(vf.formatDomainState(card.research_stance_readiness, "research_readiness").label, "Sẵn sàng nghiên cứu có điều kiện");
+  assert.match(visible, /Sẵn sàng nghiên cứu có điều kiện/);
+  assert.doesNotMatch(visible, /Trục kỹ thuật không thuộc phiên hiện tại/);
+  assert.match(visible, /Trạng thái kỹ thuật bất lợi/);
   assert.match(visible, /Nền tảng doanh nghiệp có lợi nhuận/);
   assert.match(visible, /Đảo chiều trạng thái lợi nhuận/);
-  assert.match(html, /data-state="RESEARCH_CONDITIONAL"/);
+  assert.match(html, /data-state="RESEARCH_READY_CONDITIONAL"/);
   assert.match(html, /data-condition="PROFITABILITY_STATE_REVERSAL"/);
   assert.match(html, /<details class="vs-tech-details">[\s\S]*PROFITABILITY_STATE_REVERSAL/);
   for (const raw of [
-    "RESEARCH_CONDITIONAL",
+    "RESEARCH_READY_CONDITIONAL",
     "TACTICAL_AXIS_NOT_CURRENT",
     "PROFITABLE_FUNDAMENTAL",
     "PROFITABILITY_STATE_REVERSAL",
+    "ADVERSE_TACTICAL_ENTRY_STATE",
   ]) {
     assert.doesNotMatch(visible, new RegExp(raw));
   }

@@ -2,10 +2,10 @@ window.BUILD_INFO = {
   "schema_version": "dashboard_build_info/v1",
   "market_session": "2026-09-11",
   "producer_run_identity": "5e5db7b46737b2170bb64880042eb581bd159dfebdcb7eb1372885822dafb4f1",
-  "dashboard_release_identity": "dashboard_release:4bfd5d5f32910d262ef48cddebfc608e4e2f96ac69325cfe18cd3e8c268aae92",
-  "build_id": "4bfd5d5f32",
-  "generated_at": "2026-09-13T01:07:31.335408+00:00",
-  "published_at": "2026-09-13T01:07:31.335408+00:00",
+  "dashboard_release_identity": "dashboard_release:5df4fc9442a8fd3fd3844130feb25a4a36cf9ab87e55b79fa2fb9b36241f1d58",
+  "build_id": "5df4fc9442",
+  "generated_at": "2026-09-13T04:34:34.032026+00:00",
+  "published_at": "2026-09-13T04:34:34.032026+00:00",
   "release_status": "READY",
   "domains": {
     "screening": {
@@ -61,15 +61,13 @@ window.BUILD_INFO = {
       }
     },
     "macro": {
-      "status": "PARTIAL",
+      "status": "CURRENT",
       "source_session": null,
-      "data_as_of": "2026-09-11",
-      "generated_at": "2026-09-11T17:10:51+07:00",
+      "data_as_of": "2026-09-13",
+      "generated_at": "2026-09-13T10:37:06+07:00",
       "freshness": "CADENCE_AWARE",
-      "reason_codes": [
-        "MACRO_CADENCE_STALE_SERIES_PRESENT"
-      ],
-      "stale_series_count": 1
+      "reason_codes": [],
+      "stale_series_count": 0
     },
     "cockpit": {
       "status": "CURRENT",
@@ -82,14 +80,14 @@ window.BUILD_INFO = {
       "status": "CURRENT",
       "source_session": "2026-09-11",
       "freshness": "EXACT_SESSION",
-      "artifact_identity": "investment_decision_workspace_projection/v1:f735fa33bfe673c3a154a2148da6c164e63271de18a257ee44663968b6d886bd",
+      "artifact_identity": "investment_decision_workspace_projection/v1:3b9d3f4e9034d96916653a1179944fafd14d7ec69e917f01845522b59696db91",
       "reason_codes": []
     },
     "screener_master": {
       "status": "CURRENT",
       "source_session": "2026-09-11",
       "freshness": "EXACT_SESSION",
-      "artifact_identity": "screener_master_projection/v1:7cb8f71c2c0ae6f9eca003757766e2333b2bf6e88999bd8dd4d36dc825c75964",
+      "artifact_identity": "screener_master_projection/v1:5d230427354a546876428233554c41db8f532e62039c4aa2b285669f13a74785",
       "reason_codes": []
     }
   },
@@ -107,11 +105,11 @@ window.BUILD_INFO = {
       "size_bytes": 143
     },
     "analysis_latest.json": {
-      "sha256": "e83d3d669587ea2adc299421b758899595debeb346b76776d21dccfd5bce72e8",
+      "sha256": "6d9940b5a16b81d2f18cefff617970833710ad6684887b0a55318482898a7fc7",
       "size_bytes": 4571
     },
     "bundle_manifest.json": {
-      "sha256": "457dfe5cd8c5faf4c2ff598bffb40c9beb7cfa0e2101403762c5afeed35d77e4",
+      "sha256": "29c7a870a66239cf0ce21bf139c5e49a08efa6a9037a3988682522f85abc7267",
       "size_bytes": 9117
     },
     "analysis_bundle.json": {
@@ -127,28 +125,28 @@ window.BUILD_INFO = {
       "size_bytes": 1684422
     },
     "data/macro_snapshot.json": {
-      "sha256": "bd253bf6ee7b80b4cd3bbabd6f67f9c74a0f2cbbb63445a3700ce4703a5a774e",
-      "size_bytes": 379565
+      "sha256": "a3739314044922fa56fecd6343acaa88656fa9eae0f8ccc31ea6346ea8986aea",
+      "size_bytes": 379716
     },
     "data/macro_snapshot.js": {
-      "sha256": "e33a503371294381f3b1bac6b3b7e45f481b183891dcd6d1ddf227fb10c27ff2",
-      "size_bytes": 379590
+      "sha256": "bf5bfeae404cf2eef7e32d1a8c25680defa0bc75c3d03f68ddd1279d17e02473",
+      "size_bytes": 379741
     },
     "data/current_decision_cockpit.json": {
       "sha256": "a11ed1b302f977a29df7cc62c0882be303468554b1a85c639670809dc5504aad",
       "size_bytes": 2084109
     },
     "data/investment_decision_workspace.json": {
-      "sha256": "c8cea54860e577cb218523472d21cf74909f3bca2f033e23ffc41edd09ebb209",
-      "size_bytes": 48238025
+      "sha256": "4405ce53598cc512bd86b60237bddcc3b6df55f02ecec6dd205922ac5c990fc9",
+      "size_bytes": 50311269
     },
     "data/screener_master_projection.json": {
-      "sha256": "0e2ccaf1af19e71088da9635acf150117237f396334c2ea84aa0e95842e36934",
-      "size_bytes": 5725333
+      "sha256": "3a859b337c2234d9905fd6ad9682393fc1470392973176d2e202817bab86cd51",
+      "size_bytes": 5722926
     },
     "data/screener_master_projection.js": {
-      "sha256": "b55923559c0671b9ae0c62f5a660c3ee22fade91ac07b0b02096ce93980bde1f",
-      "size_bytes": 4149676
+      "sha256": "9f9d8f7affa2361c4cbffc0aec258b316350fdd47aef9864215cc56f6c89f7c9",
+      "size_bytes": 4147237
     },
     "data/screener_data.js": {
       "sha256": "9b8766c859d1b3353d02df05c7af1e442259805dd8d176d18b26d629fee5670a",

@@ -369,7 +369,7 @@
               ${stanceEntryGuidance(card.research_stance, card.entry_action) ? `<div class="cockpit-note mt-2">${escHtml(stanceEntryGuidance(card.research_stance, card.entry_action))}</div>` : ""}
               <div class="mt-2"><b>Chất xúc tác (vì sao là lúc này)</b> ${pill((why.catalyst_evidence || {}).status, "evidence_state")}</div>
               <div class="mt-2"><b>Lý do xác định (bằng chứng ủng hộ)</b>${listHtml(why.deterministic_reasons, "rule_condition")}</div>
-              <div class="mt-2"><b>Bối cảnh đối trọng</b>${listHtml(why.counterbalancing_context)}</div>
+              <div class="mt-2"><b>Bối cảnh đối trọng</b>${listHtml(why.counterbalancing_context, "rule_condition")}</div>
               <div class="mt-2"><b>Cảnh báo</b>${listHtml((card.counter_thesis || {}).warnings, "rule_condition")}</div>
               <div class="mt-2"><b>Phản luận chính</b>${listHtml((card.counter_thesis || {}).key_counter_thesis, "rule_condition")}</div>
               <div class="mt-2"><b>Trục chưa có dữ liệu</b>${listHtml((card.counter_thesis || {}).unavailable_dimensions, "rule_condition")}</div>

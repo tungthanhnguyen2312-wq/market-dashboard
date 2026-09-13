@@ -42,7 +42,11 @@ test("Signals renders Tactical V2 without optional candle sidecars", () => {
   assert.equal(rows.length, 1683);
   assert.ok(rows.some((row) => signals.cohortStates.includes(row.state)));
   assert.ok(rows.some((row) => row.confirmation !== row.trigger));
-  assert.ok(rows.every((row) => row.invalidation === "UNAVAILABLE"));
+  // Exact-session tactical data (see TACTICAL_SESSION_DATE_AND_FRESHNESS_CONVERGENCE_V1) now
+  // populates real technical invalidation boundaries for eligible tickers, so invalidation is no
+  // longer universally UNAVAILABLE -- it is genuinely present for some rows and absent for others.
+  assert.ok(rows.some((row) => row.invalidation !== "UNAVAILABLE"));
+  assert.ok(rows.some((row) => row.invalidation === "UNAVAILABLE"));
   assert.ok(Object.values(workspace.cards).some((card) => card.invalidation?.fundamental?.status === "READY"));
   assert.equal(signals.actionLabel("BUY_ON_CONFIRMATION"), "CONDITIONAL_RESEARCH_STATE");
   const source = fs.readFileSync(path.join(root, "signals.html"), "utf8") + fs.readFileSync(path.join(root, "assets", "js", "signals-product.js"), "utf8");
