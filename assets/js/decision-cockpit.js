@@ -13,6 +13,10 @@
   const vf = (typeof window !== "undefined" && window.VSValueFormat)
     ? window.VSValueFormat
     : (typeof require === "function" ? require("./value-format.js") : {});
+  const productScope = root.VSProductScopeFormat || {
+    formatCount: (count) => String(count),
+    formatCoverage: ({ available, reference, label }) => `${available} / ${reference} mã tham chiếu ${label}`,
+  };
 
   const esc = vf.esc || ((v) => String(v ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c])));
   const unavailable = (v) => (v === null || v === undefined || v === "") ? "UNAVAILABLE" : v;
@@ -231,8 +235,12 @@
     const trendStr = (trend.above_ma20 != null || trend.at_or_below_ma20 != null)
       ? `${trend.above_ma20 ?? '—'} trên MA20 / ${trend.at_or_below_ma20 ?? '—'} tại/dưới`
       : 'Chưa có';
-    const covStr = (cov.same_session_technical_feature_available_count != null || cov.current_active_equity_denominator != null)
-      ? `${cov.same_session_technical_feature_available_count ?? '—'} / ${cov.current_active_equity_denominator ?? '—'}`
+    const covStr = cov.same_session_technical_feature_available_count != null
+      ? productScope.formatCoverage({
+        available: cov.same_session_technical_feature_available_count,
+        reference: 1683,
+        label: "có trạng thái kỹ thuật",
+      })
       : 'Chưa có';
     const cards = [
       card('Độ rộng thị trường', market.breadth_state, 'data_fitness'),

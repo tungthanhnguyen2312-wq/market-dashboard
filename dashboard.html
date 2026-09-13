@@ -121,7 +121,7 @@
           <div class="kpi kpi-featured">
             <div class="kpi-label"><i data-lucide="trending-up"></i>Mã tăng</div>
             <div class="kpi-value" id="kpi-session-up">—</div>
-            <div class="kpi-sub" id="kpi-session-up-sub">Độ rộng phiên trong số mã có dữ liệu giá</div>
+            <div class="kpi-sub" id="kpi-session-up-sub">Độ rộng phiên trong số mã có biến động giá đúng phiên</div>
           </div>
           <div class="kpi kpi-featured">
             <div class="kpi-label"><i data-lucide="minus"></i>Mã tham chiếu / gần 0</div>
@@ -131,7 +131,7 @@
           <div class="kpi">
             <div class="kpi-label"><i data-lucide="trending-down"></i>Mã giảm</div>
             <div class="kpi-value" id="kpi-session-down">—</div>
-            <div class="kpi-sub" id="kpi-session-down-sub">chỉ mã có dữ liệu giá</div>
+            <div class="kpi-sub" id="kpi-session-down-sub">chỉ mã có biến động giá đúng phiên</div>
           </div>
           <div class="kpi">
             <div class="kpi-label"><i data-lucide="droplets"></i>Thanh khoản nghiên cứu có dữ liệu</div>
@@ -163,8 +163,8 @@
                     <div class="form-label-sm mt-2" id="sector-coverage-note">Đang đọc độ phủ ngành…</div>
                   </div>
                   <div class="md:col-span-5">
-                    <div class="form-label-sm">Phân bố trạng thái kỹ thuật (chỉ mã có dữ liệu)</div>
-                    <div class="chart-box"><canvas id="chart-tactical" role="img" aria-label="Biểu đồ tròn: phân bố trạng thái kỹ thuật trong số mã có dữ liệu"></canvas></div>
+                    <div class="form-label-sm">Phân bố trạng thái kỹ thuật (chỉ mã có trạng thái)</div>
+                    <div class="chart-box"><canvas id="chart-tactical" role="img" aria-label="Biểu đồ tròn: phân bố trạng thái kỹ thuật trong số mã có trạng thái"></canvas></div>
                     <div class="form-label-sm mt-2" id="tactical-coverage-note">Đang đọc độ phủ kỹ thuật…</div>
                   </div>
                 </div>
@@ -329,9 +329,10 @@
   <!-- data/screener_data.js (fallback file://) KHÔNG còn tải tĩnh ở đây — app.js chỉ
        nạp động qua loadFallbackScript() khi thật sự cần (xem loadMarketTable). -->
   <script src="assets/js/value-format.js?v=2026-08-26-f54d70f-cff1036856" defer></script>
+  <script src="assets/js/product-scope-format.js?v=2026-09-13-product-semantics-v1" defer></script>
   <script src="assets/js/session-coherence.js" defer></script>
   <script src="assets/js/company-panel.js?v=2026-08-26-f54d70f-cff1036856" defer></script>
-  <script src="assets/js/dashboard-product-summary.js" defer></script>
-  <script src="app.js?v=2026-08-26-f54d70f-cff1036856" defer></script>
+  <script src="assets/js/dashboard-product-summary.js?v=2026-09-13-product-semantics-v1" defer></script>
+  <script src="app.js?v=2026-09-13-product-semantics-v1" defer></script>
 </body>
 </html>

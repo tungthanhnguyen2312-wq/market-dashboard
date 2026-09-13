@@ -52,6 +52,14 @@
     return null;
   }
 
+  function getProductScopeFormat() {
+    if (typeof window !== "undefined" && window.VSProductScopeFormat) return window.VSProductScopeFormat;
+    if (typeof require === "function") {
+      try { return require("./product-scope-format.js"); } catch (err) { return null; }
+    }
+    return null;
+  }
+
   function esc(value) {
     return String(value ?? "").replace(/[&<>"']/g, (c) => ({
       "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
@@ -83,6 +91,10 @@
     return Number.isFinite(n);
   }
 
+  function hasCurrentPrice(card) {
+    return Boolean(card && card.price && card.price.status === "PRICE_AVAILABLE");
+  }
+
   function isTacticalAvailable(card) {
     const tactical = card && card.tactical;
     return Boolean(tactical && tactical.status === "AVAILABLE" && tactical.entry_state);
@@ -108,6 +120,7 @@
   function summarizeScreenerOverview(projection) {
     const cards = Object.values((projection && projection.cards) || {});
     const denominator = cards.length;
+    const priceAvailable = cards.filter(hasCurrentPrice);
     const priced = cards.filter(isPriced);
     const up = priced.filter((card) => Number(card.price.change_pct) > 0).length;
     const down = priced.filter((card) => Number(card.price.change_pct) < 0).length;
@@ -144,14 +157,20 @@
     return {
       as_of_session: (projection && projection.as_of_session) || null,
       denominator,
+      reference_ticker_count: denominator,
+      current_research_scope_count: null,
+      price_available_count: priceAvailable.length,
+      tactical_available_count: tactical.length,
       session_breadth: {
         available: priced.length > 0,
         priced: priced.length,
         up,
         down,
         flat,
-        unpriced: denominator - priced.length,
-        label: "Độ rộng phiên trong số mã có dữ liệu giá",
+        price_available: priceAvailable.length,
+        unpriced: denominator - priceAvailable.length,
+        missing_session_return: priceAvailable.length - priced.length,
+        label: "Độ rộng phiên trong số mã có biến động giá đúng phiên",
       },
       research_stance: {
         available: denominator > 0,
@@ -202,6 +221,16 @@
       ? sc.staleBannerHtml("Tóm tắt tư thế nghiên cứu", coherence, "SCREENER_MASTER_PROJECTION_STALE")
       : "";
     const session = (sc ? sc.sessionLabelText(coherence) : null) || summary.as_of_session || "chưa xác định";
+    const scope = getProductScopeFormat();
+    const referenceScope = scope
+      ? scope.formatReferenceScope(summary.reference_ticker_count)
+      : `Phạm vi tham chiếu: ${summary.denominator.toLocaleString("vi-VN")} mã`;
+    const priceCoverage = scope
+      ? scope.formatCoverage({ available: summary.price_available_count, reference: summary.reference_ticker_count, label: "có dữ liệu giá đúng phiên" })
+      : `${summary.price_available_count.toLocaleString("vi-VN")} / ${summary.denominator.toLocaleString("vi-VN")} mã tham chiếu có dữ liệu giá đúng phiên`;
+    const tacticalCoverage = scope
+      ? scope.formatCoverage({ available: summary.tactical_available_count, reference: summary.reference_ticker_count, label: "có trạng thái kỹ thuật" })
+      : `${summary.tactical_available_count.toLocaleString("vi-VN")} / ${summary.denominator.toLocaleString("vi-VN")} mã tham chiếu có trạng thái kỹ thuật`;
     const cards = STANCE_ORDER.map((stance) => {
       const count = (summary.research_stance.counts || {})[stance] || 0;
       const tone = STANCE_TONE[stance] || "neutral";
@@ -209,7 +238,8 @@
     }).join("");
     return `
       ${staleBanner}
-      <p class="product-muted mb-3">Phiên ${esc(session)} · ${summary.denominator.toLocaleString("vi-VN")} mã. Đây là tóm tắt tư thế nghiên cứu, không phải lệnh thực hiện.</p>
+      <p class="product-muted mb-1">Phiên ${esc(session)} · ${esc(referenceScope)}.</p>
+      <p class="product-muted mb-3">${esc(priceCoverage)} · ${esc(tacticalCoverage)}. Đây là tóm tắt tư thế nghiên cứu, không phải lệnh thực hiện.</p>
       <div class="decision-summary-grid mb-3">${cards}</div>
       <div class="decision-summary-actions">
         <a class="vs-btn vs-btn-primary" href="investment-workspace.html">Mở Bàn quyết định</a>
@@ -228,13 +258,14 @@
   function renderMarketOverview(summary) {
     if (typeof document === "undefined" || !summary) return;
     const breadth = summary.session_breadth;
+    const scope = getProductScopeFormat();
     if (breadth.available) {
       fillText("kpi-session-up", breadth.up.toLocaleString("vi-VN"), "kpi-value val-pos");
       fillText("kpi-session-flat", breadth.flat.toLocaleString("vi-VN"), "kpi-value");
       fillText("kpi-session-down", breadth.down.toLocaleString("vi-VN"), "kpi-value val-neg");
-      fillText("kpi-session-up-sub", `${breadth.priced.toLocaleString("vi-VN")} / ${summary.denominator.toLocaleString("vi-VN")} mã có dữ liệu giá`);
+      fillText("kpi-session-up-sub", `${breadth.priced.toLocaleString("vi-VN")} / ${breadth.price_available.toLocaleString("vi-VN")} mã có biến động giá đủ tính độ rộng`);
       fillText("kpi-session-flat-sub", "tham chiếu / không đổi");
-      fillText("kpi-session-down-sub", `${breadth.unpriced.toLocaleString("vi-VN")} mã chưa có giá — không tính là đứng giá`);
+      fillText("kpi-session-down-sub", `${breadth.unpriced.toLocaleString("vi-VN")} mã tham chiếu chưa có giá đúng phiên — không tính là đứng giá`);
     } else {
       fillText("kpi-session-up", "Chưa có dữ liệu hiện tại", "kpi-value");
       fillText("kpi-session-flat", "Chưa có dữ liệu hiện tại", "kpi-value");
@@ -257,13 +288,15 @@
     const tacticalHost = document.getElementById("tactical-coverage-note");
     if (tacticalHost) {
       tacticalHost.textContent = summary.tactical.available
-        ? `${summary.tactical.coverage.toLocaleString("vi-VN")} / ${summary.denominator.toLocaleString("vi-VN")} có trạng thái kỹ thuật`
+        ? (scope
+          ? scope.formatCoverage({ available: summary.tactical.coverage, reference: summary.reference_ticker_count, label: "có trạng thái kỹ thuật" })
+          : `${summary.tactical.coverage.toLocaleString("vi-VN")} / ${summary.denominator.toLocaleString("vi-VN")} mã tham chiếu có trạng thái kỹ thuật`)
         : "Chưa có dữ liệu trạng thái kỹ thuật";
     }
     const sectorHost = document.getElementById("sector-coverage-note");
     if (sectorHost) {
       sectorHost.textContent = summary.sector.available
-        ? `${summary.sector.labeled.toLocaleString("vi-VN")} / ${summary.denominator.toLocaleString("vi-VN")} có nhãn ngành thực`
+        ? `${summary.sector.labeled.toLocaleString("vi-VN")} / ${summary.reference_ticker_count.toLocaleString("vi-VN")} mã tham chiếu có nhãn ngành thực`
         : "Chưa có dữ liệu ngành hiện tại";
     }
     renderOverviewCharts(summary);
@@ -381,6 +414,7 @@
     SCREENER_CONTRACT,
     STANCE_ORDER,
     TACTICAL_ORDER,
+    getProductScopeFormat,
     summarizeScreenerOverview,
     coverageText,
     missingMetricNeverZero,

@@ -187,6 +187,7 @@ test("overview uses current projection facts with explicit denominators", () => 
   const summary = overview.summarizeScreenerOverview(projection);
   const cards = Object.values(projection.cards);
   const priced = cards.filter((card) => card.price?.change_pct_status === "AVAILABLE" && Number.isFinite(Number(card.price?.change_pct)));
+  const priceAvailable = cards.filter((card) => card.price?.status === "PRICE_AVAILABLE");
   const tactical = cards.filter((card) => card.tactical?.status === "AVAILABLE" && card.tactical?.entry_state);
   const liquidityProxy = cards.filter((card) => card.liquidity?.fitness === "LIQUIDITY_RESEARCH_PROXY" || card.liquidity?.method === "LIQUIDITY_RESEARCH_PROXY");
   assert.equal(projection.coverage.ticker_denominator, 1683);
@@ -198,7 +199,10 @@ test("overview uses current projection facts with explicit denominators", () => 
   assert.equal(summary.session_breadth.available, true);
   assert.equal(summary.session_breadth.priced, priced.length);
   assert.equal(summary.session_breadth.up + summary.session_breadth.down + summary.session_breadth.flat, priced.length);
-  assert.equal(summary.session_breadth.unpriced, summary.denominator - priced.length);
+  assert.equal(summary.price_available_count, projection.coverage.price_available_count);
+  assert.equal(summary.session_breadth.price_available, priceAvailable.length);
+  assert.equal(summary.session_breadth.unpriced, summary.denominator - priceAvailable.length);
+  assert.equal(summary.session_breadth.missing_session_return, priceAvailable.length - priced.length);
   assert.equal(summary.tactical.coverage, projection.coverage.tactical_available_count);
   assert.equal(summary.tactical.coverage, tactical.length);
   assert.equal(summary.liquidity.proxy_count, liquidityProxy.length);

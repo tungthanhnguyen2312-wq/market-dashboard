@@ -230,17 +230,29 @@
     return null;
   }
 
+  function getProductScopeFormat() {
+    if (typeof window !== "undefined" && window.VSProductScopeFormat) return window.VSProductScopeFormat;
+    if (typeof require === "function") {
+      try { return require("./product-scope-format.js"); } catch (err) { return null; }
+    }
+    return null;
+  }
+
   function render(workspace) {
     const rows = records(workspace);
     const counts = rows.reduce((out, row) => ({ ...out, [row.state]: (out[row.state] || 0) + 1 }), {});
     const vf = getValueFormat();
+    const scope = getProductScopeFormat();
     const sc = getSessionCoherence();
     const coherence = sc ? sc.classify(workspace.as_of_session, sc.currentReleaseSession()) : null;
     const staleBanner = sc && coherence && sc.isConfirmedStale(coherence)
       ? sc.staleBannerHtml("Tín hiệu kỹ thuật", coherence, "INVESTMENT_DECISION_WORKSPACE_STALE")
       : "";
     document.getElementById("signals-content").hidden = false;
-    document.getElementById("signals-meta").innerHTML = `${staleBanner}Phiên tín hiệu kỹ thuật được giữ lại ${esc(workspace.as_of_session)} · ${rows.length.toLocaleString("vi-VN")} mã${vf && vf.provenanceHtml ? vf.provenanceHtml(workspace.producer_artifact_identity) : ""}`;
+    const referenceScope = scope
+      ? scope.formatReferenceScope(rows.length)
+      : `Phạm vi tham chiếu: ${rows.length.toLocaleString("vi-VN")} mã`;
+    document.getElementById("signals-meta").innerHTML = `${staleBanner}Phiên tín hiệu kỹ thuật được giữ lại ${esc(workspace.as_of_session)} · ${esc(referenceScope)}${vf && vf.provenanceHtml ? vf.provenanceHtml(workspace.producer_artifact_identity) : ""}`;
     document.getElementById("tactical-cohorts").innerHTML = cohortStates.map((state) => `<a class="tactical-card" href="#tactical-table" data-state="${esc(state)}" title="${esc(state)}"><span>${esc(labelOf(state, "tactical_state"))}</span><strong>${counts[state] || 0}</strong><small>Mở Bàn quyết định để xem thẻ đầy đủ</small></a>`).join("");
     const filter = document.getElementById("tactical-filter");
     Object.keys(counts).sort().forEach((state) => {

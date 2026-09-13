@@ -700,11 +700,11 @@ function renderHeroBanner(buildInfo, rows) {
         <div>
           <div class="d-flex align-items-center gap-2 flex-wrap mb-1">
             <span class="badge-soft bs-blue">Phiên ${esc(displayDate)}</span>
-            <span class="badge-soft bs-blue">Bản phân tích chính thức</span>
-            <span class="badge-soft bs-gray">${totalCount} mã khảo sát</span>
+            <span class="badge-soft bs-blue">Bảng sàng lọc kế thừa</span>
+            <span class="badge-soft bs-gray">Phạm vi riêng: ${totalCount} mã</span>
           </div>
           <div class="text-xs text-muted">
-            Dữ liệu tổng hợp phiên <strong>${esc(displayDate)}</strong>. Độ rộng, tư thế nghiên cứu và thanh khoản nghiên cứu được đọc từ projection hiện tại — không suy từ MA200 / GTGD20 khi các trường đó không được công bố.
+            Snapshot sàng lọc phiên <strong>${esc(displayDate)}</strong>, tách biệt với phạm vi tham chiếu của Bàn quyết định. Độ rộng, tư thế nghiên cứu và thanh khoản nghiên cứu hiện tại được đọc từ projection riêng — không suy từ MA200 / GTGD20 khi các trường đó không được công bố.
           </div>
         </div>
         <div>

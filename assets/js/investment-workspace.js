@@ -11,6 +11,14 @@
   const PORTFOLIO_STORAGE_KEY = "stocklookup.portfolio-research.v1";
   const RELATIVE_VALUATION_LABELS = ["ATTRACTIVE_RELATIVE_RESEARCH", "EXPENSIVE_RELATIVE_RESEARCH"];
 
+  function getProductScopeFormat() {
+    if (typeof window !== "undefined" && window.VSProductScopeFormat) return window.VSProductScopeFormat;
+    if (typeof require === "function") {
+      try { return require("./product-scope-format.js"); } catch (err) { return null; }
+    }
+    return null;
+  }
+
   function validateWorkspaceContract(workspace) {
     return Boolean(
       workspace &&
@@ -499,8 +507,9 @@
         document.getElementById("analysis-row-count").textContent = `${rows.length} / ${Object.keys(WORKSPACE.cards).length}`;
         const cov = WORKSPACE.coverage || {};
         const total = Object.keys(WORKSPACE.cards).length;
+        const scope = getProductScopeFormat();
         document.getElementById("analysis-summary").innerHTML = [
-          analysisKpi("Phạm vi thị trường", `${total.toLocaleString("vi-VN")} thẻ quyết định`),
+          analysisKpi("Phạm vi sản phẩm", scope ? `${scope.formatCount(total)} thẻ quyết định` : `${total.toLocaleString("vi-VN")} thẻ quyết định`),
           analysisKpi("Tư thế nghiên cứu", `${Object.keys(cov.research_stance_distribution || {}).length} nhóm nghiên cứu`),
           analysisKpi("Trạng thái kỹ thuật", `${Object.keys(cov.entry_state_distribution || {}).length} trạng thái được giữ lại`),
           analysisKpi("Trục dữ liệu đã cũ", `${cov.stale_axis_present_count != null ? cov.stale_axis_present_count.toLocaleString("vi-VN") : "—"} nêu rõ, không ép về hiện tại`),
@@ -595,12 +604,21 @@
         const drawerBadge = document.getElementById("decision-drawer-badge");
         if (drawerBadge) drawerBadge.innerHTML = pill(card.research_stance, "research_stance");
         const screenerLink = document.getElementById("drawer-screener-link");
-        if (screenerLink) screenerLink.href = `screener.html?ticker=${encodeURIComponent(ticker)}`;
+        if (screenerLink) {
+          screenerLink.href = `screener.html?ticker=${encodeURIComponent(ticker)}`;
+          if (typeof screenerLink.removeAttribute === "function") screenerLink.removeAttribute("aria-disabled");
+        }
       }
 
       // Explicit not-found state for a requested ticker/hash that does not resolve to a real card.
       // Never falls back to rendering a different ticker's decision card.
       function showTickerNotFound(requestedTicker) {
+        SELECTED_TICKER = null;
+        const select = document.getElementById("ticker-select");
+        if (select) {
+          select.selectedIndex = -1;
+          select.setAttribute("aria-invalid", "true");
+        }
         const inPageEl = document.getElementById("decision-card");
         const drawerEl = document.getElementById("decision-drawer-body");
         const err = `<div class="cockpit-note" data-drawer-unavailable="true">Không tìm thấy mã "${escHtml(requestedTicker)}". Không chọn mã thay thế.</div>`;
@@ -610,6 +628,11 @@
         if (drawerTicker) drawerTicker.textContent = requestedTicker || "—";
         const drawerBadge = document.getElementById("decision-drawer-badge");
         if (drawerBadge) drawerBadge.innerHTML = "";
+        const screenerLink = document.getElementById("drawer-screener-link");
+        if (screenerLink) {
+          if (typeof screenerLink.removeAttribute === "function") screenerLink.removeAttribute("href");
+          screenerLink.setAttribute("aria-disabled", "true");
+        }
       }
 
       function selectTicker(ticker, opts) {
@@ -617,6 +640,7 @@
         SELECTED_TICKER = ticker;
         const select = document.getElementById("ticker-select");
         if (select) select.value = ticker;
+        if (select && typeof select.removeAttribute === "function") select.removeAttribute("aria-invalid");
         showDecisionCard(ticker);
         renderList();
 
@@ -646,7 +670,11 @@
         const staleBanner = sc && coherence && sc.isConfirmedStale(coherence)
           ? sc.staleBannerHtml("Bàn quyết định", coherence, "INVESTMENT_DECISION_WORKSPACE_STALE")
           : "";
-        document.getElementById("session-line").innerHTML = `${staleBanner}Phiên ${esc(sessionLabel)} · ${Object.keys(data.cards).length} mã${provenanceBlock(data.producer_artifact_identity)}`;
+        const scope = getProductScopeFormat();
+        const referenceScope = scope
+          ? scope.formatProductScope(Object.keys(data.cards).length)
+          : `Phạm vi sản phẩm: ${Object.keys(data.cards).length.toLocaleString("vi-VN")} mã`;
+        document.getElementById("session-line").innerHTML = `${staleBanner}Phiên ${esc(sessionLabel)} · ${esc(referenceScope)}${provenanceBlock(data.producer_artifact_identity)}`;
         renderFilterChips();
         renderList();
         const queryView = new URLSearchParams(window.location.search).get("view");
