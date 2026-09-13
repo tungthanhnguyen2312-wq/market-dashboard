@@ -185,20 +185,31 @@ test("missing metric is never rendered as numeric zero and legacy KPIs are gone"
 
 test("overview uses current projection facts with explicit denominators", () => {
   const summary = overview.summarizeScreenerOverview(projection);
-  assert.equal(summary.denominator, 1683);
+  const cards = Object.values(projection.cards);
+  const priced = cards.filter((card) => card.price?.change_pct_status === "AVAILABLE" && Number.isFinite(Number(card.price?.change_pct)));
+  const tactical = cards.filter((card) => card.tactical?.status === "AVAILABLE" && card.tactical?.entry_state);
+  const liquidityProxy = cards.filter((card) => card.liquidity?.fitness === "LIQUIDITY_RESEARCH_PROXY" || card.liquidity?.method === "LIQUIDITY_RESEARCH_PROXY");
+  assert.equal(projection.coverage.ticker_denominator, 1683);
+  assert.equal(projection.coverage.price_available_count, 952);
+  assert.equal(projection.coverage.tactical_available_count, 951);
+  assert.equal(projection.coverage.financial_v2_available_count, 1476);
+  assert.equal(projection.coverage.sector_available_count, 1678);
+  assert.equal(summary.denominator, projection.coverage.ticker_denominator);
   assert.equal(summary.session_breadth.available, true);
-  assert.equal(summary.session_breadth.priced, 942);
-  assert.equal(summary.session_breadth.up + summary.session_breadth.down + summary.session_breadth.flat, 942);
-  assert.equal(summary.session_breadth.unpriced, 741);
-  assert.equal(summary.tactical.coverage, 942);
-  assert.equal(summary.liquidity.proxy_count, 935);
+  assert.equal(summary.session_breadth.priced, priced.length);
+  assert.equal(summary.session_breadth.up + summary.session_breadth.down + summary.session_breadth.flat, priced.length);
+  assert.equal(summary.session_breadth.unpriced, summary.denominator - priced.length);
+  assert.equal(summary.tactical.coverage, projection.coverage.tactical_available_count);
+  assert.equal(summary.tactical.coverage, tactical.length);
+  assert.equal(summary.liquidity.proxy_count, liquidityProxy.length);
   assert.equal(summary.liquidity.execution_exact_established, false);
   assert.ok(summary.sector.available);
   assert.ok(summary.sector.rows.some((row) => row.label === "Tài nguyên Cơ bản"));
   assert.ok(!summary.sector.rows.some((row) => ["corporate", "bank", "securities"].includes(String(row.label).toLowerCase())));
-  assert.equal(summary.research_stance.counts.WAIT_FOR_CONFIRMATION, 886);
+  assert.equal(summary.research_stance.counts.WAIT_FOR_CONFIRMATION, projection.coverage.research_stance_distribution.WAIT_FOR_CONFIRMATION);
   const html = overview.renderDecisionSummaryHtml(summary);
-  assert.match(html, /Quyết định nghiên cứu hiện tại|Phiên 2026-08-28/);
+  assert.equal(projection.as_of_session, "2026-09-11");
+  assert.match(html, new RegExp(`Quyết định nghiên cứu hiện tại|Phiên ${projection.as_of_session}`));
   assert.match(html, /Mở Bàn quyết định|Mở Không gian quyết định/);
   assert.match(html, /Phân tích đa trục/);
   assert.match(html, /Bộ lọc/);
@@ -233,32 +244,29 @@ test("technical structure pills localize visible text and keep raw identity in d
   }
 });
 
-test("rule-condition visible text is localized with raw identity in technical detail", () => {
+test("rule-condition and current Workspace readiness text are localized with raw identity retained", () => {
   assert.equal(vf.formatRuleCondition("TACTICAL_STATE_AWAITING_CONFIRMATION"), "Chờ xác nhận điều kiện kỹ thuật");
   assert.equal(vf.formatRuleCondition("WAIT_FOR_CONFIRMATION"), "Chờ xác nhận điều kiện kỹ thuật");
+  assert.equal(vf.formatRuleCondition("PROFITABILITY_STATE_REVERSAL"), "Đảo chiều trạng thái lợi nhuận");
   assert.equal(vf.formatDomainState("UNKNOWN_MACHINE_RULE_XYZ", "rule_condition").label, "Điều kiện kỹ thuật");
   assert.equal(vf.formatDomainState("UNKNOWN_MACHINE_RULE_XYZ", "rule_condition").raw, "UNKNOWN_MACHINE_RULE_XYZ");
   const card = workspace.cards.HPG;
   const html = ws.decisionCardHtml(card, { ticker: "HPG", sourceArtifacts: workspace.source_artifacts });
   const visible = primaryVisibleText(html);
-  assert.match(visible, /Chờ xác nhận điều kiện kỹ thuật/);
-  assert.match(visible, /Suy yếu kỹ thuật/);
+  assert.equal(card.research_stance_readiness, "RESEARCH_CONDITIONAL");
+  assert.equal(vf.formatDomainState(card.research_stance_readiness, "research_readiness").label, "Nghiên cứu có điều kiện");
+  assert.match(visible, /Nghiên cứu có điều kiện/);
+  assert.match(visible, /Trục kỹ thuật không thuộc phiên hiện tại/);
   assert.match(visible, /Nền tảng doanh nghiệp có lợi nhuận/);
-  assert.match(visible, /Điều kiện nâng cấp sang đảo chiều/);
-  assert.match(visible, /Giá đóng cửa tương lai trên MA20/);
-  assert.match(visible, /Rủi ro phá vỡ hỗ trợ tái diễn/);
-  assert.match(visible, /Suy giảm chất lượng lợi nhuận/);
-  assert.match(html, /data-state="TACTICAL_STATE_AWAITING_CONFIRMATION"|data-condition="EASING_TO_REVERSAL_UPGRADE"/);
-  assert.match(html, /<details class="vs-tech-details">[\s\S]*FUTURE_CLOSE_GT_FUTURE_MA20/);
-  assert.match(html, /<details class="vs-tech-details">[\s\S]*RENEWED_BREAKDOWN_RISK/);
+  assert.match(visible, /Đảo chiều trạng thái lợi nhuận/);
+  assert.match(html, /data-state="RESEARCH_CONDITIONAL"/);
+  assert.match(html, /data-condition="PROFITABILITY_STATE_REVERSAL"/);
+  assert.match(html, /<details class="vs-tech-details">[\s\S]*PROFITABILITY_STATE_REVERSAL/);
   for (const raw of [
-    "TACTICAL_STATE_AWAITING_CONFIRMATION",
-    "TECHNICAL_DETERIORATION",
+    "RESEARCH_CONDITIONAL",
+    "TACTICAL_AXIS_NOT_CURRENT",
     "PROFITABLE_FUNDAMENTAL",
-    "FUTURE_CLOSE_GT_FUTURE_MA20",
-    "EASING_TO_REVERSAL_UPGRADE",
-    "RENEWED_BREAKDOWN_RISK",
-    "COMPATIBLE_PROFITABILITY_QUALITY_DETERIORATION",
+    "PROFITABILITY_STATE_REVERSAL",
   ]) {
     assert.doesNotMatch(visible, new RegExp(raw));
   }
