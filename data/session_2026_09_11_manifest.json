@@ -61,9 +61,9 @@
     "positive_20d_momentum_count": 273,
     "unchanged": 193
   },
-  "producer_commit": "78457cdfc780024bb153df422b3c3024b87f2df8",
+  "producer_commit": "325a26657ad9b5e96e3bcf3529f01bca98b1720d",
   "producer_commit_semantics": "pre_publication_producer_head",
-  "producer_commit_summary": "fix(daily): import load_registry to fix Daily release blocker",
+  "producer_commit_summary": "fix(research): align event catalyst decision semantics",
   "prospective_cohort_identity": "prospective_research_cohort_snapshot:45079a6c35b843161ce13dc0220d4957316b6a78186619ba475a75cf094ddccf",
   "schema_version": "1.0.0",
   "source_artifacts": {

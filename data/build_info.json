@@ -2,10 +2,10 @@
   "schema_version": "dashboard_build_info/v1",
   "market_session": "2026-09-11",
   "producer_run_identity": "5e5db7b46737b2170bb64880042eb581bd159dfebdcb7eb1372885822dafb4f1",
-  "dashboard_release_identity": "dashboard_release:08b40c53c469015960752972c9da193932f3a15079beffc2957edbbe420f89be",
-  "build_id": "08b40c53c4",
-  "generated_at": "2026-09-11T10:12:16.990212+00:00",
-  "published_at": "2026-09-11T10:12:16.990212+00:00",
+  "dashboard_release_identity": "dashboard_release:4bfd5d5f32910d262ef48cddebfc608e4e2f96ac69325cfe18cd3e8c268aae92",
+  "build_id": "4bfd5d5f32",
+  "generated_at": "2026-09-13T01:07:31.335408+00:00",
+  "published_at": "2026-09-13T01:07:31.335408+00:00",
   "release_status": "READY",
   "domains": {
     "screening": {
@@ -77,6 +77,20 @@
       "freshness": "EXACT_SESSION",
       "generated_at": null,
       "reason_codes": []
+    },
+    "investment_workspace": {
+      "status": "CURRENT",
+      "source_session": "2026-09-11",
+      "freshness": "EXACT_SESSION",
+      "artifact_identity": "investment_decision_workspace_projection/v1:f735fa33bfe673c3a154a2148da6c164e63271de18a257ee44663968b6d886bd",
+      "reason_codes": []
+    },
+    "screener_master": {
+      "status": "CURRENT",
+      "source_session": "2026-09-11",
+      "freshness": "EXACT_SESSION",
+      "artifact_identity": "screener_master_projection/v1:7cb8f71c2c0ae6f9eca003757766e2333b2bf6e88999bd8dd4d36dc825c75964",
+      "reason_codes": []
     }
   },
   "files": {
@@ -124,17 +138,29 @@
       "sha256": "a11ed1b302f977a29df7cc62c0882be303468554b1a85c639670809dc5504aad",
       "size_bytes": 2084109
     },
+    "data/investment_decision_workspace.json": {
+      "sha256": "c8cea54860e577cb218523472d21cf74909f3bca2f033e23ffc41edd09ebb209",
+      "size_bytes": 48238025
+    },
+    "data/screener_master_projection.json": {
+      "sha256": "0e2ccaf1af19e71088da9635acf150117237f396334c2ea84aa0e95842e36934",
+      "size_bytes": 5725333
+    },
+    "data/screener_master_projection.js": {
+      "sha256": "b55923559c0671b9ae0c62f5a660c3ee22fade91ac07b0b02096ce93980bde1f",
+      "size_bytes": 4149676
+    },
     "data/screener_data.js": {
       "sha256": "9b8766c859d1b3353d02df05c7af1e442259805dd8d176d18b26d629fee5670a",
       "size_bytes": 2010412
     },
     "data/session_2026_09_11_manifest.json": {
-      "sha256": "0d596f2e185ced0c3ccb6fc63a3f355341547a55f74a3bc07b9db9a9cd5ab674",
-      "size_bytes": 9230
+      "sha256": "4ca0aa8abf462dd29764898973f6d768baf87043b19e79ea4080a6e21d1e2564",
+      "size_bytes": 9223
     },
     "report-2026-09-11.html": {
-      "sha256": "d465bb68c4c9b36488de0d22bc00144acb0670d9b373629c1aa4ec8342b1dbae",
-      "size_bytes": 6580
+      "sha256": "cc41e357ee7651439b53b5e5cfda4b939e25ad325fa87dc4d6f187824b3a7512",
+      "size_bytes": 6573
     }
   },
   "hero_summary": {
