@@ -253,11 +253,16 @@ async function loadMasterProjection() {
 async function loadWorkspaceProjection() {
   try {
     const payload = await loadJson(window.VSScreenerMaster.WORKSPACE_URL);
-    if (payload && payload.schema_version === window.VSScreenerMaster.WORKSPACE_SCHEMA && payload.cards) return payload;
+    if (window.VSScreenerMaster.validateWorkspaceProjection(payload)) return payload;
   } catch (error) {
     console.warn("CURRENT_PRODUCT_ARTIFACT_NOT_PUBLISHED", error);
   }
-  return { schema_version: window.VSScreenerMaster.WORKSPACE_SCHEMA, cards: {}, as_of_session: null };
+  return {
+    schema_version: window.VSScreenerMaster.WORKSPACE_SCHEMA_VERSION,
+    contract_version: window.VSScreenerMaster.WORKSPACE_CONTRACT_VERSION,
+    cards: {},
+    as_of_session: null,
+  };
 }
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const VI = { search: "Tìm:", info: "Hiện _START_–_END_ / _TOTAL_ dòng",

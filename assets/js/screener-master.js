@@ -9,7 +9,11 @@
   const DATA_URL = "data/screener_master_projection.json";
   const JS_FALLBACK = "data/screener_master_projection.js";
   const WORKSPACE_URL = "data/investment_decision_workspace.json";
-  const WORKSPACE_SCHEMA = "investment_decision_workspace_dashboard_projection/v1";
+  // The Workspace schema and its contract are deliberately distinct fields.
+  // A current payload must satisfy both; accepting either legacy identifier
+  // would make the Screener drawer consume a different product contract.
+  const WORKSPACE_SCHEMA_VERSION = "1.0.0";
+  const WORKSPACE_CONTRACT_VERSION = "investment_decision_workspace_projection/v1";
   const ENTITY_CLASS_VOCABULARY = ["corporate", "bank", "securities", "insurance", "finance_company"];
 
   function normalizeTicker(value) {
@@ -149,13 +153,13 @@
   function drawerIdentity(tableTicker, selectedTicker, workspaceCard) {
     const table = normalizeTicker(tableTicker);
     const selected = normalizeTicker(selectedTicker);
-    const workspace = workspaceCard ? normalizeTicker(workspaceCard.ticker || selected) : selected;
+    const workspace = workspaceCard ? normalizeTicker(workspaceCard.ticker || selected) : null;
     return {
       table,
       selected,
       workspace,
       drawer: selected,
-      ok: Boolean(table) && table === selected && table === workspace,
+      ok: Boolean(table) && Boolean(workspace) && table === selected && table === workspace,
     };
   }
 
@@ -169,9 +173,24 @@
     );
   }
 
+  function validateWorkspaceProjection(payload) {
+    const cards = payload && payload.cards;
+    return Boolean(
+      payload &&
+      typeof payload === "object" &&
+      !Array.isArray(payload) &&
+      payload.schema_version === WORKSPACE_SCHEMA_VERSION &&
+      payload.contract_version === WORKSPACE_CONTRACT_VERSION &&
+      cards &&
+      typeof cards === "object" &&
+      !Array.isArray(cards) &&
+      Object.keys(cards).length > 0
+    );
+  }
+
   return {
-    CONTRACT_VERSION, DATA_URL, JS_FALLBACK, WORKSPACE_URL, WORKSPACE_SCHEMA, ENTITY_CLASS_VOCABULARY,
+    CONTRACT_VERSION, DATA_URL, JS_FALLBACK, WORKSPACE_URL, WORKSPACE_SCHEMA_VERSION, WORKSPACE_CONTRACT_VERSION, ENTITY_CLASS_VOCABULARY,
     normalizeTicker, formatSessionPercent, formatPrice, formatSector, formatLiquidity, formatFinancial,
-    formatFreshness, translateStatus, projectionRows, matchesScreenerFilters, drawerIdentity, validateProjection,
+    formatFreshness, translateStatus, projectionRows, matchesScreenerFilters, drawerIdentity, validateProjection, validateWorkspaceProjection,
   };
 });

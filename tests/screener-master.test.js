@@ -7,6 +7,8 @@ const ws = require("../assets/js/investment-workspace.js");
 
 const html = fs.readFileSync(path.join(__dirname, "..", "screener.html"), "utf8");
 const script = fs.readFileSync(path.join(__dirname, "..", "assets/js/screener-master.js"), "utf8");
+const currentWorkspace = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "data", "investment_decision_workspace.json"), "utf8"));
+const currentScreener = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "data", "screener_master_projection.json"), "utf8"));
 
 function card(overrides) {
   return Object.assign({
@@ -91,8 +93,50 @@ test("drawer ticker identity does not reroute to another ticker", () => {
   const missing = sm.drawerIdentity("AAA", "AAA", null);
   assert.equal(missing.table, "AAA");
   assert.equal(missing.selected, "AAA");
+  assert.equal(missing.workspace, null);
   assert.equal(missing.drawer, "AAA");
+  assert.equal(missing.ok, false);
   assert.notEqual(missing.drawer, "HPG");
+});
+
+test("Screener accepts only the current canonical Workspace schema and contract", () => {
+  assert.equal(sm.validateWorkspaceProjection(currentWorkspace), true);
+  assert.equal(currentWorkspace.schema_version, sm.WORKSPACE_SCHEMA_VERSION);
+  assert.equal(currentWorkspace.contract_version, sm.WORKSPACE_CONTRACT_VERSION);
+  assert.match(html, /validateWorkspaceProjection\(payload\)/);
+
+  const legacyContract = { ...currentWorkspace, contract_version: "investment_decision_workspace_dashboard_projection/v1" };
+  const wrongSchema = { ...currentWorkspace, schema_version: "2.0.0" };
+  const missingContract = { ...currentWorkspace };
+  delete missingContract.contract_version;
+  assert.equal(sm.validateWorkspaceProjection(legacyContract), false);
+  assert.equal(sm.validateWorkspaceProjection(wrongSchema), false);
+  assert.equal(sm.validateWorkspaceProjection(missingContract), false);
+  assert.equal(sm.validateWorkspaceProjection({ ...currentWorkspace, cards: undefined }), false);
+  assert.equal(sm.validateWorkspaceProjection({ ...currentWorkspace, cards: [] }), false);
+  assert.equal(sm.validateWorkspaceProjection({ ...currentWorkspace, cards: {} }), false);
+  assert.equal(sm.validateWorkspaceProjection(null), false);
+});
+
+test("current Screener rows open their own canonical Workspace cards without substitution", () => {
+  for (const ticker of ["HPG", "FPT", "SSI", "VCB"]) {
+    const row = currentScreener.cards[ticker];
+    const workspaceCard = currentWorkspace.cards[ticker];
+    assert.ok(row, `${ticker} Screener row exists`);
+    assert.ok(workspaceCard, `${ticker} Workspace card exists`);
+    const identity = sm.drawerIdentity(row.ticker, ticker, workspaceCard);
+    assert.equal(identity.ok, true, `${ticker} drawer identity`);
+    assert.equal(identity.table, ticker);
+    assert.equal(identity.selected, ticker);
+    assert.equal(identity.workspace, ticker);
+    const rendered = ws.renderDecisionCard(workspaceCard, null, { ticker });
+    assert.match(rendered, new RegExp(`data-decision-ticker="${ticker}"`));
+    assert.equal(ws.selectedTickerForDeepLink(Object.keys(currentWorkspace.cards), ticker.toLowerCase()), ticker);
+  }
+  const unknown = sm.drawerIdentity("UNKNOWN", "UNKNOWN", null);
+  assert.equal(unknown.ok, false);
+  assert.equal(unknown.drawer, "UNKNOWN");
+  assert.equal(ws.selectedTickerForDeepLink(Object.keys(currentWorkspace.cards), "UNKNOWN"), null);
 });
 
 test("workspace renderer is reused and does not recompute decisions", () => {
