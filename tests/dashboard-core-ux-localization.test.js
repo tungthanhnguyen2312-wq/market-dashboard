@@ -191,8 +191,8 @@ test("overview uses current projection facts with explicit denominators", () => 
   const tactical = cards.filter((card) => card.tactical?.status === "AVAILABLE" && card.tactical?.entry_state);
   const liquidityProxy = cards.filter((card) => card.liquidity?.fitness === "LIQUIDITY_RESEARCH_PROXY" || card.liquidity?.method === "LIQUIDITY_RESEARCH_PROXY");
   assert.equal(projection.coverage.ticker_denominator, 1683);
-  assert.equal(projection.coverage.price_available_count, 952);
-  assert.equal(projection.coverage.tactical_available_count, 951);
+  assert.equal(projection.coverage.price_available_count, 853);
+  assert.equal(projection.coverage.tactical_available_count, 852);
   assert.equal(projection.coverage.financial_v2_available_count, 1476);
   assert.equal(projection.coverage.sector_available_count, 1678);
   assert.equal(summary.denominator, projection.coverage.ticker_denominator);
@@ -212,7 +212,7 @@ test("overview uses current projection facts with explicit denominators", () => 
   assert.ok(!summary.sector.rows.some((row) => ["corporate", "bank", "securities"].includes(String(row.label).toLowerCase())));
   assert.equal(summary.research_stance.counts.WAIT_FOR_CONFIRMATION, projection.coverage.research_stance_distribution.WAIT_FOR_CONFIRMATION);
   const html = overview.renderDecisionSummaryHtml(summary);
-  assert.equal(projection.as_of_session, "2026-09-11");
+  assert.equal(projection.as_of_session, "2026-09-14");
   assert.match(html, new RegExp(`Quyết định nghiên cứu hiện tại|Phiên ${projection.as_of_session}`));
   assert.match(html, /Mở Bàn quyết định|Mở Không gian quyết định/);
   assert.match(html, /Phân tích đa trục/);

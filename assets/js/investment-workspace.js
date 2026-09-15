@@ -372,6 +372,10 @@
           <div class="cockpit-detail-grid">
             <div class="card"><div class="card-header"><h6>Quyết định</h6></div><div class="card-body">
               <b>Mã</b> ${escHtml(ticker)} · <b>Ngành</b> ${sectorDisplayHtml(card.sector)}<br>
+              <div class="mt-1"><b>Phạm vi nghiên cứu chính thức</b> ${card.official_research_scope ? pill(card.official_research_scope.scope_bucket, "official_scope") : pill(null, "official_scope")}${
+                card.official_research_scope && card.official_research_scope.current_research_scope_reason
+                  ? ` <span class="cockpit-note">${escHtml(card.official_research_scope.current_research_scope_reason)}</span>` : ""
+              }</div>
               <div class="mt-1"><b>Tư thế nghiên cứu</b> ${pill(card.research_stance, "research_stance")} <span class="cockpit-note">(kết luận nghiên cứu chính)</span></div>
               <div class="mt-1"><b>Mức sẵn sàng kỹ thuật</b> ${pill(card.entry_action, "entry_action")} <span class="cockpit-note">thiết lập kỹ thuật: ${pill(card.entry_state, "tactical_state")}</span>${VETO_RESEARCH_STANCES.has(card.research_stance) ? ' <span class="cockpit-state blocked">Không phải tín hiệu mua</span>' : ""}</div>
               ${stanceEntryGuidance(card.research_stance, card.entry_action) ? `<div class="cockpit-note mt-2">${escHtml(stanceEntryGuidance(card.research_stance, card.entry_action))}</div>` : ""}

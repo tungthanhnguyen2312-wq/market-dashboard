@@ -140,6 +140,7 @@
               <label>Tài chính<select id="screen-financial"><option value="">Tất cả</option><option value="AVAILABLE">Có dữ liệu</option><option value="ABSENT">Chưa có dữ liệu tài chính</option></select></label>
               <label>Thanh khoản nghiên cứu<select id="screen-liquidity"><option value="">Tất cả</option><option value="PROXY">Proxy nghiên cứu</option></select></label>
               <label>Độ mới<select id="screen-freshness"><option value="">Tất cả</option><option value="CURRENT">Hiện tại</option><option value="NOT_CURRENT">Không hiện tại</option></select></label>
+              <label>Phạm vi chính thức<select id="screen-official-scope"><option value="">Tất cả</option><option value="IN_CURRENT_OFFICIAL_RESEARCH_SCOPE">Trong phạm vi hiện tại</option><option value="OUTSIDE_CURRENT_OFFICIAL_RESEARCH_SCOPE">Ngoài phạm vi hiện tại</option><option value="CURRENT_OFFICIAL_SCOPE_UNKNOWN">Chưa xác định</option></select></label>
             </div>
             <div class="table-responsive">
               <table id="tblScreen" class="table table-striped table-hover table-sm vs-datatable w-100"></table>
@@ -285,6 +286,7 @@ function currentFilters() {
     financial: document.getElementById("screen-financial").value,
     liquidity: document.getElementById("screen-liquidity").value,
     freshness: document.getElementById("screen-freshness").value,
+    officialScope: document.getElementById("screen-official-scope").value,
   };
 }
 function fillSelect(id, values) {
@@ -380,9 +382,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const provenance = vf && typeof vf.provenanceHtml === "function"
     ? vf.provenanceHtml([projection.contract_version, projection.artifact_identity, workspace && workspace.producer_artifact_identity].filter(Boolean).join("\n"))
     : "";
+  const scopeFmt = window.VSProductScopeFormat;
+  const officialScope = projection.official_scope_coverage;
+  const officialScopeCoherent = Boolean(officialScope && officialScope.temporally_eligible && officialScope.research_session === projection.as_of_session);
+  const officialScopeText = scopeFmt && officialScopeCoherent
+    ? ` · ${esc(scopeFmt.formatOfficialResearchScope(officialScope.current_official_research_scope_count))} · ${esc(scopeFmt.formatOutsideOfficialScope(officialScope.outside_current_official_scope_count))}`
+    : "";
   document.getElementById("meta").innerHTML =
     staleBanner
-    + `${window.VSProductScopeFormat ? window.VSProductScopeFormat.formatReferenceScope(MASTER_ROWS.length) : `Phạm vi tham chiếu: ${MASTER_ROWS.length.toLocaleString("vi-VN")} mã`} · phiên ${esc(marketSession)}`
+    + `${scopeFmt ? scopeFmt.formatReferenceScope(MASTER_ROWS.length) : `Phạm vi tham chiếu: ${MASTER_ROWS.length.toLocaleString("vi-VN")} mã`} · phiên ${esc(marketSession)}`
+    + officialScopeText
     + (workspace && workspace.as_of_session ? ` · Bàn quyết định ${esc(workspace.as_of_session)}` : "")
     + provenance;
   document.getElementById("tblScreen-skeleton").style.display = "none";
@@ -404,6 +413,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { data: "tactical", title: "Trạng thái kỹ thuật", render: v => { const raw = (v && v.entry_state) || ""; const vf = window.VSValueFormat; const label = raw && vf ? vf.formatTacticalState(raw) : SM.translateStatus((v && v.status) || "UNKNOWN"); return `<span data-state="${esc(raw)}" title="${esc(raw)}">${esc(label)}</span>`; } },
     { data: "financial_v2", title: "Tài chính", render: v => { const s = SM.formatFinancial(v); return `<span class="${s.cls}">${esc(s.text)}</span>`; } },
     { data: "freshness", title: "Độ mới dữ liệu", render: v => { const s = SM.formatFreshness(v); return `<span class="${s.cls}">${esc(s.text)}</span>`; } },
+    { data: "official_research_scope", title: "Phạm vi chính thức", render: v => { const s = SM.formatOfficialScope(v); return `<span class="${s.cls}" data-state="${esc(s.bucket || "")}" title="${esc(s.reason || "")}">${esc(s.text)}</span>`; } },
   ];
   screenTable = new DataTable("#tblScreen", {
     data: MASTER_ROWS, language: VI, pageLength: 15, lengthMenu: [10, 15, 25], order: [[0, "asc"]],
@@ -420,7 +430,7 @@ document.addEventListener("DOMContentLoaded", () => {
     screenTable.rows.add(filtered);
     screenTable.draw();
   };
-  ["screen-query","screen-exchange","screen-sector","screen-stance","screen-tactical","screen-financial","screen-liquidity","screen-freshness"]
+  ["screen-query","screen-exchange","screen-sector","screen-stance","screen-tactical","screen-financial","screen-liquidity","screen-freshness","screen-official-scope"]
     .forEach((id) => document.getElementById(id).addEventListener("input", applyFilters));
   document.getElementById("decision-drawer-close").addEventListener("click", closeDrawer);
   document.getElementById("decision-drawer-backdrop").addEventListener("click", (e) => {

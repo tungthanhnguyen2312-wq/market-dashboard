@@ -121,6 +121,20 @@
     return { text: translateStatus(row || "UNKNOWN"), cls: row === "CURRENT" ? "" : "text-muted" };
   }
 
+  // Renders the Producer's own official_research_scope.scope_bucket verbatim (see
+  // current_research_official_universe_scope.ticker_scope_view) -- never client-recomputed.
+  // The reason string is the exact Producer qualification/reason code, shown as a note/title
+  // rather than folded into a smaller enum (a DELISTED-correlated exclusion must not read
+  // identically to an unresolved one -- see docs governing this milestone).
+  function formatOfficialScope(officialResearchScope) {
+    const bucket = officialResearchScope && officialResearchScope.scope_bucket;
+    const vf = getValueFormat();
+    const label = bucket && vf ? vf.formatDomainState(bucket, "official_scope").label : (bucket || "Chưa công bố phạm vi chính thức");
+    const reason = officialResearchScope && officialResearchScope.current_research_scope_reason;
+    const cls = bucket === "OUTSIDE_CURRENT_OFFICIAL_RESEARCH_SCOPE" ? "text-muted" : "";
+    return { text: label, cls, bucket: bucket || null, reason: reason || null };
+  }
+
   function projectionRows(projection) {
     const cards = (projection && projection.cards) || {};
     return Object.keys(cards).sort().map((ticker) => {
@@ -142,6 +156,7 @@
     if (f.liquidity === "PROXY" && (card.liquidity || {}).method !== "LIQUIDITY_RESEARCH_PROXY") return false;
     if (f.freshness === "CURRENT" && (card.freshness || {}).row !== "CURRENT") return false;
     if (f.freshness === "NOT_CURRENT" && (card.freshness || {}).row === "CURRENT") return false;
+    if (f.officialScope && (card.official_research_scope || {}).scope_bucket !== f.officialScope) return false;
     if (f.query) {
       const q = String(f.query).trim().toUpperCase();
       const sector = ((card.sector || {}).label || "").toUpperCase();
@@ -191,6 +206,6 @@
   return {
     CONTRACT_VERSION, DATA_URL, JS_FALLBACK, WORKSPACE_URL, WORKSPACE_SCHEMA_VERSION, WORKSPACE_CONTRACT_VERSION, ENTITY_CLASS_VOCABULARY,
     normalizeTicker, formatSessionPercent, formatPrice, formatSector, formatLiquidity, formatFinancial,
-    formatFreshness, translateStatus, projectionRows, matchesScreenerFilters, drawerIdentity, validateProjection, validateWorkspaceProjection,
+    formatFreshness, formatOfficialScope, translateStatus, projectionRows, matchesScreenerFilters, drawerIdentity, validateProjection, validateWorkspaceProjection,
   };
 });

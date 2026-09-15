@@ -138,6 +138,11 @@
       const stance = card.research && card.research.stance;
       if (stance) stanceCounts[stance] = (stanceCounts[stance] || 0) + 1;
     });
+    const officialScope = (projection && projection.official_scope_coverage) || null;
+    const officialScopeCoherent = Boolean(
+      officialScope && officialScope.temporally_eligible &&
+      officialScope.research_session === (projection && projection.as_of_session)
+    );
     const liquidityProxy = cards.filter(isLiquidityProxy).length;
     const executionExactReady = cards.filter((card) =>
       card.execution && card.execution.capacity_exact_status === "EXECUTION_CAPACITY_EXACT_READY"
@@ -158,9 +163,13 @@
       as_of_session: (projection && projection.as_of_session) || null,
       denominator,
       reference_ticker_count: denominator,
-      current_research_scope_count: null,
+      current_research_scope_count: officialScopeCoherent ? officialScope.current_official_research_scope_count : null,
+      outside_current_official_scope_count: officialScopeCoherent ? officialScope.outside_current_official_scope_count : null,
+      official_scope_observed_at: officialScopeCoherent ? officialScope.official_snapshot_observed_at : null,
       price_available_count: priceAvailable.length,
+      price_unavailable_count: denominator - priceAvailable.length,
       tactical_available_count: tactical.length,
+      tactical_unavailable_count: denominator - tactical.length,
       session_breadth: {
         available: priced.length > 0,
         priced: priced.length,
@@ -231,6 +240,16 @@
     const tacticalCoverage = scope
       ? scope.formatCoverage({ available: summary.tactical_available_count, reference: summary.reference_ticker_count, label: "có trạng thái kỹ thuật" })
       : `${summary.tactical_available_count.toLocaleString("vi-VN")} / ${summary.denominator.toLocaleString("vi-VN")} mã tham chiếu có trạng thái kỹ thuật`;
+    // Official-scope line only renders when the artifact itself publishes a temporally-eligible,
+    // session-coherent official_scope_coverage block (see summarizeScreenerOverview) -- absent or
+    // stale scope metadata renders nothing here, never a fabricated/estimated number.
+    const officialScopeLine = scope && summary.current_research_scope_count != null
+      ? `<p class="product-muted mb-1">${esc(scope.formatOfficialResearchScope(summary.current_research_scope_count))}${
+          summary.outside_current_official_scope_count != null
+            ? ` · ${esc(scope.formatOutsideOfficialScope(summary.outside_current_official_scope_count))}`
+            : ""
+        }</p>`
+      : "";
     const cards = STANCE_ORDER.map((stance) => {
       const count = (summary.research_stance.counts || {})[stance] || 0;
       const tone = STANCE_TONE[stance] || "neutral";
@@ -239,6 +258,7 @@
     return `
       ${staleBanner}
       <p class="product-muted mb-1">Phiên ${esc(session)} · ${esc(referenceScope)}.</p>
+      ${officialScopeLine}
       <p class="product-muted mb-3">${esc(priceCoverage)} · ${esc(tacticalCoverage)}. Đây là tóm tắt tư thế nghiên cứu, không phải lệnh thực hiện.</p>
       <div class="decision-summary-grid mb-3">${cards}</div>
       <div class="decision-summary-actions">

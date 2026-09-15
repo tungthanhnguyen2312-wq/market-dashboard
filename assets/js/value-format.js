@@ -618,6 +618,12 @@
     NOT_AVAILABLE: "Chưa có",
   });
 
+  const OFFICIAL_SCOPE_BUCKET_MAP = Object.freeze({
+    IN_CURRENT_OFFICIAL_RESEARCH_SCOPE: "Trong phạm vi nghiên cứu chính thức hiện tại",
+    OUTSIDE_CURRENT_OFFICIAL_RESEARCH_SCOPE: "Ngoài phạm vi nghiên cứu chính thức hiện tại",
+    CURRENT_OFFICIAL_SCOPE_UNKNOWN: "Chưa xác định phạm vi chính thức",
+  });
+
   const AXIS_LABELS = Object.freeze({
     tactical: "Thiết lập kỹ thuật",
     fundamental: "Cơ bản doanh nghiệp",
@@ -668,6 +674,7 @@
     horizon: HORIZON_MAP,
     strategy: STRATEGY_MAP,
     risk_data_gaps: RISK_DATA_GAPS_MAP,
+    official_scope: OFFICIAL_SCOPE_BUCKET_MAP,
   });
 
   const EMPTY_LABELS = Object.freeze({
@@ -681,6 +688,7 @@
     invalidation_state: "Chưa có dữ liệu",
     rule_condition: "Điều kiện kỹ thuật",
     structure_state: "Chưa có",
+    official_scope: "Chưa công bố phạm vi chính thức",
   });
 
   function lookupDomainTable(table, raw) {

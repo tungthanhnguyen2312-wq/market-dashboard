@@ -11,10 +11,10 @@
     "present": true,
     "records_fingerprint": "fc8f077e965877b0c160d5b0de2c2004f5758c6036453bae0bacbd11bb70a6d1",
     "input_fingerprint": "ba009fe4e46331df44838b277fe54cef4319872d2a3520aceeb7752a66f6c8c5",
-    "session_identity": "2026-09-11",
+    "session_identity": "2026-09-14",
     "authority_level": "generated_evidence"
   },
-  "generated_at": "2026-09-11T00:00:00+00:00",
+  "generated_at": "2026-09-14T00:00:00+00:00",
   "tickers": [
     "POW",
     "SSI",
@@ -29,7 +29,7 @@
     "NVL"
   ],
   "freshness": {
-    "reference_session": "2026-09-11",
+    "reference_session": "2026-09-14",
     "status": "fresh",
     "blocked": false,
     "stale": [],
@@ -72,24 +72,24 @@
       "VNM"
     ],
     "trust_state": "untrusted_basis",
-    "session_identity": "2026-09-11",
-    "generated_at": "2026-09-11T00:00:00+00:00",
+    "session_identity": "2026-09-14",
+    "generated_at": "2026-09-14T00:00:00+00:00",
     "bundle_filename": "analysis_bundle.json",
-    "bundle_sha256": "29f4ab33fc7fa2b9aac14dc295e7f2b603012562762cad798404c25693153c1a",
-    "bundle_reference_session_date": "2026-09-11",
-    "bundle_generated_at": "2026-09-11T00:00:00+00:00",
+    "bundle_sha256": "7bf4b3e7c267310ce015d7e136cb7746fd3d2fb587f118636388fc3c94483ac2",
+    "bundle_reference_session_date": "2026-09-14",
+    "bundle_generated_at": "2026-09-14T00:00:00+00:00",
     "required_artifacts": [
       {
         "file": "analysis_bundle.json",
-        "sha256": "29f4ab33fc7fa2b9aac14dc295e7f2b603012562762cad798404c25693153c1a"
+        "sha256": "7bf4b3e7c267310ce015d7e136cb7746fd3d2fb587f118636388fc3c94483ac2"
       },
       {
         "file": "focus_extract.json",
-        "sha256": "7aac5684afede24abf3e533f1bc8c3d007190e0496d2fa952ee66d96071550b9"
+        "sha256": "003d7d4177c8b3ac4578496deba2176650cca3f5703cd609e43df66ceaaccc0f"
       },
       {
         "file": "statement_taxonomy_sidecar.json",
-        "sha256": "a8385ac1a41afc1069d6aa7399c178b9e7827c8b68d7c92e2701e955176ea12a"
+        "sha256": "b73ce75d381af740b583daa4312ecf97a1d6ca57f8d191cb6392ed5dacbb9cdc"
       }
     ],
     "expected_artifact_filenames": [
@@ -100,77 +100,77 @@
     ],
     "per_ticker": {
       "EVF": {
-        "session_identity": "2026-09-11",
+        "session_identity": "2026-09-14",
         "required_current_fields_qualified": true,
         "warnings": [
           "canonical_trusted_subset:legacy_ta_signals_not_on_session"
         ]
       },
       "FPT": {
-        "session_identity": "2026-09-11",
+        "session_identity": "2026-09-14",
         "required_current_fields_qualified": true,
         "warnings": [
           "canonical_trusted_subset:legacy_ta_signals_not_on_session"
         ]
       },
       "HPG": {
-        "session_identity": "2026-09-11",
+        "session_identity": "2026-09-14",
         "required_current_fields_qualified": true,
         "warnings": [
           "canonical_trusted_subset:legacy_ta_signals_not_on_session"
         ]
       },
       "NVL": {
-        "session_identity": "2026-09-11",
+        "session_identity": "2026-09-14",
         "required_current_fields_qualified": true,
         "warnings": [
           "canonical_trusted_subset:legacy_ta_signals_not_on_session"
         ]
       },
       "PAN": {
-        "session_identity": "2026-09-11",
+        "session_identity": "2026-09-14",
         "required_current_fields_qualified": true,
         "warnings": [
           "canonical_trusted_subset:legacy_ta_signals_not_on_session"
         ]
       },
       "PNJ": {
-        "session_identity": "2026-09-11",
+        "session_identity": "2026-09-14",
         "required_current_fields_qualified": true,
         "warnings": [
           "canonical_trusted_subset:legacy_ta_signals_not_on_session"
         ]
       },
       "POW": {
-        "session_identity": "2026-09-11",
+        "session_identity": "2026-09-14",
         "required_current_fields_qualified": true,
         "warnings": [
           "canonical_trusted_subset:legacy_ta_signals_not_on_session"
         ]
       },
       "PVD": {
-        "session_identity": "2026-09-11",
+        "session_identity": "2026-09-14",
         "required_current_fields_qualified": true,
         "warnings": [
           "canonical_trusted_subset:legacy_ta_signals_not_on_session"
         ]
       },
       "QNS": {
-        "session_identity": "2026-09-11",
+        "session_identity": "2026-09-14",
         "required_current_fields_qualified": true,
         "warnings": [
           "canonical_trusted_subset:legacy_ta_signals_not_on_session"
         ]
       },
       "SSI": {
-        "session_identity": "2026-09-11",
+        "session_identity": "2026-09-14",
         "required_current_fields_qualified": true,
         "warnings": [
           "canonical_trusted_subset:legacy_ta_signals_not_on_session"
         ]
       },
       "VNM": {
-        "session_identity": "2026-09-11",
+        "session_identity": "2026-09-14",
         "required_current_fields_qualified": true,
         "warnings": [
           "canonical_trusted_subset:legacy_ta_signals_not_on_session"
@@ -189,7 +189,7 @@
   "canonical_runtime_release": {
     "release_contract": {
       "source": "retained_canonical_daily_producer",
-      "session": "2026-09-11",
+      "session": "2026-09-14",
       "unavailable_legacy_fields": [
         "historical_indicator_suite",
         "strict_valuation",
@@ -200,24 +200,24 @@
     },
     "lineage": {
       "descriptive": {
-        "artifact_identity": "market_wide_current_descriptive_research:441d0a39d6537f64da5423003b346389ac74a3310a6c82d6aa0b4ec27169a815",
-        "sha256": "9f517248a6bd91bc648c629e76feef11350ce4b25a5097a8a78768205d314d1f",
-        "path": "operations-review\\market-wide-current-descriptive-research-v1-20260911\\market_wide_current_descriptive_research_artifact.json"
+        "artifact_identity": "market_wide_current_descriptive_research:21128528003a7c5cf11bc0749b0ebc019785c75254ea028729ca05aa47263eb0",
+        "sha256": "35e7c1c673473c0397e45ed7f4cb1661f242bbb602183e44e05849cd71a4dab1",
+        "path": "operations-review\\market-wide-current-descriptive-research-v1-20260914\\market_wide_current_descriptive_research_artifact.json"
       },
       "screening": {
-        "artifact_identity": "current_market_screening_opportunity_comparison_foundation:af1adc5a3aec59de20ac250816ea5c027fc7aeacbc41219b196b64653a7481ca",
-        "sha256": "b801d6e63eda297638c0c1a12b2c03f8cb94bfe13251a26b91c1806c8f409b4e",
-        "path": "operations-review\\current-market-screening-opportunity-comparison-foundation-v1-20260911\\current_market_screening_opportunity_comparison_foundation_artifact.json"
+        "artifact_identity": "current_market_screening_opportunity_comparison_foundation:f7e9761cd527ad5a086b4f0cbff10aba843b5d41e37701048c46e5d008926d1e",
+        "sha256": "8a42b155812ee45e1a1e6279fc6431d546cb0a5904ae02078c3a5eb507fbfbb9",
+        "path": "operations-review\\current-market-screening-opportunity-comparison-foundation-v1-20260914\\current_market_screening_opportunity_comparison_foundation_artifact.json"
       },
       "tactical": {
-        "artifact_identity": "watchlist_tactical_entry_classifier:a76329bb217392c934d996372fcf891c9fa17d305a3f9e43745735d59b4b1273",
-        "sha256": "742fcfa3d08d68312569734c4b52eea6ffa9e1cea115b996c57af09341b41cd5",
-        "path": "operations-review\\watchlist-tactical-entry-decision-v1-20260911\\watchlist_tactical_entry_classifier_artifact.json"
+        "artifact_identity": "watchlist_tactical_entry_classifier:74d11d74f21579993ae9761c613adf2c20d65e400c5a9d0faece93de06d42e6d",
+        "sha256": "210a2301192ec4ce9b3180230c07cd6d95c6044f02859e90cce53fa28d9ddd68",
+        "path": "operations-review\\watchlist-tactical-entry-decision-v1-20260914\\watchlist_tactical_entry_classifier_artifact.json"
       },
       "triage": {
-        "artifact_identity": "full_universe_entry_candidate_triage:3dd9800d66e875e14d365b795dc68e7ecf4cb95eccb2537d0149e32cbf6e5865",
-        "sha256": "08b5b636d28ac547bf86aaef411e15daeb52132375c3bcd04f38014ec174f8af",
-        "path": "operations-review\\full-universe-entry-candidate-triage-v1-20260911\\full_universe_entry_candidate_triage_20260911.json"
+        "artifact_identity": "full_universe_entry_candidate_triage:1634c26edda2bf945c4fe0164f83349d2b6af19598d1bc81fa3eabde0284795e",
+        "sha256": "418c8709e3eacb5aef62be8d9738d28ff53f94060450d87b57bf5560ed806330",
+        "path": "operations-review\\full-universe-entry-candidate-triage-v1-20260914\\full_universe_entry_candidate_triage_20260914.json"
       },
       "official_universe": {
         "artifact_identity": "current_official_market_universe:d77e16f82893df419689b24356d066d6a6431bd3c27e09190e3c319e004abb55",
@@ -225,22 +225,13 @@
         "path": "operations-review\\current-official-market-universe-integration-v1-20260824\\current_official_market_universe_artifact.json"
       },
       "daily_producer_run": {
-        "run_identity": "daily_producer_run:df6e9703e3184d3a58b7df935c55c9108645e09867bb037dd1716b31f852c058",
-        "sha256": "e8c7925a589a452277d5f8b87aa6ab4907c272a3c8c79c95fc1f6286d5bc2b4c",
-        "path": "operations-review\\daily-producer-runs-v1\\2026-09-11\\df6e9703e3184d3a58b7df935c55c9108645e09867bb037dd1716b31f852c058\\run_manifest.json"
+        "run_identity": "daily_producer_run:b58b0c0b55c433cd42c9668afce22928cc207cd090c55ea1b904f047219b5cf4",
+        "sha256": "5b6651b7d9d50572bf4124d635869cd15115d93230b406f7d58837ccadac62f1",
+        "path": "operations-review\\daily-producer-runs-v1\\2026-09-14\\b58b0c0b55c433cd42c9668afce22928cc207cd090c55ea1b904f047219b5cf4\\run_manifest.json"
       },
       "daily_producer_bundle": {
-        "sha256": "ad5f500a43851d6c73b95d86e2c4b3084b046f34cc5af51795ef2c74501f34c4",
-        "path": "operations-review\\daily-producer-runs-v1\\2026-09-11\\df6e9703e3184d3a58b7df935c55c9108645e09867bb037dd1716b31f852c058\\ai_research_session_bundle.json"
-      },
-      "retained_tier_handoff": {
-        "sha256": "dabdeaead40da442b42a69cdf542ea8cd7f1572f37cb6be3ae042288df523841",
-        "path": "operations-review\\canonical-post-close-v1\\2026-09-11\\session_handoff_bundle.json",
-        "retained_daily_producer_run_identity": "daily_producer_run:92e235a914c4fed69368e0d685d808b6d19f5df1f57e4c29ead95664c8a8a905",
-        "runtime_daily_producer_run_identity": "daily_producer_run:df6e9703e3184d3a58b7df935c55c9108645e09867bb037dd1716b31f852c058",
-        "source_lineage_status": "PASS",
-        "current_research_packet_identity": "current_research_decision_packet:96ac9e5b2f4a9841442d64563b37615d447bb7eaa138c90c37796fa6fe2b7cc9",
-        "prospective_cohort_snapshot_identity": "prospective_research_cohort_snapshot:45079a6c35b843161ce13dc0220d4957316b6a78186619ba475a75cf094ddccf"
+        "sha256": "3d38c258ebe683874db0064f6ba38251b5c60cb939ebe22faacfc529bd76ca6b",
+        "path": "operations-review\\daily-producer-runs-v1\\2026-09-14\\b58b0c0b55c433cd42c9668afce22928cc207cd090c55ea1b904f047219b5cf4\\ai_research_session_bundle.json"
       }
     }
   }
