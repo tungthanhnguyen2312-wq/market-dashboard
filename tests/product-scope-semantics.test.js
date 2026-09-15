@@ -21,7 +21,7 @@ const productScopeFormatScript = fs.readFileSync(path.join(root, "assets/js/prod
 const dashboardProductSummaryScript = fs.readFileSync(path.join(root, "assets/js/dashboard-product-summary.js"), "utf8");
 const legacyDashboardScript = fs.readFileSync(path.join(root, "app.js"), "utf8");
 
-// Real data/screener_master_projection.json for this checkout is the qualified 2026-09-14
+// Real data/screener_master_projection.json for this checkout is the qualified 2026-09-15
 // official-scope replay (reference 1683 / official scope 1504 / outside 179). These tests assert
 // against the artifact's OWN published counts, never a value re-derived client-side, so they stay
 // correct for any future session the Producer supplies under the same contract.
@@ -74,19 +74,18 @@ test("released summary states reference scope, official research scope, and exac
   assert.equal(summary.current_research_scope_count, 1504);
   // 3: outside scope displays the real 179.
   assert.equal(summary.outside_current_official_scope_count, 179);
-  assert.equal(summary.price_available_count, 853);
-  assert.equal(summary.price_unavailable_count, 1683 - 853);
-  assert.equal(summary.tactical_available_count, 852);
+  assert.equal(summary.price_available_count, 855);
+  assert.equal(summary.price_unavailable_count, 1683 - 855);
+  assert.equal(summary.tactical_available_count, 855);
   const html = overview.renderDecisionSummaryHtml(summary);
   assert.match(html, /Phạm vi tham chiếu: 1\.683 mã/);
   assert.match(html, /Phạm vi nghiên cứu chính thức hiện tại: 1\.504 mã/);
   assert.match(html, /Ngoài phạm vi chính thức hiện tại: 179 mã/);
   // 5: price/tactical coverage always denominates against the 1683 reference, never the 1504
   // official scope subset.
-  assert.match(html, /853 \/ 1\.683 mã tham chiếu có dữ liệu giá đúng phiên/);
-  assert.match(html, /852 \/ 1\.683 mã tham chiếu có trạng thái kỹ thuật/);
-  assert.doesNotMatch(html, /853 \/ 1\.504/);
-  assert.doesNotMatch(html, /852 \/ 1\.504/);
+  assert.match(html, /855 \/ 1\.683 mã tham chiếu có dữ liệu giá đúng phiên/);
+  assert.match(html, /855 \/ 1\.683 mã tham chiếu có trạng thái kỹ thuật/);
+  assert.doesNotMatch(html, /855 \/ 1\.504/);
   // 4: 1504 is never labeled active/tradable in any of the required-forbidden phrasings.
   assert.doesNotMatch(html, /1\.504 mã đang giao dịch/);
   assert.doesNotMatch(html, /1504 active stocks/i);
@@ -145,7 +144,7 @@ test("outside-scope rows remain visible on Screener and Workspace with the exact
   // as a flat 0%/neutral state.
   assert.equal(projection.cards[sample].price.status, "PRICE_UNAVAILABLE");
   assert.notEqual(projection.cards[sample].price.change_pct_status, "AVAILABLE");
-  // Not every outside-scope ticker carries the same reason: the real 2026-09-14 data is a
+  // Not every outside-scope ticker carries the same reason: the real 2026-09-15 data is a
   // 173/6 split between DELISTED_OR_NO_LONGER_CURRENT and UNRESOLVED, proving the UI must not
   // collapse the whole cohort to one blanket "DELISTED" label.
   const reasons = new Set(outsideTickers.map((t) => projection.cards[t].official_research_scope.current_research_scope_reason));

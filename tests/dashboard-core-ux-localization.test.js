@@ -134,8 +134,10 @@ test("Phân tích row renderer visible text has no raw stance/tactical enums", (
 });
 
 test("workspace renderer visible text has no raw primary enums", () => {
-  const card = workspace.cards.HPG;
-  const html = ws.decisionCardHtml(card, { ticker: "HPG" });
+  // AAA is the real current AVOID_NEW_ENTRY ticker for this session -- which specific ticker
+  // carries this stance changes daily; the assertion is about the stance value, not the ticker.
+  const card = workspace.cards.AAA;
+  const html = ws.decisionCardHtml(card, { ticker: "AAA" });
   const visible = visibleText(html);
   for (const raw of ["AVOID_NEW_ENTRY", "DOWNTREND", "LIQUIDITY_RESEARCH_PROXY", "ATTRACTIVE_RELATIVE_RESEARCH", "STALE_AXIS_PRESENT"]) {
     assert.doesNotMatch(visible, new RegExp(raw));
@@ -191,8 +193,8 @@ test("overview uses current projection facts with explicit denominators", () => 
   const tactical = cards.filter((card) => card.tactical?.status === "AVAILABLE" && card.tactical?.entry_state);
   const liquidityProxy = cards.filter((card) => card.liquidity?.fitness === "LIQUIDITY_RESEARCH_PROXY" || card.liquidity?.method === "LIQUIDITY_RESEARCH_PROXY");
   assert.equal(projection.coverage.ticker_denominator, 1683);
-  assert.equal(projection.coverage.price_available_count, 853);
-  assert.equal(projection.coverage.tactical_available_count, 852);
+  assert.equal(projection.coverage.price_available_count, 855);
+  assert.equal(projection.coverage.tactical_available_count, 855);
   assert.equal(projection.coverage.financial_v2_available_count, 1476);
   assert.equal(projection.coverage.sector_available_count, 1678);
   assert.equal(summary.denominator, projection.coverage.ticker_denominator);
@@ -212,7 +214,7 @@ test("overview uses current projection facts with explicit denominators", () => 
   assert.ok(!summary.sector.rows.some((row) => ["corporate", "bank", "securities"].includes(String(row.label).toLowerCase())));
   assert.equal(summary.research_stance.counts.WAIT_FOR_CONFIRMATION, projection.coverage.research_stance_distribution.WAIT_FOR_CONFIRMATION);
   const html = overview.renderDecisionSummaryHtml(summary);
-  assert.equal(projection.as_of_session, "2026-09-14");
+  assert.equal(projection.as_of_session, "2026-09-15");
   assert.match(html, new RegExp(`Quyết định nghiên cứu hiện tại|Phiên ${projection.as_of_session}`));
   assert.match(html, /Mở Bàn quyết định|Mở Không gian quyết định/);
   assert.match(html, /Phân tích đa trục/);
@@ -267,12 +269,25 @@ test("rule-condition and current Workspace readiness text are localized with raw
   assert.equal(vf.formatDomainState(card.research_stance_readiness, "research_readiness").label, "Sẵn sàng nghiên cứu có điều kiện");
   assert.match(visible, /Sẵn sàng nghiên cứu có điều kiện/);
   assert.doesNotMatch(visible, /Trục kỹ thuật không thuộc phiên hiện tại/);
-  assert.match(visible, /Trạng thái kỹ thuật bất lợi/);
   assert.match(visible, /Nền tảng doanh nghiệp có lợi nhuận/);
-  assert.match(visible, /Đảo chiều trạng thái lợi nhuận/);
   assert.match(html, /data-state="RESEARCH_READY_CONDITIONAL"/);
-  assert.match(html, /data-condition="PROFITABILITY_STATE_REVERSAL"/);
-  assert.match(html, /<details class="vs-tech-details">[\s\S]*PROFITABILITY_STATE_REVERSAL/);
+  // ADVERSE_TACTICAL_ENTRY_STATE / PROFITABILITY_STATE_REVERSAL are real-but-not-guaranteed
+  // counter-thesis/invalidation states -- no ticker in the current real dataset happens to carry
+  // either today, so exercise the render mechanism directly with a synthetic card rather than
+  // depending on a specific live ticker's daily-changing narrative content.
+  const syntheticCard = {
+    ticker: "ZZZ", research_stance: "WAIT_FOR_CONFIRMATION", entry_state: "DOWNTREND",
+    why: {}, valuation: {}, prospective_case: {}, lineage: { per_axis_freshness: {} },
+    counter_thesis: { key_counter_thesis: ["ADVERSE_TACTICAL_ENTRY_STATE"] },
+    confirmation: {},
+    invalidation: { fundamental: { boundary_type: "PROFITABILITY_STATE_REVERSAL", status: "CONDITIONAL" } },
+  };
+  const syntheticHtml = ws.decisionCardHtml(syntheticCard, { ticker: "ZZZ" });
+  const syntheticVisible = primaryVisibleText(syntheticHtml);
+  assert.match(syntheticVisible, /Trạng thái kỹ thuật bất lợi/);
+  assert.match(syntheticVisible, /Đảo chiều trạng thái lợi nhuận/);
+  assert.match(syntheticHtml, /data-condition="PROFITABILITY_STATE_REVERSAL"/);
+  assert.match(syntheticHtml, /<details class="vs-tech-details">[\s\S]*PROFITABILITY_STATE_REVERSAL/);
   for (const raw of [
     "RESEARCH_READY_CONDITIONAL",
     "TACTICAL_AXIS_NOT_CURRENT",

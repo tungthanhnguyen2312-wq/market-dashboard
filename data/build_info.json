@@ -1,28 +1,28 @@
 {
   "schema_version": "dashboard_build_info/v1",
-  "market_session": "2026-09-14",
+  "market_session": "2026-09-15",
   "producer_run_identity": "recovery_operation",
-  "dashboard_release_identity": "dashboard_release:ba19682e2d4e55f0fbd28b1dd7f7219b316194a4a7eeb537d13ac6b2b8d6cfcf",
-  "build_id": "ba19682e2d",
-  "generated_at": "2026-09-15T09:44:05.841443+00:00",
-  "published_at": "2026-09-15T09:44:05.841443+00:00",
+  "dashboard_release_identity": "dashboard_release:4774b3ce6bfcb3f696e28caba0c79585c0512c8e5937d72444614f637ffd6bbc",
+  "build_id": "4774b3ce6b",
+  "generated_at": "2026-09-15T10:22:50.865955+00:00",
+  "published_at": "2026-09-15T10:22:50.865955+00:00",
   "release_status": "READY",
   "domains": {
     "screening": {
       "status": "CURRENT",
-      "source_session": "2026-09-14",
+      "source_session": "2026-09-15",
       "freshness": "EXACT_SESSION",
       "reason_codes": []
     },
     "breadth": {
       "status": "CURRENT",
-      "source_session": "2026-09-14",
+      "source_session": "2026-09-15",
       "freshness": "EXACT_SESSION",
       "reason_codes": []
     },
     "analysis": {
       "status": "CURRENT",
-      "source_session": "2026-09-14",
+      "source_session": "2026-09-15",
       "freshness": "EXACT_SESSION",
       "reason_codes": []
     },
@@ -61,100 +61,100 @@
       }
     },
     "macro": {
-      "status": "PARTIAL",
+      "status": "CURRENT",
       "source_session": null,
-      "data_as_of": "2026-09-14",
-      "generated_at": "2026-09-14T18:33:22+07:00",
+      "data_as_of": "2026-09-15",
+      "generated_at": "2026-09-15T17:14:21+07:00",
       "freshness": "CADENCE_AWARE",
-      "reason_codes": [
-        "MACRO_CADENCE_STALE_SERIES_PRESENT"
-      ],
-      "stale_series_count": 1
+      "reason_codes": [],
+      "stale_series_count": 0
     },
     "cockpit": {
-      "status": "STALE",
-      "source_session": "2026-09-11",
+      "status": "CURRENT",
+      "source_session": "2026-09-15",
       "freshness": "EXACT_SESSION",
       "generated_at": null,
-      "reason_codes": [
-        "COCKPIT_SESSION_MISMATCH"
-      ]
+      "reason_codes": []
     },
     "investment_workspace": {
       "status": "CURRENT",
-      "source_session": "2026-09-14",
+      "source_session": "2026-09-15",
       "freshness": "EXACT_SESSION",
-      "artifact_identity": "investment_decision_workspace_projection/v1:e7fff46a8a26bebc3276507cb721b399b45180b58efd73e50769e7c8736c1418",
+      "artifact_identity": "investment_decision_workspace_projection/v1:88d54c4236c437faa21f146c88daad4e9a0c6342a5f1ac228339cee0d4906278",
       "reason_codes": []
     },
     "screener_master": {
       "status": "CURRENT",
-      "source_session": "2026-09-14",
+      "source_session": "2026-09-15",
       "freshness": "EXACT_SESSION",
-      "artifact_identity": "screener_master_projection/v1:87976144b119fa3ed5392edbc9527ad569224a03cf979cada98d347c10a23997",
+      "artifact_identity": "screener_master_projection/v1:7ed10d9c40fbb4fa7bd0d813faa69fe2a6357e120ed3928c4c29b0f2168c7a5a",
       "reason_codes": []
     }
   },
   "files": {
     "screen_snapshot.csv": {
-      "sha256": "4782319549c58c2e64d086a97a79cc3b660f3efb11d5e7cfdd5090c34c195528",
-      "size_bytes": 526588
+      "sha256": "89602e25158ae65e4737cb28cc2ceaccaed8e426052369cfae7963137f1a634f",
+      "size_bytes": 554379
     },
     "screen_snapshot_live.csv": {
-      "sha256": "88decaeda3abe1887aa19b9086edf0cbf01ae7684791460ce67780f681fb8a7f",
-      "size_bytes": 330131
+      "sha256": "c0b862e135b8595b5b603e81cc0ca88909d177b4d5d8e26fb0682aa65602c7c0",
+      "size_bytes": 358453
     },
     "market_breadth.csv": {
-      "sha256": "de37400ca29c2c177d9d6942710ef9be2f12edeef22d4d130bf7de94ff5a5116",
-      "size_bytes": 143
+      "sha256": "2b555a27eaecb0d236f06bfe87587b9517bf11a2b4c80a56d20ade04b52942ad",
+      "size_bytes": 142
     },
     "analysis_latest.json": {
-      "sha256": "56414d83bddf5aad3817567f2997a2f6c4dbfe9cf6dbe2157a690c790a94706a",
+      "sha256": "0357e9fdc8d9de6bc19190037f77af4686fc5c9797bc7624818a549c2b2e1533",
       "size_bytes": 3751
     },
     "bundle_manifest.json": {
-      "sha256": "5022bce31884cabcd03861f879213aaa70de6f45a2aa85f1221647f57ff434c1",
+      "sha256": "63fff56c4882da7788659b36d1f07901e1a3358ab978ed78ed7406bbb1d798f2",
       "size_bytes": 8279
     },
     "analysis_bundle.json": {
-      "sha256": "7bf4b3e7c267310ce015d7e136cb7746fd3d2fb587f118636388fc3c94483ac2",
-      "size_bytes": 36738
+      "sha256": "a19b346568fc171d2a92b8ce6f03a14f1877bcba16cf41f50f14570ddc5608a6",
+      "size_bytes": 36969
     },
     "focus_extract.json": {
-      "sha256": "003d7d4177c8b3ac4578496deba2176650cca3f5703cd609e43df66ceaaccc0f",
-      "size_bytes": 4896
+      "sha256": "bbfb2973de6761b87300214c1062e37feb6d434bbc5e30e228bb6f881ae6bc7a",
+      "size_bytes": 5127
     },
     "statement_taxonomy_sidecar.json": {
-      "sha256": "b73ce75d381af740b583daa4312ecf97a1d6ca57f8d191cb6392ed5dacbb9cdc",
+      "sha256": "b71dfb9578eec3ff4f0b1314cb2f9caa4007b44bf9279de1ef21f24d3983e1c3",
       "size_bytes": 1684422
     },
     "data/macro_snapshot.json": {
-      "sha256": "51452b575f6e0e4e6ee8062b0c39543b14545996587385f9feb087e1898a0721",
-      "size_bytes": 379884
+      "sha256": "88fab1dcab316eb71e696068b3ac1f1651fd768af035452476a366b755b1d43f",
+      "size_bytes": 380082
     },
     "data/macro_snapshot.js": {
-      "sha256": "b483e678efe089b737ce8358bb63f3899f4e0a7e4cbe8c2811b51690a445fc8d",
-      "size_bytes": 379909
+      "sha256": "65b5210488022e23baae26aefce0bacdabb98942e46f73fcb9f4a09165b0f6f4",
+      "size_bytes": 380107
+    },
+    "data/current_decision_cockpit.json": {
+      "sha256": "d7cd19761ac6b479ef42df78851768cb24fe04285ea22548dab53a86db250a1f",
+      "size_bytes": 2914199
     },
     "data/investment_decision_workspace.json": {
-      "sha256": "827cd25812c62c0348db76aaef5e049242d06a52a2871e3dc186cc50fc7a137a",
-      "size_bytes": 51008460
+      "sha256": "86b49ae3b786b633e5047bee2586b8c3f87378de92b567211b1a676b35ffc9db",
+      "size_bytes": 51073864
     },
     "data/screener_master_projection.json": {
-      "sha256": "d850c1318cb1eb43edaa9a46a7091d63bfa2d8b2adf439bdea2f40b32ce7e563",
-      "size_bytes": 6663371
+      "sha256": "bc8d6eb4639910d7daa507415351ef15dd199fabf7c1bf66d6b1ebd2a952803c",
+      "size_bytes": 6692696
     },
     "data/screener_master_projection.js": {
-      "sha256": "894c20bfec377181cb4b01411b29b35a5d52590bf0277ae5c68f5dea3160f2d2",
-      "size_bytes": 4927611
+      "sha256": "02f02beb082c707333f032b99bb458a2d5e1c98bf86c4feb17c23279a7c5ed47",
+      "size_bytes": 4956936
     },
     "data/screener_data.js": {
-      "sha256": "42b75592295c678010a04909d8bab0a1073404b15e686ab586d2157970ffc129",
-      "size_bytes": 1965272
+      "sha256": "c490c139f29095bca0ac399ceb4a624c07f956e5c371d2a74ab683d6c360a01e",
+      "size_bytes": 1993062
     }
   },
   "hero_summary": {
-    "market_session": "2026-09-14",
+    "market_session": "2026-09-15",
     "total_surveyed": 1211,
     "up_count": 0,
     "rs80_count": 0

@@ -1,18 +1,18 @@
 {
   "schema_version": "canonical_dashboard_runtime_release/v1",
   "summary": {
-    "session_date": "2026-09-14",
-    "generated_at": "2026-09-14",
-    "n_stocks_live": 853,
+    "session_date": "2026-09-15",
+    "generated_at": "2026-09-15",
+    "n_stocks_live": 855,
     "regime": "UNAVAILABLE_CANONICAL_REGIME_NOT_MATERIALIZED",
     "pct_above_ma200": null,
     "availability": "DIRECT_CANONICAL_MAPPING_WITH_EXPLICIT_UNAVAILABLE_LEGACY_FIELDS"
   },
   "market": {
     "breadth": {
-      "n_up": 210,
-      "n_down": 442,
-      "n_flat": 200,
+      "n_up": 428,
+      "n_down": 228,
+      "n_flat": 199,
       "availability": "DIRECT_CANONICAL_MAPPING"
     }
   },
@@ -36,24 +36,24 @@
   ],
   "lineage": {
     "descriptive": {
-      "artifact_identity": "market_wide_current_descriptive_research:21128528003a7c5cf11bc0749b0ebc019785c75254ea028729ca05aa47263eb0",
-      "sha256": "35e7c1c673473c0397e45ed7f4cb1661f242bbb602183e44e05849cd71a4dab1",
-      "path": "operations-review\\market-wide-current-descriptive-research-v1-20260914\\market_wide_current_descriptive_research_artifact.json"
+      "artifact_identity": "market_wide_current_descriptive_research:9898de17ac023bee68176c4b12e0547591d08a5ec39b5417e3cb94c08d638592",
+      "sha256": "909e032b6b9f3ec4e2bcab37fc155b21cbea39d9ff1a4c2c1968b27cc039fe9e",
+      "path": "operations-review\\market-wide-current-descriptive-research-v1-20260915\\market_wide_current_descriptive_research_artifact.json"
     },
     "screening": {
-      "artifact_identity": "current_market_screening_opportunity_comparison_foundation:f7e9761cd527ad5a086b4f0cbff10aba843b5d41e37701048c46e5d008926d1e",
-      "sha256": "8a42b155812ee45e1a1e6279fc6431d546cb0a5904ae02078c3a5eb507fbfbb9",
-      "path": "operations-review\\current-market-screening-opportunity-comparison-foundation-v1-20260914\\current_market_screening_opportunity_comparison_foundation_artifact.json"
+      "artifact_identity": "current_market_screening_opportunity_comparison_foundation:5fde13bc16d96d9bd22686d1e0a06e6e028f922b3d70703af17ec1e605680801",
+      "sha256": "11008b906a4393cc6926c3b7ba014299cd224c09488ca837c6d3cddeb0e322af",
+      "path": "operations-review\\current-market-screening-opportunity-comparison-foundation-v1-20260915\\current_market_screening_opportunity_comparison_foundation_artifact.json"
     },
     "tactical": {
-      "artifact_identity": "watchlist_tactical_entry_classifier:74d11d74f21579993ae9761c613adf2c20d65e400c5a9d0faece93de06d42e6d",
-      "sha256": "210a2301192ec4ce9b3180230c07cd6d95c6044f02859e90cce53fa28d9ddd68",
-      "path": "operations-review\\watchlist-tactical-entry-decision-v1-20260914\\watchlist_tactical_entry_classifier_artifact.json"
+      "artifact_identity": "watchlist_tactical_entry_classifier:eb5604225770330e7a930e61d014364f24171f97aa0055c8c1fd20c4260bb050",
+      "sha256": "21740c0a8eef0879713d025b347ce409c470a74a351945ed40fa6fe1f9851875",
+      "path": "operations-review\\watchlist-tactical-entry-decision-v1-20260915\\watchlist_tactical_entry_classifier_artifact.json"
     },
     "triage": {
-      "artifact_identity": "full_universe_entry_candidate_triage:1634c26edda2bf945c4fe0164f83349d2b6af19598d1bc81fa3eabde0284795e",
-      "sha256": "418c8709e3eacb5aef62be8d9738d28ff53f94060450d87b57bf5560ed806330",
-      "path": "operations-review\\full-universe-entry-candidate-triage-v1-20260914\\full_universe_entry_candidate_triage_20260914.json"
+      "artifact_identity": "full_universe_entry_candidate_triage:38695a5ad480c65a460a17297b027245d1a1118c06f375aa4e9f7ab57baccf6d",
+      "sha256": "4836220e460ca6abe9df09d6f2caa8f34df14dd87c74eb607e2acd764c20a135",
+      "path": "operations-review\\full-universe-entry-candidate-triage-v1-20260915\\full_universe_entry_candidate_triage_20260915.json"
     },
     "official_universe": {
       "artifact_identity": "current_official_market_universe:d77e16f82893df419689b24356d066d6a6431bd3c27e09190e3c319e004abb55",
@@ -61,13 +61,13 @@
       "path": "operations-review\\current-official-market-universe-integration-v1-20260824\\current_official_market_universe_artifact.json"
     },
     "daily_producer_run": {
-      "run_identity": "daily_producer_run:b58b0c0b55c433cd42c9668afce22928cc207cd090c55ea1b904f047219b5cf4",
-      "sha256": "5b6651b7d9d50572bf4124d635869cd15115d93230b406f7d58837ccadac62f1",
-      "path": "operations-review\\daily-producer-runs-v1\\2026-09-14\\b58b0c0b55c433cd42c9668afce22928cc207cd090c55ea1b904f047219b5cf4\\run_manifest.json"
+      "run_identity": "daily_producer_run:c16adbf0313511b452d530069eac5fca24c8207e687a87fff5de93fe94cdd318",
+      "sha256": "1669491042bd430d9d4afc90cf95bddb11c7bb00d4cae13bbae573910e0d423e",
+      "path": "operations-review\\daily-producer-runs-v1\\2026-09-15\\c16adbf0313511b452d530069eac5fca24c8207e687a87fff5de93fe94cdd318\\run_manifest.json"
     },
     "daily_producer_bundle": {
-      "sha256": "3d38c258ebe683874db0064f6ba38251b5c60cb939ebe22faacfc529bd76ca6b",
-      "path": "operations-review\\daily-producer-runs-v1\\2026-09-14\\b58b0c0b55c433cd42c9668afce22928cc207cd090c55ea1b904f047219b5cf4\\ai_research_session_bundle.json"
+      "sha256": "1b03a07bdb8559ab65b82e861c2bb0f1963fa99b54b8d301966cc876e324697f",
+      "path": "operations-review\\daily-producer-runs-v1\\2026-09-15\\c16adbf0313511b452d530069eac5fca24c8207e687a87fff5de93fe94cdd318\\ai_research_session_bundle.json"
     }
   }
 }
