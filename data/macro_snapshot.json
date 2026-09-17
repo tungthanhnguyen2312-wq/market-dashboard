@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-15T17:14:21+07:00",
-  "pipeline_completed_at": "2026-09-15T17:14:22+07:00",
+  "generated_at": "2026-09-16T17:23:41+07:00",
+  "pipeline_completed_at": "2026-09-16T17:23:42+07:00",
   "published_at": null,
-  "data_as_of": "2026-09-15",
+  "data_as_of": "2026-09-16",
   "source_type": "local_pipeline",
   "update_policy": "updated_on_publish",
   "quality": {
@@ -31,11 +31,11 @@
       "frequency_label": "Hằng tháng",
       "source": "FRED",
       "source_url": "https://fred.stlouisfed.org/series/FEDFUNDS",
-      "pipeline_updated_at": "2026-09-15T17:14:22+07:00",
+      "pipeline_updated_at": "2026-09-16T17:23:42+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
-        "age_days": 45,
+        "age_days": 46,
         "stale_after_days": 62
       },
       "history_points": 120,
@@ -45,24 +45,24 @@
       "key": "us_10y",
       "label": "Lợi suất TPCP Mỹ 10 năm",
       "category": "rates",
-      "value": 4.96,
-      "previous_value": 4.95,
+      "value": 4.97,
+      "previous_value": 4.96,
       "change": 0.009999999999999787,
-      "change_pct": 0.20202020202019771,
+      "change_pct": 0.20161290322580216,
       "change_basis": "percentage_point",
       "direction": "up",
       "interpretation": "unknown",
       "unit": "%/năm",
-      "period": "2026-09-11",
+      "period": "2026-09-14",
       "frequency": "daily",
       "frequency_label": "Hằng ngày",
       "source": "FRED",
       "source_url": "https://fred.stlouisfed.org/series/DGS10",
-      "pipeline_updated_at": "2026-09-15T17:14:22+07:00",
+      "pipeline_updated_at": "2026-09-16T17:23:42+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
-        "age_days": 4,
+        "age_days": 2,
         "stale_after_days": 7
       },
       "history_points": 400,
@@ -85,11 +85,11 @@
       "frequency_label": "Hằng tháng",
       "source": "FRED",
       "source_url": "https://fred.stlouisfed.org/series/CPIAUCSL",
-      "pipeline_updated_at": "2026-09-15T17:14:22+07:00",
+      "pipeline_updated_at": "2026-09-16T17:23:42+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
-        "age_days": 45,
+        "age_days": 46,
         "stale_after_days": 62
       },
       "history_points": 120,
@@ -112,11 +112,11 @@
       "frequency_label": "Hằng ngày",
       "source": "FRED",
       "source_url": "https://fred.stlouisfed.org/series/DTWEXBGS",
-      "pipeline_updated_at": "2026-09-15T17:14:22+07:00",
+      "pipeline_updated_at": "2026-09-16T17:23:42+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
-        "age_days": 4,
+        "age_days": 5,
         "stale_after_days": 7
       },
       "history_points": 400,
@@ -139,11 +139,11 @@
       "frequency_label": "Hằng ngày",
       "source": "FRED",
       "source_url": "https://fred.stlouisfed.org/series/DCOILWTICO",
-      "pipeline_updated_at": "2026-09-15T17:14:22+07:00",
+      "pipeline_updated_at": "2026-09-16T17:23:42+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
-        "age_days": 6,
+        "age_days": 7,
         "stale_after_days": 7
       },
       "history_points": 400,
@@ -153,20 +153,20 @@
       "key": "sp500",
       "label": "S&P 500",
       "category": "markets",
-      "value": 7619.97998046875,
-      "previous_value": 7656.97998046875,
-      "change": -37.0,
-      "change_pct": -0.48321923388044313,
+      "value": 7585.72998046875,
+      "previous_value": 7619.97998046875,
+      "change": -34.25,
+      "change_pct": -0.4494762464965568,
       "change_basis": "percent",
       "direction": "down",
       "interpretation": "unknown",
       "unit": "điểm",
-      "period": "2026-09-14",
+      "period": "2026-09-15",
       "frequency": "daily",
       "frequency_label": "Hằng ngày",
       "source": "Yahoo Finance",
       "source_url": "https://finance.yahoo.com/quote/%5EGSPC",
-      "pipeline_updated_at": "2026-09-15T17:14:22+07:00",
+      "pipeline_updated_at": "2026-09-16T17:23:42+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
@@ -180,20 +180,20 @@
       "key": "nasdaq",
       "label": "Nasdaq Composite",
       "category": "markets",
-      "value": 26186.41015625,
-      "previous_value": 26333.0390625,
-      "change": -146.62890625,
-      "change_pct": -0.5568248537587495,
+      "value": 25981.5703125,
+      "previous_value": 26186.41015625,
+      "change": -204.83984375,
+      "change_pct": -0.7822372082609047,
       "change_basis": "percent",
       "direction": "down",
       "interpretation": "unknown",
       "unit": "điểm",
-      "period": "2026-09-14",
+      "period": "2026-09-15",
       "frequency": "daily",
       "frequency_label": "Hằng ngày",
       "source": "Yahoo Finance",
       "source_url": "https://finance.yahoo.com/quote/%5EIXIC",
-      "pipeline_updated_at": "2026-09-15T17:14:22+07:00",
+      "pipeline_updated_at": "2026-09-16T17:23:42+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
@@ -207,20 +207,20 @@
       "key": "vix",
       "label": "VIX",
       "category": "risk",
-      "value": 17.530000686645508,
-      "previous_value": 17.100000381469727,
-      "change": 0.43000030517578125,
-      "change_pct": 2.514621611598018,
+      "value": 16.989999771118164,
+      "previous_value": 17.200000762939453,
+      "change": -0.21000099182128906,
+      "change_pct": -1.2209359448039945,
       "change_basis": "percent",
-      "direction": "up",
+      "direction": "down",
       "interpretation": "unknown",
       "unit": "điểm",
-      "period": "2026-09-15",
+      "period": "2026-09-16",
       "frequency": "daily",
       "frequency_label": "Hằng ngày",
       "source": "Yahoo Finance",
       "source_url": "https://finance.yahoo.com/quote/%5EVIX",
-      "pipeline_updated_at": "2026-09-15T17:14:22+07:00",
+      "pipeline_updated_at": "2026-09-16T17:23:42+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
@@ -234,20 +234,20 @@
       "key": "nikkei",
       "label": "Nikkei 225",
       "category": "markets",
-      "value": 63484.1015625,
-      "previous_value": 63492.98828125,
-      "change": -8.88671875,
-      "change_pct": -0.013996378167987914,
+      "value": 63923.0,
+      "previous_value": 63484.1015625,
+      "change": 438.8984375,
+      "change_pct": 0.6913517348401083,
       "change_basis": "percent",
-      "direction": "down",
+      "direction": "up",
       "interpretation": "unknown",
       "unit": "điểm",
-      "period": "2026-09-15",
+      "period": "2026-09-16",
       "frequency": "daily",
       "frequency_label": "Hằng ngày",
       "source": "Yahoo Finance",
       "source_url": "https://finance.yahoo.com/quote/%5EN225",
-      "pipeline_updated_at": "2026-09-15T17:14:22+07:00",
+      "pipeline_updated_at": "2026-09-16T17:23:42+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
@@ -261,20 +261,20 @@
       "key": "hsi",
       "label": "Hang Seng",
       "category": "markets",
-      "value": 24667.240234375,
-      "previous_value": 24917.599609375,
-      "change": -250.359375,
-      "change_pct": -1.0047491689600982,
+      "value": 24713.779296875,
+      "previous_value": 24667.240234375,
+      "change": 46.5390625,
+      "change_pct": 0.18866748796302535,
       "change_basis": "percent",
-      "direction": "down",
+      "direction": "up",
       "interpretation": "unknown",
       "unit": "điểm",
-      "period": "2026-09-15",
+      "period": "2026-09-16",
       "frequency": "daily",
       "frequency_label": "Hằng ngày",
       "source": "Yahoo Finance",
       "source_url": "https://finance.yahoo.com/quote/%5EHSI",
-      "pipeline_updated_at": "2026-09-15T17:14:22+07:00",
+      "pipeline_updated_at": "2026-09-16T17:23:42+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
@@ -288,20 +288,20 @@
       "key": "gold_world",
       "label": "Vàng thế giới",
       "category": "commodities",
-      "value": 4313.2001953125,
-      "previous_value": 4351.89990234375,
-      "change": -38.69970703125,
-      "change_pct": -0.889260045030171,
+      "value": 4385.5,
+      "previous_value": 4332.7998046875,
+      "change": 52.7001953125,
+      "change_pct": 1.2163081076463667,
       "change_basis": "percent",
-      "direction": "down",
+      "direction": "up",
       "interpretation": "unknown",
       "unit": "USD/oz",
-      "period": "2026-09-15",
+      "period": "2026-09-16",
       "frequency": "daily",
       "frequency_label": "Hằng ngày",
       "source": "Yahoo Finance",
       "source_url": "https://finance.yahoo.com/quote/GC=F",
-      "pipeline_updated_at": "2026-09-15T17:14:22+07:00",
+      "pipeline_updated_at": "2026-09-16T17:23:42+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
@@ -315,20 +315,20 @@
       "key": "brent",
       "label": "Dầu Brent",
       "category": "commodities",
-      "value": 102.37999725341797,
-      "previous_value": 105.68000030517578,
-      "change": -3.3000030517578125,
-      "change_pct": -3.1226372466202497,
+      "value": 107.70999908447266,
+      "previous_value": 108.75,
+      "change": -1.0400009155273438,
+      "change_pct": -0.9563226809446839,
       "change_basis": "percent",
       "direction": "down",
       "interpretation": "unknown",
       "unit": "USD/thùng",
-      "period": "2026-09-15",
+      "period": "2026-09-16",
       "frequency": "daily",
       "frequency_label": "Hằng ngày",
       "source": "Yahoo Finance",
       "source_url": "https://finance.yahoo.com/quote/BZ=F",
-      "pipeline_updated_at": "2026-09-15T17:14:22+07:00",
+      "pipeline_updated_at": "2026-09-16T17:23:42+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
@@ -342,20 +342,20 @@
       "key": "usdvnd_mkt",
       "label": "USD/VND (quốc tế)",
       "category": "currency",
-      "value": 25984.0,
-      "previous_value": 25938.0,
-      "change": 46.0,
-      "change_pct": 0.17734597887269643,
+      "value": 25958.0,
+      "previous_value": 25984.0,
+      "change": -26.0,
+      "change_pct": -0.10006157635467981,
       "change_basis": "percent",
-      "direction": "up",
+      "direction": "down",
       "interpretation": "unknown",
       "unit": "đồng/USD",
-      "period": "2026-09-15",
+      "period": "2026-09-16",
       "frequency": "daily",
       "frequency_label": "Hằng ngày",
       "source": "Yahoo Finance",
       "source_url": "https://finance.yahoo.com/quote/VND=X",
-      "pipeline_updated_at": "2026-09-15T17:14:22+07:00",
+      "pipeline_updated_at": "2026-09-16T17:23:42+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
@@ -369,54 +369,54 @@
       "key": "usdvnd_vcb",
       "label": "USD/VND (VCB bán ra)",
       "category": "currency",
-      "value": 26130.0,
-      "previous_value": 26180.0,
-      "change": -50.0,
-      "change_pct": -0.19098548510313218,
+      "value": 26180.0,
+      "previous_value": 26130.0,
+      "change": 50.0,
+      "change_pct": 0.19135093761959435,
       "change_basis": "percent",
-      "direction": "down",
+      "direction": "up",
       "interpretation": "unknown",
       "unit": "đồng/USD",
-      "period": "2026-09-15",
+      "period": "2026-09-16",
       "frequency": "daily",
       "frequency_label": "Hằng ngày",
       "source": "Vietcombank",
       "source_url": "https://www.vietcombank.com.vn/vi-VN/KHCN/Cong-cu-tien-ich/Ty-gia",
-      "pipeline_updated_at": "2026-09-15T17:14:22+07:00",
+      "pipeline_updated_at": "2026-09-16T17:23:42+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
         "age_days": 0,
         "stale_after_days": 7
       },
-      "history_points": 34,
+      "history_points": 35,
       "history_scope": "Lịch sử tích lũy từ khi pipeline bắt đầu chạy đều."
     },
     {
       "key": "gold_sjc",
       "label": "Vàng SJC bán ra (HCM)",
       "category": "commodities",
-      "value": 145300000.0,
-      "previous_value": 145600000.0,
-      "change": -300000.0,
-      "change_pct": -0.20604395604395606,
+      "value": 146500000.0,
+      "previous_value": 145300000.0,
+      "change": 1200000.0,
+      "change_pct": 0.8258774948382657,
       "change_basis": "percent",
-      "direction": "down",
+      "direction": "up",
       "interpretation": "unknown",
       "unit": "đồng/lượng",
-      "period": "2026-09-15",
+      "period": "2026-09-16",
       "frequency": "daily",
       "frequency_label": "Hằng ngày",
       "source": "SJC",
       "source_url": "https://sjc.com.vn/",
-      "pipeline_updated_at": "2026-09-15T17:14:22+07:00",
+      "pipeline_updated_at": "2026-09-16T17:23:42+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
         "age_days": 0,
         "stale_after_days": 7
       },
-      "history_points": 34,
+      "history_points": 35,
       "history_scope": "Lịch sử tích lũy từ khi pipeline bắt đầu chạy đều."
     },
     {
@@ -436,11 +436,11 @@
       "frequency_label": "Hằng năm",
       "source": "World Bank",
       "source_url": "https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG?locations=VN",
-      "pipeline_updated_at": "2026-09-15T17:14:22+07:00",
+      "pipeline_updated_at": "2026-09-16T17:23:42+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
-        "age_days": 258,
+        "age_days": 259,
         "stale_after_days": 550
       },
       "history_points": 30,
@@ -463,11 +463,11 @@
       "frequency_label": "Hằng năm",
       "source": "World Bank",
       "source_url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=VN",
-      "pipeline_updated_at": "2026-09-15T17:14:22+07:00",
+      "pipeline_updated_at": "2026-09-16T17:23:42+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
-        "age_days": 258,
+        "age_days": 259,
         "stale_after_days": 550
       },
       "history_points": 41,
@@ -958,10 +958,6 @@
       }
     ],
     "us_10y": [
-      {
-        "date": "2025-02-06",
-        "value": 4.45
-      },
       {
         "date": "2025-02-07",
         "value": 4.49
@@ -2557,6 +2553,10 @@
       {
         "date": "2026-09-11",
         "value": 4.96
+      },
+      {
+        "date": "2026-09-14",
+        "value": 4.97
       }
     ],
     "us_cpi": [
@@ -6247,10 +6247,6 @@
     ],
     "sp500": [
       {
-        "date": "2025-02-10",
-        "value": 6066.43994140625
-      },
-      {
         "date": "2025-02-11",
         "value": 6068.5
       },
@@ -7845,13 +7841,13 @@
       {
         "date": "2026-09-14",
         "value": 7619.97998046875
+      },
+      {
+        "date": "2026-09-15",
+        "value": 7585.72998046875
       }
     ],
     "nasdaq": [
-      {
-        "date": "2025-02-10",
-        "value": 19714.26953125
-      },
       {
         "date": "2025-02-11",
         "value": 19643.859375
@@ -9447,13 +9443,13 @@
       {
         "date": "2026-09-14",
         "value": 26186.41015625
+      },
+      {
+        "date": "2026-09-15",
+        "value": 25981.5703125
       }
     ],
     "vix": [
-      {
-        "date": "2025-02-13",
-        "value": 15.100000381469727
-      },
       {
         "date": "2025-02-14",
         "value": 14.770000457763672
@@ -11048,14 +11044,14 @@
       },
       {
         "date": "2026-09-15",
-        "value": 17.530000686645508
+        "value": 17.200000762939453
+      },
+      {
+        "date": "2026-09-16",
+        "value": 16.989999771118164
       }
     ],
     "nikkei": [
-      {
-        "date": "2025-01-28",
-        "value": 39016.87109375
-      },
       {
         "date": "2025-01-29",
         "value": 39414.78125
@@ -12651,13 +12647,13 @@
       {
         "date": "2026-09-15",
         "value": 63484.1015625
+      },
+      {
+        "date": "2026-09-16",
+        "value": 63923.0
       }
     ],
     "hsi": [
-      {
-        "date": "2025-02-03",
-        "value": 20217.259765625
-      },
       {
         "date": "2025-02-04",
         "value": 20789.9609375
@@ -14253,13 +14249,13 @@
       {
         "date": "2026-09-15",
         "value": 24667.240234375
+      },
+      {
+        "date": "2026-09-16",
+        "value": 24713.779296875
       }
     ],
     "gold_world": [
-      {
-        "date": "2025-02-12",
-        "value": 2909.0
-      },
       {
         "date": "2025-02-13",
         "value": 2925.89990234375
@@ -14854,207 +14850,207 @@
       },
       {
         "date": "2025-09-16",
-        "value": 3688.89990234375
+        "value": 3725.10009765625
       },
       {
         "date": "2025-09-17",
-        "value": 3681.800048828125
+        "value": 3717.800048828125
       },
       {
         "date": "2025-09-18",
-        "value": 3643.699951171875
+        "value": 3678.300048828125
       },
       {
         "date": "2025-09-19",
-        "value": 3671.5
+        "value": 3705.800048828125
       },
       {
         "date": "2025-09-22",
-        "value": 3740.699951171875
+        "value": 3775.10009765625
       },
       {
         "date": "2025-09-23",
-        "value": 3780.60009765625
+        "value": 3815.699951171875
       },
       {
         "date": "2025-09-24",
-        "value": 3732.10009765625
+        "value": 3768.10009765625
       },
       {
         "date": "2025-09-25",
-        "value": 3736.89990234375
+        "value": 3771.10009765625
       },
       {
         "date": "2025-09-26",
-        "value": 3775.300048828125
+        "value": 3809.0
       },
       {
         "date": "2025-09-29",
-        "value": 3820.89990234375
+        "value": 3855.199951171875
       },
       {
         "date": "2025-09-30",
-        "value": 3840.800048828125
+        "value": 3873.199951171875
       },
       {
         "date": "2025-10-01",
-        "value": 3867.5
+        "value": 3897.5
       },
       {
         "date": "2025-10-02",
-        "value": 3839.699951171875
+        "value": 3868.10009765625
       },
       {
         "date": "2025-10-03",
-        "value": 3880.800048828125
+        "value": 3908.89990234375
       },
       {
         "date": "2025-10-06",
-        "value": 3948.5
+        "value": 3976.300048828125
       },
       {
         "date": "2025-10-07",
-        "value": 3976.60009765625
+        "value": 4004.39990234375
       },
       {
         "date": "2025-10-08",
-        "value": 4043.300048828125
+        "value": 4070.5
       },
       {
         "date": "2025-10-09",
-        "value": 3946.300048828125
+        "value": 3972.60009765625
       },
       {
         "date": "2025-10-10",
-        "value": 3975.89990234375
+        "value": 4000.39990234375
       },
       {
         "date": "2025-10-13",
-        "value": 4108.60009765625
+        "value": 4133.0
       },
       {
         "date": "2025-10-14",
-        "value": 4138.7001953125
+        "value": 4163.39990234375
       },
       {
         "date": "2025-10-15",
-        "value": 4176.89990234375
+        "value": 4201.60009765625
       },
       {
         "date": "2025-10-16",
-        "value": 4280.2001953125
+        "value": 4304.60009765625
       },
       {
         "date": "2025-10-17",
-        "value": 4189.89990234375
+        "value": 4213.2998046875
       },
       {
         "date": "2025-10-20",
-        "value": 4336.39990234375
+        "value": 4359.39990234375
       },
       {
         "date": "2025-10-21",
-        "value": 4087.699951171875
+        "value": 4109.10009765625
       },
       {
         "date": "2025-10-22",
-        "value": 4044.39990234375
+        "value": 4065.39990234375
       },
       {
         "date": "2025-10-23",
-        "value": 4125.5
+        "value": 4145.60009765625
       },
       {
         "date": "2025-10-24",
-        "value": 4118.39990234375
+        "value": 4137.7998046875
       },
       {
         "date": "2025-10-27",
-        "value": 4001.89990234375
+        "value": 4019.699951171875
       },
       {
         "date": "2025-10-28",
-        "value": 3966.199951171875
+        "value": 3983.10009765625
       },
       {
         "date": "2025-10-29",
-        "value": 3983.699951171875
+        "value": 4000.699951171875
       },
       {
         "date": "2025-10-30",
-        "value": 4001.300048828125
+        "value": 4015.89990234375
       },
       {
         "date": "2025-10-31",
-        "value": 3982.199951171875
+        "value": 3996.5
       },
       {
         "date": "2025-11-03",
-        "value": 4000.300048828125
+        "value": 4014.0
       },
       {
         "date": "2025-11-04",
-        "value": 3947.699951171875
+        "value": 3960.5
       },
       {
         "date": "2025-11-05",
-        "value": 3980.300048828125
+        "value": 3992.89990234375
       },
       {
         "date": "2025-11-06",
-        "value": 3979.89990234375
+        "value": 3991.0
       },
       {
         "date": "2025-11-07",
-        "value": 3999.39990234375
+        "value": 4009.800048828125
       },
       {
         "date": "2025-11-10",
-        "value": 4111.7998046875
+        "value": 4122.0
       },
       {
         "date": "2025-11-11",
-        "value": 4106.7998046875
+        "value": 4116.2998046875
       },
       {
         "date": "2025-11-12",
-        "value": 4204.39990234375
+        "value": 4213.60009765625
       },
       {
         "date": "2025-11-13",
-        "value": 4186.89990234375
+        "value": 4194.5
       },
       {
         "date": "2025-11-14",
-        "value": 4087.60009765625
+        "value": 4094.199951171875
       },
       {
         "date": "2025-11-17",
-        "value": 4068.300048828125
+        "value": 4074.5
       },
       {
         "date": "2025-11-18",
-        "value": 4061.300048828125
+        "value": 4066.5
       },
       {
         "date": "2025-11-19",
-        "value": 4077.699951171875
+        "value": 4082.800048828125
       },
       {
         "date": "2025-11-20",
-        "value": 4056.5
+        "value": 4060.0
       },
       {
         "date": "2025-11-21",
-        "value": 4076.699951171875
+        "value": 4079.5
       },
       {
         "date": "2025-11-24",
-        "value": 4091.89990234375
+        "value": 4094.199951171875
       },
       {
         "date": "2025-11-25",
-        "value": 4139.2001953125
+        "value": 4140.0
       },
       {
         "date": "2025-11-26",
@@ -15062,167 +15058,167 @@
       },
       {
         "date": "2025-11-28",
-        "value": 4218.2998046875
+        "value": 4254.89990234375
       },
       {
         "date": "2025-12-01",
-        "value": 4239.2998046875
+        "value": 4274.7998046875
       },
       {
         "date": "2025-12-02",
-        "value": 4186.60009765625
+        "value": 4220.7998046875
       },
       {
         "date": "2025-12-03",
-        "value": 4199.2998046875
+        "value": 4232.5
       },
       {
         "date": "2025-12-04",
-        "value": 4211.7998046875
+        "value": 4243.0
       },
       {
         "date": "2025-12-05",
-        "value": 4212.89990234375
+        "value": 4243.0
       },
       {
         "date": "2025-12-08",
-        "value": 4187.2001953125
+        "value": 4217.7001953125
       },
       {
         "date": "2025-12-09",
-        "value": 4206.7001953125
+        "value": 4236.2001953125
       },
       {
         "date": "2025-12-10",
-        "value": 4196.39990234375
+        "value": 4224.7001953125
       },
       {
         "date": "2025-12-11",
-        "value": 4285.5
+        "value": 4313.0
       },
       {
         "date": "2025-12-12",
-        "value": 4300.10009765625
+        "value": 4328.2998046875
       },
       {
         "date": "2025-12-15",
-        "value": 4306.7001953125
+        "value": 4335.2001953125
       },
       {
         "date": "2025-12-16",
-        "value": 4304.5
+        "value": 4332.2998046875
       },
       {
         "date": "2025-12-17",
-        "value": 4347.5
+        "value": 4373.89990234375
       },
       {
         "date": "2025-12-18",
-        "value": 4339.5
+        "value": 4364.5
       },
       {
         "date": "2025-12-19",
-        "value": 4361.39990234375
+        "value": 4387.2998046875
       },
       {
         "date": "2025-12-22",
-        "value": 4444.60009765625
+        "value": 4469.39990234375
       },
       {
         "date": "2025-12-23",
-        "value": 4482.7998046875
+        "value": 4505.7001953125
       },
       {
         "date": "2025-12-24",
-        "value": 4480.60009765625
+        "value": 4502.7998046875
       },
       {
         "date": "2025-12-26",
-        "value": 4529.10009765625
+        "value": 4552.7001953125
       },
       {
         "date": "2025-12-29",
-        "value": 4325.10009765625
+        "value": 4343.60009765625
       },
       {
         "date": "2025-12-30",
-        "value": 4370.10009765625
+        "value": 4386.2998046875
       },
       {
         "date": "2025-12-31",
-        "value": 4325.60009765625
+        "value": 4341.10009765625
       },
       {
         "date": "2026-01-02",
-        "value": 4314.39990234375
+        "value": 4329.60009765625
       },
       {
         "date": "2026-01-05",
-        "value": 4436.89990234375
+        "value": 4451.5
       },
       {
         "date": "2026-01-06",
-        "value": 4482.2001953125
+        "value": 4496.10009765625
       },
       {
         "date": "2026-01-07",
-        "value": 4449.2998046875
+        "value": 4462.5
       },
       {
         "date": "2026-01-08",
-        "value": 4449.7001953125
+        "value": 4460.7001953125
       },
       {
         "date": "2026-01-09",
-        "value": 4490.2998046875
+        "value": 4500.89990234375
       },
       {
         "date": "2026-01-12",
-        "value": 4604.2998046875
+        "value": 4614.7001953125
       },
       {
         "date": "2026-01-13",
-        "value": 4589.2001953125
+        "value": 4599.10009765625
       },
       {
         "date": "2026-01-14",
-        "value": 4626.2998046875
+        "value": 4635.7001953125
       },
       {
         "date": "2026-01-15",
-        "value": 4616.2998046875
+        "value": 4623.7001953125
       },
       {
         "date": "2026-01-16",
-        "value": 4588.39990234375
+        "value": 4595.39990234375
       },
       {
         "date": "2026-01-20",
-        "value": 4759.60009765625
+        "value": 4765.7998046875
       },
       {
         "date": "2026-01-21",
-        "value": 4831.7998046875
+        "value": 4837.5
       },
       {
         "date": "2026-01-22",
-        "value": 4908.7998046875
+        "value": 4913.39990234375
       },
       {
         "date": "2026-01-23",
-        "value": 4976.2001953125
+        "value": 4979.7001953125
       },
       {
         "date": "2026-01-26",
-        "value": 5079.7001953125
+        "value": 5082.5
       },
       {
         "date": "2026-01-27",
-        "value": 5079.89990234375
+        "value": 5082.60009765625
       },
       {
         "date": "2026-01-28",
-        "value": 5301.60009765625
+        "value": 5303.60009765625
       },
       {
         "date": "2026-01-29",
@@ -15230,163 +15226,163 @@
       },
       {
         "date": "2026-01-30",
-        "value": 4713.89990234375
+        "value": 4745.10009765625
       },
       {
         "date": "2026-02-02",
-        "value": 4622.5
+        "value": 4652.60009765625
       },
       {
         "date": "2026-02-03",
-        "value": 4903.7001953125
+        "value": 4935.0
       },
       {
         "date": "2026-02-04",
-        "value": 4920.39990234375
+        "value": 4950.7998046875
       },
       {
         "date": "2026-02-05",
-        "value": 4861.39990234375
+        "value": 4889.5
       },
       {
         "date": "2026-02-06",
-        "value": 4951.2001953125
+        "value": 4979.7998046875
       },
       {
         "date": "2026-02-09",
-        "value": 5050.89990234375
+        "value": 5079.39990234375
       },
       {
         "date": "2026-02-10",
-        "value": 5003.7998046875
+        "value": 5031.0
       },
       {
         "date": "2026-02-11",
-        "value": 5071.60009765625
+        "value": 5098.5
       },
       {
         "date": "2026-02-12",
-        "value": 4923.7001953125
+        "value": 4948.39990234375
       },
       {
         "date": "2026-02-13",
-        "value": 5022.0
+        "value": 5046.2998046875
       },
       {
         "date": "2026-02-17",
-        "value": 4882.89990234375
+        "value": 4905.89990234375
       },
       {
         "date": "2026-02-18",
-        "value": 4986.5
+        "value": 5009.5
       },
       {
         "date": "2026-02-19",
-        "value": 4975.89990234375
+        "value": 4997.39990234375
       },
       {
         "date": "2026-02-20",
-        "value": 5059.2998046875
+        "value": 5080.89990234375
       },
       {
         "date": "2026-02-23",
-        "value": 5204.7001953125
+        "value": 5225.60009765625
       },
       {
         "date": "2026-02-24",
-        "value": 5155.7998046875
+        "value": 5176.2998046875
       },
       {
         "date": "2026-02-25",
-        "value": 5206.39990234375
+        "value": 5226.2001953125
       },
       {
         "date": "2026-02-26",
-        "value": 5176.5
+        "value": 5194.2001953125
       },
       {
         "date": "2026-02-27",
-        "value": 5230.5
+        "value": 5247.89990234375
       },
       {
         "date": "2026-03-02",
-        "value": 5294.39990234375
+        "value": 5311.60009765625
       },
       {
         "date": "2026-03-03",
-        "value": 5107.39990234375
+        "value": 5123.7001953125
       },
       {
         "date": "2026-03-04",
-        "value": 5120.2001953125
+        "value": 5134.7001953125
       },
       {
         "date": "2026-03-05",
-        "value": 5065.2998046875
+        "value": 5078.7001953125
       },
       {
         "date": "2026-03-06",
-        "value": 5146.10009765625
+        "value": 5158.7001953125
       },
       {
         "date": "2026-03-09",
-        "value": 5091.5
+        "value": 5103.7001953125
       },
       {
         "date": "2026-03-10",
-        "value": 5229.7001953125
+        "value": 5242.10009765625
       },
       {
         "date": "2026-03-11",
-        "value": 5167.39990234375
+        "value": 5179.10009765625
       },
       {
         "date": "2026-03-12",
-        "value": 5115.7998046875
+        "value": 5125.7998046875
       },
       {
         "date": "2026-03-13",
-        "value": 5052.5
+        "value": 5061.7001953125
       },
       {
         "date": "2026-03-16",
-        "value": 4994.0
+        "value": 5002.2001953125
       },
       {
         "date": "2026-03-17",
-        "value": 5001.0
+        "value": 5008.2001953125
       },
       {
         "date": "2026-03-18",
-        "value": 4889.89990234375
+        "value": 4896.2001953125
       },
       {
         "date": "2026-03-19",
-        "value": 4600.7001953125
+        "value": 4605.7001953125
       },
       {
         "date": "2026-03-20",
-        "value": 4570.39990234375
+        "value": 4574.89990234375
       },
       {
         "date": "2026-03-23",
-        "value": 4404.10009765625
+        "value": 4407.2998046875
       },
       {
         "date": "2026-03-24",
-        "value": 4399.2998046875
+        "value": 4402.0
       },
       {
         "date": "2026-03-25",
-        "value": 4549.7998046875
+        "value": 4552.2998046875
       },
       {
         "date": "2026-03-26",
-        "value": 4375.5
+        "value": 4376.2998046875
       },
       {
         "date": "2026-03-27",
-        "value": 4492.0
+        "value": 4492.5
       },
       {
         "date": "2026-03-30",
@@ -15398,159 +15394,159 @@
       },
       {
         "date": "2026-04-01",
-        "value": 4783.2001953125
+        "value": 4813.10009765625
       },
       {
         "date": "2026-04-02",
-        "value": 4651.5
+        "value": 4679.7001953125
       },
       {
         "date": "2026-04-06",
-        "value": 4656.7998046875
+        "value": 4684.7001953125
       },
       {
         "date": "2026-04-07",
-        "value": 4657.10009765625
+        "value": 4684.7001953125
       },
       {
         "date": "2026-04-08",
-        "value": 4749.5
+        "value": 4777.2001953125
       },
       {
         "date": "2026-04-09",
-        "value": 4792.2001953125
+        "value": 4818.0
       },
       {
         "date": "2026-04-10",
-        "value": 4761.89990234375
+        "value": 4787.39990234375
       },
       {
         "date": "2026-04-13",
-        "value": 4742.39990234375
+        "value": 4767.39990234375
       },
       {
         "date": "2026-04-14",
-        "value": 4825.0
+        "value": 4850.10009765625
       },
       {
         "date": "2026-04-15",
-        "value": 4800.0
+        "value": 4823.60009765625
       },
       {
         "date": "2026-04-16",
-        "value": 4785.39990234375
+        "value": 4808.2998046875
       },
       {
         "date": "2026-04-17",
-        "value": 4857.60009765625
+        "value": 4879.60009765625
       },
       {
         "date": "2026-04-20",
-        "value": 4806.60009765625
+        "value": 4828.7998046875
       },
       {
         "date": "2026-04-21",
-        "value": 4698.39990234375
+        "value": 4719.60009765625
       },
       {
         "date": "2026-04-22",
-        "value": 4732.5
+        "value": 4753.0
       },
       {
         "date": "2026-04-23",
-        "value": 4705.10009765625
+        "value": 4724.0
       },
       {
         "date": "2026-04-24",
-        "value": 4722.2998046875
+        "value": 4740.89990234375
       },
       {
         "date": "2026-04-27",
-        "value": 4675.39990234375
+        "value": 4693.7001953125
       },
       {
         "date": "2026-04-28",
-        "value": 4591.5
+        "value": 4608.39990234375
       },
       {
         "date": "2026-04-29",
-        "value": 4545.2001953125
+        "value": 4561.5
       },
       {
         "date": "2026-04-30",
-        "value": 4614.7001953125
+        "value": 4629.60009765625
       },
       {
         "date": "2026-05-01",
-        "value": 4629.89990234375
+        "value": 4644.5
       },
       {
         "date": "2026-05-04",
-        "value": 4519.5
+        "value": 4533.2998046875
       },
       {
         "date": "2026-05-05",
-        "value": 4555.7998046875
+        "value": 4568.5
       },
       {
         "date": "2026-05-06",
-        "value": 4681.89990234375
+        "value": 4694.2998046875
       },
       {
         "date": "2026-05-07",
-        "value": 4699.7998046875
+        "value": 4710.89990234375
       },
       {
         "date": "2026-05-08",
-        "value": 4720.39990234375
+        "value": 4730.7001953125
       },
       {
         "date": "2026-05-11",
-        "value": 4718.7001953125
+        "value": 4728.7001953125
       },
       {
         "date": "2026-05-12",
-        "value": 4677.60009765625
+        "value": 4686.7001953125
       },
       {
         "date": "2026-05-13",
-        "value": 4697.7001953125
+        "value": 4706.7001953125
       },
       {
         "date": "2026-05-14",
-        "value": 4678.10009765625
+        "value": 4685.2998046875
       },
       {
         "date": "2026-05-15",
-        "value": 4555.7998046875
+        "value": 4561.89990234375
       },
       {
         "date": "2026-05-18",
-        "value": 4552.5
+        "value": 4558.0
       },
       {
         "date": "2026-05-19",
-        "value": 4506.2998046875
+        "value": 4511.2001953125
       },
       {
         "date": "2026-05-20",
-        "value": 4531.2998046875
+        "value": 4535.2998046875
       },
       {
         "date": "2026-05-21",
-        "value": 4539.7998046875
+        "value": 4542.5
       },
       {
         "date": "2026-05-22",
-        "value": 4521.0
+        "value": 4523.2001953125
       },
       {
         "date": "2026-05-26",
-        "value": 4500.39990234375
+        "value": 4502.2998046875
       },
       {
         "date": "2026-05-27",
-        "value": 4447.5
+        "value": 4448.39990234375
       },
       {
         "date": "2026-05-28",
@@ -15558,171 +15554,171 @@
       },
       {
         "date": "2026-05-29",
-        "value": 4560.5
+        "value": 4593.0
       },
       {
         "date": "2026-06-01",
-        "value": 4475.2001953125
+        "value": 4506.2998046875
       },
       {
         "date": "2026-06-02",
-        "value": 4489.10009765625
+        "value": 4519.89990234375
       },
       {
         "date": "2026-06-03",
-        "value": 4436.7001953125
+        "value": 4466.89990234375
       },
       {
         "date": "2026-06-04",
-        "value": 4475.7998046875
+        "value": 4505.0
       },
       {
         "date": "2026-06-05",
-        "value": 4337.10009765625
+        "value": 4365.2998046875
       },
       {
         "date": "2026-06-08",
-        "value": 4335.89990234375
+        "value": 4363.39990234375
       },
       {
         "date": "2026-06-09",
-        "value": 4260.0
+        "value": 4286.39990234375
       },
       {
         "date": "2026-06-10",
-        "value": 4108.2001953125
+        "value": 4133.2998046875
       },
       {
         "date": "2026-06-11",
-        "value": 4090.300048828125
+        "value": 4114.0
       },
       {
         "date": "2026-06-12",
-        "value": 4215.0
+        "value": 4238.7998046875
       },
       {
         "date": "2026-06-15",
-        "value": 4328.0
+        "value": 4351.60009765625
       },
       {
         "date": "2026-06-16",
-        "value": 4330.89990234375
+        "value": 4354.39990234375
       },
       {
         "date": "2026-06-17",
-        "value": 4358.89990234375
+        "value": 4381.39990234375
       },
       {
         "date": "2026-06-18",
-        "value": 4224.10009765625
+        "value": 4245.89990234375
       },
       {
         "date": "2026-06-22",
-        "value": 4181.89990234375
+        "value": 4202.7001953125
       },
       {
         "date": "2026-06-23",
-        "value": 4129.89990234375
+        "value": 4149.39990234375
       },
       {
         "date": "2026-06-24",
-        "value": 3990.300048828125
+        "value": 4008.800048828125
       },
       {
         "date": "2026-06-25",
-        "value": 4030.5
+        "value": 4047.60009765625
       },
       {
         "date": "2026-06-26",
-        "value": 4078.699951171875
+        "value": 4096.2998046875
       },
       {
         "date": "2026-06-29",
-        "value": 4022.300048828125
+        "value": 4038.89990234375
       },
       {
         "date": "2026-06-30",
-        "value": 4022.89990234375
+        "value": 4038.5
       },
       {
         "date": "2026-07-01",
-        "value": 4068.300048828125
+        "value": 4082.39990234375
       },
       {
         "date": "2026-07-02",
-        "value": 4112.7001953125
+        "value": 4125.7001953125
       },
       {
         "date": "2026-07-06",
-        "value": 4155.10009765625
+        "value": 4167.5
       },
       {
         "date": "2026-07-07",
-        "value": 4145.2998046875
+        "value": 4157.39990234375
       },
       {
         "date": "2026-07-08",
-        "value": 4070.89990234375
+        "value": 4082.39990234375
       },
       {
         "date": "2026-07-09",
-        "value": 4130.60009765625
+        "value": 4140.7998046875
       },
       {
         "date": "2026-07-10",
-        "value": 4104.10009765625
+        "value": 4113.7001953125
       },
       {
         "date": "2026-07-13",
-        "value": 3997.0
+        "value": 4005.699951171875
       },
       {
         "date": "2026-07-14",
-        "value": 4061.10009765625
+        "value": 4069.699951171875
       },
       {
         "date": "2026-07-15",
-        "value": 4044.0
+        "value": 4051.800048828125
       },
       {
         "date": "2026-07-16",
-        "value": 3985.60009765625
+        "value": 3992.10009765625
       },
       {
         "date": "2026-07-17",
-        "value": 4012.699951171875
+        "value": 4018.800048828125
       },
       {
         "date": "2026-07-20",
-        "value": 4010.300048828125
+        "value": 4015.89990234375
       },
       {
         "date": "2026-07-21",
-        "value": 4071.10009765625
+        "value": 4076.39990234375
       },
       {
         "date": "2026-07-22",
-        "value": 4146.89990234375
+        "value": 4151.89990234375
       },
       {
         "date": "2026-07-23",
-        "value": 4046.60009765625
+        "value": 4050.199951171875
       },
       {
         "date": "2026-07-24",
-        "value": 4067.60009765625
+        "value": 4070.800048828125
       },
       {
         "date": "2026-07-27",
-        "value": 4074.5
+        "value": 4077.0
       },
       {
         "date": "2026-07-28",
-        "value": 4036.300048828125
+        "value": 4038.699951171875
       },
       {
         "date": "2026-07-29",
-        "value": 4034.699951171875
+        "value": 4036.300048828125
       },
       {
         "date": "2026-07-30",
@@ -15730,119 +15726,119 @@
       },
       {
         "date": "2026-07-31",
-        "value": 4049.10009765625
+        "value": 4107.0
       },
       {
         "date": "2026-08-03",
-        "value": 4033.699951171875
+        "value": 4090.5
       },
       {
         "date": "2026-08-04",
-        "value": 4095.39990234375
+        "value": 4152.60009765625
       },
       {
         "date": "2026-08-05",
-        "value": 4245.7998046875
+        "value": 4305.2001953125
       },
       {
         "date": "2026-08-06",
-        "value": 4242.0
+        "value": 4299.60009765625
       },
       {
         "date": "2026-08-07",
-        "value": 4340.7001953125
+        "value": 4399.7001953125
       },
       {
         "date": "2026-08-10",
-        "value": 4361.7998046875
+        "value": 4419.7001953125
       },
       {
         "date": "2026-08-11",
-        "value": 4383.0
+        "value": 4441.10009765625
       },
       {
         "date": "2026-08-12",
-        "value": 4408.89990234375
+        "value": 4467.5
       },
       {
         "date": "2026-08-13",
-        "value": 4363.60009765625
+        "value": 4420.39990234375
       },
       {
         "date": "2026-08-14",
-        "value": 4380.39990234375
+        "value": 4437.2998046875
       },
       {
         "date": "2026-08-17",
-        "value": 4417.7998046875
+        "value": 4473.7001953125
       },
       {
         "date": "2026-08-18",
-        "value": 4366.0
+        "value": 4420.60009765625
       },
       {
         "date": "2026-08-19",
-        "value": 4489.39990234375
+        "value": 4545.2998046875
       },
       {
         "date": "2026-08-20",
-        "value": 4516.2998046875
+        "value": 4571.39990234375
       },
       {
         "date": "2026-08-21",
-        "value": 4624.10009765625
+        "value": 4680.60009765625
       },
       {
         "date": "2026-08-24",
-        "value": 4640.7998046875
+        "value": 4697.7998046875
       },
       {
         "date": "2026-08-25",
-        "value": 4638.10009765625
+        "value": 4694.5
       },
       {
         "date": "2026-08-26",
-        "value": 4598.2001953125
+        "value": 4653.2998046875
       },
       {
         "date": "2026-08-27",
-        "value": 4609.7001953125
+        "value": 4664.0
       },
       {
         "date": "2026-08-28",
-        "value": 4478.10009765625
+        "value": 4529.89990234375
       },
       {
         "date": "2026-08-31",
-        "value": 4431.10009765625
+        "value": 4481.5
       },
       {
         "date": "2026-09-01",
-        "value": 4348.0
+        "value": 4396.39990234375
       },
       {
         "date": "2026-09-02",
-        "value": 4366.2998046875
+        "value": 4414.60009765625
       },
       {
         "date": "2026-09-03",
-        "value": 4491.7001953125
+        "value": 4539.89990234375
       },
       {
         "date": "2026-09-04",
-        "value": 4429.7998046875
+        "value": 4476.60009765625
       },
       {
         "date": "2026-09-08",
-        "value": 4393.89990234375
+        "value": 4439.0
       },
       {
         "date": "2026-09-09",
-        "value": 4416.0
+        "value": 4460.7001953125
       },
       {
         "date": "2026-09-10",
-        "value": 4364.5
+        "value": 4407.2998046875
       },
       {
         "date": "2026-09-11",
@@ -15854,14 +15850,14 @@
       },
       {
         "date": "2026-09-15",
-        "value": 4313.2001953125
+        "value": 4332.7998046875
+      },
+      {
+        "date": "2026-09-16",
+        "value": 4385.5
       }
     ],
     "brent": [
-      {
-        "date": "2025-02-12",
-        "value": 75.18000030517578
-      },
       {
         "date": "2025-02-13",
         "value": 75.0199966430664
@@ -17456,14 +17452,14 @@
       },
       {
         "date": "2026-09-15",
-        "value": 102.37999725341797
+        "value": 108.75
+      },
+      {
+        "date": "2026-09-16",
+        "value": 107.70999908447266
       }
     ],
     "usdvnd_mkt": [
-      {
-        "date": "2025-03-13",
-        "value": 25445.0
-      },
       {
         "date": "2025-03-14",
         "value": 25490.0
@@ -19054,11 +19050,15 @@
       },
       {
         "date": "2026-09-14",
-        "value": 25938.0
+        "value": 25984.0
       },
       {
         "date": "2026-09-15",
         "value": 25984.0
+      },
+      {
+        "date": "2026-09-16",
+        "value": 25958.0
       }
     ],
     "usdvnd_vcb": [
@@ -19197,6 +19197,10 @@
       {
         "date": "2026-09-15",
         "value": 26130.0
+      },
+      {
+        "date": "2026-09-16",
+        "value": 26180.0
       }
     ],
     "gold_sjc": [
@@ -19335,6 +19339,10 @@
       {
         "date": "2026-09-15",
         "value": 145300000.0
+      },
+      {
+        "date": "2026-09-16",
+        "value": 146500000.0
       }
     ],
     "vn_cpi_yoy": [
@@ -19647,6 +19655,5 @@
         "url": "https://hnx.vn/vi-vn/phai-sinh/thong-ke.html"
       }
     ]
-  },
-  "dashboard_freshness_evaluated_at": "2026-09-15"
+  }
 }

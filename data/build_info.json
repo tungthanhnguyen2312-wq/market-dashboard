@@ -1,162 +1,62 @@
 {
-  "schema_version": "dashboard_build_info/v1",
-  "market_session": "2026-09-15",
-  "producer_run_identity": "recovery_operation",
-  "dashboard_release_identity": "dashboard_release:4774b3ce6bfcb3f696e28caba0c79585c0512c8e5937d72444614f637ffd6bbc",
-  "build_id": "4774b3ce6b",
-  "generated_at": "2026-09-15T10:22:50.865955+00:00",
-  "published_at": "2026-09-15T10:22:50.865955+00:00",
-  "release_status": "READY",
-  "domains": {
-    "screening": {
-      "status": "CURRENT",
-      "source_session": "2026-09-15",
-      "freshness": "EXACT_SESSION",
-      "reason_codes": []
-    },
-    "breadth": {
-      "status": "CURRENT",
-      "source_session": "2026-09-15",
-      "freshness": "EXACT_SESSION",
-      "reason_codes": []
-    },
-    "analysis": {
-      "status": "CURRENT",
-      "source_session": "2026-09-15",
-      "freshness": "EXACT_SESSION",
-      "reason_codes": []
-    },
-    "signals": {
-      "status": "STALE",
-      "source_session": null,
-      "freshness": "EXACT_SESSION",
-      "reason_codes": [
-        "SIGNAL_COMPONENT_NOT_EXACT_SESSION"
-      ],
-      "components": {
-        "candle_signals": {
-          "status": "STALE",
-          "source_session": "2026-08-25",
-          "generated_at": "2026-08-26T06:23:51Z",
-          "reason_codes": [
-            "SIGNAL_SOURCE_SESSION_MISMATCH"
-          ]
-        },
-        "sector_heatmap": {
-          "status": "STALE",
-          "source_session": "2026-08-25",
-          "generated_at": "2026-08-26T06:23:51Z",
-          "reason_codes": [
-            "SIGNAL_SOURCE_SESSION_MISMATCH"
-          ]
-        },
-        "candlestick_patterns": {
-          "status": "STALE",
-          "source_session": "2026-08-25",
-          "generated_at": "2026-08-26T06:23:51.785327+00:00",
-          "reason_codes": [
-            "SIGNAL_SOURCE_SESSION_MISMATCH"
-          ]
-        }
-      }
-    },
-    "macro": {
-      "status": "CURRENT",
-      "source_session": null,
-      "data_as_of": "2026-09-15",
-      "generated_at": "2026-09-15T17:14:21+07:00",
-      "freshness": "CADENCE_AWARE",
-      "reason_codes": [],
-      "stale_series_count": 0
-    },
-    "cockpit": {
-      "status": "CURRENT",
-      "source_session": "2026-09-15",
-      "freshness": "EXACT_SESSION",
-      "generated_at": null,
-      "reason_codes": []
-    },
-    "investment_workspace": {
-      "status": "CURRENT",
-      "source_session": "2026-09-15",
-      "freshness": "EXACT_SESSION",
-      "artifact_identity": "investment_decision_workspace_projection/v1:88d54c4236c437faa21f146c88daad4e9a0c6342a5f1ac228339cee0d4906278",
-      "reason_codes": []
-    },
-    "screener_master": {
-      "status": "CURRENT",
-      "source_session": "2026-09-15",
-      "freshness": "EXACT_SESSION",
-      "artifact_identity": "screener_master_projection/v1:7ed10d9c40fbb4fa7bd0d813faa69fe2a6357e120ed3928c4c29b0f2168c7a5a",
-      "reason_codes": []
-    }
+  "schema_version": 1,
+  "build_id": "2026-09-16-0986995-23228ee179",
+  "generated_at": "2026-09-17T14:01:39+07:00",
+  "published_at": "2026-09-17T14:01:39+07:00",
+  "market_session": "2026-09-16",
+  "git_commit": "0986995dd6d5dbb6ec3f9383cbe6b9253436422c",
+  "git_commit_semantics": "pre_publication_source_head",
+  "row_counts": {
+    "screen_snapshot": 1683,
+    "market_breadth": 1
+  },
+  "price_basis_contract": {
+    "price_basis": "unknown",
+    "price_basis_verified": false,
+    "is_actionable": false,
+    "volume_basis": "unknown",
+    "volume_basis_verified": false,
+    "adjustment_source": null,
+    "effective_date": null,
+    "limitations": [
+      "Price basis is unverified or unknown; corporate actions may affect price and return calculations."
+    ]
   },
   "files": {
     "screen_snapshot.csv": {
-      "sha256": "89602e25158ae65e4737cb28cc2ceaccaed8e426052369cfae7963137f1a634f",
-      "size_bytes": 554379
-    },
-    "screen_snapshot_live.csv": {
-      "sha256": "c0b862e135b8595b5b603e81cc0ca88909d177b4d5d8e26fb0682aa65602c7c0",
-      "size_bytes": 358453
+      "sha256": "a9fc81db31dd162fd7f1ab8a3d7784f9cad78484f83045a26d1e5ccde5cfdb02",
+      "size": 557233,
+      "mtime": "2026-09-16T17:24:44+07:00"
     },
     "market_breadth.csv": {
-      "sha256": "2b555a27eaecb0d236f06bfe87587b9517bf11a2b4c80a56d20ade04b52942ad",
-      "size_bytes": 142
+      "sha256": "f33d8b23efaae371155dba9be253c5a57564c3b03e7e74d20eafb98ded98587a",
+      "size": 142,
+      "mtime": "2026-09-16T17:24:44+07:00"
     },
     "analysis_latest.json": {
-      "sha256": "0357e9fdc8d9de6bc19190037f77af4686fc5c9797bc7624818a549c2b2e1533",
-      "size_bytes": 3751
+      "sha256": "bb89db22fc9b7de1ba74058fc5c1556bd744f7d874aecd724d0383cbc1f7fb13",
+      "size": 3751,
+      "mtime": "2026-09-16T17:24:44+07:00"
     },
-    "bundle_manifest.json": {
-      "sha256": "63fff56c4882da7788659b36d1f07901e1a3358ab978ed78ed7406bbb1d798f2",
-      "size_bytes": 8279
+    "ai_report_latest.md": {
+      "sha256": "5ca7bad344ed82d9034c39c96a338a6ae988bb931e0127776782d516109cd0cf",
+      "size": 7194,
+      "mtime": "2026-07-22T19:10:37+07:00"
     },
-    "analysis_bundle.json": {
-      "sha256": "a19b346568fc171d2a92b8ce6f03a14f1877bcba16cf41f50f14570ddc5608a6",
-      "size_bytes": 36969
-    },
-    "focus_extract.json": {
-      "sha256": "bbfb2973de6761b87300214c1062e37feb6d434bbc5e30e228bb6f881ae6bc7a",
-      "size_bytes": 5127
-    },
-    "statement_taxonomy_sidecar.json": {
-      "sha256": "b71dfb9578eec3ff4f0b1314cb2f9caa4007b44bf9279de1ef21f24d3983e1c3",
-      "size_bytes": 1684422
-    },
-    "data/macro_snapshot.json": {
-      "sha256": "88fab1dcab316eb71e696068b3ac1f1651fd768af035452476a366b755b1d43f",
-      "size_bytes": 380082
-    },
-    "data/macro_snapshot.js": {
-      "sha256": "65b5210488022e23baae26aefce0bacdabb98942e46f73fcb9f4a09165b0f6f4",
-      "size_bytes": 380107
-    },
-    "data/current_decision_cockpit.json": {
-      "sha256": "d7cd19761ac6b479ef42df78851768cb24fe04285ea22548dab53a86db250a1f",
-      "size_bytes": 2914199
-    },
-    "data/investment_decision_workspace.json": {
-      "sha256": "86b49ae3b786b633e5047bee2586b8c3f87378de92b567211b1a676b35ffc9db",
-      "size_bytes": 51073864
-    },
-    "data/screener_master_projection.json": {
-      "sha256": "bc8d6eb4639910d7daa507415351ef15dd199fabf7c1bf66d6b1ebd2a952803c",
-      "size_bytes": 6692696
-    },
-    "data/screener_master_projection.js": {
-      "sha256": "02f02beb082c707333f032b99bb458a2d5e1c98bf86c4feb17c23279a7c5ed47",
-      "size_bytes": 4956936
+    "ai_report_latest.json": {
+      "sha256": "60b662727d69a05d8258b6924a7c2bdeb30df0d19d35d56a5524288480628a60",
+      "size": 8285,
+      "mtime": "2026-07-11T05:48:59+07:00"
     },
     "data/screener_data.js": {
-      "sha256": "c490c139f29095bca0ac399ceb4a624c07f956e5c371d2a74ab683d6c360a01e",
-      "size_bytes": 1993062
+      "sha256": "24ca27552d556730f3b27cf749b198ec473ee499d70c5b9e80fc3b698b2eb204",
+      "size": 1940067,
+      "mtime": "2026-09-17T14:01:40+07:00"
     }
   },
-  "hero_summary": {
-    "market_session": "2026-09-15",
-    "total_surveyed": 1211,
-    "up_count": 0,
-    "rs80_count": 0
+  "investment_workspace": {
+    "status": "CURRENT",
+    "source_session": "2026-09-16",
+    "artifact_identity": "investment_decision_workspace_projection/v1:37a8145a56f0b65972735e07119b62cf61ac85fb971c2b0b0c40e5d799012ceb"
   }
 }
