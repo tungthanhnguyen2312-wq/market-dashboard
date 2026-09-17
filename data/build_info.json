@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "build_id": "2026-09-16-0986995-23228ee179",
-  "generated_at": "2026-09-17T14:01:39+07:00",
-  "published_at": "2026-09-17T14:01:39+07:00",
+  "build_id": "2026-09-16-9da114f-90facb048f",
+  "generated_at": "2026-09-17T15:16:57+07:00",
+  "published_at": "2026-09-17T15:16:57+07:00",
   "market_session": "2026-09-16",
-  "git_commit": "0986995dd6d5dbb6ec3f9383cbe6b9253436422c",
+  "git_commit": "9da114f66773592ef4299aa56f666375852d4bd0",
   "git_commit_semantics": "pre_publication_source_head",
   "row_counts": {
     "screen_snapshot": 1683,
@@ -49,14 +49,14 @@
       "mtime": "2026-07-11T05:48:59+07:00"
     },
     "data/screener_data.js": {
-      "sha256": "24ca27552d556730f3b27cf749b198ec473ee499d70c5b9e80fc3b698b2eb204",
+      "sha256": "f80bc452822846806536e9b86e542ac04804b3004d85bae9d61bcd00784f27a0",
       "size": 1940067,
-      "mtime": "2026-09-17T14:01:40+07:00"
+      "mtime": "2026-09-17T15:17:01+07:00"
     }
   },
   "investment_workspace": {
     "status": "CURRENT",
     "source_session": "2026-09-16",
-    "artifact_identity": "investment_decision_workspace_projection/v1:37a8145a56f0b65972735e07119b62cf61ac85fb971c2b0b0c40e5d799012ceb"
+    "artifact_identity": "investment_decision_workspace_projection/v1:ecf79f8369026c7e22095656c4093d57d9a555aedcec3c566532d5bd5c5aa325"
   }
 }

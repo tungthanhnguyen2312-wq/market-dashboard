@@ -1,5 +1,5 @@
 {
-  "build_id": "2026-09-16-0986995-23228ee179",
+  "build_id": "2026-09-16-9da114f-90facb048f",
   "canonical_producer_status": {
     "active_equity_universe": 1503,
     "input_candidates": 1683,
@@ -61,9 +61,9 @@
     "positive_20d_momentum_count": 249,
     "unchanged": 200
   },
-  "producer_commit": "3cb67a184726513c85e11325108917dcc61684a2",
+  "producer_commit": "aec58f90a908840421a17198709d83841c9fe399",
   "producer_commit_semantics": "pre_publication_producer_head",
-  "producer_commit_summary": "fix(publish): validate/build whitelist after copy in live mode",
+  "producer_commit_summary": "fix(workspace): dedupe why.*_evidence diagnostic payload duplication",
   "prospective_cohort_identity": "prospective_research_cohort_snapshot:efae1a51489a226be3bd2c76d5f31cbc9f12d230ed342cf71ae9c7a037a0164e",
   "schema_version": "1.0.0",
   "source_artifacts": {
