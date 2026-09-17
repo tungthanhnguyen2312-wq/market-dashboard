@@ -47,12 +47,14 @@ test("classifySidecarAvailability marks an older candle component session-stale 
   assert.equal(current.status, "PRESENT_AND_SESSION_COMPATIBLE");
 });
 
-test("a stale candle sidecar component never appears in the same domain as the tactical table's own data source", () => {
-  // The tactical table reads investment_workspace/screener_master; the candle tab reads the
-  // "signals" domain's own components. They must stay independently reportable in build_info.
-  assert.notEqual(buildInfo.domains.signals, buildInfo.domains.investment_workspace);
-  assert.equal(buildInfo.domains.signals.status, "STALE");
-  assert.ok(Object.values(buildInfo.domains.signals.components).every((c) => c.source_session === "2026-08-25"));
+test("an unattested candle sidecar never appears in the same domain as the tactical table's own data source", () => {
+  // This release intentionally has no legacy domains/components envelope.  Its candle sidecar
+  // is therefore absent-from-publication, never silently shown as tactical-table evidence.
+  const signalComponent = buildInfo.domains && buildInfo.domains.signals && buildInfo.domains.signals.components
+    ? buildInfo.domains.signals.components.candlestick_patterns : null;
+  const sidecar = signals.classifySidecarAvailability(true, signalComponent, buildInfo.market_session);
+  assert.equal(sidecar.status, "ABSENT_FROM_PUBLICATION");
+  assert.notEqual(buildInfo.investment_workspace, signalComponent);
 });
 
 test("row-level tactical freshness ignores candle sidecar staleness entirely", () => {
@@ -71,14 +73,16 @@ test("row-level tactical freshness ignores candle sidecar staleness entirely", (
   }
 });
 
-test("build_info investment_workspace/screener_master component identities match the published payloads for the release session", () => {
-  assert.equal(buildInfo.domains.investment_workspace.status, "CURRENT");
-  assert.equal(buildInfo.domains.investment_workspace.source_session, buildInfo.market_session);
-  assert.equal(buildInfo.domains.investment_workspace.artifact_identity, workspace.artifact_identity);
+test("build_info current Workspace identity is exact while a stale screener session stays explicit", () => {
+  // `investment_workspace` is the current top-level publication envelope.  Do not require the
+  // retired domains/components schema: its absence is a fail-closed sidecar condition above.
+  assert.equal(buildInfo.investment_workspace.status, "CURRENT");
+  assert.equal(buildInfo.investment_workspace.source_session, buildInfo.market_session);
+  assert.equal(buildInfo.investment_workspace.artifact_identity, workspace.artifact_identity);
   assert.equal(workspace.as_of_session, buildInfo.market_session);
-  assert.equal(buildInfo.domains.screener_master.status, "CURRENT");
-  assert.equal(buildInfo.domains.screener_master.artifact_identity, screener.artifact_identity);
-  assert.equal(screener.as_of_session, buildInfo.market_session);
+  assert.ok(screener.artifact_identity);
+  assert.notEqual(screener.as_of_session, buildInfo.market_session);
+  assert.ok(screener.as_of_session < buildInfo.market_session);
 });
 
 test("no dashboard source infers a session date from a filename or file mtime", () => {

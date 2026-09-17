@@ -167,3 +167,31 @@
 }
 .ws-view-tab:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
 
+/* ---------- Research diagnostic transparency ---------- */
+.ws-valuation-summary {
+  padding: .65rem .75rem;
+  border-left: 3px solid var(--primary);
+  background: rgba(var(--primary-rgb), .07);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  line-height: 1.45;
+}
+.ws-valuation-methods { display: grid; gap: .55rem; margin-top: .75rem; }
+.ws-valuation-method {
+  padding: .7rem;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-sm);
+  background: rgba(15, 23, 42, .26);
+}
+.ws-valuation-method-head { display: flex; align-items: center; justify-content: space-between; gap: .5rem; }
+.ws-valuation-method-value { margin: .25rem 0; font-size: 1rem; }
+.ws-diagnostic-value { font-variant-numeric: tabular-nums; }
+.ws-diagnostic-context, .ws-diagnostic-blocker { margin-top: .3rem; }
+.ws-diagnostic-blocker { color: var(--text-muted); }
+.ws-axis-diagnostic > * + * { margin-top: .35rem; }
+.ws-axis-diagnostic .cockpit-list { margin-top: .2rem; }
+.ws-reference-trigger { margin-top: .45rem; padding: .65rem .75rem; border: 1px solid var(--border-soft); border-radius: var(--radius-sm); background: rgba(15, 23, 42, .26); }
+
+@media (max-width: 480px) {
+  .ws-valuation-method-head { align-items: flex-start; flex-direction: column; }
+}
+

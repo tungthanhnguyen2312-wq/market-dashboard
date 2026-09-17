@@ -354,6 +354,202 @@
     }</tbody></table>`;
   }
 
+  // Diagnostic values are display-only Producer truth.  The helpers below intentionally do
+  // not derive a valuation, peer cohort, trigger, or any authority: they only shape retained
+  // additive fields for an owner-readable card.
+  function hasRetainedValue(value) {
+    if (typeof value === "number") return Number.isFinite(value);
+    if (typeof value === "string") return value.trim() !== "";
+    return false;
+  }
+  function formatDiagnosticNumber(value) {
+    if (typeof value === "number" && Number.isFinite(value)) {
+      return new Intl.NumberFormat("vi-VN", { maximumFractionDigits: 4 }).format(value);
+    }
+    return String(value);
+  }
+  function diagnosticPill(raw, label, tone) {
+    const vf = getValueFormat();
+    const effectiveTone = tone || (vf && typeof vf.getSemanticTone === "function" ? vf.getSemanticTone(raw, "availability_state") : "neutral");
+    return `<span class="cockpit-state tone-${escHtml(effectiveTone)}" data-state="${escHtml(raw)}" data-tone="${escHtml(effectiveTone)}" title="${escHtml(raw)}">${escHtml(label)}</span>`;
+  }
+  function diagnosticReasonLabel(raw) {
+    const vf = getValueFormat();
+    if (vf && typeof vf.formatDiagnosticReason === "function") return vf.formatDiagnosticReason(raw);
+    return formatWorkspaceState(raw, "diagnostic_reason");
+  }
+  function diagnosticReasonHtml(raw) {
+    return `<span data-state="${escHtml(raw)}" title="${escHtml(raw)}">${escHtml(diagnosticReasonLabel(raw))}</span>`;
+  }
+  function diagnosticValueHtml(method) {
+    if (hasRetainedValue(method && method.value)) {
+      return `<strong class="ws-diagnostic-value" data-retained-value="true">${escHtml(formatDiagnosticNumber(method.value))}</strong>`;
+    }
+    const state = (method || {}).earnings_state || ((method || {}).status === "PE_NOT_MEANINGFUL" ? "PE_NOT_MEANINGFUL" : "");
+    if (state) {
+      return `<span class="ws-diagnostic-value" data-state="${escHtml(state)}" title="${escHtml(state)}">${escHtml(formatWorkspaceState(state, state === "PE_NOT_MEANINGFUL" ? "valuation_state" : "earnings_state"))}</span>`;
+    }
+    return '<span class="cockpit-note ws-diagnostic-value">Chưa có dữ liệu</span>';
+  }
+  function valuationAvailabilityHtml(method) {
+    const availability = (method || {}).availability_state || "NOT_AVAILABLE";
+    const blockers = (method || {}).blocker_reason_codes || [];
+    const isBlockedWithoutValue = availability === "NOT_AVAILABLE" && !hasRetainedValue((method || {}).value)
+      && (blockers.length || ["INPUT_BLOCKED", "BLOCKED", "NOT_APPLICABLE"].includes((method || {}).status));
+    if (isBlockedWithoutValue) return diagnosticPill(availability, "Bị chặn", "adverse");
+    if (availability === "AVAILABLE_QUALIFIED") return diagnosticPill(availability, formatWorkspaceState(availability, "availability_state"), "constructive");
+    if (availability === "AVAILABLE_REFERENCE_ONLY") return diagnosticPill(availability, formatWorkspaceState(availability, "availability_state"), "watch");
+    return diagnosticPill(availability, formatWorkspaceState(availability, "availability_state"), "neutral");
+  }
+  function diagnosticText(value, domain) {
+    if (value === null || value === undefined || value === "") return "";
+    const formatted = formatWorkspaceState(value, domain || "data_fitness");
+    return `<span data-state="${escHtml(value)}" title="${escHtml(value)}">${escHtml(formatted)}</span>`;
+  }
+  function valuationPeerContextHtml(peer) {
+    if (!peer || typeof peer !== "object" || !Object.keys(peer).length) return "";
+    const status = peer.status;
+    const details = [];
+    if (peer.peer_count != null) details.push(`Số đối sánh: ${formatDiagnosticNumber(peer.peer_count)}`);
+    if (hasRetainedValue(peer.peer_median)) details.push(`Trung vị nhóm: ${formatDiagnosticNumber(peer.peer_median)}`);
+    if (hasRetainedValue(peer.premium_or_discount_to_peer_median)) details.push(`Chênh lệch so với trung vị: ${formatDiagnosticNumber(peer.premium_or_discount_to_peer_median)}`);
+    return `<div class="cockpit-note ws-diagnostic-context">Bối cảnh đối sánh: ${status ? diagnosticReasonHtml(status) : "Chưa có dữ liệu"}${details.length ? `<br>${escHtml(details.join(" · "))}` : ""}</div>`;
+  }
+  function valuationMethodHtml(methodId, method) {
+    const detail = method || {};
+    const blockers = Array.isArray(detail.blocker_reason_codes) ? detail.blocker_reason_codes : [];
+    const context = [];
+    if (detail.period_basis) context.push(`Kỳ: ${formatWorkspaceState(detail.period_basis, "data_fitness")}`);
+    if (detail.share_basis) context.push(`Cơ sở: ${formatWorkspaceState(detail.share_basis, "data_fitness")}`);
+    return `<article class="ws-valuation-method" data-method="${escHtml(methodId)}">
+      <div class="ws-valuation-method-head"><strong>${escHtml(methodId)}</strong>${valuationAvailabilityHtml(detail)}</div>
+      <div class="ws-valuation-method-value">${diagnosticValueHtml(detail)}</div>
+      ${valuationPeerContextHtml(detail.peer_relative)}
+      ${context.length ? `<div class="cockpit-note ws-diagnostic-context">${escHtml(context.join(" · "))}</div>` : ""}
+      ${blockers.length ? `<div class="cockpit-note ws-diagnostic-blocker">Thiếu/giới hạn: ${blockers.slice(0, 2).map(diagnosticReasonHtml).join(" · ")}${blockers.length > 2 ? " · …" : ""}</div>` : ""}
+      ${detailsHtml(detail, "Chi tiết kỹ thuật phương pháp")}
+    </article>`;
+  }
+  function valuationSummaryHtml(valuation) {
+    const val = valuation || {};
+    const summary = val.valuation_summary;
+    if (summary && typeof summary === "object") {
+      const available = Number(summary.available_method_count) || 0;
+      const qualified = Number(summary.qualified_relative_method_count) || 0;
+      const displayState = summary.valuation_display_state || "";
+      let copy;
+      if (available > 0) {
+        copy = `${available} phương pháp định giá có dữ liệu nghiên cứu.`;
+        copy += qualified > 0
+          ? ` ${qualified} phương pháp đủ điều kiện cho bối cảnh định giá tương đối.`
+          : " Chưa có phương pháp đủ điều kiện tạo kết luận định giá tương đối.";
+      } else {
+        copy = "Chưa có phương pháp định giá có dữ liệu nghiên cứu.";
+      }
+      return `<div class="ws-valuation-summary"${displayState ? ` data-state="${escHtml(displayState)}" title="${escHtml(displayState)}"` : ""}>${escHtml(copy)}</div>${detailsHtml(summary, "Chi tiết kỹ thuật định giá")}`;
+    }
+    // Older artifacts have only a count, not a retained method/value map.  Preserve that
+    // limited fact without calling the methods intrinsic or inventing their identities.
+    const legacyCount = Number(val.usable_relative_method_count) || 0;
+    if (legacyCount > 0) {
+      return `<div class="ws-valuation-summary">${escHtml(`${legacyCount} phương pháp định giá có dữ liệu nghiên cứu.`)}<div class="cockpit-note">Chi tiết từng phương pháp chưa được giữ lại trong artifact này.</div></div>`;
+    }
+    return '<div class="ws-valuation-summary">Chưa có phương pháp định giá có dữ liệu nghiên cứu.</div>';
+  }
+  function valuationDiagnosticsHtml(valuation) {
+    const val = valuation || {};
+    const diagnostics = val.method_diagnostics && typeof val.method_diagnostics === "object" ? val.method_diagnostics : {};
+    const methods = Object.entries(diagnostics);
+    return `${valuationSummaryHtml(val)}${methods.length
+      ? `<div class="ws-valuation-methods" aria-label="Chi tiết phương pháp định giá">${methods.map(([id, method]) => valuationMethodHtml(id, method)).join("")}</div>`
+      : (val.supporting_methods && val.supporting_methods.length ? supportingMethodsHtml(val.supporting_methods) : "")}`;
+  }
+  function fundamentalDiagnosticsHtml(fundamental) {
+    const data = fundamental || {};
+    const warnings = Array.isArray(data.warnings_blockers) ? data.warnings_blockers : [];
+    const state = data.state;
+    const fitness = data.research_fitness || data.readiness;
+    return `<div class="ws-axis-diagnostic">
+      <div><b>Nền tảng doanh nghiệp</b> ${pill(state, "fundamental_state")}</div>
+      ${data.trajectory ? `<div class="cockpit-note">Xu hướng lợi nhuận: ${diagnosticText(data.trajectory, "fundamental_trajectory")}</div>` : ""}
+      ${fitness ? `<div class="cockpit-note">Chất lượng dữ liệu: ${pill(fitness, "data_fitness")}</div>` : ""}
+      ${data.freshness_status ? `<div class="cockpit-note">Độ mới: ${pill(data.freshness_status, "freshness")}</div>` : ""}
+      ${warnings.length ? `<div class="ws-diagnostic-blocker">Thiếu/giới hạn:<ul class="cockpit-list">${warnings.slice(0, 3).map((reason) => `<li>${diagnosticReasonHtml(reason)}</li>`).join("")}</ul></div>` : ""}
+      ${(data.financial_health || data.current_features || data.peer_relative) ? detailsHtml({ financial_health: data.financial_health, current_features: data.current_features, peer_relative: data.peer_relative, warnings_blockers: warnings }, "Chi tiết kỹ thuật nền tảng") : ""}
+    </div>`;
+  }
+  function retainedItemLabel(item) {
+    if (typeof item === "string") {
+      const looksLikeEnum = /^[A-Z][A-Z0-9_]+$/.test(item);
+      return looksLikeEnum ? diagnosticReasonLabel(item) : item;
+    }
+    if (!item || typeof item !== "object") return "Chưa có dữ liệu";
+    const candidate = item.label || item.title || item.headline || item.summary || item.event_type || item.classification || item.status || item.reason;
+    if (candidate === undefined || candidate === null || candidate === "") return "Có dữ liệu được giữ lại";
+    return typeof candidate === "string" && /^[A-Z][A-Z0-9_]+$/.test(candidate) ? diagnosticReasonLabel(candidate) : String(candidate);
+  }
+  function retainedItemsHtml(label, items) {
+    if (!Array.isArray(items) || !items.length) return "";
+    return `<div class="mt-2"><b>${escHtml(label)}</b><ul class="cockpit-list">${items.slice(0, 3).map((item) => `<li>${escHtml(retainedItemLabel(item))}${typeof item === "object" && item ? detailsHtml(item, "Chi tiết kỹ thuật") : ""}</li>`).join("")}</ul></div>`;
+  }
+  function catalystDiagnosticsHtml(catalyst) {
+    const data = catalyst || {};
+    const retained = ["qualified_current_catalysts", "pending_watch_items", "adverse_events", "event_classifications"].some((key) => Array.isArray(data[key]) && data[key].length);
+    return `<div class="ws-axis-diagnostic"><b>Chất xúc tác</b> ${pill(data.status, "evidence_state")}
+      ${!retained && data.status === "UNAVAILABLE" ? '<div class="cockpit-note">Chưa có dữ liệu chất xúc tác được giữ lại.</div>' : ""}
+      ${retainedItemsHtml("Đã ghi nhận", data.qualified_current_catalysts)}
+      ${retainedItemsHtml("Nội dung đang theo dõi", data.pending_watch_items)}
+      ${retainedItemsHtml("Bối cảnh bất lợi", data.adverse_events)}
+      ${retainedItemsHtml("Phân loại sự kiện", data.event_classifications)}
+      ${data.freshness_status ? `<div class="cockpit-note">Độ mới: ${pill(data.freshness_status, "freshness")}</div>` : ""}</div>`;
+  }
+  function liquidityDiagnosticsHtml(liquidity) {
+    const data = liquidity || {};
+    return `<div class="ws-axis-diagnostic"><b>Thanh khoản nghiên cứu</b> ${pill(data.readiness, "liquidity_state")}
+      ${hasRetainedValue(data.current_session_volume) ? `<div class="mt-2"><b>Khối lượng phiên hiện tại</b>: <span data-retained-value="true">${escHtml(formatDiagnosticNumber(data.current_session_volume))}</span></div>` : ""}
+      ${data.descriptive_research_state ? `<div class="cockpit-note">Bối cảnh phiên: ${diagnosticText(data.descriptive_research_state, "liquidity_state")}</div>` : ""}
+      <div class="mt-2"><b>Năng lực thực hiện lệnh chính xác</b> ${pill(data.exact_execution_capacity_status, "liquidity_state")}</div>
+      <div class="cockpit-note">Thanh khoản nghiên cứu không xác lập quy mô lệnh thực hiện.</div>
+      ${data.authority_boundary ? detailsHtml(data.authority_boundary, "Chi tiết thẩm quyền thanh khoản") : ""}</div>`;
+  }
+  function sectorDiagnosticHtml(market) {
+    const data = market || {};
+    const diagnostic = data.sector_diagnostic || {};
+    const context = data.sector_relative_context || {};
+    const rows = [];
+    if (diagnostic.breadth_support_state) rows.push(`<div class="cockpit-note">Hỗ trợ độ rộng: ${diagnosticText(diagnostic.breadth_support_state, "data_fitness")}</div>`);
+    [
+      ["Động lượng so với thị trường", diagnostic.market_relative_momentum],
+      ["Động lượng so với ngành", diagnostic.sector_relative_momentum],
+    ].forEach(([label, metric]) => {
+      if (!metric || typeof metric !== "object") return;
+      const parts = [];
+      if (metric.status) parts.push(diagnosticReasonHtml(metric.status));
+      if (hasRetainedValue(metric.momentum_percentile_descriptive)) parts.push(`Phân vị: ${formatDiagnosticNumber(metric.momentum_percentile_descriptive)}`);
+      if (hasRetainedValue(metric.peer_median_momentum_20d)) parts.push(`Trung vị: ${formatDiagnosticNumber(metric.peer_median_momentum_20d)}`);
+      if (parts.length) rows.push(`<div class="cockpit-note">${escHtml(label)}: ${parts.join(" · ")}</div>`);
+    });
+    return `${marketContextHtml(context)}${rows.join("")}${Object.keys(diagnostic).length ? detailsHtml(diagnostic, "Chi tiết kỹ thuật thị trường/ngành") : ""}`;
+  }
+  function booleanDiagnosticHtml(value, yes, no, key) {
+    const raw = value === true ? "true" : "false";
+    return `<span data-state="${raw}" data-diagnostic="${escHtml(key)}" title="${raw}">${escHtml(value ? yes : no)}</span>`;
+  }
+  function referenceTriggerHtml(referenceTrigger) {
+    const trigger = referenceTrigger || {};
+    if (!trigger.trigger_level_exists || !hasRetainedValue(trigger.trigger_level)) {
+      return '<div class="cockpit-note">Chưa có mức kích hoạt tham chiếu được giữ lại.</div>';
+    }
+    return `<div class="ws-reference-trigger" data-trigger-state="${escHtml(trigger.trigger_state || trigger.status || "")}">
+      <div><b>Mức kích hoạt tham chiếu</b>: <strong data-retained-value="true">${escHtml(formatDiagnosticNumber(trigger.trigger_level))}</strong></div>
+      <div class="cockpit-note">Điều kiện kích hoạt: ${booleanDiagnosticHtml(trigger.trigger_condition_attached, "Đã gắn", "Chưa gắn", "trigger_condition_attached")}</div>
+      <div class="cockpit-note">Trạng thái: ${booleanDiagnosticHtml(trigger.trigger_condition_satisfied, "Đã kích hoạt", "Chưa kích hoạt", "trigger_condition_satisfied")}</div>
+      <div class="cockpit-note">Quyền mở vị thế: ${booleanDiagnosticHtml(trigger.entry_authority, "Đã được xác lập", "Chưa được xác lập", "entry_authority")}</div>
+      <div class="cockpit-note">Mức tham chiếu không tự xác lập quyền mở vị thế.</div>
+      ${detailsHtml(trigger, "Chi tiết kỹ thuật mức kích hoạt")}
+    </div>`;
+  }
+
   function decisionCardHtml(card, options) {
     const opts = options || {};
     const ticker = String((opts.ticker || (card && card.ticker) || "")).trim().toUpperCase();
@@ -363,6 +559,11 @@
     const portfolio = opts.portfolio || card.portfolio || { evaluated: false, status: "NOT_EVALUATED" };
     const val = card.valuation || {};
     const why = card.why || {};
+    const fundamental = card.fundamental || why.fundamental_evidence || {};
+    const catalyst = card.catalyst || why.catalyst_evidence || {};
+    const liquidity = card.liquidity || {};
+    const marketSector = card.market_sector || why.market_sector_evidence || {};
+    const referenceTrigger = card.reference_trigger || (card.tactical || {}).reference_trigger || (why.tactical_evidence || {}).reference_trigger || {};
     const sourceArtifacts = opts.sourceArtifacts || {};
     return `
           <div class="cockpit-grid mb-3" data-decision-ticker="${escHtml(ticker)}">
@@ -379,7 +580,6 @@
               <div class="mt-1"><b>Tư thế nghiên cứu</b> ${pill(card.research_stance, "research_stance")} <span class="cockpit-note">(kết luận nghiên cứu chính)</span></div>
               <div class="mt-1"><b>Mức sẵn sàng kỹ thuật</b> ${pill(card.entry_action, "entry_action")} <span class="cockpit-note">thiết lập kỹ thuật: ${pill(card.entry_state, "tactical_state")}</span>${VETO_RESEARCH_STANCES.has(card.research_stance) ? ' <span class="cockpit-state blocked">Không phải tín hiệu mua</span>' : ""}</div>
               ${stanceEntryGuidance(card.research_stance, card.entry_action) ? `<div class="cockpit-note mt-2">${escHtml(stanceEntryGuidance(card.research_stance, card.entry_action))}</div>` : ""}
-              <div class="mt-2"><b>Chất xúc tác (vì sao là lúc này)</b> ${pill((why.catalyst_evidence || {}).status, "evidence_state")}</div>
               <div class="mt-2"><b>Lý do xác định (bằng chứng ủng hộ)</b>${listHtml(why.deterministic_reasons, "rule_condition")}</div>
               <div class="mt-2"><b>Bối cảnh đối trọng</b>${listHtml(why.counterbalancing_context, "rule_condition")}</div>
               <div class="mt-2"><b>Cảnh báo</b>${listHtml((card.counter_thesis || {}).warnings, "rule_condition")}</div>
@@ -388,27 +588,36 @@
               <div class="mt-2 cockpit-note">Hồ sơ nghiên cứu dự kiến: ${pill((card.prospective_case || {}).status, "prospective_case")} · vòng đời luận điểm: ${escHtml(formatWorkspaceState((card.prospective_case || {}).thesis_lifecycle_state, "prospective_case"))} · kết quả phía trước: ${pill((card.prospective_case || {}).forward_outcome_status, "prospective_case")}</div>
             </div></div>
             <div class="card"><div class="card-header"><h6>Doanh nghiệp</h6></div><div class="card-body">
-              <b>Nền tảng doanh nghiệp</b> ${pill((why.fundamental_evidence || {}).state, "fundamental_state")} ${escHtml(formatWorkspaceState((why.fundamental_evidence || {}).trajectory, "fundamental_trajectory"))}
+              ${fundamentalDiagnosticsHtml(fundamental)}
             </div></div>
             <div class="card"><div class="card-header"><h6>Định giá</h6></div><div class="card-body">
-              <b>Định giá</b> ${pill(val.relative_research_state, "valuation_state")} (${escHtml(val.usable_relative_method_count)} phương pháp dùng được, cơ sở ${escHtml(formatWorkspaceState(val.share_basis, "data_fitness"))})
-              ${supportingMethodsHtml(val.supporting_methods)}
+              <div class="mb-2"><b>Trạng thái định giá tương đối</b> ${pill(val.relative_research_state, "valuation_state")}</div>
+              ${valuationDiagnosticsHtml(val)}
             </div></div>
             <div class="card"><div class="card-header"><h6>Kỹ thuật</h6></div><div class="card-body">
               <b>Kỹ thuật</b> ${pill((why.tactical_evidence || {}).primary_entry_state, "tactical_state")}<br>
               <div class="mt-2"><b>Nhãn thiết lập</b>${listHtml(card.setup_tags, "setup_tag")}</div>
-              <div class="mt-2"><b>Thị trường/ngành</b> ${marketContextHtml((why.market_sector_evidence || {}).sector_relative_context || {})}</div>
+              <div class="mt-2"><b>Thị trường/ngành</b> ${sectorDiagnosticHtml(marketSector)}</div>
             </div></div>
             <div class="card"><div class="card-header"><h6>Kích hoạt / Vô hiệu</h6></div><div class="card-body">
               <div class="cockpit-grid mb-2">${kpiHtml("Trạng thái biên", pill((card.confirmation || {}).status, "confirmation_state"))}${kpiHtml("Trạng thái kích hoạt thực tế", pill((card.confirmation || {}).confirmation_trigger_state, "confirmation_state"))}</div>
               <div class="cockpit-note mb-2">Trạng thái biên cho biết điều kiện kích hoạt đã được gắn (có giá trị/toán tử cơ sở) — không phải bằng chứng điều kiện đã kích hoạt. Chỉ trạng thái đã kích hoạt mới có thể nâng tư thế nghiên cứu lên ứng viên mở vị thế.</div>
               ${conditionVisibleHtml(card.confirmation || {})}
               <hr class="my-3">
+              <b>Mức kích hoạt tham chiếu</b>
+              ${referenceTriggerHtml(referenceTrigger)}
+              <hr class="my-3">
               <b>${((card.invalidation || {}).technical || {}).semantic === "STANCE_RECONSIDERATION_WATCH" ? "Điều gì sẽ làm tư thế này đáng xem xét lại" : "Kỹ thuật (vô hiệu luận điểm)"}</b> ${pill(((card.invalidation || {}).technical || {}).status, "invalidation_state")}
               ${((card.invalidation || {}).technical || {}).semantic === "STANCE_RECONSIDERATION_WATCH" ? '<div class="cockpit-note mb-1">Tư thế này là điều kiện cấm mở vị thế mới, không có luận điểm dài hạn để vô hiệu — biên này cho biết khi nào lệnh cấm đáng được xem xét lại, không phải điều kiện vô hiệu luận điểm.</div>' : ""}
               ${conditionVisibleHtml((card.invalidation || {}).technical || {})}
               <b>Nền tảng doanh nghiệp</b> ${pill(((card.invalidation || {}).fundamental || {}).status, "invalidation_state")}
               ${conditionVisibleHtml((card.invalidation || {}).fundamental || {})}
+            </div></div>
+            <div class="card"><div class="card-header"><h6>Chất xúc tác</h6></div><div class="card-body">
+              ${catalystDiagnosticsHtml(catalyst)}
+            </div></div>
+            <div class="card"><div class="card-header"><h6>Thanh khoản</h6></div><div class="card-body">
+              ${liquidityDiagnosticsHtml(liquidity)}
             </div></div>
             <div class="card"><div class="card-header"><h6>Danh mục</h6></div><div class="card-body">
               ${portfolio && portfolio.evaluated ? `

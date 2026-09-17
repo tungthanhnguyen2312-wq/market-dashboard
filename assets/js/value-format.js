@@ -304,7 +304,59 @@
     EXPENSIVE_RELATIVE_RESEARCH: "Đắt tương đối",
     IN_LINE_RELATIVE_RESEARCH: "Ngang bằng tương đối",
     PE_NOT_MEANINGFUL: "P/E không có ý nghĩa",
-    ABSOLUTE_RESEARCH_ONLY: "Chỉ định giá tuyệt đối nghiên cứu",
+    // This is retained historical vocabulary, not a claim that the available research
+    // multiples are intrinsic/fair-value models.  Method-level diagnostics carry the
+    // actual availability and peer qualification distinction.
+    ABSOLUTE_RESEARCH_ONLY: "Có dữ liệu định giá nghiên cứu, chưa đủ điều kiện tương đối",
+    UNAVAILABLE: "Chưa có dữ liệu",
+  });
+
+  // Availability is deliberately independent from authority/readiness.  These labels
+  // are used by the Workspace diagnostic rows while raw Producer states remain in
+  // data-state/title and collapsed technical detail.
+  const AVAILABILITY_STATE_MAP = Object.freeze({
+    AVAILABLE_QUALIFIED: "Đủ điều kiện nghiên cứu",
+    AVAILABLE_REFERENCE_ONLY: "Tham khảo",
+    NOT_AVAILABLE: "Chưa có dữ liệu",
+    BLOCKED: "Bị chặn",
+  });
+
+  // One centralized presentation layer for retained diagnostic blocker/status codes.
+  // Unknown codes stay available in technical detail; they are never surfaced as raw
+  // enums in the owner-facing view.
+  const DIAGNOSTIC_REASON_MAP = Object.freeze({
+    INSUFFICIENT_PEER_COUNT: "Chưa đủ số đối sánh cùng cơ sở",
+    PEER_RELATIVE_UNAVAILABLE: "Chưa có đối sánh tương đối đủ điều kiện",
+    READY_RESEARCH_ONLY: "Đối sánh tương đối đủ điều kiện nghiên cứu",
+    MISSING_DEBT_OR_CASH: "Thiếu dữ liệu nợ hoặc tiền mặt đủ điều kiện",
+    MISSING_DEBT_OR_CASH_INPUTS: "Thiếu dữ liệu nợ hoặc tiền mặt đủ điều kiện",
+    MISSING_SAME_PROVIDER_TICKER_PERIOD_SCOPE_REPRESENTATION: "Thiếu dữ liệu cùng nguồn theo mã và kỳ",
+    MISSING_SAME_PROVIDER_CONSECUTIVE_PERIOD_BOUNDARY_BALANCES: "Thiếu số dư đầu/cuối kỳ cùng nguồn",
+    MISSING_SAME_PROVIDER_FLOW_AND_ENDING_BALANCE_SHEET_INPUT: "Thiếu dòng và số dư cuối kỳ tương thích",
+    MISSING_COMPATIBLE_TTM_INPUTS: "Thiếu đầu vào TTM tương thích",
+    MISSING_COMPATIBLE_SERIES: "Thiếu chuỗi dữ liệu tương thích",
+    MISSING_CONSECUTIVE_STANDALONE_QUARTER_INPUTS: "Thiếu dữ liệu quý liên tiếp tương thích",
+    MISSING_SAME_QUARTER_PRIOR_YEAR: "Thiếu dữ liệu cùng quý năm trước",
+    MISSING_SAME_POINT_IN_TIME_PRIOR_YEAR_RATIO_PAIR: "Thiếu cặp tỷ lệ cùng thời điểm năm trước",
+    MISSING_CONSECUTIVE_COMPATIBLE_MARGIN_PERIODS: "Thiếu các kỳ biên lợi nhuận tương thích",
+    TTM_INPUT_UNAVAILABLE: "Thiếu đầu vào 12 tháng gần nhất",
+    MARKET_CAP_RESEARCH_INPUT_UNAVAILABLE: "Thiếu đầu vào vốn hóa dùng cho nghiên cứu",
+    SHARE_BASIS_UNAVAILABLE: "Chưa có cơ sở số cổ phiếu phù hợp",
+    VALUATION_INPUT_BLOCKED: "Đầu vào định giá bị chặn",
+    EXACT_EBITDA_COMPARABILITY_NOT_RETAINED: "Chưa giữ lại EBITDA có thể đối sánh chính xác",
+    FCF_TTM_NOT_RETAINED_STANDALONE_QUARTER_PROXY_ONLY: "Chưa giữ lại dòng tiền tự do TTM; chỉ có proxy quý",
+    CALCULATION_READINESS_CONTEXT_UNAVAILABLE: "Chưa có bối cảnh khả năng tính toán",
+    CALCULATION_READINESS_NOT_READY: "Khả năng tính toán chưa sẵn sàng",
+    READINESS_CONTEXT_UNAVAILABLE: "Chưa có bối cảnh sẵn sàng dữ liệu",
+    READINESS_METHOD_BLOCKED: "Phương pháp bị chặn bởi điều kiện dữ liệu",
+    READINESS_METHOD_NOT_READY: "Phương pháp chưa sẵn sàng",
+    READINESS_METHOD_NOT_RETAINED: "Chưa giữ lại phương pháp cần thiết",
+    SECTOR_ENTITY_METHOD_NOT_SUPPORTED: "Phương pháp không phù hợp loại hình doanh nghiệp",
+    NEGATIVE_EARNINGS: "Lợi nhuận âm",
+    ZERO_OR_NEAR_ZERO_EARNINGS: "Lợi nhuận bằng hoặc gần bằng 0",
+    AVAILABLE: "Có dữ liệu",
+    INPUT_BLOCKED: "Đầu vào dữ liệu bị chặn",
+    NOT_APPLICABLE: "Không áp dụng",
     UNAVAILABLE: "Chưa có dữ liệu",
   });
 
@@ -398,6 +450,9 @@
     BLOCKED: "Bị chặn",
     READY_RESEARCH_PROXY: "Dữ liệu nghiên cứu sẵn sàng",
     CURRENT_SHARE_RESEARCH_PROXY: "Proxy số cổ phiếu hiện tại",
+    TTM: "12 tháng gần nhất",
+    TTM_SUM: "Tổng 12 tháng gần nhất",
+    EXISTING_CURRENT_VALUATION_METHOD: "Phương pháp định giá hiện có của phiên hiện tại",
     PROVIDER_VALUATION_PROXY: "Proxy định giá từ nguồn",
     EXACT_OR_QUALIFIED: "Giá trị đã xác nhận",
     INSUFFICIENT_DATA: "Chưa đủ dữ liệu",
@@ -407,6 +462,11 @@
     MIXED_BREADTH: "Độ rộng hỗn hợp",
     UPPER_MIDDLE: "Trên trung bình",
     LOWER_MIDDLE: "Dưới trung bình",
+    LEADING: "Dẫn dắt",
+    LAGGING: "Tụt hậu",
+    NEUTRAL: "Trung tính",
+    SUPPORTIVE: "Hỗ trợ",
+    NOT_SUPPORTIVE: "Chưa có hỗ trợ",
     DEEP_EVIDENCE_ARTIFACT_NOT_MATERIALIZED_LOCALLY: "Bằng chứng sâu chưa có trên máy này",
     AVAILABLE_SHADOW_ONLY: "Chỉ có chỉ báo thay thế",
     FLOW_UNAVAILABLE: "Chưa có dữ liệu dòng tiền",
@@ -657,6 +717,8 @@
     fundamental_state: FUNDAMENTAL_STATE_MAP,
     fundamental_trajectory: FUNDAMENTAL_TRAJECTORY_MAP,
     valuation_state: VALUATION_STATE_MAP,
+    availability_state: AVAILABILITY_STATE_MAP,
+    diagnostic_reason: DIAGNOSTIC_REASON_MAP,
     liquidity_state: LIQUIDITY_STATE_MAP,
     evidence_state: EVIDENCE_STATE_MAP,
     freshness: FRESHNESS_MAP,
@@ -738,6 +800,11 @@
 
   function formatStateLabel(value, domain) {
     return formatDomainState(value, domain).label;
+  }
+
+  function formatDiagnosticReason(value) {
+    const formatted = formatDomainState(value, "diagnostic_reason");
+    return formatted.known ? formatted.label : "Xem chi tiết kỹ thuật";
   }
 
   function formatResearchStance(value) { return formatStateLabel(value, "research_stance"); }
@@ -1149,6 +1216,7 @@
     formatResearchState,
     formatDomainState,
     formatStateLabel,
+    formatDiagnosticReason,
     formatResearchStance,
     formatTacticalState,
     formatEntryAction,

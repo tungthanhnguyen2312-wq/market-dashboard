@@ -134,16 +134,19 @@ test("Phân tích row renderer visible text has no raw stance/tactical enums", (
 });
 
 test("workspace renderer visible text has no raw primary enums", () => {
-  // AAA is the real current AVOID_NEW_ENTRY ticker for this session -- which specific ticker
-  // carries this stance changes daily; the assertion is about the stance value, not the ticker.
+  // This is a presentation/localization contract, not a prediction about a live ticker's
+  // daily research stance.  Read the retained value that the renderer actually receives.
   const card = workspace.cards.AAA;
   const html = ws.decisionCardHtml(card, { ticker: "AAA" });
   const visible = visibleText(html);
-  for (const raw of ["AVOID_NEW_ENTRY", "DOWNTREND", "LIQUIDITY_RESEARCH_PROXY", "ATTRACTIVE_RELATIVE_RESEARCH", "STALE_AXIS_PRESENT"]) {
+  const rawStance = card.research_stance;
+  const localizedStance = vf.formatDomainState(rawStance, "research_stance").label;
+  for (const raw of [rawStance, "DOWNTREND", "LIQUIDITY_RESEARCH_PROXY", "ATTRACTIVE_RELATIVE_RESEARCH", "STALE_AXIS_PRESENT"]) {
     assert.doesNotMatch(visible, new RegExp(raw));
   }
-  assert.match(html, /data-state="AVOID_NEW_ENTRY"/);
-  assert.match(html, /Tránh mở vị thế mới/);
+  assert.match(html, new RegExp(`data-state="${rawStance}"`));
+  assert.match(html, new RegExp(localizedStance));
+  assert.notEqual(localizedStance, rawStance);
   assert.match(html, /Không phải tín hiệu mua|Tư thế nghiên cứu/);
   assert.doesNotMatch(visible, /NOT A BUY SIGNAL/);
 });

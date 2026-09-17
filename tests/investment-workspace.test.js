@@ -28,6 +28,18 @@ function card(overrides) {
   }, overrides);
 }
 
+function primaryVisibleText(markup) {
+  return String(markup || "")
+    .replace(/<details[\s\S]*?<\/details>/gi, (block) => {
+      const summary = block.match(/<summary[^>]*>([\s\S]*?)<\/summary>/i);
+      return summary ? ` ${summary[1]} ` : " ";
+    })
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&[a-z]+;/gi, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 test("page declares the opportunity list, filters, seven decision-card sections, and no-execution boundary", () => {
   for (const label of ["Bộ lọc", "Danh sách cơ hội", "Thẻ quyết định"]) assert.match(html, new RegExp(label));
   for (const label of ["Quyết định", "Doanh nghiệp", "Định giá", "Kỹ thuật", "Kích hoạt / Vô hiệu", "Danh mục"]) {
@@ -236,4 +248,139 @@ test("page relabels an AVOID_NEW_ENTRY technical-invalidation boundary as a reco
 test("why section surfaces counterbalancing context distinctly from deterministic reasons", () => {
   assert.match(script, /Bối cảnh đối trọng/);
   assert.match(script, /why\.counterbalancing_context/);
+});
+
+// ---------------------------------------------------------------------------
+// Diagnostic-transparency workspace contract.  These fixtures model the additive
+// Producer fields; no browser-side valuation/peer/trigger computation is involved.
+// ---------------------------------------------------------------------------
+
+function diagnosticCard(overrides) {
+  return card(Object.assign({
+    valuation: {
+      relative_research_state: "ABSOLUTE_RESEARCH_ONLY",
+      valuation_summary: {
+        valuation_display_state: "RESEARCH_METHODS_AVAILABLE_NOT_PEER_QUALIFIED",
+        available_method_count: 2,
+        qualified_relative_method_count: 0,
+        reference_only_method_count: 1,
+        missing_method_count: 1,
+        not_intrinsic_fair_value: true,
+        not_dcf_or_target_price: true,
+      },
+      method_diagnostics: {
+        "P/E TTM": {
+          status: "RESEARCH_USABLE", value: 11.2, availability_state: "AVAILABLE_REFERENCE_ONLY",
+          period_basis: "TTM", share_basis: "EXACT_OR_QUALIFIED",
+          peer_relative: { status: "INSUFFICIENT_PEER_COUNT", peer_count: 1 },
+        },
+        "EV/EBITDA": {
+          status: "INPUT_BLOCKED", value: null, availability_state: "NOT_AVAILABLE",
+          blocker_reason_codes: ["MISSING_DEBT_OR_CASH_INPUTS"],
+        },
+        "P/B": {
+          status: "RESEARCH_USABLE", value: 1.4, availability_state: "AVAILABLE_QUALIFIED",
+          peer_relative: { status: "READY_RESEARCH_ONLY", peer_count: 7, peer_median: 1.8 },
+        },
+      },
+    },
+    reference_trigger: {
+      trigger_level_exists: true, trigger_level: 27500, trigger_type: "BREAKOUT_CONFIRMATION",
+      trigger_condition_attached: true, trigger_condition_satisfied: false,
+      entry_authority: false, status: "AVAILABLE",
+    },
+    fundamental: {
+      state: "PROFITABLE", trajectory: "INSUFFICIENT_DATA", research_fitness: "READY_RESEARCH_PROXY",
+      freshness_status: "STALE_BUT_RESEARCH_USABLE", warnings_blockers: ["MISSING_DEBT_OR_CASH_INPUTS"],
+      current_features: { debt: { value: null, blocker_reason_codes: ["MISSING_DEBT_OR_CASH_INPUTS"] } },
+    },
+    catalyst: {
+      status: "WATCH_FOR_EXECUTION", pending_watch_items: [{ label: "Sự kiện đang theo dõi" }],
+      adverse_events: [{ label: "Sự kiện bất lợi được giữ lại" }], freshness_status: "CURRENT",
+    },
+    liquidity: {
+      readiness: "LIQUIDITY_RESEARCH_PROXY", current_session_volume: 1234567,
+      descriptive_research_state: "CURRENT_SESSION_DESCRIPTIVE_ELIGIBLE",
+      exact_execution_capacity_status: "EXECUTION_CAPACITY_EXACT_BLOCKED", authority_boundary: { entry_authority: false },
+    },
+    market_sector: {
+      sector_relative_context: { leadership_state: "LEADING", market_relative_momentum_bucket: "UPPER_MIDDLE", sector_relative_momentum_bucket: "LOWER_MIDDLE" },
+      sector_diagnostic: {
+        breadth_support_state: "SUPPORTIVE",
+        market_relative_momentum: { status: "AVAILABLE", momentum_percentile_descriptive: 0.8, valid_observation_count: 20 },
+      },
+    },
+  }, overrides || {}));
+}
+
+test("method diagnostics show qualified and reference-only retained multiples without promoting authority", () => {
+  const html = ws.decisionCardHtml(diagnosticCard(), { ticker: "AAA" });
+  const visible = primaryVisibleText(html);
+  assert.match(html, /data-method="P\/E TTM"/);
+  assert.match(html, /data-method="P\/B"/);
+  assert.match(html, /11,2/);
+  assert.match(visible, /Tham khảo/);
+  assert.match(visible, /Đủ điều kiện nghiên cứu/);
+  assert.match(visible, /Chưa đủ số đối sánh cùng cơ sở/);
+  assert.match(html, /data-state="AVAILABLE_REFERENCE_ONLY"/);
+  assert.match(html, /data-state="AVAILABLE_QUALIFIED"/);
+  assert.doesNotMatch(visible, /AVAILABLE_REFERENCE_ONLY|AVAILABLE_QUALIFIED/);
+});
+
+test("blocked and unavailable valuation methods never fabricate a value", () => {
+  const html = ws.decisionCardHtml(diagnosticCard(), { ticker: "AAA" });
+  const blocked = html.match(/<article class="ws-valuation-method" data-method="EV\/EBITDA">[\s\S]*?<\/article>/);
+  assert.ok(blocked);
+  assert.match(blocked[0], /Bị chặn/);
+  assert.match(blocked[0], /Chưa có dữ liệu/);
+  assert.match(blocked[0], /MISSING_DEBT_OR_CASH_INPUTS/);
+  assert.doesNotMatch(blocked[0], /data-retained-value="true"/);
+});
+
+test("valuation summary uses Producer counts and never calls research multiples absolute or intrinsic models", () => {
+  const html = ws.decisionCardHtml(diagnosticCard(), { ticker: "AAA" });
+  const visible = primaryVisibleText(html);
+  assert.match(visible, /2 phương pháp định giá có dữ liệu nghiên cứu/);
+  assert.match(visible, /Chưa có phương pháp đủ điều kiện tạo kết luận định giá tương đối/);
+  assert.doesNotMatch(visible, /2 phương pháp định giá tuyệt đối|absolute valuation|DCF|fair value|target price|giá mục tiêu/i);
+});
+
+test("reference trigger level stays separate from trigger activation and entry authority", () => {
+  const html = ws.decisionCardHtml(diagnosticCard(), { ticker: "AAA" });
+  const visible = primaryVisibleText(html);
+  assert.match(visible, /Mức kích hoạt tham chiếu/);
+  assert.match(visible, /27\.500/);
+  assert.match(visible, /Điều kiện kích hoạt: Đã gắn/);
+  assert.match(visible, /Trạng thái: Chưa kích hoạt/);
+  assert.match(visible, /Quyền mở vị thế: Chưa được xác lập/);
+  assert.doesNotMatch(visible, /Điểm mua|mua đã xác nhận/i);
+  assert.match(html, /data-diagnostic="trigger_condition_satisfied"/);
+  assert.match(html, /data-diagnostic="entry_authority"/);
+});
+
+test("fundamental partial state, retained catalyst/liquidity diagnostics, and market states are readable", () => {
+  const html = ws.decisionCardHtml(diagnosticCard(), { ticker: "AAA" });
+  const visible = primaryVisibleText(html);
+  assert.match(visible, /Có lợi nhuận/);
+  assert.match(visible, /Xu hướng lợi nhuận: Chưa đủ dữ liệu/);
+  assert.match(visible, /Thiếu dữ liệu nợ hoặc tiền mặt đủ điều kiện/);
+  assert.match(visible, /Sự kiện đang theo dõi/);
+  assert.match(visible, /Sự kiện bất lợi được giữ lại/);
+  assert.match(visible, /Khối lượng phiên hiện tại\s*:\s*1\.234\.567/);
+  assert.match(visible, /Thanh khoản nghiên cứu không xác lập quy mô lệnh thực hiện/);
+  assert.match(visible, /Dẫn dắt ngành: Dẫn dắt/);
+  assert.match(visible, /Động lượng so với thị trường: Trên trung bình/);
+  assert.doesNotMatch(visible, /LEADING|UPPER_MIDDLE|MISSING_DEBT_OR_CASH_INPUTS/);
+});
+
+test("legacy valuation artifacts remain safe while HPG-like old summaries do not claim absolute valuation methods", () => {
+  const legacy = diagnosticCard({
+    valuation: { relative_research_state: "ABSOLUTE_RESEARCH_ONLY", usable_relative_method_count: 4, supporting_methods: [] },
+  });
+  const html = ws.decisionCardHtml(legacy, { ticker: "HPG" });
+  const visible = primaryVisibleText(html);
+  assert.match(visible, /4 phương pháp định giá có dữ liệu nghiên cứu/);
+  assert.match(visible, /Chi tiết từng phương pháp chưa được giữ lại/);
+  assert.doesNotMatch(visible, /4 phương pháp định giá tuyệt đối/);
+  assert.doesNotMatch(visible, /DCF|fair value|target price|giá mục tiêu/i);
 });
