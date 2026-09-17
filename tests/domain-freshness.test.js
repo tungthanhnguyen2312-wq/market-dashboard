@@ -73,16 +73,19 @@ test("row-level tactical freshness ignores candle sidecar staleness entirely", (
   }
 });
 
-test("build_info current Workspace identity is exact while a stale screener session stays explicit", () => {
+test("build_info Workspace and canonical Screener remain exact-session coherent", () => {
   // `investment_workspace` is the current top-level publication envelope.  Do not require the
   // retired domains/components schema: its absence is a fail-closed sidecar condition above.
   assert.equal(buildInfo.investment_workspace.status, "CURRENT");
   assert.equal(buildInfo.investment_workspace.source_session, buildInfo.market_session);
   assert.equal(buildInfo.investment_workspace.artifact_identity, workspace.artifact_identity);
   assert.equal(workspace.as_of_session, buildInfo.market_session);
+  // The canonical Producer now materializes Investment Workspace and Screener Master together
+  // from the same exact-session retained input set, so same-session coherence is the current
+  // positive invariant -- a lagging Screener session would be a release/coherence defect, not
+  // an expected condition.
   assert.ok(screener.artifact_identity);
-  assert.notEqual(screener.as_of_session, buildInfo.market_session);
-  assert.ok(screener.as_of_session < buildInfo.market_session);
+  assert.equal(screener.as_of_session, buildInfo.market_session);
 });
 
 test("no dashboard source infers a session date from a filename or file mtime", () => {

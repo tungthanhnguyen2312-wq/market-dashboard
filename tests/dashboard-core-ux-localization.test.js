@@ -195,12 +195,19 @@ test("overview uses current projection facts with explicit denominators", () => 
   const priceAvailable = cards.filter((card) => card.price?.status === "PRICE_AVAILABLE");
   const tactical = cards.filter((card) => card.tactical?.status === "AVAILABLE" && card.tactical?.entry_state);
   const liquidityProxy = cards.filter((card) => card.liquidity?.fitness === "LIQUIDITY_RESEARCH_PROXY" || card.liquidity?.method === "LIQUIDITY_RESEARCH_PROXY");
-  assert.equal(projection.coverage.ticker_denominator, 1683);
-  assert.equal(projection.coverage.price_available_count, 855);
-  assert.equal(projection.coverage.tactical_available_count, 855);
-  assert.equal(projection.coverage.financial_v2_available_count, 1476);
-  assert.equal(projection.coverage.sector_available_count, 1678);
+  const financialAvailable = cards.filter((card) => card.financial_v2?.status === "AVAILABLE");
+  const sectorAvailable = cards.filter((card) => card.sector?.status === "AVAILABLE");
+
+  // Denominator and every published coverage counter must be internally coherent with the
+  // projection's own card population -- these are release-integrity invariants the test owns,
+  // not a frozen historical snapshot. Values are expected to change every Daily.
+  assert.equal(projection.coverage.ticker_denominator, cards.length);
   assert.equal(summary.denominator, projection.coverage.ticker_denominator);
+  assert.equal(projection.coverage.price_available_count, priceAvailable.length);
+  assert.equal(projection.coverage.tactical_available_count, tactical.length);
+  assert.equal(projection.coverage.financial_v2_available_count, financialAvailable.length);
+  assert.equal(projection.coverage.sector_available_count, sectorAvailable.length);
+
   assert.equal(summary.session_breadth.available, true);
   assert.equal(summary.session_breadth.priced, priced.length);
   assert.equal(summary.session_breadth.up + summary.session_breadth.down + summary.session_breadth.flat, priced.length);
@@ -212,18 +219,41 @@ test("overview uses current projection facts with explicit denominators", () => 
   assert.equal(summary.tactical.coverage, tactical.length);
   assert.equal(summary.liquidity.proxy_count, liquidityProxy.length);
   assert.equal(summary.liquidity.execution_exact_established, false);
+
   assert.ok(summary.sector.available);
-  assert.ok(summary.sector.rows.some((row) => row.label === "Tài nguyên Cơ bản"));
+  const totalSectorRowCount = summary.sector.rows.reduce((sum, row) => sum + row.count, 0);
+  assert.equal(totalSectorRowCount, summary.sector.labeled);
+  assert.ok(summary.sector.rows.length > 0);
+  // Every rendered sector row must trace back to a real card sector label, never a synthesized
+  // or entity-class value standing in for a sector.
+  assert.ok(summary.sector.rows.every((row) => cards.some((card) => card.sector?.label === row.label)));
   assert.ok(!summary.sector.rows.some((row) => ["corporate", "bank", "securities"].includes(String(row.label).toLowerCase())));
-  assert.equal(summary.research_stance.counts.WAIT_FOR_CONFIRMATION, projection.coverage.research_stance_distribution.WAIT_FOR_CONFIRMATION);
+
+  // Research stance distribution reconciles between the manifest's published breakdown and the
+  // summary's own tally over the same cards.
+  for (const stance of overview.STANCE_ORDER) {
+    assert.equal(summary.research_stance.counts[stance], projection.coverage.research_stance_distribution[stance] || 0);
+  }
+
   const html = overview.renderDecisionSummaryHtml(summary);
-  assert.equal(projection.as_of_session, "2026-09-15");
+  // as_of_session must be a valid current retained session and the rendered HTML must use that
+  // SAME value -- never a permanently fixed historical date.
+  assert.match(projection.as_of_session, /^\d{4}-\d{2}-\d{2}$/);
+  assert.equal(summary.as_of_session, projection.as_of_session);
   assert.match(html, new RegExp(`Quyết định nghiên cứu hiện tại|Phiên ${projection.as_of_session}`));
   assert.match(html, /Mở Bàn quyết định|Mở Không gian quyết định/);
   assert.match(html, /Phân tích đa trục/);
   assert.match(html, /Bộ lọc/);
   assert.doesNotMatch(html, /Xem Tactical V2/);
-  assert.doesNotMatch(visibleText(html), /WAIT_FOR_CONFIRMATION/);
+
+  // Visible labels stay localized: every stance card renders its Vietnamese label, and none of
+  // the raw backend stance enums leak into normal visible text.
+  const visible = visibleText(html);
+  for (const stance of overview.STANCE_ORDER) {
+    const label = vf.formatDomainState(stance, "research_stance").label;
+    assert.match(html, new RegExp(label.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+    assert.doesNotMatch(visible, new RegExp(`\\b${stance}\\b`));
+  }
 });
 
 test("research stance remains distinct from execution instruction", () => {
