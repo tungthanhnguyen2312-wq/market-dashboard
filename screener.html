@@ -3,6 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+  // Compatibility route: discovery is canonical in Bàn quyết định / Khám phá.
+  (() => {
+    const params = new URLSearchParams(window.location.search);
+    params.set("view", "explore");
+    window.location.replace("investment-workspace.html?" + params.toString() + window.location.hash);
+  })();
+</script>
 <title>Stock Screener | Stock Look Up</title>
 <meta name="description" content="Bảng lọc toàn thị trường chứng khoán Việt Nam — CANSLIM, SMC, thanh khoản.">
 <link rel="canonical" href="https://tungthanhnguyen2312-wq.github.io/market-dashboard/screener.html">

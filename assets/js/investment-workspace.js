@@ -567,6 +567,60 @@
     const reasons = (((card || {}).why || {}).deterministic_reasons || []).slice(0, limit || 3);
     return reasons.length ? reasons.map((reason) => formatWorkspaceState(reason, "rule_condition")) : ["Chưa có lý do ngắn được giữ lại"];
   }
+  const MICRO_EXPLANATIONS = {
+    "Pha kỹ thuật": "Mô tả bối cảnh giá theo dữ liệu được giữ lại. Đây là bằng chứng nghiên cứu, không phải lệnh mua hoặc bán.",
+    "Mức sẵn sàng kỹ thuật": "Cho biết trạng thái thiết lập kỹ thuật hiện có; trạng thái này tách biệt với tư thế nghiên cứu và xác nhận thực tế.",
+    "Dấu hiệu": "Các đặc điểm kỹ thuật được Producer giữ lại để hỗ trợ diễn giải, không tạo thẩm quyền giao dịch độc lập.",
+    "Khối lượng phiên": "Khối lượng của phiên được giữ lại; không tự xác lập năng lực thực hiện lệnh hoặc thanh khoản đầy đủ.",
+    "Định giá": "Định giá tương đối cần được đọc cùng kỳ dữ liệu, nhóm so sánh và các giới hạn được công bố.",
+    "Nền tảng": "Tóm tắt trạng thái nền tảng doanh nghiệp theo dữ liệu nghiên cứu được giữ lại.",
+    "Mức độ tin cậy của bằng chứng": "Mô tả độ mới và mức đầy đủ của dữ liệu, không phải xác suất giá sẽ tăng hay một điểm dự báo.",
+  };
+  function helpLabelHtml(label) {
+    const explanation = MICRO_EXPLANATIONS[label];
+    if (!explanation) return escHtml(label);
+    return `<span class="ws-help" tabindex="0" data-help="${escHtml(explanation)}" aria-label="${escHtml(label)}. ${escHtml(explanation)}">${escHtml(label)}</span>`;
+  }
+  function evidenceQuality(card, axis) {
+    const lineage = (card && card.lineage) || {};
+    const freshness = (lineage.per_axis_freshness || {})[axis];
+    const val = (card && card.valuation) || {};
+    const fundamental = (card && card.fundamental) || {};
+    if (axis === "valuation") {
+      if (!val.relative_research_state || val.relative_research_state === "UNAVAILABLE") return { label: "Chưa đủ dữ liệu", tone: "neutral", why: "Chưa có dữ liệu định giá tương đối được giữ lại." };
+      if (Number(val.qualified_relative_method_count || 0) > 0) return { label: "Khá", tone: "constructive", why: "Có phương pháp định giá tương đối đủ điều kiện nghiên cứu." };
+      return { label: "Hạn chế", tone: "caution", why: "Dữ liệu định giá chỉ dùng làm tham khảo hoặc chưa đủ điều kiện đối sánh." };
+    }
+    if (axis === "fundamental") {
+      if (!fundamental.state || fundamental.state === "UNAVAILABLE") return { label: "Chưa đủ dữ liệu", tone: "neutral", why: "Chưa có nền tảng doanh nghiệp đủ để diễn giải." };
+      if (freshness === "CURRENT") return { label: "Hiện hành", tone: "constructive", why: "Nền tảng doanh nghiệp có dữ liệu cùng phiên Workspace." };
+      return { label: "Hạn chế", tone: "caution", why: "Nền tảng doanh nghiệp không thuộc phiên hiện tại hoặc có giới hạn được giữ lại." };
+    }
+    if (!card || !card.entry_state) return { label: "Chưa đủ dữ liệu", tone: "neutral", why: "Chưa có trạng thái kỹ thuật được giữ lại." };
+    if (freshness === "CURRENT") return { label: "Hiện hành", tone: "constructive", why: "Trạng thái kỹ thuật được giữ lại cho phiên Workspace hiện tại." };
+    return { label: "Hạn chế", tone: "caution", why: "Trạng thái kỹ thuật không thuộc phiên hiện tại hoặc có giới hạn độ mới." };
+  }
+  function evidenceQualityHtml(quality) {
+    return `<span class="ws-evidence-quality tone-${escHtml(quality.tone)}" tabindex="0" data-help="${escHtml(quality.why)}" aria-label="Mức độ tin cậy của bằng chứng: ${escHtml(quality.label)}. ${escHtml(quality.why)}">${escHtml(quality.label)}</span>`;
+  }
+  function valuationEvidenceSummaryHtml(val) {
+    const methods = (val && val.supporting_methods) || [];
+    const method = methods.find((item) => item && hasRetainedValue(item.value));
+    const summary = (val && val.valuation_summary) || {};
+    const count = Number(summary.available_method_count || (val && val.usable_relative_method_count)) || 0;
+    const value = method ? `${method.method}: ${formatDiagnosticNumber(method.value)}×` : (count ? `${count} phương pháp có dữ liệu` : "Chưa có chỉ số được giữ lại");
+    return `<div class="ws-evidence-summary-item"><div>${helpLabelHtml("Định giá")}${evidenceQualityHtml(evidenceQuality({ valuation: val }, "valuation"))}</div><strong>${escHtml(value)}</strong><p>${escHtml(formatWorkspaceState((val || {}).relative_research_state, "valuation_state"))}</p></div>`;
+  }
+  function evidenceSummaryHtml(card) {
+    const fundamental = (card && card.fundamental) || {};
+    const technical = evidenceQuality(card, "tactical");
+    const foundation = evidenceQuality(card, "fundamental");
+    return `<section class="ws-evidence-summary" aria-label="Tóm tắt bằng chứng">
+      <div class="ws-evidence-summary-item"><div>${helpLabelHtml("Nền tảng")}${evidenceQualityHtml(foundation)}</div><strong>${escHtml(formatWorkspaceState(fundamental.state, "fundamental_state"))}</strong><p>${escHtml(formatWorkspaceState(fundamental.trajectory, "fundamental_trajectory"))}</p></div>
+      ${valuationEvidenceSummaryHtml((card || {}).valuation || {})}
+      <div class="ws-evidence-summary-item"><div>${helpLabelHtml("Mức độ tin cậy của bằng chứng")}${evidenceQualityHtml(technical)}</div><strong>${escHtml(formatWorkspaceState((card || {}).entry_state, "tactical_state"))}</strong><p>${escHtml(technical.why)}</p></div>
+    </section>`;
+  }
   function technicalSnapshotHtml(card) {
     const tactical = (card || {}).tactical || {};
     const liquidity = (card || {}).liquidity || {};
@@ -575,7 +629,7 @@
     if (card.entry_action) rows.push(["Mức sẵn sàng kỹ thuật", formatWorkspaceState(card.entry_action, "entry_action")]);
     if (Array.isArray(card.setup_tags) && card.setup_tags.length) rows.push(["Dấu hiệu", card.setup_tags.slice(0, 2).map((item) => formatWorkspaceState(item, "setup_tag")).join(" · ")]);
     if (hasRetainedValue(liquidity.current_session_volume)) rows.push(["Khối lượng phiên", formatDiagnosticNumber(liquidity.current_session_volume)]);
-    return rows.length ? `<div class="ws-technical-snapshot">${rows.map(([label, value]) => `<div><span>${escHtml(label)}</span><strong>${escHtml(value)}</strong></div>`).join("")}</div>` : '<p class="cockpit-note">Chưa có chỉ báo kỹ thuật hiện hành được giữ lại.</p>';
+    return rows.length ? `<div class="ws-technical-snapshot">${rows.map(([label, value]) => `<div><span>${helpLabelHtml(label)}</span><strong>${escHtml(value)}</strong></div>`).join("")}</div>` : '<p class="cockpit-note">Chưa có chỉ báo kỹ thuật hiện hành được giữ lại.</p>';
   }
   function selectedSignalEvidenceHtml(snapshot, ticker, session, registry, candleApi) {
     if (!snapshot || snapshot.scan_date !== session) {
@@ -622,6 +676,7 @@
             <ul>${compactReasons(card, 3).map((reason) => `<li>${escHtml(reason)}</li>`).join("")}</ul>
           </section>
           <section class="ws-drawer-technical"><h6>Ảnh chụp kỹ thuật</h6>${technicalSnapshotHtml(card)}<div class="ws-selected-signal" data-selected-signal-for="${escHtml(ticker)}"><p class="cockpit-note">Đang kiểm tra mẫu hình nến/SMC hiện hành…</p></div></section>
+          ${evidenceSummaryHtml(card)}
           <details class="ws-deep-evidence"><summary>Phân tích sâu &amp; bằng chứng</summary><div class="cockpit-detail-grid">
             <div class="card"><div class="card-header"><h6>Quyết định</h6></div><div class="card-body">
               <b>Mã</b> ${escHtml(ticker)} · <b>Ngành</b> ${sectorDisplayHtml(card.sector)}<br>
@@ -930,10 +985,10 @@
         if (drawerTicker) drawerTicker.textContent = ticker;
         const drawerBadge = document.getElementById("decision-drawer-badge");
         if (drawerBadge) drawerBadge.innerHTML = pill(card.research_stance, "research_stance");
-        const screenerLink = document.getElementById("drawer-screener-link");
-        if (screenerLink) {
-          screenerLink.href = `screener.html?ticker=${encodeURIComponent(ticker)}`;
-          if (typeof screenerLink.removeAttribute === "function") screenerLink.removeAttribute("aria-disabled");
+        const exploreLink = document.getElementById("drawer-screener-link");
+        if (exploreLink) {
+          exploreLink.href = `investment-workspace.html?view=explore&ticker=${encodeURIComponent(ticker)}`;
+          if (typeof exploreLink.removeAttribute === "function") exploreLink.removeAttribute("aria-disabled");
         }
         renderSelectedSignalEvidence(ticker);
       }
@@ -956,10 +1011,10 @@
         if (drawerTicker) drawerTicker.textContent = requestedTicker || "—";
         const drawerBadge = document.getElementById("decision-drawer-badge");
         if (drawerBadge) drawerBadge.innerHTML = "";
-        const screenerLink = document.getElementById("drawer-screener-link");
-        if (screenerLink) {
-          if (typeof screenerLink.removeAttribute === "function") screenerLink.removeAttribute("href");
-          screenerLink.setAttribute("aria-disabled", "true");
+        const exploreLink = document.getElementById("drawer-screener-link");
+        if (exploreLink) {
+          if (typeof exploreLink.removeAttribute === "function") exploreLink.removeAttribute("href");
+          exploreLink.setAttribute("aria-disabled", "true");
         }
       }
 
@@ -1248,6 +1303,7 @@
     readLocalPortfolioHoldings, localHoldingFor, buildT0Export,
     VETO_RESEARCH_STANCES, TACTICAL_ACTIONABLE_ENTRY_READINESS, stanceEntryGuidance,
     decisionCardHtml, renderDecisionCard, technicalSnapshotHtml, selectedSignalEvidenceHtml, retainedPrice, compactReasons,
+    evidenceQuality, evidenceSummaryHtml,
     cssEscapeSelector,
     analysisRecord, analysisRows, analysisRowHtml, analysisEvidenceHtml,
   };

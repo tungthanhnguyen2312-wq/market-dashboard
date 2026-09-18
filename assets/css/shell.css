@@ -774,6 +774,15 @@
 body.is-resizing-panel { cursor: col-resize !important; }
 body.is-resizing-panel * { user-select: none !important; }
 
+/* Screener, Signals and About are compatibility/detail routes; the four-item primary flow is
+   Dashboard → Workspace → Portfolio → Macro on every shared shell. */
+.vs-sidebar-nav [data-nav="screener"],
+.vs-sidebar-nav [data-nav="signals"],
+.vs-sidebar-nav [data-nav="about"],
+.vs-topbar-nav [data-nav="screener"],
+.vs-topbar-nav [data-nav="signals"],
+.vs-topbar-nav [data-nav="about"] { display: none; }
+
 @media (min-width: 1280px) {
   [data-resizable] > .vs-resize-handle { display: block; }
 }

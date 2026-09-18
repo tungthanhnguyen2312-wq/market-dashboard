@@ -242,8 +242,8 @@ test("overview uses current projection facts with explicit denominators", () => 
   assert.equal(summary.as_of_session, projection.as_of_session);
   assert.match(html, new RegExp(`Quyết định nghiên cứu hiện tại|Phiên ${projection.as_of_session}`));
   assert.match(html, /Mở Bàn quyết định|Mở Không gian quyết định/);
-  assert.match(html, /Phân tích đa trục/);
-  assert.match(html, /Bộ lọc/);
+  assert.match(html, /Khám phá cơ hội/);
+  assert.match(html, /Tín hiệu kỹ thuật/);
   assert.doesNotMatch(html, /Xem Tactical V2/);
 
   // Visible labels stay localized: every stance card renders its Vietnamese label, and none of

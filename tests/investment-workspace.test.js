@@ -64,6 +64,23 @@ test("decision card renderer is reusable without changing stance semantics", () 
   assert.doesNotMatch(missing, /HPG/);
 });
 
+test("evidence quality is qualitative, explained, and never a probability claim", () => {
+  const current = ws.evidenceQuality(card(), "tactical");
+  assert.deepEqual(current, {
+    label: "Hiện hành",
+    tone: "constructive",
+    why: "Trạng thái kỹ thuật được giữ lại cho phiên Workspace hiện tại.",
+  });
+  const missing = ws.evidenceQuality(card({ entry_state: "", valuation: { relative_research_state: "UNAVAILABLE" } }), "tactical");
+  assert.equal(missing.label, "Chưa đủ dữ liệu");
+
+  const markup = ws.evidenceSummaryHtml(card());
+  assert.match(markup, /Mức độ tin cậy của bằng chứng/);
+  assert.match(markup, /data-help=/);
+  assert.match(markup, /không phải xác suất giá sẽ tăng/i);
+  assert.doesNotMatch(markup, /xác suất\s*\d+|dự báo\s*\d+|\d+%/i);
+});
+
 test("cssEscapeSelector is selector-safe and never throws when the CSS.escape browser global is unavailable", () => {
   assert.equal(typeof CSS, "undefined", "this test's Node environment must lack the CSS global to exercise the fallback path");
   assert.equal(ws.cssEscapeSelector("HPG"), "HPG");

@@ -209,10 +209,14 @@
 
         </div>
 
-        <!-- STOCK SCREENER — full width, không nằm trong vùng resize hai cột -->
-        <div class="card mb-4 dashboard-screener-card">
+        <!-- Compatibility-only Screener: discovery now belongs to Bàn quyết định / Khám phá. -->
+        <details class="card mb-4 dashboard-screener-card">
+          <summary class="card-header d-flex justify-content-between align-items-center" style="cursor:pointer">
+            <h5 class="mb-0"><i data-lucide="table" class="card-icon"></i>Bộ lọc tương thích</h5>
+            <span class="cockpit-note">Mở rộng khi cần</span>
+          </summary>
           <div class="card-header">
-            <h5><i data-lucide="table" class="card-icon"></i>Stock Screener</h5>
+            <h5><i data-lucide="table" class="card-icon"></i>Bộ lọc chi tiết</h5>
             <span class="badge-soft bs-blue" id="build-status">Đang đọc build…</span>
           </div>
           <div class="card-body">
@@ -252,7 +256,7 @@
               <div class="vs-skeleton" style="height:120px"></div>
             </div>
           </div>
-        </div>
+        </details>
 
         <!-- BÁO CÁO AI — full width, cuối trang -->
         <div class="card mb-4">

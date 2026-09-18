@@ -18,11 +18,13 @@ const root = path.resolve(__dirname, "..");
 const analysisHtml = fs.readFileSync(path.join(root, "analysis.html"), "utf8");
 const wsHtml = fs.readFileSync(path.join(root, "investment-workspace.html"), "utf8");
 const wsJs = fs.readFileSync(path.join(root, "assets/js/investment-workspace.js"), "utf8");
+const shellCss = fs.readFileSync(path.join(root, "assets/css/shell.css"), "utf8");
 const shell = require(path.join(root, "assets/js/shell.js"));
 
 test("primary nav has four decision-flow destinations and legacy surfaces remain routes", () => {
   assert.deepEqual(shell.CANONICAL_PRIMARY_NAV.map((item) => item.id), ["dashboard", "investment-workspace", "portfolio", "macro"]);
   assert.ok(!shell.CANONICAL_PRIMARY_NAV.some((item) => ["analysis", "screener", "signals"].includes(item.id)));
+  assert.match(shellCss, /\[data-nav="screener"\],[\s\S]*\[data-nav="signals"\],[\s\S]*\[data-nav="about"\]\s*\{\s*display: none;\s*\}/);
 });
 
 test("analysis.html redirects to investment-workspace.html?view=analysis, preserving other query params and hash", () => {
@@ -97,11 +99,24 @@ test("no universal score is computed or rendered anywhere in the Workspace", () 
   assert.doesNotMatch(wsHtml + wsJs, /\bscore\s*[:=]\s*\d/i);
 });
 
-test("Screener and Signals still deep-link into the Workspace by ticker", () => {
-  const screenerJs = fs.readFileSync(path.join(root, "screener.html"), "utf8");
+test("legacy Screener and Signals resolve to canonical Workspace views without losing ticker or hash", () => {
+  const screenerHtml = fs.readFileSync(path.join(root, "screener.html"), "utf8");
+  const signalsHtml = fs.readFileSync(path.join(root, "signals.html"), "utf8");
   const signalsJs = fs.readFileSync(path.join(root, "assets/js/signals-product.js"), "utf8");
-  assert.match(screenerJs, /investment-workspace\.html\?ticker=/);
+  assert.match(screenerHtml, /params\.set\("view", "explore"\)/);
+  assert.match(signalsHtml, /params\.set\("view", "technical"\)/);
+  for (const source of [screenerHtml, signalsHtml]) {
+    assert.match(source, /window\.location\.replace\("investment-workspace\.html\?" \+ params\.toString\(\) \+ window\.location\.hash\)/);
+  }
   assert.match(signalsJs, /investment-workspace\.html\?ticker=/);
+
+  function legacyDestination(search, hash, view) {
+    const params = new URLSearchParams(search || "");
+    params.set("view", view);
+    return "investment-workspace.html?" + params.toString() + (hash || "");
+  }
+  assert.equal(legacyDestination("?ticker=HPG", "#evidence", "explore"), "investment-workspace.html?ticker=HPG&view=explore#evidence");
+  assert.equal(legacyDestination("?ticker=FPT", "#signals", "technical"), "investment-workspace.html?ticker=FPT&view=technical#signals");
 });
 
 test("decision-cockpit.html?ticker= still round-trips through the Workspace redirect chain", () => {

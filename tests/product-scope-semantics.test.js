@@ -74,18 +74,21 @@ test("released summary states reference scope, official research scope, and exac
   assert.equal(summary.current_research_scope_count, 1504);
   // 3: outside scope displays the real 179.
   assert.equal(summary.outside_current_official_scope_count, 179);
-  assert.equal(summary.price_available_count, 855);
-  assert.equal(summary.price_unavailable_count, 1683 - 855);
-  assert.equal(summary.tactical_available_count, 855);
+  const cards = Object.values(projection.cards);
+  const retainedPriceCount = cards.filter((card) => card.price && card.price.status === "PRICE_AVAILABLE").length;
+  const retainedTacticalCount = cards.filter((card) => card.tactical && card.tactical.status === "AVAILABLE" && card.tactical.entry_state).length;
+  assert.equal(summary.price_available_count, retainedPriceCount);
+  assert.equal(summary.price_unavailable_count, 1683 - retainedPriceCount);
+  assert.equal(summary.tactical_available_count, retainedTacticalCount);
   const html = overview.renderDecisionSummaryHtml(summary);
   assert.match(html, /Phạm vi tham chiếu: 1\.683 mã/);
   assert.match(html, /Phạm vi nghiên cứu chính thức hiện tại: 1\.504 mã/);
   assert.match(html, /Ngoài phạm vi chính thức hiện tại: 179 mã/);
   // 5: price/tactical coverage always denominates against the 1683 reference, never the 1504
   // official scope subset.
-  assert.match(html, /855 \/ 1\.683 mã tham chiếu có dữ liệu giá đúng phiên/);
-  assert.match(html, /855 \/ 1\.683 mã tham chiếu có trạng thái kỹ thuật/);
-  assert.doesNotMatch(html, /855 \/ 1\.504/);
+  assert.match(html, new RegExp(`${retainedPriceCount.toLocaleString("vi-VN")} \\/ 1\\.683 mã tham chiếu có dữ liệu giá đúng phiên`));
+  assert.match(html, new RegExp(`${retainedTacticalCount.toLocaleString("vi-VN")} \\/ 1\\.683 mã tham chiếu có trạng thái kỹ thuật`));
+  assert.doesNotMatch(html, new RegExp(`${retainedPriceCount.toLocaleString("vi-VN")} \\/ 1\\.504`));
   // 4: 1504 is never labeled active/tradable in any of the required-forbidden phrasings.
   assert.doesNotMatch(html, /1\.504 mã đang giao dịch/);
   assert.doesNotMatch(html, /1504 active stocks/i);

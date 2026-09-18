@@ -26,20 +26,7 @@ const REDIRECT_ONLY_PAGES = ["analysis.html", "decision-cockpit.html"];
 
 const CANONICAL_4_LABELS = ["Tổng quan", "Bàn quyết định", "Danh mục", "Vĩ mô"];
 
-// The pre-redesign 7-item set. Screener/Signals/About remain real, working pages and keep
-// their own unmodified nav (compatibility routes) -- only investment-workspace.html's primary
-// destinations were narrowed to the 4 decision-flow items above.
-const LEGACY_7_LABELS = [
-  "Tổng quan",
-  "Bộ lọc",
-  "Tín hiệu",
-  "Bàn quyết định",
-  "Danh mục",
-  "Vĩ mô",
-  "Giới thiệu",
-];
-
-test("A. Canonical primary nav is the 4 decision-flow destinations; Bộ lọc/Tín hiệu/Giới thiệu remain compatibility routes on their own pages", () => {
+test("A. Canonical primary nav is the 4 decision-flow destinations; legacy routes stay reachable but are not primary navigation", () => {
   assert.equal(shell.CANONICAL_PRIMARY_NAV.length, 4);
   for (let i = 0; i < 4; i++) {
     assert.equal(shell.CANONICAL_PRIMARY_NAV[i].label, CANONICAL_4_LABELS[i]);
@@ -52,17 +39,10 @@ test("A. Canonical primary nav is the 4 decision-flow destinations; Bộ lọc/T
   }
   assert.doesNotMatch(wsHtml, /data-nav="screener"|data-nav="signals"|data-nav="about"/, "Compatibility routes must not be primary-nav destinations in investment-workspace.html");
 
-  for (const page of PRIMARY_PAGES.filter((p) => p !== "investment-workspace.html")) {
-    const html = fs.readFileSync(path.join(root, page), "utf8");
-    for (const label of LEGACY_7_LABELS) {
-      assert.match(html, new RegExp(`>${label}<|title="${label}"`), `Missing ${label} in ${page}`);
-    }
-  }
-
-  // shell.css is loaded on every page; it must not select these routes by data-nav and hide
-  // them site-wide (that would silently orphan Screener/Signals/About on their own pages too).
+  // The shell keeps the underlying route markup for compatibility, but excludes it from every
+  // visual primary navigation. A direct legacy URL immediately forwards to its Workspace view.
   const shellCss = fs.readFileSync(path.join(root, "assets/css/shell.css"), "utf8");
-  assert.doesNotMatch(shellCss, /data-nav="screener"|data-nav="signals"|data-nav="about"/, "shell.css must not hide compatibility routes from nav site-wide");
+  assert.match(shellCss, /\[data-nav="screener"\],[\s\S]*\[data-nav="signals"\],[\s\S]*\[data-nav="about"\]\s*\{\s*display: none;\s*\}/);
 
   for (const page of PRIMARY_PAGES) {
     const html = fs.readFileSync(path.join(root, page), "utf8");
