@@ -153,12 +153,15 @@
 .ws-focus-card .btn { margin-top:auto; align-self:flex-start; }
 .ws-focus-action { min-height:1.75rem; }
 
-/* ---------- View switcher tabs (Cơ hội / Phân tích / Theo dõi) ---------- */
+/* ---------- View switcher tabs (Cơ hội / Danh mục / Theo dõi / Khám phá / Tín hiệu kỹ thuật) ---------- */
 .ws-view-tabs {
   display: flex;
   gap: 0.35rem;
   border-bottom: 1px solid var(--border-soft);
   margin-bottom: 1rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
 }
 .ws-view-tab {
   appearance: none;
@@ -171,6 +174,8 @@
   border-bottom: 2px solid transparent;
   cursor: pointer;
   margin-bottom: -1px;
+  flex: 0 0 auto;
+  white-space: nowrap;
 }
 .ws-view-tab:hover { color: var(--text); }
 .ws-view-tab.active {

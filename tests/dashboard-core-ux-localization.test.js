@@ -335,8 +335,12 @@ test("rule-condition and Workspace readiness text are localized with raw identit
   };
   const syntheticHtml = ws.decisionCardHtml(syntheticCard, { ticker: "ZZZ" });
   const syntheticVisible = primaryVisibleText(syntheticHtml);
-  assert.match(syntheticVisible, /Trạng thái kỹ thuật bất lợi/);
-  assert.match(syntheticVisible, /Đảo chiều trạng thái lợi nhuận/);
+  // Counter-thesis / fundamental-invalidation rationale is deep evidence, collapsed by design
+  // inside the drawer's ws-deep-evidence <details> (progressive disclosure) -- it must still be
+  // localized wherever it renders, with the raw machine identifier never leaking into that label.
+  assert.match(syntheticHtml, /Trạng thái kỹ thuật bất lợi/);
+  assert.match(syntheticHtml, /Đảo chiều trạng thái lợi nhuận/);
+  assert.doesNotMatch(syntheticVisible, /ADVERSE_TACTICAL_ENTRY_STATE|PROFITABILITY_STATE_REVERSAL/);
   assert.match(syntheticHtml, /data-condition="PROFITABILITY_STATE_REVERSAL"/);
   assert.match(syntheticHtml, /<details class="vs-tech-details">[\s\S]*PROFITABILITY_STATE_REVERSAL/);
   for (const raw of [

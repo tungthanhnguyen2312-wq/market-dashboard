@@ -24,7 +24,12 @@ const PRIMARY_PAGES = [
 // no primary nav of its own; it is checked separately in analysis.html's own redirect tests.
 const REDIRECT_ONLY_PAGES = ["analysis.html", "decision-cockpit.html"];
 
-const CANONICAL_7_LABELS = [
+const CANONICAL_4_LABELS = ["Tổng quan", "Bàn quyết định", "Danh mục", "Vĩ mô"];
+
+// The pre-redesign 7-item set. Screener/Signals/About remain real, working pages and keep
+// their own unmodified nav (compatibility routes) -- only investment-workspace.html's primary
+// destinations were narrowed to the 4 decision-flow items above.
+const LEGACY_7_LABELS = [
   "Tổng quan",
   "Bộ lọc",
   "Tín hiệu",
@@ -34,16 +39,33 @@ const CANONICAL_7_LABELS = [
   "Giới thiệu",
 ];
 
-test("A. Navigation exposes the 7 canonical items across all primary pages", () => {
-  assert.equal(shell.CANONICAL_PRIMARY_NAV.length, 7);
-  for (let i = 0; i < 7; i++) {
-    assert.equal(shell.CANONICAL_PRIMARY_NAV[i].label, CANONICAL_7_LABELS[i]);
+test("A. Canonical primary nav is the 4 decision-flow destinations; Bộ lọc/Tín hiệu/Giới thiệu remain compatibility routes on their own pages", () => {
+  assert.equal(shell.CANONICAL_PRIMARY_NAV.length, 4);
+  for (let i = 0; i < 4; i++) {
+    assert.equal(shell.CANONICAL_PRIMARY_NAV[i].label, CANONICAL_4_LABELS[i]);
   }
-  for (const page of PRIMARY_PAGES) {
+  assert.ok(!shell.CANONICAL_PRIMARY_NAV.some((item) => ["analysis", "screener", "signals", "about"].includes(item.id)));
+
+  const wsHtml = fs.readFileSync(path.join(root, "investment-workspace.html"), "utf8");
+  for (const label of CANONICAL_4_LABELS) {
+    assert.match(wsHtml, new RegExp(`>${label}<|title="${label}"`), `Missing ${label} in investment-workspace.html`);
+  }
+  assert.doesNotMatch(wsHtml, /data-nav="screener"|data-nav="signals"|data-nav="about"/, "Compatibility routes must not be primary-nav destinations in investment-workspace.html");
+
+  for (const page of PRIMARY_PAGES.filter((p) => p !== "investment-workspace.html")) {
     const html = fs.readFileSync(path.join(root, page), "utf8");
-    for (const label of CANONICAL_7_LABELS) {
+    for (const label of LEGACY_7_LABELS) {
       assert.match(html, new RegExp(`>${label}<|title="${label}"`), `Missing ${label} in ${page}`);
     }
+  }
+
+  // shell.css is loaded on every page; it must not select these routes by data-nav and hide
+  // them site-wide (that would silently orphan Screener/Signals/About on their own pages too).
+  const shellCss = fs.readFileSync(path.join(root, "assets/css/shell.css"), "utf8");
+  assert.doesNotMatch(shellCss, /data-nav="screener"|data-nav="signals"|data-nav="about"/, "shell.css must not hide compatibility routes from nav site-wide");
+
+  for (const page of PRIMARY_PAGES) {
+    const html = fs.readFileSync(path.join(root, page), "utf8");
     assert.doesNotMatch(html, />Không gian quyết định</, `Found obsolete 'Không gian quyết định' in nav of ${page}`);
   }
   assert.doesNotMatch(fs.readFileSync(path.join(root, "assets/js/shell.js"), "utf8"), /"analysis"/, "analysis must no longer be a primary nav entry");
@@ -96,12 +118,18 @@ test("D. Deep-link handling in investment-workspace preserves ticker selection a
   assert.match(wsJs, /popstate/);
 });
 
-test("E. Workspace opportunity table has exactly the 5 compact columns", () => {
+test("E. Workspace opportunity table has exactly the current decision-oriented compact columns", () => {
   const html = fs.readFileSync(path.join(root, "investment-workspace.html"), "utf8");
   const thMatches = html.match(/id="opportunity-table"[\s\S]*?<thead[^>]*>[\s\S]*?<\/thead>/);
   assert.ok(thMatches);
   const thHeaders = [...thMatches[0].matchAll(/<th[^>]*>(.*?)<\/th>/g)].map(m => m[1].trim());
-  assert.deepEqual(thHeaders, ["Mã", "Ngành", "Tư thế", "Kỹ thuật", "Định giá"]);
+  assert.deepEqual(thHeaders, [
+    "Mã", "Trạng thái", "Giá hiện tại", "Kích hoạt", "Vô hiệu", "Tư thế nghiên cứu", "Dấu hiệu",
+    '<span class="vs-visually-hidden">Chi tiết</span>',
+  ]);
+  // The header must name the field it actually displays (research_stance), not a distinct
+  // readiness field it does not render -- see investment-workspace.js renderRow().
+  assert.doesNotMatch(thMatches[0], />Sẵn sàng nghiên cứu</, "Column header must not mislabel research_stance as readiness");
 });
 
 test("E2. Phân tích matrix has exactly the 6 target columns, not the old 10-column table", () => {

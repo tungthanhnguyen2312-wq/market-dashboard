@@ -64,6 +64,22 @@ test("decision card renderer is reusable without changing stance semantics", () 
   assert.doesNotMatch(missing, /HPG/);
 });
 
+test("drawer shows each principal stance/tactical concept exactly once before deep-evidence disclosure", () => {
+  const testCard = card();
+  const html = ws.decisionCardHtml(testCard, { ticker: "AAA" });
+  const [primary] = html.split('<details class="ws-deep-evidence">');
+  assert.ok(primary && primary.length, "expected content before the deep-evidence boundary");
+  const countOf = (value) => (primary.match(new RegExp(`data-state="${value}"`, "g")) || []).length;
+  assert.equal(countOf(testCard.research_stance), 1, "research_stance must appear exactly once above the fold");
+  assert.equal(countOf(testCard.entry_state), 1, "entry_state must appear exactly once above the fold");
+  assert.equal(countOf(testCard.research_stance_readiness), 1, "research_stance_readiness must appear exactly once above the fold");
+  assert.equal(countOf(testCard.entry_action), 1, "entry_action must appear exactly once above the fold");
+  // The old always-visible KPI grid that repeated these fields was removed; the unique field it
+  // carried (research_stance_readiness) now lives in the overview keyline instead.
+  assert.doesNotMatch(html, /cockpit-grid mb-3/);
+  assert.match(html, /data-decision-ticker="AAA"/, "data-decision-ticker must survive relocation onto the overview section");
+});
+
 test("drawer keeps concise localized conditions primary and raw identity in progressive detail", () => {
   const html = ws.decisionCardHtml(card({
     confirmation: {

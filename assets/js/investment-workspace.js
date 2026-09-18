@@ -605,18 +605,14 @@
     const price = retainedPrice(card);
     const invalidation = ((card.invalidation || {}).technical || {});
     return `
-          <section class="ws-drawer-overview" aria-label="Tóm tắt quyết định">
+          <section class="ws-drawer-overview" aria-label="Tóm tắt quyết định" data-decision-ticker="${escHtml(ticker)}">
             <div class="ws-drawer-overview-head"><div><div class="section-eyebrow">Tóm tắt nghiên cứu</div><h4>${escHtml(ticker)} <span>${sectorDisplayHtml(card.sector)}</span></h4></div>${pill(card.research_stance, "research_stance")}</div>
-            <div class="ws-drawer-keyline">${pill(card.entry_state, "tactical_state")} · ${pill(card.entry_action, "entry_action")}</div>
+            <div class="ws-drawer-keyline">${pill(card.entry_state, "tactical_state")} · ${pill(card.research_stance_readiness, "research_readiness")} · ${pill(card.entry_action, "entry_action")}</div>
             <div class="ws-drawer-facts">${hasRetainedValue(price) ? `<span>Giá hiện tại <b>${escHtml(formatDiagnosticNumber(price))}</b></span>` : ""}${hasRetainedValue(referenceTrigger.trigger_level) ? `<span>Kích hoạt tham chiếu <b>${escHtml(formatDiagnosticNumber(referenceTrigger.trigger_level))}</b></span>` : ""}${invalidation.boundary_type ? `<span>Vô hiệu <b>${escHtml(conditionHeadline(invalidation).label)}</b></span>` : ""}</div>
             <p>${escHtml(stanceEntryGuidance(card.research_stance, card.entry_action) || `Tư thế nghiên cứu: ${formatWorkspaceState(card.research_stance, "research_stance")}.`)}</p>
             <ul>${compactReasons(card, 3).map((reason) => `<li>${escHtml(reason)}</li>`).join("")}</ul>
           </section>
           <section class="ws-drawer-technical"><h6>Ảnh chụp kỹ thuật</h6>${technicalSnapshotHtml(card)}<div class="ws-selected-signal" data-selected-signal-for="${escHtml(ticker)}"><p class="cockpit-note">Đang kiểm tra mẫu hình nến/SMC hiện hành…</p></div></section>
-          <div class="cockpit-grid mb-3" data-decision-ticker="${escHtml(ticker)}">
-            ${kpiHtml("Tư thế nghiên cứu", pill(card.research_stance, "research_stance"))}${kpiHtml("Mức sẵn sàng", pill(card.research_stance_readiness, "research_readiness"))}
-            ${kpiHtml("Thiết lập kỹ thuật", pill(card.entry_state, "tactical_state"))}${kpiHtml("Mức sẵn sàng kỹ thuật", pill(card.entry_action, "entry_action"))}
-          </div>
           <details class="ws-deep-evidence"><summary>Phân tích sâu &amp; bằng chứng</summary><div class="cockpit-detail-grid">
             <div class="card"><div class="card-header"><h6>Quyết định</h6></div><div class="card-body">
               <b>Mã</b> ${escHtml(ticker)} · <b>Ngành</b> ${sectorDisplayHtml(card.sector)}<br>
