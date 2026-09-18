@@ -314,6 +314,15 @@
   function escHtml(v) {
     return String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   }
+  // CSS.escape is a browser global, absent in this project's Node test harness (and in older
+  // browsers) -- selector construction must not crash or fall back to unescaped interpolation
+  // just because that global is missing. The fallback backslash-escapes every character outside
+  // [a-zA-Z0-9_-] the same way CSS.escape does for attribute-selector-safe values like tickers.
+  function cssEscapeSelector(v) {
+    const s = String(v ?? "");
+    if (typeof CSS !== "undefined" && CSS && typeof CSS.escape === "function") return CSS.escape(s);
+    return s.replace(/[^a-zA-Z0-9_-]/g, (c) => `\\${c}`);
+  }
   function unavailableLabel(v) {
     return (v === null || v === undefined || v === "" ? "UNAVAILABLE" : v);
   }
@@ -839,7 +848,7 @@
       }
 
       async function renderSelectedSignalEvidence(ticker) {
-        const targets = document.querySelectorAll(`[data-selected-signal-for="${CSS.escape(ticker)}"], #workspace-technical-selected`);
+        const targets = document.querySelectorAll(`[data-selected-signal-for="${cssEscapeSelector(ticker)}"], #workspace-technical-selected`);
         const write = (html) => targets.forEach((el) => { el.innerHTML = html; });
         try {
           if (!SIGNAL_SNAPSHOT_PROMISE) SIGNAL_SNAPSHOT_PROMISE = fetch("data/candle_signals.json", { cache: "no-store" }).then((r) => r.ok ? r.json() : null);
@@ -1239,6 +1248,7 @@
     readLocalPortfolioHoldings, localHoldingFor, buildT0Export,
     VETO_RESEARCH_STANCES, TACTICAL_ACTIONABLE_ENTRY_READINESS, stanceEntryGuidance,
     decisionCardHtml, renderDecisionCard, technicalSnapshotHtml, selectedSignalEvidenceHtml, retainedPrice, compactReasons,
+    cssEscapeSelector,
     analysisRecord, analysisRows, analysisRowHtml, analysisEvidenceHtml,
   };
 });

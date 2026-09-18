@@ -64,6 +64,13 @@ test("decision card renderer is reusable without changing stance semantics", () 
   assert.doesNotMatch(missing, /HPG/);
 });
 
+test("cssEscapeSelector is selector-safe and never throws when the CSS.escape browser global is unavailable", () => {
+  assert.equal(typeof CSS, "undefined", "this test's Node environment must lack the CSS global to exercise the fallback path");
+  assert.equal(ws.cssEscapeSelector("HPG"), "HPG");
+  assert.doesNotThrow(() => ws.cssEscapeSelector('A"B'));
+  assert.equal(ws.cssEscapeSelector('A"B'), 'A\\"B');
+});
+
 test("drawer shows each principal stance/tactical concept exactly once before deep-evidence disclosure", () => {
   const testCard = card();
   const html = ws.decisionCardHtml(testCard, { ticker: "AAA" });
