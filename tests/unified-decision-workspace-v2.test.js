@@ -47,12 +47,16 @@ test("analysis.html redirects to investment-workspace.html?view=analysis, preser
 test("Workspace declares five internal views with opportunities as the default", () => {
   const viewIds = [...wsHtml.matchAll(/id="ws-view-([a-z]+)"/g)].map((m) => m[1]);
   assert.deepEqual(viewIds.sort(), ["explore", "opportunities", "portfolio", "technical", "watchlist"]);
-  // Only the default view starts visible; other modes start hidden until selected.
-  assert.match(wsHtml, /id="ws-view-opportunities" data-ws-view role="tabpanel">/);
-  assert.match(wsHtml, /id="ws-view-explore" data-ws-view role="tabpanel" hidden>/);
-  assert.match(wsHtml, /id="ws-view-portfolio" data-ws-view role="tabpanel" hidden>/);
-  assert.match(wsHtml, /id="ws-view-technical" data-ws-view role="tabpanel" hidden>/);
-  assert.match(wsHtml, /id="ws-view-watchlist" data-ws-view role="tabpanel" hidden>/);
+  // Only the default view starts visible; other modes start hidden until selected. Each panel
+  // is aria-labelledby its own tab button (see the ws-tab-* ids in the tablist above).
+  assert.match(wsHtml, /id="ws-view-opportunities" data-ws-view role="tabpanel" aria-labelledby="ws-tab-opportunities">/);
+  assert.match(wsHtml, /id="ws-view-explore" data-ws-view role="tabpanel" aria-labelledby="ws-tab-explore" hidden>/);
+  assert.match(wsHtml, /id="ws-view-portfolio" data-ws-view role="tabpanel" aria-labelledby="ws-tab-portfolio" hidden>/);
+  assert.match(wsHtml, /id="ws-view-technical" data-ws-view role="tabpanel" aria-labelledby="ws-tab-technical" hidden>/);
+  assert.match(wsHtml, /id="ws-view-watchlist" data-ws-view role="tabpanel" aria-labelledby="ws-tab-watchlist" hidden>/);
+  for (const view of ["opportunities", "portfolio", "watchlist", "explore", "technical"]) {
+    assert.match(wsHtml, new RegExp(`id="ws-tab-${view}"[^>]*role="tab"[^>]*aria-controls="ws-view-${view}"`), `tab ${view} must declare aria-controls for its panel`);
+  }
   assert.match(wsJs, /new URLSearchParams\(window\.location\.search\)\.get\("view"\)/);
   assert.match(wsJs, /VALID_VIEWS = \["opportunities", "portfolio", "watchlist", "explore", "technical"\]/);
 });

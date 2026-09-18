@@ -43,14 +43,14 @@
     <!-- View switcher: five internal modes share one data fetch, one cards universe,
          one selected-ticker state and one filter/search model. -->
     <div class="ws-view-tabs" role="tablist" aria-label="Chế độ xem Bàn quyết định">
-      <button type="button" class="ws-view-tab" data-view="opportunities" role="tab" aria-selected="true">Cơ hội</button>
-      <button type="button" class="ws-view-tab" data-view="portfolio" role="tab" aria-selected="false">Danh mục</button>
-      <button type="button" class="ws-view-tab" data-view="watchlist" role="tab" aria-selected="false">Theo dõi</button>
-      <button type="button" class="ws-view-tab" data-view="explore" role="tab" aria-selected="false">Khám phá</button>
-      <button type="button" class="ws-view-tab" data-view="technical" role="tab" aria-selected="false">Tín hiệu kỹ thuật</button>
+      <button type="button" id="ws-tab-opportunities" class="ws-view-tab" data-view="opportunities" role="tab" aria-selected="true" aria-controls="ws-view-opportunities">Cơ hội</button>
+      <button type="button" id="ws-tab-portfolio" class="ws-view-tab" data-view="portfolio" role="tab" aria-selected="false" aria-controls="ws-view-portfolio">Danh mục</button>
+      <button type="button" id="ws-tab-watchlist" class="ws-view-tab" data-view="watchlist" role="tab" aria-selected="false" aria-controls="ws-view-watchlist">Theo dõi</button>
+      <button type="button" id="ws-tab-explore" class="ws-view-tab" data-view="explore" role="tab" aria-selected="false" aria-controls="ws-view-explore">Khám phá</button>
+      <button type="button" id="ws-tab-technical" class="ws-view-tab" data-view="technical" role="tab" aria-selected="false" aria-controls="ws-view-technical">Tín hiệu kỹ thuật</button>
     </div>
 
-    <div id="ws-view-opportunities" data-ws-view role="tabpanel">
+    <div id="ws-view-opportunities" data-ws-view role="tabpanel" aria-labelledby="ws-tab-opportunities">
       <!-- Shared filters, used by both Cơ hội and Phân tích -->
       <section class="cockpit-section card mb-4"><div class="card-header"><h5>Bộ lọc &amp; Khám phá cơ hội</h5></div><div class="card-body">
         <div id="filter-chips" class="ws-filter-chips"></div>
@@ -76,7 +76,7 @@
       </div></section>
     </div>
 
-    <div id="ws-view-portfolio" data-ws-view role="tabpanel" hidden>
+    <div id="ws-view-portfolio" data-ws-view role="tabpanel" aria-labelledby="ws-tab-portfolio" hidden>
       <section class="cockpit-section card mb-4"><div class="card-header"><h5>Danh mục cá nhân</h5></div><div class="card-body">
         <p class="cockpit-note">Danh mục là bối cảnh riêng, không làm thay đổi tư thế nghiên cứu của từng mã.</p>
         <div id="workspace-portfolio-summary" class="cockpit-grid"></div>
@@ -84,7 +84,7 @@
       </div></section>
     </div>
 
-    <div id="ws-view-explore" data-ws-view role="tabpanel" hidden>
+    <div id="ws-view-explore" data-ws-view role="tabpanel" aria-labelledby="ws-tab-explore" hidden>
       <section class="cockpit-section card mb-4"><div class="card-header"><h5>Tổng hợp nghiên cứu</h5></div><div class="card-body">
         <div id="analysis-summary" class="cockpit-grid"></div>
       </div></section>
@@ -100,14 +100,14 @@
       </div></section>
     </div>
 
-    <div id="ws-view-watchlist" data-ws-view role="tabpanel" hidden>
+    <div id="ws-view-watchlist" data-ws-view role="tabpanel" aria-labelledby="ws-tab-watchlist" hidden>
       <section class="cockpit-section card mb-4"><div class="card-header d-flex justify-content-between align-items-center"><h5 class="mb-0">Danh sách theo dõi <span id="cockpit-watch-count" class="badge-soft bs-blue"></span></h5></div><div class="card-body">
         <p class="cockpit-note">Phạm vi nghiên cứu do chủ tài khoản chọn theo dõi — không phải danh mục đang nắm giữ.</p>
         <div class="table-responsive"><table class="cockpit-table"><thead><tr><th>Mã</th><th>Trạng thái / Hành động nghiên cứu</th><th>Chiến lược</th><th>Kịch bản</th><th>Bằng chứng / Xung đột</th><th>Chất lượng dữ liệu</th></tr></thead><tbody id="cockpit-watchlist"></tbody></table></div>
       </div></section>
     </div>
 
-    <div id="ws-view-technical" data-ws-view role="tabpanel" hidden>
+    <div id="ws-view-technical" data-ws-view role="tabpanel" aria-labelledby="ws-tab-technical" hidden>
       <section class="cockpit-section card mb-4"><div class="card-header"><h5>Tín hiệu kỹ thuật của mã đang chọn</h5></div><div class="card-body">
         <p class="cockpit-note">Mẫu hình nến và SMC chỉ là bằng chứng hỗ trợ; không thay thế tư thế nghiên cứu.</p>
         <div id="workspace-technical-selected" class="ws-selected-signal"></div>
