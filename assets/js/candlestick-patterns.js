@@ -606,6 +606,7 @@
       confidenceFor,
       patternInfo,
       lookupPatternInfo,
+      loadSnapshot,
       smcInfo,
       smcDisplayLabel,
       labelFor,

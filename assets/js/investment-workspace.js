@@ -550,6 +550,43 @@
     </div>`;
   }
 
+  function retainedPrice(card) {
+    const candidates = [card && card.current_price, (card || {}).price, ((card || {}).tactical || {}).current_price];
+    return candidates.find(hasRetainedValue);
+  }
+  function compactReasons(card, limit) {
+    const reasons = (((card || {}).why || {}).deterministic_reasons || []).slice(0, limit || 3);
+    return reasons.length ? reasons.map((reason) => formatWorkspaceState(reason, "rule_condition")) : ["Chưa có lý do ngắn được giữ lại"];
+  }
+  function technicalSnapshotHtml(card) {
+    const tactical = (card || {}).tactical || {};
+    const liquidity = (card || {}).liquidity || {};
+    const rows = [];
+    if (tactical.primary_entry_state || card.entry_state) rows.push(["Pha kỹ thuật", formatWorkspaceState(tactical.primary_entry_state || card.entry_state, "tactical_state")]);
+    if (card.entry_action) rows.push(["Mức sẵn sàng kỹ thuật", formatWorkspaceState(card.entry_action, "entry_action")]);
+    if (Array.isArray(card.setup_tags) && card.setup_tags.length) rows.push(["Dấu hiệu", card.setup_tags.slice(0, 2).map((item) => formatWorkspaceState(item, "setup_tag")).join(" · ")]);
+    if (hasRetainedValue(liquidity.current_session_volume)) rows.push(["Khối lượng phiên", formatDiagnosticNumber(liquidity.current_session_volume)]);
+    return rows.length ? `<div class="ws-technical-snapshot">${rows.map(([label, value]) => `<div><span>${escHtml(label)}</span><strong>${escHtml(value)}</strong></div>`).join("")}</div>` : '<p class="cockpit-note">Chưa có chỉ báo kỹ thuật hiện hành được giữ lại.</p>';
+  }
+  function selectedSignalEvidenceHtml(snapshot, ticker, session, registry, candleApi) {
+    if (!snapshot || snapshot.scan_date !== session) {
+      return '<p class="ws-signal-unavailable">Chưa có mẫu hình nến/SMC hiện hành.</p>';
+    }
+    const row = ((snapshot.watchlist || []).find((item) => String(item.ticker || "").toUpperCase() === String(ticker || "").toUpperCase()));
+    if (!row || (!(row.patterns || []).length && !(row.smc || []).length)) {
+      return '<p class="ws-signal-unavailable">Chưa có mẫu hình nến/SMC hiện hành.</p>';
+    }
+    const patterns = (row.patterns || []).map((key) => (registry || {})[key]).filter(Boolean);
+    const smc = (row.smc || []).map((key) => ({ key, info: candleApi && candleApi.smcInfo ? candleApi.smcInfo(key) : null })).filter((item) => item.info);
+    return `<section class="ws-signal-evidence" data-signal-session="${escHtml(snapshot.scan_date)}">
+      <h6>Mẫu hình nến hiện tại</h6>
+      ${patterns.length ? `<div class="ws-signal-chip-row">${patterns.map((pattern) => `<span class="ws-signal-chip"><b>${escHtml(pattern.name_vi || "Mẫu hình nến")}</b> <small>(${escHtml(pattern.name || pattern.key)})</small><em>${escHtml(candleApi && candleApi.directionLabel ? candleApi.directionLabel(pattern.direction, false) : pattern.direction || "")}</em></span>`).join("")}</div>` : '<p class="cockpit-note">Chưa có mẫu hình nến hiện hành được gắn nhãn.</p>'}
+      <h6 class="mt-3">SMC hiện hành</h6>
+      ${smc.length ? `<div class="ws-signal-chip-row">${smc.map((item) => `<span class="ws-signal-chip" title="${escHtml(item.info.tooltip)}"><b>${escHtml(item.info.vi)}</b> <small>(${escHtml(item.info.abbr)})</small></span>`).join("")}</div>` : '<p class="cockpit-note">Chưa có SMC hiện hành trong tập khái niệm được hỗ trợ.</p>'}
+      <p class="cockpit-note mt-2">Bằng chứng hỗ trợ kỹ thuật, không phải thẩm quyền mua/bán độc lập.</p>
+    </section>`;
+  }
+
   function decisionCardHtml(card, options) {
     const opts = options || {};
     const ticker = String((opts.ticker || (card && card.ticker) || "")).trim().toUpperCase();
@@ -565,12 +602,22 @@
     const marketSector = card.market_sector || why.market_sector_evidence || {};
     const referenceTrigger = card.reference_trigger || (card.tactical || {}).reference_trigger || (why.tactical_evidence || {}).reference_trigger || {};
     const sourceArtifacts = opts.sourceArtifacts || {};
+    const price = retainedPrice(card);
+    const invalidation = ((card.invalidation || {}).technical || {});
     return `
+          <section class="ws-drawer-overview" aria-label="Tóm tắt quyết định">
+            <div class="ws-drawer-overview-head"><div><div class="section-eyebrow">Tóm tắt nghiên cứu</div><h4>${escHtml(ticker)} <span>${sectorDisplayHtml(card.sector)}</span></h4></div>${pill(card.research_stance, "research_stance")}</div>
+            <div class="ws-drawer-keyline">${pill(card.entry_state, "tactical_state")} · ${pill(card.entry_action, "entry_action")}</div>
+            <div class="ws-drawer-facts">${hasRetainedValue(price) ? `<span>Giá hiện tại <b>${escHtml(formatDiagnosticNumber(price))}</b></span>` : ""}${hasRetainedValue(referenceTrigger.trigger_level) ? `<span>Kích hoạt tham chiếu <b>${escHtml(formatDiagnosticNumber(referenceTrigger.trigger_level))}</b></span>` : ""}${invalidation.boundary_type ? `<span>Vô hiệu <b>${escHtml(conditionHeadline(invalidation).label)}</b></span>` : ""}</div>
+            <p>${escHtml(stanceEntryGuidance(card.research_stance, card.entry_action) || `Tư thế nghiên cứu: ${formatWorkspaceState(card.research_stance, "research_stance")}.`)}</p>
+            <ul>${compactReasons(card, 3).map((reason) => `<li>${escHtml(reason)}</li>`).join("")}</ul>
+          </section>
+          <section class="ws-drawer-technical"><h6>Ảnh chụp kỹ thuật</h6>${technicalSnapshotHtml(card)}<div class="ws-selected-signal" data-selected-signal-for="${escHtml(ticker)}"><p class="cockpit-note">Đang kiểm tra mẫu hình nến/SMC hiện hành…</p></div></section>
           <div class="cockpit-grid mb-3" data-decision-ticker="${escHtml(ticker)}">
             ${kpiHtml("Tư thế nghiên cứu", pill(card.research_stance, "research_stance"))}${kpiHtml("Mức sẵn sàng", pill(card.research_stance_readiness, "research_readiness"))}
             ${kpiHtml("Thiết lập kỹ thuật", pill(card.entry_state, "tactical_state"))}${kpiHtml("Mức sẵn sàng kỹ thuật", pill(card.entry_action, "entry_action"))}
           </div>
-          <div class="cockpit-detail-grid">
+          <details class="ws-deep-evidence"><summary>Phân tích sâu &amp; bằng chứng</summary><div class="cockpit-detail-grid">
             <div class="card"><div class="card-header"><h6>Quyết định</h6></div><div class="card-body">
               <b>Mã</b> ${escHtml(ticker)} · <b>Ngành</b> ${sectorDisplayHtml(card.sector)}<br>
               <div class="mt-1"><b>Phạm vi nghiên cứu chính thức</b> ${card.official_research_scope ? pill(card.official_research_scope.scope_bucket, "official_scope") : pill(null, "official_scope")}${
@@ -632,7 +679,7 @@
               <div class="cockpit-note mt-2">Tư thế nghiên cứu của mã độc lập với mức phù hợp danh mục và không bị danh mục làm thay đổi.</div>
               <div class="mt-2"><a href="portfolio.html" class="cockpit-note">Mở Trình soạn danh mục &rarr;</a> · <span class="cockpit-note">Bối cảnh rủi ro danh mục tổng hợp: xem "Dữ liệu &amp; phương pháp" bên dưới trang.</span></div>
             </div></div>
-          </div>
+          </div></details>
           <details class="mt-3">
             <summary class="cockpit-note" style="cursor:pointer">Dữ liệu <span class="cockpit-note">(độ mới, khoảng trống, nguồn gốc)</span></summary>
             <div class="card mt-2"><div class="card-body">
@@ -668,7 +715,8 @@
       let PORTFOLIO_OVERRIDE = null;
       let SELECTED_TICKER = null;
       let WORKSPACE_VIEW = "opportunities";
-      const VALID_VIEWS = ["opportunities", "analysis", "watchlist"];
+      let SIGNAL_SNAPSHOT_PROMISE = null;
+      const VALID_VIEWS = ["opportunities", "portfolio", "watchlist", "explore", "technical"];
 
       function effectivePortfolio(ticker, card) {
         if (PORTFOLIO_OVERRIDE) return joinPortfolioResearch(ticker, card.sector, PORTFOLIO_OVERRIDE);
@@ -692,15 +740,38 @@
       function renderRow(ticker) {
         const card = WORKSPACE.cards[ticker];
         const isSelected = ticker === SELECTED_TICKER;
+        const trigger = card.reference_trigger || (card.tactical || {}).reference_trigger || {};
+        const invalidation = ((card.invalidation || {}).technical || {});
+        const price = retainedPrice(card);
         return `<tr data-row-ticker="${esc(ticker)}" class="${isSelected ? "ws-row-selected" : ""}" style="cursor: pointer;">
           <td class="sticky-col">
             <button type="button" class="btn btn-link p-0 ws-ticker-link fw-bold font-monospace text-start" data-select-ticker="${esc(ticker)}">${esc(ticker)}</button>
           </td>
-          <td class="cockpit-note text-truncate" style="max-width: 140px;">${sectorDisplayHtml(card.sector)}</td>
-          <td>${pill(card.research_stance, "research_stance")}</td>
-          <td>${pill(card.entry_state, "tactical_state")}${card.entry_action ? `<div class="cockpit-note">${esc(formatWorkspaceState(card.entry_action, "entry_action"))}</div>` : ""}</td>
-          <td>${pill((card.valuation || {}).relative_research_state, "valuation_state")}${(card.valuation || {}).market_cap_semantic_guard_applied ? '<div class="cockpit-note">đã chắn ngữ nghĩa</div>' : ""}</td>
+          <td>${pill(card.entry_state, "tactical_state")}<div class="cockpit-note">${sectorDisplayHtml(card.sector)}</div></td>
+          <td>${hasRetainedValue(price) ? `<b>${esc(formatDiagnosticNumber(price))}</b>` : '<span class="cockpit-note">—</span>'}</td>
+          <td>${hasRetainedValue(trigger.trigger_level) ? esc(formatDiagnosticNumber(trigger.trigger_level)) : '<span class="cockpit-note">—</span>'}</td>
+          <td>${invalidation.boundary_type ? esc(conditionHeadline(invalidation).label) : '<span class="cockpit-note">—</span>'}</td>
+          <td>${pill(card.research_stance, "research_stance")}<div class="cockpit-note">${esc(formatWorkspaceState(card.entry_action, "entry_action"))}</div></td>
+          <td class="cockpit-note">${esc(compactReasons(card, 1)[0])}</td>
+          <td><button type="button" class="btn btn-sm btn-outline-light" data-select-ticker="${esc(ticker)}">Chi tiết</button></td>
         </tr>`;
+      }
+
+      function focusTickers() {
+        const states = ["BREAKOUT_READY", "EARLY_REVERSAL_CANDIDATE", "BASE_BUILDING"];
+        return Object.keys(WORKSPACE.cards).filter((ticker) => {
+          const card = WORKSPACE.cards[ticker];
+          return states.includes(card.entry_state) || ["INITIATE_RESEARCH_CANDIDATE", "ACCUMULATE_RESEARCH_CANDIDATE"].includes(card.research_stance);
+        }).slice(0, 4);
+      }
+      function renderDecisionFocus() {
+        const root = document.getElementById("decision-focus");
+        if (!root) return;
+        root.innerHTML = focusTickers().map((ticker) => {
+          const card = WORKSPACE.cards[ticker];
+          const trigger = card.reference_trigger || (card.tactical || {}).reference_trigger || {};
+          return `<article class="ws-focus-card" data-focus-ticker="${esc(ticker)}"><div class="ws-focus-card-head"><strong>${esc(ticker)}</strong>${pill(card.entry_state, "tactical_state")}</div><div class="cockpit-note">${sectorDisplayHtml(card.sector)}</div><div class="ws-focus-action">${pill(card.research_stance, "research_stance")}</div>${hasRetainedValue(trigger.trigger_level) ? `<div class="cockpit-note">Kích hoạt tham chiếu: ${esc(formatDiagnosticNumber(trigger.trigger_level))}</div>` : ""}<ul>${compactReasons(card, 2).map((reason) => `<li>${esc(reason)}</li>`).join("")}</ul><button type="button" class="btn btn-sm btn-outline-light" data-select-ticker="${esc(ticker)}">Xem luận điểm</button></article>`;
+        }).join("") || '<p class="cockpit-note">Chưa có nhóm cần chú ý theo trạng thái nghiên cứu hiện tại.</p>';
       }
 
       function renderList() {
@@ -729,7 +800,25 @@
         ].join("");
       }
 
-      // ---- View switcher: Cơ hội / Phân tích / Theo dõi share one data fetch, one cards
+      function renderPortfolioView() {
+        const root = document.getElementById("workspace-portfolio-summary");
+        if (!root) return;
+        const held = PORTFOLIO_OVERRIDE && Array.isArray(PORTFOLIO_OVERRIDE.normalized_positions) ? PORTFOLIO_OVERRIDE.normalized_positions.length : 0;
+        root.innerHTML = [
+          analysisKpi("Trạng thái", PORTFOLIO_OVERRIDE ? "Đã nạp bối cảnh danh mục" : "Chưa nạp bối cảnh danh mục"),
+          analysisKpi("Vị thế được giữ lại", PORTFOLIO_OVERRIDE ? String(held) : "—"),
+          analysisKpi("Nguyên tắc", "Không thay đổi tư thế nghiên cứu của mã"),
+        ].join("");
+      }
+
+      function renderTechnicalView() {
+        const root = document.getElementById("workspace-technical-selected");
+        if (!root) return;
+        root.innerHTML = SELECTED_TICKER ? '<p class="cockpit-note">Đang kiểm tra bằng chứng kỹ thuật hiện hành…</p>' : '<p class="cockpit-note">Chọn một mã để xem tín hiệu kỹ thuật.</p>';
+        if (SELECTED_TICKER) renderSelectedSignalEvidence(SELECTED_TICKER);
+      }
+
+      // ---- View switcher: internal views share one data fetch, one cards
       // universe and one selected-ticker state -- only the visible container changes.
       function setView(view) {
         const next = VALID_VIEWS.includes(view) ? view : "opportunities";
@@ -740,7 +829,9 @@
           tab.classList.toggle("active", active);
           tab.setAttribute("aria-selected", active ? "true" : "false");
         });
-        if (next === "analysis") renderAnalysisView();
+        if (next === "explore") renderAnalysisView();
+        if (next === "portfolio") renderPortfolioView();
+        if (next === "technical") renderTechnicalView();
         try {
           const url = new URL(window.location.href);
           const currentParam = url.searchParams.get("view") || "opportunities";
@@ -749,6 +840,24 @@
             window.history.replaceState({ view: next }, "", url.toString());
           }
         } catch (_) {}
+      }
+
+      async function renderSelectedSignalEvidence(ticker) {
+        const targets = document.querySelectorAll(`[data-selected-signal-for="${CSS.escape(ticker)}"], #workspace-technical-selected`);
+        const write = (html) => targets.forEach((el) => { el.innerHTML = html; });
+        try {
+          if (!SIGNAL_SNAPSHOT_PROMISE) SIGNAL_SNAPSHOT_PROMISE = fetch("data/candle_signals.json", { cache: "no-store" }).then((r) => r.ok ? r.json() : null);
+          const snapshot = await SIGNAL_SNAPSHOT_PROMISE;
+          if (!snapshot || snapshot.scan_date !== WORKSPACE.as_of_session) {
+            write(selectedSignalEvidenceHtml(snapshot, ticker, WORKSPACE.as_of_session, {}, null));
+            return;
+          }
+          const api = window.VSCandlestickPatterns;
+          const patternsPayload = api && api.loadSnapshot ? await api.loadSnapshot() : null;
+          write(selectedSignalEvidenceHtml(snapshot, ticker, WORKSPACE.as_of_session, (patternsPayload || {}).registry, api));
+        } catch (_) {
+          write('<p class="ws-signal-unavailable">Chưa có mẫu hình nến/SMC hiện hành.</p>');
+        }
       }
 
       function renderSupportingMethods(methods) {
@@ -821,6 +930,7 @@
           screenerLink.href = `screener.html?ticker=${encodeURIComponent(ticker)}`;
           if (typeof screenerLink.removeAttribute === "function") screenerLink.removeAttribute("aria-disabled");
         }
+        renderSelectedSignalEvidence(ticker);
       }
 
       // Explicit not-found state for a requested ticker/hash that does not resolve to a real card.
@@ -856,6 +966,8 @@
         if (select && typeof select.removeAttribute === "function") select.removeAttribute("aria-invalid");
         showDecisionCard(ticker);
         renderList();
+        renderDecisionFocus();
+        if (WORKSPACE_VIEW === "technical") renderTechnicalView();
 
         try {
           const url = new URL(window.location.href);
@@ -888,10 +1000,15 @@
           ? scope.formatProductScope(Object.keys(data.cards).length)
           : `Phạm vi sản phẩm: ${Object.keys(data.cards).length.toLocaleString("vi-VN")} mã`;
         document.getElementById("session-line").innerHTML = `${staleBanner}Phiên ${esc(sessionLabel)} · ${esc(referenceScope)}${provenanceBlock(data.producer_artifact_identity)}`;
+        const systemDetail = document.getElementById("ws-system-status-detail");
+        if (systemDetail) systemDetail.textContent = coherence && sc && sc.isConfirmedStale(coherence)
+          ? "Dữ liệu không còn cùng phiên với bản phát hành; xem trạng thái độ mới ở từng trục."
+          : `Dữ liệu Workspace cùng phiên ${sessionLabel}. Chi tiết nguồn gốc có trong Dữ liệu & phương pháp.`;
         renderFilterChips();
         renderList();
+        renderDecisionFocus();
         const queryView = new URLSearchParams(window.location.search).get("view");
-        setView(queryView);
+        setView(queryView === "analysis" ? "explore" : queryView);
         const select = document.getElementById("ticker-select");
         const tickers = Object.keys(data.cards).sort();
         select.innerHTML = tickers.map((t) => `<option>${esc(t)}</option>`).join("");
@@ -939,6 +1056,11 @@
           if (!row) return;
           const ticker = row.dataset.rowTicker;
           selectTicker(ticker, { openDrawer: true });
+        });
+
+        document.getElementById("decision-focus").addEventListener("click", (e) => {
+          const button = e.target.closest("[data-select-ticker]");
+          if (button) selectTicker(button.dataset.selectTicker, { openDrawer: true });
         });
 
         document.getElementById("analysis-rows").addEventListener("click", (e) => {
@@ -1008,6 +1130,8 @@
               PORTFOLIO_OVERRIDE = payload.portfolio_research_context || payload;
               if (!PORTFOLIO_OVERRIDE || !PORTFOLIO_OVERRIDE.portfolio_id) throw new Error("missing portfolio_id");
               renderList();
+              renderDecisionFocus();
+              renderPortfolioView();
               if (SELECTED_TICKER) showDecisionCard(SELECTED_TICKER);
             } catch (err) {
               alert("JSON portfolio_research_context không hợp lệ");
@@ -1118,7 +1242,7 @@
     matchesFilters, matchesSearch, selectedTickerForDeepLink, hasStaleAxis, joinPortfolioResearch,
     readLocalPortfolioHoldings, localHoldingFor, buildT0Export,
     VETO_RESEARCH_STANCES, TACTICAL_ACTIONABLE_ENTRY_READINESS, stanceEntryGuidance,
-    decisionCardHtml, renderDecisionCard,
+    decisionCardHtml, renderDecisionCard, technicalSnapshotHtml, selectedSignalEvidenceHtml, retainedPrice, compactReasons,
     analysisRecord, analysisRows, analysisRowHtml, analysisEvidenceHtml,
   };
 });

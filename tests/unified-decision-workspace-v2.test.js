@@ -20,9 +20,9 @@ const wsHtml = fs.readFileSync(path.join(root, "investment-workspace.html"), "ut
 const wsJs = fs.readFileSync(path.join(root, "assets/js/investment-workspace.js"), "utf8");
 const shell = require(path.join(root, "assets/js/shell.js"));
 
-test("primary nav has exactly 7 primary destinations and Analysis is not one of them", () => {
-  assert.equal(shell.CANONICAL_PRIMARY_NAV.length, 7);
-  assert.ok(!shell.CANONICAL_PRIMARY_NAV.some((item) => item.id === "analysis"));
+test("primary nav has four decision-flow destinations and legacy surfaces remain routes", () => {
+  assert.deepEqual(shell.CANONICAL_PRIMARY_NAV.map((item) => item.id), ["dashboard", "investment-workspace", "portfolio", "macro"]);
+  assert.ok(!shell.CANONICAL_PRIMARY_NAV.some((item) => ["analysis", "screener", "signals"].includes(item.id)));
 });
 
 test("analysis.html redirects to investment-workspace.html?view=analysis, preserving other query params and hash", () => {
@@ -44,15 +44,17 @@ test("analysis.html redirects to investment-workspace.html?view=analysis, preser
   assert.equal(simulateAnalysisRedirect("?ticker=HPG", "#lineage"), "investment-workspace.html?ticker=HPG&view=analysis#lineage");
 });
 
-test("Workspace declares exactly three internal views with opportunities as the default", () => {
+test("Workspace declares five internal views with opportunities as the default", () => {
   const viewIds = [...wsHtml.matchAll(/id="ws-view-([a-z]+)"/g)].map((m) => m[1]);
-  assert.deepEqual(viewIds.sort(), ["analysis", "opportunities", "watchlist"]);
-  // Only the default view starts visible; the other two start hidden until a tab or ?view= selects them.
+  assert.deepEqual(viewIds.sort(), ["explore", "opportunities", "portfolio", "technical", "watchlist"]);
+  // Only the default view starts visible; other modes start hidden until selected.
   assert.match(wsHtml, /id="ws-view-opportunities" data-ws-view role="tabpanel">/);
-  assert.match(wsHtml, /id="ws-view-analysis" data-ws-view role="tabpanel" hidden>/);
+  assert.match(wsHtml, /id="ws-view-explore" data-ws-view role="tabpanel" hidden>/);
+  assert.match(wsHtml, /id="ws-view-portfolio" data-ws-view role="tabpanel" hidden>/);
+  assert.match(wsHtml, /id="ws-view-technical" data-ws-view role="tabpanel" hidden>/);
   assert.match(wsHtml, /id="ws-view-watchlist" data-ws-view role="tabpanel" hidden>/);
   assert.match(wsJs, /new URLSearchParams\(window\.location\.search\)\.get\("view"\)/);
-  assert.match(wsJs, /VALID_VIEWS = \["opportunities", "analysis", "watchlist"\]/);
+  assert.match(wsJs, /VALID_VIEWS = \["opportunities", "portfolio", "watchlist", "explore", "technical"\]/);
 });
 
 test("exactly one primary Workspace data fetch feeds all three views and one selected-ticker state", () => {

@@ -19,12 +19,9 @@
 
   const CANONICAL_PRIMARY_NAV = Object.freeze([
     { href: "dashboard.html", id: "dashboard", label: "Tổng quan", icon: "layout-dashboard" },
-    { href: "screener.html", id: "screener", label: "Bộ lọc", icon: "filter" },
-    { href: "signals.html", id: "signals", label: "Tín hiệu", icon: "activity" },
     { href: "investment-workspace.html", id: "investment-workspace", label: "Bàn quyết định", icon: "layout-list" },
     { href: "portfolio.html", id: "portfolio", label: "Danh mục", icon: "wallet-cards" },
     { href: "macro.html", id: "macro", label: "Vĩ mô", icon: "globe" },
-    { href: "about.html", id: "about", label: "Giới thiệu", icon: "info" },
   ]);
 
   const CANONICAL_UTILITY_NAV = Object.freeze([

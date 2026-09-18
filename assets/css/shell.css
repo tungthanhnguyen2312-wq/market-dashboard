@@ -243,6 +243,15 @@
   color: var(--accent-text);
 }
 
+/* Decision-flow navigation: Screener/Signals are compatibility routes and Workspace modes;
+   methodology remains available through the utility surface instead of competing with decisions. */
+.vs-topbar-nav .vs-topnav-link[data-nav="screener"],
+.vs-topbar-nav .vs-topnav-link[data-nav="signals"],
+.vs-topbar-nav .vs-topnav-link[data-nav="about"],
+.vs-sidebar-nav .vs-sidebar-link[data-nav="screener"],
+.vs-sidebar-nav .vs-sidebar-link[data-nav="signals"],
+.vs-sidebar-nav .vs-sidebar-link[data-nav="about"] { display:none; }
+
 .vs-sidebar-toggle {
   display: none;
   align-items: center;

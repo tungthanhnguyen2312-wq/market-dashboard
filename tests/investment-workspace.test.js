@@ -64,7 +64,7 @@ test("decision card renderer is reusable without changing stance semantics", () 
   assert.doesNotMatch(missing, /HPG/);
 });
 
-test("rule conditions localize visible headlines and keep raw identity in collapsed technical detail", () => {
+test("drawer keeps concise localized conditions primary and raw identity in progressive detail", () => {
   const html = ws.decisionCardHtml(card({
     confirmation: {
       status: "READY",
@@ -78,18 +78,12 @@ test("rule conditions localize visible headlines and keep raw identity in collap
     },
     why: { deterministic_reasons: ["TACTICAL_STATE_AWAITING_CONFIRMATION", "TECHNICAL_DETERIORATION"], counterbalancing_context: [] },
   }), { ticker: "AAA", sourceArtifacts: { producer_artifact_identity: "workspace/v1:test" } });
-  const visible = html
-    .replace(/<details[\s\S]*?<\/details>/gi, (block) => {
-      const match = block.match(/<summary[^>]*>([\s\S]*?)<\/summary>/i);
-      return match ? ` ${match[1]} ` : " ";
-    })
-    .replace(/<pre[\s\S]*?<\/pre>/gi, " ")
-    .replace(/<[^>]+>/g, " ");
-  assert.match(visible, /Điều kiện nâng cấp sang đảo chiều/);
-  assert.match(visible, /Rủi ro phá vỡ hỗ trợ tái diễn/);
-  assert.match(visible, /Suy giảm chất lượng lợi nhuận/);
-  assert.match(visible, /Chờ xác nhận điều kiện kỹ thuật/);
-  assert.doesNotMatch(visible, /EASING_TO_REVERSAL_UPGRADE|FUTURE_CLOSE_GT_FUTURE_MA20|RENEWED_BREAKDOWN_RISK|COMPATIBLE_PROFITABILITY_QUALITY_DETERIORATION|TACTICAL_STATE_AWAITING_CONFIRMATION/);
+  const primary = html.split('<details class="ws-deep-evidence">')[0].replace(/<[^>]+>/g, " ");
+  assert.match(primary, /Rủi ro phá vỡ hỗ trợ tái diễn/);
+  assert.match(primary, /Chờ xác nhận điều kiện kỹ thuật/);
+  assert.doesNotMatch(primary, /EASING_TO_REVERSAL_UPGRADE|FUTURE_CLOSE_GT_FUTURE_MA20|RENEWED_BREAKDOWN_RISK|COMPATIBLE_PROFITABILITY_QUALITY_DETERIORATION|TACTICAL_STATE_AWAITING_CONFIRMATION/);
+  assert.match(html, /Điều kiện nâng cấp sang đảo chiều/);
+  assert.match(html, /Suy giảm chất lượng lợi nhuận/);
   assert.match(html, /Chi tiết kỹ thuật/);
   assert.match(html, /Chi tiết dữ liệu/);
   assert.match(html, /Nguồn dữ liệu/);
@@ -360,17 +354,34 @@ test("reference trigger level stays separate from trigger activation and entry a
 
 test("fundamental partial state, retained catalyst/liquidity diagnostics, and market states are readable", () => {
   const html = ws.decisionCardHtml(diagnosticCard(), { ticker: "AAA" });
-  const visible = primaryVisibleText(html);
+  const visible = html.replace(/<[^>]+>/g, " ");
+  const primary = primaryVisibleText(html);
   assert.match(visible, /Có lợi nhuận/);
-  assert.match(visible, /Xu hướng lợi nhuận: Chưa đủ dữ liệu/);
+  assert.match(visible, /Xu hướng lợi nhuận:\s*Chưa đủ dữ liệu/);
   assert.match(visible, /Thiếu dữ liệu nợ hoặc tiền mặt đủ điều kiện/);
   assert.match(visible, /Sự kiện đang theo dõi/);
   assert.match(visible, /Sự kiện bất lợi được giữ lại/);
   assert.match(visible, /Khối lượng phiên hiện tại\s*:\s*1\.234\.567/);
   assert.match(visible, /Thanh khoản nghiên cứu không xác lập quy mô lệnh thực hiện/);
-  assert.match(visible, /Dẫn dắt ngành: Dẫn dắt/);
-  assert.match(visible, /Động lượng so với thị trường: Trên trung bình/);
-  assert.doesNotMatch(visible, /LEADING|UPPER_MIDDLE|MISSING_DEBT_OR_CASH_INPUTS/);
+  assert.match(visible, /Dẫn dắt ngành:\s*Dẫn dắt/);
+  assert.match(visible, /Động lượng so với thị trường:\s*Trên trung bình/);
+  // Raw identity codes remain available only in collapsed diagnostic detail.
+  assert.doesNotMatch(primary, /LEADING|UPPER_MIDDLE|MISSING_DEBT_OR_CASH_INPUTS/);
+});
+
+test("selected candlestick and SMC evidence is exact-session only and uses centralized labels", () => {
+  const candleApi = {
+    smcInfo: (key) => key === "ob_bull" ? { vi: "Khối lệnh tăng", abbr: "OB Bull", tooltip: "Giải thích" } : null,
+    directionLabel: () => "Tăng giá",
+  };
+  const snapshot = { scan_date: "2026-09-18", watchlist: [{ ticker: "AAA", patterns: ["hammer"], smc: ["ob_bull", "unsupported"] }] };
+  const registry = { hammer: { key: "hammer", name_vi: "Nến búa", name: "Hammer", direction: "bullish" } };
+  const current = ws.selectedSignalEvidenceHtml(snapshot, "AAA", "2026-09-18", registry, candleApi);
+  assert.match(current, /Nến búa[\s\S]*Hammer/);
+  assert.match(current, /Khối lệnh tăng[\s\S]*OB Bull/);
+  assert.doesNotMatch(current, /unsupported/);
+  const stale = ws.selectedSignalEvidenceHtml(snapshot, "AAA", "2026-09-19", registry, candleApi);
+  assert.match(stale, /Chưa có mẫu hình nến\/SMC hiện hành/);
 });
 
 test("legacy valuation artifacts remain safe while HPG-like old summaries do not claim absolute valuation methods", () => {

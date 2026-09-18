@@ -59,6 +59,7 @@ COMPACT_NAV_LABELS = [
     "Vĩ mô",
     "Giới thiệu",
 ]
+DECISION_FLOW_NAV_LABELS = ["Tổng quan", "Bàn quyết định", "Danh mục", "Vĩ mô"]
 OLD_ENGLISH_NAV_LABELS = ["Dashboard", "Screener", "Analysis", "Signals", "Macro", "About"]
 
 
@@ -107,7 +108,8 @@ class NavigationContractTests(unittest.TestCase):
                 self.assertIn(label, content, f"Thiếu nhãn tiếng Việt '{label}' trong {name}")
         for name in SINGLE_TOPBAR_PAGES:
             content = (ROOT / name).read_text(encoding="utf-8")
-            for label in COMPACT_NAV_LABELS:
+            expected_labels = DECISION_FLOW_NAV_LABELS if name == "investment-workspace.html" else COMPACT_NAV_LABELS
+            for label in expected_labels:
                 self.assertIn(label, content, f"Thiếu nhãn tiếng Việt '{label}' trong {name}")
 
     def test_6_visible_branding_uses_stock_lookup(self):

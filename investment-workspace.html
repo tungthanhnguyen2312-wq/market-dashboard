@@ -7,7 +7,7 @@
 </head><body class="bg-bg text-white" data-page="investment-workspace">
 <div class="vs-shell"><div class="vs-shell-main"><header class="vs-topbar">
   <a class="vs-topbar-brand" href="dashboard.html"><span class="vs-brand-dot"></span><span>Stock Lookup</span></a>
-  <nav class="vs-topbar-nav" aria-label="Điều hướng chính"><a class="vs-topnav-link" href="dashboard.html" data-nav="dashboard">Tổng quan</a><a class="vs-topnav-link" href="screener.html" data-nav="screener">Bộ lọc</a><a class="vs-topnav-link" href="signals.html" data-nav="signals">Tín hiệu</a><a class="vs-topnav-link active" href="investment-workspace.html" data-nav="investment-workspace">Bàn quyết định</a><a class="vs-topnav-link" href="portfolio.html" data-nav="portfolio">Danh mục</a><a class="vs-topnav-link" href="macro.html" data-nav="macro">Vĩ mô</a><a class="vs-topnav-link" href="about.html" data-nav="about">Giới thiệu</a></nav>
+  <nav class="vs-topbar-nav" aria-label="Điều hướng chính"><a class="vs-topnav-link" href="dashboard.html" data-nav="dashboard">Tổng quan</a><a class="vs-topnav-link active" href="investment-workspace.html" data-nav="investment-workspace">Bàn quyết định</a><a class="vs-topnav-link" href="portfolio.html" data-nav="portfolio">Danh mục</a><a class="vs-topnav-link" href="macro.html" data-nav="macro">Vĩ mô</a></nav>
   <span class="vs-topbar-spacer"></span><span class="badge-soft bs-amber d-none d-md-inline-block">CHỈ MANG TÍNH NGHIÊN CỨU</span><a class="vs-topbar-link" href="archive.html">Lịch sử</a>
 </header><main class="vs-content">
   <div id="workspace-error" class="vs-alert vs-alert-warning" hidden></div>
@@ -27,18 +27,27 @@
     </div>
     <div class="cockpit-note ws-defensive-line">Chỉ để người đọc rà soát nghiên cứu — tư thế nghiên cứu không phải lệnh thực hiện.</div>
 
-    <!-- Compact market context strip (max ~5 values; detailed market analysis lives on Tổng quan) -->
+    <!-- Layer 1: compact, decision-relevant market pulse. Diagnostics remain in details. -->
     <section class="ws-market-strip mb-4" id="section-market-overview">
-      <div class="ws-market-strip-label">Tổng quan thị trường</div>
+      <div class="ws-market-strip-label">Nhịp thị trường</div>
       <div id="cockpit-market-overview" class="cockpit-grid"></div>
+      <details class="ws-system-status"><summary>● Hệ thống &amp; dữ liệu</summary><div id="ws-system-status-detail" class="cockpit-note mt-2">Đang kiểm tra dữ liệu hiện hành…</div></details>
     </section>
 
-    <!-- View switcher: Cơ hội / Phân tích / Theo dõi share one data fetch, one cards universe,
+    <!-- Layer 2: existing Workspace lanes, bounded to four cards without a new score/rank. -->
+    <section class="ws-focus-section mb-4" aria-labelledby="decision-focus-heading">
+      <div class="ws-section-head"><div><div class="section-eyebrow">Điểm cần chú ý</div><h2 id="decision-focus-heading" class="h5 mb-0">Tập trung quyết định</h2></div><span class="cockpit-note">Theo tư thế và trạng thái đã được Producer giữ lại</span></div>
+      <div id="decision-focus" class="ws-focus-grid" aria-live="polite"></div>
+    </section>
+
+    <!-- View switcher: five internal modes share one data fetch, one cards universe,
          one selected-ticker state and one filter/search model. -->
     <div class="ws-view-tabs" role="tablist" aria-label="Chế độ xem Bàn quyết định">
       <button type="button" class="ws-view-tab" data-view="opportunities" role="tab" aria-selected="true">Cơ hội</button>
-      <button type="button" class="ws-view-tab" data-view="analysis" role="tab" aria-selected="false">Phân tích</button>
+      <button type="button" class="ws-view-tab" data-view="portfolio" role="tab" aria-selected="false">Danh mục</button>
       <button type="button" class="ws-view-tab" data-view="watchlist" role="tab" aria-selected="false">Theo dõi</button>
+      <button type="button" class="ws-view-tab" data-view="explore" role="tab" aria-selected="false">Khám phá</button>
+      <button type="button" class="ws-view-tab" data-view="technical" role="tab" aria-selected="false">Tín hiệu kỹ thuật</button>
     </div>
 
     <div id="ws-view-opportunities" data-ws-view role="tabpanel">
@@ -52,19 +61,30 @@
         </div>
       </div></section>
 
-      <!-- Opportunity Table (Compact 5 Columns) -->
+      <!-- Compact default: retained decision fields only; advanced axes remain in drawer/explore. -->
       <section class="cockpit-section card mb-4"><div class="card-header d-flex justify-content-between align-items-center"><h5 class="mb-0">Danh sách cơ hội</h5><span id="row-count" class="badge-soft bs-blue"></span></div><div class="card-body p-0">
         <div class="table-responsive ws-list-scroll"><table class="cockpit-table ws-compact-table" id="opportunity-table"><thead><tr>
           <th class="sticky-col ws-th-ticker">Mã</th>
-          <th>Ngành</th>
-          <th>Tư thế</th>
-          <th>Kỹ thuật</th>
-          <th>Định giá</th>
+          <th>Trạng thái</th>
+          <th>Giá hiện tại</th>
+          <th>Kích hoạt</th>
+          <th>Vô hiệu</th>
+          <th>Sẵn sàng nghiên cứu</th>
+          <th>Dấu hiệu</th>
+          <th><span class="vs-visually-hidden">Chi tiết</span></th>
         </tr></thead><tbody id="opportunity-rows"></tbody></table></div>
       </div></section>
     </div>
 
-    <div id="ws-view-analysis" data-ws-view role="tabpanel" hidden>
+    <div id="ws-view-portfolio" data-ws-view role="tabpanel" hidden>
+      <section class="cockpit-section card mb-4"><div class="card-header"><h5>Danh mục cá nhân</h5></div><div class="card-body">
+        <p class="cockpit-note">Danh mục là bối cảnh riêng, không làm thay đổi tư thế nghiên cứu của từng mã.</p>
+        <div id="workspace-portfolio-summary" class="cockpit-grid"></div>
+        <a class="btn btn-sm btn-outline-light mt-3" href="portfolio.html">Mở Trình soạn danh mục</a>
+      </div></section>
+    </div>
+
+    <div id="ws-view-explore" data-ws-view role="tabpanel" hidden>
       <section class="cockpit-section card mb-4"><div class="card-header"><h5>Tổng hợp nghiên cứu</h5></div><div class="card-body">
         <div id="analysis-summary" class="cockpit-grid"></div>
       </div></section>
@@ -84,6 +104,14 @@
       <section class="cockpit-section card mb-4"><div class="card-header d-flex justify-content-between align-items-center"><h5 class="mb-0">Danh sách theo dõi <span id="cockpit-watch-count" class="badge-soft bs-blue"></span></h5></div><div class="card-body">
         <p class="cockpit-note">Phạm vi nghiên cứu do chủ tài khoản chọn theo dõi — không phải danh mục đang nắm giữ.</p>
         <div class="table-responsive"><table class="cockpit-table"><thead><tr><th>Mã</th><th>Trạng thái / Hành động nghiên cứu</th><th>Chiến lược</th><th>Kịch bản</th><th>Bằng chứng / Xung đột</th><th>Chất lượng dữ liệu</th></tr></thead><tbody id="cockpit-watchlist"></tbody></table></div>
+      </div></section>
+    </div>
+
+    <div id="ws-view-technical" data-ws-view role="tabpanel" hidden>
+      <section class="cockpit-section card mb-4"><div class="card-header"><h5>Tín hiệu kỹ thuật của mã đang chọn</h5></div><div class="card-body">
+        <p class="cockpit-note">Mẫu hình nến và SMC chỉ là bằng chứng hỗ trợ; không thay thế tư thế nghiên cứu.</p>
+        <div id="workspace-technical-selected" class="ws-selected-signal"></div>
+        <a id="workspace-signals-link" class="cockpit-note d-inline-block mt-3" href="signals.html">Mở trang Tín hiệu kỹ thuật đầy đủ &rarr;</a>
       </div></section>
     </div>
 
@@ -147,6 +175,7 @@
 <script src="assets/js/product-scope-format.js?v=2026-09-18-6f6effe-33d5b3e538"></script>
 <script src="assets/js/session-coherence.js?v=2026-09-18-6f6effe-33d5b3e538"></script>
 <script src="assets/js/shell.js?v=2026-09-18-6f6effe-33d5b3e538"></script>
+<script src="assets/js/candlestick-patterns.js?v=2026-09-18-6f6effe-33d5b3e538"></script>
 <script src="assets/js/decision-cockpit.js?v=2026-09-18-6f6effe-33d5b3e538"></script>
 <script src="assets/js/investment-workspace.js?v=2026-09-18-6f6effe-33d5b3e538"></script>
 </body></html>

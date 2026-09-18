@@ -140,6 +140,18 @@
 .ws-market-strip .cockpit-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.5rem; }
 .ws-market-strip .cockpit-kpi { padding: 0.5rem 0.7rem; }
 .ws-market-strip .cockpit-kpi .value { font-size: 0.88rem; }
+.ws-system-status { margin-top: .6rem; color: var(--text-muted); font-size: .78rem; }
+.ws-system-status summary { cursor: pointer; width: fit-content; }
+
+/* ---------- Decision focus: bounded, explanatory cards rather than score-ranked tiles ---------- */
+.ws-section-head { display:flex; justify-content:space-between; align-items:end; gap:1rem; margin-bottom:.75rem; }
+.ws-focus-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:.75rem; }
+.ws-focus-card { display:flex; flex-direction:column; gap:.45rem; padding:1rem; border:1px solid var(--border-soft); border-radius:var(--radius-md); background:linear-gradient(145deg,rgba(var(--primary-rgb),.09),rgba(15,23,42,.22)); min-width:0; }
+.ws-focus-card-head { display:flex; align-items:center; justify-content:space-between; gap:.5rem; }
+.ws-focus-card-head > strong { font-family:var(--font-mono,monospace); font-size:1rem; letter-spacing:.035em; }
+.ws-focus-card ul,.ws-drawer-overview ul { padding-left:1.05rem; margin:.1rem 0; color:var(--text-muted); font-size:.78rem; }
+.ws-focus-card .btn { margin-top:auto; align-self:flex-start; }
+.ws-focus-action { min-height:1.75rem; }
 
 /* ---------- View switcher tabs (Cơ hội / Phân tích / Theo dõi) ---------- */
 .ws-view-tabs {
@@ -167,6 +179,29 @@
 }
 .ws-view-tab:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
 
+/* ---------- Drawer: decision answer first, evidence on demand ---------- */
+.ws-drawer-overview { padding:1rem; border:1px solid var(--border-medium); border-radius:var(--radius-md); background:linear-gradient(145deg,rgba(var(--primary-rgb),.12),rgba(15,23,42,.2)); margin-bottom:1rem; }
+.ws-drawer-overview-head { display:flex; justify-content:space-between; gap:.75rem; align-items:start; }
+.ws-drawer-overview h4 { margin:0; font-family:var(--font-mono,monospace); letter-spacing:.04em; }
+.ws-drawer-overview h4 span { font-family:var(--font-sans,inherit); letter-spacing:0; font-size:.8rem; font-weight:500; color:var(--text-muted); }
+.ws-drawer-keyline { display:flex; flex-wrap:wrap; gap:.4rem; margin:.65rem 0; }
+.ws-drawer-facts { display:flex; flex-wrap:wrap; gap:.6rem 1rem; font-size:.8rem; color:var(--text-muted); }
+.ws-drawer-facts b { color:var(--text); font-variant-numeric:tabular-nums; }
+.ws-drawer-overview p { margin:.75rem 0 .35rem; line-height:1.45; }
+.ws-drawer-technical { padding:.9rem 1rem; border:1px solid var(--border-soft); border-radius:var(--radius-md); background:rgba(15,23,42,.22); margin-bottom:1rem; }
+.ws-drawer-technical h6 { margin:0 0 .6rem; }
+.ws-technical-snapshot { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.45rem; }
+.ws-technical-snapshot div { padding:.5rem .6rem; border-radius:var(--radius-sm); background:var(--surface); }
+.ws-technical-snapshot span { display:block; font-size:.7rem; color:var(--text-muted); }
+.ws-technical-snapshot strong { display:block; font-size:.84rem; margin-top:.15rem; }
+.ws-deep-evidence { border-top:1px solid var(--border-soft); padding-top:.75rem; }
+.ws-deep-evidence > summary { cursor:pointer; font-weight:700; color:var(--accent-text); margin-bottom:.85rem; }
+.ws-signal-evidence h6 { font-size:.78rem; margin:0; }
+.ws-signal-chip-row { display:flex; flex-wrap:wrap; gap:.45rem; margin-top:.45rem; }
+.ws-signal-chip { display:inline-flex; flex-wrap:wrap; gap:.18rem; align-items:baseline; padding:.4rem .55rem; border-radius:999px; border:1px solid var(--border-medium); background:var(--surface); font-size:.75rem; }
+.ws-signal-chip small,.ws-signal-chip em { color:var(--text-muted); font-style:normal; }
+.ws-signal-unavailable { margin:0; color:var(--text-muted); font-size:.83rem; }
+
 /* ---------- Research diagnostic transparency ---------- */
 .ws-valuation-summary {
   padding: .65rem .75rem;
@@ -193,5 +228,10 @@
 
 @media (max-width: 480px) {
   .ws-valuation-method-head { align-items: flex-start; flex-direction: column; }
+  .ws-focus-grid { grid-template-columns:1fr; }
+  .ws-section-head { align-items:start; flex-direction:column; }
+  .ws-technical-snapshot { grid-template-columns:1fr; }
 }
+
+@media (min-width: 481px) and (max-width: 980px) { .ws-focus-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 
