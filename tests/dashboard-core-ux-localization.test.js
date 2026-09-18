@@ -283,27 +283,45 @@ test("technical structure pills localize visible text and keep raw identity in d
   }
 });
 
-test("rule-condition and current Workspace readiness text are localized with raw identity retained", () => {
+test("rule-condition and Workspace readiness text are localized with raw identity retained", () => {
   assert.equal(vf.formatRuleCondition("TACTICAL_STATE_AWAITING_CONFIRMATION"), "Chờ xác nhận điều kiện kỹ thuật");
   assert.equal(vf.formatRuleCondition("WAIT_FOR_CONFIRMATION"), "Chờ xác nhận điều kiện kỹ thuật");
   assert.equal(vf.formatRuleCondition("PROFITABILITY_STATE_REVERSAL"), "Đảo chiều trạng thái lợi nhuận");
   assert.equal(vf.formatDomainState("UNKNOWN_MACHINE_RULE_XYZ", "rule_condition").label, "Điều kiện kỹ thuật");
   assert.equal(vf.formatDomainState("UNKNOWN_MACHINE_RULE_XYZ", "rule_condition").raw, "UNKNOWN_MACHINE_RULE_XYZ");
+  const readinessCases = {
+    RESEARCH_CONDITIONAL: "Nghiên cứu có điều kiện",
+    RESEARCH_READY_CONDITIONAL: "Sẵn sàng nghiên cứu có điều kiện",
+  };
+  for (const [raw, label] of Object.entries(readinessCases)) {
+    const formatted = vf.formatDomainState(raw, "research_readiness");
+    assert.equal(formatted.raw, raw);
+    assert.equal(formatted.label, label);
+    const syntheticCard = {
+      ticker: "RDX", research_stance: "WAIT_FOR_CONFIRMATION",
+      research_stance_readiness: raw, entry_state: "DOWNTREND", why: {}, valuation: {},
+      prospective_case: {}, lineage: { per_axis_freshness: {} }, confirmation: {},
+      invalidation: {}, counter_thesis: {},
+    };
+    const readinessHtml = ws.decisionCardHtml(syntheticCard, { ticker: syntheticCard.ticker });
+    assert.match(primaryVisibleText(readinessHtml), new RegExp(label));
+    assert.doesNotMatch(primaryVisibleText(readinessHtml), new RegExp(raw));
+    assert.match(readinessHtml, new RegExp(`data-state="${raw}"`));
+  }
   const card = workspace.cards.HPG;
   const html = ws.decisionCardHtml(card, { ticker: "HPG", sourceArtifacts: workspace.source_artifacts });
   const visible = primaryVisibleText(html);
-  // Regression guard for TACTICAL_SESSION_DATE_AND_FRESHNESS_CONVERGENCE_V1: HPG's tactical axis
-  // is exact-session (technical_structure/tactical_setup_tags retained for 2026-09-11), so its
-  // rendered card must never carry TACTICAL_AXIS_NOT_CURRENT -- that reason belongs only to a
-  // ticker whose tactical_behavior_context source_session is genuinely older than the decision
-  // session (see current_valuation_opportunity_integration tests in the Producer repo).
+  // The retained current card must preserve its own governed readiness state. Tactical-currentness
+  // remains an independent freshness assertion, not a dependency on an old HPG daily state.
   assert.ok(!(card.why?.deterministic_reasons || []).includes("TACTICAL_AXIS_NOT_CURRENT"));
-  assert.equal(card.research_stance_readiness, "RESEARCH_READY_CONDITIONAL");
-  assert.equal(vf.formatDomainState(card.research_stance_readiness, "research_readiness").label, "Sẵn sàng nghiên cứu có điều kiện");
-  assert.match(visible, /Sẵn sàng nghiên cứu có điều kiện/);
+  const currentReadiness = vf.formatDomainState(card.research_stance_readiness, "research_readiness");
+  assert.equal(currentReadiness.raw, card.research_stance_readiness);
+  assert.ok(currentReadiness.known, `current governed readiness must be localized: ${card.research_stance_readiness}`);
+  assert.match(visible, new RegExp(currentReadiness.label));
+  assert.doesNotMatch(visible, new RegExp(card.research_stance_readiness));
   assert.doesNotMatch(visible, /Trục kỹ thuật không thuộc phiên hiện tại/);
   assert.match(visible, /Nền tảng doanh nghiệp có lợi nhuận/);
-  assert.match(html, /data-state="RESEARCH_READY_CONDITIONAL"/);
+  assert.match(html, new RegExp(`data-state="${card.research_stance_readiness}"`));
   // ADVERSE_TACTICAL_ENTRY_STATE / PROFITABILITY_STATE_REVERSAL are real-but-not-guaranteed
   // counter-thesis/invalidation states -- no ticker in the current real dataset happens to carry
   // either today, so exercise the render mechanism directly with a synthetic card rather than
@@ -322,7 +340,7 @@ test("rule-condition and current Workspace readiness text are localized with raw
   assert.match(syntheticHtml, /data-condition="PROFITABILITY_STATE_REVERSAL"/);
   assert.match(syntheticHtml, /<details class="vs-tech-details">[\s\S]*PROFITABILITY_STATE_REVERSAL/);
   for (const raw of [
-    "RESEARCH_READY_CONDITIONAL",
+    ...Object.keys(readinessCases),
     "TACTICAL_AXIS_NOT_CURRENT",
     "PROFITABLE_FUNDAMENTAL",
     "PROFITABILITY_STATE_REVERSAL",
