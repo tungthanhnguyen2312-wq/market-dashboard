@@ -26,7 +26,7 @@ SPEC.loader.exec_module(publisher)
 REQUIRED_PRODUCT_SURFACES = (
     "investment-workspace.html",
     "portfolio.html",
-    "data/investment_decision_workspace.json",
+    "data/workspace_index.json",
 )
 FUTURE_SCREENER_PROJECTION = (
     "data/screener_master_projection.json",
@@ -65,7 +65,7 @@ def _seed_web(root: Path) -> None:
     (root / "portfolio.js").write_text("/* portfolio */\n", encoding="utf-8")
     (root / "assets/js").mkdir(parents=True, exist_ok=True)
     (root / "assets/js/investment-workspace.js").write_text(
-        'const DATA_URL = "data/investment_decision_workspace.json";\n', encoding="utf-8",
+        'const DATA_URL = "data/workspace_index.json";\n', encoding="utf-8",
     )
     for relative in sorted(publisher.SAFE_WEB_ARTIFACTS):
         path = root / relative
@@ -122,7 +122,7 @@ class SafeWebArtifactAllowlistTests(unittest.TestCase):
             "",
             ".",
             "./portfolio.html",
-            "data//investment_decision_workspace.json",
+            "data//workspace_index.json",
         )
         for relative in rejected:
             self.assertFalse(publisher.is_safe_web_artifact(relative), relative)
@@ -138,7 +138,7 @@ class SafeWebArtifactAllowlistTests(unittest.TestCase):
 
     def test_query_string_does_not_bypass_exact_allowlist(self):
         self.assertTrue(
-            publisher.is_safe_web_artifact("data/investment_decision_workspace.json?v=1")
+            publisher.is_safe_web_artifact("data/workspace_index.json?v=1")
         )
         self.assertTrue(
             publisher.is_safe_web_artifact("data/screener_master_projection.js?v=abc")
@@ -224,13 +224,15 @@ class StaticReferenceValidationTests(unittest.TestCase):
                     missing.append(f"{name} -> {relative}")
         self.assertEqual(missing, [])
 
-    def test_workspace_and_screener_fetch_existing_workspace_json(self):
+    def test_workspace_and_screener_fetch_existing_workspace_index(self):
         workspace_js = (ROOT / "assets/js/investment-workspace.js").read_text(encoding="utf-8")
         screener = (ROOT / "screener.html").read_text(encoding="utf-8")
-        self.assertIn("data/investment_decision_workspace.json", workspace_js)
+        self.assertIn("data/workspace_index.json", workspace_js)
         screener_js = (ROOT / "assets/js/screener-master.js").read_text(encoding="utf-8")
-        self.assertIn("data/investment_decision_workspace.json", screener_js)
-        self.assertTrue((ROOT / "data/investment_decision_workspace.json").is_file())
+        self.assertIn("data/workspace_index.json", screener_js)
+        self.assertTrue((ROOT / "data/workspace_index.json").is_file())
+        self.assertFalse((ROOT / "data/investment_decision_workspace.json").exists(),
+                          "the pre-compaction ~95MB monolith must be retired")
         self.assertNotIn("screener_master_projection", workspace_js)
 
     def test_screener_primary_row_source_is_master_projection(self):

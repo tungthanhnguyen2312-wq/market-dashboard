@@ -1,8 +1,11 @@
 (() => {
   "use strict";
-  const DATA_URL = "data/investment_decision_workspace.json";
+  // DASHBOARD_PAYLOAD_COMPACTION_AND_INVESTOR_FIRST_IA_V1: this page only ever reads a handful
+  // of scalar per-ticker fields (see records() below) -- all present on the compact
+  // workspace_index/v1 document, so it never needs a per-ticker detail shard at all.
+  const DATA_URL = "data/workspace_index.json";
   const SCHEMA_VERSION = "1.0.0";
-  const CONTRACT_VERSION = "investment_decision_workspace_projection/v1";
+  const CONTRACT_VERSION = "workspace_index/v1";
   const CANDLE_SIDECARS = Object.freeze({
     candlestick_patterns: "data/candlestick_patterns.json",
     candle_signals: "data/candle_signals.json",

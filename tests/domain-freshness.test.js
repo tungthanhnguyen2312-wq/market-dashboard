@@ -10,7 +10,7 @@ const signalsSource = fs.readFileSync(path.join(root, "assets", "js", "signals-p
 const patterns = fs.readFileSync(path.join(root, "assets", "js", "candlestick-patterns.js"), "utf8");
 const signals = require(path.join(root, "assets", "js", "signals-product.js"));
 const buildInfo = JSON.parse(fs.readFileSync(path.join(root, "data", "build_info.json"), "utf8"));
-const workspace = JSON.parse(fs.readFileSync(path.join(root, "data", "investment_decision_workspace.json"), "utf8"));
+const workspace = JSON.parse(fs.readFileSync(path.join(root, "data", "workspace_index.json"), "utf8"));
 const screener = JSON.parse(fs.readFileSync(path.join(root, "data", "screener_master_projection.json"), "utf8"));
 
 test("Signals UI exposes unavailable exact-session evidence instead of silently rendering it", () => {
@@ -78,7 +78,7 @@ test("build_info Workspace and canonical Screener remain exact-session coherent"
   // retired domains/components schema: its absence is a fail-closed sidecar condition above.
   assert.equal(buildInfo.investment_workspace.status, "CURRENT");
   assert.equal(buildInfo.investment_workspace.source_session, buildInfo.market_session);
-  assert.equal(buildInfo.investment_workspace.artifact_identity, workspace.artifact_identity);
+  assert.equal(buildInfo.investment_workspace.artifact_identity, workspace.source_artifact_identity);
   assert.equal(workspace.as_of_session, buildInfo.market_session);
   // The canonical Producer now materializes Investment Workspace and Screener Master together
   // from the same exact-session retained input set, so same-session coherence is the current

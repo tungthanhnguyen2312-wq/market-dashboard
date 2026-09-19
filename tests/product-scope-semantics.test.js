@@ -11,7 +11,15 @@ const overview = require("../assets/js/dashboard-product-summary.js");
 const screener = require("../assets/js/screener-master.js");
 const workspace = require("../assets/js/investment-workspace.js");
 const projection = JSON.parse(fs.readFileSync(path.join(root, "data/screener_master_projection.json"), "utf8"));
-const workspaceProjection = JSON.parse(fs.readFileSync(path.join(root, "data/investment_decision_workspace.json"), "utf8"));
+const workspaceProjection = JSON.parse(fs.readFileSync(path.join(root, "data/workspace_index.json"), "utf8"));
+function fullWorkspaceCard(ticker) {
+  const thin = workspaceProjection.cards[ticker];
+  if (!thin) return null;
+  const shard = JSON.parse(fs.readFileSync(
+    path.join(root, "data/workspace_detail", `${thin.detail_shard}.json`), "utf8",
+  ));
+  return shard.tickers[ticker] || null;
+}
 const dashboardHtml = fs.readFileSync(path.join(root, "dashboard.html"), "utf8");
 const screenerHtml = fs.readFileSync(path.join(root, "screener.html"), "utf8");
 const aboutHtml = fs.readFileSync(path.join(root, "about.html"), "utf8");
@@ -186,7 +194,7 @@ test("Screener exposes a real per-row official-scope filter/column reusing the e
 });
 
 test("Workspace decision card surfaces the real per-ticker official-scope context", () => {
-  const html = workspace.decisionCardHtml(workspaceProjection.cards.HPG, { ticker: "HPG" });
+  const html = workspace.decisionCardHtml(fullWorkspaceCard("HPG"), { ticker: "HPG" });
   assert.match(html, /Phạm vi nghiên cứu chính thức/);
   assert.match(html, /data-state="IN_CURRENT_OFFICIAL_RESEARCH_SCOPE"/);
 });
@@ -215,7 +223,7 @@ test("canonical Workspace contract and four cross-surface ticker identities rema
     const identity = screener.drawerIdentity(projection.cards[ticker].ticker, ticker, workspaceProjection.cards[ticker]);
     assert.equal(identity.ok, true, ticker);
     assert.equal(workspace.selectedTickerForDeepLink(Object.keys(workspaceProjection.cards), ticker), ticker);
-    assert.match(workspace.renderDecisionCard(workspaceProjection.cards[ticker], null, { ticker }), new RegExp(`data-decision-ticker="${ticker}"`));
+    assert.match(workspace.renderDecisionCard(fullWorkspaceCard(ticker), null, { ticker }), new RegExp(`data-decision-ticker="${ticker}"`));
   }
   assert.equal(workspace.selectedTickerForDeepLink(Object.keys(workspaceProjection.cards), "UNKNOWN"), null);
   assert.match(workspaceScript, /select\.selectedIndex = -1/);

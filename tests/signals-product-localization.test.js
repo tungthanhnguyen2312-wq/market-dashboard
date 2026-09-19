@@ -14,7 +14,7 @@ const sm = require(path.join(root, "assets/js/screener-master.js"));
 
 const html = fs.readFileSync(path.join(root, "signals.html"), "utf8");
 const product = fs.readFileSync(path.join(root, "assets/js/signals-product.js"), "utf8");
-const workspace = JSON.parse(fs.readFileSync(path.join(root, "data/investment_decision_workspace.json"), "utf8"));
+const workspace = JSON.parse(fs.readFileSync(path.join(root, "data/workspace_index.json"), "utf8"));
 
 function visibleText(markup) {
   return String(markup || "")

@@ -15,7 +15,18 @@ const sm = require(path.join(root, "assets/js/screener-master.js"));
 const dashboardHtml = fs.readFileSync(path.join(root, "dashboard.html"), "utf8");
 const workspaceHtml = fs.readFileSync(path.join(root, "investment-workspace.html"), "utf8");
 const projection = JSON.parse(fs.readFileSync(path.join(root, "data/screener_master_projection.json"), "utf8"));
-const workspace = JSON.parse(fs.readFileSync(path.join(root, "data/investment_decision_workspace.json"), "utf8"));
+// DASHBOARD_PAYLOAD_COMPACTION_AND_INVESTOR_FIRST_IA_V1: `workspace` is the compact
+// workspace_index/v1 document (thin cards); use fullWorkspaceCard(ticker) wherever a test needs
+// the same full per-ticker card the drawer actually renders (its detail shard).
+const workspace = JSON.parse(fs.readFileSync(path.join(root, "data/workspace_index.json"), "utf8"));
+function fullWorkspaceCard(ticker) {
+  const thin = workspace.cards[ticker];
+  if (!thin) return null;
+  const shard = JSON.parse(fs.readFileSync(
+    path.join(root, "data/workspace_detail", `${thin.detail_shard}.json`), "utf8",
+  ));
+  return shard.tickers[ticker] || null;
+}
 
 function visibleText(html) {
   return String(html || "")
@@ -136,7 +147,7 @@ test("Phân tích row renderer visible text has no raw stance/tactical enums", (
 test("workspace renderer visible text has no raw primary enums", () => {
   // This is a presentation/localization contract, not a prediction about a live ticker's
   // daily research stance.  Read the retained value that the renderer actually receives.
-  const card = workspace.cards.AAA;
+  const card = fullWorkspaceCard("AAA");
   const html = ws.decisionCardHtml(card, { ticker: "AAA" });
   const visible = visibleText(html);
   const rawStance = card.research_stance;
@@ -308,7 +319,7 @@ test("rule-condition and Workspace readiness text are localized with raw identit
     assert.doesNotMatch(primaryVisibleText(readinessHtml), new RegExp(raw));
     assert.match(readinessHtml, new RegExp(`data-state="${raw}"`));
   }
-  const card = workspace.cards.HPG;
+  const card = fullWorkspaceCard("HPG");
   const html = ws.decisionCardHtml(card, { ticker: "HPG", sourceArtifacts: workspace.source_artifacts });
   const visible = primaryVisibleText(html);
   // The retained current card must preserve its own governed readiness state. Tactical-currentness
@@ -377,8 +388,8 @@ test("provenance presentation uses a Vietnamese label and keeps the raw identifi
 });
 
 test("normal renderer output has no raw primary enums outside technical detail", () => {
-  const card = workspace.cards.HPG;
-  const workspaceHtml = ws.decisionCardHtml(card, { ticker: "HPG", sourceArtifacts: { producer_artifact_identity: workspace.producer_artifact_identity } });
+  const card = fullWorkspaceCard("HPG");
+  const workspaceHtml = ws.decisionCardHtml(card, { ticker: "HPG", sourceArtifacts: workspace.source_artifacts });
   const analysisHtmlRow = ws.analysisRowHtml(ws.analysisRecord(card));
   const signalHtml = signals.renderRowHtml(signals.records({ cards: { HPG: card } })[0]);
   const structureHtml = vf.formatStructureBadge("BELOW_MA20_MOMENTUM_NEGATIVE");

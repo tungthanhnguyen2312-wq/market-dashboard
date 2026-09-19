@@ -20,7 +20,7 @@ function readArtifact(primaryRel, fallbackRel) {
 }
 
 const cockpit = readArtifact("data/current_decision_cockpit.json");
-const workspace = readArtifact("data/current_investment_workspace.json", "data/investment_decision_workspace.json");
+const workspace = readArtifact("data/current_investment_workspace.json", "data/workspace_index.json");
 const signals = readArtifact("data/current_signals_product.json") || {
   signals: Object.values(workspace.cards || {}).map((c) => ({
     ticker: c.ticker,

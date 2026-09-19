@@ -118,10 +118,17 @@ COPY_ARTIFACTS = (
     "data/candle_signals.json", "data/candle_signals.js",
     "data/sector_heatmap.json", "data/sector_heatmap.js",
 )
+# DASHBOARD_PAYLOAD_COMPACTION_AND_INVESTOR_FIRST_IA_V1: the ~95MB monolithic
+# data/investment_decision_workspace.json is retired; the public Workspace product is now the
+# compact data/workspace_index.json plus dynamically-named data/workspace_detail/<A-Z|_>.json
+# shards (see stock-core-private/workspace_public_read_model.py, the real publisher's governed
+# transform -- this stub is a legacy, non-authoritative target-checkout copy; see the REFUSED
+# guard above).
+WORKSPACE_DETAIL_DIR = "data/workspace_detail"
 REQUIRED_PRODUCT_SURFACE_ARTIFACTS = {
     "investment-workspace.html",
     "portfolio.html",
-    "data/investment_decision_workspace.json",
+    "data/workspace_index.json",
 }
 # Exact future Screener projection filenames. Allowed when present; never required.
 OPTIONAL_SAFE_WEB_ARTIFACTS = {
@@ -641,7 +648,9 @@ def validate_json_artifacts() -> None:
 
 def build_whitelist() -> list[str]:
     pages = sorted(path.name for path in WEB_ROOT.glob("*.html"))
-    paths = set(pages) | SAFE_WEB_ARTIFACTS
+    detail_dir = WEB_ROOT / WORKSPACE_DETAIL_DIR
+    shard_files = {f"{WORKSPACE_DETAIL_DIR}/{p.name}" for p in detail_dir.glob("*.json")} if detail_dir.is_dir() else set()
+    paths = set(pages) | SAFE_WEB_ARTIFACTS | shard_files
     for relative in OPTIONAL_SAFE_WEB_ARTIFACTS:
         if source_path(relative).is_file():
             paths.add(relative)

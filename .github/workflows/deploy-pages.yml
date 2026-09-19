@@ -151,7 +151,7 @@ jobs:
             "dashboard.html"
             "investment-workspace.html"
             "portfolio.html"
-            "data/investment_decision_workspace.json"
+            "data/workspace_index.json"
           )
           OPTIONAL_PUBLIC_FILES=(
             "data/screener_master_projection.json"
@@ -162,6 +162,18 @@ jobs:
               FILES+=("$f")
             fi
           done
+          # DASHBOARD_PAYLOAD_COMPACTION_AND_INVESTOR_FIRST_IA_V1: detail shard filenames are
+          # dynamic (one per populated ticker-first-letter bucket), so they cannot be statically
+          # listed above -- discover whichever ones this publish actually produced.
+          if [ -d "data/workspace_detail" ]; then
+            while IFS= read -r -d '' shard; do
+              FILES+=("${shard#./}")
+            done < <(find data/workspace_detail -maxdepth 1 -name '*.json' -print0)
+          fi
+          if [ "$(find data/workspace_detail -maxdepth 1 -name '*.json' 2>/dev/null | wc -l)" -eq 0 ]; then
+            echo "ERROR: data/workspace_detail has no shard files"
+            exit 1
+          fi
           for f in "${FILES[@]}"; do
             if [ ! -s "$f" ]; then
               echo "ERROR: missing or empty source file: $f"
@@ -241,7 +253,7 @@ jobs:
             "dashboard.html"
             "investment-workspace.html"
             "portfolio.html"
-            "data/investment_decision_workspace.json"
+            "data/workspace_index.json"
           )
           OPTIONAL_PUBLIC_FILES=(
             "data/screener_master_projection.json"
@@ -252,6 +264,13 @@ jobs:
               FILES+=("$f")
             fi
           done
+          # Detail shard filenames are dynamic -- verify whichever ones this publish produced,
+          # not a fixed guess, against the live served bytes below.
+          if [ -d "data/workspace_detail" ]; then
+            while IFS= read -r -d '' shard; do
+              FILES+=("${shard#./}")
+            done < <(find data/workspace_detail -maxdepth 1 -name '*.json' -print0)
+          fi
           WORKDIR="$(mktemp -d "${RUNNER_TEMP:-/tmp}/pages-verify.XXXXXX")"
           trap 'rm -rf "$WORKDIR"' EXIT
           mkdir -p "$WORKDIR/expected" "$WORKDIR/observed"

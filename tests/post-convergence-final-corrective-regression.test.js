@@ -207,9 +207,9 @@ test("15. Session mismatch clears every Cockpit-derived node on the Workspace pa
 
   const mockWorkspace = {
     schema_version: "1.0.0",
-    contract_version: "investment_decision_workspace_projection/v1",
+    contract_version: "workspace_index/v1",
     as_of_session: "2026-08-28",
-    producer_artifact_identity: "workspace:test",
+    source_artifact_identity: "workspace:test",
     cards: { AAA: minimalCard({ ticker: "AAA" }) },
   };
   const mockCockpitMismatched = {
@@ -256,7 +256,7 @@ test("15. Session mismatch clears every Cockpit-derived node on the Workspace pa
     };
     global.fetch = (url) => {
       const u = String(url);
-      if (u.includes("investment_decision_workspace.json")) return Promise.resolve({ ok: true, json: () => Promise.resolve(mockWorkspace) });
+      if (u.includes("workspace_index.json")) return Promise.resolve({ ok: true, json: () => Promise.resolve(mockWorkspace) });
       if (u.includes("current_decision_cockpit.json")) return Promise.resolve({ ok: true, json: () => Promise.resolve(mockCockpitMismatched) });
       return Promise.reject(new Error("unexpected fetch: " + u));
     };

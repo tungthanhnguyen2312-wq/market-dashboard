@@ -366,13 +366,16 @@
       const msg = (pr?.message && pr.message !== "No explicit portfolio-risk envelope was supplied for this operation.")
         ? (formatLabel(pr.message) || pr.message)
         : "Không có danh mục cụ thể để đối chiếu trong phiên nghiên cứu hiện tại.";
+      // PHASE 26 (DASHBOARD_PAYLOAD_COMPACTION_AND_INVESTOR_FIRST_IA_V1): an expected empty
+      // state ("no portfolio uploaded yet") is not a system warning -- a quiet note, not the
+      // yellow/red alert box reserved for genuinely investor-relevant risk/decision conditions.
       return `
-        <div class="vs-alert vs-alert-warning mb-0">
+        <div class="mb-0">
           <div class="d-flex align-items-center gap-2 mb-1">
             <b>Chưa cung cấp danh mục cụ thể</b>
             ${state(pr?.status || "NO_EXPLICIT_PORTFOLIO_SUPPLIED", "portfolio_state")}
           </div>
-          <p class="mb-0 mt-1">${esc(msg)}</p>
+          <p class="mb-0 mt-1 cockpit-note">${esc(msg)}</p>
         </div>
       `;
     }

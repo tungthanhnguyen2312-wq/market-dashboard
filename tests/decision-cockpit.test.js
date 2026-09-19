@@ -42,7 +42,7 @@ test("major static page chrome is in natural Vietnamese without English remnants
     "Nguồn dữ liệu / Bằng chứng",
     "Chỉ để người đọc rà soát nghiên cứu",
     "Nhịp thị trường",
-    "Khám phá cơ hội",
+    "Bộ lọc",
     "Danh sách theo dõi",
     "Mã",
     "Trạng thái / Hành động nghiên cứu",

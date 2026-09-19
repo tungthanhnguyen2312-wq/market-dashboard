@@ -51,15 +51,23 @@
     </div>
 
     <div id="ws-view-opportunities" data-ws-view role="tabpanel" aria-labelledby="ws-tab-opportunities">
-      <!-- Shared filters, used by both Cơ hội and Phân tích -->
-      <section class="cockpit-section card mb-4"><div class="card-header"><h5>Bộ lọc &amp; Khám phá cơ hội</h5></div><div class="card-body">
-        <div id="filter-chips" class="ws-filter-chips"></div>
-        <div class="d-flex gap-2 mt-3 flex-wrap align-items-center">
-          <input id="ticker-search" class="form-control form-control-sm" style="max-width:220px" placeholder="Tìm mã / ngành...">
-          <button id="filters-reset" type="button" class="btn btn-sm btn-outline-light">Xóa bộ lọc</button>
-          <span id="filter-count" class="cockpit-note"></span>
+      <!-- Shared filters, used by both Cơ hội and Phân tích. Collapsed by default (PHASE 12):
+           opens on demand instead of a permanently-visible chip wall; the summary always shows
+           how many filters are currently on. -->
+      <details class="card mb-4" id="ws-filter-disclosure">
+        <summary class="card-header d-flex justify-content-between align-items-center" style="cursor:pointer">
+          <h5 class="mb-0">Bộ lọc</h5>
+          <span id="filter-summary-badge" class="badge-soft bs-blue"></span>
+        </summary>
+        <div class="card-body">
+          <div id="filter-chips" class="ws-filter-chips"></div>
+          <div class="d-flex gap-2 mt-3 flex-wrap align-items-center">
+            <input id="ticker-search" class="form-control form-control-sm" style="max-width:220px" placeholder="Tìm mã / ngành...">
+            <button id="filters-reset" type="button" class="btn btn-sm btn-outline-light">Xóa bộ lọc</button>
+            <span id="filter-count" class="cockpit-note"></span>
+          </div>
         </div>
-      </div></section>
+      </details>
 
       <!-- Compact default: retained decision fields only; advanced axes remain in drawer/explore. -->
       <section class="cockpit-section card mb-4"><div class="card-header d-flex justify-content-between align-items-center"><h5 class="mb-0">Danh sách cơ hội</h5><span id="row-count" class="badge-soft bs-blue"></span></div><div class="card-body p-0">
@@ -67,6 +75,8 @@
           <th class="sticky-col ws-th-ticker">Mã</th>
           <th>Trạng thái</th>
           <th>Giá hiện tại</th>
+          <th>Xu hướng tín hiệu</th>
+          <th>Dòng ngoại – giá</th>
           <th>Kích hoạt</th>
           <th>Vô hiệu</th>
           <th>Tư thế nghiên cứu</th>
@@ -176,5 +186,6 @@
 <script src="assets/js/shell.js?v=2026-09-18-6f6effe-33d5b3e538"></script>
 <script src="assets/js/candlestick-patterns.js?v=2026-09-18-6f6effe-33d5b3e538"></script>
 <script src="assets/js/decision-cockpit.js?v=2026-09-18-6f6effe-33d5b3e538"></script>
+<script src="assets/js/workspace-read-model.js?v=2026-09-18-6f6effe-33d5b3e538"></script>
 <script src="assets/js/investment-workspace.js?v=2026-09-18-6f6effe-33d5b3e538"></script>
 </body></html>

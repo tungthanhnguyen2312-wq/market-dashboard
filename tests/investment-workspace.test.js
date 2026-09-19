@@ -40,13 +40,20 @@ function primaryVisibleText(markup) {
     .trim();
 }
 
-test("page declares the opportunity list, filters, seven decision-card sections, and no-execution boundary", () => {
+test("page declares the opportunity list, filters, five investor-facing decision-card sections, and no-execution boundary", () => {
   for (const label of ["Bộ lọc", "Danh sách cơ hội", "Thẻ quyết định"]) assert.match(html, new RegExp(label));
-  for (const label of ["Quyết định", "Doanh nghiệp", "Định giá", "Kỹ thuật", "Kích hoạt / Vô hiệu", "Danh mục"]) {
+  // PHASE 14 (DASHBOARD_PAYLOAD_COMPACTION_AND_INVESTOR_FIRST_IA_V1): the primary ticker detail
+  // is organized around exactly these 5 investor-facing sections, never backend engine names.
+  for (const label of ["Giá &amp; xu hướng", "Tín hiệu &amp; động lượng", "Dòng tiền", "Cơ bản &amp; định giá", "Kịch bản &amp; mốc quan trọng"]) {
+    assert.match(script, new RegExp(`ws-section-title">${label}`));
+  }
+  // Deeper diagnostics (Quyết định, Doanh nghiệp, ...) live once, inside a single merged
+  // "Chi tiết phân tích" progressive-disclosure area, not as always-visible plain h6 sections.
+  for (const label of ["Quyết định", "Doanh nghiệp", "Định giá", "Kỹ thuật", "Kích hoạt / Vô hiệu", "Danh mục", "Dữ liệu"]) {
     assert.match(script, new RegExp(`<h6>${label.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}`));
   }
-  // Dữ liệu (freshness/gaps/provenance) is progressive disclosure inside the drawer, not a plain h6.
-  assert.match(script, /<details class="mt-3">\s*<summary[^>]*>Dữ liệu/);
+  assert.match(script, /<details class="ws-deep-evidence"><summary>Chi tiết phân tích<\/summary>/);
+  assert.doesNotMatch(script, /<details class="mt-3">/, "the old second details must be merged into the one ws-deep-evidence disclosure");
   assert.match(html, /CHỈ MANG TÍNH NGHIÊN CỨU/);
   assert.match(html, /không phải lệnh thực hiện/i);
   assert.doesNotMatch(html + script, /execute trade|place order|sell order/i);
@@ -246,10 +253,30 @@ test("drawer keeps concise localized conditions primary and raw identity in prog
   assert.match(html, /FUTURE_CLOSE_GT_FUTURE_MA20/);
 });
 
-test("page declares the data source path and portfolio editor link", () => {
-  assert.match(script, /data\/investment_decision_workspace\.json/);
+test("page declares the compact index data source path and portfolio editor link", () => {
+  assert.match(script, /data\/workspace_index\.json/);
+  assert.doesNotMatch(script, /data\/investment_decision_workspace\.json/);
   assert.match(html, /portfolio\.html/);
   assert.match(script, /stocklookup\.portfolio-research\.v1/);
+});
+
+// DASHBOARD_PAYLOAD_COMPACTION_AND_INVESTOR_FIRST_IA_V1 PHASE 12: the filter chip wall is
+// collapsed behind one on-demand "Bộ lọc" disclosure, not permanently visible.
+test("filters live behind a collapsed on-demand disclosure, not a permanently visible panel", () => {
+  assert.match(html, /<details class="card mb-4" id="ws-filter-disclosure">/);
+  assert.match(html, /<summary class="card-header[^"]*"[^>]*>\s*<h5 class="mb-0">Bộ lọc<\/h5>/);
+  assert.match(html, /id="filter-summary-badge"/);
+});
+
+// PHASE 13: compact opportunity rows surface Signal Velocity and Flow-Price state -- fields the
+// pre-compaction table never showed at all.
+test("compact ticker rows surface signal velocity and flow-price state", () => {
+  assert.match(html, /<th>Xu hướng tín hiệu<\/th>/);
+  assert.match(html, /<th>Dòng ngoại – giá<\/th>/);
+  assert.equal(ws.rowSignalVelocityHtml({ signal_velocity: { overall_transition_state: "MIXED_TRANSITION" } }).includes("—"), false);
+  assert.match(ws.rowSignalVelocityHtml({}), /—/);
+  assert.match(ws.rowFlowPriceHtml({ flow_price: { cohort_membership: "OUTSIDE_CURRENT_FLOW_RESEARCH_COHORT" } }), /Chưa theo dõi/);
+  assert.match(ws.rowFlowPriceHtml({}), /—/);
 });
 
 test("useful filters cover stance, tactical, fundamental, valuation, liquidity, and catalyst", () => {

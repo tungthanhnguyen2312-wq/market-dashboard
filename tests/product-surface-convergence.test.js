@@ -6,7 +6,7 @@ const path = require("node:path");
 const test = require("node:test");
 
 const root = path.resolve(__dirname, "..");
-const workspace = JSON.parse(fs.readFileSync(path.join(root, "data", "investment_decision_workspace.json"), "utf8"));
+const workspace = JSON.parse(fs.readFileSync(path.join(root, "data", "workspace_index.json"), "utf8"));
 const signals = require(path.join(root, "assets", "js", "signals-product.js"));
 const workspaceApi = require(path.join(root, "assets", "js", "investment-workspace.js"));
 
@@ -92,13 +92,13 @@ test("the retained workspace contract keeps its no-score authority effect", () =
   assert.equal(workspace.blocked_outputs.ordinal_rank, "RANKING_PROHIBITED");
 });
 
-test("both product loaders strictly accept only the canonical Workspace contract", () => {
+test("both product loaders strictly accept only the canonical Workspace index contract", () => {
   for (const loader of [workspaceApi, signals]) {
     assert.equal(loader.SCHEMA_VERSION, "1.0.0");
-    assert.equal(loader.CONTRACT_VERSION, "investment_decision_workspace_projection/v1");
+    assert.equal(loader.CONTRACT_VERSION, "workspace_index/v1");
     assert.equal(loader.validateWorkspaceContract(workspace), true);
     assert.equal(loader.validateWorkspaceContract({ ...workspace, schema_version: "2.0.0" }), false);
-    assert.equal(loader.validateWorkspaceContract({ ...workspace, contract_version: "investment_decision_workspace_projection/v2" }), false);
+    assert.equal(loader.validateWorkspaceContract({ ...workspace, contract_version: "workspace_index/v2" }), false);
     const missingContract = { ...workspace };
     delete missingContract.contract_version;
     assert.equal(loader.validateWorkspaceContract(missingContract), false);

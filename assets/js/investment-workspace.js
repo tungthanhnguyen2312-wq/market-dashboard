@@ -5,9 +5,14 @@
 })(typeof window !== "undefined" ? window : globalThis, function () {
   "use strict";
 
-  const DATA_URL = "data/investment_decision_workspace.json";
+  // DASHBOARD_PAYLOAD_COMPACTION_AND_INVESTOR_FIRST_IA_V1: DATA_URL now points at the compact
+  // workspace_index/v1 document (list/filter/search fields for every ticker); a selected
+  // ticker's full detail is fetched lazily, one shard at a time, via workspace-read-model.js.
+  // WORKSPACE.cards therefore holds "thin cards" everywhere in this module EXCEPT inside an
+  // already-resolved detail render (decisionCardHtml is always called with a full shard card).
+  const DATA_URL = "data/workspace_index.json";
   const SCHEMA_VERSION = "1.0.0";
-  const CONTRACT_VERSION = "investment_decision_workspace_projection/v1";
+  const CONTRACT_VERSION = "workspace_index/v1";
   const PORTFOLIO_STORAGE_KEY = "stocklookup.portfolio-research.v1";
   const RELATIVE_VALUATION_LABELS = ["ATTRACTIVE_RELATIVE_RESEARCH", "EXPENSIVE_RELATIVE_RESEARCH"];
 
@@ -15,6 +20,14 @@
     if (typeof window !== "undefined" && window.VSProductScopeFormat) return window.VSProductScopeFormat;
     if (typeof require === "function") {
       try { return require("./product-scope-format.js"); } catch (err) { return null; }
+    }
+    return null;
+  }
+
+  function getWorkspaceReadModel() {
+    if (typeof window !== "undefined" && window.VSWorkspaceReadModel) return window.VSWorkspaceReadModel;
+    if (typeof require === "function") {
+      try { return require("./workspace-read-model.js"); } catch (err) { return null; }
     }
     return null;
   }
@@ -571,6 +584,21 @@
     const candidates = [card && card.current_price, (card || {}).price, ((card || {}).tactical || {}).current_price];
     return candidates.find(hasRetainedValue);
   }
+  // PHASE 13 -- compact row cell for "Xu hướng tín hiệu" (Signal Velocity). A ticker with no
+  // retained Signal Velocity record reads as a clean "—", never a raw enum or a system error.
+  function rowSignalVelocityHtml(card) {
+    const state = ((card || {}).signal_velocity || {}).overall_transition_state;
+    return hasRetainedValue(state) ? pill(state, "signal_velocity_state") : '<span class="cockpit-note">—</span>';
+  }
+  // PHASE 13/17 -- compact row cell for "Dòng ngoại – giá". A ticker outside the current flow
+  // research cohort reads as "Chưa theo dõi" (a scope fact), never like the flow system failed.
+  function rowFlowPriceHtml(card) {
+    const flow = (card || {}).flow_price || {};
+    if (flow.cohort_membership === "OUTSIDE_CURRENT_FLOW_RESEARCH_COHORT") {
+      return '<span class="cockpit-note">Chưa theo dõi</span>';
+    }
+    return hasRetainedValue(flow.relationship) ? pill(flow.relationship, "flow_price_relationship") : '<span class="cockpit-note">—</span>';
+  }
   function compactReasons(card, limit) {
     const reasons = (((card || {}).why || {}).deterministic_reasons || []).slice(0, limit || 3);
     return reasons.length ? reasons.map((reason) => formatWorkspaceState(reason, "rule_condition")) : ["Chưa có lý do ngắn được giữ lại"];
@@ -824,6 +852,12 @@
     const sourceArtifacts = opts.sourceArtifacts || {};
     const price = retainedPrice(card);
     const invalidation = ((card.invalidation || {}).technical || {});
+    const technicalQuality = evidenceQuality(card, "tactical");
+    const foundationQuality = evidenceQuality(card, "fundamental");
+    // PHASE 14 (DASHBOARD_PAYLOAD_COMPACTION_AND_INVESTOR_FIRST_IA_V1): the primary (always
+    // visible) detail is organized around exactly 5 investor-facing sections -- never around
+    // backend engine/module names -- with every deeper diagnostic collapsed into ONE "Chi tiết
+    // phân tích" disclosure below them (merging what used to be two separate <details>).
     return `
           <section class="ws-drawer-overview" aria-label="Tóm tắt quyết định" data-decision-ticker="${escHtml(ticker)}">
             <div class="ws-drawer-overview-head"><div><div class="section-eyebrow">Tóm tắt nghiên cứu</div><h4>${escHtml(ticker)} <span>${sectorDisplayHtml(card.sector)}</span></h4></div>${pill(card.research_stance, "research_stance")}</div>
@@ -832,14 +866,46 @@
             <p>${escHtml(stanceEntryGuidance(card.research_stance, card.entry_action) || `Tư thế nghiên cứu: ${formatWorkspaceState(card.research_stance, "research_stance")}.`)}</p>
             <ul>${compactReasons(card, 3).map((reason) => `<li>${escHtml(reason)}</li>`).join("")}</ul>
           </section>
-          <section class="ws-drawer-technical"><h6>Ảnh chụp kỹ thuật</h6>${technicalSnapshotHtml(card)}<div class="ws-selected-signal" data-selected-signal-for="${escHtml(ticker)}"><p class="cockpit-note">Đang kiểm tra mẫu hình nến/SMC hiện hành…</p></div></section>
-          ${evidenceSummaryHtml(card)}
-          <section class="ws-drawer-investor-metrics">
+
+          <section class="ws-section" aria-labelledby="ws-section-price-${escHtml(ticker)}">
+            <h5 id="ws-section-price-${escHtml(ticker)}" class="ws-section-title">Giá &amp; xu hướng</h5>
+            ${technicalSnapshotHtml(card)}
+            <div class="ws-evidence-summary-item"><div>${helpLabelHtml("Mức độ tin cậy của bằng chứng")}${evidenceQualityHtml(technicalQuality)}</div><strong>${escHtml(formatWorkspaceState(card.entry_state, "tactical_state"))}</strong><p>${escHtml(technicalQuality.why)}</p></div>
+            <div class="ws-selected-signal" data-selected-signal-for="${escHtml(ticker)}"><p class="cockpit-note">Đang kiểm tra mẫu hình nến/SMC hiện hành…</p></div>
+          </section>
+
+          <section class="ws-section" aria-labelledby="ws-section-signal-${escHtml(ticker)}">
+            <h5 id="ws-section-signal-${escHtml(ticker)}" class="ws-section-title">Tín hiệu &amp; động lượng</h5>
+            ${signalVelocitySummaryHtml(card)}
+          </section>
+
+          <section class="ws-section" aria-labelledby="ws-section-flow-${escHtml(ticker)}">
+            <h5 id="ws-section-flow-${escHtml(ticker)}" class="ws-section-title">Dòng tiền</h5>
+            ${flowPriceSummaryHtml(card)}
+            ${investorMetricsGridHtml(card, opts, ["foreign_flow_state", "flow_price_relationship", "flow_persistence_5session"], "Chi tiết")}
+          </section>
+
+          <section class="ws-section" aria-labelledby="ws-section-fundamentals-${escHtml(ticker)}">
+            <h5 id="ws-section-fundamentals-${escHtml(ticker)}" class="ws-section-title">Cơ bản &amp; định giá</h5>
+            <div class="ws-evidence-summary-item"><div>${helpLabelHtml("Nền tảng")}${evidenceQualityHtml(foundationQuality)}</div><strong>${escHtml(formatWorkspaceState(fundamental.state, "fundamental_state"))}</strong><p>${escHtml(formatWorkspaceState(fundamental.trajectory, "fundamental_trajectory"))}</p></div>
+            ${valuationEvidenceSummaryHtml(val)}
             ${investorMetricsGridHtml(card, opts, ["gross_margin", "net_margin", "revenue_growth_yoy", "net_income_growth_yoy", "operating_cash_flow_sign", "roe", "roa", "debt_to_equity", "ebitda"], "Cơ bản")}
             ${investorMetricsGridHtml(card, opts, ["pe_ttm", "pb", "ps_ttm", "ev_sales", "ev_ebitda"], "Định giá")}
-            ${investorMetricsGridHtml(card, opts, ["foreign_flow_state", "flow_price_relationship", "flow_persistence_5session"], "Dòng tiền")}
           </section>
-          <details class="ws-deep-evidence"><summary>Phân tích sâu &amp; bằng chứng</summary><div class="cockpit-detail-grid">
+
+          <section class="ws-section" aria-labelledby="ws-section-scenario-${escHtml(ticker)}">
+            <h5 id="ws-section-scenario-${escHtml(ticker)}" class="ws-section-title">Kịch bản &amp; mốc quan trọng</h5>
+            <div class="cockpit-grid mb-2">
+              ${kpiHtml("Mức kích hoạt tham chiếu", hasRetainedValue(referenceTrigger.trigger_level) ? formatDiagnosticNumber(referenceTrigger.trigger_level) : "Chưa có dữ liệu")}
+              ${kpiHtml("Trạng thái kích hoạt", pill(referenceTrigger.trigger_state || referenceTrigger.status, "confirmation_state"))}
+            </div>
+            <div class="mt-1"><b>Vô hiệu kỹ thuật</b> ${pill(((card.invalidation || {}).technical || {}).status, "invalidation_state")}</div>
+            <div class="mt-1"><b>Vô hiệu nền tảng doanh nghiệp</b> ${pill(((card.invalidation || {}).fundamental || {}).status, "invalidation_state")}</div>
+            <div class="cockpit-note mt-2">Mức tham chiếu không tự xác lập quyền mở vị thế — chỉ trạng thái đã kích hoạt mới có thể nâng tư thế nghiên cứu.</div>
+            <div class="mt-2 cockpit-note">Hồ sơ nghiên cứu dự kiến: ${pill((card.prospective_case || {}).status, "prospective_case")} · vòng đời luận điểm: ${escHtml(formatWorkspaceState((card.prospective_case || {}).thesis_lifecycle_state, "prospective_case"))}</div>
+          </section>
+
+          <details class="ws-deep-evidence"><summary>Chi tiết phân tích</summary><div class="cockpit-detail-grid">
             <div class="card"><div class="card-header"><h6>Quyết định</h6></div><div class="card-body">
               <b>Mã</b> ${escHtml(ticker)} · <b>Ngành</b> ${sectorDisplayHtml(card.sector)}<br>
               <div class="mt-1"><b>Phạm vi nghiên cứu chính thức</b> ${card.official_research_scope ? pill(card.official_research_scope.scope_bucket, "official_scope") : pill(null, "official_scope")}${
@@ -854,7 +920,7 @@
               <div class="mt-2"><b>Cảnh báo</b>${listHtml((card.counter_thesis || {}).warnings, "rule_condition")}</div>
               <div class="mt-2"><b>Phản luận chính</b>${listHtml((card.counter_thesis || {}).key_counter_thesis, "rule_condition")}</div>
               <div class="mt-2"><b>Trục chưa có dữ liệu</b>${listHtml((card.counter_thesis || {}).unavailable_dimensions, "rule_condition")}</div>
-              <div class="mt-2 cockpit-note">Hồ sơ nghiên cứu dự kiến: ${pill((card.prospective_case || {}).status, "prospective_case")} · vòng đời luận điểm: ${escHtml(formatWorkspaceState((card.prospective_case || {}).thesis_lifecycle_state, "prospective_case"))} · kết quả phía trước: ${pill((card.prospective_case || {}).forward_outcome_status, "prospective_case")}</div>
+              <div class="mt-2 cockpit-note">kết quả phía trước: ${pill((card.prospective_case || {}).forward_outcome_status, "prospective_case")}</div>
             </div></div>
             <div class="card"><div class="card-header"><h6>Doanh nghiệp</h6></div><div class="card-body">
               ${fundamentalDiagnosticsHtml(fundamental)}
@@ -905,12 +971,9 @@
                 <b>Thanh khoản (vị thế đang nắm)</b> ${pill(portfolio.liquidity_research_context, "liquidity_state")} · Lệnh chính xác: ${pill(portfolio.exact_execution_capacity_status, "liquidity_state")}
               ` : `${pill("NOT_EVALUATED", "portfolio_state")}<div class="cockpit-note mt-1">${escHtml(formatWorkspaceState((portfolio || {}).reason, "portfolio_state") || "Chưa có bối cảnh danh mục. Tải một tệp bên trên, hoặc mở Trình soạn danh mục.")}</div>`}
               <div class="cockpit-note mt-2">Tư thế nghiên cứu của mã độc lập với mức phù hợp danh mục và không bị danh mục làm thay đổi.</div>
-              <div class="mt-2"><a href="portfolio.html" class="cockpit-note">Mở Trình soạn danh mục &rarr;</a> · <span class="cockpit-note">Bối cảnh rủi ro danh mục tổng hợp: xem "Dữ liệu &amp; phương pháp" bên dưới trang.</span></div>
+              <div class="mt-2"><a href="portfolio.html" class="cockpit-note">Mở Trình soạn danh mục &rarr;</a></div>
             </div></div>
-          </div></details>
-          <details class="mt-3">
-            <summary class="cockpit-note" style="cursor:pointer">Dữ liệu <span class="cockpit-note">(độ mới, khoảng trống, nguồn gốc)</span></summary>
-            <div class="card mt-2"><div class="card-body">
+            <div class="card"><div class="card-header"><h6>Dữ liệu</h6></div><div class="card-body">
               <div class="table-responsive"><table class="cockpit-table"><thead><tr><th>Trục</th><th>Độ mới dữ liệu</th><th>Phiên/kỳ nguồn</th><th>Proxy / đã xác nhận</th></tr></thead><tbody>
                 ${Object.keys((card.lineage || {}).per_axis_freshness || {}).sort().map((axis) => `<tr><td>${escHtml(axisDisplayLabel(axis))}</td><td>${pill((card.lineage.per_axis_freshness || {})[axis], "freshness")}</td><td>${escHtml(unavailableText((card.lineage.per_axis_source_session || {})[axis]))}</td><td>${pill((card.lineage.per_axis_proxy_or_qualified_state || {})[axis], "data_fitness")}</td></tr>`).join("")}
               </tbody></table></div>
@@ -918,7 +981,7 @@
               <b>Điều kiện chặn</b>${listHtml(((card.lineage || {}).blockers || []).map((b) => `${axisDisplayLabel(b.axis)}: ${formatWorkspaceState(b.readiness, "research_readiness")} (${formatWorkspaceState(b.freshness_status, "freshness")})`))}
               <div class="mt-2">${provenanceBlock(sourceArtifacts && Object.keys(sourceArtifacts).length ? JSON.stringify(sourceArtifacts, null, 2) : "")}</div>
             </div></div>
-          </details>`;
+          </div></details>`;
   }
 
   function renderDecisionCard(card, container, options) {
@@ -977,6 +1040,8 @@
           </td>
           <td>${pill(card.entry_state, "tactical_state")}<div class="cockpit-note">${sectorDisplayHtml(card.sector)}</div></td>
           <td>${hasRetainedValue(price) ? `<b>${esc(formatDiagnosticNumber(price))}</b>` : '<span class="cockpit-note">—</span>'}</td>
+          <td>${rowSignalVelocityHtml(card)}</td>
+          <td>${rowFlowPriceHtml(card)}</td>
           <td>${hasRetainedValue(trigger.trigger_level) ? esc(formatDiagnosticNumber(trigger.trigger_level)) : '<span class="cockpit-note">—</span>'}</td>
           <td>${invalidation.boundary_type ? esc(conditionHeadline(invalidation).label) : '<span class="cockpit-note">—</span>'}</td>
           <td>${pill(card.research_stance, "research_stance")}<div class="cockpit-note">${esc(formatWorkspaceState(card.entry_action, "entry_action"))}</div></td>
@@ -1007,6 +1072,13 @@
         document.getElementById("opportunity-rows").innerHTML = tickers.map(renderRow).join("");
         document.getElementById("row-count").textContent = `${tickers.length} / ${Object.keys(WORKSPACE.cards).length}`;
         document.getElementById("filter-count").textContent = ACTIVE_FILTERS.length ? `${ACTIVE_FILTERS.length} bộ lọc đang bật` : "";
+        // PHASE 12 -- visible on the collapsed "Bộ lọc" control itself, so the reader can see a
+        // filter is active without opening the panel.
+        const badge = document.getElementById("filter-summary-badge");
+        if (badge) {
+          badge.textContent = ACTIVE_FILTERS.length ? String(ACTIVE_FILTERS.length) : "";
+          badge.hidden = !ACTIVE_FILTERS.length;
+        }
       }
 
       // Phân tích (analysis) view: shares WORKSPACE.cards, ACTIVE_FILTERS and SEARCH_QUERY with
@@ -1128,38 +1200,62 @@
         }, 250);
       }
 
-      function showDecisionCard(ticker, options) {
-        const card = WORKSPACE.cards[ticker];
+      // Monotonically increasing token: if the reader picks a different ticker while a shard
+      // fetch for the previous one is still in flight, the stale response must never overwrite
+      // what is now on screen for the newly-selected ticker.
+      let DECISION_CARD_REQUEST_TOKEN = 0;
+
+      function showDecisionCard(ticker) {
+        const thin = WORKSPACE.cards[ticker];
         const inPageEl = document.getElementById("decision-card");
         const drawerEl = document.getElementById("decision-drawer-body");
-        if (!card) {
+        if (!thin) {
           const err = '<div class="cockpit-note">Không tìm thấy mã.</div>';
           if (drawerEl) drawerEl.innerHTML = err;
           if (inPageEl) inPageEl.innerHTML = err;
           return;
         }
-        const cardOpts = {
-          ticker,
-          portfolio: effectivePortfolio(ticker, card),
-          sourceArtifacts: WORKSPACE.source_artifacts,
-          displayMetricCatalog: WORKSPACE.display_metric_catalog,
-        };
-        // The drawer is the sole on-screen interaction surface. The in-page copy is print-only
-        // (d-none d-print-block on #decision-card-section) so it always renders too, just never
-        // shown on screen -- see options param note below (kept for signature compatibility).
-        renderDecisionCard(card, drawerEl, cardOpts);
-        if (inPageEl) renderDecisionCard(card, inPageEl, cardOpts);
-
         const drawerTicker = document.getElementById("decision-drawer-ticker");
         if (drawerTicker) drawerTicker.textContent = ticker;
         const drawerBadge = document.getElementById("decision-drawer-badge");
-        if (drawerBadge) drawerBadge.innerHTML = pill(card.research_stance, "research_stance");
+        if (drawerBadge) drawerBadge.innerHTML = pill(thin.research_stance, "research_stance");
         const exploreLink = document.getElementById("drawer-screener-link");
         if (exploreLink) {
           exploreLink.href = `investment-workspace.html?view=explore&ticker=${encodeURIComponent(ticker)}`;
           if (typeof exploreLink.removeAttribute === "function") exploreLink.removeAttribute("aria-disabled");
         }
-        renderSelectedSignalEvidence(ticker);
+        const loadingHtml = '<div class="cockpit-note">Đang tải chi tiết…</div>';
+        if (drawerEl) drawerEl.innerHTML = loadingHtml;
+        if (inPageEl) inPageEl.innerHTML = loadingHtml;
+
+        const readModel = getWorkspaceReadModel();
+        const requestToken = ++DECISION_CARD_REQUEST_TOKEN;
+        const resolveDetail = readModel
+          ? readModel.getTickerDetail(ticker, WORKSPACE)
+          : Promise.resolve({ status: "unavailable", reason: "READ_MODEL_UNAVAILABLE" });
+        resolveDetail.then((result) => {
+          if (requestToken !== DECISION_CARD_REQUEST_TOKEN) return; // superseded by a newer selection
+          if (result.status !== "ok") {
+            const message = '<div class="cockpit-note" data-drawer-unavailable="true">Tạm chưa có dữ liệu chi tiết.</div>';
+            if (drawerEl) drawerEl.innerHTML = message;
+            if (inPageEl) inPageEl.innerHTML = message;
+            return;
+          }
+          const card = result.card;
+          const cardOpts = {
+            ticker,
+            portfolio: effectivePortfolio(ticker, card),
+            sourceArtifacts: WORKSPACE.source_artifacts,
+            displayMetricCatalog: WORKSPACE.display_metric_catalog,
+          };
+          // The drawer is the sole on-screen interaction surface. The in-page copy is print-only
+          // (d-none d-print-block on #decision-card-section) so it always renders too, just never
+          // shown on screen.
+          renderDecisionCard(card, drawerEl, cardOpts);
+          if (inPageEl) renderDecisionCard(card, inPageEl, cardOpts);
+          if (drawerBadge) drawerBadge.innerHTML = pill(card.research_stance, "research_stance");
+          renderSelectedSignalEvidence(ticker);
+        });
       }
 
       // Explicit not-found state for a requested ticker/hash that does not resolve to a real card.
@@ -1335,11 +1431,21 @@
         });
 
         function triggerExport(t) {
-          const payload = buildT0Export(t, WORKSPACE.cards[t], WORKSPACE.producer_artifact_identity);
-          const a = document.createElement("a");
-          a.href = URL.createObjectURL(new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" }));
-          a.download = `t0-candidate-${t}.json`;
-          a.click();
+          // The drawer must already be open (and its shard fetched/cached) for `t` before the
+          // export button is reachable, so this resolves instantly from cache -- never a fresh
+          // network round-trip triggered by clicking "Xuất T0".
+          const readModel = getWorkspaceReadModel();
+          const resolveDetail = readModel
+            ? readModel.getTickerDetail(t, WORKSPACE)
+            : Promise.resolve({ status: "unavailable" });
+          resolveDetail.then((result) => {
+            const card = result.status === "ok" ? result.card : WORKSPACE.cards[t];
+            const payload = buildT0Export(t, card, WORKSPACE.source_artifact_identity);
+            const a = document.createElement("a");
+            a.href = URL.createObjectURL(new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" }));
+            a.download = `t0-candidate-${t}.json`;
+            a.click();
+          });
         }
 
         const drawerExport = document.getElementById("drawer-export-t0");
@@ -1461,7 +1567,7 @@
         .catch((err) => {
           const e = document.getElementById("workspace-error");
           e.hidden = false;
-          e.textContent = `Không gian quyết định không khả dụng (${err.message}). Hãy dựng từ artifact investment_decision_workspace_projection/v1 của Producer; không dùng fallback hay khám phá phiên mới nhất.`;
+          e.textContent = `Không gian quyết định không khả dụng (${err.message}). Hãy dựng từ workspace_index/v1 do Producer publish; không dùng fallback hay khám phá phiên mới nhất.`;
         });
     })();
   }
@@ -1475,6 +1581,7 @@
     evidenceQuality, evidenceSummaryHtml,
     cssEscapeSelector,
     analysisRecord, analysisRows, analysisRowHtml, analysisEvidenceHtml,
+    rowSignalVelocityHtml, rowFlowPriceHtml,
     metricSlotHtml, investorMetricsGridHtml, metricValueHtml, unavailableText,
   };
 });

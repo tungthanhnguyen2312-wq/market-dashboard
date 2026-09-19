@@ -298,7 +298,7 @@ test("evidence summary keeps fundamental/valuation/tactical rows before the two 
 test("existing decision card still renders normally when the two new fields are present", () => {
   const html = ws.decisionCardHtml(card());
   assert.match(html, /Tóm tắt quyết định/);
-  assert.match(html, /Phân tích sâu/);
+  assert.match(html, /Chi tiết phân tích/);
 });
 
 test("missing signal_velocity/flow_price fields degrade explicitly, never crash the renderer", () => {

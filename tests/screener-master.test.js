@@ -7,8 +7,20 @@ const ws = require("../assets/js/investment-workspace.js");
 
 const html = fs.readFileSync(path.join(__dirname, "..", "screener.html"), "utf8");
 const script = fs.readFileSync(path.join(__dirname, "..", "assets/js/screener-master.js"), "utf8");
-const currentWorkspace = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "data", "investment_decision_workspace.json"), "utf8"));
+// DASHBOARD_PAYLOAD_COMPACTION_AND_INVESTOR_FIRST_IA_V1: the public Workspace payload is the
+// compact workspace_index/v1 document; a ticker's full card lives in its deterministic detail
+// shard (see workspace-read-model.js). currentWorkspace.cards holds thin cards only.
+const currentWorkspace = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "data", "workspace_index.json"), "utf8"));
 const currentScreener = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "data", "screener_master_projection.json"), "utf8"));
+
+function fullWorkspaceCard(ticker) {
+  const thin = currentWorkspace.cards[ticker];
+  if (!thin) return null;
+  const shard = JSON.parse(fs.readFileSync(
+    path.join(__dirname, "..", "data", "workspace_detail", `${thin.detail_shard}.json`), "utf8",
+  ));
+  return shard.tickers[ticker] || null;
+}
 
 function card(overrides) {
   return Object.assign({
@@ -105,7 +117,7 @@ test("Screener accepts only the current canonical Workspace schema and contract"
   assert.equal(currentWorkspace.contract_version, sm.WORKSPACE_CONTRACT_VERSION);
   assert.match(html, /validateWorkspaceProjection\(payload\)/);
 
-  const legacyContract = { ...currentWorkspace, contract_version: "investment_decision_workspace_dashboard_projection/v1" };
+  const legacyContract = { ...currentWorkspace, contract_version: "investment_decision_workspace_projection/v1" };
   const wrongSchema = { ...currentWorkspace, schema_version: "2.0.0" };
   const missingContract = { ...currentWorkspace };
   delete missingContract.contract_version;
@@ -121,9 +133,10 @@ test("Screener accepts only the current canonical Workspace schema and contract"
 test("current Screener rows open their own canonical Workspace cards without substitution", () => {
   for (const ticker of ["HPG", "FPT", "SSI", "VCB"]) {
     const row = currentScreener.cards[ticker];
-    const workspaceCard = currentWorkspace.cards[ticker];
     assert.ok(row, `${ticker} Screener row exists`);
-    assert.ok(workspaceCard, `${ticker} Workspace card exists`);
+    assert.ok(currentWorkspace.cards[ticker], `${ticker} Workspace index card exists`);
+    const workspaceCard = fullWorkspaceCard(ticker);
+    assert.ok(workspaceCard, `${ticker} Workspace detail shard card exists`);
     const identity = sm.drawerIdentity(row.ticker, ticker, workspaceCard);
     assert.equal(identity.ok, true, `${ticker} drawer identity`);
     assert.equal(identity.table, ticker);
@@ -162,5 +175,7 @@ test("translateStatus never leaks a raw unmapped code, falls back to Chưa đủ
 test("publication files exist", () => {
   assert.equal(fs.existsSync(path.join(__dirname, "..", "data/screener_master_projection.json")), true);
   assert.equal(fs.existsSync(path.join(__dirname, "..", "data/screener_master_projection.js")), true);
-  assert.equal(fs.existsSync(path.join(__dirname, "..", "data/investment_decision_workspace.json")), true);
+  assert.equal(fs.existsSync(path.join(__dirname, "..", "data/workspace_index.json")), true);
+  assert.equal(fs.existsSync(path.join(__dirname, "..", "data/investment_decision_workspace.json")), false,
+    "the pre-compaction ~95MB monolith must be retired, not published alongside the new read model");
 });

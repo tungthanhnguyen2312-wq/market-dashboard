@@ -216,6 +216,7 @@
 <script src="assets/js/value-format.js?v=2026-09-18-6f6effe-33d5b3e538" defer></script>
 <script src="assets/js/product-scope-format.js?v=2026-09-18-6f6effe-33d5b3e538" defer></script>
 <script src="assets/js/session-coherence.js?v=2026-09-18-6f6effe-33d5b3e538" defer></script>
+<script src="assets/js/workspace-read-model.js?v=2026-09-18-6f6effe-33d5b3e538" defer></script>
 <script src="assets/js/investment-workspace.js?v=2026-09-18-6f6effe-33d5b3e538" defer></script>
 <script src="assets/js/screener-master.js?v=2026-09-18-6f6effe-33d5b3e538" defer></script>
 <script defer>
@@ -317,14 +318,17 @@ function fillSelect(id, values) {
   });
   if ([...el.options].some((o) => o.value === current)) el.value = current;
 }
+// Monotonically increasing token: a slower shard fetch for a previously-selected ticker must
+// never overwrite what the drawer now shows for a newer selection.
+let DRAWER_REQUEST_TOKEN = 0;
+
 function openDrawer(ticker) {
   const SM = window.VSScreenerMaster;
   const selected = SM.normalizeTicker(ticker);
   const row = MASTER_ROWS.find((r) => r.ticker === selected);
   if (!row) return;
   SELECTED_TICKER = selected;
-  const workspaceCard = WORKSPACE.cards[selected] || null;
-  const identity = SM.drawerIdentity(row.ticker, selected, workspaceCard);
+  const thinCard = WORKSPACE.cards[selected] || null;
   const backdrop = document.getElementById("decision-drawer-backdrop");
   const body = document.getElementById("decision-drawer-body");
   document.getElementById("decision-drawer-title").textContent = selected;
@@ -332,23 +336,41 @@ function openDrawer(ticker) {
   if (wsLink) wsLink.href = `investment-workspace.html?ticker=${encodeURIComponent(selected)}`;
   backdrop.hidden = false;
   backdrop.classList.add("is-open");
-  if (window.VSInvestmentWorkspace && window.VSInvestmentWorkspace.renderDecisionCard) {
-    window.VSInvestmentWorkspace.renderDecisionCard(workspaceCard, body, {
-      ticker: selected,
-      sourceArtifacts: WORKSPACE.source_artifacts || { producer_artifact_identity: WORKSPACE.producer_artifact_identity },
-    });
-  } else {
-    body.innerHTML = `<div class="cockpit-note">Workspace renderer unavailable for ${esc(selected)}.</div>`;
-  }
-  if (!identity.ok || !workspaceCard) {
-    const note = document.createElement("div");
-    note.className = "cockpit-note mt-2";
-    note.textContent = workspaceCard
-      ? `Ticker identity ${identity.table} / ${identity.selected} / ${identity.workspace}`
-      : `Workspace card unavailable for ${selected}. No substitute ticker was selected.`;
-    body.prepend(note);
-  }
   document.body.style.overflow = "hidden";
+
+  if (!thinCard) {
+    body.innerHTML = `<div class="cockpit-note">Workspace card unavailable for ${esc(selected)}. No substitute ticker was selected.</div>`;
+    return;
+  }
+  body.innerHTML = '<div class="cockpit-note">Đang tải chi tiết…</div>';
+  const requestToken = ++DRAWER_REQUEST_TOKEN;
+  const readModel = window.VSWorkspaceReadModel;
+  const resolveDetail = readModel
+    ? readModel.getTickerDetail(selected, WORKSPACE)
+    : Promise.resolve({ status: "unavailable", reason: "READ_MODEL_UNAVAILABLE" });
+  resolveDetail.then((result) => {
+    if (requestToken !== DRAWER_REQUEST_TOKEN) return; // superseded by a newer selection
+    if (result.status !== "ok") {
+      body.innerHTML = '<div class="cockpit-note" data-drawer-unavailable="true">Tạm chưa có dữ liệu chi tiết.</div>';
+      return;
+    }
+    const workspaceCard = result.card;
+    const identity = SM.drawerIdentity(row.ticker, selected, workspaceCard);
+    if (window.VSInvestmentWorkspace && window.VSInvestmentWorkspace.renderDecisionCard) {
+      window.VSInvestmentWorkspace.renderDecisionCard(workspaceCard, body, {
+        ticker: selected,
+        sourceArtifacts: WORKSPACE.source_artifacts || {},
+      });
+    } else {
+      body.innerHTML = `<div class="cockpit-note">Workspace renderer unavailable for ${esc(selected)}.</div>`;
+    }
+    if (!identity.ok) {
+      const note = document.createElement("div");
+      note.className = "cockpit-note mt-2";
+      note.textContent = `Ticker identity ${identity.table} / ${identity.selected} / ${identity.workspace}`;
+      body.prepend(note);
+    }
+  });
 }
 function closeDrawer() {
   const backdrop = document.getElementById("decision-drawer-backdrop");

@@ -313,7 +313,7 @@ test("signals.html makes Tactical V2 cohort filtering its primary control", () =
   const html = fs.readFileSync(path.join(__dirname, "..", "signals.html"), "utf8");
   const product = fs.readFileSync(path.join(__dirname, "..", "assets", "js", "signals-product.js"), "utf8");
   assert.match(html, /<select id="tactical-filter"/);
-  assert.match(product, /investment_decision_workspace\.json/);
+  assert.match(product, /workspace_index\.json/);
   assert.doesNotMatch(html, /<option value="bullish">/);
 });
 

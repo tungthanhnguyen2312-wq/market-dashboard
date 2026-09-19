@@ -8,12 +8,16 @@
   const CONTRACT_VERSION = "screener_master_projection/v1";
   const DATA_URL = "data/screener_master_projection.json";
   const JS_FALLBACK = "data/screener_master_projection.js";
-  const WORKSPACE_URL = "data/investment_decision_workspace.json";
-  // The Workspace schema and its contract are deliberately distinct fields.
-  // A current payload must satisfy both; accepting either legacy identifier
-  // would make the Screener drawer consume a different product contract.
+  // DASHBOARD_PAYLOAD_COMPACTION_AND_INVESTOR_FIRST_IA_V1: the shared per-ticker drawer opened
+  // from this table only ever needs ONE ticker's full detail at a time -- it now loads the
+  // compact index up front (for the drawer's not-found/existence check) and fetches that one
+  // ticker's detail shard lazily via workspace-read-model.js, instead of the ~95MB monolith.
+  const WORKSPACE_URL = "data/workspace_index.json";
+  // The Workspace index schema and its contract are deliberately distinct fields. A current
+  // payload must satisfy both; accepting either legacy identifier would make the Screener
+  // drawer consume a different product contract.
   const WORKSPACE_SCHEMA_VERSION = "1.0.0";
-  const WORKSPACE_CONTRACT_VERSION = "investment_decision_workspace_projection/v1";
+  const WORKSPACE_CONTRACT_VERSION = "workspace_index/v1";
   const ENTITY_CLASS_VOCABULARY = ["corporate", "bank", "securities", "insurance", "finance_company"];
 
   function normalizeTicker(value) {

@@ -103,8 +103,11 @@ test("E. Workspace opportunity table has exactly the current decision-oriented c
   const thMatches = html.match(/id="opportunity-table"[\s\S]*?<thead[^>]*>[\s\S]*?<\/thead>/);
   assert.ok(thMatches);
   const thHeaders = [...thMatches[0].matchAll(/<th[^>]*>(.*?)<\/th>/g)].map(m => m[1].trim());
+  // PHASE 13 (DASHBOARD_PAYLOAD_COMPACTION_AND_INVESTOR_FIRST_IA_V1): Xu hướng tín hiệu and
+  // Dòng ngoại – giá were added -- fields the pre-compaction table never surfaced at all.
   assert.deepEqual(thHeaders, [
-    "Mã", "Trạng thái", "Giá hiện tại", "Kích hoạt", "Vô hiệu", "Tư thế nghiên cứu", "Dấu hiệu",
+    "Mã", "Trạng thái", "Giá hiện tại", "Xu hướng tín hiệu", "Dòng ngoại – giá",
+    "Kích hoạt", "Vô hiệu", "Tư thế nghiên cứu", "Dấu hiệu",
     '<span class="vs-visually-hidden">Chi tiết</span>',
   ]);
   // The header must name the field it actually displays (research_stance), not a distinct

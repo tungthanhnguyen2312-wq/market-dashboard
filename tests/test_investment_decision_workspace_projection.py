@@ -68,5 +68,7 @@ def test_projection_rejects_tampered_content_identity(tmp_path):
 
 
 def test_workspace_page_and_script_reference_the_built_data_file():
+    # DASHBOARD_PAYLOAD_COMPACTION_AND_INVESTOR_FIRST_IA_V1: the live page fetches the compact
+    # workspace_index/v1 document, not this module's (unwired) monolithic dashboard projection.
     text = (ROOT / "investment-workspace.html").read_text(encoding="utf-8") + (ROOT / "assets" / "js" / "investment-workspace.js").read_text(encoding="utf-8")
-    assert "data/investment_decision_workspace.json" in text
+    assert "data/workspace_index.json" in text
