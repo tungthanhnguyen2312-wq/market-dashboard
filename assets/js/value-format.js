@@ -581,6 +581,106 @@
     INITIAL_OBSERVATION: "Quan sát ban đầu",
   });
 
+  // SIGNAL_VELOCITY_AND_FLOW_PRICE_DECISION_PRESENTATION_V1: multi_session_signal_velocity/v1.2
+  // is a multi-session TREND OF EVIDENCE, never a price forecast or probability. Vocabulary here
+  // must match the Producer's governed enum exactly -- no invented states, no silently dropped
+  // ones (an unmapped raw value falls through to EMPTY_LABELS, never a blank string).
+  const SIGNAL_VELOCITY_STATE_MAP = Object.freeze({
+    PERSISTENT_IMPROVEMENT: "Cải thiện bền bỉ",
+    EARLY_IMPROVEMENT: "Cải thiện sớm",
+    MIXED_TRANSITION: "Tín hiệu đang phân hóa",
+    STABLE: "Tương đối ổn định",
+    DETERIORATING: "Đang suy yếu",
+    INSUFFICIENT_EVIDENCE: "Chưa đủ bằng chứng",
+  });
+
+  // flow_price_divergence_shadow/v1's relationship taxonomy. Descriptive only: a name containing
+  // "BUYING"/"SELLING" is never a recommendation, and "RESILIENCE"/"CONFIRMATION" never implies a
+  // causal or intent-based reading of who is buying or why (see PHASE 8 forbidden-language rule).
+  const FLOW_PRICE_RELATIONSHIP_MAP = Object.freeze({
+    FOREIGN_SELLING_PRICE_RESILIENCE: "Khối ngoại bán ròng, giá/cấu trúc vẫn chống chịu",
+    PERSISTENT_FOREIGN_SELLING_PRICE_RESILIENCE: "Khối ngoại bán ròng nhiều phiên, giá/cấu trúc vẫn chống chịu",
+    FOREIGN_SELLING_PRICE_WEAKNESS: "Khối ngoại bán ròng, giá/cấu trúc cùng suy yếu",
+    FOREIGN_BUYING_PRICE_CONFIRMATION: "Khối ngoại mua ròng, giá/cấu trúc cùng cải thiện",
+    FOREIGN_BUYING_PRICE_WEAKNESS: "Khối ngoại mua ròng nhưng giá/cấu trúc chưa xác nhận",
+    FLOW_NEUTRAL_PRICE_IMPROVING: "Dòng ngoại trung tính, giá/cấu trúc cải thiện",
+    FLOW_NEUTRAL_PRICE_DETERIORATING: "Dòng ngoại trung tính, giá/cấu trúc suy yếu",
+    FLOW_PRICE_MIXED: "Dòng ngoại và giá chưa đồng thuận",
+    FLOW_UNAVAILABLE: "Chưa có dữ liệu dòng ngoại hiện hành",
+    PRICE_EVIDENCE_INSUFFICIENT: "Chưa đủ bằng chứng giá/cấu trúc",
+    RELATIONSHIP_NOT_EVALUABLE: "Chưa thể đánh giá quan hệ dòng ngoại – giá",
+  });
+
+  const FLOW_PERSISTENCE_MAP = Object.freeze({
+    PERSISTENT_NET_BUY: "Mua ròng kéo dài",
+    PERSISTENT_NET_SELL: "Bán ròng kéo dài",
+    MIXED_FLOW: "Dòng ngoại hỗn hợp",
+    RECENT_BUY_REVERSAL: "Vừa đảo chiều sang mua",
+    RECENT_SELL_REVERSAL: "Vừa đảo chiều sang bán",
+    NO_CLEAR_FLOW_DIRECTION: "Chưa rõ hướng dòng ngoại",
+    INSUFFICIENT_HISTORY: "Chưa đủ lịch sử được giữ lại",
+  });
+
+  // price.participation_context on the flow_price_divergence_shadow record -- reused, governed
+  // participation semantics only (PHASE 14: never relabel this as "tiền nội" / "domestic flow").
+  const FLOW_PARTICIPATION_CONTEXT_MAP = Object.freeze({
+    PARTICIPATION_CORROBORATES: "Thanh khoản/xác nhận đang ủng hộ",
+    PARTICIPATION_CONTRADICTS: "Xác nhận đang mâu thuẫn",
+    PARTICIPATION_NEUTRAL: "Xác nhận trung tính",
+    PARTICIPATION_UNAVAILABLE: "Chưa có xác nhận",
+  });
+
+  const MARKET_SECTOR_SUPPORT_STATE_MAP = Object.freeze({
+    SUPPORTIVE: "Đang hỗ trợ",
+    ADVERSE: "Đang bất lợi",
+    MIXED: "Hỗn hợp",
+    UNAVAILABLE: "Chưa có dữ liệu",
+  });
+
+  const FLOW_COHORT_MEMBERSHIP_MAP = Object.freeze({
+    IN_CURRENT_FLOW_RESEARCH_COHORT: "Trong nhóm theo dõi dòng ngoại hiện hành",
+    OUTSIDE_CURRENT_FLOW_RESEARCH_COHORT: "Chưa nằm trong phạm vi dữ liệu dòng ngoại hiện hành",
+  });
+
+  const CONTINUITY_STATE_MAP = Object.freeze({
+    CONTIGUOUS_RETAINED_OBSERVATIONS: "Liên tục, không có khoảng trống",
+    GAPS_OR_UNAVAILABLE_OBSERVATIONS: "Có khoảng trống hoặc quan sát chưa có dữ liệu",
+  });
+
+  const TRANSITION_DIRECTION_MAP = Object.freeze({
+    IMPROVING: "Đang cải thiện",
+    DETERIORATING: "Đang suy yếu",
+    UNCHANGED: "Không đổi",
+    NOT_COMPARABLE: "Chưa thể so sánh",
+  });
+
+  const TRAJECTORY_PERSISTENCE_MAP = Object.freeze({
+    IMPROVEMENT_PERSISTENT: "Cải thiện bền bỉ",
+    DETERIORATION_PERSISTENT: "Suy yếu kéo dài",
+    MIXED: "Hỗn hợp",
+    NO_CLEAR_DIRECTION: "Chưa rõ hướng",
+    INSUFFICIENT_HISTORY: "Chưa đủ lịch sử",
+  });
+
+  const FOREIGN_FLOW_STATE_MAP = Object.freeze({
+    NET_FOREIGN_BUY: "Mua ròng",
+    NET_FOREIGN_SELL: "Bán ròng",
+    NEUTRAL_FOREIGN_FLOW: "Trung tính",
+    FLOW_UNAVAILABLE: "Chưa có dữ liệu",
+    FLOW_STALE: "Dữ liệu đã cũ",
+    FLOW_INCOMPLETE: "Dữ liệu chưa đầy đủ",
+    SEMANTICALLY_BLOCKED: "Chưa đủ điều kiện xác nhận",
+  });
+
+  // Shared by Signal Velocity's and Flow-Price's own evidence_quality field -- data fitness, never
+  // a confidence-of-outcome score (PHASE 11).
+  const RESEARCH_EVIDENCE_COMPLETENESS_MAP = Object.freeze({
+    COMPLETE_RETAINED_EVIDENCE: "Bằng chứng đầy đủ",
+    PARTIAL_RETAINED_EVIDENCE: "Bằng chứng một phần",
+    LIMITED_STALE_FLOW_CONTEXT: "Ngữ cảnh dòng ngoại đã cũ",
+    INSUFFICIENT_RETAINED_EVIDENCE: "Chưa đủ bằng chứng",
+  });
+
   const SETUP_TAG_MAP = Object.freeze({
     TECHNICAL_DETERIORATION: "Suy yếu kỹ thuật",
     RANGE_COMPRESSION: "Biên độ thu hẹp",
@@ -676,6 +776,14 @@
     COMPATIBLE_PROFITABILITY_QUALITY_DETERIORATION: "Suy giảm chất lượng lợi nhuận",
     RETAINED_TACTICAL_RULE_FAILURE: "Quy tắc kỹ thuật được giữ lại không còn thỏa",
     NOT_AVAILABLE: "Chưa có",
+    // Signal Velocity / Flow-Price limitations lists (governed, fixed vocabulary).
+    QUALIFIED_FOREIGN_VALUE_ONLY: "Chỉ dùng giá trị (VALUE) dòng ngoại đã xác nhận",
+    NO_FLOW_NORMALIZATION: "Không chuẩn hóa dòng vốn theo tỷ lệ",
+    NO_CAUSAL_OR_INTENT_INTERPRETATION: "Không diễn giải nguyên nhân hay ý định",
+    NO_FORWARD_OUTCOME_CLAIM: "Không khẳng định kết quả tương lai",
+    RETAINED_EVIDENCE_TRAJECTORY_NOT_A_PRICE_FORECAST: "Xu hướng của bằng chứng, không phải dự báo giá",
+    NO_SCORE_OR_PROBABILITY: "Không có điểm số hay xác suất",
+    CATEGORICAL_ORDINAL_RANKS_NOT_CARDINAL_ACCELERATION: "Thứ hạng phân loại, không phải gia tốc định lượng",
   });
 
   const OFFICIAL_SCOPE_BUCKET_MAP = Object.freeze({
@@ -706,6 +814,14 @@
     peer_context: "Bối cảnh cùng ngành",
     strategy_classification: "Phân loại chiến lược",
     scenario: "Kịch bản",
+    // multi_session_signal_velocity/v1.2 axis names -- supporting/contradicting axis display.
+    price_momentum: "Động lượng giá",
+    structural_repair: "Phục hồi cấu trúc",
+    participation_confirmation: "Xác nhận tham gia",
+    setup_maturation: "Độ chín của thiết lập",
+    market_support: "Thị trường hỗ trợ",
+    sector_support: "Ngành hỗ trợ",
+    fundamental_trajectory: "Quỹ đạo nền tảng",
   });
 
   const ENTITY_CLASS_VOCABULARY = Object.freeze(["corporate", "bank", "securities", "insurance", "finance_company"]);
@@ -737,6 +853,17 @@
     strategy: STRATEGY_MAP,
     risk_data_gaps: RISK_DATA_GAPS_MAP,
     official_scope: OFFICIAL_SCOPE_BUCKET_MAP,
+    signal_velocity_state: SIGNAL_VELOCITY_STATE_MAP,
+    flow_price_relationship: FLOW_PRICE_RELATIONSHIP_MAP,
+    flow_persistence: FLOW_PERSISTENCE_MAP,
+    flow_participation_context: FLOW_PARTICIPATION_CONTEXT_MAP,
+    market_sector_support_state: MARKET_SECTOR_SUPPORT_STATE_MAP,
+    flow_cohort_membership: FLOW_COHORT_MEMBERSHIP_MAP,
+    research_evidence_completeness: RESEARCH_EVIDENCE_COMPLETENESS_MAP,
+    continuity_state: CONTINUITY_STATE_MAP,
+    transition_direction: TRANSITION_DIRECTION_MAP,
+    trajectory_persistence: TRAJECTORY_PERSISTENCE_MAP,
+    foreign_flow_state: FOREIGN_FLOW_STATE_MAP,
   });
 
   const EMPTY_LABELS = Object.freeze({
@@ -751,6 +878,9 @@
     rule_condition: "Điều kiện kỹ thuật",
     structure_state: "Chưa có",
     official_scope: "Chưa công bố phạm vi chính thức",
+    signal_velocity_state: "Chưa đủ bằng chứng",
+    flow_price_relationship: "Chưa có dữ liệu dòng ngoại hiện hành",
+    research_evidence_completeness: "Chưa đủ bằng chứng",
   });
 
   function lookupDomainTable(table, raw) {
@@ -994,6 +1124,32 @@
       BREACHED: "adverse",
       TRIGGERED: "adverse",
       CLEAR: "neutral",
+    },
+    // Evidence-trend tone, same descriptive convention as tactical_state above -- never a buy/
+    // sell instruction (PHASE 24: DETERIORATING is a research-evidence flag, not a SELL order).
+    signal_velocity_state: {
+      PERSISTENT_IMPROVEMENT: "constructive",
+      EARLY_IMPROVEMENT: "watch",
+      MIXED_TRANSITION: "watch",
+      STABLE: "neutral",
+      DETERIORATING: "adverse",
+      INSUFFICIENT_EVIDENCE: "neutral",
+    },
+    // PHASE 24: deliberately restrained to neutral/watch only -- "BUYING"/"SELLING" in the raw
+    // enum name must never read as a green/red recommendation, and MIXED must read as neutral,
+    // not bullish or bearish.
+    flow_price_relationship: {
+      FOREIGN_SELLING_PRICE_RESILIENCE: "neutral",
+      PERSISTENT_FOREIGN_SELLING_PRICE_RESILIENCE: "neutral",
+      FOREIGN_SELLING_PRICE_WEAKNESS: "watch",
+      FOREIGN_BUYING_PRICE_CONFIRMATION: "neutral",
+      FOREIGN_BUYING_PRICE_WEAKNESS: "watch",
+      FLOW_NEUTRAL_PRICE_IMPROVING: "neutral",
+      FLOW_NEUTRAL_PRICE_DETERIORATING: "neutral",
+      FLOW_PRICE_MIXED: "neutral",
+      FLOW_UNAVAILABLE: "neutral",
+      PRICE_EVIDENCE_INSUFFICIENT: "neutral",
+      RELATIONSHIP_NOT_EVALUABLE: "neutral",
     },
   });
 

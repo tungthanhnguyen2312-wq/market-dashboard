@@ -575,7 +575,49 @@
     "Định giá": "Định giá tương đối cần được đọc cùng kỳ dữ liệu, nhóm so sánh và các giới hạn được công bố.",
     "Nền tảng": "Tóm tắt trạng thái nền tảng doanh nghiệp theo dữ liệu nghiên cứu được giữ lại.",
     "Mức độ tin cậy của bằng chứng": "Mô tả độ mới và mức đầy đủ của dữ liệu, không phải xác suất giá sẽ tăng hay một điểm dự báo.",
+    "Xu hướng tín hiệu": "Cho biết bằng chứng kỹ thuật đang thay đổi thế nào qua nhiều phiên được giữ lại. Đây là xu hướng của bằng chứng, không phải xác suất giá sẽ tăng.",
+    "Quan hệ dòng ngoại – giá": "So sánh dòng vốn ngoại ròng (theo VALUE đã xác nhận) với diễn biến giá/cấu trúc kỹ thuật trong cùng phiên. Đây là quan hệ mô tả, không xác định ai đang mua/bán hay vì sao.",
   };
+  // PHASE 5 -- state-specific meaning copy for Signal Velocity, distinct from the generic
+  // MICRO_EXPLANATIONS hover text above. Only the three states the milestone specifies verbatim
+  // copy for are hand-written; every other state falls back to a short generic sentence built
+  // from the governed Vietnamese label so nothing is ever left blank.
+  const SIGNAL_VELOCITY_STATE_COPY = {
+    PERSISTENT_IMPROVEMENT: "Các lớp kỹ thuật đã cải thiện nhất quán qua nhiều quan sát được lưu giữ. Đây là xu hướng của bằng chứng, không phải xác suất giá tăng.",
+    EARLY_IMPROVEMENT: "Một hoặc nhiều lớp kỹ thuật vừa cải thiện nhưng chưa đủ chuỗi quan sát để gọi là cải thiện bền bỉ.",
+    DETERIORATING: "Nhiều bằng chứng kỹ thuật đang suy yếu hoặc có trạng thái bất lợi.",
+  };
+  function signalVelocityStateCopy(state) {
+    return SIGNAL_VELOCITY_STATE_COPY[state] || `Trạng thái xu hướng tín hiệu: ${formatWorkspaceState(state, "signal_velocity_state")}.`;
+  }
+  function researchEvidenceQuality(state, why) {
+    const label = formatWorkspaceState(state, "research_evidence_completeness");
+    const toneMap = { COMPLETE_RETAINED_EVIDENCE: "constructive", PARTIAL_RETAINED_EVIDENCE: "caution", LIMITED_STALE_FLOW_CONTEXT: "caution", INSUFFICIENT_RETAINED_EVIDENCE: "neutral" };
+    return { label, tone: toneMap[state] || "neutral", why: why || "Mô tả độ đầy đủ của dữ liệu được giữ lại, không phải xác suất kết quả." };
+  }
+  function signalVelocitySummaryHtml(card) {
+    const velocity = (card || {}).signal_velocity || {};
+    const quality = researchEvidenceQuality(velocity.evidence_quality);
+    const value = formatWorkspaceState(velocity.overall_transition_state, "signal_velocity_state");
+    return `<div class="ws-evidence-summary-item"><div>${helpLabelHtml("Xu hướng tín hiệu")}${evidenceQualityHtml(quality)}</div><strong>${escHtml(value)}</strong><p>${escHtml(signalVelocityStateCopy(velocity.overall_transition_state))}</p></div>`;
+  }
+  // PHASE 10 -- cohort scope is read from the Producer's own cohort_membership field (never
+  // inferred client-side): a ticker outside the configured current-flow research cohort must
+  // never read like the flow system failed for it.
+  function flowPriceSummaryHtml(card) {
+    const flow = (card || {}).flow_price || {};
+    const quality = researchEvidenceQuality(flow.evidence_quality);
+    const value = formatWorkspaceState(flow.relationship, "flow_price_relationship");
+    let description;
+    if (flow.cohort_membership === "OUTSIDE_CURRENT_FLOW_RESEARCH_COHORT") {
+      description = "Chưa nằm trong phạm vi dữ liệu dòng ngoại hiện hành.";
+    } else if (flow.relationship === "FLOW_UNAVAILABLE") {
+      description = "Trong nhóm theo dõi dòng ngoại, nhưng dữ liệu phiên hiện tại chưa được ghi nhận.";
+    } else {
+      description = `Quan hệ dòng ngoại – giá: ${value}.`;
+    }
+    return `<div class="ws-evidence-summary-item"><div>${helpLabelHtml("Quan hệ dòng ngoại – giá")}${evidenceQualityHtml(quality)}</div><strong>${escHtml(value)}</strong><p>${escHtml(description)}</p></div>`;
+  }
   function helpLabelHtml(label) {
     const explanation = MICRO_EXPLANATIONS[label];
     if (!explanation) return escHtml(label);
@@ -619,6 +661,8 @@
       <div class="ws-evidence-summary-item"><div>${helpLabelHtml("Nền tảng")}${evidenceQualityHtml(foundation)}</div><strong>${escHtml(formatWorkspaceState(fundamental.state, "fundamental_state"))}</strong><p>${escHtml(formatWorkspaceState(fundamental.trajectory, "fundamental_trajectory"))}</p></div>
       ${valuationEvidenceSummaryHtml((card || {}).valuation || {})}
       <div class="ws-evidence-summary-item"><div>${helpLabelHtml("Mức độ tin cậy của bằng chứng")}${evidenceQualityHtml(technical)}</div><strong>${escHtml(formatWorkspaceState((card || {}).entry_state, "tactical_state"))}</strong><p>${escHtml(technical.why)}</p></div>
+      ${signalVelocitySummaryHtml(card)}
+      ${flowPriceSummaryHtml(card)}
     </section>`;
   }
   function technicalSnapshotHtml(card) {
@@ -648,6 +692,60 @@
       ${smc.length ? `<div class="ws-signal-chip-row">${smc.map((item) => `<span class="ws-signal-chip" title="${escHtml(item.info.tooltip)}"><b>${escHtml(item.info.vi)}</b> <small>(${escHtml(item.info.abbr)})</small></span>`).join("")}</div>` : '<p class="cockpit-note">Chưa có SMC hiện hành trong tập khái niệm được hỗ trợ.</p>'}
       <p class="cockpit-note mt-2">Bằng chứng hỗ trợ kỹ thuật, không phải thẩm quyền mua/bán độc lập.</p>
     </section>`;
+  }
+
+  // PHASE 6 -- deep evidence detail for Signal Velocity. acceleration_state is always
+  // NOT_EVALUABLE_CATEGORICAL_ONLY on the retained contract; it is rendered only here (never in
+  // the primary compact row) as a fixed sentence, never the raw enum.
+  function axisListHtml(axes) {
+    return Array.isArray(axes) && axes.length
+      ? `<ul class="cockpit-list">${axes.map((a) => `<li>${escHtml(axisDisplayLabel(a))}</li>`).join("")}</ul>`
+      : '<span class="cockpit-note">Chưa có trục nào được ghi nhận</span>';
+  }
+  function signalVelocityDeepHtml(card) {
+    const velocity = (card || {}).signal_velocity || {};
+    const span = velocity.retained_session_span || {};
+    return `
+      <div class="cockpit-grid mb-2">
+        ${kpiHtml("Xu hướng tín hiệu", formatWorkspaceState(velocity.overall_transition_state, "signal_velocity_state"))}
+        ${kpiHtml("Mức độ tin cậy của bằng chứng", formatWorkspaceState(velocity.evidence_quality, "research_evidence_completeness"))}
+      </div>
+      <div class="cockpit-note mb-2">${escHtml(signalVelocityStateCopy(velocity.overall_transition_state))}</div>
+      <div class="mt-1"><b>Số quan sát hợp lệ</b> ${escHtml(unavailableLabel(velocity.valid_observation_count))}</div>
+      <div class="mt-1"><b>Khoảng phiên được lưu giữ</b> ${hasRetainedValue(span.first) || hasRetainedValue(span.last) ? `${escHtml(unavailableLabel(span.first))} → ${escHtml(unavailableLabel(span.last))}` : "Chưa có dữ liệu"}</div>
+      <div class="mt-1"><b>Tính liên tục</b> ${pill(velocity.continuity_state, "continuity_state")}</div>
+      <div class="mt-1"><b>Chuyển trạng thái gần nhất</b> ${pill(velocity.latest_transition, "transition_direction")}</div>
+      <div class="mt-1"><b>Độ bền của xu hướng</b> ${pill(velocity.persistence, "trajectory_persistence")}</div>
+      <div class="mt-2"><b>Trục ủng hộ độc lập</b>${axisListHtml(velocity.independent_supporting_axes)}</div>
+      <div class="mt-2"><b>Trục mâu thuẫn</b>${axisListHtml(velocity.contradicting_axes)}</div>
+      <div class="mt-2 cockpit-note">Gia tốc: chưa thể đánh giá từ dữ liệu phân loại.</div>
+      <div class="mt-2 cockpit-note">Xu hướng của bằng chứng được lưu giữ, không phải xác suất giá tăng hay dự báo.</div>`;
+  }
+  // PHASE 6/10/21 -- deep evidence detail for Flow-Price Divergence, including the cohort-scope
+  // explanation that must never read like the flow acquisition system failed for an out-of-scope
+  // ticker.
+  function flowPriceDeepHtml(card) {
+    const flow = (card || {}).flow_price || {};
+    const freshness = flow.flow_freshness || {};
+    const outsideCohort = flow.cohort_membership === "OUTSIDE_CURRENT_FLOW_RESEARCH_COHORT";
+    return `
+      <div class="cockpit-grid mb-2">
+        ${kpiHtml("Quan hệ dòng ngoại – giá", formatWorkspaceState(flow.relationship, "flow_price_relationship"))}
+        ${kpiHtml("Mức độ tin cậy của bằng chứng", formatWorkspaceState(flow.evidence_quality, "research_evidence_completeness"))}
+      </div>
+      <div class="mt-1"><b>Phạm vi theo dõi dòng ngoại</b> ${pill(flow.cohort_membership, "flow_cohort_membership")}</div>
+      <div class="cockpit-note mb-2">${outsideCohort
+        ? "Dòng ngoại hiện được thu thập cho nhóm theo dõi nghiên cứu đã xác định trước phiên. Mã này chưa nằm trong nhóm đó."
+        : "Mã này thuộc nhóm theo dõi dòng ngoại hiện hành."}</div>
+      <div class="mt-1"><b>Phiên tham chiếu</b> ${escHtml(unavailableLabel(flow.reference_session))}</div>
+      <div class="mt-1"><b>Trạng thái dòng ngoại ròng</b> ${pill(flow.foreign_flow_state, "foreign_flow_state")}</div>
+      <div class="mt-1"><b>Độ bền dòng ngoại</b> ${pill(flow.flow_persistence, "flow_persistence")}</div>
+      <div class="mt-1"><b>Phiên dòng ngoại đủ điều kiện gần nhất</b> ${escHtml(unavailableLabel(flow.latest_qualified_flow_session))} ${freshness.status ? `· ${pill(freshness.status, "freshness")}` : ""}</div>
+      <div class="mt-1"><b>Trạng thái giá/xu hướng tín hiệu</b> ${pill(flow.price_velocity_state, "signal_velocity_state")}</div>
+      <div class="mt-1"><b>Bối cảnh xác nhận</b> ${pill(flow.participation_context, "flow_participation_context")}</div>
+      <div class="mt-1"><b>Thị trường hỗ trợ</b> ${pill(flow.market_support, "market_sector_support_state")} · <b>Ngành hỗ trợ</b> ${pill(flow.sector_support, "market_sector_support_state")}</div>
+      <div class="mt-2"><b>Giới hạn</b>${listHtml(flow.limitations, "rule_condition")}</div>
+      <div class="cockpit-note mt-2">Quan hệ mô tả giữa dòng vốn ngoại ròng theo VALUE và giá/cấu trúc kỹ thuật — không xác định ai đang mua/bán hay vì sao, và không phải khuyến nghị mua/bán.</div>`;
   }
 
   function decisionCardHtml(card, options) {
@@ -706,6 +804,9 @@
               <div class="mt-2"><b>Nhãn thiết lập</b>${listHtml(card.setup_tags, "setup_tag")}</div>
               <div class="mt-2"><b>Thị trường/ngành</b> ${sectorDiagnosticHtml(marketSector)}</div>
             </div></div>
+            <div class="card"><div class="card-header"><h6>Xu hướng tín hiệu</h6></div><div class="card-body">
+              ${signalVelocityDeepHtml(card)}
+            </div></div>
             <div class="card"><div class="card-header"><h6>Kích hoạt / Vô hiệu</h6></div><div class="card-body">
               <div class="cockpit-grid mb-2">${kpiHtml("Trạng thái biên", pill((card.confirmation || {}).status, "confirmation_state"))}${kpiHtml("Trạng thái kích hoạt thực tế", pill((card.confirmation || {}).confirmation_trigger_state, "confirmation_state"))}</div>
               <div class="cockpit-note mb-2">Trạng thái biên cho biết điều kiện kích hoạt đã được gắn (có giá trị/toán tử cơ sở) — không phải bằng chứng điều kiện đã kích hoạt. Chỉ trạng thái đã kích hoạt mới có thể nâng tư thế nghiên cứu lên ứng viên mở vị thế.</div>
@@ -725,6 +826,9 @@
             </div></div>
             <div class="card"><div class="card-header"><h6>Thanh khoản</h6></div><div class="card-body">
               ${liquidityDiagnosticsHtml(liquidity)}
+            </div></div>
+            <div class="card"><div class="card-header"><h6>Quan hệ dòng ngoại – giá</h6></div><div class="card-body">
+              ${flowPriceDeepHtml(card)}
             </div></div>
             <div class="card"><div class="card-header"><h6>Danh mục</h6></div><div class="card-body">
               ${portfolio && portfolio.evaluated ? `
