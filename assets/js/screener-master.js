@@ -104,7 +104,9 @@
         if (formatted.known) return formatted.label;
       }
     }
-    return code || "Chưa đủ dữ liệu";
+    // Fail closed: an unmapped/unrecognized status code is never shown raw to the user
+    // (DASHBOARD_INVESTOR_FIRST_PRESENTATION_SIMPLIFICATION_V1 Phase 21).
+    return "Chưa đủ dữ liệu";
   }
 
   function formatFinancial(financial) {

@@ -326,6 +326,14 @@
   function unavailableLabel(v) {
     return (v === null || v === undefined || v === "" ? "UNAVAILABLE" : v);
   }
+  // Vietnamese-safe variant for values interpolated DIRECTLY into visible text (a count, a
+  // session date) rather than routed through pill()/formatWorkspaceState's domain lookup --
+  // unavailableLabel's "UNAVAILABLE" sentinel is correct there (every domain table maps it),
+  // but shown raw here it would leak English (DASHBOARD_INVESTOR_FIRST_PRESENTATION_
+  // SIMPLIFICATION_V1 Phase 21).
+  function unavailableText(v) {
+    return (v === null || v === undefined || v === "") ? "Chưa có dữ liệu" : v;
+  }
   // Domain-aware tone contract (value-format.js DOMAIN_SPECIFIC_TONES / getSemanticTone) is the
   // single source of truth for pill color -- a raw keyword bucket here would re-introduce the
   // cross-domain collisions it was built to fix (e.g. TRIGGERED reading adverse in every domain,
@@ -711,8 +719,8 @@
         ${kpiHtml("Mức độ tin cậy của bằng chứng", formatWorkspaceState(velocity.evidence_quality, "research_evidence_completeness"))}
       </div>
       <div class="cockpit-note mb-2">${escHtml(signalVelocityStateCopy(velocity.overall_transition_state))}</div>
-      <div class="mt-1"><b>Số quan sát hợp lệ</b> ${escHtml(unavailableLabel(velocity.valid_observation_count))}</div>
-      <div class="mt-1"><b>Khoảng phiên được lưu giữ</b> ${hasRetainedValue(span.first) || hasRetainedValue(span.last) ? `${escHtml(unavailableLabel(span.first))} → ${escHtml(unavailableLabel(span.last))}` : "Chưa có dữ liệu"}</div>
+      <div class="mt-1"><b>Số quan sát hợp lệ</b> ${escHtml(unavailableText(velocity.valid_observation_count))}</div>
+      <div class="mt-1"><b>Khoảng phiên được lưu giữ</b> ${hasRetainedValue(span.first) || hasRetainedValue(span.last) ? `${escHtml(unavailableText(span.first))} → ${escHtml(unavailableText(span.last))}` : "Chưa có dữ liệu"}</div>
       <div class="mt-1"><b>Tính liên tục</b> ${pill(velocity.continuity_state, "continuity_state")}</div>
       <div class="mt-1"><b>Chuyển trạng thái gần nhất</b> ${pill(velocity.latest_transition, "transition_direction")}</div>
       <div class="mt-1"><b>Độ bền của xu hướng</b> ${pill(velocity.persistence, "trajectory_persistence")}</div>
@@ -737,15 +745,66 @@
       <div class="cockpit-note mb-2">${outsideCohort
         ? "Dòng ngoại hiện được thu thập cho nhóm theo dõi nghiên cứu đã xác định trước phiên. Mã này chưa nằm trong nhóm đó."
         : "Mã này thuộc nhóm theo dõi dòng ngoại hiện hành."}</div>
-      <div class="mt-1"><b>Phiên tham chiếu</b> ${escHtml(unavailableLabel(flow.reference_session))}</div>
+      <div class="mt-1"><b>Phiên tham chiếu</b> ${escHtml(unavailableText(flow.reference_session))}</div>
       <div class="mt-1"><b>Trạng thái dòng ngoại ròng</b> ${pill(flow.foreign_flow_state, "foreign_flow_state")}</div>
       <div class="mt-1"><b>Độ bền dòng ngoại</b> ${pill(flow.flow_persistence, "flow_persistence")}</div>
-      <div class="mt-1"><b>Phiên dòng ngoại đủ điều kiện gần nhất</b> ${escHtml(unavailableLabel(flow.latest_qualified_flow_session))} ${freshness.status ? `· ${pill(freshness.status, "freshness")}` : ""}</div>
+      <div class="mt-1"><b>Phiên dòng ngoại đủ điều kiện gần nhất</b> ${escHtml(unavailableText(flow.latest_qualified_flow_session))} ${freshness.status ? `· ${pill(freshness.status, "freshness")}` : ""}</div>
       <div class="mt-1"><b>Trạng thái giá/xu hướng tín hiệu</b> ${pill(flow.price_velocity_state, "signal_velocity_state")}</div>
       <div class="mt-1"><b>Bối cảnh xác nhận</b> ${pill(flow.participation_context, "flow_participation_context")}</div>
       <div class="mt-1"><b>Thị trường hỗ trợ</b> ${pill(flow.market_support, "market_sector_support_state")} · <b>Ngành hỗ trợ</b> ${pill(flow.sector_support, "market_sector_support_state")}</div>
       <div class="mt-2"><b>Giới hạn</b>${listHtml(flow.limitations, "rule_condition")}</div>
       <div class="cockpit-note mt-2">Quan hệ mô tả giữa dòng vốn ngoại ròng theo VALUE và giá/cấu trúc kỹ thuật — không xác định ai đang mua/bán hay vì sao, và không phải khuyến nghị mua/bán.</div>`;
+  }
+
+  // DASHBOARD_INVESTOR_FIRST_PRESENTATION_SIMPLIFICATION_V1: renders one slot from the
+  // Producer's indicator_metric_display_state/v1 bridge (card.display_metrics, labelled via
+  // the workspace artifact's own display_metric_catalog). An important metric never
+  // disappears merely because its value is unavailable -- it renders its governed state
+  // text instead (see METRIC_DISPLAY_STATE_MAP in value-format.js).
+  const METRIC_VALUE_DOMAIN = Object.freeze({
+    technical_trend_entry_state: "tactical_state",
+    technical_invalidation: "invalidation_state",
+    signal_velocity_state: "signal_velocity_state",
+    foreign_flow_state: "foreign_flow_state",
+    flow_price_relationship: "flow_price_relationship",
+    flow_persistence_5session: "flow_persistence",
+  });
+  const METRIC_PERCENT_IDS = new Set(["gross_margin", "net_margin", "roe", "roa", "revenue_growth_yoy", "net_income_growth_yoy"]);
+  const METRIC_MULTIPLE_IDS = new Set(["pe_ttm", "pb", "ps_ttm", "ev_sales", "ev_ebitda", "debt_to_equity", "cash_to_assets"]);
+
+  function metricValueHtml(metricId, value) {
+    if (METRIC_VALUE_DOMAIN[metricId]) return escHtml(formatWorkspaceState(value, METRIC_VALUE_DOMAIN[metricId]));
+    if (typeof value === "number" && Number.isFinite(value)) {
+      if (METRIC_PERCENT_IDS.has(metricId)) return `${escHtml(new Intl.NumberFormat("vi-VN", { maximumFractionDigits: 1 }).format(value * 100))}%`;
+      if (METRIC_MULTIPLE_IDS.has(metricId)) return `${escHtml(formatDiagnosticNumber(value))}x`;
+      return escHtml(formatDiagnosticNumber(value));
+    }
+    return escHtml(String(value ?? ""));
+  }
+
+  function metricSlotHtml(displayMetrics, catalog, metricId) {
+    const record = (displayMetrics || {})[metricId];
+    if (!record) return "";
+    const label = ((catalog || {})[metricId] || {}).label || metricId;
+    const isAvailable = record.display_state === "AVAILABLE";
+    const valueHtml = isAvailable
+      ? metricValueHtml(metricId, record.value)
+      : `<span class="cockpit-note">${escHtml(formatWorkspaceState(record.display_state, "metric_display_state"))}</span>`;
+    return `<div class="ws-metric-slot" data-metric-id="${escHtml(metricId)}" data-metric-state="${escHtml(record.display_state)}">`
+      + `<span class="ws-metric-label">${escHtml(label)}</span><span class="ws-metric-value">${valueHtml}</span></div>`;
+  }
+
+  // Every id in metricIds always renders a slot as long as the Producer bridge supplied a
+  // record for it -- an unavailable metric shows its governed state, it is never dropped
+  // from the grid (the milestone's "ABSOLUTE RULE": capability existence and current value
+  // availability are separate concepts). Returns "" only when the bridge itself is entirely
+  // absent (an older artifact/fixture without display_metrics), never for a partial result.
+  function investorMetricsGridHtml(card, options, metricIds, groupLabel) {
+    const displayMetrics = (card || {}).display_metrics;
+    const catalog = (options || {}).displayMetricCatalog;
+    if (!displayMetrics || !catalog) return "";
+    const rows = metricIds.map((id) => metricSlotHtml(displayMetrics, catalog, id)).join("");
+    return `<div class="ws-metric-group"><h6>${escHtml(groupLabel)}</h6><div class="ws-metric-grid">${rows}</div></div>`;
   }
 
   function decisionCardHtml(card, options) {
@@ -775,6 +834,11 @@
           </section>
           <section class="ws-drawer-technical"><h6>Ảnh chụp kỹ thuật</h6>${technicalSnapshotHtml(card)}<div class="ws-selected-signal" data-selected-signal-for="${escHtml(ticker)}"><p class="cockpit-note">Đang kiểm tra mẫu hình nến/SMC hiện hành…</p></div></section>
           ${evidenceSummaryHtml(card)}
+          <section class="ws-drawer-investor-metrics">
+            ${investorMetricsGridHtml(card, opts, ["gross_margin", "net_margin", "revenue_growth_yoy", "net_income_growth_yoy", "operating_cash_flow_sign", "roe", "roa", "debt_to_equity", "ebitda"], "Cơ bản")}
+            ${investorMetricsGridHtml(card, opts, ["pe_ttm", "pb", "ps_ttm", "ev_sales", "ev_ebitda"], "Định giá")}
+            ${investorMetricsGridHtml(card, opts, ["foreign_flow_state", "flow_price_relationship", "flow_persistence_5session"], "Dòng tiền")}
+          </section>
           <details class="ws-deep-evidence"><summary>Phân tích sâu &amp; bằng chứng</summary><div class="cockpit-detail-grid">
             <div class="card"><div class="card-header"><h6>Quyết định</h6></div><div class="card-body">
               <b>Mã</b> ${escHtml(ticker)} · <b>Ngành</b> ${sectorDisplayHtml(card.sector)}<br>
@@ -848,7 +912,7 @@
             <summary class="cockpit-note" style="cursor:pointer">Dữ liệu <span class="cockpit-note">(độ mới, khoảng trống, nguồn gốc)</span></summary>
             <div class="card mt-2"><div class="card-body">
               <div class="table-responsive"><table class="cockpit-table"><thead><tr><th>Trục</th><th>Độ mới dữ liệu</th><th>Phiên/kỳ nguồn</th><th>Proxy / đã xác nhận</th></tr></thead><tbody>
-                ${Object.keys((card.lineage || {}).per_axis_freshness || {}).sort().map((axis) => `<tr><td>${escHtml(axisDisplayLabel(axis))}</td><td>${pill((card.lineage.per_axis_freshness || {})[axis], "freshness")}</td><td>${escHtml(unavailableLabel((card.lineage.per_axis_source_session || {})[axis]))}</td><td>${pill((card.lineage.per_axis_proxy_or_qualified_state || {})[axis], "data_fitness")}</td></tr>`).join("")}
+                ${Object.keys((card.lineage || {}).per_axis_freshness || {}).sort().map((axis) => `<tr><td>${escHtml(axisDisplayLabel(axis))}</td><td>${pill((card.lineage.per_axis_freshness || {})[axis], "freshness")}</td><td>${escHtml(unavailableText((card.lineage.per_axis_source_session || {})[axis]))}</td><td>${pill((card.lineage.per_axis_proxy_or_qualified_state || {})[axis], "data_fitness")}</td></tr>`).join("")}
               </tbody></table></div>
               <div class="cockpit-note mt-2">Bằng chứng sâu: ${pill(card.lineage && card.lineage.deep_evidence_availability, "data_fitness")}</div>
               <b>Điều kiện chặn</b>${listHtml(((card.lineage || {}).blockers || []).map((b) => `${axisDisplayLabel(b.axis)}: ${formatWorkspaceState(b.readiness, "research_readiness")} (${formatWorkspaceState(b.freshness_status, "freshness")})`))}
@@ -1078,6 +1142,7 @@
           ticker,
           portfolio: effectivePortfolio(ticker, card),
           sourceArtifacts: WORKSPACE.source_artifacts,
+          displayMetricCatalog: WORKSPACE.display_metric_catalog,
         };
         // The drawer is the sole on-screen interaction surface. The in-page copy is print-only
         // (d-none d-print-block on #decision-card-section) so it always renders too, just never
@@ -1320,7 +1385,7 @@
             if (!wsSession || !cpSession || wsSession !== cpSession) {
               const mismatchHtml = (dc && dc.renderSessionMismatchHtml)
                 ? dc.renderSessionMismatchHtml(wsSession, cpSession, "SESSION_MISMATCH")
-                : `<div class="vs-alert vs-alert-warning mb-0"><b>Thông tin bổ sung chưa đồng bộ với phiên hiện tại.</b></div>`;
+                : `<p class="cockpit-note mb-0">Thông tin bổ sung chưa đồng bộ với phiên hiện tại.</p>`;
               // Every element populated only from the Cockpit artifact must clear on mismatch --
               // an incomplete list here lets a stale Cockpit-sourced value survive next to an
               // explicit "not synced" warning, which is worse than showing nothing.
@@ -1410,5 +1475,6 @@
     evidenceQuality, evidenceSummaryHtml,
     cssEscapeSelector,
     analysisRecord, analysisRows, analysisRowHtml, analysisEvidenceHtml,
+    metricSlotHtml, investorMetricsGridHtml, metricValueHtml, unavailableText,
   };
 });

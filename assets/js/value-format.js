@@ -321,6 +321,18 @@
     BLOCKED: "Bị chặn",
   });
 
+  // The Producer's indicator_metric_display_state/v1 contract: exactly six states, every
+  // product-visible metric slot renders one of these, never a raw enum, never omitted.
+  // Mirrors indicator_metric_display_state.DISPLAY_TEXT_VI byte-for-byte -- keep both in
+  // sync if either changes. AVAILABLE has no placeholder text; the caller shows the value.
+  const METRIC_DISPLAY_STATE_MAP = Object.freeze({
+    INSUFFICIENT_DATA: "Chưa đủ dữ liệu",
+    BUILDING_HISTORY: "Đang tích lũy chuỗi phiên",
+    NOT_APPLICABLE: "Không áp dụng",
+    NOT_TRACKED: "Chưa theo dõi",
+    TEMPORARILY_UNAVAILABLE: "Tạm chưa có dữ liệu",
+  });
+
   // One centralized presentation layer for retained diagnostic blocker/status codes.
   // Unknown codes stay available in technical detail; they are never surfaced as raw
   // enums in the owner-facing view.
@@ -864,6 +876,7 @@
     transition_direction: TRANSITION_DIRECTION_MAP,
     trajectory_persistence: TRAJECTORY_PERSISTENCE_MAP,
     foreign_flow_state: FOREIGN_FLOW_STATE_MAP,
+    metric_display_state: METRIC_DISPLAY_STATE_MAP,
   });
 
   const EMPTY_LABELS = Object.freeze({
@@ -881,6 +894,7 @@
     signal_velocity_state: "Chưa đủ bằng chứng",
     flow_price_relationship: "Chưa có dữ liệu dòng ngoại hiện hành",
     research_evidence_completeness: "Chưa đủ bằng chứng",
+    metric_display_state: "Tạm chưa có dữ liệu",
   });
 
   function lookupDomainTable(table, raw) {

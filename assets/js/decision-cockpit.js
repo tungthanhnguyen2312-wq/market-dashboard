@@ -485,10 +485,13 @@
   }
 
   function renderSessionMismatchHtml(wsSession, cpSession, reasonCode) {
+    // A quiet note, not a system warning box -- this is ordinary staleness on one
+    // supplementary section, not an error the investor needs to act on
+    // (DASHBOARD_INVESTOR_FIRST_PRESENTATION_SIMPLIFICATION_V1 Phase 5).
     return `
-      <div class="vs-alert vs-alert-warning mb-0">
-        <b>Thông tin bổ sung chưa đồng bộ với phiên hiện tại.</b>
-        <details class="vs-tech-details mt-2">
+      <p class="cockpit-note mb-0">
+        Thông tin bổ sung chưa đồng bộ với phiên hiện tại.
+        <details class="vs-tech-details mt-1">
           <summary>Chi tiết kỹ thuật</summary>
           <div class="cockpit-code mt-1">
             <div><strong>Phiên Bàn quyết định:</strong> ${esc(wsSession || "Chưa xác định")}</div>
@@ -496,7 +499,7 @@
             <div><strong>Mã nguyên nhân:</strong> ${esc(reasonCode || "SESSION_MISMATCH")}</div>
           </div>
         </details>
-      </div>
+      </p>
     `;
   }
 

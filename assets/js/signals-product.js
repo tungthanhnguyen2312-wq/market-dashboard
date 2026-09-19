@@ -281,7 +281,8 @@
       if (!validateWorkspaceContract(workspace)) throw new Error("unsupported workspace contract");
       render(workspace);
     }).catch((reason) => {
-      error(`Không tải được tín hiệu kỹ thuật cho phiên hiện tại. CURRENT_PRODUCT_ARTIFACT_NOT_PUBLISHED: ${reason.message}`);
+      if (typeof console !== "undefined" && console.debug) console.debug("signals data unavailable:", reason);
+      error("Tạm chưa có dữ liệu tín hiệu kỹ thuật cho phiên hiện tại.");
     });
   }
 

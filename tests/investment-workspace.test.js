@@ -64,6 +64,121 @@ test("decision card renderer is reusable without changing stance semantics", () 
   assert.doesNotMatch(missing, /HPG/);
 });
 
+// ---------------------------------------------------------------------------
+// DASHBOARD_INVESTOR_FIRST_PRESENTATION_SIMPLIFICATION_V1: the investor metrics grid
+// bridges card.display_metrics (Producer's indicator_metric_display_state/v1) into
+// stable, never-disappearing metric slots.
+// ---------------------------------------------------------------------------
+
+const DISPLAY_METRIC_CATALOG = {
+  ebitda: { label: "EBITDA", family: "VALUATION" },
+  ev_ebitda: { label: "EV/EBITDA", family: "VALUATION" },
+  pe_ttm: { label: "P/E", family: "VALUATION" },
+  gross_margin: { label: "Biên lợi nhuận gộp", family: "FUNDAMENTALS" },
+  roe: { label: "ROE", family: "FUNDAMENTALS" },
+  foreign_flow_state: { label: "Dòng ngoại", family: "FLOW" },
+  technical_trend_entry_state: { label: "Xu hướng / trạng thái kỹ thuật", family: "PRICE_TECHNICAL" },
+};
+
+function displayMetricsCard(overrides) {
+  return card({
+    display_metrics: Object.assign({
+      ebitda: { display_state: "TEMPORARILY_UNAVAILABLE", value: null },
+      ev_ebitda: { display_state: "NOT_APPLICABLE", value: null },
+      pe_ttm: { display_state: "AVAILABLE", value: 12.4 },
+      gross_margin: { display_state: "AVAILABLE", value: 0.2185 },
+      roe: { display_state: "BUILDING_HISTORY", value: null },
+      foreign_flow_state: { display_state: "NOT_TRACKED", value: null },
+      technical_trend_entry_state: { display_state: "AVAILABLE", value: "UPTREND_CONFIRMED" },
+    }, overrides),
+  });
+}
+
+test("important metric does not disappear when its value is missing", () => {
+  const out = ws.investorMetricsGridHtml(displayMetricsCard(), { displayMetricCatalog: DISPLAY_METRIC_CATALOG }, ["ebitda"], "Định giá");
+  assert.match(out, /data-metric-id="ebitda"/);
+  assert.match(out, /EBITDA/);
+});
+
+test("EBITDA missing shows Chưa đủ dữ liệu / Tạm chưa có dữ liệu, never omitted or N\\/A", () => {
+  const out = ws.metricSlotHtml(displayMetricsCard().display_metrics, DISPLAY_METRIC_CATALOG, "ebitda");
+  assert.match(out, /Tạm chưa có dữ liệu/);
+  const visible = primaryVisibleText(out);
+  assert.doesNotMatch(visible, /\bN\/A\b/);
+  // The raw state is allowed in data-metric-state (debugging/QA only, per the codebase's
+  // established data-state/title convention) but must never appear in the visible text.
+  assert.doesNotMatch(visible, /TEMPORARILY_UNAVAILABLE/);
+});
+
+test("NOT_APPLICABLE renders Không áp dụng", () => {
+  const out = ws.metricSlotHtml(displayMetricsCard().display_metrics, DISPLAY_METRIC_CATALOG, "ev_ebitda");
+  assert.match(out, /Không áp dụng/);
+});
+
+test("NOT_TRACKED flow renders a neutral Chưa theo dõi, not an error", () => {
+  const out = ws.metricSlotHtml(displayMetricsCard().display_metrics, DISPLAY_METRIC_CATALOG, "foreign_flow_state");
+  assert.match(out, /Chưa theo dõi/);
+  assert.doesNotMatch(out, /error|Error|lỗi/);
+});
+
+test("BUILDING_HISTORY renders Đang tích lũy chuỗi phiên", () => {
+  const out = ws.metricSlotHtml(displayMetricsCard().display_metrics, DISPLAY_METRIC_CATALOG, "roe");
+  assert.match(out, /Đang tích lũy chuỗi phiên/);
+});
+
+test("available numeric metric formats as a percent or multiple, never a raw fraction", () => {
+  assert.match(ws.metricValueHtml("gross_margin", 0.2185), /%$/);
+  assert.doesNotMatch(ws.metricValueHtml("gross_margin", 0.2185), /^0\.2185$/);
+  assert.match(ws.metricValueHtml("pe_ttm", 12.4), /x$/);
+});
+
+test("available enum-valued metric routes through the governed domain table, not raw text", () => {
+  const out = ws.metricSlotHtml(displayMetricsCard().display_metrics, DISPLAY_METRIC_CATALOG, "technical_trend_entry_state");
+  assert.doesNotMatch(out, /UPTREND_CONFIRMED/);
+});
+
+test("flow persistence available value routes through the flow_persistence domain, never raw text", () => {
+  const catalog = Object.assign({}, DISPLAY_METRIC_CATALOG, { flow_persistence_5session: { label: "Độ bền dòng ngoại (5 phiên)", family: "FLOW" } });
+  const metrics = Object.assign({}, displayMetricsCard().display_metrics, {
+    flow_persistence_5session: { display_state: "AVAILABLE", value: "INSUFFICIENT_HISTORY" },
+  });
+  const out = ws.metricSlotHtml(metrics, catalog, "flow_persistence_5session");
+  assert.doesNotMatch(out, /\bINSUFFICIENT_HISTORY\b/);
+  assert.match(out, /Chưa đủ lịch sử được giữ lại/);
+});
+
+test("no forbidden engineering/backend language visible in a rendered metric slot", () => {
+  const out = ws.metricSlotHtml(displayMetricsCard().display_metrics, DISPLAY_METRIC_CATALOG, "ebitda");
+  const visible = primaryVisibleText(out);
+  for (const term of ["backend", "pipeline", "contract", "artifact", "reason_code", "PIT", "runtime", "projection", "cohort", "shadow"]) {
+    assert.doesNotMatch(visible, new RegExp(term, "i"));
+  }
+});
+
+test("missing catalog degrades to an empty string, never a crash", () => {
+  assert.doesNotThrow(() => ws.investorMetricsGridHtml(displayMetricsCard(), {}, ["ebitda"], "Định giá"));
+  assert.equal(ws.investorMetricsGridHtml(displayMetricsCard(), {}, ["ebitda"], "Định giá"), "");
+});
+
+test("unavailableText never leaks the raw English UNAVAILABLE sentinel into visible text", () => {
+  assert.equal(ws.unavailableText(null), "Chưa có dữ liệu");
+  assert.equal(ws.unavailableText(undefined), "Chưa có dữ liệu");
+  assert.equal(ws.unavailableText(""), "Chưa có dữ liệu");
+  assert.equal(ws.unavailableText(5), 5);
+  assert.notEqual(ws.unavailableText(null), "UNAVAILABLE");
+});
+
+test("Signal Velocity deep card never shows the raw UNAVAILABLE sentinel for a missing observation count", () => {
+  const withoutVelocity = card({ signal_velocity: {} });
+  const out = ws.decisionCardHtml(withoutVelocity, { ticker: "AAA" });
+  assert.doesNotMatch(primaryVisibleText(out), /\bUNAVAILABLE\b/);
+});
+
+test("missing != zero: an unavailable numeric metric never renders 0", () => {
+  const out = ws.metricSlotHtml(displayMetricsCard().display_metrics, DISPLAY_METRIC_CATALOG, "ebitda");
+  assert.doesNotMatch(out, />\s*0\s*<\/span>/);
+});
+
 test("evidence quality is qualitative, explained, and never a probability claim", () => {
   const current = ws.evidenceQuality(card(), "tactical");
   assert.deepEqual(current, {

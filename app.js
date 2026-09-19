@@ -194,8 +194,12 @@ async function loadJsonReport() {
     const data = await res.json();
 
     // --- KPI: Regime + Risk ---
+    // An unrecognized/unmapped value never renders raw (e.g. a future regime name added
+    // upstream) -- it falls back to the same neutral placeholder as a genuinely missing
+    // value, never a raw enum shown to the user (DASHBOARD_INVESTOR_FIRST_PRESENTATION_
+    // SIMPLIFICATION_V1 Phase 21).
     const regime = REGIME_MAP[String(data.market_regime).toLowerCase()] || {
-      label: String(data.market_regime || "—").toUpperCase(),
+      label: "Chưa có dữ liệu hiện tại",
       cls: "",
     };
     const kpiRegime = document.getElementById("kpi-regime");
@@ -205,7 +209,7 @@ async function loadJsonReport() {
     }
 
     const risk = RISK_MAP[String(data.portfolio_risk).toLowerCase()] || {
-      label: String(data.portfolio_risk || "Chưa có dữ liệu hiện tại").toUpperCase(),
+      label: "Chưa có dữ liệu hiện tại",
       cls: "",
     };
     const kpiRisk = document.getElementById("kpi-risk");

@@ -56,7 +56,7 @@ test("filtering is categorical only and preserves input order semantics", () => 
 });
 
 test("static page contains no trade controls or product action semantics", () => {
-  assert.match(html, /SHADOW RESEARCH ONLY/);
+  assert.match(html, /CHỈ MANG TÍNH NGHIÊN CỨU/);
   assert.doesNotMatch(html, /<input[^>]+(?:quantity|position|weight)/i);
   assert.doesNotMatch(html, /data-action\s*=\s*["'](?:buy|sell|hold|exit|liquidate)/i);
   assert.doesNotMatch(html, />\s*(?:Buy|Sell|Hold|Exit|Liquidate)\s*</i);

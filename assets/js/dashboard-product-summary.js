@@ -222,7 +222,10 @@
 
   function renderDecisionSummaryHtml(summary, releaseSession) {
     if (!summary || !summary.denominator) {
-      return `<div class="vs-alert vs-alert-warning mb-0">CURRENT_PRODUCT_ARTIFACT_NOT_PUBLISHED: chưa có screener_master_projection/v1 cho phiên hiện tại.</div>`;
+      // Ordinary missing data for this session -- a quiet note, not a system warning box
+      // (DASHBOARD_INVESTOR_FIRST_PRESENTATION_SIMPLIFICATION_V1 Phase 5); no pipeline
+      // status code or contract name shown to the user.
+      return `<p class="cockpit-note mb-0">Tạm chưa có dữ liệu tóm tắt cho phiên hiện tại.</p>`;
     }
     const sc = getSessionCoherence();
     const coherence = sc ? sc.classify(summary.as_of_session, releaseSession) : null;
@@ -417,7 +420,8 @@
         renderMarketOverview(summary);
       })
       .catch((error) => {
-        summaryHost.innerHTML = `<div class="vs-alert vs-alert-warning mb-0">CURRENT_PRODUCT_ARTIFACT_NOT_PUBLISHED: ${esc(error.message)}. Không gian quyết định vẫn là cửa vào sản phẩm khi artifact còn hiệu lực.</div>`;
+        if (typeof console !== "undefined" && console.debug) console.debug("dashboard summary unavailable:", error);
+        summaryHost.innerHTML = `<p class="cockpit-note mb-0">Tạm chưa có dữ liệu tóm tắt cho phiên hiện tại. Không gian quyết định vẫn là cửa vào sản phẩm chính.</p>`;
       });
   }
 

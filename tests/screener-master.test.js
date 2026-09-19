@@ -153,6 +153,12 @@ test("workspace renderer is reused and does not recompute decisions", () => {
   assert.doesNotMatch(script, /entry_state\s*=\s*["']BUY/);
 });
 
+test("translateStatus never leaks a raw unmapped code, falls back to Chưa đủ dữ liệu", () => {
+  assert.equal(sm.translateStatus("SOME_BRAND_NEW_CODE_NEVER_SEEN"), "Chưa đủ dữ liệu");
+  assert.equal(sm.translateStatus(""), "Chưa đủ dữ liệu");
+  assert.equal(sm.translateStatus(null), "Chưa đủ dữ liệu");
+});
+
 test("publication files exist", () => {
   assert.equal(fs.existsSync(path.join(__dirname, "..", "data/screener_master_projection.json")), true);
   assert.equal(fs.existsSync(path.join(__dirname, "..", "data/screener_master_projection.js")), true);

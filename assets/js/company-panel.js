@@ -373,10 +373,12 @@
    * (fail closed), never a fabricated zero/blank/NaN. ---------- */
   const FUNDAMENTAL_QUALITY_LABELS = { growth_profitability: "Growth & Profitability", dupont_roe: "DuPont ROE", earnings_quality: "Earnings Quality", financial_strength: "Financial Strength", piotroski_f_score: "Piotroski F-Score", altman_z_score: "Altman Z-Score", beneish_m_score: "Beneish M-Score" };
   function authoritativeReason(method) {
-    if (!isObject(method)) return "reason_not_provided";
+    // A plain neutral phrase, never a raw snake_case internal fallback token
+    // (DASHBOARD_INVESTOR_FIRST_PRESENTATION_SIMPLIFICATION_V1 Phase 4).
+    if (!isObject(method)) return "No reason provided";
     if (Array.isArray(method.missing_inputs) && method.missing_inputs.length) return method.missing_inputs.join(", ");
     if (Array.isArray(method.warnings) && method.warnings.length) return method.warnings.join(" ");
-    return "reason_not_provided";
+    return "No reason provided";
   }
   function financialCurrency(entry) {
     const records = entry && entry.financial_canonical && entry.financial_canonical.records;
