@@ -482,7 +482,7 @@
     // limited fact without calling the methods intrinsic or inventing their identities.
     const legacyCount = Number(val.usable_relative_method_count) || 0;
     if (legacyCount > 0) {
-      return `<div class="ws-valuation-summary">${escHtml(`${legacyCount} phương pháp định giá có dữ liệu nghiên cứu.`)}<div class="cockpit-note">Chi tiết từng phương pháp chưa được giữ lại trong artifact này.</div></div>`;
+      return `<div class="ws-valuation-summary">${escHtml(`${legacyCount} phương pháp định giá có dữ liệu nghiên cứu.`)}<div class="cockpit-note">Chi tiết từng phương pháp chưa được giữ lại cho phiên này.</div></div>`;
     }
     return '<div class="ws-valuation-summary">Chưa có phương pháp định giá có dữ liệu nghiên cứu.</div>';
   }
@@ -606,7 +606,7 @@
   const MICRO_EXPLANATIONS = {
     "Pha kỹ thuật": "Mô tả bối cảnh giá theo dữ liệu được giữ lại. Đây là bằng chứng nghiên cứu, không phải lệnh mua hoặc bán.",
     "Mức sẵn sàng kỹ thuật": "Cho biết trạng thái thiết lập kỹ thuật hiện có; trạng thái này tách biệt với tư thế nghiên cứu và xác nhận thực tế.",
-    "Dấu hiệu": "Các đặc điểm kỹ thuật được Producer giữ lại để hỗ trợ diễn giải, không tạo thẩm quyền giao dịch độc lập.",
+    "Dấu hiệu": "Các đặc điểm kỹ thuật được giữ lại để hỗ trợ diễn giải, không tạo thẩm quyền giao dịch độc lập.",
     "Khối lượng phiên": "Khối lượng của phiên được giữ lại; không tự xác lập năng lực thực hiện lệnh hoặc thanh khoản đầy đủ.",
     "Định giá": "Định giá tương đối cần được đọc cùng kỳ dữ liệu, nhóm so sánh và các giới hạn được công bố.",
     "Nền tảng": "Tóm tắt trạng thái nền tảng doanh nghiệp theo dữ liệu nghiên cứu được giữ lại.",
@@ -1567,7 +1567,7 @@
         .catch((err) => {
           const e = document.getElementById("workspace-error");
           e.hidden = false;
-          e.textContent = `Không gian quyết định không khả dụng (${err.message}). Hãy dựng từ workspace_index/v1 do Producer publish; không dùng fallback hay khám phá phiên mới nhất.`;
+          e.textContent = `Chưa thể tải Bàn quyết định lúc này. Vui lòng thử tải lại trang.`;
         });
     })();
   }

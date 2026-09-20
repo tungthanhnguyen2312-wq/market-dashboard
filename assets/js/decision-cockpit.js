@@ -487,7 +487,7 @@
               <th>Phiên</th>
             </tr>
           </thead>
-          <tbody>${inputRows || '<tr><td colspan="4" class="cockpit-note">Chưa có thông tin artifact nguồn</td></tr>'}</tbody>
+          <tbody>${inputRows || '<tr><td colspan="4" class="cockpit-note">Chưa có thông tin nguồn dữ liệu</td></tr>'}</tbody>
         </table>
       </div>
       <h6 class="mt-3">Tính nhất quán phiên</h6>

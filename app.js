@@ -307,132 +307,6 @@ function initWatchlistFilter(notes) {
 }
 
 /* ============================================================
- * KPI TỪ DỮ LIỆU CSV (breadth, cấu trúc, thanh khoản)
- * ============================================================ */
-function fillMarketKpis(rows) {
-  // Legacy MA200 / structure / GTGD20 KPIs were removed from the primary
-  // Dashboard. Missing features must not render as numeric zero.
-  if (!document.getElementById("kpi-breadth")) return;
-  const total = rows.length;
-  if (!total) return;
-  let above200 = 0, structUp = 0, hiLiq = 0;
-  rows.forEach((r) => {
-    if (isTrue(r.above_sma200)) above200++;
-    if (String(r.structure).toLowerCase() === "up") structUp++;
-    const liq = num(r.gtgd20_ty);
-    if (!isNaN(liq) && liq >= 50) hiLiq++;
-  });
-
-  const pctBreadth = (above200 / total) * 100;
-  const pctUp = (structUp / total) * 100;
-
-  const kb = document.getElementById("kpi-breadth");
-  kb.textContent = pctBreadth.toFixed(1) + "%";
-  kb.className =
-    "kpi-value " + (pctBreadth >= 50 ? "text-success" : pctBreadth >= 30 ? "text-warning" : "text-danger");
-  document.getElementById("kpi-breadth-sub").textContent = `${above200}/${total} mã trên MA200`;
-  document.getElementById("kpi-breadth-bar").style.width = pctBreadth.toFixed(1) + "%";
-
-  const ks = document.getElementById("kpi-structure");
-  ks.textContent = pctUp.toFixed(1) + "%";
-  ks.className =
-    "kpi-value " + (pctUp >= 40 ? "text-success" : pctUp >= 20 ? "text-warning" : "text-danger");
-  document.getElementById("kpi-structure-sub").textContent = `${structUp}/${total} mã cấu trúc up`;
-  document.getElementById("kpi-structure-bar").style.width = pctUp.toFixed(1) + "%";
-
-  document.getElementById("kpi-liquidity").textContent = hiLiq + " mã";
-}
-
-/* ============================================================
- * BIỂU ĐỒ (Chart.js) — chỉ dùng dữ liệu đang có trong CSV
- * ============================================================ */
-function renderCharts(rows) {
-  if (!window.Chart) return;
-  if (!document.getElementById("chart-structure")) return;
-  applyChartTheme();
-
-  // --- Sector breadth: % mã trên MA200 theo ngành (ngành >= 8 mã) ---
-  const byIndustry = {};
-  rows.forEach((r) => {
-    const ind = r.industry;
-    if (!ind) return;
-    if (!byIndustry[ind]) byIndustry[ind] = { total: 0, above: 0 };
-    byIndustry[ind].total++;
-    if (isTrue(r.above_sma200)) byIndustry[ind].above++;
-  });
-
-  const sectors = Object.entries(byIndustry)
-    .filter(([, v]) => v.total >= 8)
-    .map(([name, v]) => ({ name, pct: (v.above / v.total) * 100, total: v.total }))
-    .sort((a, b) => b.pct - a.pct)
-    .slice(0, 10);
-
-  const sectorCanvas = document.getElementById("chart-sector");
-  if (sectorCanvas && sectors.length) {
-    new Chart(sectorCanvas, {
-      type: "bar",
-      data: {
-        labels: sectors.map((s) => s.name),
-        datasets: [{
-          data: sectors.map((s) => +s.pct.toFixed(1)),
-          backgroundColor: sectors.map((s) =>
-            s.pct >= 50 ? CHART_COLORS.pos : s.pct >= 30 ? CHART_COLORS.warn : CHART_COLORS.neg
-          ),
-          borderRadius: 4,
-          barThickness: 14,
-        }],
-      },
-      options: {
-        indexAxis: "y",
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            callbacks: {
-              label: (ctx) => ` ${ctx.parsed.x}% trên MA200 (${sectors[ctx.dataIndex].total} mã)`,
-            },
-          },
-        },
-        scales: {
-          x: { max: 100, ticks: { callback: (v) => v + "%" } },
-          y: { grid: { display: false } },
-        },
-      },
-    });
-  }
-
-  // --- Phân bố cấu trúc giá ---
-  const structCount = { up: 0, side: 0, down: 0 };
-  rows.forEach((r) => {
-    const s = String(r.structure).toLowerCase();
-    if (s in structCount) structCount[s]++;
-  });
-
-  const structCanvas = document.getElementById("chart-structure");
-  if (structCanvas) {
-    new Chart(structCanvas, {
-      type: "doughnut",
-      data: {
-        labels: ["UP", "SIDE", "DOWN"],
-        datasets: [{
-          data: [structCount.up, structCount.side, structCount.down],
-          backgroundColor: [CHART_COLORS.pos, CHART_COLORS.warn, CHART_COLORS.neg],
-          borderColor: CHART_COLORS.surface,
-          borderWidth: 3,
-        }],
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        cutout: "62%",
-        plugins: { legend: { position: "bottom" } },
-      },
-    });
-  }
-}
-
-/* ============================================================
  * KHU VỰC 2: STOCK SCREENER (PapaParse + DataTables)
  * ============================================================ */
 
@@ -678,63 +552,36 @@ function activeMarketSession(rows) {
     .map((r) => String(r.date || "")).filter(Boolean).sort().at(-1) || "?";
 }
 
-function renderHeroBanner(buildInfo, rows) {
-  const host = document.getElementById("dashboard-hero-banner");
-  if (!host) return;
-  const session = buildInfo?.market_session || activeMarketSession(rows);
-  if (!session || session === "?") {
-    host.innerHTML = `
-      <div class="card" style="border-left: 4px solid var(--border); background: var(--surface);">
-        <div class="card-body py-3 px-4">
-          <span class="badge-soft bs-gray">Chưa có dữ liệu phiên thị trường</span>
-        </div>
-      </div>`;
+/* Băng freshness trên topbar ("Phiên ... · giờ publish") chỉ cần build_info.json
+   (đã có sẵn market_session/published_at, vài KB) — KHÔNG cần đợi CSV/DataTable
+   của "Bộ lọc tương thích" (bảng lớn, giờ chỉ nạp khi mở rộng thẻ đó). Băng biểu
+   thị trạng thái thị trường thật (độ rộng, phiên) nằm ở #dashboard-hero-banner,
+   do dashboard-product-summary.js dựng cùng lúc với KPI/biểu đồ bên dưới — một
+   nguồn dữ liệu duy nhất, không tính độ rộng hai lần theo hai phạm vi khác nhau. */
+function renderTopbarFreshness(buildInfo) {
+  const lastUpdatedEl = document.getElementById("market-last-updated");
+  if (!lastUpdatedEl) return;
+  const session = buildInfo?.market_session;
+  if (!session) {
+    lastUpdatedEl.textContent = "Chưa có dữ liệu phiên thị trường";
     return;
   }
   const dateMatch = String(session).match(/^(\d{4})-(\d{2})-(\d{2})$/);
   const displayDate = dateMatch ? `${dateMatch[3]}/${dateMatch[2]}/${dateMatch[1]}` : session;
-  const activeRows = (rows || []).filter((r) => normalizeExchange(r.exchange) !== "DELISTED");
-  const totalCount = activeRows.length || (rows || []).length;
-  const reportHref = buildInfo?.hero_summary?.report_href || `report-${session}.html`;
-  const reportExists = Boolean(buildInfo?.hero_summary?.report_href || buildInfo?.files?.[`report-${session}.html`]);
-
-  host.innerHTML = `
-    <div class="card" style="border-left: 4px solid var(--primary); background: linear-gradient(90deg, rgba(32, 231, 207, 0.08) 0%, rgba(15, 23, 42, 0.6) 100%);">
-      <div class="card-body py-3 px-4 d-flex align-items-center justify-content-between flex-wrap gap-3">
-        <div>
-          <div class="d-flex align-items-center gap-2 flex-wrap mb-1">
-            <span class="badge-soft bs-blue">Phiên ${esc(displayDate)}</span>
-            <span class="badge-soft bs-blue">Bảng sàng lọc kế thừa</span>
-            <span class="badge-soft bs-gray">Phạm vi riêng: ${totalCount} mã</span>
-          </div>
-          <div class="text-xs text-muted">
-            Snapshot sàng lọc phiên <strong>${esc(displayDate)}</strong>, tách biệt với phạm vi tham chiếu của Bàn quyết định. Độ rộng, tư thế nghiên cứu và thanh khoản nghiên cứu hiện tại được đọc từ projection riêng — không suy từ MA200 / GTGD20 khi các trường đó không được công bố.
-          </div>
-        </div>
-        <div>
-          <a href="${esc(reportHref)}" class="vs-btn" style="background: var(--primary); color: #03080A; font-weight: 700; border: none; font-size: 0.8rem; padding: 0.4rem 0.9rem;">
-            ${reportExists ? `Xem báo cáo phiên ${esc(displayDate)} →` : `Xem phân tích chi tiết →`}
-          </a>
-        </div>
-      </div>
-    </div>`;
+  const published = buildInfo?.published_at || buildInfo?.generated_at;
+  const pubText = published ? String(published).slice(0, 16).replace("T", " ") : "";
+  lastUpdatedEl.textContent = pubText ? `Phiên ${displayDate} · ${pubText}` : `Phiên ${displayDate}`;
 }
 
-function updateMarketFreshness(rows, source) {
-  const session = currentBuildInfo?.market_session || activeMarketSession(rows);
-  const published = currentBuildInfo?.published_at || currentBuildInfo?.generated_at || "chưa có manifest";
-  const dateMatch = String(session).match(/^(\d{4})-(\d{2})-(\d{2})$/);
-  const displayDate = dateMatch ? `${dateMatch[3]}/${dateMatch[2]}/${dateMatch[1]}` : session;
-  const buildId = currentBuildInfo?.build_id || "legacy";
-  const pubText = published !== "chưa có manifest" ? published.slice(0, 16).replace("T", " ") : "pipeline local";
-  const lastUpdatedEl = document.getElementById("market-last-updated");
-  if (lastUpdatedEl) {
-    lastUpdatedEl.textContent = `Phiên ${displayDate} · ${pubText}`;
-  }
+/* Badge xây dựng ("build ...") chỉ có ý nghĩa vận hành, nên chỉ hiện bên trong
+   "Bộ lọc tương thích" (thẻ mở rộng, không phải Tổng quan) — cùng lúc bảng lớn
+   được nạp, không sớm hơn. */
+function updateBuildStatusBadge(source) {
   const buildStatusEl = document.getElementById("build-status");
-  if (buildStatusEl) {
-    buildStatusEl.textContent = `Xuất bản ${published} · build ${buildId} · ${source}`;
-  }
+  if (!buildStatusEl) return;
+  const published = currentBuildInfo?.published_at || currentBuildInfo?.generated_at || "chưa xuất bản";
+  const buildId = currentBuildInfo?.build_id || "legacy";
+  buildStatusEl.textContent = `Xuất bản ${published} · build ${buildId} · ${source}`;
 }
 
 async function loadBuildInfo() {
@@ -750,7 +597,53 @@ async function loadBuildInfo() {
   return currentBuildInfo;
 }
 
+/* ============================================================
+ * "BỘ LỌC TƯƠNG THÍCH" — NẠP TRỄ (LAZY)
+ * Bảng 1.683 dòng + jQuery/DataTables/PapaParse/company-panel.js chỉ có giá
+ * trị khi người dùng chủ động mở rộng thẻ <details> — không phải nội dung
+ * Tổng quan. Không có gì trong khối này chạy trước khi thẻ được mở.
+ * ============================================================ */
+const _lazyScripts = new Set();
+function loadScriptOnce(src) {
+  if (_lazyScripts.has(src)) return Promise.resolve();
+  _lazyScripts.add(src);
+  return new Promise((resolve) => {
+    const el = document.createElement("script");
+    el.src = src;
+    el.onload = resolve;
+    el.onerror = resolve;
+    document.head.appendChild(el);
+  });
+}
+function loadStylesheetOnce(href) {
+  if (document.querySelector(`link[href="${href}"]`)) return;
+  const link = document.createElement("link");
+  link.rel = "stylesheet";
+  link.href = href;
+  document.head.appendChild(link);
+}
+
+let _screenerDepsReady = null;
+function ensureScreenerDependencies() {
+  if (_screenerDepsReady) return _screenerDepsReady;
+  loadStylesheetOnce("https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.min.css");
+  // app.js chính nó không gọi $(...) ở đâu cả, nhưng dataTables.bootstrap5.min.js (bản
+  // tích hợp Bootstrap 5 của DataTables 2.1.8) vẫn cần jQuery có sẵn để tự đăng ký vào
+  // -- xác nhận thực nghiệm: thiếu jQuery ném "jQuery is not defined" khi mở "Bộ lọc
+  // tương thích". Trình tự bắt buộc: jQuery -> dataTables.min.js -> bootstrap5 tích hợp
+  // (mở rộng đối tượng DataTable đã có) -- ba bước này phải tuần tự, không song song.
+  _screenerDepsReady = loadScriptOnce("https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js")
+    .then(() => loadScriptOnce("https://cdn.datatables.net/2.1.8/js/dataTables.min.js"))
+    .then(() => loadScriptOnce("https://cdn.datatables.net/2.1.8/js/dataTables.bootstrap5.min.js"))
+    .then(() => Promise.all([
+      loadScriptOnce("https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"),
+      loadScriptOnce(`assets/js/company-panel.js?v=2026-09-18-6f6effe-33d5b3e538`),
+    ]));
+  return _screenerDepsReady;
+}
+
 async function loadMarketTable() {
+  await ensureScreenerDependencies();
   let rows, fields, source = "HTTP", fetchErr = null;
   if (!isFileProtocol()) {
     try {
@@ -782,10 +675,23 @@ async function loadMarketTable() {
   }
   rows.forEach((row) => { row.exchange = normalizeExchange(row.exchange); });
   initMarketTable(rows, fields);
-  fillMarketKpis(rows);
-  renderCharts(rows);
-  renderHeroBanner(currentBuildInfo, rows);
-  updateMarketFreshness(rows, source);
+  updateBuildStatusBadge(source);
+  renderScreenerScopeNote(rows);
+}
+
+/* Bảng ở đây đọc trực tiếp screen_snapshot.csv -- một phạm vi kế thừa, hẹp hơn và
+   được tính riêng với phạm vi tham chiếu 1.683 mã của Bàn quyết định (đọc từ
+   screener_master_projection.json). Không được ngầm hiểu bảng này là toàn bộ
+   thị trường/universe chính thức -- ghi rõ ngay trong chính khối "Bộ lọc chi
+   tiết" (không còn ở hero của Tổng quan, xem renderHeroBanner trong
+   dashboard-product-summary.js). */
+function renderScreenerScopeNote(rows) {
+  const host = document.getElementById("screener-scope-note");
+  if (!host) return;
+  const session = currentBuildInfo?.market_session || activeMarketSession(rows);
+  const activeRows = (rows || []).filter((r) => normalizeExchange(r.exchange) !== "DELISTED");
+  const totalCount = activeRows.length || (rows || []).length;
+  host.textContent = `Bảng sàng lọc kế thừa — Phạm vi riêng: ${totalCount} mã. Snapshot sàng lọc phiên ${session}, tách biệt với phạm vi tham chiếu của Bàn quyết định.`;
 }
 
 function showTableError(message) {
@@ -796,11 +702,28 @@ function showTableError(message) {
     </div>`;
 }
 
+/* Chỉ gắn listener — KHÔNG fetch/parse/khởi tạo gì trước khi người dùng thật sự
+   mở rộng "Bộ lọc tương thích" (nhấp <summary> hoặc phím Enter/Space, hành vi gốc
+   của <details>). Đây là hành động rõ ràng của người dùng mà mục C của milestone
+   yêu cầu, tương đương nút "Xem toàn bộ thị trường". */
+function initScreenerLazyLoad() {
+  const details = document.querySelector(".dashboard-screener-card");
+  if (!details) return;
+  let started = false;
+  details.addEventListener("toggle", () => {
+    if (details.open && !started) {
+      started = true;
+      loadMarketTable();
+    }
+  });
+}
+
 /* ---------- KHỞI CHẠY ---------- */
 document.addEventListener("DOMContentLoaded", async () => {
   initReportToggle();
   loadAiReport();
   loadJsonReport();
+  initScreenerLazyLoad();
   await loadBuildInfo();
-  await loadMarketTable();
+  renderTopbarFreshness(currentBuildInfo);
 });

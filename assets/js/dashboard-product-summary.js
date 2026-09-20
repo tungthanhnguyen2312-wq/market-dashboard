@@ -278,8 +278,65 @@
     if (className) el.className = className;
   }
 
+  /* Nhãn trạng thái thị trường thuần mô tả (dựa trên số mã tăng/giảm đã tính sẵn ở
+     trên, không phải một quy tắc đầu tư mới): nghiêng hẳn về một phía mới gọi tên,
+     còn lại là "giằng co" -- không suy ra khuyến nghị mua/bán. */
+  function marketBreadthStateLabel(breadth) {
+    if (!breadth.available || (breadth.up + breadth.down) === 0) return null;
+    if (breadth.up >= breadth.down * 1.2) return { text: "Nghiêng tăng", cls: "bs-green" };
+    if (breadth.down >= breadth.up * 1.2) return { text: "Nghiêng giảm", cls: "bs-red" };
+    return { text: "Giằng co", cls: "bs-amber" };
+  }
+
+  /* Hero banner: trạng thái thị trường thật (phiên, độ rộng), không phải văn bản
+     giải thích phạm vi/phương pháp nội bộ -- đó là nội dung cho người làm sản
+     phẩm, không phải người xem Tổng quan (mục B của milestone hội tụ Dashboard). */
+  /* Pure: returns the hero HTML string for a given summary. No DOM access, so it is
+     directly unit-testable (mirrors renderDecisionSummaryHtml's existing pattern). */
+  function heroBannerHtml(summary) {
+    if (!summary || !summary.as_of_session) {
+      return `
+        <div class="card" style="border-left: 4px solid var(--border); background: var(--surface);">
+          <div class="card-body py-3 px-4">
+            <span class="badge-soft bs-gray">Chưa có dữ liệu phiên thị trường</span>
+          </div>
+        </div>`;
+    }
+    const dateMatch = String(summary.as_of_session).match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    const displayDate = dateMatch ? `${dateMatch[3]}/${dateMatch[2]}/${dateMatch[1]}` : summary.as_of_session;
+    const breadth = summary.session_breadth;
+    const state = marketBreadthStateLabel(breadth);
+    const breadthText = breadth.available
+      ? `${breadth.up.toLocaleString("vi-VN")} tăng · ${breadth.down.toLocaleString("vi-VN")} giảm · ${breadth.flat.toLocaleString("vi-VN")} tham chiếu`
+      : "Chưa có dữ liệu độ rộng phiên";
+    return `
+      <div class="card" style="border-left: 4px solid var(--primary); background: linear-gradient(90deg, rgba(32, 231, 207, 0.08) 0%, rgba(15, 23, 42, 0.6) 100%);">
+        <div class="card-body py-3 px-4 d-flex align-items-center justify-content-between flex-wrap gap-3">
+          <div>
+            <div class="d-flex align-items-center gap-2 flex-wrap mb-1">
+              <span class="badge-soft bs-blue">Phiên ${esc(displayDate)}</span>
+              ${state ? `<span class="badge-soft ${state.cls}">${esc(state.text)}</span>` : ""}
+            </div>
+            <div class="text-xs text-muted">${esc(breadthText)}</div>
+          </div>
+          <div>
+            <a href="investment-workspace.html" class="vs-btn" style="background: var(--primary); color: #03080A; font-weight: 700; border: none; font-size: 0.8rem; padding: 0.4rem 0.9rem;">
+              Mở Bàn quyết định →
+            </a>
+          </div>
+        </div>
+      </div>`;
+  }
+
+  function renderHeroBanner(summary) {
+    const host = typeof document !== "undefined" ? document.getElementById("dashboard-hero-banner") : null;
+    if (!host) return;
+    host.innerHTML = heroBannerHtml(summary);
+  }
+
   function renderMarketOverview(summary) {
     if (typeof document === "undefined" || !summary) return;
+    renderHeroBanner(summary);
     const breadth = summary.session_breadth;
     const scope = getProductScopeFormat();
     if (breadth.available) {
@@ -443,6 +500,8 @@
     coverageText,
     missingMetricNeverZero,
     renderDecisionSummaryHtml,
+    heroBannerHtml,
+    marketBreadthStateLabel,
     renderMarketOverview,
     validateProjection,
   };

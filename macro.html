@@ -4,16 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vĩ mô | Stock Look Up</title>
-  <meta name="description" content="Dashboard chỉ báo vĩ mô gồm lãi suất, tỷ giá, CPI, lợi suất, DXY, dầu, vàng, VIX và trạng thái dữ liệu khối ngoại từ pipeline Stock Look Up.">
+  <meta name="description" content="Dashboard chỉ báo vĩ mô gồm lãi suất, tỷ giá, CPI, lợi suất, DXY, dầu, vàng, VIX và trạng thái dữ liệu khối ngoại từ Stock Look Up.">
   <link rel="canonical" href="https://tungthanhnguyen2312-wq.github.io/market-dashboard/macro.html">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2303080A'/%3E%3Crect x='6' y='18' width='5' height='8' rx='1' fill='%2320E7CF'/%3E%3Crect x='14' y='12' width='5' height='14' rx='1' fill='%2327E6A1'/%3E%3Crect x='22' y='6' width='5' height='20' rx='1' fill='%2327E6A1'/%3E%3C/svg%3E">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Stock Look Up — Vĩ mô">
-  <meta property="og:description" content="Theo dõi lãi suất, tỷ giá, tăng trưởng, rủi ro và hàng hóa từ snapshot pipeline Stock Look Up.">
+  <meta property="og:description" content="Theo dõi lãi suất, tỷ giá, tăng trưởng, rủi ro và hàng hóa từ dữ liệu Stock Look Up.">
   <meta property="og:url" content="https://tungthanhnguyen2312-wq.github.io/market-dashboard/macro.html">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Stock Look Up — Vĩ mô">
-  <meta name="twitter:description" content="Dashboard vĩ mô từ local pipeline snapshot, cập nhật theo lần publish gần nhất.">
+  <meta name="twitter:description" content="Dashboard vĩ mô, cập nhật theo lần publish gần nhất.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -75,9 +75,9 @@
             <div>
               <div class="section-eyebrow">Tổng quan vĩ mô</div>
               <h1 id="macro-title">Vĩ mô</h1>
-              <p class="macro-subtitle">Bối cảnh lãi suất, tiền tệ, tăng trưởng, rủi ro và hàng hóa từ dữ liệu pipeline đã được publish.</p>
+              <p class="macro-subtitle">Bối cảnh lãi suất, tiền tệ, tăng trưởng, rủi ro và hàng hóa theo dữ liệu đã cập nhật gần nhất.</p>
               <div class="macro-badges">
-                <span class="badge-soft bs-blue">Dữ liệu pipeline</span>
+                <span class="badge-soft bs-blue">Toàn thị trường</span>
                 <span class="badge-soft bs-gray" id="macro-status" role="status" aria-live="polite">Đang tải</span>
               </div>
             </div>
@@ -100,7 +100,7 @@
 
         <div class="macro-notice is-loading" id="macro-notice" role="status" aria-live="polite">
           <i data-lucide="loader-circle" aria-hidden="true"></i>
-          <span id="macro-notice-text">Đang tải local pipeline snapshot…</span>
+          <span id="macro-notice-text">Đang tải dữ liệu vĩ mô…</span>
         </div>
 
         <section aria-labelledby="kpi-title">

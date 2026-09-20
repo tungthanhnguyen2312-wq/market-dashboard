@@ -549,7 +549,7 @@
       setNotice("warning", "Đã tải " + quality.available_count + " chỉ báo. Có " + quality.stale_count + " chỉ báo vượt ngưỡng độ mới theo tần suất riêng.", "clock-alert");
     } else {
       setStatusBadge("Tải thành công", "bs-green");
-      setNotice("success", "Đã tải " + quality.available_count + " chỉ báo từ " + (source === "json" ? "lần publish gần nhất" : "local pipeline snapshot") + ".", "circle-check");
+      setNotice("success", "Đã tải " + quality.available_count + " chỉ báo từ " + (source === "json" ? "lần publish gần nhất" : "dữ liệu cục bộ") + ".", "circle-check");
     }
     renderKpis(snapshot);
     renderCharts(snapshot);
@@ -561,7 +561,7 @@
   function renderUnavailable(kind) {
     var invalid = kind === "invalid";
     setStatusBadge(invalid ? "File không hợp lệ" : "Chưa có snapshot", "bs-red");
-    setNotice("error", invalid ? "Snapshot không đúng schema an toàn nên trang không hiển thị dữ liệu." : "Chưa có snapshot được publish. Hãy chạy pipeline vĩ mô rồi publish lại dashboard.", "circle-x");
+    setNotice("error", invalid ? "Snapshot không đúng schema an toàn nên trang không hiển thị dữ liệu." : "Tạm chưa có dữ liệu vĩ mô cho phiên hiện tại.", "circle-x");
     byId("macro-kpis").replaceChildren(element("div", "macro-empty-chart", "Không có chỉ báo khả dụng để hiển thị."));
     byId("macro-charts").replaceChildren(element("div", "macro-empty-chart", "Chưa đủ dữ liệu lịch sử để vẽ biểu đồ."));
     byId("macro-table-body").replaceChildren((function () {

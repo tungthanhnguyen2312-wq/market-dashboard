@@ -24,9 +24,11 @@
   <link rel="preconnect" href="https://cdn.datatables.net">
   <link rel="preconnect" href="https://unpkg.com">
 
-  <!-- Bootstrap 5 + DataTables — giữ nguyên, nội dung bên trong (bảng/card) vẫn phụ thuộc -->
+  <!-- Bootstrap 5 — dùng ngay cho khung/card/badge của Tổng quan.
+       DataTables CSS/JS + jQuery + PapaParse KHÔNG tải ở đây nữa: "Bộ lọc tương thích"
+       là bảng lớn (1.683 dòng), không phải nội dung Tổng quan — chỉ nạp khi người dùng
+       thật sự mở rộng thẻ đó (xem ensureScreenerDependencies() trong app.js). -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.min.css">
   <!-- Design system cũ (card/kpi/badge/table) — KHÔNG đổi -->
   <link rel="stylesheet" href="style.css?v=2026-09-18-6f6effe-33d5b3e538">
 
@@ -114,7 +116,7 @@
         <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
           <div class="section-eyebrow mb-0">Tổng quan thị trường</div>
           <div class="d-flex align-items-center gap-2 flex-wrap">
-            <span class="badge-soft bs-blue" title="Cập nhật mỗi khi chạy lại pipeline dữ liệu">Dữ liệu pipeline</span>
+            <span class="badge-soft bs-blue" title="Cập nhật mỗi phiên giao dịch">Toàn thị trường</span>
           </div>
         </div>
         <section class="kpi-grid dashboard-kpi-band mb-4" aria-label="Chỉ số tổng quan thị trường">
@@ -220,6 +222,7 @@
             <span class="badge-soft bs-blue" id="build-status">Đang đọc build…</span>
           </div>
           <div class="card-body">
+            <p class="cockpit-note mb-3" id="screener-scope-note"></p>
             <div class="mb-3">
               <div class="form-label-sm mb-2">Lọc nhanh</div>
               <div class="chip-row" id="quick-filters"></div>
@@ -265,7 +268,7 @@
             <span class="badge-soft bs-amber" id="report-date"></span>
           </div>
           <div class="card-body pb-0">
-            <p class="optional-ai-research mb-2">Phần này là nghiên cứu AI cục bộ tùy chọn — không phải chỉ số pipeline hiện tại. Nếu không có snapshot phiên hiện tại, hiển thị "Chưa có dữ liệu hiện tại".</p>
+            <p class="optional-ai-research mb-2">Phần này là nghiên cứu AI cục bộ tùy chọn — không phải chỉ số phiên hiện tại. Nếu không có snapshot phiên hiện tại, hiển thị "Chưa có dữ liệu hiện tại".</p>
             <div class="d-flex flex-wrap gap-3 mb-3">
               <div><span class="form-label-sm">Regime thị trường (AI cục bộ)</span><div class="kpi-value" id="kpi-regime">Chưa có dữ liệu hiện tại</div></div>
               <div><span class="form-label-sm">Rủi ro danh mục (AI cục bộ)</span><div class="kpi-value" id="kpi-risk">Chưa có dữ liệu hiện tại</div></div>
@@ -319,14 +322,16 @@
   <!-- ===== SCRIPTS (CDN) =====
        defer trên cả cụm: tải song song thay vì tải-chặn-tải tuần tự, vẫn thực
        thi ĐÚNG THỨ TỰ ngay trước DOMContentLoaded — app.js vốn đã gói toàn bộ
-       logic trong DOMContentLoaded nên thời điểm chạy thực tế không đổi. -->
+       logic trong DOMContentLoaded nên thời điểm chạy thực tế không đổi.
+
+       jQuery / DataTables (2 file) / PapaParse / company-panel.js KHÔNG còn ở đây:
+       Tổng quan (KPI, biểu đồ, watchlist, kế hoạch) không dùng bảng lớn hay hồ sơ
+       mã. Cả 4 thư viện đó chỉ phục vụ "Bộ lọc tương thích" (bảng 1.683 dòng, đã
+       thu gọn trong <details>) và chỉ được app.js nạp động lúc người dùng thật sự
+       mở thẻ đó — xem ensureScreenerDependencies() trong app.js. -->
   <script src="https://unpkg.com/lucide@1.24.0" defer></script>
   <script src="assets/js/shell.js?v=2026-09-18-6f6effe-33d5b3e538" defer></script>
   <script src="assets/js/resizable-panels.js?v=2026-09-18-6f6effe-33d5b3e538" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" defer></script>
-  <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js" defer></script>
-  <script src="https://cdn.datatables.net/2.1.8/js/dataTables.bootstrap5.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js" defer></script>
   <script src="data/build_info.js?v=2026-09-18-6f6effe-33d5b3e538" defer></script>
@@ -335,7 +340,6 @@
   <script src="assets/js/value-format.js?v=2026-09-18-6f6effe-33d5b3e538" defer></script>
   <script src="assets/js/product-scope-format.js?v=2026-09-18-6f6effe-33d5b3e538" defer></script>
   <script src="assets/js/session-coherence.js?v=2026-09-18-6f6effe-33d5b3e538" defer></script>
-  <script src="assets/js/company-panel.js?v=2026-09-18-6f6effe-33d5b3e538" defer></script>
   <script src="assets/js/dashboard-product-summary.js?v=2026-09-18-6f6effe-33d5b3e538" defer></script>
   <script src="app.js?v=2026-09-18-6f6effe-33d5b3e538" defer></script>
 </body>
