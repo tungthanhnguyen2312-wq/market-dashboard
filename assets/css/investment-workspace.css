@@ -26,6 +26,34 @@
 .ws-compact-table tr.ws-row-selected .sticky-col {
   background: rgba(var(--primary-rgb), 0.18);
 }
+
+/* Mobile 375-430px acceptance (DASHBOARD_INVESTOR_FIRST_LOCALIZATION_AND_UI_CLOSEOUT_V1
+ * corrective closeout): the Opportunities table's 10 nowrap-header columns give it a
+ * real content-driven min width around 979px. table-layout:auto (the default) treats
+ * the "width: 100%" above as a floor, not a cap, so it never shrinks -- and unlike a
+ * normal block element, that oversized table is NOT reliably contained by
+ * .ws-list-scroll's own overflow-x:auto: the page itself (document.documentElement /
+ * window) still measures the wider content and gains real horizontal scroll/zoom,
+ * confirmed by toggling table-layout and width live and watching
+ * document.documentElement.scrollWidth track the table's own rendered width exactly,
+ * regardless of the scroll wrapper. table-layout:fixed makes the table's own width
+ * authoritative instead of content-driven, which is what actually stops the leak; the
+ * shared .cockpit-table min-width:620px rule (assets/css/decision-cockpit.css, a
+ * different table on a different page) must also be zeroed out here or it re-floors
+ * the width past the viewport again. Rather than compress 10 columns into ~33px each
+ * (unreadable), only the ticker, current status, current price and the detail-drawer
+ * entry point stay visible below 768px; the rest remain one tap away via Chi tiết.
+ * Desktop (>768px) is completely unaffected. */
+@media (max-width: 768px) {
+  .ws-compact-table {
+    table-layout: fixed;
+    min-width: 0;
+  }
+  .ws-compact-table th:nth-child(n+4):nth-child(-n+9),
+  .ws-compact-table td:nth-child(n+4):nth-child(-n+9) {
+    display: none;
+  }
+}
 .ws-ticker-link {
   font-size: 0.95rem;
   font-weight: 700;

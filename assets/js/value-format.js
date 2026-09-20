@@ -930,13 +930,31 @@
     };
   }
 
-  function formatKnownLabel(value, preferredDomain) {
-    const formatted = formatDomainState(value, preferredDomain);
-    if (formatted.known || !formatted.raw) return formatted.label;
+  // The one canonical formatKnownLabel: look up the requested domain first, then
+  // fall back to scanning every other domain table for the same raw value (a
+  // status/reason code is occasionally passed with the "wrong" domain label, and
+  // this is what lets it still resolve to its real Vietnamese label instead of a
+  // generic placeholder). A value this file has never heard of under ANY domain
+  // still never reaches the caller raw -- it falls back to the domain's own
+  // investor-facing placeholder (formatDomainState's EMPTY_LABELS fallback), the
+  // same text an explicitly-empty value would get. A previous version of this
+  // file declared a second, narrower `formatKnownLabel` later in this closure
+  // that silently shadowed this one (later function declarations in the same
+  // scope win) and both dropped the cross-domain scan and echoed the raw value
+  // back on a miss; that duplicate is gone -- this is the only implementation now.
+  function formatKnownLabel(value, domain) {
+    if (value === null || value === undefined || value === "") return "";
+    const raw = String(value).trim();
+    if (!raw) return "";
+    if (domain === "axis_label" && AXIS_LABELS[raw.toLowerCase()]) {
+      return AXIS_LABELS[raw.toLowerCase()];
+    }
+    const formatted = formatDomainState(raw, domain);
+    if (formatted.known) return formatted.label;
     const domains = Object.keys(DOMAIN_TABLES);
     for (let i = 0; i < domains.length; i++) {
-      if (domains[i] === preferredDomain) continue;
-      const alt = formatDomainState(formatted.raw, domains[i]);
+      if (domains[i] === domain) continue;
+      const alt = formatDomainState(raw, domains[i]);
       if (alt.known) return alt.label;
     }
     return formatted.label;
@@ -1225,17 +1243,6 @@
     const badgeCls = getToneBadgeClass(tone);
     const cls = opts.className ? ` ${opts.className}` : "";
     return `<span class="vs-state-label tone-${tone} ${badgeCls}${cls}" data-state="${esc(formatted.raw)}" data-domain="${esc(domain || "")}" data-tone="${tone}" title="${esc(formatted.raw)}">${esc(formatted.label)}</span>`;
-  }
-
-  function formatKnownLabel(val, domain) {
-    if (val === null || val === undefined || val === "") return "";
-    const raw = String(val).trim();
-    if (domain === "axis_label" && AXIS_LABELS[raw.toLowerCase()]) {
-      return AXIS_LABELS[raw.toLowerCase()];
-    }
-    const formatted = formatDomainState(raw, domain);
-    if (formatted && formatted.known) return formatted.label;
-    return raw;
   }
 
   function formatRuleCondition(value) { return formatStateLabel(value, "rule_condition"); }

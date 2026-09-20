@@ -21,16 +21,27 @@
   const esc = vf.esc || ((v) => String(v ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c])));
   const unavailable = (v) => (v === null || v === undefined || v === "") ? "UNAVAILABLE" : v;
 
+  // Deliberately does not delegate to vf.formatKnownLabel: this wrapper is also
+  // called with free-text sentences and no domain (e.g. what_to_verify_next items,
+  // a macro reason, a peer-context note) that must pass through unchanged, and the
+  // only reliable way to tell "no domain recognized this value" from "this is a
+  // real translated label" is formatDomainState's own `known` flag -- not string-
+  // comparing the formatted output back against the raw input (a real Vietnamese
+  // label is, by construction, always different from its raw source value, so that
+  // comparison can't distinguish a genuine miss from a genuine hit).
   function formatLabel(v, domain) {
     if (v === null || v === undefined || v === "") return "Chưa có dữ liệu";
     const raw = String(v).trim();
-    if (vf.formatKnownLabel) {
-      const formatted = vf.formatKnownLabel(raw, domain);
-      if (formatted && formatted !== raw) return formatted;
-    }
     if (vf.formatDomainState) {
       const res = vf.formatDomainState(raw, domain);
       if (res && res.known && res.label) return res.label;
+      if (vf.DOMAIN_TABLES) {
+        for (const altDomain of Object.keys(vf.DOMAIN_TABLES)) {
+          if (altDomain === domain) continue;
+          const alt = vf.formatDomainState(raw, altDomain);
+          if (alt && alt.known) return alt.label;
+        }
+      }
     }
     if (/^[A-Z0-9_]+$/.test(raw)) {
       if (raw === "UNAVAILABLE" || raw === "ABSENT") return "Chưa có dữ liệu";
