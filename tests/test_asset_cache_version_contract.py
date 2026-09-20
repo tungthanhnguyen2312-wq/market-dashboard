@@ -117,6 +117,10 @@ class StampingIsPureDeterministicAndRepeatable(unittest.TestCase):
 
     def setUp(self):
         import importlib.util
+        import sys
+
+        if str(ROOT) not in sys.path:
+            sys.path.insert(0, str(ROOT))
 
         spec = importlib.util.spec_from_file_location("publish_dashboard", ROOT / "publish_dashboard.py")
         self.pd = importlib.util.module_from_spec(spec)
