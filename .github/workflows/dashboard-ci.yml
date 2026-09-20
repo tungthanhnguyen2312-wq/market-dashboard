@@ -94,6 +94,20 @@ jobs:
       - name: Dashboard bento contract tests
         run: python tests/test_dashboard_bento_contract.py -v
 
+      # DASHBOARD_HOME_SUMMARY_AND_CACHE_BUSTING_V1: fails the build (blocking Deploy
+      # Pages, which only runs after this workflow succeeds) if any committed HTML page
+      # carries a stale/missing/duplicated asset ?v= token relative to the current
+      # data/build_info.json build_id. See the test module's own docstring for why this
+      # is the chosen cache-busting enforcement point instead of deploy-time rewriting.
+      - name: Asset cache-version contract tests
+        run: python tests/test_asset_cache_version_contract.py -v
+
+      - name: Dashboard Home summary cutover tests
+        run: node --test tests/dashboard-home-summary-cutover.test.js
+
+      - name: Dashboard Home performance and investor-first tests
+        run: node --test tests/dashboard-home-performance-and-investor-first.test.js
+
       - name: JavaScript syntax checks
         run: |
           node --check assets/js/candlestick-patterns.js

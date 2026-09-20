@@ -15,6 +15,15 @@
 
   const SCREENER_URL = "data/screener_master_projection.json";
   const SCREENER_CONTRACT = "screener_master_projection/v1";
+  // DASHBOARD_HOME_SUMMARY_AND_CACHE_BUSTING_V1: Home's boot path (bootDashboardOverview)
+  // fetches ONLY this small, presentation-only, Producer-derived summary -- never the full
+  // ~6.4MB screener_master_projection.json above. SCREENER_URL/SCREENER_CONTRACT and
+  // summarizeScreenerOverview()/validateProjection() are kept (still exported, still used by
+  // existing tests, and still a legitimate direct API over the full projection for a caller
+  // that genuinely needs it) but Home itself no longer calls them at boot.
+  const HOME_SUMMARY_URL = "data/dashboard_home_summary.json";
+  const HOME_SUMMARY_CONTRACT = "dashboard_home_summary/v1";
+  const BUILD_INFO_URL = "data/build_info.json";
   const ENTITY_CLASS_VOCABULARY = ["corporate", "bank", "securities", "insurance", "finance_company"];
   const STANCE_ORDER = [
     "INITIATE_RESEARCH_CANDIDATE",
@@ -462,23 +471,40 @@
     );
   }
 
+  /* Structural + session-coherence validation for the small Home summary. Phase 3 of
+     DASHBOARD_HOME_SUMMARY_AND_CACHE_BUSTING_V1: Home must never render a summary bound
+     to a different session than the one build_info.json (already the single freshness
+     source of truth elsewhere on this page -- see app.js renderTopbarFreshness) reports
+     as current. A missing/absent build_info session fails closed to "no session check
+     possible" (buildInfoSession null) rather than silently skipping the check. */
+  function validateHomeSummary(payload, buildInfoSession) {
+    if (!payload || payload.contract_version !== HOME_SUMMARY_CONTRACT) return false;
+    if (typeof payload.as_of_session !== "string" || !payload.as_of_session) return false;
+    if (!payload.session_breadth || !payload.research_stance || !payload.tactical || !payload.liquidity || !payload.sector) return false;
+    if (buildInfoSession && payload.as_of_session !== buildInfoSession) return false;
+    return true;
+  }
+
   function bootDashboardOverview() {
     const summaryHost = typeof document !== "undefined" ? document.getElementById("current-product-summary") : null;
     if (!summaryHost) return;
-    fetch(SCREENER_URL, { cache: "no-store" })
-      .then((response) => {
+    Promise.all([
+      fetch(HOME_SUMMARY_URL, { cache: "no-store" }).then((response) => {
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         return response.json();
-      })
-      .then((projection) => {
-        if (!validateProjection(projection)) throw new Error("invalid screener master projection");
-        const summary = summarizeScreenerOverview(projection);
+      }),
+      fetch(BUILD_INFO_URL, { cache: "no-store" }).then((response) => (response.ok ? response.json() : null)).catch(() => null),
+    ])
+      .then(([summary, buildInfo]) => {
+        const buildInfoSession = buildInfo && typeof buildInfo.market_session === "string" ? buildInfo.market_session : null;
+        if (!validateHomeSummary(summary, buildInfoSession)) throw new Error("invalid or session-incoherent dashboard home summary");
         summaryHost.innerHTML = renderDecisionSummaryHtml(summary);
         renderMarketOverview(summary);
       })
       .catch((error) => {
         if (typeof console !== "undefined" && console.debug) console.debug("dashboard summary unavailable:", error);
         summaryHost.innerHTML = `<p class="cockpit-note mb-0">Tạm chưa có dữ liệu tóm tắt cho phiên hiện tại. Không gian quyết định vẫn là cửa vào sản phẩm chính.</p>`;
+        renderHeroBanner(null);
       });
   }
 
@@ -493,6 +519,8 @@
   return {
     SCREENER_URL,
     SCREENER_CONTRACT,
+    HOME_SUMMARY_URL,
+    HOME_SUMMARY_CONTRACT,
     STANCE_ORDER,
     TACTICAL_ORDER,
     getProductScopeFormat,
@@ -504,5 +532,6 @@
     marketBreadthStateLabel,
     renderMarketOverview,
     validateProjection,
+    validateHomeSummary,
   };
 });

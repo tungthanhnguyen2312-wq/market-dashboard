@@ -131,9 +131,14 @@ REQUIRED_PRODUCT_SURFACE_ARTIFACTS = {
     "data/workspace_index.json",
 }
 # Exact future Screener projection filenames. Allowed when present; never required.
+# DASHBOARD_HOME_SUMMARY_AND_CACHE_BUSTING_V1: dashboard_home_summary.json/.js are the
+# small, presentation-only Home summary derived from the Screener projection above (see
+# stock-core-private/dashboard_home_summary.py) -- same optional-when-present contract.
 OPTIONAL_SAFE_WEB_ARTIFACTS = {
     "data/screener_master_projection.json",
     "data/screener_master_projection.js",
+    "data/dashboard_home_summary.json",
+    "data/dashboard_home_summary.js",
 }
 SAFE_WEB_ARTIFACTS = set(COPY_ARTIFACTS) | {
     "data/screener_data.js", "data/build_info.json", "data/build_info.js",

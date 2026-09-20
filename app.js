@@ -623,6 +623,17 @@ function loadStylesheetOnce(href) {
   document.head.appendChild(link);
 }
 
+/* build_id for a dynamically-injected <script src> -- never a hardcoded string (see
+   ensureScreenerDependencies). Falls back to the eagerly-loaded window.BUILD_INFO (set
+   synchronously by the static data/build_info.js <script> tag) if the async, always-fresh
+   currentBuildInfo fetch hasn't resolved yet by the time the user opens the screener; an
+   empty string (no cache-busting query at all, same as an un-versioned request) only if
+   neither is available. */
+function _companyPanelVersionQuery() {
+  const buildId = currentBuildInfo?.build_id || window.BUILD_INFO?.build_id;
+  return buildId ? `?v=${buildId}` : "";
+}
+
 let _screenerDepsReady = null;
 function ensureScreenerDependencies() {
   if (_screenerDepsReady) return _screenerDepsReady;
@@ -637,7 +648,15 @@ function ensureScreenerDependencies() {
     .then(() => loadScriptOnce("https://cdn.datatables.net/2.1.8/js/dataTables.bootstrap5.min.js"))
     .then(() => Promise.all([
       loadScriptOnce("https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"),
-      loadScriptOnce(`assets/js/company-panel.js?v=2026-09-18-6f6effe-33d5b3e538`),
+      // company-panel.js is injected at runtime, not a static <script src> tag, so the
+      // publisher's HTML-attribute cache-version rewriter (update_asset_versions(), which
+      // only scans src=/href= attributes) can never see or re-stamp a token hardcoded in
+      // this string -- that is exactly how a stale token leaked here once already (caught
+      // live: a literal "2026-09-18-6f6effe-..." string kept being served long after the
+      // real build_id had moved on). Read the current build_id at call time instead, via
+      // the same currentBuildInfo already fetched by loadBuildInfo(), so this reference
+      // always resolves to whatever is actually live.
+      loadScriptOnce(`assets/js/company-panel.js${_companyPanelVersionQuery()}`),
     ]));
   return _screenerDepsReady;
 }
