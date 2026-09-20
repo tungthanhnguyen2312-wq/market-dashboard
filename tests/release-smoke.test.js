@@ -63,8 +63,9 @@ test("no financial institution receives an Altman score", () => {
     assert.equal(distress.status, "not_applicable", `${ticker} should be not_applicable`);
     assert.equal(distress.score, null, `${ticker} was given a distress score`);
     const html = panel.renderFinancialDistress(distress, entry.statement_taxonomy_evidence);
-    assert.doesNotMatch(html, /Z' score/, `${ticker} rendered a score`);
-    assert.match(html, /not_applicable/);
+    assert.doesNotMatch(html, /Điểm Z'/, `${ticker} rendered a score`);
+    assert.match(html, /Không áp dụng/);
+    assert.doesNotMatch(html, /not_applicable/);
   }
 });
 
@@ -91,14 +92,14 @@ test("Altman Z-prime renders a score exactly when the model itself reports one a
     assert.equal(typeof distress.score, "number", `${ticker} score`);
     assert.ok(["distress", "grey", "safe"].includes(distress.zone), `${ticker} unexpected zone ${distress.zone}`);
     const html = panel.renderFinancialDistress(distress, entry.statement_taxonomy_evidence);
-    assert.match(html, /Z' score/, `${ticker} did not render a score`);
+    assert.match(html, /Điểm Z'/, `${ticker} did not render a score`);
     assert.match(html, /altman_z_prime_1983_private_firm/, `${ticker} did not render its variant`);
-    assert.match(html, /not a bankruptcy probability/i);
+    assert.match(html, /không phải là xác suất phá sản/i);
     // The near-threshold warning is rendered exactly when the model itself flagged
     // proximity, never inferred by the test from the raw score.
     const proximity = distress.zone_proximity || {};
-    if (proximity.near_threshold) assert.match(html, /not robust to small input changes/i, `${ticker} missing near-threshold warning`);
-    else assert.doesNotMatch(html, /not robust to small input changes/i, `${ticker} unwarranted near-threshold warning`);
+    if (proximity.near_threshold) assert.match(html, /dễ thay đổi khi số liệu đầu vào thay đổi nhỏ/i, `${ticker} missing near-threshold warning`);
+    else assert.doesNotMatch(html, /dễ thay đổi khi số liệu đầu vào thay đổi nhỏ/i, `${ticker} unwarranted near-threshold warning`);
   }
 });
 
@@ -119,9 +120,9 @@ test("a non-financial ticker with insufficient Altman evidence never shows a fab
     assert.ok(Array.isArray(distress.missing_inputs) && distress.missing_inputs.length > 0,
       `${ticker} insufficient_evidence must name what is missing`);
     const html = panel.renderFinancialDistress(distress, entry.statement_taxonomy_evidence);
-    assert.doesNotMatch(html, /Z' score/, `${ticker} rendered a score despite insufficient evidence`);
-    assert.match(html, /Missing input/, `${ticker} did not render why no score is shown`);
-    assert.match(html, /not a bankruptcy probability/i);
+    assert.doesNotMatch(html, /Điểm Z'/, `${ticker} rendered a score despite insufficient evidence`);
+    assert.match(html, /Thiếu dữ liệu/, `${ticker} did not render why no score is shown`);
+    assert.match(html, /không phải là xác suất phá sản/i);
   }
 });
 
@@ -142,9 +143,9 @@ test("historical valuation renders its period and price date, never a current mu
   }
   for (const [ticker, entry] of withMultiples) {
     const html = panel.renderHistoricalValuation(entry);
-    assert.match(html, /Historical multiples only — not current\/live multiples\./,
+    assert.match(html, /Chỉ là hệ số định giá lịch sử — không phải hệ số hiện tại\/trực tiếp\./,
       `${ticker} did not label its multiples historical`);
-    assert.match(html, /FY\d{4} financials · qualified market price as of \d{4}-\d{2}-\d{2}/,
+    assert.match(html, /Báo cáo tài chính FY\d{4} · giá thị trường đã xác nhận tính đến \d{4}-\d{2}-\d{2}/,
       `${ticker} did not render both date labels`);
   }
 });
@@ -157,7 +158,7 @@ test("a ticker with no qualified price shows an explicit unavailable state", () 
   });
   for (const [ticker, entry] of withoutMultiples) {
     const html = panel.renderHistoricalValuation(entry);
-    assert.match(html, /No current\/live multiple is inferred\./, `${ticker} inferred a multiple`);
+    assert.match(html, /Không suy ra định giá hiện tại\/trực tiếp\./, `${ticker} inferred a multiple`);
   }
 });
 
@@ -172,8 +173,8 @@ test("the statement taxonomy is published as generated evidence, below the manua
     const evidence = entry.statement_taxonomy_evidence;
     assert.equal(evidence.authority_level, "generated_evidence", `${ticker} claims higher authority`);
     const html = panel.renderStatementTaxonomy(evidence);
-    assert.match(html, /Statement taxonomy \(generated evidence\)/);
-    assert.match(html, /not a manually verified issuer type/i);
+    assert.match(html, /Loại báo cáo tài chính \(tự động nhận diện\)/);
+    assert.match(html, /không phải loại hình doanh nghiệp đã được kiểm tra thủ công/i);
   }
 });
 

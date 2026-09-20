@@ -71,22 +71,103 @@
   const tickerRowCache = new Map();
 
   const isObject = (value) => value !== null && typeof value === "object" && !Array.isArray(value);
-  const displayValue = (value) => value === null || value === undefined || value === "" ? "-" : esc(value);
+  // Backend-authored free text (an evidence "reason", a model "limitation", a warning
+  // sentence) sometimes names its own implementation in passing (a contract, a
+  // pipeline, an artifact) -- this file cannot edit that upstream text, so anything
+  // rendered through displayValue/vi() is scrubbed of the forbidden-vocabulary terms
+  // first (DASHBOARD_INVESTOR_FIRST_LOCALIZATION_AND_UI_CLOSEOUT_V1 Phase 9/10).
+  const FORBIDDEN_TERM_SCRUB = [
+    [/\bbackend\b/gi, "hệ thống"], [/\bfrontend\b/gi, "giao diện"], [/\bpython\b/gi, "hệ thống"],
+    [/\bDNSE\b/gi, "nguồn dữ liệu"], [/\bcohort\b/gi, "nhóm đối sánh"], [/\bshadow\b/gi, "tham khảo"],
+    [/\bpipelines?\b/gi, "quy trình xử lý"], [/\bcontracts?\b/gi, "quy chuẩn dữ liệu"],
+    [/\bartifacts?\b/gi, "dữ liệu"], [/\bruntime\b/gi, "hệ thống"], [/\bprojections?\b/gi, "ước tính"],
+    [/\breason[_ ]code\b/gi, "mã lý do"], [/\bschema[_ ]version\b/gi, ""],
+    [/\bRAW_AS_TRADED\b/g, ""], [/\bPIT\b/g, ""],
+  ];
+  function sanitizeFreeText(text) {
+    let out = String(text);
+    for (const [pattern, replacement] of FORBIDDEN_TERM_SCRUB) out = out.replace(pattern, replacement);
+    return out.replace(/\s{2,}/g, " ").trim();
+  }
+  const displayValue = (value) => value === null || value === undefined || value === "" ? "-" : esc(sanitizeFreeText(value));
   const displayNumber = (value, digits = 2) => value === null || value === undefined || value === ""
     ? "-" : (Number.isFinite(Number(value)) ? num(value, digits) : esc(value));
   const titleCase = (value) => String(value || "").replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
   const sectionState = (section) => isObject(section) && typeof section.status === "string" ? section.status.toLowerCase() : "available";
   const sectionData = (section) => isObject(section) && Object.prototype.hasOwnProperty.call(section, "data") ? section.data : section;
-  const statusMessage = (state) => ({ current: "Current data.", expiring: "Update window is approaching.", stale: "Data is stale.", missing: "Corporate Intelligence is not included in this bundle.", historical: "Historical evidence; not current market state.", unknown: "Freshness cannot be verified.", partial: "Data is incomplete; valid information is still shown.", malformed: "This subsection is invalid and cannot be displayed.", incomparable: "The snapshots are not comparable." }[state] || "");
+  const statusMessage = (state) => ({ current: "Dữ liệu hiện tại.", expiring: "Sắp đến kỳ cập nhật.", stale: "Dữ liệu đã cũ.", missing: "Chưa có trong bản dữ liệu này.", historical: "Đây là dữ liệu lịch sử, không phải trạng thái thị trường hiện tại.", unknown: "Chưa xác định được độ mới của dữ liệu.", partial: "Dữ liệu chưa đầy đủ; phần hợp lệ vẫn được hiển thị.", malformed: "Phần này không hợp lệ và không thể hiển thị.", incomparable: "Hai kỳ dữ liệu không thể so sánh với nhau." }[state] || "");
+  // Routes a raw contract status/enum through the shared Vietnamese vocabulary
+  // (assets/js/value-format.js, same module the Workspace/Screener use) so no
+  // snake_case/UPPER_CASE token ever reaches the page unmapped. Falls back to
+  // a neutral "see technical detail" phrase -- never the raw token -- when
+  // nothing recognizes it and it looks machine-generated.
+  function getValueFormat() {
+    if (typeof window !== "undefined" && window.VSValueFormat) return window.VSValueFormat;
+    if (typeof require === "function") {
+      try { return require("./value-format.js"); } catch (err) { return null; }
+    }
+    return null;
+  }
+  function looksLikeRawEnum(raw) {
+    return /^[A-Za-z][A-Za-z0-9]*(?:_[A-Za-z0-9]+)+$/.test(raw);
+  }
+  // An internal code the shared Vietnamese vocabulary doesn't recognize is still
+  // real information (e.g. an operating-cash-flow direction, or an enterprise-value
+  // method explaining exactly why a bank archetype doesn't qualify) -- de-snake it
+  // into a plain capitalized sentence instead of discarding it or showing the raw
+  // programmer-style token. Anything with fewer than two words never reaches here
+  // (looksLikeRawEnum requires at least one underscore), so this always succeeds;
+  // the null case only guards a pathological all-underscore input.
+  function humanizeSnakeSentence(raw) {
+    const words = raw.split("_").filter(Boolean);
+    if (words.length < 2) return null;
+    const text = words.join(" ").toLowerCase();
+    return text.charAt(0).toUpperCase() + text.slice(1) + ".";
+  }
+  // Scans the preferred domain table first, then every other domain table --
+  // deliberately not delegating to value-format.js's own formatKnownLabel, which
+  // (as actually exported today) only checks the single preferred domain and
+  // echoes the raw value back on a miss rather than trying the rest, since a
+  // second `function formatKnownLabel` declared later in that file's closure
+  // shadows the first, cross-domain-scanning one (see value-format.js ~line 1230).
+  // A few single-word contract states used in this panel (no underscore, so they
+  // never trip looksLikeRawEnum) are not covered by any value-format.js domain table.
+  const LOCAL_STATE_FALLBACK_VI = {
+    inapplicable: "Không áp dụng", eligible: "Đủ điều kiện", derived: "Suy ra từ dữ liệu báo cáo",
+    comparable: "So sánh được", partially_comparable: "So sánh được một phần", incomparable: "Không thể so sánh",
+    degraded: "Suy giảm",
+  };
+  function vi(value, domain) {
+    const raw = value === null || value === undefined || value === "" ? "" : String(value);
+    if (!raw) return "Chưa có dữ liệu";
+    const vf = getValueFormat();
+    if (vf && typeof vf.formatDomainState === "function") {
+      const primary = vf.formatDomainState(raw, domain);
+      if (primary.known) return primary.label;
+      const tables = vf.DOMAIN_TABLES || {};
+      for (const altDomain of Object.keys(tables)) {
+        if (altDomain === domain) continue;
+        const alt = vf.formatDomainState(raw, altDomain);
+        if (alt.known) return alt.label;
+      }
+    }
+    const local = LOCAL_STATE_FALLBACK_VI[raw.toLowerCase()];
+    if (local) return esc(local);
+    if (!looksLikeRawEnum(raw)) return esc(sanitizeFreeText(raw));
+    return esc(humanizeSnakeSentence(raw) || "Xem chi tiết kỹ thuật");
+  }
+  function viList(values, domain) {
+    return Array.isArray(values) && values.length ? values.map((value) => vi(value, domain)).join(", ") : "";
+  }
 
   function sourceBlocks(value) {
     if (!isObject(value)) return [];
     if (isObject(value.sources)) return Object.entries(value.sources).filter(([, item]) => isObject(item) || Array.isArray(item));
-    if (Array.isArray(value.sources)) return value.sources.filter((item) => isObject(item) || Array.isArray(item)).map((item) => [isObject(item) ? item.source_name || item.source || item.provider || "Source" : "Source", item]);
-    if (["owners", "items", "holders", "subsidiaries", "entities"].some((key) => Array.isArray(value[key]))) return [[value.source || value.provider || "Source", value]];
+    if (Array.isArray(value.sources)) return value.sources.filter((item) => isObject(item) || Array.isArray(item)).map((item) => [isObject(item) ? item.source_name || item.source || item.provider || "Nguồn" : "Nguồn", item]);
+    if (["owners", "items", "holders", "subsidiaries", "entities"].some((key) => Array.isArray(value[key]))) return [[value.source || value.provider || "Nguồn", value]];
     const ignored = new Set(["status", "data", "snapshot_date", "provenance_date", "reference", "reference_scope", "update_date"]);
     const entries = Object.entries(value).filter(([key, item]) => !ignored.has(key) && (isObject(item) || Array.isArray(item)));
-    return entries.length ? entries : [[value.source || value.provider || "Source", value]];
+    return entries.length ? entries : [[value.source || value.provider || "Nguồn", value]];
   }
   function metadata(item) {
     if (!isObject(item)) return "";
@@ -102,66 +183,77 @@
     const state = sectionState(section); if (state === "missing") return "";
     const notice = statusMessage(state), body = state === "malformed" ? "" : render(sectionData(section));
     const freshness = isObject(section) && isObject(section.freshness) ? section.freshness : null;
-    const freshnessNotice = freshness ? `<div class="cp-ci-notice cp-ci-${esc(freshness.freshness_status || "unknown")}">${esc(statusMessage(freshness.freshness_status || "unknown"))}${freshness.stale_reason ? ` ${esc(freshness.stale_reason)}` : ""}${freshness.is_actionable ? "" : " Not actionable."}</div>` : "";
+    const freshnessNotice = freshness ? `<div class="cp-ci-notice cp-ci-${esc(freshness.freshness_status || "unknown")}">${esc(statusMessage(freshness.freshness_status || "unknown"))}${freshness.stale_reason ? ` ${vi(freshness.stale_reason, "diagnostic_reason")}` : ""}${freshness.is_actionable ? "" : " Không dùng để hành động."}</div>` : "";
     return body || notice || freshnessNotice ? `<section class="cp-ci-section"><h4>${esc(title)}</h4>${notice ? `<div class="cp-ci-notice cp-ci-${esc(state)}">${esc(notice)}</div>` : ""}${freshnessNotice}${body}</section>` : "";
   }
+  // Company-profile fields are a free-form passthrough from each data source (sector,
+  // business model, share count, ...), not a fixed enum -- there is no complete list to
+  // translate ahead of time. Known investor-relevant keys get a Vietnamese label; any
+  // other key falls back to its own titleCase (never a raw snake_case token).
+  const PROFILE_FIELD_LABELS_VI = {
+    sector: "Ngành", business_model: "Mô hình kinh doanh", issue_share: "Số cổ phiếu phát hành",
+    outstanding_shares: "Số cổ phiếu đang lưu hành", charter_capital: "Vốn điều lệ",
+    established_date: "Ngày thành lập", listing_date: "Ngày niêm yết", exchange: "Sàn giao dịch",
+    website: "Trang web", address: "Địa chỉ", employee_count: "Số lượng nhân viên",
+    company_name: "Tên doanh nghiệp", industry: "Lĩnh vực",
+  };
   function renderProfile(profile) {
     return sourceBlocks(profile).map(([source, item]) => { const values = isObject(item) ? item : {};
       const profileFields = isObject(values.record) && isObject(values.record.qualified_fields) ? values.record.qualified_fields : values;
       const fields = Object.entries(profileFields).filter(([key, value]) => !["source", "source_name", "provider", "snapshot_date", "provenance_date", "as_of_date", "update_date", "fetched_at", "reference", "reference_scope", "source_reference", "provenance", "status", "data"].includes(key) && (typeof value === "string" || typeof value === "number" || typeof value === "boolean"));
-      return `<div class="cp-ci-source"><h5>${esc(source)}</h5>${metadata(values)}${fields.length ? `<div class="cp-ci-fields">${fields.map(([key, value]) => `<div class="cp-ci-field"><span>${esc(titleCase(key))}</span><strong>${displayValue(value)}</strong></div>`).join("")}</div>` : ""}</div>`;
+      return `<div class="cp-ci-source"><h5>${esc(source)}</h5>${metadata(values)}${fields.length ? `<div class="cp-ci-fields">${fields.map(([key, value]) => `<div class="cp-ci-field"><span>${esc(PROFILE_FIELD_LABELS_VI[key] || titleCase(key))}</span><strong>${displayValue(value)}</strong></div>`).join("")}</div>` : ""}</div>`;
     }).join("");
   }
   function renderOwnership(ownership) {
     return sourceBlocks(ownership).map(([source, item]) => { const rows = Array.isArray(item) ? item : (isObject(item) ? item.records || item.owners || item.items || item.holders || [] : []); if (!Array.isArray(rows)) return "";
-      return `<div class="cp-ci-source"><h5>${esc(source)}</h5>${metadata(item)}${rows.map((owner) => { const fields = isObject(owner) && isObject(owner.fields) ? owner.fields : owner; return isObject(fields) ? `<div class="cp-ci-record">${fieldRows(fields, [{ key: "owner_type", label: "Owner type" }, { key: "ownership_percentage", label: "Ownership %", number: true }, { key: "shares_owned", label: "Shares owned", number: true }, { key: "update_date", label: "Update date" }])}</div>` : ""; }).join("")}</div>`;
+      return `<div class="cp-ci-source"><h5>${esc(source)}</h5>${metadata(item)}${rows.map((owner) => { const fields = isObject(owner) && isObject(owner.fields) ? owner.fields : owner; return isObject(fields) ? `<div class="cp-ci-record">${fieldRows(fields, [{ key: "owner_type", label: "Loại sở hữu" }, { key: "ownership_percentage", label: "Tỷ lệ sở hữu (%)", number: true }, { key: "shares_owned", label: "Số cổ phiếu sở hữu", number: true }, { key: "update_date", label: "Ngày cập nhật" }])}</div>` : ""; }).join("")}</div>`;
     }).join("");
   }
+  const SHAREHOLDER_CHANGE_TYPE_VI = { new_holder: "Cổ đông mới", disappeared_holder: "Cổ đông rút khỏi danh sách" };
   function renderMajorShareholders(value) {
     if (!isObject(value)) return "";
     if (Array.isArray(value.sources)) return value.sources.filter(isObject).map((source) => {
       const rows = Array.isArray(source.records) ? source.records : [];
-      const snapshot = rows.length ? `<div class="cp-ci-source"><h5>${esc(source.source_name || "Latest snapshot")}</h5>${metadata(source)}${rows.map((holder) => isObject(holder) ? `<div class="cp-ci-record">${fieldRows(holder, [{ key: "holder_name", label: "Holder" }, { key: "shares", label: "Shares", number: true }, { key: "ownership_pct", label: "Ownership %", number: true }])}</div>` : "").join("")}</div>` : "";
+      const snapshot = rows.length ? `<div class="cp-ci-source"><h5>${esc(source.source_name || "Danh sách gần nhất")}</h5>${metadata(source)}${rows.map((holder) => isObject(holder) ? `<div class="cp-ci-record">${fieldRows(holder, [{ key: "holder_name", label: "Cổ đông" }, { key: "shares", label: "Số cổ phiếu", number: true }, { key: "ownership_pct", label: "Tỷ lệ sở hữu (%)", number: true }])}</div>` : "").join("")}</div>` : "";
       const delta = source.delta;
       if (!isObject(delta)) return snapshot;
       if (String(delta.status || "").startsWith("incomparable")) return `${snapshot}<div class="cp-ci-notice cp-ci-incomparable">${esc(statusMessage("incomparable"))}</div>`;
       const changes = Array.isArray(delta.changes) ? delta.changes : [];
-      return `${snapshot}${changes.map((change) => isObject(change) ? `<div class="cp-ci-source"><h5>${esc(titleCase(change.change_type || "Shareholder change"))}</h5>${fieldRows(change, [{ key: "holder_name_after", label: "Holder" }, { key: "holder_name_before", label: "Holder" }, { key: "shares_delta", label: "Shares change", number: true }, { key: "ownership_pct_delta", label: "Ownership % change", number: true }])}</div>` : "").join("")}`;
+      return `${snapshot}${changes.map((change) => isObject(change) ? `<div class="cp-ci-source"><h5>${esc(SHAREHOLDER_CHANGE_TYPE_VI[change.change_type] || "Thay đổi cổ đông")}</h5>${fieldRows(change, [{ key: "holder_name_after", label: "Cổ đông" }, { key: "holder_name_before", label: "Cổ đông" }, { key: "shares_delta", label: "Thay đổi số cổ phiếu", number: true }, { key: "ownership_pct_delta", label: "Thay đổi tỷ lệ sở hữu (%)", number: true }])}</div>` : "").join("")}`;
     }).join("");
     const snapshot = value.latest_valid_snapshot || value.latest_snapshot || value.snapshot, delta = value.delta || value.snapshot_delta;
     const rows = Array.isArray(snapshot) ? snapshot : (isObject(snapshot) ? (snapshot.holders || snapshot.items || []) : []);
-    const snapshotHtml = Array.isArray(rows) && rows.length ? `<div class="cp-ci-source"><h5>Latest snapshot</h5>${metadata(snapshot)}${rows.map((holder) => isObject(holder) ? `<div class="cp-ci-record">${fieldRows(holder, [{ key: "holder_name", label: "Holder" }, { key: "name", label: "Holder" }, { key: "shares_owned", label: "Shares", number: true }, { key: "ownership_percentage", label: "Ownership %", number: true }])}</div>` : "").join("")}</div>` : "";
+    const snapshotHtml = Array.isArray(rows) && rows.length ? `<div class="cp-ci-source"><h5>Danh sách gần nhất</h5>${metadata(snapshot)}${rows.map((holder) => isObject(holder) ? `<div class="cp-ci-record">${fieldRows(holder, [{ key: "holder_name", label: "Cổ đông" }, { key: "name", label: "Cổ đông" }, { key: "shares_owned", label: "Số cổ phiếu", number: true }, { key: "ownership_percentage", label: "Tỷ lệ sở hữu (%)", number: true }])}</div>` : "").join("")}</div>` : "";
     if (!isObject(delta)) return snapshotHtml;
     if (sectionState(delta) === "incomparable" || value.status === "incomparable") return `${snapshotHtml}<div class="cp-ci-notice cp-ci-incomparable">${esc(statusMessage("incomparable"))}</div>`;
-    const changes = [["New holder", delta.new_holder], ["Disappeared holder", delta.disappeared_holder], ["Shares change", delta.shares_change ?? delta.change_shares], ["Ownership % change", delta.ownership_percentage_change ?? delta.change_ownership_percentage]].filter(([, item]) => item !== undefined);
-    return `${snapshotHtml}${changes.length ? `<div class="cp-ci-source"><h5>Snapshot delta</h5>${metadata(delta)}${changes.map(([label, item]) => `<div class="cp-ci-field"><span>${esc(label)}</span><strong>${Array.isArray(item) ? item.map(displayValue).join(", ") : displayValue(item)}</strong></div>`).join("")}</div>` : ""}`;
+    const changes = [["Cổ đông mới", delta.new_holder], ["Cổ đông rút khỏi danh sách", delta.disappeared_holder], ["Thay đổi số cổ phiếu", delta.shares_change ?? delta.change_shares], ["Thay đổi tỷ lệ sở hữu (%)", delta.ownership_percentage_change ?? delta.change_ownership_percentage]].filter(([, item]) => item !== undefined);
+    return `${snapshotHtml}${changes.length ? `<div class="cp-ci-source"><h5>Thay đổi so với kỳ trước</h5>${metadata(delta)}${changes.map(([label, item]) => `<div class="cp-ci-field"><span>${esc(label)}</span><strong>${Array.isArray(item) ? item.map(displayValue).join(", ") : displayValue(item)}</strong></div>`).join("")}</div>` : ""}`;
   }
   function renderSubsidiaries(value) {
     return sourceBlocks(value).map(([source, item]) => { const rows = Array.isArray(item) ? item : (isObject(item) ? item.records || item.subsidiaries || item.items || item.entities || [] : []); if (!Array.isArray(rows)) return "";
-      return `<div class="cp-ci-source"><h5>${esc(source)}</h5>${metadata(item)}${rows.map((entity) => { const fields = isObject(entity) && isObject(entity.fields) ? entity.fields : entity; return isObject(fields) ? `<div class="cp-ci-record">${fieldRows(fields, [{ key: "organization_name", label: "Entity" }, { key: "entity_name", label: "Entity" }, { key: "name", label: "Entity" }, { key: "provider_record_id", label: "Provider identity" }, { key: "provider_local_identity", label: "Provider identity" }, { key: "relationship_type", label: "Relationship" }, { key: "ownership_percent", label: "Ownership %", number: true }, { key: "ownership_percentage", label: "Ownership %", number: true }, { key: "ownership", label: "Ownership", number: true }, { key: "provenance", label: "Provenance" }])}</div>` : ""; }).join("")}</div>`;
+      return `<div class="cp-ci-source"><h5>${esc(source)}</h5>${metadata(item)}${rows.map((entity) => { const fields = isObject(entity) && isObject(entity.fields) ? entity.fields : entity; return isObject(fields) ? `<div class="cp-ci-record">${fieldRows(fields, [{ key: "organization_name", label: "Tên đơn vị" }, { key: "entity_name", label: "Tên đơn vị" }, { key: "name", label: "Tên đơn vị" }, { key: "provider_record_id", label: "Mã đối tác" }, { key: "provider_local_identity", label: "Mã đối tác" }, { key: "relationship_type", label: "Quan hệ" }, { key: "ownership_percent", label: "Tỷ lệ sở hữu (%)", number: true }, { key: "ownership_percentage", label: "Tỷ lệ sở hữu (%)", number: true }, { key: "ownership", label: "Tỷ lệ sở hữu", number: true }, { key: "provenance", label: "Nguồn thông tin" }])}</div>` : ""; }).join("")}</div>`;
     }).join("");
   }
   function renderCorporateEvents(value) {
     if (!isObject(value)) return "";
-    const warning = "Incomplete forward observations only; not complete event history or lifecycle status.";
+    const warning = "Chỉ ghi nhận sự kiện sắp diễn ra, chưa đầy đủ; không phải toàn bộ lịch sử sự kiện.";
     return sourceBlocks(value).map(([source, item]) => {
       const rows = isObject(item) && Array.isArray(item.records) ? item.records : [];
       if (!rows.length) return "";
-      const coverage = item.coverage_status || value.coverage_status || "partial_unqualified_50_row_cap";
-      return `<div class="cp-ci-source"><h5>${esc(source)}</h5><div class="cp-ci-notice cp-ci-partial">${esc(warning)} ${esc(coverage)}</div>${rows.map((record) => {
+      return `<div class="cp-ci-source"><h5>${esc(source)}</h5><div class="cp-ci-notice cp-ci-partial">${esc(warning)}</div>${rows.map((record) => {
         if (!isObject(record)) return "";
         const fields = isObject(record.fields) ? record.fields : record;
         const provenance = isObject(record.provenance) ? record.provenance : {};
-        const title = fields.event_title_vi || fields.event_title_en || fields.event_name_vi || fields.event_name_en || "Corporate event";
+        const title = fields.event_title_vi || fields.event_title_en || fields.event_name_vi || fields.event_name_en || "Sự kiện doanh nghiệp";
         return `<div class="cp-ci-record"><strong>${displayValue(title)}</strong>${fieldRows({ provider_event_id: record.provider_event_id, ...fields }, [
-          { key: "provider_event_id", label: "Provider event ID" }, { key: "event_code", label: "Event code" },
-          { key: "category", label: "Category" }, { key: "public_date", label: "Public date" },
-          { key: "record_date", label: "Record date" }, { key: "exright_date", label: "Ex-right date" },
-          { key: "issue_date", label: "Issue date" }, { key: "start_date", label: "Start date" },
-          { key: "end_date", label: "End date" }, { key: "payout_date", label: "Payout date" },
-          { key: "listing_date", label: "Listing date" }, { key: "exercise_ratio", label: "Exercise ratio", number: true },
-          { key: "value_per_share", label: "Value per share", number: true },
-        ]) }<div class="cp-ci-meta">${esc(provenance.provider || source)}${provenance.retrieved_at ? ` ? ${esc(provenance.retrieved_at)}` : ""}</div></div>`;
+          { key: "provider_event_id", label: "Mã sự kiện" }, { key: "event_code", label: "Mã loại sự kiện" },
+          { key: "category", label: "Loại sự kiện" }, { key: "public_date", label: "Ngày công bố" },
+          { key: "record_date", label: "Ngày chốt danh sách" }, { key: "exright_date", label: "Ngày giao dịch không hưởng quyền" },
+          { key: "issue_date", label: "Ngày phát hành" }, { key: "start_date", label: "Ngày bắt đầu" },
+          { key: "end_date", label: "Ngày kết thúc" }, { key: "payout_date", label: "Ngày thanh toán" },
+          { key: "listing_date", label: "Ngày niêm yết" }, { key: "exercise_ratio", label: "Tỷ lệ thực hiện", number: true },
+          { key: "value_per_share", label: "Giá trị mỗi cổ phiếu", number: true },
+        ]) }<div class="cp-ci-meta">${esc(provenance.provider || source)}${provenance.retrieved_at ? ` · ${esc(provenance.retrieved_at)}` : ""}</div></div>`;
       }).join("")}</div>`;
     }).join("");
   }
@@ -170,29 +262,38 @@
     const combined = readiness.domains.combined_ai_analysis;
     if (!isObject(combined)) return "";
     const state = String(combined.state || "unknown");
-    return `<div class="cp-ci-notice cp-ci-${esc(state)}">Analysis readiness: ${esc(state)}.${combined.reason ? ` ${esc(combined.reason)}` : ""}${combined.is_actionable ? "" : " Inferences are limited."}</div>`;
+    return `<div class="cp-ci-notice cp-ci-${esc(state.toLowerCase())}">Mức sẵn sàng phân tích: ${vi(state, "data_fitness")}.${combined.reason ? ` ${vi(combined.reason, "diagnostic_reason")}` : ""}${combined.is_actionable ? "" : " Suy luận còn hạn chế."}</div>`;
   }
   function renderCorporateIntelligence(corporate) {
-    if (!isObject(corporate)) return `<section class="cp-ci"><h3>Corporate Intelligence</h3><div class="cp-ci-notice cp-ci-missing">${esc(statusMessage("missing"))}</div></section>`;
+    if (!isObject(corporate)) return `<section class="cp-ci"><h3>Thông tin doanh nghiệp</h3><div class="cp-ci-notice cp-ci-missing">${esc(statusMessage("missing"))}</div></section>`;
     const majorShareholders = corporate.major_shareholders || (corporate.major_shareholder_snapshot || corporate.major_shareholder_delta ? { latest_valid_snapshot: corporate.major_shareholder_snapshot, delta: corporate.major_shareholder_delta } : null);
-    const parts = [subsection("Company profile", corporate.company_profile, renderProfile), subsection("Ownership structure", corporate.ownership_structure, renderOwnership), subsection("Major shareholders", majorShareholders, renderMajorShareholders), subsection("Company subsidiaries", corporate.company_subsidiaries, renderSubsidiaries), subsection("Corporate Events", corporate.corporate_events, renderCorporateEvents)].filter(Boolean);
-    return `<section class="cp-ci"><h3>Corporate Intelligence</h3>${parts.length ? parts.join("") : `<div class="cp-ci-notice cp-ci-missing">${esc(statusMessage("missing"))}</div>`}</section>`;
+    const parts = [subsection("Hồ sơ doanh nghiệp", corporate.company_profile, renderProfile), subsection("Cấu trúc sở hữu", corporate.ownership_structure, renderOwnership), subsection("Cổ đông lớn", majorShareholders, renderMajorShareholders), subsection("Công ty con", corporate.company_subsidiaries, renderSubsidiaries), subsection("Sự kiện doanh nghiệp", corporate.corporate_events, renderCorporateEvents)].filter(Boolean);
+    return `<section class="cp-ci"><h3>Thông tin doanh nghiệp</h3>${parts.length ? parts.join("") : `<div class="cp-ci-notice cp-ci-missing">${esc(statusMessage("missing"))}</div>`}</section>`;
   }
 
+  const SCENARIO_LABEL_VI = { bear: "Xấu", base: "Cơ sở", bull: "Tốt" };
+  const RISK_POSTURE_VI = { low: "Thấp", moderate: "Trung bình", elevated: "Cao", severe: "Nghiêm trọng" };
+  const PROHIBITED_CLAIM_VI = {
+    target_price: "Giá mục tiêu", recommendation: "Khuyến nghị mua/bán", probability: "Xác suất",
+    position_size: "Quy mô vị thế", ranking: "Xếp hạng so sánh", allocation: "Phân bổ danh mục",
+  };
+  function prohibitedClaimsVi(claims) {
+    return Array.isArray(claims) && claims.length ? claims.map((claim) => esc(PROHIBITED_CLAIM_VI[claim] || vi(claim, "diagnostic_reason"))).join(", ") : "Không có";
+  }
   function renderQualifiedResearchBrief(brief) {
-    if (!isObject(brief)) return '<section class="company-section research-brief"><h3>Qualified historical research</h3><p>Research brief is unavailable in this legacy bundle.</p></section>';
+    if (!isObject(brief)) return '<section class="company-section research-brief"><h3>Luận điểm nghiên cứu lịch sử</h3><p>Chưa có luận điểm nghiên cứu cho phiên bản dữ liệu cũ này.</p></section>';
     const facts = Array.isArray(brief.qualified_facts) ? brief.qualified_facts.slice(0, 8) : [];
     const quality = isObject(brief.quality) ? Object.values(brief.quality) : [];
     const scenarios = isObject(brief.scenarios) ? ["bear", "base", "bull"].map((name) => [name, brief.scenarios[name]]).filter(([, value]) => isObject(value)) : [];
     const liquidity = isObject(brief.portfolio_risk_boundary) ? brief.portfolio_risk_boundary.liquidity : null;
     const conclusion = isObject(brief.historical_conclusion) ? brief.historical_conclusion : {};
-    return `<section class="company-section research-brief"><h3>Qualified historical research</h3><p><b>${esc(brief.ticker || "")}</b> · ${esc(brief.entity_type || "unknown")} · historical-only / non-actionable</p><p><b>Historical conclusion:</b> ${esc(conclusion.status || "insufficient_evidence")} — ${esc(conclusion.rationale || "")}</p><h4>Qualified facts</h4><ul>${facts.map((f) => `<li>${esc(f.canonical_metric)} (${esc(f.reporting_period)}): ${displayValue(f.value)}</li>`).join("") || "<li>Unavailable</li>"}</ul><h4>Quality</h4><ul>${quality.map((q) => `<li>${esc(q.dimension)}: ${esc(q.status)}${(q.reason_codes || []).length ? ` — ${esc(q.reason_codes.join(", "))}` : ""}</li>`).join("") || "<li>Unavailable</li>"}</ul><h4>Key risks</h4><ul>${(brief.risks && brief.risks.phase_4b || []).map((r) => `<li>${esc(r.risk_id)}: ${esc(r.inference || r.uncertainty || "")}</li>`).join("") || "<li>No additional qualified risk observation</li>"}</ul><h4>Bear / Base / Bull conditions</h4>${scenarios.map(([n,s]) => `<p><b>${titleCase(n)}:</b> ${esc(s.thesis || "Unavailable")}</p>`).join("")}<h4>Invalidation</h4><ul>${(brief.invalidation_conditions || []).map((x) => `<li>${esc(x)}</li>`).join("") || "<li>Unavailable</li>"}</ul><h4>Portfolio / liquidity boundary</h4><p>Fundamental risk: ${esc((brief.risks && brief.risks.phase_4c || {}).aggregate_posture || "insufficient_evidence")}. Liquidity: ${esc((liquidity || {}).status || "unavailable")} due to qualification: ${esc(((liquidity || {}).reason_codes || []).join(", "))}. Portfolio context: ${esc(((brief.portfolio_risk_boundary || {}).portfolio_context || {}).status || "blocked_input")}. Allocation: ${esc(((brief.portfolio_risk_boundary || {}).allocation || {}).status || "allocation_blocked")}.</p><h4>What cannot yet be concluded</h4><p>${esc((brief.prohibited_claims || []).join(", "))}</p></section>`;
+    return `<section class="company-section research-brief"><h3>Luận điểm nghiên cứu lịch sử</h3><p><b>${esc(brief.ticker || "")}</b> · ${vi(brief.entity_type, "entity_type")} · chỉ mang tính lịch sử, không dùng để hành động</p><p><b>Kết luận lịch sử:</b> ${vi(conclusion.status || "insufficient_evidence", "diagnostic_reason")} — ${conclusion.rationale ? esc(sanitizeFreeText(conclusion.rationale)) : ""}</p><h4>Dữ kiện đã xác nhận</h4><ul>${facts.map((f) => `<li>${esc(f.canonical_metric)} (${esc(f.reporting_period)}): ${displayValue(f.value)}</li>`).join("") || "<li>Chưa có dữ liệu</li>"}</ul><h4>Chất lượng dữ liệu</h4><ul>${quality.map((q) => `<li>${esc(q.dimension)}: ${vi(q.status, "diagnostic_reason")}${(q.reason_codes || []).length ? ` — ${viList(q.reason_codes, "diagnostic_reason")}` : ""}</li>`).join("") || "<li>Chưa có dữ liệu</li>"}</ul><h4>Rủi ro chính</h4><ul>${(brief.risks && brief.risks.phase_4b || []).map((r) => `<li>${esc(r.risk_id)}: ${r.inference || r.uncertainty ? esc(sanitizeFreeText(r.inference || r.uncertainty)) : ""}</li>`).join("") || "<li>Chưa ghi nhận rủi ro đã xác nhận bổ sung</li>"}</ul><h4>Điều kiện Xấu / Cơ sở / Tốt</h4>${scenarios.map(([n,s]) => `<p><b>${esc(SCENARIO_LABEL_VI[n] || titleCase(n))}:</b> ${s.thesis ? displayValue(s.thesis) : "Chưa có dữ liệu"}</p>`).join("")}<h4>Điều kiện làm mất hiệu lực luận điểm</h4><ul>${(brief.invalidation_conditions || []).map((x) => `<li>${displayValue(x)}</li>`).join("") || "<li>Chưa có dữ liệu</li>"}</ul><h4>Ranh giới rủi ro danh mục / thanh khoản</h4><p>Rủi ro cơ bản: ${(() => { const posture = (brief.risks && brief.risks.phase_4c || {}).aggregate_posture || "insufficient_evidence"; return esc(RISK_POSTURE_VI[posture] || "") || vi(posture, "diagnostic_reason"); })()}. Thanh khoản: ${vi((liquidity || {}).status || "unavailable", "liquidity_state")}${((liquidity || {}).reason_codes || []).length ? ` — ${viList((liquidity || {}).reason_codes, "diagnostic_reason")}` : ""}. Bối cảnh danh mục: ${vi(((brief.portfolio_risk_boundary || {}).portfolio_context || {}).status || "blocked_input", "diagnostic_reason")}. Phân bổ: ${vi(((brief.portfolio_risk_boundary || {}).allocation || {}).status || "allocation_blocked", "diagnostic_reason")}.</p><h4>Chưa thể kết luận</h4><p>${prohibitedClaimsVi(brief.prohibited_claims)}</p></section>`;
   }
   function researchBriefForRow(row,bundle) { const e=bundleEntryForRow(row,bundle); return e && e.qualified_research_brief; }
   function renderQualifiedResearchDelta(delta) {
-    if (!isObject(delta)) return '<section class="company-section research-delta"><h3>What changed?</h3><p>No qualified comparison snapshot available.</p></section>';
+    if (!isObject(delta)) return '<section class="company-section research-delta"><h3>Điều gì đã thay đổi?</h3><p>Chưa có kỳ so sánh đã xác nhận.</p></section>';
     const state = String(delta.comparison_status || "unavailable");
-    if (state !== "comparable" && state !== "partially_comparable") return `<section class="company-section research-delta"><h3>What changed?</h3><p>Comparison unavailable: ${esc(state)}.</p></section>`;
+    if (state !== "comparable" && state !== "partially_comparable") return `<section class="company-section research-delta"><h3>Điều gì đã thay đổi?</h3><p>Chưa thể so sánh: ${vi(state, "diagnostic_reason")}.</p></section>`;
     const summary = isObject(delta.material_change_summary) ? delta.material_change_summary : {};
     const conclusion = isObject(delta.historical_conclusion) ? delta.historical_conclusion : {};
     const keyChanges = Array.isArray(summary.highest_priority_changes) ? summary.highest_priority_changes.slice(0, 8) : [];
@@ -200,8 +301,8 @@
     const risks = Array.isArray(delta.risk_changes) ? delta.risk_changes.filter((item) => isObject(item) && item.status !== "persistent").slice(0, 5) : [];
     const invalidations = Array.isArray(delta.invalidation_changes) ? delta.invalidation_changes.filter((item) => isObject(item) && (item.status !== "unchanged" || item.trigger_evaluation === "triggered")).slice(0, 5) : [];
     const blocked = Array.isArray(summary.unchanged_critical_boundaries) ? summary.unchanged_critical_boundaries : [];
-    const changedConclusion = conclusion.changed ? `<p><b>Historical conclusion:</b> ${esc((conclusion.previous || {}).status || "unavailable")} → ${esc((conclusion.current || {}).status || "unavailable")}</p>` : "";
-    return `<section class="company-section research-delta"><h3>What changed?</h3><p><b>Thesis change status:</b> ${summary.material_change_detected ? "material change detected" : "no material qualified change"} (${esc(state)}).</p>${changedConclusion}<h4>Key changes</h4><ul>${keyChanges.map((item) => `<li>${esc(item.category)}: ${esc(item.reference)}</li>`).join("") || "<li>No new qualified change.</li>"}</ul><h4>Risks and quality</h4><ul>${quality.map((item) => `<li>Quality ${esc(item.dimension)}: ${esc(item.status)}${item.direction && item.direction !== "unchanged" ? ` (${esc(item.direction)})` : ""}</li>`).join("")}${risks.map((item) => `<li>Risk ${esc(item.risk_id)}: ${esc(item.status)}</li>`).join("") || "<li>No changed qualified risk or quality item.</li>"}</ul><h4>Scenario / invalidation</h4><ul>${invalidations.map((item) => `<li>${esc(item.condition_id)}: ${esc(item.status)}; trigger ${esc(item.trigger_evaluation || "unavailable")}</li>`).join("") || "<li>No changed invalidation condition.</li>"}</ul><h4>Still blocked</h4><p>${blocked.length ? esc(blocked.join(", ")) : "No unchanged critical blocked boundary reported."}</p></section>`;
+    const changedConclusion = conclusion.changed ? `<p><b>Kết luận lịch sử:</b> ${vi((conclusion.previous || {}).status || "unavailable", "diagnostic_reason")} → ${vi((conclusion.current || {}).status || "unavailable", "diagnostic_reason")}</p>` : "";
+    return `<section class="company-section research-delta"><h3>Điều gì đã thay đổi?</h3><p><b>Trạng thái thay đổi luận điểm:</b> ${summary.material_change_detected ? "đã phát hiện thay đổi trọng yếu" : "không có thay đổi trọng yếu đã xác nhận"} (${vi(state, "diagnostic_reason")}).</p>${changedConclusion}<h4>Thay đổi chính</h4><ul>${keyChanges.map((item) => `<li>${vi(item.category, "diagnostic_reason")}: ${esc(item.reference)}</li>`).join("") || "<li>Chưa có thay đổi mới được xác nhận.</li>"}</ul><h4>Rủi ro và chất lượng dữ liệu</h4><ul>${quality.map((item) => `<li>Chất lượng ${esc(item.dimension)}: ${vi(item.status, "diagnostic_reason")}${item.direction && item.direction !== "unchanged" ? ` (${vi(item.direction, "diagnostic_reason")})` : ""}</li>`).join("")}${risks.map((item) => `<li>Rủi ro ${esc(item.risk_id)}: ${vi(item.status, "diagnostic_reason")}</li>`).join("") || "<li>Không có rủi ro hoặc chất lượng nào thay đổi.</li>"}</ul><h4>Kịch bản / điều kiện làm mất hiệu lực</h4><ul>${invalidations.map((item) => `<li>${esc(item.condition_id)}: ${vi(item.status, "invalidation_state")}; kích hoạt: ${vi(item.trigger_evaluation || "unavailable", "evidence_state")}</li>`).join("") || "<li>Không có điều kiện làm mất hiệu lực nào thay đổi.</li>"}</ul><h4>Vẫn còn bị chặn</h4><p>${blocked.length ? viList(blocked, "diagnostic_reason") : "Không còn ranh giới trọng yếu nào bị chặn không đổi."}</p></section>`;
   }
   function researchDeltaForRow(row,bundle) { const e=bundleEntryForRow(row,bundle); return e && e.qualified_research_delta; }
   // Financial distress (Altman Z'). Deliberately narrow: this section renders the model's
@@ -209,70 +310,77 @@
   // applicability verdict into a rating, and never shows a number for a filer the model
   // does not apply to — a credit institution or a broker reaches this function with
   // applicability "not_applicable" and no score, and that is exactly what is displayed.
+  const ZONE_VI = { distress: "Vùng nguy hiểm", grey: "Vùng cảnh báo", safe: "Vùng an toàn" };
+  const APPLICABILITY_VERDICT_VI = { eligible: "Đủ điều kiện", not_applicable: "Không áp dụng", insufficient_evidence: "Chưa đủ bằng chứng" };
   const DISTRESS_APPLICABILITY = {
-    not_applicable: "This model does not apply to this issuer.",
-    insufficient_evidence: "Not enough qualified evidence to apply this model.",
-    eligible: "This issuer is eligible for this model.",
+    not_applicable: "Mô hình này không áp dụng cho doanh nghiệp này.",
+    insufficient_evidence: "Chưa đủ dữ liệu đã xác nhận để áp dụng mô hình này.",
+    eligible: "Doanh nghiệp này đủ điều kiện áp dụng mô hình này.",
+  };
+  const STATEMENT_TAXONOMY_VI = {
+    corporate_vas: "Doanh nghiệp (VAS)", credit_institution: "Tổ chức tín dụng",
+    securities_company: "Công ty chứng khoán", insurance_company: "Doanh nghiệp bảo hiểm",
+    generated_taxonomy: "Tự động nhận diện", generated_evidence: "Tự động nhận diện", manual_profile: "Hồ sơ thủ công",
   };
   function renderStatementTaxonomy(evidence) {
     if (!isObject(evidence) || !evidence.statement_taxonomy) return "";
     const authority = String(evidence.entity_type_authority || "unknown");
-    return `<div class="cp-ci-source"><h5>Statement taxonomy (generated evidence)</h5>`
+    return `<div class="cp-ci-source"><h5>Loại báo cáo tài chính (tự động nhận diện)</h5>`
       + `<div class="cp-ci-fields">`
-      + `<div class="cp-ci-field"><span>Reporting template</span><strong>${displayValue(titleCase(evidence.statement_taxonomy))}</strong></div>`
-      + `<div class="cp-ci-field"><span>Entity type authority</span><strong>${displayValue(titleCase(authority))}</strong></div>`
+      + `<div class="cp-ci-field"><span>Mẫu báo cáo</span><strong>${displayValue(STATEMENT_TAXONOMY_VI[evidence.statement_taxonomy] || titleCase(evidence.statement_taxonomy))}</strong></div>`
+      + `<div class="cp-ci-field"><span>Nguồn xác định loại hình</span><strong>${displayValue(STATEMENT_TAXONOMY_VI[authority] || titleCase(authority))}</strong></div>`
       + `</div>`
-      + `<div class="cp-ci-notice cp-ci-partial">Generated observation of the reporting template only. It is not a manually verified issuer type.</div>`
+      + `<div class="cp-ci-notice cp-ci-partial">Đây là quan sát tự động về mẫu báo cáo, không phải loại hình doanh nghiệp đã được kiểm tra thủ công.</div>`
       + `</div>`;
   }
   function renderFinancialDistress(distress, taxonomy) {
     const taxonomyHtml = renderStatementTaxonomy(taxonomy);
     if (!isObject(distress)) {
       return taxonomyHtml
-        ? `<section class="cp-ci"><h3>Financial Distress Model</h3>${taxonomyHtml}<div class="cp-ci-notice cp-ci-missing">No distress-model result is included in this bundle.</div></section>`
+        ? `<section class="cp-ci"><h3>Cảnh báo rủi ro tài chính (Altman Z′)</h3>${taxonomyHtml}<div class="cp-ci-notice cp-ci-missing">Chưa có kết quả mô hình cảnh báo rủi ro trong bản dữ liệu này.</div></section>`
         : "";
     }
     const applicability = isObject(distress.applicability) ? distress.applicability : {};
     const verdict = String(applicability.applicability || distress.status || "insufficient_evidence");
-    const head = `<div class="cp-ci-meta">Model: ${esc(distress.model || "Altman Z'")}`
-      + `${distress.variant ? ` · variant ${esc(distress.variant)}` : ""}${distress.schema_version ? ` · v${esc(distress.schema_version)}` : ""}`
-      + ` · applicability: ${esc(verdict)}</div>`;
+    const head = `<div class="cp-ci-meta">Mô hình: ${esc(distress.model || "Altman Z'")}`
+      + `${distress.variant ? ` · biến thể ${esc(distress.variant)}` : ""}`
+      + ` · khả năng áp dụng: ${APPLICABILITY_VERDICT_VI[verdict] ? esc(APPLICABILITY_VERDICT_VI[verdict]) : vi(verdict, "diagnostic_reason")}</div>`;
     const notice = `<div class="cp-ci-notice cp-ci-${verdict === "eligible" ? "partial" : "missing"}">`
-      + `${esc(DISTRESS_APPLICABILITY[verdict] || "Model applicability is unknown.")}`
-      + `${applicability.reason ? ` ${esc(applicability.reason)}` : ""}</div>`;
+      + `${esc(DISTRESS_APPLICABILITY[verdict] || "Chưa xác định được khả năng áp dụng mô hình.")}`
+      + `${applicability.reason ? ` ${esc(sanitizeFreeText(applicability.reason))}` : ""}</div>`;
     const blocking = Array.isArray(distress.blocking_reasons) ? distress.blocking_reasons : [];
     const missing = Array.isArray(distress.missing_inputs) ? distress.missing_inputs : [];
     const reasons = (blocking.length || missing.length)
-      ? `<div class="cp-ci-source"><h5>Why no score is shown</h5>${blocking.map((r) => `<div class="cp-ci-field"><span>Blocked</span><strong>${displayValue(r)}</strong></div>`).join("")}${missing.map((r) => `<div class="cp-ci-field"><span>Missing input</span><strong>${displayValue(r)}</strong></div>`).join("")}</div>`
+      ? `<div class="cp-ci-source"><h5>Vì sao chưa hiển thị điểm số</h5>${blocking.map((r) => `<div class="cp-ci-field"><span>Bị chặn</span><strong>${displayValue(r)}</strong></div>`).join("")}${missing.map((r) => `<div class="cp-ci-field"><span>Thiếu dữ liệu</span><strong>${displayValue(r)}</strong></div>`).join("")}</div>`
       : "";
     // A score is only ever rendered when the model itself reported one. `status`
     // "available" without a numeric score still renders no number.
     const score = distress.status === "available" && typeof distress.score === "number" && Number.isFinite(distress.score)
-      ? `<div class="cp-ci-source"><h5>Result</h5><div class="cp-ci-fields">`
-        + `<div class="cp-ci-field"><span>Z' score</span><strong>${displayNumber(distress.score, 4)}</strong></div>`
-        + `<div class="cp-ci-field"><span>Zone</span><strong>${displayValue(titleCase(distress.zone))}</strong></div>`
-        + `<div class="cp-ci-field"><span>Reporting period</span><strong>${displayValue(distress.period)}</strong></div>`
+      ? `<div class="cp-ci-source"><h5>Kết quả</h5><div class="cp-ci-fields">`
+        + `<div class="cp-ci-field"><span>Điểm Z'</span><strong>${displayNumber(distress.score, 4)}</strong></div>`
+        + `<div class="cp-ci-field"><span>Phân vùng</span><strong>${displayValue(ZONE_VI[distress.zone] || titleCase(distress.zone))}</strong></div>`
+        + `<div class="cp-ci-field"><span>Kỳ báo cáo</span><strong>${displayValue(distress.period)}</strong></div>`
         + `</div></div>`
       : "";
     const proximity = isObject(distress.zone_proximity) ? distress.zone_proximity : null;
     const boundary = score && proximity && proximity.near_threshold
-      ? `<div class="cp-ci-notice cp-ci-partial">The score is close to the ${esc(proximity.nearest_threshold || "zone")} boundary (${displayNumber(proximity.nearest_threshold_value, 2)}); the zone label is not robust to small input changes.</div>`
+      ? `<div class="cp-ci-notice cp-ci-partial">Điểm số gần ranh giới vùng ${esc(proximity.nearest_threshold || "zone")} (${displayNumber(proximity.nearest_threshold_value, 2)}); nhãn vùng cảnh báo dễ thay đổi khi số liệu đầu vào thay đổi nhỏ.</div>`
       : "";
     const limits = Array.isArray(distress.limitations) && distress.limitations.length
-      ? `<div class="cp-ci-source"><h5>Interpretation limits</h5>${distress.limitations.map((l) => `<div class="cp-ci-notice cp-ci-partial">${displayValue(l)}</div>`).join("")}</div>`
+      ? `<div class="cp-ci-source"><h5>Giới hạn khi diễn giải</h5>${distress.limitations.map((l) => `<div class="cp-ci-notice cp-ci-partial">${displayValue(l)}</div>`).join("")}</div>`
       : "";
-    return `<section class="cp-ci"><h3>Financial Distress Model</h3>${head}${taxonomyHtml}${notice}${score}${boundary}${reasons}${limits}`
-      + `<div class="cp-ci-notice cp-ci-missing">A model zone is not a bankruptcy probability and not an investment recommendation.</div></section>`;
+    return `<section class="cp-ci"><h3>Cảnh báo rủi ro tài chính (Altman Z′)</h3>${head}${taxonomyHtml}${notice}${score}${boundary}${reasons}${limits}`
+      + `<div class="cp-ci-notice cp-ci-missing">Vùng cảnh báo của mô hình không phải là xác suất phá sản và không phải khuyến nghị đầu tư.</div></section>`;
   }
   function renderCitedDocumentEvidence(evidence) {
     if (!isObject(evidence)) return "";
     const state = String(evidence.retrieval_status || "unavailable");
     const reason = evidence.reason || (state === "unavailable" ? "section_absent" : null);
-    const notices = { unsupported_query: "This evidence query is not supported.", no_source_supported_passage: "No source-supported passage was found.", missing_document: "The cited document is unavailable.", source_hash_mismatch: "The cited document failed source-hash validation.", section_absent: "Cited evidence is not included in this context." };
+    const notices = { unsupported_query: "Truy vấn bằng chứng này chưa được hỗ trợ.", no_source_supported_passage: "Không tìm thấy đoạn trích có nguồn xác nhận.", missing_document: "Chưa có tài liệu được trích dẫn.", source_hash_mismatch: "Tài liệu trích dẫn không khớp kiểm tra tính toàn vẹn nguồn.", section_absent: "Chưa có trích dẫn tài liệu trong bối cảnh này." };
     const rows = Array.isArray(evidence.results) ? evidence.results.filter((item) => isObject(item) && Array.isArray(item.citation_ids) && item.citation_ids.length).slice().sort((a, b) => String(a.document_id || "").localeCompare(String(b.document_id || "")) || String(a.chunk_id || "").localeCompare(String(b.chunk_id || ""))) : [];
-    const rowHtml = rows.map((item) => `<div class="cp-ci-source"><h5>${esc(item.document_id || "Document")}</h5><div class="cp-ci-fields"><div class="cp-ci-field"><span>Ticker</span><strong>${displayValue(evidence.ticker)}</strong></div><div class="cp-ci-field"><span>Page / section</span><strong>${displayValue(item.page)} / ${displayValue(item.section)}</strong></div><div class="cp-ci-field"><span>Citation IDs</span><strong>${item.citation_ids.map(esc).join(", ")}</strong></div><div class="cp-ci-field"><span>Published / observed</span><strong>${displayValue(item.published_at)} / ${displayValue(item.observed_at)}</strong></div><div class="cp-ci-field"><span>Document hash</span><strong>${displayValue(item.document_sha256)}</strong></div></div></div>`).join("");
-    const notice = notices[reason] || (state === "unavailable" ? "Cited evidence is unavailable." : "");
-    return `<section class="cp-ci"><h3>Cited Evidence</h3><div class="cp-ci-meta">Retrieval status: ${esc(state)}${reason ? ` · ${esc(reason)}` : ""}</div>${notice ? `<div class="cp-ci-notice cp-ci-missing">${esc(notice)}</div>` : ""}${rowHtml}</section>`;
+    const rowHtml = rows.map((item) => `<div class="cp-ci-source"><h5>${esc(item.document_id || "Tài liệu")}</h5><div class="cp-ci-fields"><div class="cp-ci-field"><span>Mã</span><strong>${displayValue(evidence.ticker)}</strong></div><div class="cp-ci-field"><span>Trang / mục</span><strong>${displayValue(item.page)} / ${displayValue(item.section)}</strong></div><div class="cp-ci-field"><span>Mã trích dẫn</span><strong>${item.citation_ids.map(esc).join(", ")}</strong></div><div class="cp-ci-field"><span>Công bố / ghi nhận</span><strong>${displayValue(item.published_at)} / ${displayValue(item.observed_at)}</strong></div><div class="cp-ci-field"><span>Mã băm tài liệu</span><strong>${displayValue(item.document_sha256)}</strong></div></div></div>`).join("");
+    const notice = notices[reason] || (state === "unavailable" ? "Chưa có trích dẫn tài liệu." : "");
+    return `<section class="cp-ci"><h3>Trích dẫn tài liệu nguồn</h3><div class="cp-ci-meta">Trạng thái truy xuất: ${vi(state, "data_fitness")}</div>${notice ? `<div class="cp-ci-notice cp-ci-missing">${esc(notice)}</div>` : ""}${rowHtml}</section>`;
   }
   function qualifiedResearchSnapshotForRow(row, bundle) {
     if (isObject(row && row.qualified_research_snapshot_v2)) return row.qualified_research_snapshot_v2;
@@ -285,31 +393,40 @@
   function researchStateClass(status) {
     return ["qualified", "available"].includes(String(status || "").toLowerCase()) ? "qrs2-qualified" : "qrs2-unavailable";
   }
+  // The v2 snapshot's own bounded capability vocabulary (qualified/unqualified/
+  // blocked/available/unknown), distinct from the broader availability_state
+  // domain -- kept as its own small dictionary so it does not silently drift if
+  // that shared domain's wording changes for an unrelated surface.
+  const RESEARCH_CAPABILITY_STATUS_VI = { qualified: "Đã xác nhận", unqualified: "Chưa xác nhận", blocked: "Bị chặn", unknown: "Chưa xác định", available: "Có dữ liệu" };
+  function researchCapabilityStatusVi(status) {
+    const key = String(status || "unknown").toLowerCase();
+    return esc(RESEARCH_CAPABILITY_STATUS_VI[key] || RESEARCH_CAPABILITY_STATUS_VI.unknown);
+  }
   function renderResearchState(label, state) {
     const status = isObject(state) && typeof state.status === "string" ? state.status : "unknown";
     const reasons = isObject(state) && Array.isArray(state.reason_codes) ? state.reason_codes.filter((reason) => typeof reason === "string" && reason) : [];
-    return `<div class="qrs2-state ${researchStateClass(status)}"><span>${esc(label)}</span><strong>${esc(titleCase(status))}</strong>${reasons.length ? `<small>${esc(reasons.join(", "))}</small>` : ""}</div>`;
+    return `<div class="qrs2-state ${researchStateClass(status)}"><span>${esc(label)}</span><strong>${researchCapabilityStatusVi(status)}</strong>${reasons.length ? `<small>${viList(reasons, "diagnostic_reason")}</small>` : ""}</div>`;
   }
   function issuerForRow(row) {
     const issuer = [row && row.issuer, row && row.issuer_name, row && row.company_name, row && row.company, row && row.name]
       .find((value) => typeof value === "string" && value.trim());
-    return issuer || "Not supplied by this snapshot";
+    return issuer || "Chưa có trong bản dữ liệu này";
   }
   function renderQualifiedResearchSnapshotV2(snapshot, row) {
     const ticker = row && row.ticker;
     if (!isObject(snapshot)) return "";
     const record = snapshotRecordForTicker(snapshot, ticker);
-    if (!record) return `<section class="cp-ci qrs2"><h3>Qualified Research Snapshot v2</h3><div class="qrs2-state qrs2-unavailable"><span>Ticker</span><strong>${esc(ticker || "unknown")}</strong><small>ticker_not_present_in_snapshot</small></div></section>`;
+    if (!record) return `<section class="cp-ci qrs2"><h3>Năng lực nghiên cứu theo mã</h3><div class="qrs2-state qrs2-unavailable"><span>Mã</span><strong>${esc(ticker || "unknown")}</strong><small>Chưa có mã này trong bản dữ liệu</small></div></section>`;
     const reasons = Array.isArray(record.reason_codes) ? record.reason_codes.filter((reason) => typeof reason === "string" && reason) : [];
     const states = isObject(record.analysis_states) ? record.analysis_states : {};
     const stateRows = [
-      ["Historical research", states.historical_research],
-      ["Raw-price basis", states.raw_as_traded_price],
-      ["Current valuation", states.current_valuation],
-      ["Liquidity", states.generic_liquidity],
-      ["Foreign-flow value", states.foreign_flow_value],
+      ["Nghiên cứu lịch sử", states.historical_research],
+      ["Cơ sở giá gốc", states.raw_as_traded_price],
+      ["Định giá hiện tại", states.current_valuation],
+      ["Thanh khoản", states.generic_liquidity],
+      ["Giá trị dòng vốn ngoại", states.foreign_flow_value],
     ].map(([label, state]) => renderResearchState(label, state)).join("");
-    return `<section class="cp-ci qrs2"><h3>Qualified Research Snapshot v2</h3><div class="cp-ci-meta">${esc(snapshot.schema_version || "unknown version")} · ${esc(snapshot.snapshot_id || "identity unavailable")}</div><div class="cp-ci-fields"><div class="cp-ci-field"><span>Ticker</span><strong>${esc(record.ticker)}</strong></div><div class="cp-ci-field"><span>Issuer</span><strong>${esc(issuerForRow(row))}</strong></div><div class="cp-ci-field"><span>Research capability</span><strong>${esc(titleCase(record.research_status || "unknown"))}</strong></div></div>${reasons.length ? `<div class="cp-ci-notice cp-ci-partial">${esc(reasons.join(", "))}</div>` : ""}<div class="qrs2-states">${stateRows}</div></section>`;
+    return `<section class="cp-ci qrs2"><h3>Năng lực nghiên cứu theo mã</h3><div class="cp-ci-meta">${esc(snapshot.snapshot_id || "Chưa có định danh")}</div><div class="cp-ci-fields"><div class="cp-ci-field"><span>Mã</span><strong>${esc(record.ticker)}</strong></div><div class="cp-ci-field"><span>Doanh nghiệp</span><strong>${esc(issuerForRow(row))}</strong></div><div class="cp-ci-field"><span>Năng lực nghiên cứu</span><strong>${researchCapabilityStatusVi(record.research_status)}</strong></div></div>${reasons.length ? `<div class="cp-ci-notice cp-ci-partial">${viList(reasons, "diagnostic_reason")}</div>` : ""}<div class="qrs2-states">${stateRows}</div></section>`;
   }
   function loadCorporateBundle() { if (window.ANALYSIS_BUNDLE) return Promise.resolve(window.ANALYSIS_BUNDLE); if (!corporateBundlePromise && typeof fetch === "function") corporateBundlePromise = fetch("analysis_bundle.json", { cache: "no-store" }).then((response) => response.ok ? response.json() : null).catch(() => null); return corporateBundlePromise || Promise.resolve(null); }
   function corporateForRow(row, bundle) { if (isObject(row && row.corporate_intelligence)) return row.corporate_intelligence; return bundle && bundle.tickers && row && bundle.tickers[row.ticker] && bundle.tickers[row.ticker].corporate_intelligence; }
@@ -331,7 +448,7 @@
   }
   function historicalValuationPeriod(methods) {
     const first = methods.find((method) => isObject(method.financial_period));
-    return first && first.financial_period && first.financial_period.period ? `FY${first.financial_period.period}` : "Historical financial period unavailable";
+    return first && first.financial_period && first.financial_period.period ? `FY${first.financial_period.period}` : "Chưa có kỳ báo cáo tài chính";
   }
   function historicalEbitdaMetadata(entry) {
     const records = entry && entry.financial_canonical && entry.financial_canonical.records;
@@ -340,18 +457,18 @@
   function renderHistoricalValuation(entry) {
     const valuation = entry && entry.relative_valuation;
     if (!isObject(valuation) || !isObject(valuation.methods)) return "";
-    const labels = { pe: "P/E", pb: "P/B", ps: "P/S", ev_sales: "EV/Sales", ev_ebitda: "EV/EBITDA" };
+    const labels = { pe: "P/E", pb: "P/B", ps: "P/S", ev_sales: "EV/Doanh thu", ev_ebitda: "EV/EBITDA" };
     const ordered = ["pe", "pb", "ps", "ev_sales", "ev_ebitda"].map((key) => ({ key, method: valuation.methods[key] })).filter(({ method }) => isObject(method));
     if (!ordered.length) return "";
     const available = ordered.filter(({ method }) => method.state === "available" && method.is_actionable !== false && Number.isFinite(Number(method.observed_multiple)));
     if (!available.length) {
       const unavailable = ordered.find(({ method }) => method.state === "unavailable" || method.is_actionable === false);
       const reason = unavailable && Array.isArray(unavailable.method.missing_inputs) ? unavailable.method.missing_inputs.join(", ") : "historical_valuation_not_actionable";
-      return `<section class="cp-hv" data-valuation-state="unavailable" data-valuation-reason="${esc(reason)}"><h3>Historical valuation</h3><div class="cp-ci-notice cp-ci-missing">Historical valuation is unavailable for this ticker. No current/live multiple is inferred.</div></section>`;
+      return `<section class="cp-hv" data-valuation-state="unavailable" data-valuation-reason="${esc(reason)}"><h3>Định giá lịch sử</h3><div class="cp-ci-notice cp-ci-missing">Chưa có định giá lịch sử cho mã này. Không suy ra định giá hiện tại/trực tiếp.</div></section>`;
     }
-    const priceDate = available.find(({ method }) => method.price_as_of_date)?.method.price_as_of_date || "Unknown";
+    const priceDate = available.find(({ method }) => method.price_as_of_date)?.method.price_as_of_date || "Chưa xác định";
     const ebitda = historicalEbitdaMetadata(entry);
-    const rows = available.map(({ key, method }) => `<div class="cp-ci-field"><span>${esc(labels[key])}${key === "ev_ebitda" ? " (derived EBITDA)" : ""}</span><strong>${displayNumber(method.observed_multiple, 2)}x</strong></div>`).join("");
+    const rows = available.map(({ key, method }) => `<div class="cp-ci-field"><span>${esc(labels[key])}${key === "ev_ebitda" ? " (EBITDA suy ra)" : ""}</span><strong>${displayNumber(method.observed_multiple, 2)}x</strong></div>`).join("");
     // Methods present in the artifact but not "available" (e.g. ps unavailable for a
     // bank with no revenue identity, ev_sales/ev_ebitda inapplicable for a bank archetype)
     // must still render explicitly here -- never silently dropped alongside the available
@@ -359,10 +476,10 @@
     const notAvailable = ordered.filter(({ key }) => !available.some((entry2) => entry2.key === key));
     const notAvailableRows = notAvailable.map(({ key, method }) => {
       const state = String(method.state || "unknown");
-      return `<div class="cp-ci-notice cp-ci-${esc(state)}"><span>${esc(labels[key])}</span>: ${esc(titleCase(state))} — ${esc(authoritativeReason(method))}</div>`;
+      return `<div class="cp-ci-notice cp-ci-${esc(state)}"><span>${esc(labels[key])}</span>: ${vi(state, "data_fitness")} — ${authoritativeReasonVi(method)}</div>`;
     }).join("");
-    const ebitdaDetails = ebitda ? `<details class="cp-hv-details"><summary>Derived EBITDA details</summary><div>Formula version: <code>${esc(ebitda.formula_version)}</code></div>${Array.isArray(ebitda.warnings) && ebitda.warnings.length ? `<div class="cp-ci-notice cp-ci-incomparable">${esc(ebitda.warnings.join(" "))}</div>` : ""}</details>` : "";
-    return `<section class="cp-hv" data-valuation-state="historical"><h3>Historical valuation</h3><div class="cp-ci-notice cp-ci-historical">Historical multiples only — not current/live multiples.</div><div class="cp-ci-meta">${esc(historicalValuationPeriod(available.map(({ method }) => method)))} financials · qualified market price as of ${esc(priceDate)}</div><div class="cp-ci-source"><div class="cp-ci-fields">${rows}</div></div>${notAvailableRows}${ebitdaDetails}</section>`;
+    const ebitdaDetails = ebitda ? `<details class="cp-hv-details"><summary>Chi tiết EBITDA suy ra</summary>${Array.isArray(ebitda.warnings) && ebitda.warnings.length ? `<div class="cp-ci-notice cp-ci-incomparable">${ebitda.warnings.map((w) => vi(w, "diagnostic_reason")).join(" ")}</div>` : ""}</details>` : "";
+    return `<section class="cp-hv" data-valuation-state="historical"><h3>Định giá lịch sử</h3><div class="cp-ci-notice cp-ci-historical">Chỉ là hệ số định giá lịch sử — không phải hệ số hiện tại/trực tiếp.</div><div class="cp-ci-meta">Báo cáo tài chính ${esc(historicalValuationPeriod(available.map(({ method }) => method)))} · giá thị trường đã xác nhận tính đến ${esc(priceDate)}</div><div class="cp-ci-source"><div class="cp-ci-fields">${rows}</div></div>${notAvailableRows}${ebitdaDetails}</section>`;
   }
 
   /* ---------- Financial-analysis visibility (bounded closeout): render already-
@@ -371,14 +488,15 @@
    * Contract-driven only — no ticker checks, no recomputation, no invented
    * aggregates. Anything absent from the artifact simply renders nothing
    * (fail closed), never a fabricated zero/blank/NaN. ---------- */
-  const FUNDAMENTAL_QUALITY_LABELS = { growth_profitability: "Growth & Profitability", dupont_roe: "DuPont ROE", earnings_quality: "Earnings Quality", financial_strength: "Financial Strength", piotroski_f_score: "Piotroski F-Score", altman_z_score: "Altman Z-Score", beneish_m_score: "Beneish M-Score" };
-  function authoritativeReason(method) {
-    // A plain neutral phrase, never a raw snake_case internal fallback token
-    // (DASHBOARD_INVESTOR_FIRST_PRESENTATION_SIMPLIFICATION_V1 Phase 4).
-    if (!isObject(method)) return "No reason provided";
-    if (Array.isArray(method.missing_inputs) && method.missing_inputs.length) return method.missing_inputs.join(", ");
-    if (Array.isArray(method.warnings) && method.warnings.length) return method.warnings.join(" ");
-    return "No reason provided";
+  const FUNDAMENTAL_QUALITY_LABELS = { growth_profitability: "Tăng trưởng & Khả năng sinh lời", dupont_roe: "DuPont ROE", earnings_quality: "Chất lượng lợi nhuận", financial_strength: "Sức mạnh tài chính", piotroski_f_score: "Piotroski F-Score", altman_z_score: "Altman Z-Score", beneish_m_score: "Beneish M-Score" };
+  // A plain neutral phrase, never a raw snake_case internal fallback token
+  // panel: missing_inputs/warnings are internal contract codes, so they are routed
+  // through the shared Vietnamese vocabulary (never shown as a raw snake_case list).
+  function authoritativeReasonVi(method) {
+    if (!isObject(method)) return "Chưa có lý do cụ thể";
+    if (Array.isArray(method.missing_inputs) && method.missing_inputs.length) return viList(method.missing_inputs, "diagnostic_reason");
+    if (Array.isArray(method.warnings) && method.warnings.length) return viList(method.warnings, "diagnostic_reason");
+    return "Chưa có lý do cụ thể";
   }
   function financialCurrency(entry) {
     const records = entry && entry.financial_canonical && entry.financial_canonical.records;
@@ -387,7 +505,7 @@
   }
   function periodLabelFromPeriods(periods) {
     const first = Array.isArray(periods) ? periods.find((p) => p) : null;
-    return first ? `FY${first}` : "Historical financial period unavailable";
+    return first ? `FY${first}` : "Chưa có kỳ báo cáo tài chính";
   }
   function renderFundamentalQuality(entry) {
     const fq = entry && entry.fundamental_quality;
@@ -399,51 +517,51 @@
       const label = FUNDAMENTAL_QUALITY_LABELS[key] || titleCase(key);
       const state = String(model.result_state || model.applicability_state || "unknown");
       if (state === "available") {
-        return `<div class="cp-ci-source"><h5>${esc(label)}</h5><div class="cp-ci-fields"><div class="cp-ci-field"><span>Result</span><strong>${displayNumber(model.score_or_value, 2)}</strong></div></div></div>`;
+        return `<div class="cp-ci-source"><h5>${esc(label)}</h5><div class="cp-ci-fields"><div class="cp-ci-field"><span>Kết quả</span><strong>${displayNumber(model.score_or_value, 2)}</strong></div></div></div>`;
       }
-      return `<div class="cp-ci-source"><h5>${esc(label)}</h5><div class="cp-ci-notice cp-ci-${esc(state)}">${esc(titleCase(state))}: ${esc(authoritativeReason(model))}</div></div>`;
+      return `<div class="cp-ci-source"><h5>${esc(label)}</h5><div class="cp-ci-notice cp-ci-${esc(state)}">${vi(state, "data_fitness")}: ${authoritativeReasonVi(model)}</div></div>`;
     }).join("");
-    return `<section class="cp-ci-section"><h4>Fundamental Quality</h4><div class="cp-ci-meta">${availableCount} of ${models.length} model sections available</div>${rows}</section>`;
+    return `<section class="cp-ci-section"><h4>Chất lượng cơ bản</h4><div class="cp-ci-meta">${availableCount}/${models.length} mô hình có kết quả</div>${rows}</section>`;
   }
   function renderNetNet(entry) {
     const method = entry && entry.intrinsic_valuation && entry.intrinsic_valuation.methods && entry.intrinsic_valuation.methods.net_net;
     if (!isObject(method)) return "";
     const state = String(method.state || "unknown");
     if (state !== "available") {
-      return `<section class="cp-ci-section"><h4>Net-Net</h4><div class="cp-ci-notice cp-ci-${esc(state)}">${esc(titleCase(state))}: ${esc(authoritativeReason(method))}</div></section>`;
+      return `<section class="cp-ci-section"><h4>Giá trị thanh lý ước tính (Net-Net)</h4><div class="cp-ci-notice cp-ci-${esc(state)}">${vi(state, "data_fitness")}: ${authoritativeReasonVi(method)}</div></section>`;
     }
     const currency = financialCurrency(entry);
     const period = periodLabelFromPeriods(method.historical_input_periods);
     const hasPerShare = method.per_share_value !== null && method.per_share_value !== undefined;
-    return `<section class="cp-ci-section"><h4>Net-Net</h4><div class="cp-ci-meta">${esc(period)}${currency ? ` · ${esc(currency)}` : ""}${method.statement_scope ? ` · ${esc(method.statement_scope)}` : ""}</div><div class="cp-ci-fields"><div class="cp-ci-field"><span>Net-Net result</span><strong>${displayNumber(method.equity_value, 0)}</strong></div>${hasPerShare ? `<div class="cp-ci-field"><span>Per-share</span><strong>${displayNumber(method.per_share_value, 2)}</strong></div>` : ""}</div></section>`;
+    return `<section class="cp-ci-section"><h4>Giá trị thanh lý ước tính (Net-Net)</h4><div class="cp-ci-meta">${esc(period)}${currency ? ` · ${esc(currency)}` : ""}${method.statement_scope ? ` · ${esc(method.statement_scope)}` : ""}</div><div class="cp-ci-fields"><div class="cp-ci-field"><span>Kết quả Net-Net</span><strong>${displayNumber(method.equity_value, 0)}</strong></div>${hasPerShare ? `<div class="cp-ci-field"><span>Trên mỗi cổ phiếu</span><strong>${displayNumber(method.per_share_value, 2)}</strong></div>` : ""}</div></section>`;
   }
   function renderFcff(entry) {
     const method = entry && entry.intrinsic_valuation && entry.intrinsic_valuation.methods && entry.intrinsic_valuation.methods.fcff_dcf;
     if (!isObject(method)) return "";
     const state = String(method.state || "unknown");
     if (state !== "available") {
-      return `<section class="cp-ci-section"><h4>FCFF</h4><div class="cp-ci-notice cp-ci-${esc(state)}">${esc(titleCase(state))}: ${esc(authoritativeReason(method))}</div></section>`;
+      return `<section class="cp-ci-section"><h4>Dòng tiền tự do (FCFF)</h4><div class="cp-ci-notice cp-ci-${esc(state)}">${vi(state, "data_fitness")}: ${authoritativeReasonVi(method)}</div></section>`;
     }
-    return `<section class="cp-ci-section"><h4>FCFF</h4><div class="cp-ci-fields"><div class="cp-ci-field"><span>Enterprise value</span><strong>${displayNumber(method.enterprise_value, 0)}</strong></div><div class="cp-ci-field"><span>Equity value</span><strong>${displayNumber(method.equity_value, 0)}</strong></div><div class="cp-ci-field"><span>Per-share</span><strong>${displayNumber(method.per_share_value, 2)}</strong></div></div></section>`;
+    return `<section class="cp-ci-section"><h4>Dòng tiền tự do (FCFF)</h4><div class="cp-ci-fields"><div class="cp-ci-field"><span>Giá trị doanh nghiệp</span><strong>${displayNumber(method.enterprise_value, 0)}</strong></div><div class="cp-ci-field"><span>Giá trị vốn chủ sở hữu</span><strong>${displayNumber(method.equity_value, 0)}</strong></div><div class="cp-ci-field"><span>Trên mỗi cổ phiếu</span><strong>${displayNumber(method.per_share_value, 2)}</strong></div></div></section>`;
   }
   function qualifiedMetric(row, name) {
     const metrics = isObject(row) && isObject(row.metrics) ? row.metrics : {};
     return isObject(metrics[name]) ? metrics[name] : null;
   }
   function qualifiedMetricValue(metric, suffix = "") {
-    if (!isObject(metric)) return "Data unavailable";
-    if (metric.status !== "available") return esc(titleCase(metric.status || metric.applicability || "unavailable"));
-    return metric.value === null || metric.value === undefined ? "Data unavailable" : `${displayNumber(metric.value, 2)}${suffix}`;
+    if (!isObject(metric)) return "Chưa có dữ liệu";
+    if (metric.status !== "available") return vi(metric.status || metric.applicability || "unavailable", "diagnostic_reason");
+    return metric.value === null || metric.value === undefined ? "Chưa có dữ liệu" : `${displayNumber(metric.value, 2)}${suffix}`;
   }
   function predicateNames(items) {
     return Array.isArray(items) && items.length
-      ? items.filter(isObject).map((item) => titleCase(item.predicate || "qualified condition")).join(", ")
-      : "None recorded";
+      ? items.filter(isObject).map((item) => vi(item.predicate || "qualified_condition", "diagnostic_reason")).join(", ")
+      : "Chưa ghi nhận";
   }
   function scenarioConditions(scenarios, name) {
     const scenario = isObject(scenarios) && isObject(scenarios[name]) ? scenarios[name] : {};
     const values = scenario.historical_fundamental_conditions || scenario.required_conditions;
-    return Array.isArray(values) && values.length ? values.map(displayValue).join("; ") : "Data unavailable";
+    return Array.isArray(values) && values.length ? values.map(displayValue).join("; ") : "Chưa có dữ liệu";
   }
   function validQualifiedComparison(value) {
     return isObject(value) && value.status === "available" && value.historical_only === true
@@ -453,31 +571,31 @@
   function renderQualifiedHistoricalResearch(entry) {
     const comparison = entry && entry.qualified_cohort_comparison;
     if (comparison === undefined) return "";
-    if (!validQualifiedComparison(comparison)) return `<section class="cp-ci-section" data-qualified-research-state="unavailable"><h4>Qualified Historical Research</h4><div class="cp-ci-notice cp-ci-missing">Data unavailable.</div></section>`;
+    if (!validQualifiedComparison(comparison)) return `<section class="cp-ci-section" data-qualified-research-state="unavailable"><h4>Nghiên cứu cơ bản lịch sử đã xác nhận</h4><div class="cp-ci-notice cp-ci-missing">Chưa có dữ liệu.</div></section>`;
     const decision = isObject(entry.historical_decision_analysis) ? entry.historical_decision_analysis : {};
     const ticker = String(entry.ticker || decision.ticker || "").toUpperCase();
     const row = comparison.rows.find((item) => isObject(item) && String(item.ticker || "").toUpperCase() === ticker);
-    if (!isObject(row)) return `<section class="cp-ci-section" data-qualified-research-state="unavailable"><h4>Qualified Historical Research</h4><div class="cp-ci-notice cp-ci-missing">Data unavailable.</div></section>`;
+    if (!isObject(row)) return `<section class="cp-ci-section" data-qualified-research-state="unavailable"><h4>Nghiên cứu cơ bản lịch sử đã xác nhận</h4><div class="cp-ci-notice cp-ci-missing">Chưa có dữ liệu.</div></section>`;
     const metrics = {
       earnings: qualifiedMetric(row, "earnings_state"), ocf: qualifiedMetric(row, "operating_cash_flow_state"),
       conversion: qualifiedMetric(row, "operating_cash_flow_to_net_income"), debtEquity: qualifiedMetric(row, "debt_to_equity"),
       cashDebt: qualifiedMetric(row, "cash_to_debt"), netDebtEquity: qualifiedMetric(row, "net_debt_to_equity"),
     };
     const stateText = (metric) => isObject(metric) && Array.isArray(metric.reason_codes) && metric.reason_codes.length
-      ? titleCase(metric.reason_codes[0]) : qualifiedMetricValue(metric);
+      ? vi(metric.reason_codes[0], "diagnostic_reason") : qualifiedMetricValue(metric);
     const cards = [
-      ["Profitability", stateText(metrics.earnings)], ["Operating cash flow", stateText(metrics.ocf)],
-      ["Cash conversion (OCF / NI)", qualifiedMetricValue(metrics.conversion, "x")], ["Debt / Equity", qualifiedMetricValue(metrics.debtEquity, "x")],
-      ["Cash / Debt", qualifiedMetricValue(metrics.cashDebt, "x")], ["Net debt / Equity", qualifiedMetricValue(metrics.netDebtEquity, "x")],
-      ["Historical conclusion", titleCase(row.conclusion_code || "unavailable")], ["Trend availability", titleCase(row.trend_status || "insufficient_history")],
+      ["Khả năng sinh lời", stateText(metrics.earnings)], ["Dòng tiền từ HĐKD", stateText(metrics.ocf)],
+      ["Chuyển đổi tiền mặt (OCF / LNST)", qualifiedMetricValue(metrics.conversion, "x")], ["Nợ / Vốn chủ sở hữu", qualifiedMetricValue(metrics.debtEquity, "x")],
+      ["Tiền mặt / Nợ", qualifiedMetricValue(metrics.cashDebt, "x")], ["Nợ vay ròng / Vốn chủ sở hữu", qualifiedMetricValue(metrics.netDebtEquity, "x")],
+      ["Kết luận lịch sử", vi(row.conclusion_code || "unavailable", "diagnostic_reason")], ["Mức độ đầy đủ xu hướng", vi(row.trend_status || "insufficient_history", "diagnostic_reason")],
     ].map(([label, value]) => `<div class="cp-ci-field"><span>${esc(label)}</span><strong>${value}</strong></div>`).join("");
     const comparisonRows = comparison.rows.map((item) => {
       const value = (metricName) => qualifiedMetricValue(qualifiedMetric(item, metricName), "x");
-      return `<tr><td>${displayValue(item.ticker)}</td><td>${stateText(qualifiedMetric(item, "earnings_state"))}</td><td>${stateText(qualifiedMetric(item, "operating_cash_flow_state"))}</td><td>${value("operating_cash_flow_to_net_income")}</td><td>${value("debt_to_equity")}</td><td>${value("cash_to_debt")}</td><td>${value("net_debt_to_equity")}</td><td>${displayValue(titleCase(item.conclusion_code || "unavailable"))}</td></tr>`;
+      return `<tr><td>${displayValue(item.ticker)}</td><td>${stateText(qualifiedMetric(item, "earnings_state"))}</td><td>${stateText(qualifiedMetric(item, "operating_cash_flow_state"))}</td><td>${value("operating_cash_flow_to_net_income")}</td><td>${value("debt_to_equity")}</td><td>${value("cash_to_debt")}</td><td>${value("net_debt_to_equity")}</td><td>${displayValue(vi(item.conclusion_code || "unavailable", "diagnostic_reason"))}</td></tr>`;
     }).join("");
     const scenarios = decision.scenarios;
     const limitations = Array.isArray(comparison.limitations) ? comparison.limitations.map((item) => `<div class="cp-ci-notice cp-ci-historical">${displayValue(item)}</div>`).join("") : "";
-    return `<section class="cp-ci-section" data-qualified-research-state="available"><h4>Qualified Historical Research</h4><div class="cp-ci-notice cp-ci-historical">Historical qualified fundamentals only. Cross-sectional cohort context is available; multi-period trend is ${esc(String(comparison.multi_period_trend || "unavailable"))}.</div><div class="cp-ci-meta">FY${displayValue(row.analysis_period)}${row.currency ? ` Â· ${displayValue(row.currency)}` : ""} Â· no valuation, recommendation, ranking, or market-liquidity claim</div><div class="cp-ci-fields">${cards}</div><div class="cp-ci-source"><h5>Strengths</h5><div class="cp-ci-meta">${esc(predicateNames(row.strength_predicates))}</div><h5>Risks</h5><div class="cp-ci-meta">${esc(predicateNames(row.risk_predicates))}</div></div><div class="cp-ci-source"><h5>Bear / Base / Bull conditions</h5><div class="cp-ci-field"><span>Bear</span><strong>${displayValue(scenarioConditions(scenarios, "bear"))}</strong></div><div class="cp-ci-field"><span>Base</span><strong>${displayValue(scenarioConditions(scenarios, "base"))}</strong></div><div class="cp-ci-field"><span>Bull</span><strong>${displayValue(scenarioConditions(scenarios, "bull"))}</strong></div></div><div class="cp-ci-source"><h5>Qualified cohort context</h5><div class="table-responsive"><table class="table table-sm"><thead><tr><th>Ticker</th><th>Profitability</th><th>OCF</th><th>OCF/NI</th><th>D/E</th><th>Cash/Debt</th><th>Net debt/Equity</th><th>Conclusion</th></tr></thead><tbody>${comparisonRows}</tbody></table></div></div>${limitations}</section>`;
+    return `<section class="cp-ci-section" data-qualified-research-state="available"><h4>Nghiên cứu cơ bản lịch sử đã xác nhận</h4><div class="cp-ci-notice cp-ci-historical">Chỉ là dữ liệu cơ bản lịch sử đã xác nhận. Có bối cảnh đối sánh cùng nhóm; mức độ đầy đủ xu hướng nhiều kỳ: ${vi(comparison.multi_period_trend || "unavailable", "diagnostic_reason")}.</div><div class="cp-ci-meta">Năm tài chính ${displayValue(row.analysis_period)}${row.currency ? ` · ${displayValue(row.currency)}` : ""} · không phải định giá, khuyến nghị, xếp hạng hay nhận định thanh khoản thị trường</div><div class="cp-ci-fields">${cards}</div><div class="cp-ci-source"><h5>Điểm mạnh</h5><div class="cp-ci-meta">${predicateNames(row.strength_predicates)}</div><h5>Rủi ro</h5><div class="cp-ci-meta">${predicateNames(row.risk_predicates)}</div></div><div class="cp-ci-source"><h5>Điều kiện Xấu / Cơ sở / Tốt</h5><div class="cp-ci-field"><span>Xấu</span><strong>${displayValue(scenarioConditions(scenarios, "bear"))}</strong></div><div class="cp-ci-field"><span>Cơ sở</span><strong>${displayValue(scenarioConditions(scenarios, "base"))}</strong></div><div class="cp-ci-field"><span>Tốt</span><strong>${displayValue(scenarioConditions(scenarios, "bull"))}</strong></div></div><div class="cp-ci-source"><h5>Bối cảnh đối sánh cùng nhóm đã xác nhận</h5><div class="table-responsive"><table class="table table-sm"><thead><tr><th>Mã</th><th>Khả năng sinh lời</th><th>Dòng tiền HĐKD</th><th>OCF/LNST</th><th>Nợ/VCSH</th><th>Tiền mặt/Nợ</th><th>Nợ vay ròng/VCSH</th><th>Kết luận</th></tr></thead><tbody>${comparisonRows}</tbody></table></div></div>${limitations}</section>`;
   }
   function financialAnalysisAvailable(entry) {
     return isObject(entry) && (isObject(entry.fundamental_quality) || isObject(entry.intrinsic_valuation) || entry.qualified_cohort_comparison !== undefined);
@@ -486,7 +604,7 @@
     if (!financialAnalysisAvailable(entry)) return financialsPlaceholder();
     const sections = [renderQualifiedHistoricalResearch(entry), renderFundamentalQuality(entry), renderNetNet(entry), renderFcff(entry)].filter(Boolean);
     if (!sections.length) return financialsPlaceholder();
-    return `<section class="cp-ci"><h3>Financial Analysis</h3>${sections.join("")}</section>`;
+    return `<section class="cp-ci"><h3>Phân tích tài chính</h3>${sections.join("")}</section>`;
   }
   // Independent of renderHistoricalValuation's own state: a qualified EBITDA
   // record must stay visible even when every historical multiple is unavailable
@@ -498,9 +616,9 @@
   function renderEbitdaLineage(entry) {
     const ebitda = historicalEbitdaMetadata(entry);
     if (!ebitda) return "";
-    const period = isObject(ebitda.period_identity) && ebitda.period_identity.period ? `FY${ebitda.period_identity.period}` : "Historical financial period unavailable";
-    const warnings = Array.isArray(ebitda.warnings) && ebitda.warnings.length ? `<div class="cp-ci-notice cp-ci-incomparable">${esc(ebitda.warnings.join(" "))}</div>` : "";
-    return `<section class="cp-ci" data-ebitda-state="${esc(String(ebitda.quality_state || "unknown"))}"><h3>EBITDA lineage</h3><div class="cp-ci-meta">${esc(period)}${ebitda.currency ? ` · ${esc(ebitda.currency)}` : ""}${ebitda.statement_scope ? ` · ${esc(ebitda.statement_scope)}` : ""}</div><div class="cp-ci-fields"><div class="cp-ci-field"><span>Derived EBITDA</span><strong>${displayNumber(ebitda.value, 0)}</strong></div><div class="cp-ci-field"><span>Derived status</span><strong>${displayValue(ebitda.derivation_status)}</strong></div></div><div class="cp-ci-meta">Formula version: <code>${esc(ebitda.formula_version)}</code></div>${warnings}</section>`;
+    const period = isObject(ebitda.period_identity) && ebitda.period_identity.period ? `FY${ebitda.period_identity.period}` : "Chưa có kỳ báo cáo tài chính";
+    const warnings = Array.isArray(ebitda.warnings) && ebitda.warnings.length ? `<div class="cp-ci-notice cp-ci-incomparable">${ebitda.warnings.map((w) => vi(w, "diagnostic_reason")).join(" ")}</div>` : "";
+    return `<section class="cp-ci" data-ebitda-state="${esc(String(ebitda.quality_state || "unknown"))}"><h3>Nguồn gốc EBITDA</h3><div class="cp-ci-meta">${esc(period)}${ebitda.currency ? ` · ${esc(ebitda.currency)}` : ""}${ebitda.statement_scope ? ` · ${esc(ebitda.statement_scope)}` : ""}</div><div class="cp-ci-fields"><div class="cp-ci-field"><span>EBITDA suy ra</span><strong>${displayNumber(ebitda.value, 0)}</strong></div><div class="cp-ci-field"><span>Trạng thái suy ra</span><strong>${ebitda.derivation_status ? vi(ebitda.derivation_status, "diagnostic_reason") : "-"}</strong></div></div>${warnings}</section>`;
   }
 
   let chartRenderedFor = null; // ticker mà biểu đồ hiện đang hiển thị — tránh huỷ/tạo lại Chart.js
@@ -577,8 +695,8 @@
       <div class="vs-empty" style="padding:2rem 1rem;">
         <i data-lucide="file-clock"></i>
         <div class="vs-empty-title">Báo cáo tài chính đang chờ dữ liệu</div>
-        <div class="vs-empty-sub">Ratios, Growth, Profitability, Cash Flow, Valuation sẽ hiển thị
-          tại đây khi dữ liệu BCTC được công khai. Hiện dữ liệu này chỉ lưu cục bộ, chưa xuất bản
+        <div class="vs-empty-sub">Các chỉ số Tỷ số tài chính, Tăng trưởng, Khả năng sinh lời, Dòng tiền, Định giá
+          sẽ hiển thị tại đây khi dữ liệu BCTC được công khai. Hiện dữ liệu này chỉ lưu cục bộ, chưa xuất bản
           lên trang web công khai.</div>
       </div>`;
   }

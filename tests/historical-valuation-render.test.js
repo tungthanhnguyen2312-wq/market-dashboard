@@ -11,20 +11,21 @@ const hpg = { ticker: "HPG", relative_valuation: { methods: {
   ev_sales: { state: "available", is_actionable: true, observed_multiple: 1.4613298832217516, price_as_of_date: "2024-12-31", financial_period: { period: "2024" } },
   ev_ebitda: { state: "available", is_actionable: true, observed_multiple: 8.862176311138887, price_as_of_date: "2024-12-31", financial_period: { period: "2024" } },
 } }, financial_canonical: { records: [{ canonical_metric: "ebitda", formula_version: "ebitda_v1_profit_before_tax_plus_interest_expense_plus_depreciation_and_amortization", warnings: ["derived EBITDA may not be comparable to provider-reported EBITDA"] }] } };
-test("renders all five HPG historical multiples, labels history, and retains derived EBITDA metadata", () => {
+test("renders all five HPG historical multiples, labels history in Vietnamese, and retains derived EBITDA metadata", () => {
   const html = renderHistoricalValuation(hpg);
-  for (const label of ["P/E", "P/B", "P/S", "EV/Sales", "EV/EBITDA"]) assert.match(html, new RegExp(label.replace("/", "\\/")));
+  for (const label of ["P/E", "P/B", "P/S", "EV/EBITDA"]) assert.match(html, new RegExp(label.replace("/", "\\/")));
   for (const value of ["10,55x", "1,11x", "0,91x", "1,46x", "8,86x"]) assert.match(html, new RegExp(value));
-  for (const text of ["not current/live multiples", "FY2024 financials", "2024-12-31", "derived EBITDA", "Formula version", "may not be comparable"]) assert.match(html, new RegExp(text));
+  for (const text of ["không phải hệ số hiện tại", "Báo cáo tài chính FY2024", "2024-12-31", "EBITDA suy ra", "may not be comparable"]) assert.match(html, new RegExp(text));
+  assert.doesNotMatch(html, /Historical valuation|not current\/live multiples|Formula version|ebitda_v1_profit_before_tax/);
   const live = renderOverview({ pe: 12.3 });
   assert.match(live, /P\/E/);
-  assert.doesNotMatch(live, /Historical valuation/);
+  assert.doesNotMatch(live, /Định giá lịch sử/);
 });
-test("renders VNM-style non-actionable valuations explicitly with machine-readable reason", () => {
+test("renders VNM-style non-actionable valuations explicitly, in Vietnamese, with the machine-readable reason kept only in the hidden data attribute", () => {
   const html = renderHistoricalValuation({ relative_valuation: { methods: { ev_ebitda: { state: "unavailable", is_actionable: false, observed_multiple: null, missing_inputs: ["canonical_input_not_available", "qualified_period_end_share_count"] } } } });
-  assert.match(html, /Historical valuation is unavailable/); assert.match(html, /data-valuation-reason="canonical_input_not_available, qualified_period_end_share_count"/); assert.doesNotMatch(html, /NaN|0,00x/);
+  assert.match(html, /Chưa có định giá lịch sử/); assert.match(html, /data-valuation-reason="canonical_input_not_available, qualified_period_end_share_count"/); assert.doesNotMatch(html, /NaN|0,00x/);
 });
-test("renders a bank-archetype mixed state explicitly: pe/pb available, ps unavailable, ev methods inapplicable", () => {
+test("renders a bank-archetype mixed state explicitly in Vietnamese: pe/pb available, ps unavailable, ev methods inapplicable", () => {
   const vcb = { ticker: "VCB", relative_valuation: { methods: {
     pe: { state: "available", is_actionable: true, observed_multiple: 10.004773875558039, price_as_of_date: "2024-12-31", financial_period: { period: "2024" } },
     pb: { state: "available", is_actionable: true, observed_multiple: 1.7259209095642032, price_as_of_date: "2024-12-31", financial_period: { period: "2024" } },
@@ -35,12 +36,13 @@ test("renders a bank-archetype mixed state explicitly: pe/pb available, ps unava
   const html = renderHistoricalValuation(vcb);
   assert.match(html, /data-valuation-state="historical"/);
   for (const value of ["10x", "1,73x"]) assert.match(html, new RegExp(value));
-  assert.match(html, /P\/S<\/span>: Unavailable/);
-  assert.match(html, /canonical_input_not_available/);
-  assert.match(html, /EV\/Sales<\/span>: Inapplicable/);
-  assert.match(html, /EV\/EBITDA<\/span>: Inapplicable/);
-  const inapplicableCount = (html.match(/not_qualified_for_bank_archetype/g) || []).length;
+  assert.match(html, /P\/S<\/span>: Chưa có dữ liệu/);
+  assert.match(html, /EV\/EBITDA<\/span>: Không áp dụng/);
+  // the raw missing-input code is never shown to the reader -- only the de-snaked
+  // plain-language explanatory sentence the model actually provided as a warning
+  const inapplicableCount = (html.match(/Enterprise value method not qualified for bank archetype/g) || []).length;
   assert.equal(inapplicableCount, 2);
+  assert.doesNotMatch(html, /canonical_input_not_available|not_qualified_for_bank_archetype/);
   assert.doesNotMatch(html, /NaN|undefined|null/);
 });
 test(".cp-ci-notice allows long unspaced machine-readable reason tokens to wrap instead of overflowing the panel on mobile", () => {

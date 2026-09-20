@@ -78,44 +78,50 @@ const hpgEntry = entryFor({ fundamentalQuality: hpgFundamentalQuality, netNet: h
 // 1. VNM Fundamental Quality available sections render.
 test("VNM Fundamental Quality: available model sections render their principal result", () => {
   const html = renderFundamentalQuality(vnmEntry);
-  for (const label of ["Growth &amp; Profitability", "DuPont ROE", "Earnings Quality", "Financial Strength", "Piotroski F-Score"]) assert.match(html, new RegExp(label));
-  assert.match(html, /5 of 7 model sections available/);
+  for (const label of ["Tăng trưởng &amp; Khả năng sinh lời", "DuPont ROE", "Chất lượng lợi nhuận", "Sức mạnh tài chính", "Piotroski F-Score"]) assert.match(html, new RegExp(label));
+  assert.match(html, /5\/7 mô hình có kết quả/);
 });
 
-// 2. VNM unavailable/inapplicable sections retain their reasons.
-test("VNM Fundamental Quality: inapplicable/unavailable sections keep their existing reason, not a fabricated one", () => {
+// 2. VNM unavailable/inapplicable sections retain their reasons, de-snaked into a
+// plain sentence rather than either fabricating one or leaking the raw contract code.
+test("VNM Fundamental Quality: inapplicable/unavailable sections keep their existing reason, in readable text, not fabricated or raw", () => {
   const html = renderFundamentalQuality(vnmEntry);
   assert.match(html, /Altman Z-Score/);
-  assert.match(html, /qualified_altman_variant_not_available/);
+  assert.match(html, /Qualified altman variant not available\./);
   assert.match(html, /Beneish M-Score/);
-  assert.match(html, /exact_beneish_variables_not_available/);
+  assert.match(html, /Exact beneish variables not available\./);
+  assert.doesNotMatch(html, /qualified_altman_variant_not_available|exact_beneish_variables_not_available/);
 });
 
 // 3. VNM Net-Net renders as available.
-test("VNM Net-Net: renders available with total, per-share, currency and period", () => {
+test("VNM Net-Net: renders available with total, per-share, currency and period, in Vietnamese", () => {
   const html = renderNetNet(vnmEntry);
-  assert.match(html, /Net-Net result/);
+  assert.match(html, /Giá trị thanh lý ước tính \(Net-Net\)/);
+  assert.match(html, /Kết quả Net-Net/);
   assert.match(html, /VND/);
   assert.match(html, /FY2024/);
-  assert.match(html, /Per-share/);
+  assert.match(html, /Trên mỗi cổ phiếu/);
 });
 
 // 4. VNM FCFF renders unavailable with the authoritative missing-input reason.
-test("VNM FCFF: renders unavailable with the authoritative sourced-assumption reason, fabricates nothing", () => {
+test("VNM FCFF: renders unavailable with the authoritative sourced-assumption reason in readable text, fabricates nothing", () => {
   const html = renderFcff(vnmEntry);
-  assert.match(html, /Unavailable/i);
-  assert.match(html, /sourced_wacc_terminal_growth_and_forecast/);
-  assert.doesNotMatch(html, /Enterprise value/);
+  assert.match(html, /Chưa có dữ liệu/);
+  assert.match(html, /Sourced wacc terminal growth and forecast\./);
+  assert.doesNotMatch(html, /sourced_wacc_terminal_growth_and_forecast/);
+  assert.doesNotMatch(html, /Giá trị doanh nghiệp/);
 });
 
-// 5. VNM EBITDA value, formula version, and warning render despite all valuation multiples being unavailable.
+// 5. VNM EBITDA value and warning render despite all valuation multiples being unavailable.
+// The internal formula_version code is a diagnostics-only field and is intentionally
+// no longer shown in the primary panel (DASHBOARD_INVESTOR_FIRST_LOCALIZATION Phase 5).
 test("VNM EBITDA lineage renders independently even though every historical multiple is unavailable", () => {
   assert.equal(Object.values(vnmUnavailableMultiples).some((m) => m.state === "available"), false);
   const html = renderEbitdaLineage(vnmEntry);
   assert.match(html, /13\.974\.237\.947\.571/);
-  assert.match(html, /ebitda_v1_profit_before_tax_plus_interest_expense_plus_depreciation_and_amortization/);
-  assert.match(html, /not_a_reported_or_normalized_ebitda/);
-  assert.match(html, /derived/i);
+  assert.match(html, /not a reported or normalized ebitda/i);
+  assert.match(html, /Suy ra từ dữ liệu báo cáo/);
+  assert.doesNotMatch(html, /ebitda_v1_profit_before_tax_plus_interest_expense_plus_depreciation_and_amortization|not_a_reported_or_normalized_ebitda/);
 });
 
 // 6 & 7. Exact EBITDA regression values for both tickers.
@@ -130,13 +136,13 @@ test("VNM EBITDA remains 13,974,237,947,571 VND", () => {
 test("HPG historical valuation multiples remain available and unchanged", () => {
   const html = renderHistoricalValuation(hpgEntry);
   for (const value of ["10,55x", "1,11x", "0,91x", "1,46x", "8,86x"]) assert.match(html, new RegExp(value));
-  assert.match(html, /not current\/live multiples/);
+  assert.match(html, /không phải hệ số hiện tại\/trực tiếp/);
 });
 
 // 9. VNM historical multiples remain unavailable and never render as zero, blank, or NaN.
 test("VNM historical valuation stays explicitly unavailable, never zero/blank/NaN", () => {
   const html = renderHistoricalValuation(vnmEntry);
-  assert.match(html, /Historical valuation is unavailable/);
+  assert.match(html, /Chưa có định giá lịch sử/);
   assert.doesNotMatch(html, /NaN|0,00x|>0<|undefined|null/);
 });
 
@@ -168,8 +174,8 @@ test("Missing/malformed financial-analysis inputs fail closed without throwing",
 
 test("renderFinancialAnalysis assembles Fundamental Quality, Net-Net and FCFF for a fully-qualified ticker (contract-driven, no ticker branching)", () => {
   const html = renderFinancialAnalysis(vnmEntry);
-  assert.match(html, /Financial Analysis/);
-  assert.match(html, /Fundamental Quality/);
+  assert.match(html, /Phân tích tài chính/);
+  assert.match(html, /Chất lượng cơ bản/);
   assert.match(html, /Net-Net/);
   assert.match(html, /FCFF/);
 });

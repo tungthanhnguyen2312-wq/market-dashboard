@@ -1,63 +1,59 @@
+"use strict";
+// DASHBOARD_INVESTOR_FIRST_LOCALIZATION_AND_UI_CLOSEOUT_V1 Phase 6/7: the former
+// "Shadow Recommendations" research-posture table duplicated what the Workspace's
+// per-ticker Opportunities/Explore views already show, and its detail renderer leaked
+// raw contract enums, JSON dumps and internal vocabulary ("SHADOW RESEARCH ONLY",
+// "Historical PIT"). Disposition B: the route stays reachable (no broken link/bookmark),
+// but now redirects to the Workspace instead of rendering its own surface -- following
+// the same window.location.replace(...) pattern analysis.html already uses.
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
 const test = require("node:test");
 
 const root = path.resolve(__dirname, "..");
-const surface = require(path.join(root, "assets", "js", "shadow-recommendations.js"));
-const source = JSON.parse(fs.readFileSync(path.join(root, "data", "shadow_recommendation_product_surface.json"), "utf8"));
 const html = fs.readFileSync(path.join(root, "shadow-recommendations.html"), "utf8");
 
-test("full product projection preserves every upstream label and readiness count", () => {
-  const model = surface.buildModel(source);
-  assert.equal(model.status, "SHADOW_RECOMMENDATION_PRODUCT_READY");
-  assert.equal(model.records.length, 523);
-  assert.deepEqual(model.labels, source.validation.recommendation_counts);
-  assert.deepEqual(model.readiness, source.validation.readiness_counts);
-  assert.equal(model.records.filter((record) => record.recommendation.recommendation_label === "ACCUMULATE_RESEARCH_CANDIDATE" && record.recommendation.recommendation_readiness === "RECOMMENDATION_CONDITIONAL").length, 3);
-  for (const ticker of ["BFC", "AIG", "HAG", "AAA", "AAV", "AAH", "AAS"]) assert.ok(model.records.some((record) => record.ticker === ticker));
+test("shadow-recommendations.html redirects to investment-workspace.html, preserving query params and hash", () => {
+  assert.doesNotMatch(html, /<meta http-equiv="refresh"/);
+  assert.match(html, /window\.location\.replace\("investment-workspace\.html\?" \+ params\.toString\(\) \+ hash\)/);
+
+  function simulateRedirect(search, hash) {
+    const params = new URLSearchParams(search || "");
+    return "investment-workspace.html?" + params.toString() + (hash || "");
+  }
+  assert.equal(simulateRedirect("", ""), "investment-workspace.html?");
+  assert.equal(simulateRedirect("?foo=bar", "#panel"), "investment-workspace.html?foo=bar#panel");
 });
 
-test("optional, unsupported, stale, and session-mismatched narratives fail locally", () => {
-  const record = structuredClone(source.records.BFC);
-  assert.equal(surface.narrativeState(record).state, "NO_NARRATIVE_AVAILABLE");
-  record.narrative = { contract_version: "shadow_recommendation_consumer_narrative/v2" };
-  assert.equal(surface.narrativeState(record).state, "UNSUPPORTED_NARRATIVE_CONTRACT");
-  record.narrative = { contract_version: surface.NARRATIVE_CONTRACT, as_of_session: "2026-01-01", producer_artifact_identity: record.producer_artifact_identity, recommendation_label: record.recommendation.recommendation_label, recommendation_readiness: record.recommendation.recommendation_readiness, validation_status: "NARRATIVE_VALID" };
-  assert.equal(surface.narrativeState(record).state, "SESSION_MISMATCH");
-  record.narrative.as_of_session = record.recommendation.as_of_session;
-  record.narrative.producer_artifact_identity = "shadow_security_recommendation:other";
-  assert.equal(surface.narrativeState(record).state, "NARRATIVE_STALE_FOR_CURRENT_RECOMMENDATION");
-  record.narrative.producer_artifact_identity = record.producer_artifact_identity;
-  record.narrative.narrative_kind = "DETERMINISTIC_FALLBACK_NARRATIVE";
-  delete record.narrative.validation_status;
-  assert.equal(surface.narrativeState(record).state, "DETERMINISTIC_FALLBACK_NARRATIVE");
+test("static fallback link and noscript notice also target the Workspace", () => {
+  assert.match(html, /id="redirect-link"[^>]*href="investment-workspace\.html"/);
+  assert.match(html, /<noscript>[\s\S]*Bàn quyết định[\s\S]*<\/noscript>/i);
 });
 
-test("detail model retains canonical states without dashboard remapping", () => {
-  const model = surface.buildModel(source);
-  const conditional = model.records.find((record) => record.ticker === "HAG");
-  const avoid = model.records.find((record) => record.ticker === "AAH");
-  const highRisk = model.records.find((record) => record.ticker === "AAV");
-  const insufficient = model.records.find((record) => record.ticker === "AAS");
-  assert.match(surface.detailHtml(conditional), /Accumulate research candidate/);
-  assert.match(surface.detailHtml(conditional), /Conditional research packet/);
-  assert.match(surface.detailHtml(avoid), /Avoid new entry/);
-  assert.match(surface.detailHtml(highRisk), /High-risk speculation only/);
-  assert.match(surface.detailHtml(insufficient), /Insufficient evidence/);
-  assert.match(surface.detailHtml(model.records.find((record) => record.ticker === "BFC")), /UNKNOWN/);
+test("no leftover Shadow/experiment vocabulary or raw contract identities are user-visible", () => {
+  // data-page="shadow-recommendations" is an internal routing hook, not rendered text —
+  // every other occurrence of the word must be gone from anything a viewer can read.
+  const visible = html.replace(/data-page="shadow-recommendations"/, "");
+  assert.doesNotMatch(visible, /\bshadow\b/i);
+  assert.doesNotMatch(html, /SHADOW RESEARCH ONLY|shadow_recommendation|contract_version/);
+  assert.doesNotMatch(html, /\bPIT\b/);
 });
 
-test("filtering is categorical only and preserves input order semantics", () => {
-  const model = surface.buildModel(source);
-  const filtered = surface.filterRecords(model, { label: "AVOID_NEW_ENTRY", readiness: "RECOMMENDATION_CONDITIONAL" });
-  assert.equal(filtered.length, 70);
-  assert.ok(filtered.every((record) => record.recommendation.recommendation_label === "AVOID_NEW_ENTRY"));
-});
-
-test("static page contains no trade controls or product action semantics", () => {
-  assert.match(html, /CHỈ MANG TÍNH NGHIÊN CỨU/);
+test("no trade controls or product action semantics on the compatibility route", () => {
   assert.doesNotMatch(html, /<input[^>]+(?:quantity|position|weight)/i);
   assert.doesNotMatch(html, /data-action\s*=\s*["'](?:buy|sell|hold|exit|liquidate)/i);
   assert.doesNotMatch(html, />\s*(?:Buy|Sell|Hold|Exit|Liquidate)\s*</i);
+});
+
+test("no raw JSON dump or console-style diagnostic block is present", () => {
+  assert.doesNotMatch(html, /JSON\.stringify/);
+  assert.doesNotMatch(html, /<code>/);
+});
+
+test("the retired render module and its stylesheet are no longer shipped or referenced", () => {
+  assert.doesNotMatch(html, /assets\/js\/shadow-recommendations\.js/);
+  assert.doesNotMatch(html, /assets\/css\/shadow-recommendations\.css/);
+  assert.equal(fs.existsSync(path.join(root, "assets/js/shadow-recommendations.js")), false);
+  assert.equal(fs.existsSync(path.join(root, "assets/css/shadow-recommendations.css")), false);
 });

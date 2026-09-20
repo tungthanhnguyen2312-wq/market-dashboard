@@ -23,16 +23,19 @@ const comparison = {
 };
 const entry = { historical_decision_analysis: { ticker: "PAN", scenarios: { bear: { historical_fundamental_conditions: ["negative OCF persists"] }, base: { historical_fundamental_conditions: ["qualified facts remain compatible"] }, bull: { historical_fundamental_conditions: ["OCF becomes positive"] } } }, qualified_cohort_comparison: comparison };
 
-test("qualified historical research renders Producer values and bounded cohort context", () => {
+test("qualified historical research renders Producer values and bounded cohort context, in Vietnamese", () => {
   const html = renderQualifiedHistoricalResearch(entry);
-  for (const text of ["Qualified Historical Research", "Qualified cohort context", "-1,49x", "PAN", "PVD", "USD", "insufficient_history", "negative OCF persists"]) assert.match(html, new RegExp(text));
+  for (const text of ["Nghiên cứu cơ bản lịch sử đã xác nhận", "Bối cảnh đối sánh cùng nhóm đã xác nhận", "-1,49x", "PAN", "PVD", "USD", "negative OCF persists"]) assert.match(html, new RegExp(text));
+  // the raw trend-status enum never reaches the page -- only its Vietnamese label
+  assert.match(html, /Chưa đủ lịch sử/);
+  assert.doesNotMatch(html, /insufficient_history/);
   assert.doesNotMatch(html, /BUY|HOLD|SELL|target price|better investment|undervalued|position size/i);
   assert.doesNotMatch(html, /100|1\.200/); // no absolute net-debt values are rendered
 });
 
 test("missing or malformed Producer comparison fails closed and legacy panel remains unchanged", () => {
   assert.equal(renderQualifiedHistoricalResearch({}), "");
-  assert.match(renderQualifiedHistoricalResearch({ qualified_cohort_comparison: {} }), /Data unavailable/);
+  assert.match(renderQualifiedHistoricalResearch({ qualified_cohort_comparison: {} }), /Chưa có dữ liệu/);
   assert.doesNotThrow(() => renderFinancialAnalysis({ qualified_cohort_comparison: {} }));
-  assert.match(renderFinancialAnalysis({ qualified_cohort_comparison: {} }), /Data unavailable/);
+  assert.match(renderFinancialAnalysis({ qualified_cohort_comparison: {} }), /Chưa có dữ liệu/);
 });
