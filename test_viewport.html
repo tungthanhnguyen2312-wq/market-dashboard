@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"></head>
+<body style="margin: 0; padding: 20px;">
+    <h2>375px Viewport</h2>
+    <iframe id="f375" src="dashboard.html" style="width: 375px; height: 800px; border: 1px solid red; display: block; margin-bottom: 20px;"></iframe>
+    <h2>430px Viewport</h2>
+    <iframe id="f430" src="dashboard.html" style="width: 430px; height: 800px; border: 1px solid blue; display: block;"></iframe>
+
+    <button id="checkBtn" onclick="checkWidths()">Check Widths</button>
+    <button id="expandBtn" onclick="expandScreener()">Expand Screener</button>
+
+    <pre id="output" style="background: #eee; padding: 10px; margin-top: 20px; font-family: monospace;"></pre>
+
+    <script>
+        function log(msg) {
+            document.getElementById('output').innerText += msg + '\n';
+        }
+
+        function checkWidths() {
+            var doc375 = document.getElementById('f375').contentDocument;
+            var doc430 = document.getElementById('f430').contentDocument;
+            log("--- INITIAL ---");
+            log("375 clientWidth: " + doc375.documentElement.clientWidth);
+            log("375 scrollWidth: " + doc375.documentElement.scrollWidth);
+            log("430 clientWidth: " + doc430.documentElement.clientWidth);
+            log("430 scrollWidth: " + doc430.documentElement.scrollWidth);
+        }
+
+        function expandScreener() {
+            var doc375 = document.getElementById('f375').contentDocument;
+            var doc430 = document.getElementById('f430').contentDocument;
+            
+            // Find "Bộ lọc tương thích" button
+            var btns375 = Array.from(doc375.querySelectorAll('button')).filter(b => b.textContent.includes('Bộ lọc tương thích'));
+            if(btns375.length > 0) btns375[0].click();
+
+            var btns430 = Array.from(doc430.querySelectorAll('button')).filter(b => b.textContent.includes('Bộ lọc tương thích'));
+            if(btns430.length > 0) btns430[0].click();
+
+            log("Clicked expand in both iframes. Please wait 2 seconds, then click Check Widths again.");
+        }
+    </script>
+</body>
+</html>
