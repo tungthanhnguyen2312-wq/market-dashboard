@@ -331,27 +331,41 @@ test("rule-condition and Workspace readiness text are localized with raw identit
   assert.match(visible, new RegExp(currentReadiness.label));
   assert.doesNotMatch(visible, new RegExp(card.research_stance_readiness));
   assert.doesNotMatch(visible, /Trục kỹ thuật không thuộc phiên hiện tại/);
-  assert.match(visible, /Nền tảng doanh nghiệp có lợi nhuận/);
+  // The always-visible "Cơ bản & định giá" summary badge renders whatever fundamental.state
+  // currently is -- a real company's profitability can change day to day, so this asserts the
+  // stable product contract (governed state is localized, label visible, raw enum never leaks),
+  // not that HPG is forever PROFITABLE. See PROFITABLE_FUNDAMENTAL (the distinct rule-condition
+  // enum) below, exercised with a synthetic card instead of depending on it appearing in HPG's
+  // own daily-changing counterbalancing_context.
+  const currentFundamentalState = vf.formatDomainState(card.fundamental?.state, "fundamental_state");
+  assert.ok(currentFundamentalState.known, `current governed fundamental state must be localized: ${card.fundamental?.state}`);
+  assert.match(visible, new RegExp(currentFundamentalState.label));
+  assert.doesNotMatch(visible, new RegExp(card.fundamental?.state));
   assert.match(html, new RegExp(`data-state="${card.research_stance_readiness}"`));
-  // ADVERSE_TACTICAL_ENTRY_STATE / PROFITABILITY_STATE_REVERSAL are real-but-not-guaranteed
-  // counter-thesis/invalidation states -- no ticker in the current real dataset happens to carry
-  // either today, so exercise the render mechanism directly with a synthetic card rather than
-  // depending on a specific live ticker's daily-changing narrative content.
+  // PROFITABLE_FUNDAMENTAL / ADVERSE_TACTICAL_ENTRY_STATE / PROFITABILITY_STATE_REVERSAL are
+  // real-but-not-guaranteed-visible rule-condition/counter-thesis/invalidation states: whether they
+  // appear at all, and in which of a card's several reason lists, is today's daily-changing
+  // research narrative, not a stable product contract. Exercise the render mechanism directly with
+  // a synthetic card instead.
+  assert.equal(vf.formatRuleCondition("PROFITABLE_FUNDAMENTAL"), "Nền tảng doanh nghiệp có lợi nhuận");
   const syntheticCard = {
     ticker: "ZZZ", research_stance: "WAIT_FOR_CONFIRMATION", entry_state: "DOWNTREND",
-    why: {}, valuation: {}, prospective_case: {}, lineage: { per_axis_freshness: {} },
+    why: { counterbalancing_context: ["PROFITABLE_FUNDAMENTAL"] },
+    valuation: {}, prospective_case: {}, lineage: { per_axis_freshness: {} },
     counter_thesis: { key_counter_thesis: ["ADVERSE_TACTICAL_ENTRY_STATE"] },
     confirmation: {},
     invalidation: { fundamental: { boundary_type: "PROFITABILITY_STATE_REVERSAL", status: "CONDITIONAL" } },
   };
   const syntheticHtml = ws.decisionCardHtml(syntheticCard, { ticker: "ZZZ" });
   const syntheticVisible = primaryVisibleText(syntheticHtml);
-  // Counter-thesis / fundamental-invalidation rationale is deep evidence, collapsed by design
-  // inside the drawer's ws-deep-evidence <details> (progressive disclosure) -- it must still be
-  // localized wherever it renders, with the raw machine identifier never leaking into that label.
+  // Counter-thesis / fundamental-invalidation / counterbalancing-context rationale is deep
+  // evidence, collapsed by design inside the drawer's ws-deep-evidence <details> (progressive
+  // disclosure) -- it must still be localized wherever it renders, with the raw machine
+  // identifier never leaking into that label.
   assert.match(syntheticHtml, /Trạng thái kỹ thuật bất lợi/);
   assert.match(syntheticHtml, /Đảo chiều trạng thái lợi nhuận/);
-  assert.doesNotMatch(syntheticVisible, /ADVERSE_TACTICAL_ENTRY_STATE|PROFITABILITY_STATE_REVERSAL/);
+  assert.match(syntheticHtml, /Nền tảng doanh nghiệp có lợi nhuận/);
+  assert.doesNotMatch(syntheticVisible, /ADVERSE_TACTICAL_ENTRY_STATE|PROFITABILITY_STATE_REVERSAL|PROFITABLE_FUNDAMENTAL/);
   assert.match(syntheticHtml, /data-condition="PROFITABILITY_STATE_REVERSAL"/);
   assert.match(syntheticHtml, /<details class="vs-tech-details">[\s\S]*PROFITABILITY_STATE_REVERSAL/);
   for (const raw of [
