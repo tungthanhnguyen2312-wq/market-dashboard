@@ -1,0 +1,185 @@
+{
+  "build_id": "2026-09-22-9be0707-fbc9917669",
+  "canonical_producer_status": {
+    "active_equity_universe": 1503,
+    "input_candidates": 1683,
+    "observed_session_cohort": 818,
+    "operation_identity": "daily_research_session_operation:020ef7a3aee10c047fdcf5369834c2e4abe5ffb1c33c6eab83691262335c54c6",
+    "registration_state": "COMPLETED_RETAINED_EVIDENCE",
+    "run_identity": "daily_producer_run:4aa09692bfab534ff43a7c9ba006c04297987682e4a2ce0f571fa57cc1928526",
+    "status": "COMPLETED",
+    "technical_coverage": 818
+  },
+  "contract_version": "dashboard_session_companions/v1",
+  "current_research_packet_identity": "current_research_decision_packet:2d1e98eed916752a2a64cdc3e487b07086d11b402ce5b57a204683f4bf7d2730",
+  "dashboard_session": "2026-09-22",
+  "governed_boundaries": {
+    "authority_boundary": {
+      "entry_action_is_research_label_not_execution_instruction": true,
+      "is_actionable": false,
+      "owner_focus_is_not_portfolio_holdings": true,
+      "probability": "UNKNOWN_UNCALIBRATED",
+      "recommendation": "NOT_EMITTED",
+      "research_human_review_only": true,
+      "target_price_ranking_sizing_execution": "NOT_EMITTED"
+    },
+    "blocked_dimensions": [
+      "STRICT_VALUATION",
+      "NO_LIQUIDITY_SIZING_EXECUTION_AUTHORITY",
+      "MACRO_OPTIONAL_UNAVAILABLE",
+      "NO_EXPLICIT_PORTFOLIO"
+    ],
+    "calibrated_targets_probabilities": "NOT_EMITTED",
+    "explicit_portfolio": "NOT_SUPPLIED",
+    "liquidity_sizing_execution": "BLOCKED_NO_SIZING_EXECUTION_AUTHORITY",
+    "macro_optional": "UNAVAILABLE",
+    "pit_raw_as_traded": "NOT_PROMOTED",
+    "prohibited_claims": [
+      "No price targets or expected returns.",
+      "No buy/sell/hold recommendations.",
+      "No portfolio weighting or position sizing.",
+      "No probabilistic predictions or calibrated bull/bear certainty.",
+      "No unqualified liquidity or execution-capacity assertions.",
+      "Strict valuation, PIT, and RAW_AS_TRADED remain unpromoted."
+    ],
+    "strict_valuation": "BLOCKED"
+  },
+  "market_summary": {
+    "above_ma20": 227,
+    "advance_ratio": 0.38264058679706603,
+    "advancing": 313,
+    "at_or_below_ma20": 591,
+    "breadth_descriptor": "MARKET_BREADTH_MIXED",
+    "declining": 280,
+    "median_20d_cross_sectional_volatility": {
+      "authority_tier": "SHADOW_ONLY",
+      "value": 0.023993979486748813,
+      "warning": "CONTEMPORANEOUS_CROSS_SECTION_ONLY_NOT_HISTORICAL_REGIME"
+    },
+    "momentum_descriptor": "MOMENTUM_BREADTH_NEGATIVE",
+    "negative_20d_momentum_count": 564,
+    "positive_20d_momentum_count": 248,
+    "unchanged": 225
+  },
+  "producer_commit": "66791796d3c0e538d671bcc9eec7414fb5911733",
+  "producer_commit_semantics": "pre_publication_producer_head",
+  "producer_commit_summary": "daily: retain 2026-09-22 completed session",
+  "prospective_cohort_identity": "prospective_research_cohort_snapshot:88d7d4b90b909b0cbee806681dd3c69d0aec3b5f96f0a4656dd63c7d63850492",
+  "schema_version": "1.0.0",
+  "source_artifacts": {
+    "canonical_current_session": [
+      {
+        "component_id": "corporate_intelligence",
+        "execution_disposition": "REUSE_CURRENT_VALID_RETAINED",
+        "freshness": "EXACT_SESSION",
+        "identity": "market_wide_current_corporate_intelligence:93b8efdb0428aef62a8f77167fb3778c9a622028ef0026acccb868c8674e8bca",
+        "path": "operations-review/market-wide-current-corporate-intelligence-v1-20260922/market_wide_current_corporate_intelligence_artifact.json",
+        "session": "2026-09-22"
+      },
+      {
+        "component_id": "descriptive",
+        "execution_disposition": "REUSE_CURRENT_VALID_RETAINED",
+        "freshness": "EXACT_SESSION",
+        "identity": "market_wide_current_descriptive_research:a69e2ecfabe6e8d55dc26337201bec212b7748da8316fb71abe7117f0bd1d604",
+        "path": "operations-review/market-wide-current-descriptive-research-v1-20260922/market_wide_current_descriptive_research_artifact.json",
+        "session": "2026-09-22"
+      },
+      {
+        "component_id": "screening",
+        "execution_disposition": "REUSE_CURRENT_VALID_RETAINED",
+        "freshness": "EXACT_SESSION",
+        "identity": "current_market_screening_opportunity_comparison_foundation:a82ac41d7d6863e41edcc32a3cfe1e242ca2ec399520d2c109bd0b0ddb1b98cf",
+        "path": "operations-review/current-market-screening-opportunity-comparison-foundation-v1-20260922/current_market_screening_opportunity_comparison_foundation_artifact.json",
+        "session": "2026-09-22"
+      },
+      {
+        "component_id": "tactical",
+        "execution_disposition": "REUSE_CURRENT_VALID_RETAINED",
+        "freshness": "EXACT_SESSION",
+        "identity": "watchlist_tactical_entry_classifier:9b2637793454b3442a7374c9f4f4e7b17f6543191d2ab7f171355b819301e545",
+        "path": "operations-review/watchlist-tactical-entry-decision-v1-20260922/watchlist_tactical_entry_classifier_artifact.json",
+        "session": "2026-09-22"
+      },
+      {
+        "component_id": "triage",
+        "execution_disposition": "REUSE_CURRENT_VALID_RETAINED",
+        "freshness": "EXACT_SESSION",
+        "identity": "full_universe_entry_candidate_triage:70d1a80c560b7aa2d7b544059deec7eff2006e9494a11bfc43d17c3c0f303ef7",
+        "path": "operations-review/full-universe-entry-candidate-triage-v1-20260922/full_universe_entry_candidate_triage_20260922.json",
+        "session": "2026-09-22"
+      },
+      {
+        "component_id": "valuation",
+        "execution_disposition": "BLOCKED",
+        "freshness": "EXACT_SESSION",
+        "identity": "market_wide_current_valuation:fa18bca055529b7f469004fc8bc95fed7b12c0f504745b4e1f157bb79063165d",
+        "path": "operations-review/market-wide-current-valuation-v1-20260922-session20260922/market_wide_current_valuation_artifact.json",
+        "session": "2026-09-22"
+      }
+    ],
+    "daily_producer_run_manifest": {
+      "path": "operations-review/daily-producer-runs-v1/2026-09-22/4aa09692bfab534ff43a7c9ba006c04297987682e4a2ce0f571fa57cc1928526/run_manifest.json",
+      "run_identity": "daily_producer_run:4aa09692bfab534ff43a7c9ba006c04297987682e4a2ce0f571fa57cc1928526"
+    },
+    "retained_tier_handoff": {
+      "path": "operations-review/canonical-post-close-v1/2026-09-22/session_handoff_bundle.json",
+      "session": "2026-09-22"
+    },
+    "reusable_prior_context": [
+      {
+        "component_id": "catalyst",
+        "execution_disposition": "REUSE_HISTORICAL_CONTEXT",
+        "freshness": "ACCEPTED_DEGRADED",
+        "identity": "catalyst_event_research_context:fcbada853866b0136a6c106da17b687dced1a8fe1a5c4021923b7582ed0c50fb",
+        "path": "operations-review/catalyst-event-research-context-v1-20260820/catalyst_event_research_context_artifact.json",
+        "session": "2026-08-20"
+      },
+      {
+        "component_id": "event_context",
+        "execution_disposition": "NOT_APPLICABLE",
+        "freshness": "CONTRACT_DEFINED_CONTEXT",
+        "identity": "current_official_event_context:98c83c3c180fe28c98719b4b83a214570629ea5f491fd05feb3d6d28f5261391",
+        "path": "operations-review/current-official-event-context-integration-v1-20260905/current_official_event_context_artifact.json",
+        "session": "2026-09-05"
+      },
+      {
+        "component_id": "fundamental",
+        "execution_disposition": "REUSE_HISTORICAL_CONTEXT",
+        "freshness": "ACCEPTED_UNDATED_RETAINED_CONTEXT",
+        "identity": "market_wide_current_fundamental_research:fc7619fcd7d0f5077a396c9e05fcdce14e97bdcdc078722c49e67070990d0feb",
+        "path": "operations-review/market-wide-current-fundamental-research-v1-20260823/market_wide_current_fundamental_research_artifact.json",
+        "session": null
+      },
+      {
+        "component_id": "official_universe",
+        "execution_disposition": "NOT_APPLICABLE",
+        "freshness": "CONTRACT_DEFINED_CONTEXT",
+        "identity": "current_official_market_universe:d77e16f82893df419689b24356d066d6a6431bd3c27e09190e3c319e004abb55",
+        "path": "operations-review/current-official-market-universe-integration-v1-20260824/current_official_market_universe_artifact.json",
+        "session": null
+      }
+    ]
+  },
+  "tactical_triage_counts": {
+    "base_building": 37,
+    "breakdown_risk": 42,
+    "breakout_ready": 19,
+    "distribution_risk": 20,
+    "downtrend": 212,
+    "early_reversal_candidate": 53,
+    "high_priority_review": 97,
+    "selling_pressure_easing": 210,
+    "sideways_neutral": 64,
+    "total_entry_relevant": 109,
+    "uptrend_confirmed": 161
+  },
+  "warnings": [
+    "Catalyst context is explicitly earlier retained evidence.",
+    "Corporate Intelligence uses retained source evidence; event freshness remains per record.",
+    "Strategy fit is separate from entry action, scenario probability, and portfolio action.",
+    "Fundamental context is retained/undated rather than session-stamped.",
+    "Strict valuation and valuation peer comparison remain unavailable.",
+    "Research priority tier is a research-lane signal, not entry timing, full-position readiness, or position sizing; see entry_relevant and lane_specific_priority on each decision-queue record.",
+    "Integrated Decision delivery is a same-session research overlay; it does not confer execution authority."
+  ]
+}

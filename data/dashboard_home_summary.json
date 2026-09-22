@@ -1,38 +1,38 @@
 {
   "schema_version": "1.0.0",
   "contract_version": "dashboard_home_summary/v1",
-  "requested_at": "2026-09-21T20:51:50+07:00",
-  "as_of_session": "2026-09-21",
-  "source_artifact_identity": "screener_master_projection/v1:ecc8832b2791643c627f22d96e005d15a770383436eab5f23978306765d18946",
+  "requested_at": "2026-09-22T16:38:40+07:00",
+  "as_of_session": "2026-09-22",
+  "source_artifact_identity": "screener_master_projection/v1:23f9852ae49406ddd1614bd9f76e52f0b3ded9ef3c4fb3fac1c1391364f0a34e",
   "denominator": 1683,
   "reference_ticker_count": 1683,
   "current_research_scope_count": 1504,
   "outside_current_official_scope_count": 179,
   "official_scope_observed_at": "2026-09-13T08:08:05Z",
-  "price_available_count": 959,
-  "price_unavailable_count": 724,
-  "tactical_available_count": 838,
-  "tactical_unavailable_count": 845,
+  "price_available_count": 839,
+  "price_unavailable_count": 844,
+  "tactical_available_count": 818,
+  "tactical_unavailable_count": 865,
   "session_breadth": {
     "available": true,
-    "priced": 956,
-    "up": 412,
-    "down": 316,
-    "flat": 228,
-    "price_available": 959,
-    "unpriced": 724,
-    "missing_session_return": 3,
-    "state": "NGHIENG_TANG"
+    "priced": 838,
+    "up": 237,
+    "down": 396,
+    "flat": 205,
+    "price_available": 839,
+    "unpriced": 844,
+    "missing_session_return": 1,
+    "state": "NGHIENG_GIAM"
   },
   "research_stance": {
     "available": true,
     "counts": {
-      "ACCUMULATE_RESEARCH_CANDIDATE": 171,
-      "AVOID_NEW_ENTRY": 323,
-      "HIGH_RISK_SPECULATION_ONLY": 20,
-      "INITIATE_RESEARCH_CANDIDATE": 45,
-      "INSUFFICIENT_EVIDENCE": 192,
-      "WAIT_FOR_CONFIRMATION": 932
+      "ACCUMULATE_RESEARCH_CANDIDATE": 175,
+      "AVOID_NEW_ENTRY": 274,
+      "HIGH_RISK_SPECULATION_ONLY": 21,
+      "INITIATE_RESEARCH_CANDIDATE": 48,
+      "INSUFFICIENT_EVIDENCE": 193,
+      "WAIT_FOR_CONFIRMATION": 972
     },
     "order": [
       "INITIATE_RESEARCH_CANDIDATE",
@@ -45,17 +45,17 @@
   },
   "tactical": {
     "available": true,
-    "coverage": 838,
+    "coverage": 818,
     "counts": {
-      "BASE_BUILDING": 16,
-      "BREAKDOWN_RISK": 56,
-      "BREAKOUT_READY": 11,
-      "DISTRIBUTION_RISK": 19,
-      "DOWNTREND": 248,
-      "EARLY_REVERSAL_CANDIDATE": 50,
-      "SELLING_PRESSURE_EASING": 193,
+      "BASE_BUILDING": 37,
+      "BREAKDOWN_RISK": 42,
+      "BREAKOUT_READY": 19,
+      "DISTRIBUTION_RISK": 20,
+      "DOWNTREND": 212,
+      "EARLY_REVERSAL_CANDIDATE": 53,
+      "SELLING_PRESSURE_EASING": 210,
       "SIDEWAYS_NEUTRAL": 64,
-      "UPTREND_CONFIRMED": 181
+      "UPTREND_CONFIRMED": 161
     },
     "order": [
       "DOWNTREND",
@@ -71,7 +71,7 @@
   },
   "liquidity": {
     "proxy_available": true,
-    "proxy_count": 837,
+    "proxy_count": 814,
     "execution_exact_ready": 0,
     "execution_exact_established": false
   },
@@ -129,6 +129,6 @@
     "target_price": "NOT_EMITTED",
     "market_regime": "NOT_COMPUTED"
   },
-  "artifact_sha256": "f1c94a3d5a12684fd92e203bb64ede0de3706d9a9f0554728b07e06caa4d57e8",
-  "artifact_identity": "dashboard_home_summary/v1:f1c94a3d5a12684fd92e203bb64ede0de3706d9a9f0554728b07e06caa4d57e8"
+  "artifact_sha256": "30f8690be977e16fd7c4ed27a300e693ca6c0e7bf0ba756f494d9f7bd0154832",
+  "artifact_identity": "dashboard_home_summary/v1:30f8690be977e16fd7c4ed27a300e693ca6c0e7bf0ba756f494d9f7bd0154832"
 }
