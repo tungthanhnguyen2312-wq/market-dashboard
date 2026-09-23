@@ -58,6 +58,7 @@
     AVOID: "risk",
     INSUFFICIENT_CURRENT_RESEARCH: "neutral",
   };
+  const POSTURE_UNAVAILABLE_TEXT = "Chưa có tư thế hành động chuẩn hóa cho bản build này";
   const EVIDENCE_CURRENCY_ORDER = ["CURRENT_SESSION", "LAST_TRADE_AS_OF", "NO_CURRENT_EVIDENCE", "UNKNOWN"];
   const EVIDENCE_CURRENCY_LABELS = {
     CURRENT_SESSION: "bằng chứng phiên hiện tại",
@@ -184,6 +185,10 @@
     EVIDENCE_CURRENCY_ORDER.forEach((name) => { currencyCounts[name] = 0; });
     let postureAvailable = 0;
     let positionConditional = 0;
+    // Rolling-deploy compatibility: a pre-M1 projection has no per-card decision view at all.
+    // Its summary then carries no posture/currency blocks (rendered as unavailable), rather than
+    // an all-zero posture distribution or an all-UNKNOWN currency count.
+    const hasDecisionView = cards.some((card) => card && card.decision && typeof card.decision === "object");
     cards.forEach((card) => {
       const decision = card.decision || {};
       if (decision.research_action_posture) {
@@ -244,17 +249,17 @@
         label: "Độ rộng phiên trong số mã có biến động giá đúng phiên",
       },
       primary_decision_field: "research_action_posture",
-      research_action_posture: {
+      research_action_posture: hasDecisionView ? {
         available: postureAvailable > 0,
         coverage: postureAvailable,
         counts: postureCounts,
         order: POSTURE_ORDER,
         position_conditional_count: positionConditional,
-      },
-      evidence_currency: {
+      } : undefined,
+      evidence_currency: hasDecisionView ? {
         counts: currencyCounts,
         order: EVIDENCE_CURRENCY_ORDER,
-      },
+      } : undefined,
       research_stance: {
         role: "SECONDARY_RESEARCH_SCREEN_DIAGNOSTIC",
         available: denominator > 0,
@@ -328,9 +333,13 @@
             : ""
         }</p>`
       : "";
-    const posture = summary.research_action_posture || {};
+    const postureBlock = summary.research_action_posture;
+    const posture = postureBlock || {};
     // Primary cards: the action decision. Never falls back to research_stance as the decision.
-    const cards = posture.available
+    // A pre-M1 summary (no posture block) renders the primary decision as explicitly unavailable.
+    const cards = !postureBlock
+      ? `<p class="cockpit-note mb-0" data-action-posture-state="UNAVAILABLE">${esc(POSTURE_UNAVAILABLE_TEXT)}.</p>`
+      : posture.available
       ? POSTURE_ORDER.map((name) => {
           const count = (posture.counts || {})[name] || 0;
           const tone = POSTURE_TONE[name] || "neutral";
@@ -340,7 +349,10 @@
         }).join("")
       : `<p class="cockpit-note mb-0">Chưa có quyết định hành động cho phiên này.</p>`;
     const currency = (summary.evidence_currency || {}).counts || {};
-    const currencyLine = EVIDENCE_CURRENCY_ORDER
+    // Absent currency block (pre-M1): unavailable -- never counted as CURRENT_SESSION.
+    const currencyLine = !summary.evidence_currency
+      ? `<span data-evidence-currency="UNAVAILABLE">chưa có dữ liệu cho bản build này</span>`
+      : EVIDENCE_CURRENCY_ORDER
       .filter((name) => name !== "UNKNOWN" || currency[name])
       .map((name) => `<span data-evidence-currency="${esc(name)}">${(currency[name] || 0).toLocaleString("vi-VN")} ${esc(EVIDENCE_CURRENCY_LABELS[name])}</span>`)
       .join(" · ");
@@ -564,9 +576,11 @@
     if (!payload || payload.contract_version !== HOME_SUMMARY_CONTRACT) return false;
     if (typeof payload.as_of_session !== "string" || !payload.as_of_session) return false;
     if (!payload.session_breadth || !payload.research_stance || !payload.tactical || !payload.liquidity || !payload.sector) return false;
-    // The primary decision summary must come from the Producer's action posture; a summary without
-    // it is not rendered (never a silent fallback to research_stance as the decision).
-    if (!payload.research_action_posture || typeof payload.research_action_posture.counts !== "object") return false;
+    // Rolling-deploy compatibility: the posture block is additive. A valid pre-M1 summary without it
+    // is still rendered (primary decision shown as unavailable, never the stance); a present but
+    // malformed posture block is refused.
+    if (payload.research_action_posture !== undefined
+        && (!payload.research_action_posture || typeof payload.research_action_posture.counts !== "object")) return false;
     if (buildInfoSession && payload.as_of_session !== buildInfoSession) return false;
     return true;
   }
@@ -609,6 +623,7 @@
     HOME_SUMMARY_CONTRACT,
     STANCE_ORDER,
     POSTURE_ORDER,
+    POSTURE_UNAVAILABLE_TEXT,
     EVIDENCE_CURRENCY_ORDER,
     evidenceCurrencyClass,
     TACTICAL_ORDER,

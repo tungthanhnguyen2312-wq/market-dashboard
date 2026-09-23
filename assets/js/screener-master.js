@@ -155,6 +155,34 @@
     return (raw === "CURRENT_SESSION" || raw === "NO_CURRENT_EVIDENCE") ? raw : "UNKNOWN";
   }
 
+  // CURRENT_DECISION_SURFACE_CONVERGENCE_V1 + rolling-deploy compatibility: the primary decision
+  // cell reads only card.decision.research_action_posture. A pre-M1 row (no decision view) reads as
+  // explicitly unavailable -- never the legacy research.stance, and its evidence currency is
+  // unavailable, never CURRENT_SESSION.
+  const POSTURE_UNAVAILABLE_TEXT = "Chưa có tư thế hành động chuẩn hóa cho bản build này";
+  const POSITION_CONDITIONAL_POSTURES = ["HOLD", "HOLD_DO_NOT_ADD", "REDUCE"];
+  function formatDecisionCell(row, vf) {
+    const d = (row && row.decision) || {};
+    const raw = d.research_action_posture || "";
+    const held = d.position_context === "HELD" || d.position_context === "HELD_ABOVE_POLICY_CAP";
+    const conditional = raw && POSITION_CONDITIONAL_POSTURES.includes(raw) && !held;
+    const base = !raw ? POSTURE_UNAVAILABLE_TEXT
+      : (vf && typeof vf.formatDomainState === "function" ? vf.formatDomainState(raw, "research_action_posture").label : raw);
+    const evidenceRaw = d.evidence_currency || "";
+    const evidenceLabel = vf && typeof vf.formatEvidenceCurrency === "function"
+      ? vf.formatEvidenceCurrency(evidenceRaw)
+      : (evidenceRaw || "Chưa có dữ liệu");
+    return { raw, available: Boolean(raw), label: base + (conditional ? " — nếu đang nắm giữ" : ""), evidence_raw: evidenceRaw, evidence_label: evidenceLabel };
+  }
+  // Secondary research-screen cell (legacy research_stance, clearly labeled "phụ" by its column).
+  function formatResearchScreenCell(row, vf) {
+    const raw = ((row && row.research) || {}).stance || "";
+    const noEvidence = raw === "WAIT_FOR_CONFIRMATION" && ((row && row.decision) || {}).evidence_currency === "NO_CURRENT_EVIDENCE";
+    const label = noEvidence ? "Không áp dụng (không có bằng chứng hiện tại)"
+      : (raw && vf && typeof vf.formatResearchStance === "function" ? vf.formatResearchStance(raw) : "Chưa đủ dữ liệu");
+    return { raw, label };
+  }
+
   function matchesScreenerFilters(card, filters) {
     const f = filters || {};
     if (f.exchange && card.display_exchange !== f.exchange) return false;
@@ -222,6 +250,7 @@
   return {
     CONTRACT_VERSION, DATA_URL, JS_FALLBACK, WORKSPACE_URL, WORKSPACE_SCHEMA_VERSION, WORKSPACE_CONTRACT_VERSION, ENTITY_CLASS_VOCABULARY,
     normalizeTicker, formatSessionPercent, formatPrice, formatSector, formatLiquidity, formatFinancial,
-    formatFreshness, formatOfficialScope, translateStatus, projectionRows, matchesScreenerFilters, drawerIdentity, validateProjection, validateWorkspaceProjection,
+    formatFreshness, formatOfficialScope, translateStatus, projectionRows, matchesScreenerFilters, drawerIdentity,
+    formatDecisionCell, formatResearchScreenCell, POSTURE_UNAVAILABLE_TEXT, validateProjection, validateWorkspaceProjection,
   };
 });

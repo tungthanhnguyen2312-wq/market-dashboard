@@ -154,10 +154,14 @@ test("Home decision summary is posture-based; stance is a secondary collapsed di
   assert.match(visible(primary), /không có bằng chứng hiện tại/);
 });
 
-test("Home refuses a summary without the action posture instead of falling back to the stance", () => {
+test("Home never falls back to the stance: a pre-M1 summary renders posture unavailable; a malformed posture block is refused", () => {
+  // Rolling-deploy compatibility (release-compatibility continuation): the posture block is additive,
+  // so a valid pre-M1 summary stays renderable -- with the primary decision explicitly unavailable.
   const legacy = { contract_version: home.HOME_SUMMARY_CONTRACT, as_of_session: "2026-09-23", session_breadth: {}, research_stance: { counts: {} }, tactical: {}, liquidity: {}, sector: {} };
-  assert.equal(home.validateHomeSummary(legacy, "2026-09-23"), false);
+  assert.equal(home.validateHomeSummary(legacy, "2026-09-23"), true);
   assert.equal(home.validateHomeSummary({ ...legacy, research_action_posture: { counts: {} } }, "2026-09-23"), true);
+  assert.equal(home.validateHomeSummary({ ...legacy, research_action_posture: null }, "2026-09-23"), false);
+  assert.equal(home.validateHomeSummary({ ...legacy, research_action_posture: { counts: "x" } }, "2026-09-23"), false);
 });
 
 test("Screener primary decision filter reads decision.research_action_posture", () => {

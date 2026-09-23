@@ -302,6 +302,16 @@ function currentFilters() {
     officialScope: document.getElementById("screen-official-scope").value,
   };
 }
+function markSelectUnavailable(id, text) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.value = "";
+  el.disabled = true;
+  el.title = text;
+  el.dataset.unavailable = "true";
+  const all = el.querySelector('option[value=""]');
+  if (all) all.textContent = text;
+}
 function fillSelect(id, values) {
   const el = document.getElementById(id);
   const current = el.value;
@@ -434,6 +444,10 @@ document.addEventListener("DOMContentLoaded", () => {
   fillSelect("screen-exchange", [...new Set(MASTER_ROWS.map((r) => r.display_exchange).filter(Boolean))].sort());
   fillSelect("screen-sector", [...new Set(MASTER_ROWS.map((r) => (r.sector || {}).label).filter(Boolean))].sort());
   fillSelect("screen-posture", [...new Set(MASTER_ROWS.map((r) => (r.decision || {}).research_action_posture).filter(Boolean))].sort());
+  // Rolling-deploy compatibility: pre-M1 data has no canonical posture / evidence currency. The
+  // primary filters then read as unavailable (disabled) -- never repopulated from research_stance.
+  if (!MASTER_ROWS.some((r) => (r.decision || {}).research_action_posture)) markSelectUnavailable("screen-posture", SM.POSTURE_UNAVAILABLE_TEXT);
+  if (!MASTER_ROWS.some((r) => (r.decision || {}).evidence_currency)) markSelectUnavailable("screen-evidence", "Chưa có dữ liệu độ mới bằng chứng cho bản build này");
   fillSelect("screen-stance", [...new Set(MASTER_ROWS.map((r) => (r.research || {}).stance).filter(Boolean))].sort());
   fillSelect("screen-tactical", [...new Set(MASTER_ROWS.map((r) => (r.tactical || {}).entry_state).filter(Boolean))].sort());
 
@@ -444,8 +458,8 @@ document.addEventListener("DOMContentLoaded", () => {
     { data: "price", title: "Giá", className: "text-end", render: v => { const s = SM.formatPrice(v && v.value, v && v.status); return `<span class="${s.cls}">${esc(s.text)}</span>`; } },
     { data: "price", title: "% Phiên", className: "text-end", render: v => { const s = SM.formatSessionPercent(v && v.change_pct); return `<span class="${s.cls}">${esc(s.text)}</span>`; } },
     { data: null, title: "Thanh khoản nghiên cứu", render: (_v, _t, row) => { const s = SM.formatLiquidity(row.liquidity, row.execution); return `<span class="${s.cls}">${esc(s.text)}</span>`; } },
-    { data: "decision", title: "Quyết định hành động", render: v => { const d = v || {}; const raw = d.research_action_posture || ""; const vf = window.VSValueFormat; const conditional = ["HOLD","HOLD_DO_NOT_ADD","REDUCE"].includes(raw) && d.position_context !== "HELD" && d.position_context !== "HELD_ABOVE_POLICY_CAP"; const label = raw && vf ? vf.formatDomainState(raw, "research_action_posture").label + (conditional ? " — nếu đang nắm giữ" : "") : "Chưa có quyết định"; const ev = vf && vf.formatEvidenceCurrency ? vf.formatEvidenceCurrency(d.evidence_currency) : (d.evidence_currency || ""); return `<span data-action-posture="${esc(raw)}" title="${esc(raw)}">${esc(label)}</span><div class="small text-muted" data-evidence-currency="${esc(d.evidence_currency || "")}">${esc(ev)}</div>`; } },
-    { data: null, title: "Sàng lọc nghiên cứu (phụ)", render: (_v, _t, row) => { const raw = ((row.research || {}).stance) || ""; const vf = window.VSValueFormat; const noEvidence = raw === "WAIT_FOR_CONFIRMATION" && ((row.decision || {}).evidence_currency) === "NO_CURRENT_EVIDENCE"; const label = noEvidence ? "Không áp dụng (không có bằng chứng hiện tại)" : (raw && vf ? vf.formatResearchStance(raw) : "Chưa đủ dữ liệu"); return `<span class="text-muted" data-research-stance="${esc(raw)}" title="${esc(raw)}">${esc(label)}</span>`; } },
+    { data: null, title: "Quyết định hành động", render: (_v, _t, row) => { const c = SM.formatDecisionCell(row, window.VSValueFormat); return `<span data-action-posture="${esc(c.raw || "UNAVAILABLE")}" title="${esc(c.raw)}">${esc(c.label)}</span><div class="small text-muted" data-evidence-currency="${esc(c.evidence_raw || "UNAVAILABLE")}">${esc(c.evidence_label)}</div>`; } },
+    { data: null, title: "Sàng lọc nghiên cứu (phụ)", render: (_v, _t, row) => { const c = SM.formatResearchScreenCell(row, window.VSValueFormat); return `<span class="text-muted" data-research-stance="${esc(c.raw)}" title="${esc(c.raw)}">${esc(c.label)}</span>`; } },
     { data: "tactical", title: "Trạng thái kỹ thuật", render: v => { const raw = (v && v.entry_state) || ""; const vf = window.VSValueFormat; const label = raw && vf ? vf.formatTacticalState(raw) : SM.translateStatus((v && v.status) || "UNKNOWN"); return `<span data-state="${esc(raw)}" title="${esc(raw)}">${esc(label)}</span>`; } },
     { data: "financial_v2", title: "Tài chính", render: v => { const s = SM.formatFinancial(v); return `<span class="${s.cls}">${esc(s.text)}</span>`; } },
     { data: "freshness", title: "Độ mới dữ liệu", render: v => { const s = SM.formatFreshness(v); return `<span class="${s.cls}">${esc(s.text)}</span>`; } },

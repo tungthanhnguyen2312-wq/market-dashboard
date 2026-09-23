@@ -1,0 +1,827 @@
+{
+ "_note": "Representative pre-M1 payloads (Dashboard base 60afab5, published 2026-09-23 data): real cards copied verbatim, no research_action_posture / evidence_currency / decision view. Used by tests/current-decision-surface-rolling-deploy-compat.test.js to prove new Dashboard code + old Dashboard data is safe and fail-closed.",
+ "build_info_market_session": "2026-09-23",
+ "workspace_index": {
+  "schema_version": "1.0.0",
+  "contract_version": "workspace_index/v1",
+  "as_of_session": "2026-09-23",
+  "coverage": {
+   "research_stance_distribution": {
+    "ACCUMULATE_RESEARCH_CANDIDATE": 151,
+    "AVOID_NEW_ENTRY": 318,
+    "HIGH_RISK_SPECULATION_ONLY": 22,
+    "INITIATE_RESEARCH_CANDIDATE": 53,
+    "INSUFFICIENT_EVIDENCE": 185,
+    "WAIT_FOR_CONFIRMATION": 954
+   },
+   "entry_state_distribution": {
+    "BASE_BUILDING": 24,
+    "BREAKDOWN_RISK": 54,
+    "BREAKOUT_READY": 23,
+    "DISTRIBUTION_RISK": 17,
+    "DOWNTREND": 247,
+    "EARLY_REVERSAL_CANDIDATE": 58,
+    "NONE": 821,
+    "SELLING_PRESSURE_EASING": 207,
+    "SIDEWAYS_NEUTRAL": 77,
+    "UPTREND_CONFIRMED": 155
+   }
+  },
+  "cards": {
+   "AAA": {
+    "as_of_session": "2026-09-23",
+    "catalyst": {
+     "status": "UNAVAILABLE"
+    },
+    "confirmation": {
+     "confirmation_trigger_state": "NOT_AVAILABLE",
+     "status": "READY"
+    },
+    "counter_thesis": {
+     "key_counter_thesis": [
+      "PRICE_VOLUME_DISTRIBUTION_RISK",
+      "SECTOR_LEADERSHIP_WEAKENING",
+      "FA_V2_BALANCE_SHEET_DETERIORATING"
+     ]
+    },
+    "current_price": null,
+    "detail_shard": "A",
+    "entry_action": "WAIT",
+    "entry_state": "DISTRIBUTION_RISK",
+    "flow_price": {
+     "cohort_membership": "OUTSIDE_CURRENT_FLOW_RESEARCH_COHORT",
+     "evidence_quality": "INSUFFICIENT_RETAINED_EVIDENCE",
+     "relationship": "FLOW_UNAVAILABLE"
+    },
+    "fundamental": {
+     "state": "PROFITABLE",
+     "trajectory": "INSUFFICIENT_DATA"
+    },
+    "invalidation": {
+     "fundamental": {
+      "status": "READY"
+     },
+     "technical": {
+      "boundary_type": "DISTRIBUTION_RECOVERY",
+      "semantic": "STANCE_RECONSIDERATION_WATCH",
+      "status": "READY"
+     }
+    },
+    "lineage": {
+     "per_axis_freshness": {
+      "catalyst": "STALE_BUT_RESEARCH_USABLE",
+      "downside_invalidation": "CURRENT",
+      "fundamental": "STALE_BUT_RESEARCH_USABLE",
+      "liquidity": "CURRENT",
+      "market_sector": "CURRENT",
+      "tactical": "CURRENT",
+      "valuation": "CURRENT"
+     }
+    },
+    "liquidity": {
+     "readiness": "LIQUIDITY_RESEARCH_PROXY"
+    },
+    "market_sector": {
+     "breadth_regime": "MIXED_BREADTH",
+     "sector_relative_context": {
+      "leadership_state": "WEAKENING",
+      "market_relative_momentum_bucket": "UPPER_MIDDLE",
+      "sector_relative_momentum_bucket": "UPPER_MIDDLE"
+     }
+    },
+    "official_research_scope": {
+     "scope_bucket": "IN_CURRENT_OFFICIAL_RESEARCH_SCOPE"
+    },
+    "price": null,
+    "reference_trigger": {
+     "display_note": "Reference level only -- not a confirmed entry (điểm mua) unless trigger_condition_satisfied is true.",
+     "entry_authority": false,
+     "invalidation_level": 7.26,
+     "invalidation_method": "CONFIRMED_SWING_LOW_BY_RULE_OR_V1_SUPPORT_FALLBACK",
+     "status": "AVAILABLE",
+     "trigger_condition_attached": false,
+     "trigger_condition_satisfied": false,
+     "trigger_level": null,
+     "trigger_level_exists": false,
+     "trigger_state": "BELOW_TRIGGER",
+     "trigger_type": "NO_TRIGGER"
+    },
+    "research_stance": "AVOID_NEW_ENTRY",
+    "research_stance_readiness": "RESEARCH_READY_CONDITIONAL",
+    "sector": "QUALIFIED_CLASSIFICATION|QUALIFIED_ENTITY_CLASS|corporate",
+    "setup_tags": [
+     "PRICE_VOLUME_DISTRIBUTION_RISK",
+     "RANGE_EXPANSION",
+     "SECTOR_WEAKENING"
+    ],
+    "signal_velocity": {
+     "evidence_quality": "COMPLETE_RETAINED_EVIDENCE",
+     "overall_transition_state": "STABLE"
+    },
+    "tactical": {
+     "current_price": null,
+     "primary_entry_state": "DISTRIBUTION_RISK"
+    },
+    "ticker": "AAA",
+    "valuation": {
+     "earnings_state": null,
+     "relative_research_state": "UNAVAILABLE",
+     "usable_relative_method_count": 0
+    },
+    "why": {
+     "deterministic_reasons": [
+      "ADVERSE_TACTICAL_ENTRY_STATE"
+     ]
+    }
+   },
+   "AAM": {
+    "as_of_session": "2026-09-23",
+    "catalyst": {
+     "status": "UNAVAILABLE"
+    },
+    "confirmation": {
+     "confirmation_trigger_state": "NOT_AVAILABLE",
+     "status": "READY"
+    },
+    "counter_thesis": {
+     "key_counter_thesis": [
+      "SECTOR_LEADERSHIP_WEAKENING"
+     ]
+    },
+    "current_price": null,
+    "detail_shard": "A",
+    "entry_action": "BUY_ON_CONFIRMATION",
+    "entry_state": "BREAKOUT_READY",
+    "flow_price": {
+     "cohort_membership": "OUTSIDE_CURRENT_FLOW_RESEARCH_COHORT",
+     "evidence_quality": "INSUFFICIENT_RETAINED_EVIDENCE",
+     "relationship": "FLOW_UNAVAILABLE"
+    },
+    "fundamental": {
+     "state": "PROFITABLE",
+     "trajectory": "INSUFFICIENT_DATA"
+    },
+    "invalidation": {
+     "fundamental": {
+      "status": "READY"
+     },
+     "technical": {
+      "boundary_type": "BREAKOUT_LEVEL_FAILURE",
+      "semantic": "THESIS_INVALIDATION",
+      "status": "READY"
+     }
+    },
+    "lineage": {
+     "per_axis_freshness": {
+      "catalyst": "STALE_BUT_RESEARCH_USABLE",
+      "downside_invalidation": "CURRENT",
+      "fundamental": "STALE_BUT_RESEARCH_USABLE",
+      "liquidity": "CURRENT",
+      "market_sector": "CURRENT",
+      "tactical": "CURRENT",
+      "valuation": "CURRENT"
+     }
+    },
+    "liquidity": {
+     "readiness": "LIQUIDITY_RESEARCH_PROXY"
+    },
+    "market_sector": {
+     "breadth_regime": "MIXED_BREADTH",
+     "sector_relative_context": {
+      "leadership_state": "WEAKENING",
+      "market_relative_momentum_bucket": "UPPER_QUARTILE",
+      "sector_relative_momentum_bucket": "UPPER_QUARTILE"
+     }
+    },
+    "official_research_scope": {
+     "scope_bucket": "IN_CURRENT_OFFICIAL_RESEARCH_SCOPE"
+    },
+    "price": null,
+    "reference_trigger": {
+     "display_note": "Reference level only -- not a confirmed entry (điểm mua) unless trigger_condition_satisfied is true.",
+     "entry_authority": false,
+     "invalidation_level": 7.6,
+     "invalidation_method": "CONFIRMED_SWING_HIGH_BY_RULE_OR_V1_RESISTANCE_FALLBACK",
+     "status": "AVAILABLE",
+     "trigger_condition_attached": true,
+     "trigger_condition_satisfied": false,
+     "trigger_level": 7.6,
+     "trigger_level_exists": true,
+     "trigger_state": "APPROACHING",
+     "trigger_type": "PIVOT_BREAKOUT_TRIGGER"
+    },
+    "research_stance": "WAIT_FOR_CONFIRMATION",
+    "research_stance_readiness": "RESEARCH_CONDITIONAL",
+    "sector": "QUALIFIED_CLASSIFICATION|QUALIFIED_ENTITY_CLASS|corporate",
+    "setup_tags": [
+     "RELATIVE_STRENGTH_LEADER",
+     "SECTOR_WEAKENING"
+    ],
+    "signal_velocity": {
+     "evidence_quality": "COMPLETE_RETAINED_EVIDENCE",
+     "overall_transition_state": "DETERIORATING"
+    },
+    "tactical": {
+     "current_price": null,
+     "primary_entry_state": "BREAKOUT_READY"
+    },
+    "ticker": "AAM",
+    "valuation": {
+     "earnings_state": null,
+     "relative_research_state": "UNAVAILABLE",
+     "usable_relative_method_count": 0
+    },
+    "why": {
+     "deterministic_reasons": [
+      "BREAKOUT_READY_AWAITING_CONFIRMATION",
+      "SECTOR_LEADERSHIP_WEAKENING",
+      "PROFITABLE_FUNDAMENTAL"
+     ]
+    }
+   },
+   "AFX": {
+    "as_of_session": "2026-09-23",
+    "catalyst": {
+     "status": "WATCH_FOR_EXECUTION"
+    },
+    "confirmation": {
+     "confirmation_trigger_state": "NOT_AVAILABLE",
+     "status": "READY"
+    },
+    "counter_thesis": {
+     "key_counter_thesis": [
+      "FA_V2_GROWTH_CONTRACTING",
+      "PRICE_VOLUME_DISTRIBUTION_RISK",
+      "FA_V2_MARGIN_COMPRESSING"
+     ]
+    },
+    "current_price": null,
+    "detail_shard": "A",
+    "entry_action": "EARLY_ENTRY",
+    "entry_state": "EARLY_REVERSAL_CANDIDATE",
+    "flow_price": {
+     "cohort_membership": "OUTSIDE_CURRENT_FLOW_RESEARCH_COHORT",
+     "evidence_quality": "INSUFFICIENT_RETAINED_EVIDENCE",
+     "relationship": "FLOW_UNAVAILABLE"
+    },
+    "fundamental": {
+     "state": "PROFITABLE",
+     "trajectory": "INSUFFICIENT_DATA"
+    },
+    "invalidation": {
+     "fundamental": {
+      "status": "READY"
+     },
+     "technical": {
+      "boundary_type": "EARLY_REVERSAL_MOMENTUM_FAILURE",
+      "semantic": "THESIS_INVALIDATION",
+      "status": "READY"
+     }
+    },
+    "lineage": {
+     "per_axis_freshness": {
+      "catalyst": "STALE_BUT_RESEARCH_USABLE",
+      "downside_invalidation": "CURRENT",
+      "fundamental": "STALE_BUT_RESEARCH_USABLE",
+      "liquidity": "CURRENT",
+      "market_sector": "CURRENT",
+      "tactical": "CURRENT",
+      "valuation": "CURRENT"
+     }
+    },
+    "liquidity": {
+     "readiness": "LIQUIDITY_RESEARCH_PROXY"
+    },
+    "market_sector": {
+     "breadth_regime": "MIXED_BREADTH",
+     "sector_relative_context": {
+      "leadership_state": "LEADING",
+      "market_relative_momentum_bucket": "UPPER_MIDDLE",
+      "sector_relative_momentum_bucket": "LOWER_MIDDLE"
+     }
+    },
+    "official_research_scope": {
+     "scope_bucket": "IN_CURRENT_OFFICIAL_RESEARCH_SCOPE"
+    },
+    "price": null,
+    "reference_trigger": {
+     "display_note": "Reference level only -- not a confirmed entry (điểm mua) unless trigger_condition_satisfied is true.",
+     "entry_authority": false,
+     "invalidation_level": 10.2,
+     "invalidation_method": "CONFIRMED_SWING_HIGH_BY_RULE_OR_V1_RESISTANCE_FALLBACK",
+     "status": "AVAILABLE",
+     "trigger_condition_attached": true,
+     "trigger_condition_satisfied": true,
+     "trigger_level": 10.0,
+     "trigger_level_exists": true,
+     "trigger_state": "TRIGGERED",
+     "trigger_type": "CONFIRMED_BOS_TRIGGER"
+    },
+    "research_stance": "INITIATE_RESEARCH_CANDIDATE",
+    "research_stance_readiness": "RESEARCH_READY_CONDITIONAL",
+    "sector": "PROVIDER_DESCRIPTIVE_CLASSIFICATION|VCI.symbols_by_industries/retained-20260728|bán lẻ",
+    "setup_tags": [
+     "EARLY_REVERSAL_STRUCTURE",
+     "NEAR_SUPPORT",
+     "PRICE_VOLUME_DISTRIBUTION_RISK",
+     "SECTOR_LEADING"
+    ],
+    "signal_velocity": {
+     "evidence_quality": "COMPLETE_RETAINED_EVIDENCE",
+     "overall_transition_state": "DETERIORATING"
+    },
+    "tactical": {
+     "current_price": null,
+     "primary_entry_state": "EARLY_REVERSAL_CANDIDATE"
+    },
+    "ticker": "AFX",
+    "valuation": {
+     "earnings_state": null,
+     "relative_research_state": "UNAVAILABLE",
+     "usable_relative_method_count": 0
+    },
+    "why": {
+     "deterministic_reasons": [
+      "EARLY_REVERSAL_CANDIDATE",
+      "PROFITABLE_FUNDAMENTAL",
+      "SECTOR_LEADERSHIP_LEADING"
+     ]
+    }
+   }
+  }
+ },
+ "screener_master_projection": {
+  "schema_version": "1.0.0",
+  "contract_version": "screener_master_projection/v1",
+  "as_of_session": "2026-09-23",
+  "cards": {
+   "AAA": {
+    "ticker": "AAA",
+    "listing_exchange": "HOSE",
+    "display_exchange": "HSX",
+    "exchange_status": "AVAILABLE",
+    "exchange_reason": null,
+    "price": {
+     "value": 7.51,
+     "change_pct": -0.018300653594771288,
+     "change_pct_unit": "FRACTION",
+     "change_pct_status": "AVAILABLE",
+     "change_pct_reason": null,
+     "status": "PRICE_AVAILABLE",
+     "reason": null,
+     "basis": "CURRENT_DESCRIPTIVE_DNSE_REST_ADJUSTED_RETROSPECTIVE_RAW_AS_TRADED_NOT_PROMOTED",
+     "as_of": "2026-09-23",
+     "source_identity": "canonical_screen_snapshot:screen_snapshot.csv",
+     "freshness": "CURRENT"
+    },
+    "sector": {
+     "label": "Hóa chất",
+     "code": null,
+     "namespace": "VCI_PROVIDER_INDUSTRY",
+     "status": "AVAILABLE",
+     "reason": null,
+     "as_of": "2026-07-12 20:34"
+    },
+    "entity_type": {
+     "value": "corporate",
+     "status": "AVAILABLE",
+     "reason": null
+    },
+    "liquidity": {
+     "research_value": null,
+     "research_value_status": "UNKNOWN",
+     "research_value_reason": "NO_QUALIFIED_MARKET_WIDE_NUMERIC_ADV20",
+     "method": "LIQUIDITY_RESEARCH_PROXY",
+     "fitness": "LIQUIDITY_RESEARCH_PROXY",
+     "as_of": "2026-09-23",
+     "descriptive_state": "CURRENT_SESSION_DESCRIPTIVE_ELIGIBLE",
+     "status": "AVAILABLE",
+     "reason": null
+    },
+    "execution": {
+     "capacity_exact_status": "EXECUTION_CAPACITY_EXACT_BLOCKED",
+     "capacity_exact_reason": "EXECUTION_CAPACITY_EXACT_NOT_QUALIFIED"
+    },
+    "tactical": {
+     "entry_state": "DISTRIBUTION_RISK",
+     "entry_action": "WAIT",
+     "as_of": "2026-09-23",
+     "freshness": "CURRENT",
+     "status": "AVAILABLE",
+     "reason": null
+    },
+    "research": {
+     "stance": "AVOID_NEW_ENTRY",
+     "stance_readiness": "RESEARCH_READY_CONDITIONAL",
+     "as_of": "2026-09-23",
+     "status": "AVAILABLE",
+     "reason": null
+    },
+    "workspace_ref": {
+     "ticker": "AAA",
+     "producer_artifact_identity": "investment_decision_workspace_projection/v1:5fcd850fce5fc2cb8907fc46c0b5723e432c1678718b0bc27eacc4a01dfc1a85",
+     "status": "AVAILABLE",
+     "reason": null
+    },
+    "financial_v2": {
+     "status": "AVAILABLE",
+     "fitness": "READY",
+     "current_research_ready": true,
+     "profitability_state": "PROFITABLE",
+     "cash_conversion_state": "UNAVAILABLE",
+     "capital_efficiency_state": "UNAVAILABLE",
+     "short_term_liquidity_state": "POSITIVE_NET_WORKING_CAPITAL",
+     "working_capital_state": "POSITIVE_NET_WORKING_CAPITAL",
+     "reason": null
+    },
+    "freshness": {
+     "price": "CURRENT",
+     "sector": "CURRENT",
+     "liquidity": "CURRENT",
+     "tactical": "CURRENT",
+     "research": "CURRENT",
+     "financial_v2": "CURRENT",
+     "row": "CURRENT"
+    },
+    "authority_boundary": {
+     "is_actionable": false,
+     "no_score": true,
+     "no_rank": true,
+     "no_probability": true,
+     "no_target_price": true,
+     "research_stance_is_not_execution_order": true,
+     "tactical_entry_is_not_buy": true,
+     "data_ready_is_not_buy": true,
+     "no_fake_gtgd": true,
+     "no_close_times_volume_adv20": true
+    },
+    "official_research_scope": {
+     "scope_bucket": "IN_CURRENT_OFFICIAL_RESEARCH_SCOPE",
+     "current_research_scope_state": "IN_CURRENT_OFFICIAL_RESEARCH_SCOPE",
+     "current_research_scope_fitness": "CURRENT_RESEARCH_SCOPE_ELIGIBLE",
+     "current_research_scope_reason": "FIRST_PARTY_CURRENT_HOSE_STOCK_MASTER_ROW",
+     "official_current_exchange_presence": true,
+     "official_security_status": "NORMAL_OR_NO_SPECIAL_STATUS",
+     "research_session": "2026-09-23",
+     "official_snapshot_observed_at": "2026-09-13T08:08:05Z"
+    }
+   },
+   "AAM": {
+    "ticker": "AAM",
+    "listing_exchange": "HOSE",
+    "display_exchange": "HSX",
+    "exchange_status": "AVAILABLE",
+    "exchange_reason": null,
+    "price": {
+     "value": 7.51,
+     "change_pct": 0.0013333333333334085,
+     "change_pct_unit": "FRACTION",
+     "change_pct_status": "AVAILABLE",
+     "change_pct_reason": null,
+     "status": "PRICE_AVAILABLE",
+     "reason": null,
+     "basis": "CURRENT_DESCRIPTIVE_DNSE_REST_ADJUSTED_RETROSPECTIVE_RAW_AS_TRADED_NOT_PROMOTED",
+     "as_of": "2026-09-23",
+     "source_identity": "canonical_screen_snapshot:screen_snapshot.csv",
+     "freshness": "CURRENT"
+    },
+    "sector": {
+     "label": "Thực phẩm và đồ uống",
+     "code": null,
+     "namespace": "VCI_PROVIDER_INDUSTRY",
+     "status": "AVAILABLE",
+     "reason": null,
+     "as_of": "2026-07-12 20:34"
+    },
+    "entity_type": {
+     "value": "corporate",
+     "status": "AVAILABLE",
+     "reason": null
+    },
+    "liquidity": {
+     "research_value": null,
+     "research_value_status": "UNKNOWN",
+     "research_value_reason": "NO_QUALIFIED_MARKET_WIDE_NUMERIC_ADV20",
+     "method": "LIQUIDITY_RESEARCH_PROXY",
+     "fitness": "LIQUIDITY_RESEARCH_PROXY",
+     "as_of": "2026-09-23",
+     "descriptive_state": "CURRENT_SESSION_DESCRIPTIVE_ELIGIBLE",
+     "status": "AVAILABLE",
+     "reason": null
+    },
+    "execution": {
+     "capacity_exact_status": "EXECUTION_CAPACITY_EXACT_BLOCKED",
+     "capacity_exact_reason": "EXECUTION_CAPACITY_EXACT_NOT_QUALIFIED"
+    },
+    "tactical": {
+     "entry_state": "BREAKOUT_READY",
+     "entry_action": "BUY_ON_CONFIRMATION",
+     "as_of": "2026-09-23",
+     "freshness": "CURRENT",
+     "status": "AVAILABLE",
+     "reason": null
+    },
+    "research": {
+     "stance": "WAIT_FOR_CONFIRMATION",
+     "stance_readiness": "RESEARCH_CONDITIONAL",
+     "as_of": "2026-09-23",
+     "status": "AVAILABLE",
+     "reason": null
+    },
+    "workspace_ref": {
+     "ticker": "AAM",
+     "producer_artifact_identity": "investment_decision_workspace_projection/v1:5fcd850fce5fc2cb8907fc46c0b5723e432c1678718b0bc27eacc4a01dfc1a85",
+     "status": "AVAILABLE",
+     "reason": null
+    },
+    "financial_v2": {
+     "status": "AVAILABLE",
+     "fitness": "READY",
+     "current_research_ready": true,
+     "profitability_state": "PROFITABLE",
+     "cash_conversion_state": "UNAVAILABLE",
+     "capital_efficiency_state": "UNAVAILABLE",
+     "short_term_liquidity_state": "POSITIVE_NET_WORKING_CAPITAL",
+     "working_capital_state": "POSITIVE_NET_WORKING_CAPITAL",
+     "reason": null
+    },
+    "freshness": {
+     "price": "CURRENT",
+     "sector": "CURRENT",
+     "liquidity": "CURRENT",
+     "tactical": "CURRENT",
+     "research": "CURRENT",
+     "financial_v2": "CURRENT",
+     "row": "CURRENT"
+    },
+    "authority_boundary": {
+     "is_actionable": false,
+     "no_score": true,
+     "no_rank": true,
+     "no_probability": true,
+     "no_target_price": true,
+     "research_stance_is_not_execution_order": true,
+     "tactical_entry_is_not_buy": true,
+     "data_ready_is_not_buy": true,
+     "no_fake_gtgd": true,
+     "no_close_times_volume_adv20": true
+    },
+    "official_research_scope": {
+     "scope_bucket": "IN_CURRENT_OFFICIAL_RESEARCH_SCOPE",
+     "current_research_scope_state": "IN_CURRENT_OFFICIAL_RESEARCH_SCOPE",
+     "current_research_scope_fitness": "CURRENT_RESEARCH_SCOPE_ELIGIBLE",
+     "current_research_scope_reason": "FIRST_PARTY_CURRENT_HOSE_STOCK_MASTER_ROW",
+     "official_current_exchange_presence": true,
+     "official_security_status": "NORMAL_OR_NO_SPECIAL_STATUS",
+     "research_session": "2026-09-23",
+     "official_snapshot_observed_at": "2026-09-13T08:08:05Z"
+    }
+   },
+   "AFX": {
+    "ticker": "AFX",
+    "listing_exchange": "HOSE",
+    "display_exchange": "HSX",
+    "exchange_status": "AVAILABLE",
+    "exchange_reason": null,
+    "price": {
+     "value": 9.95,
+     "change_pct": -0.0030060120240481547,
+     "change_pct_unit": "FRACTION",
+     "change_pct_status": "AVAILABLE",
+     "change_pct_reason": null,
+     "status": "PRICE_AVAILABLE",
+     "reason": null,
+     "basis": "CURRENT_DESCRIPTIVE_DNSE_REST_ADJUSTED_RETROSPECTIVE_RAW_AS_TRADED_NOT_PROMOTED",
+     "as_of": "2026-09-23",
+     "source_identity": "canonical_screen_snapshot:screen_snapshot.csv",
+     "freshness": "CURRENT"
+    },
+    "sector": {
+     "label": "Bán lẻ",
+     "code": null,
+     "namespace": "VCI_PROVIDER_INDUSTRY",
+     "status": "AVAILABLE",
+     "reason": null,
+     "as_of": "2026-07-12 20:36"
+    },
+    "entity_type": {
+     "value": "corporate",
+     "status": "AVAILABLE",
+     "reason": null
+    },
+    "liquidity": {
+     "research_value": null,
+     "research_value_status": "UNKNOWN",
+     "research_value_reason": "NO_QUALIFIED_MARKET_WIDE_NUMERIC_ADV20",
+     "method": "LIQUIDITY_RESEARCH_PROXY",
+     "fitness": "LIQUIDITY_RESEARCH_PROXY",
+     "as_of": "2026-09-23",
+     "descriptive_state": "CURRENT_SESSION_DESCRIPTIVE_ELIGIBLE",
+     "status": "AVAILABLE",
+     "reason": null
+    },
+    "execution": {
+     "capacity_exact_status": "EXECUTION_CAPACITY_EXACT_BLOCKED",
+     "capacity_exact_reason": "EXECUTION_CAPACITY_EXACT_NOT_QUALIFIED"
+    },
+    "tactical": {
+     "entry_state": "EARLY_REVERSAL_CANDIDATE",
+     "entry_action": "EARLY_ENTRY",
+     "as_of": "2026-09-23",
+     "freshness": "CURRENT",
+     "status": "AVAILABLE",
+     "reason": null
+    },
+    "research": {
+     "stance": "INITIATE_RESEARCH_CANDIDATE",
+     "stance_readiness": "RESEARCH_READY_CONDITIONAL",
+     "as_of": "2026-09-23",
+     "status": "AVAILABLE",
+     "reason": null
+    },
+    "workspace_ref": {
+     "ticker": "AFX",
+     "producer_artifact_identity": "investment_decision_workspace_projection/v1:5fcd850fce5fc2cb8907fc46c0b5723e432c1678718b0bc27eacc4a01dfc1a85",
+     "status": "AVAILABLE",
+     "reason": null
+    },
+    "financial_v2": {
+     "status": "AVAILABLE",
+     "fitness": "READY",
+     "current_research_ready": true,
+     "profitability_state": "PROFITABLE",
+     "cash_conversion_state": "UNAVAILABLE",
+     "capital_efficiency_state": "UNAVAILABLE",
+     "short_term_liquidity_state": "POSITIVE_NET_WORKING_CAPITAL",
+     "working_capital_state": "POSITIVE_NET_WORKING_CAPITAL",
+     "reason": null
+    },
+    "freshness": {
+     "price": "CURRENT",
+     "sector": "CURRENT",
+     "liquidity": "CURRENT",
+     "tactical": "CURRENT",
+     "research": "CURRENT",
+     "financial_v2": "CURRENT",
+     "row": "CURRENT"
+    },
+    "authority_boundary": {
+     "is_actionable": false,
+     "no_score": true,
+     "no_rank": true,
+     "no_probability": true,
+     "no_target_price": true,
+     "research_stance_is_not_execution_order": true,
+     "tactical_entry_is_not_buy": true,
+     "data_ready_is_not_buy": true,
+     "no_fake_gtgd": true,
+     "no_close_times_volume_adv20": true
+    },
+    "official_research_scope": {
+     "scope_bucket": "IN_CURRENT_OFFICIAL_RESEARCH_SCOPE",
+     "current_research_scope_state": "IN_CURRENT_OFFICIAL_RESEARCH_SCOPE",
+     "current_research_scope_fitness": "CURRENT_RESEARCH_SCOPE_ELIGIBLE",
+     "current_research_scope_reason": "FIRST_PARTY_CURRENT_HOSE_STOCK_MASTER_ROW",
+     "official_current_exchange_presence": true,
+     "official_security_status": "NORMAL_OR_NO_SPECIAL_STATUS",
+     "research_session": "2026-09-23",
+     "official_snapshot_observed_at": "2026-09-13T08:08:05Z"
+    }
+   }
+  }
+ },
+ "dashboard_home_summary": {
+  "schema_version": "1.0.0",
+  "contract_version": "dashboard_home_summary/v1",
+  "requested_at": "2026-09-23T17:03:04+07:00",
+  "as_of_session": "2026-09-23",
+  "source_artifact_identity": "screener_master_projection/v1:75d5cc51e1eb4856df29ba8be756e39f6ad819a87ae8ca718dd6c67f87842f19",
+  "denominator": 1683,
+  "reference_ticker_count": 1683,
+  "current_research_scope_count": 1504,
+  "outside_current_official_scope_count": 179,
+  "official_scope_observed_at": "2026-09-13T08:08:05Z",
+  "price_available_count": 864,
+  "price_unavailable_count": 819,
+  "tactical_available_count": 862,
+  "tactical_unavailable_count": 821,
+  "session_breadth": {
+   "available": true,
+   "priced": 862,
+   "up": 280,
+   "down": 377,
+   "flat": 205,
+   "price_available": 864,
+   "unpriced": 819,
+   "missing_session_return": 2,
+   "state": "NGHIENG_GIAM"
+  },
+  "research_stance": {
+   "available": true,
+   "counts": {
+    "ACCUMULATE_RESEARCH_CANDIDATE": 151,
+    "AVOID_NEW_ENTRY": 318,
+    "HIGH_RISK_SPECULATION_ONLY": 22,
+    "INITIATE_RESEARCH_CANDIDATE": 53,
+    "INSUFFICIENT_EVIDENCE": 185,
+    "WAIT_FOR_CONFIRMATION": 954
+   },
+   "order": [
+    "INITIATE_RESEARCH_CANDIDATE",
+    "ACCUMULATE_RESEARCH_CANDIDATE",
+    "WAIT_FOR_CONFIRMATION",
+    "HIGH_RISK_SPECULATION_ONLY",
+    "AVOID_NEW_ENTRY",
+    "INSUFFICIENT_EVIDENCE"
+   ]
+  },
+  "tactical": {
+   "available": true,
+   "coverage": 862,
+   "counts": {
+    "BASE_BUILDING": 24,
+    "BREAKDOWN_RISK": 54,
+    "BREAKOUT_READY": 23,
+    "DISTRIBUTION_RISK": 17,
+    "DOWNTREND": 247,
+    "EARLY_REVERSAL_CANDIDATE": 58,
+    "SELLING_PRESSURE_EASING": 207,
+    "SIDEWAYS_NEUTRAL": 77,
+    "UPTREND_CONFIRMED": 155
+   },
+   "order": [
+    "DOWNTREND",
+    "SELLING_PRESSURE_EASING",
+    "UPTREND_CONFIRMED",
+    "EARLY_REVERSAL_CANDIDATE",
+    "BREAKDOWN_RISK",
+    "SIDEWAYS_NEUTRAL",
+    "DISTRIBUTION_RISK",
+    "BASE_BUILDING",
+    "BREAKOUT_READY"
+   ]
+  },
+  "liquidity": {
+   "proxy_available": true,
+   "proxy_count": 859,
+   "execution_exact_ready": 0,
+   "execution_exact_established": false
+  },
+  "sector": {
+   "available": true,
+   "labeled": 1678,
+   "rows": [
+    {
+     "label": "Xây dựng và Vật liệu",
+     "count": 351
+    },
+    {
+     "label": "Hàng & Dịch vụ Công nghiệp",
+     "count": 275
+    },
+    {
+     "label": "Thực phẩm và đồ uống",
+     "count": 159
+    },
+    {
+     "label": "Điện, nước & xăng dầu khí đốt",
+     "count": 153
+    },
+    {
+     "label": "Bất động sản",
+     "count": 136
+    },
+    {
+     "label": "Tài nguyên Cơ bản",
+     "count": 111
+    },
+    {
+     "label": "Hàng cá nhân & Gia dụng",
+     "count": 80
+    },
+    {
+     "label": "Hóa chất",
+     "count": 75
+    },
+    {
+     "label": "Y tế",
+     "count": 63
+    },
+    {
+     "label": "Du lịch và Giải trí",
+     "count": 52
+    }
+   ]
+  },
+  "authority_effect": "NONE / PRESENTATION_READ_MODEL_ONLY",
+  "blocked_outputs": {
+   "universal_score": "SCORING_PROHIBITED",
+   "ordinal_rank": "RANKING_PROHIBITED",
+   "probability_of_success": "FORECAST_PROHIBITED",
+   "target_price": "NOT_EMITTED",
+   "market_regime": "NOT_COMPUTED"
+  },
+  "artifact_sha256": "207164503c08be8592f89eb84242ca54a12744ff20745a60dce3ff7cc8a3c256",
+  "artifact_identity": "dashboard_home_summary/v1:207164503c08be8592f89eb84242ca54a12744ff20745a60dce3ff7cc8a3c256"
+ }
+}

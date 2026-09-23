@@ -131,6 +131,9 @@
   const TACTICAL_ACTIONABLE_ENTRY_READINESS = new Set(["EARLY_ENTRY", "BUY_ON_CONFIRMATION", "ACCUMULATE_IN_BASE"]);
   const POSITION_CONDITIONAL_POSTURES = new Set(["HOLD", "HOLD_DO_NOT_ADD", "REDUCE"]);
   const CONSTRUCTIVE_POSTURES = new Set(["INITIATE_ON_BREAKOUT", "ACCUMULATE_ON_RETEST", "EARLY_WATCH"]);
+  // Rolling-deploy compatibility: a pre-M1 Workspace card has no research_action_posture. The
+  // primary decision then reads as explicitly unavailable -- never the legacy research_stance.
+  const POSTURE_UNAVAILABLE_TEXT = "Chưa có tư thế hành động chuẩn hóa cho bản build này";
 
   function stanceEntryGuidance(researchStance, entryAction) {
     if (VETO_RESEARCH_STANCES.has(researchStance)) {
@@ -169,7 +172,7 @@
   function actionPostureLabel(card) {
     const c = card || {};
     const posture = c.research_action_posture;
-    if (!posture) return formatWorkspaceState("UNAVAILABLE", "research_action_posture");
+    if (!posture) return POSTURE_UNAVAILABLE_TEXT;
     if (evidenceCurrencyClass(c.evidence_currency) === "NO_CURRENT_EVIDENCE" && posture === "WAIT_FOR_CONFIRMATION") {
       return formatWorkspaceState("NO_CURRENT_EVIDENCE", "evidence_currency");
     }
@@ -1189,7 +1192,9 @@
         const scope = getProductScopeFormat();
         document.getElementById("analysis-summary").innerHTML = [
           analysisKpi("Phạm vi sản phẩm", scope ? `${scope.formatCount(total)} thẻ quyết định` : `${total.toLocaleString("vi-VN")} thẻ quyết định`),
-          analysisKpi("Quyết định hành động", `${Object.keys(cov.research_action_posture_distribution || {}).length} nhóm quyết định`),
+          analysisKpi("Quyết định hành động", cov.research_action_posture_distribution
+            ? `${Object.keys(cov.research_action_posture_distribution).length} nhóm quyết định`
+            : POSTURE_UNAVAILABLE_TEXT),
           analysisKpi("Trạng thái kỹ thuật", `${Object.keys(cov.entry_state_distribution || {}).length} trạng thái được giữ lại`),
           analysisKpi("Trục dữ liệu đã cũ", `${cov.stale_axis_present_count != null ? cov.stale_axis_present_count.toLocaleString("vi-VN") : "—"} nêu rõ, không ép về hiện tại`),
         ].join("");
@@ -1673,7 +1678,7 @@
     readLocalPortfolioHoldings, localHoldingFor, buildT0Export,
     VETO_RESEARCH_STANCES, TACTICAL_ACTIONABLE_ENTRY_READINESS, stanceEntryGuidance,
     actionPostureLabel, actionPostureHtml, evidenceCurrencyClass, evidenceCurrencyHtml, opportunityPriorityHtml,
-    researchScreenHtml, researchScreenLabel, POSITION_CONDITIONAL_POSTURES,
+    researchScreenHtml, researchScreenLabel, POSITION_CONDITIONAL_POSTURES, POSTURE_UNAVAILABLE_TEXT,
     decisionCardHtml, renderDecisionCard, technicalSnapshotHtml, selectedSignalEvidenceHtml, retainedPrice, compactReasons,
     evidenceQuality, evidenceSummaryHtml,
     cssEscapeSelector,

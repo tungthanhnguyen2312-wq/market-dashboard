@@ -1026,6 +1026,8 @@
   }
   function formatEvidenceCurrency(value) {
     const raw = String(value || "");
+    // Absent (pre-M1 payload): unavailable, never inferred as CURRENT_SESSION.
+    if (!raw) return EVIDENCE_CURRENCY_MAP.UNAVAILABLE;
     const cls = evidenceCurrencyClass(raw);
     if (cls === "LAST_TRADE_AS_OF") {
       const iso = raw.slice("LAST_TRADE_AS_OF:".length);

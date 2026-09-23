@@ -14,6 +14,7 @@
   const SIDECAR_UNAVAILABLE = "OPTIONAL_CANDLE_SIGNAL_SIDECAR_UNAVAILABLE";
   const SIDECAR_STALE = "SIGNAL_SOURCE_SESSION_MISMATCH";
   const CANDLE_UNAVAILABLE_LABEL = "Chưa có dữ liệu mẫu hình nến phù hợp cho phiên hiện tại.";
+  const POSTURE_UNAVAILABLE_TEXT = "Chưa có tư thế hành động chuẩn hóa cho bản build này";
   const esc = (value) => String(value ?? "—").replace(/[&<>"']/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
 
   function validateWorkspaceContract(workspace) {
@@ -71,6 +72,8 @@
       ticker,
       // CURRENT_DECISION_SURFACE_CONVERGENCE_V1: the Producer action posture is the decision column;
       // research_stance stays as a secondary research-screen note.
+      // Rolling-deploy compatibility: a pre-M1 card has no posture -> explicitly unavailable,
+      // never the legacy research_stance.
       posture: card.research_action_posture || "UNAVAILABLE",
       evidence_currency: card.evidence_currency || null,
       stance: card.research_stance || "UNAVAILABLE",
@@ -94,7 +97,7 @@
     return tags.map((tag) => stateHtml(tag, "setup_tag")).join(" ");
   }
   function renderRowHtml(row) {
-    return `<tr data-ticker="${esc(row.ticker)}"><td class="sticky-col"><a class="tactical-link" href="${href(row.ticker)}">${esc(row.ticker)}</a></td><td>${stateHtml(row.posture, "research_action_posture")}<div class="tactical-muted">${esc((getValueFormat() && getValueFormat().formatEvidenceCurrency) ? getValueFormat().formatEvidenceCurrency(row.evidence_currency) : (row.evidence_currency || ""))}</div><div class="tactical-muted">Sàng lọc (phụ): ${row.stance === "WAIT_FOR_CONFIRMATION" && row.evidence_currency === "NO_CURRENT_EVIDENCE" ? esc("không áp dụng (không có bằng chứng hiện tại)") : stateHtml(row.stance, "research_stance")}</div></td><td>${stateHtml(row.state, "tactical_state")}<div class="tactical-muted">${actionHtml(row.action)}</div></td><td>${tagHtml(row.tags)}</td><td>${stateHtml(row.confirmation, "confirmation_state")}</td><td>${stateHtml(row.trigger, "confirmation_state")}</td><td>${stateHtml(row.invalidation, "invalidation_state")}</td><td>${stateHtml(row.market, "data_fitness")}<div class="tactical-muted">${stateHtml(row.sector, "data_fitness")}</div></td><td>${stateHtml(row.liquidity, "liquidity_state")}</td><td>${stateHtml(row.freshness, "freshness")}</td></tr>`;
+    return `<tr data-ticker="${esc(row.ticker)}"><td class="sticky-col"><a class="tactical-link" href="${href(row.ticker)}">${esc(row.ticker)}</a></td><td>${row.posture === "UNAVAILABLE" ? `<span data-state="UNAVAILABLE" data-domain="research_action_posture" title="UNAVAILABLE">${esc(POSTURE_UNAVAILABLE_TEXT)}</span>` : stateHtml(row.posture, "research_action_posture")}<div class="tactical-muted">${esc((getValueFormat() && getValueFormat().formatEvidenceCurrency) ? getValueFormat().formatEvidenceCurrency(row.evidence_currency) : (row.evidence_currency || ""))}</div><div class="tactical-muted">Sàng lọc (phụ): ${row.stance === "WAIT_FOR_CONFIRMATION" && row.evidence_currency === "NO_CURRENT_EVIDENCE" ? esc("không áp dụng (không có bằng chứng hiện tại)") : stateHtml(row.stance, "research_stance")}</div></td><td>${stateHtml(row.state, "tactical_state")}<div class="tactical-muted">${actionHtml(row.action)}</div></td><td>${tagHtml(row.tags)}</td><td>${stateHtml(row.confirmation, "confirmation_state")}</td><td>${stateHtml(row.trigger, "confirmation_state")}</td><td>${stateHtml(row.invalidation, "invalidation_state")}</td><td>${stateHtml(row.market, "data_fitness")}<div class="tactical-muted">${stateHtml(row.sector, "data_fitness")}</div></td><td>${stateHtml(row.liquidity, "liquidity_state")}</td><td>${stateHtml(row.freshness, "freshness")}</td></tr>`;
   }
   function renderRows(rows) {
     const state = document.getElementById("tactical-filter").value;
