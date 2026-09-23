@@ -33,6 +33,43 @@
     "AVOID_NEW_ENTRY",
     "INSUFFICIENT_EVIDENCE",
   ];
+  // CURRENT_DECISION_SURFACE_CONVERGENCE_V1: the primary Home decision summary is the Producer
+  // research_action_posture (Integrated Decision) counts, published by dashboard_home_summary.py
+  // from the same Workspace/Screener lineage. research_stance is a secondary research screen only.
+  const POSTURE_ORDER = [
+    "INITIATE_ON_BREAKOUT",
+    "ACCUMULATE_ON_RETEST",
+    "EARLY_WATCH",
+    "WAIT_FOR_CONFIRMATION",
+    "HOLD",
+    "HOLD_DO_NOT_ADD",
+    "REDUCE",
+    "AVOID",
+    "INSUFFICIENT_CURRENT_RESEARCH",
+  ];
+  const POSTURE_TONE = {
+    INITIATE_ON_BREAKOUT: "constructive",
+    ACCUMULATE_ON_RETEST: "constructive",
+    EARLY_WATCH: "wait",
+    WAIT_FOR_CONFIRMATION: "wait",
+    HOLD: "neutral",
+    HOLD_DO_NOT_ADD: "neutral",
+    REDUCE: "risk",
+    AVOID: "risk",
+    INSUFFICIENT_CURRENT_RESEARCH: "neutral",
+  };
+  const EVIDENCE_CURRENCY_ORDER = ["CURRENT_SESSION", "LAST_TRADE_AS_OF", "NO_CURRENT_EVIDENCE", "UNKNOWN"];
+  const EVIDENCE_CURRENCY_LABELS = {
+    CURRENT_SESSION: "bằng chứng phiên hiện tại",
+    LAST_TRADE_AS_OF: "bằng chứng cũ",
+    NO_CURRENT_EVIDENCE: "không có bằng chứng hiện tại",
+    UNKNOWN: "chưa xác định",
+  };
+  function evidenceCurrencyClass(value) {
+    const raw = String(value || "");
+    if (raw.indexOf("LAST_TRADE_AS_OF:") === 0) return "LAST_TRADE_AS_OF";
+    return (raw === "CURRENT_SESSION" || raw === "NO_CURRENT_EVIDENCE") ? raw : "UNKNOWN";
+  }
   const TACTICAL_ORDER = [
     "DOWNTREND",
     "SELLING_PRESSURE_EASING",
@@ -141,6 +178,22 @@
       const state = card.tactical.entry_state;
       tacticalCounts[state] = (tacticalCounts[state] || 0) + 1;
     });
+    const postureCounts = {};
+    POSTURE_ORDER.forEach((posture) => { postureCounts[posture] = 0; });
+    const currencyCounts = {};
+    EVIDENCE_CURRENCY_ORDER.forEach((name) => { currencyCounts[name] = 0; });
+    let postureAvailable = 0;
+    let positionConditional = 0;
+    cards.forEach((card) => {
+      const decision = card.decision || {};
+      if (decision.research_action_posture) {
+        postureAvailable += 1;
+        postureCounts[decision.research_action_posture] = (postureCounts[decision.research_action_posture] || 0) + 1;
+      }
+      const cls = evidenceCurrencyClass(decision.evidence_currency);
+      currencyCounts[cls] = (currencyCounts[cls] || 0) + 1;
+      if (decision.position_conditional === true) positionConditional += 1;
+    });
     const stanceCounts = {};
     STANCE_ORDER.forEach((stance) => { stanceCounts[stance] = 0; });
     cards.forEach((card) => {
@@ -190,7 +243,20 @@
         missing_session_return: priceAvailable.length - priced.length,
         label: "Độ rộng phiên trong số mã có biến động giá đúng phiên",
       },
+      primary_decision_field: "research_action_posture",
+      research_action_posture: {
+        available: postureAvailable > 0,
+        coverage: postureAvailable,
+        counts: postureCounts,
+        order: POSTURE_ORDER,
+        position_conditional_count: positionConditional,
+      },
+      evidence_currency: {
+        counts: currencyCounts,
+        order: EVIDENCE_CURRENCY_ORDER,
+      },
       research_stance: {
+        role: "SECONDARY_RESEARCH_SCREEN_DIAGNOSTIC",
         available: denominator > 0,
         counts: stanceCounts,
         order: STANCE_ORDER,
@@ -239,7 +305,7 @@
     const sc = getSessionCoherence();
     const coherence = sc ? sc.classify(summary.as_of_session, releaseSession) : null;
     const staleBanner = sc && coherence && sc.isConfirmedStale(coherence)
-      ? sc.staleBannerHtml("Tóm tắt tư thế nghiên cứu", coherence, "SCREENER_MASTER_PROJECTION_STALE")
+      ? sc.staleBannerHtml("Tóm tắt quyết định hành động", coherence, "SCREENER_MASTER_PROJECTION_STALE")
       : "";
     const session = (sc ? sc.sessionLabelText(coherence) : null) || summary.as_of_session || "chưa xác định";
     const scope = getProductScopeFormat();
@@ -262,17 +328,34 @@
             : ""
         }</p>`
       : "";
-    const cards = STANCE_ORDER.map((stance) => {
-      const count = (summary.research_stance.counts || {})[stance] || 0;
-      const tone = STANCE_TONE[stance] || "neutral";
-      return `<div class="decision-stance-card is-${tone}" data-state="${esc(stance)}"><span class="count">${count.toLocaleString("vi-VN")}</span><span class="label">${esc(formatLabel(stance, "research_stance"))}</span></div>`;
+    const posture = summary.research_action_posture || {};
+    // Primary cards: the action decision. Never falls back to research_stance as the decision.
+    const cards = posture.available
+      ? POSTURE_ORDER.map((name) => {
+          const count = (posture.counts || {})[name] || 0;
+          const tone = POSTURE_TONE[name] || "neutral";
+          const conditional = name === "HOLD" || name === "HOLD_DO_NOT_ADD" || name === "REDUCE";
+          const label = `${formatLabel(name, "research_action_posture")}${conditional ? " — nếu đang nắm giữ" : ""}`;
+          return `<div class="decision-stance-card is-${tone}" data-action-posture="${esc(name)}"><span class="count">${count.toLocaleString("vi-VN")}</span><span class="label">${esc(label)}</span></div>`;
+        }).join("")
+      : `<p class="cockpit-note mb-0">Chưa có quyết định hành động cho phiên này.</p>`;
+    const currency = (summary.evidence_currency || {}).counts || {};
+    const currencyLine = EVIDENCE_CURRENCY_ORDER
+      .filter((name) => name !== "UNKNOWN" || currency[name])
+      .map((name) => `<span data-evidence-currency="${esc(name)}">${(currency[name] || 0).toLocaleString("vi-VN")} ${esc(EVIDENCE_CURRENCY_LABELS[name])}</span>`)
+      .join(" · ");
+    const stanceSecondary = STANCE_ORDER.map((stance) => {
+      const count = ((summary.research_stance || {}).counts || {})[stance] || 0;
+      return `<li data-research-stance="${esc(stance)}">${esc(formatLabel(stance, "research_stance"))}: ${count.toLocaleString("vi-VN")}</li>`;
     }).join("");
     return `
       ${staleBanner}
       <p class="product-muted mb-1">Phiên ${esc(session)} · ${esc(referenceScope)}.</p>
       ${officialScopeLine}
-      <p class="product-muted mb-3">${esc(priceCoverage)} · ${esc(tacticalCoverage)}. Đây là tóm tắt tư thế nghiên cứu, không phải lệnh thực hiện.</p>
+      <p class="product-muted mb-3">${esc(priceCoverage)} · ${esc(tacticalCoverage)}. Đây là tóm tắt quyết định hành động nghiên cứu, không phải lệnh thực hiện.</p>
+      <p class="product-muted mb-2">Độ mới bằng chứng: ${currencyLine}</p>
       <div class="decision-summary-grid mb-3">${cards}</div>
+      <details class="mb-3"><summary class="product-muted">Sàng lọc nghiên cứu (phụ, không phải quyết định hành động)</summary><ul class="cockpit-list">${stanceSecondary}</ul></details>
       <div class="decision-summary-actions">
         <a class="vs-btn vs-btn-primary" href="investment-workspace.html">Mở Bàn quyết định</a>
         <a class="vs-btn" href="investment-workspace.html?view=explore">Khám phá cơ hội</a>
@@ -481,6 +564,9 @@
     if (!payload || payload.contract_version !== HOME_SUMMARY_CONTRACT) return false;
     if (typeof payload.as_of_session !== "string" || !payload.as_of_session) return false;
     if (!payload.session_breadth || !payload.research_stance || !payload.tactical || !payload.liquidity || !payload.sector) return false;
+    // The primary decision summary must come from the Producer's action posture; a summary without
+    // it is not rendered (never a silent fallback to research_stance as the decision).
+    if (!payload.research_action_posture || typeof payload.research_action_posture.counts !== "object") return false;
     if (buildInfoSession && payload.as_of_session !== buildInfoSession) return false;
     return true;
   }
@@ -522,6 +608,9 @@
     HOME_SUMMARY_URL,
     HOME_SUMMARY_CONTRACT,
     STANCE_ORDER,
+    POSTURE_ORDER,
+    EVIDENCE_CURRENCY_ORDER,
+    evidenceCurrencyClass,
     TACTICAL_ORDER,
     getProductScopeFormat,
     summarizeScreenerOverview,

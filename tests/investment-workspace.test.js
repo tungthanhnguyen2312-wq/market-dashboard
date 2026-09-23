@@ -10,6 +10,10 @@ const script = fs.readFileSync(path.join(__dirname, "..", "assets", "js", "inves
 function card(overrides) {
   return Object.assign({
     ticker: "AAA", sector: "STEEL", research_stance: "INITIATE_RESEARCH_CANDIDATE",
+    research_action_posture: "INITIATE_ON_BREAKOUT", evidence_currency: "CURRENT_SESSION",
+    position_context: { status: "NOT_SUPPLIED", position_state: "UNKNOWN_POSITION_NOT_SUPPLIED" },
+    action_presentation: { position_conditional: false, condition: null },
+    opportunity_priority: { status: "AVAILABLE", research_priority_tier: "PRIORITY_NOW" },
     research_stance_readiness: "RESEARCH_READY_CONDITIONAL", entry_state: "BREAKOUT_READY", entry_action: "BUY_ON_CONFIRMATION",
     setup_tags: ["BREAKOUT_CONFIRMED_BY_RULE"],
     fundamental: { state: "PROFITABLE", trajectory: "PROFIT_GROWTH" },
@@ -216,7 +220,11 @@ test("drawer shows each principal stance/tactical concept exactly once before de
   const [primary] = html.split('<details class="ws-deep-evidence">');
   assert.ok(primary && primary.length, "expected content before the deep-evidence boundary");
   const countOf = (value) => (primary.match(new RegExp(`data-state="${value}"`, "g")) || []).length;
-  assert.equal(countOf(testCard.research_stance), 1, "research_stance must appear exactly once above the fold");
+  // CURRENT_DECISION_SURFACE_CONVERGENCE_V1: the action posture is the drawer's headline badge;
+  // research_stance is still shown exactly once, but only as the secondary research screen.
+  assert.equal((primary.match(/data-action-posture="INITIATE_ON_BREAKOUT"/g) || []).length, 1, "posture must headline the drawer exactly once");
+  assert.equal((primary.match(/data-research-stance="INITIATE_RESEARCH_CANDIDATE"/g) || []).length, 1, "research_stance must appear exactly once above the fold, as secondary context");
+  assert.equal(countOf(testCard.research_stance), 0, "research_stance must not be rendered as a primary state pill above the fold");
   assert.equal(countOf(testCard.entry_state), 1, "entry_state must appear exactly once above the fold");
   assert.equal(countOf(testCard.research_stance_readiness), 1, "research_stance_readiness must appear exactly once above the fold");
   assert.equal(countOf(testCard.entry_action), 1, "entry_action must appear exactly once above the fold");
@@ -390,17 +398,22 @@ test("veto research stances never present tactical entry readiness as a buy sign
   for (const stance of ["HIGH_RISK_SPECULATION_ONLY", "AVOID_NEW_ENTRY"]) {
     assert.ok(ws.VETO_RESEARCH_STANCES.has(stance));
     const guidance = ws.stanceEntryGuidance(stance, "EARLY_ENTRY");
-    assert.match(guidance, /cấm mở vị thế mới/);
+    assert.match(guidance, /tránh mở vị thế mới/);
     assert.match(guidance, /không phải tín hiệu mua/i);
+    // After M1 the research stance is never described as the primary conclusion.
+    assert.doesNotMatch(guidance, /kết luận nghiên cứu chính/);
+    assert.match(guidance, /Sàng lọc nghiên cứu \(phụ\)/);
   }
 });
 
 test("accumulate/initiate stance with a non-actionable tactical readiness explains the pairing", () => {
   const guidance = ws.stanceEntryGuidance("ACCUMULATE_RESEARCH_CANDIDATE", "WAIT");
-  assert.match(guidance, /kết luận nghiên cứu chính/);
+  assert.match(guidance, /Sàng lọc nghiên cứu \(phụ\)/);
+  assert.match(guidance, /không phải quyết định hành động/);
   assert.match(guidance, /Chờ|WAIT/);
   const guidance2 = ws.stanceEntryGuidance("INITIATE_RESEARCH_CANDIDATE", "AVOID");
-  assert.match(guidance2, /kết luận nghiên cứu chính/);
+  assert.match(guidance2, /Sàng lọc nghiên cứu \(phụ\)/);
+  assert.doesNotMatch(guidance + guidance2, /kết luận nghiên cứu chính/);
 });
 
 test("no guidance banner when tactical entry readiness is already actionable or the stance is neutral", () => {

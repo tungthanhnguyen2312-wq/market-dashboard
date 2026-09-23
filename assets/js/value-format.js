@@ -258,6 +258,49 @@
     SETUP_WATCH: "Theo dõi vị thế",
   });
 
+  // CURRENT_DECISION_SURFACE_CONVERGENCE_V1: the Integrated Decision's research_action_posture is
+  // the single action decision on every surface. Labels only -- the value is never re-derived.
+  const RESEARCH_ACTION_POSTURE_MAP = Object.freeze({
+    INITIATE_ON_BREAKOUT: "Mở vị thế khi bứt phá",
+    ACCUMULATE_ON_RETEST: "Tích lũy khi kiểm định lại",
+    EARLY_WATCH: "Theo dõi sớm",
+    WAIT_FOR_CONFIRMATION: "Chờ xác nhận",
+    HOLD: "Nắm giữ",
+    HOLD_DO_NOT_ADD: "Nắm giữ, không mua thêm",
+    REDUCE: "Giảm tỷ trọng",
+    AVOID: "Tránh",
+    INSUFFICIENT_CURRENT_RESEARCH: "Chưa đủ bằng chứng hiện tại",
+    UNAVAILABLE: "Chưa có dữ liệu",
+  });
+
+  // Producer-owned evidence currency. LAST_TRADE_AS_OF:<date> is dated and formatted by
+  // formatEvidenceCurrency(); these are the undated values.
+  const EVIDENCE_CURRENCY_MAP = Object.freeze({
+    CURRENT_SESSION: "Bằng chứng phiên hiện tại",
+    LAST_TRADE_AS_OF: "Bằng chứng cũ",
+    NO_CURRENT_EVIDENCE: "Không có bằng chứng hiện tại",
+    UNKNOWN: "Chưa xác định",
+    UNAVAILABLE: "Chưa có dữ liệu",
+  });
+
+  const POSITION_CONTEXT_MAP = Object.freeze({
+    UNKNOWN_POSITION_NOT_SUPPLIED: "Chưa rõ vị thế (không có danh mục riêng)",
+    HELD: "Đang nắm giữ",
+    HELD_ABOVE_POLICY_CAP: "Đang nắm giữ (vượt hạn mức)",
+    NOT_HELD: "Không nắm giữ",
+    EXCLUDED_INACTIVE: "Đã loại khỏi danh mục",
+    CURRENT_POSITION_UNRESOLVED: "Vị thế chưa đối soát",
+  });
+
+  const OPPORTUNITY_PRIORITY_MAP = Object.freeze({
+    PRIORITY_NOW: "Ưu tiên xem ngay",
+    SETUP_WATCH: "Theo dõi thiết lập",
+    MONITOR: "Giám sát",
+    DATA_LIMITED: "Dữ liệu hạn chế",
+    EXCLUDED: "Loại trừ",
+    UNAVAILABLE: "Chưa có ưu tiên hiện tại",
+  });
+
   const TACTICAL_STATE_MAP = Object.freeze({
     DOWNTREND: "Xu hướng giảm",
     SELLING_PRESSURE_EASING: "Áp lực bán đang hạ nhiệt",
@@ -839,6 +882,10 @@
   const ENTITY_CLASS_VOCABULARY = Object.freeze(["corporate", "bank", "securities", "insurance", "finance_company"]);
 
   const DOMAIN_TABLES = Object.freeze({
+    research_action_posture: RESEARCH_ACTION_POSTURE_MAP,
+    evidence_currency: EVIDENCE_CURRENCY_MAP,
+    position_context: POSITION_CONTEXT_MAP,
+    opportunity_priority: OPPORTUNITY_PRIORITY_MAP,
     research_stance: RESEARCH_STANCE_MAP,
     tactical_state: TACTICAL_STATE_MAP,
     entry_action: ENTRY_ACTION_MAP,
@@ -970,6 +1017,24 @@
   }
 
   function formatResearchStance(value) { return formatStateLabel(value, "research_stance"); }
+  // "LAST_TRADE_AS_OF:2026-09-18" -> "Bằng chứng cũ · giao dịch gần nhất 18/09/2026". The date is
+  // the Producer's own retained evidence date, only reformatted -- never recomputed.
+  function evidenceCurrencyClass(value) {
+    const raw = String(value || "");
+    if (raw.indexOf("LAST_TRADE_AS_OF:") === 0) return "LAST_TRADE_AS_OF";
+    return (raw === "CURRENT_SESSION" || raw === "NO_CURRENT_EVIDENCE") ? raw : "UNKNOWN";
+  }
+  function formatEvidenceCurrency(value) {
+    const raw = String(value || "");
+    const cls = evidenceCurrencyClass(raw);
+    if (cls === "LAST_TRADE_AS_OF") {
+      const iso = raw.slice("LAST_TRADE_AS_OF:".length);
+      const parts = iso.split("-");
+      const date = parts.length === 3 ? `${parts[2]}/${parts[1]}/${parts[0]}` : iso;
+      return `${EVIDENCE_CURRENCY_MAP.LAST_TRADE_AS_OF} · giao dịch gần nhất ${date}`;
+    }
+    return EVIDENCE_CURRENCY_MAP[cls];
+  }
   function formatTacticalState(value) { return formatStateLabel(value, "tactical_state"); }
   function formatEntryAction(value) { return formatStateLabel(value, "entry_action"); }
   function formatFundamentalState(value) { return formatStateLabel(value, "fundamental_state"); }
@@ -1129,6 +1194,31 @@
       AVAILABLE: "info",
       PARTIAL: "watch",
       BLOCKED: "neutral",
+      UNAVAILABLE: "neutral",
+    },
+    research_action_posture: {
+      INITIATE_ON_BREAKOUT: "constructive",
+      ACCUMULATE_ON_RETEST: "constructive",
+      EARLY_WATCH: "watch",
+      WAIT_FOR_CONFIRMATION: "watch",
+      HOLD: "info",
+      HOLD_DO_NOT_ADD: "info",
+      REDUCE: "adverse",
+      AVOID: "adverse",
+      INSUFFICIENT_CURRENT_RESEARCH: "neutral",
+    },
+    evidence_currency: {
+      CURRENT_SESSION: "constructive",
+      LAST_TRADE_AS_OF: "watch",
+      NO_CURRENT_EVIDENCE: "neutral",
+    },
+    // Priority is an inspection-order axis: always informational, never the action colors.
+    opportunity_priority: {
+      PRIORITY_NOW: "info",
+      SETUP_WATCH: "info",
+      MONITOR: "info",
+      DATA_LIMITED: "neutral",
+      EXCLUDED: "neutral",
       UNAVAILABLE: "neutral",
     },
     research_stance: {
@@ -1395,6 +1485,8 @@
     formatStateLabel,
     formatDiagnosticReason,
     formatResearchStance,
+    formatEvidenceCurrency,
+    evidenceCurrencyClass,
     formatTacticalState,
     formatEntryAction,
     formatFundamentalState,

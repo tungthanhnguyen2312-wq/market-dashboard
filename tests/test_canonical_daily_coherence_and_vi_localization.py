@@ -112,7 +112,11 @@ class CanonicalDailyCoherenceAndViLocalizationTests(unittest.TestCase):
             "<label>Tìm<input",
             "<label>Sàn<select",
             "<label>Ngành<select",
-            "<label>Tư thế nghiên cứu<select",
+            # CURRENT_DECISION_SURFACE_CONVERGENCE_V1: the primary decision control is the action
+            # posture; the research stance survives as a secondary research-screen control.
+            "<label>Quyết định hành động<select",
+            "<label>Độ mới bằng chứng<select",
+            "<label>Sàng lọc nghiên cứu (phụ)<select",
             "<label>Trạng thái kỹ thuật<select",
             "<label>Tài chính<select",
             "<label>Thanh khoản nghiên cứu<select",

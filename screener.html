@@ -143,7 +143,9 @@
               <label>Tìm<input id="screen-query" type="search" placeholder="Mã / ngành"></label>
               <label>Sàn<select id="screen-exchange"><option value="">Tất cả</option></select></label>
               <label>Ngành<select id="screen-sector"><option value="">Tất cả</option><option value="UNKNOWN">Chưa phân loại ngành</option></select></label>
-              <label>Tư thế nghiên cứu<select id="screen-stance"><option value="">Tất cả</option></select></label>
+              <label>Quyết định hành động<select id="screen-posture"><option value="">Tất cả</option></select></label>
+              <label>Độ mới bằng chứng<select id="screen-evidence"><option value="">Tất cả</option><option value="CURRENT_SESSION">Bằng chứng phiên hiện tại</option><option value="LAST_TRADE_AS_OF">Bằng chứng cũ</option><option value="NO_CURRENT_EVIDENCE">Không có bằng chứng hiện tại</option></select></label>
+              <label>Sàng lọc nghiên cứu (phụ)<select id="screen-stance"><option value="">Tất cả</option></select></label>
               <label>Trạng thái kỹ thuật<select id="screen-tactical"><option value="">Tất cả</option></select></label>
               <label>Tài chính<select id="screen-financial"><option value="">Tất cả</option><option value="AVAILABLE">Có dữ liệu</option><option value="ABSENT">Chưa có dữ liệu tài chính</option></select></label>
               <label>Thanh khoản nghiên cứu<select id="screen-liquidity"><option value="">Tất cả</option><option value="PROXY">Proxy nghiên cứu</option></select></label>
@@ -290,6 +292,8 @@ function currentFilters() {
     query: document.getElementById("screen-query").value,
     exchange: document.getElementById("screen-exchange").value,
     sector: document.getElementById("screen-sector").value,
+    posture: document.getElementById("screen-posture").value,
+    evidence: document.getElementById("screen-evidence").value,
     stance: document.getElementById("screen-stance").value,
     tactical: document.getElementById("screen-tactical").value,
     financial: document.getElementById("screen-financial").value,
@@ -301,7 +305,7 @@ function currentFilters() {
 function fillSelect(id, values) {
   const el = document.getElementById(id);
   const current = el.value;
-  const extras = Array.from(el.querySelectorAll("option")).filter((o) => o.value && ["UNKNOWN","AVAILABLE","ABSENT","PROXY","CURRENT","NOT_CURRENT"].includes(o.value));
+  const extras = Array.from(el.querySelectorAll("option")).filter((o) => o.value && ["UNKNOWN","AVAILABLE","ABSENT","PROXY","CURRENT","NOT_CURRENT","CURRENT_SESSION","LAST_TRADE_AS_OF","NO_CURRENT_EVIDENCE"].includes(o.value));
   const keep = new Set(extras.map((o) => o.value));
   el.querySelectorAll("option").forEach((o) => { if (o.value && !keep.has(o.value)) o.remove(); });
   values.forEach((value) => {
@@ -309,8 +313,8 @@ function fillSelect(id, values) {
     const opt = document.createElement("option");
     opt.value = value;
     const vf = window.VSValueFormat;
-    if (vf && (id === "screen-stance" || id === "screen-tactical")) {
-      opt.textContent = vf.formatDomainState(value, id === "screen-stance" ? "research_stance" : "tactical_state").label;
+    if (vf && (id === "screen-stance" || id === "screen-tactical" || id === "screen-posture")) {
+      opt.textContent = vf.formatDomainState(value, id === "screen-stance" ? "research_stance" : id === "screen-posture" ? "research_action_posture" : "tactical_state").label;
     } else {
       opt.textContent = value;
     }
@@ -429,6 +433,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   fillSelect("screen-exchange", [...new Set(MASTER_ROWS.map((r) => r.display_exchange).filter(Boolean))].sort());
   fillSelect("screen-sector", [...new Set(MASTER_ROWS.map((r) => (r.sector || {}).label).filter(Boolean))].sort());
+  fillSelect("screen-posture", [...new Set(MASTER_ROWS.map((r) => (r.decision || {}).research_action_posture).filter(Boolean))].sort());
   fillSelect("screen-stance", [...new Set(MASTER_ROWS.map((r) => (r.research || {}).stance).filter(Boolean))].sort());
   fillSelect("screen-tactical", [...new Set(MASTER_ROWS.map((r) => (r.tactical || {}).entry_state).filter(Boolean))].sort());
 
@@ -439,7 +444,8 @@ document.addEventListener("DOMContentLoaded", () => {
     { data: "price", title: "Giá", className: "text-end", render: v => { const s = SM.formatPrice(v && v.value, v && v.status); return `<span class="${s.cls}">${esc(s.text)}</span>`; } },
     { data: "price", title: "% Phiên", className: "text-end", render: v => { const s = SM.formatSessionPercent(v && v.change_pct); return `<span class="${s.cls}">${esc(s.text)}</span>`; } },
     { data: null, title: "Thanh khoản nghiên cứu", render: (_v, _t, row) => { const s = SM.formatLiquidity(row.liquidity, row.execution); return `<span class="${s.cls}">${esc(s.text)}</span>`; } },
-    { data: "research", title: "Tư thế nghiên cứu", render: v => { const raw = (v && v.stance) || ""; const vf = window.VSValueFormat; const label = raw && vf ? vf.formatResearchStance(raw) : "Chưa đủ dữ liệu"; return `<span data-state="${esc(raw)}" title="${esc(raw)}">${esc(label)}</span>`; } },
+    { data: "decision", title: "Quyết định hành động", render: v => { const d = v || {}; const raw = d.research_action_posture || ""; const vf = window.VSValueFormat; const conditional = ["HOLD","HOLD_DO_NOT_ADD","REDUCE"].includes(raw) && d.position_context !== "HELD" && d.position_context !== "HELD_ABOVE_POLICY_CAP"; const label = raw && vf ? vf.formatDomainState(raw, "research_action_posture").label + (conditional ? " — nếu đang nắm giữ" : "") : "Chưa có quyết định"; const ev = vf && vf.formatEvidenceCurrency ? vf.formatEvidenceCurrency(d.evidence_currency) : (d.evidence_currency || ""); return `<span data-action-posture="${esc(raw)}" title="${esc(raw)}">${esc(label)}</span><div class="small text-muted" data-evidence-currency="${esc(d.evidence_currency || "")}">${esc(ev)}</div>`; } },
+    { data: null, title: "Sàng lọc nghiên cứu (phụ)", render: (_v, _t, row) => { const raw = ((row.research || {}).stance) || ""; const vf = window.VSValueFormat; const noEvidence = raw === "WAIT_FOR_CONFIRMATION" && ((row.decision || {}).evidence_currency) === "NO_CURRENT_EVIDENCE"; const label = noEvidence ? "Không áp dụng (không có bằng chứng hiện tại)" : (raw && vf ? vf.formatResearchStance(raw) : "Chưa đủ dữ liệu"); return `<span class="text-muted" data-research-stance="${esc(raw)}" title="${esc(raw)}">${esc(label)}</span>`; } },
     { data: "tactical", title: "Trạng thái kỹ thuật", render: v => { const raw = (v && v.entry_state) || ""; const vf = window.VSValueFormat; const label = raw && vf ? vf.formatTacticalState(raw) : SM.translateStatus((v && v.status) || "UNKNOWN"); return `<span data-state="${esc(raw)}" title="${esc(raw)}">${esc(label)}</span>`; } },
     { data: "financial_v2", title: "Tài chính", render: v => { const s = SM.formatFinancial(v); return `<span class="${s.cls}">${esc(s.text)}</span>`; } },
     { data: "freshness", title: "Độ mới dữ liệu", render: v => { const s = SM.formatFreshness(v); return `<span class="${s.cls}">${esc(s.text)}</span>`; } },
@@ -460,7 +466,7 @@ document.addEventListener("DOMContentLoaded", () => {
     screenTable.rows.add(filtered);
     screenTable.draw();
   };
-  ["screen-query","screen-exchange","screen-sector","screen-stance","screen-tactical","screen-financial","screen-liquidity","screen-freshness","screen-official-scope"]
+  ["screen-query","screen-exchange","screen-sector","screen-posture","screen-evidence","screen-stance","screen-tactical","screen-financial","screen-liquidity","screen-freshness","screen-official-scope"]
     .forEach((id) => document.getElementById(id).addEventListener("input", applyFilters));
   document.getElementById("decision-drawer-close").addEventListener("click", closeDrawer);
   document.getElementById("decision-drawer-backdrop").addEventListener("click", (e) => {

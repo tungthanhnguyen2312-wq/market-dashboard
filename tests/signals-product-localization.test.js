@@ -114,7 +114,7 @@ test("cohort cards and page chrome are Vietnamese, not the listed English labels
   assert.match(html, /Tín hiệu kỹ thuật V2/);
   assert.match(html, /Trạng thái kỹ thuật/);
   assert.match(html, /Bảng trạng thái kỹ thuật/);
-  assert.match(html, /Tư thế nghiên cứu/);
+  assert.match(html, /Quyết định hành động/);
   assert.match(html, /Trạng thái kỹ thuật \/ Hành động nghiên cứu/);
   assert.match(html, /Đặc điểm thiết lập/);
   assert.match(html, /Điều kiện xác nhận/);

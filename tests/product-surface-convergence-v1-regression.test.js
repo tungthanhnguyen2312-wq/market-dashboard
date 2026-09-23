@@ -107,11 +107,12 @@ test("E. Workspace opportunity table has exactly the current decision-oriented c
   // Dòng ngoại – giá were added -- fields the pre-compaction table never surfaced at all.
   assert.deepEqual(thHeaders, [
     "Mã", "Trạng thái", "Giá hiện tại", "Xu hướng tín hiệu", "Dòng ngoại – giá",
-    "Kích hoạt", "Vô hiệu", "Tư thế nghiên cứu", "Dấu hiệu",
+    "Kích hoạt", "Vô hiệu", "Quyết định hành động", "Dấu hiệu",
     '<span class="vs-visually-hidden">Chi tiết</span>',
   ]);
-  // The header must name the field it actually displays (research_stance), not a distinct
-  // readiness field it does not render -- see investment-workspace.js renderRow().
+  // The header must name the field it actually displays (research_action_posture -- the single
+  // action decision after CURRENT_DECISION_SURFACE_CONVERGENCE_V1), not a distinct readiness field
+  // it does not render -- see investment-workspace.js renderRow().
   assert.doesNotMatch(thMatches[0], />Sẵn sàng nghiên cứu</, "Column header must not mislabel research_stance as readiness");
 });
 
@@ -120,7 +121,7 @@ test("E2. Phân tích matrix has exactly the 6 target columns, not the old 10-co
   const thMatches = html.match(/id="analysis-table"[\s\S]*?<thead[^>]*>[\s\S]*?<\/thead>/);
   assert.ok(thMatches);
   const thHeaders = [...thMatches[0].matchAll(/<th[^>]*>(.*?)<\/th>/g)].map(m => m[1].trim());
-  assert.deepEqual(thHeaders, ["Mã", "Tư thế", "Cơ bản", "Định giá", "Kỹ thuật", "Bằng chứng"]);
+  assert.deepEqual(thHeaders, ["Mã", "Quyết định", "Cơ bản", "Định giá", "Kỹ thuật", "Bằng chứng"]);
 });
 
 test("F. Ticker column is sticky during horizontal scroll on table pages", () => {

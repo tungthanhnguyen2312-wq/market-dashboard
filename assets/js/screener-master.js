@@ -149,12 +149,22 @@
     });
   }
 
+  function evidenceCurrencyClass(value) {
+    const raw = String(value || "");
+    if (raw.indexOf("LAST_TRADE_AS_OF:") === 0) return "LAST_TRADE_AS_OF";
+    return (raw === "CURRENT_SESSION" || raw === "NO_CURRENT_EVIDENCE") ? raw : "UNKNOWN";
+  }
+
   function matchesScreenerFilters(card, filters) {
     const f = filters || {};
     if (f.exchange && card.display_exchange !== f.exchange) return false;
     if (f.sector === "UNKNOWN") {
       if ((card.sector || {}).status === "AVAILABLE") return false;
     } else if (f.sector && (card.sector || {}).label !== f.sector) return false;
+    // Primary decision filter: the Producer research_action_posture carried on card.decision.
+    if (f.posture && (card.decision || {}).research_action_posture !== f.posture) return false;
+    if (f.evidence && evidenceCurrencyClass((card.decision || {}).evidence_currency) !== f.evidence) return false;
+    // Secondary research-screen filter (legacy research_stance).
     if (f.stance && (card.research || {}).stance !== f.stance) return false;
     if (f.tactical && (card.tactical || {}).entry_state !== f.tactical) return false;
     if (f.financial === "AVAILABLE" && (card.financial_v2 || {}).status !== "AVAILABLE") return false;

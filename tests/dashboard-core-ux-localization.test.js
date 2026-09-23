@@ -163,10 +163,17 @@ test("workspace renderer visible text has no raw primary enums", () => {
 });
 
 test("workspace filters still test raw enums and display Vietnamese labels", () => {
+  // CURRENT_DECISION_SURFACE_CONVERGENCE_V1: the primary "initiate" filter reads the Producer
+  // research_action_posture raw enum; the stance filter survives only as a secondary screen.
   const initiate = ws.FILTERS.find((item) => item.id === "initiate");
-  assert.equal(initiate.test({ research_stance: "INITIATE_RESEARCH_CANDIDATE" }), true);
+  assert.equal(initiate.group, "posture");
+  assert.equal(initiate.test({ research_action_posture: "INITIATE_ON_BREAKOUT" }), true);
+  assert.equal(initiate.test({ research_stance: "INITIATE_RESEARCH_CANDIDATE" }), false);
   assert.match(initiate.label, /mở vị thế/i);
-  assert.doesNotMatch(JSON.stringify(ws.FILTERS.map((item) => item.label)), /INITIATE_RESEARCH_CANDIDATE/);
+  const screen = ws.FILTERS.find((item) => item.id === "screen_initiate");
+  assert.equal(screen.group, "stance");
+  assert.equal(screen.test({ research_stance: "INITIATE_RESEARCH_CANDIDATE" }), true);
+  assert.doesNotMatch(JSON.stringify(ws.FILTERS.map((item) => item.label)), /INITIATE_RESEARCH_CANDIDATE|INITIATE_ON_BREAKOUT/);
 });
 
 test("missing metric is never rendered as numeric zero and legacy KPIs are gone", () => {
@@ -418,7 +425,8 @@ test("normal renderer output has no raw primary enums outside technical detail",
 
 test("filters and screener predicates operate on the raw backend enum", () => {
   const wait = ws.FILTERS.find((item) => item.id === "wait");
-  assert.equal(wait.test({ research_stance: "WAIT_FOR_CONFIRMATION" }), true);
+  assert.equal(wait.test({ research_action_posture: "WAIT_FOR_CONFIRMATION" }), true);
+  assert.equal(wait.test({ research_stance: "WAIT_FOR_CONFIRMATION" }), false);
   assert.equal(sm.matchesScreenerFilters({
     ticker: "HPG", display_exchange: "HSX", research: { stance: "WAIT_FOR_CONFIRMATION" },
     tactical: { entry_state: "SELLING_PRESSURE_EASING" }, sector: { status: "AVAILABLE", label: "Thép" },
