@@ -1,16 +1,16 @@
 window.MACRO_SNAPSHOT = {
   "schema_version": 1,
-  "generated_at": "2026-09-22T16:38:02+07:00",
-  "pipeline_completed_at": "2026-09-22T16:38:02+07:00",
+  "generated_at": "2026-09-23T16:48:57+07:00",
+  "pipeline_completed_at": "2026-09-23T16:48:57+07:00",
   "published_at": null,
-  "data_as_of": "2026-09-22",
+  "data_as_of": "2026-09-23",
   "source_type": "local_pipeline",
   "update_policy": "updated_on_publish",
   "quality": {
     "catalog_count": 17,
     "available_count": 17,
     "missing_count": 0,
-    "stale_count": 0,
+    "stale_count": 1,
     "is_partial": false
   },
   "indicators": [
@@ -31,11 +31,11 @@ window.MACRO_SNAPSHOT = {
       "frequency_label": "Hằng tháng",
       "source": "FRED",
       "source_url": "https://fred.stlouisfed.org/series/FEDFUNDS",
-      "pipeline_updated_at": "2026-09-22T16:38:02+07:00",
+      "pipeline_updated_at": "2026-09-23T16:48:57+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
-        "age_days": 52,
+        "age_days": 53,
         "stale_after_days": 62
       },
       "history_points": 120,
@@ -45,24 +45,24 @@ window.MACRO_SNAPSHOT = {
       "key": "us_10y",
       "label": "Lợi suất TPCP Mỹ 10 năm",
       "category": "rates",
-      "value": 5.01,
-      "previous_value": 4.94,
-      "change": 0.0699999999999994,
-      "change_pct": 1.4170040485829836,
+      "value": 4.96,
+      "previous_value": 5.01,
+      "change": -0.04999999999999982,
+      "change_pct": -0.9980039920159646,
       "change_basis": "percentage_point",
-      "direction": "up",
+      "direction": "down",
       "interpretation": "unknown",
       "unit": "%/năm",
-      "period": "2026-09-18",
+      "period": "2026-09-21",
       "frequency": "daily",
       "frequency_label": "Hằng ngày",
       "source": "FRED",
       "source_url": "https://fred.stlouisfed.org/series/DGS10",
-      "pipeline_updated_at": "2026-09-22T16:38:02+07:00",
+      "pipeline_updated_at": "2026-09-23T16:48:57+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
-        "age_days": 4,
+        "age_days": 2,
         "stale_after_days": 7
       },
       "history_points": 400,
@@ -85,11 +85,11 @@ window.MACRO_SNAPSHOT = {
       "frequency_label": "Hằng tháng",
       "source": "FRED",
       "source_url": "https://fred.stlouisfed.org/series/CPIAUCSL",
-      "pipeline_updated_at": "2026-09-22T16:38:02+07:00",
+      "pipeline_updated_at": "2026-09-23T16:48:57+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
-        "age_days": 52,
+        "age_days": 53,
         "stale_after_days": 62
       },
       "history_points": 120,
@@ -112,11 +112,11 @@ window.MACRO_SNAPSHOT = {
       "frequency_label": "Hằng ngày",
       "source": "FRED",
       "source_url": "https://fred.stlouisfed.org/series/DTWEXBGS",
-      "pipeline_updated_at": "2026-09-22T16:38:02+07:00",
+      "pipeline_updated_at": "2026-09-23T16:48:57+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
-        "age_days": 4,
+        "age_days": 5,
         "stale_after_days": 7
       },
       "history_points": 400,
@@ -139,11 +139,11 @@ window.MACRO_SNAPSHOT = {
       "frequency_label": "Hằng ngày",
       "source": "FRED",
       "source_url": "https://fred.stlouisfed.org/series/DCOILWTICO",
-      "pipeline_updated_at": "2026-09-22T16:38:02+07:00",
+      "pipeline_updated_at": "2026-09-23T16:48:57+07:00",
       "status": "available",
       "freshness": {
-        "status": "current",
-        "age_days": 7,
+        "status": "stale",
+        "age_days": 8,
         "stale_after_days": 7
       },
       "history_points": 400,
@@ -166,11 +166,11 @@ window.MACRO_SNAPSHOT = {
       "frequency_label": "Hằng ngày",
       "source": "Yahoo Finance",
       "source_url": "https://finance.yahoo.com/quote/%5EGSPC",
-      "pipeline_updated_at": "2026-09-22T16:38:02+07:00",
+      "pipeline_updated_at": "2026-09-23T16:48:57+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
-        "age_days": 1,
+        "age_days": 2,
         "stale_after_days": 7
       },
       "history_points": 400,
@@ -193,11 +193,11 @@ window.MACRO_SNAPSHOT = {
       "frequency_label": "Hằng ngày",
       "source": "Yahoo Finance",
       "source_url": "https://finance.yahoo.com/quote/%5EIXIC",
-      "pipeline_updated_at": "2026-09-22T16:38:02+07:00",
+      "pipeline_updated_at": "2026-09-23T16:48:57+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
-        "age_days": 1,
+        "age_days": 2,
         "stale_after_days": 7
       },
       "history_points": 400,
@@ -207,20 +207,20 @@ window.MACRO_SNAPSHOT = {
       "key": "vix",
       "label": "VIX",
       "category": "risk",
-      "value": 14.899999618530273,
-      "previous_value": 14.869999885559082,
-      "change": 0.029999732971191406,
-      "change_pct": 0.20174669268374024,
+      "value": 14.140000343322754,
+      "previous_value": 14.899999618530273,
+      "change": -0.7599992752075195,
+      "change_pct": -5.10066640714777,
       "change_basis": "percent",
-      "direction": "up",
+      "direction": "down",
       "interpretation": "unknown",
       "unit": "điểm",
-      "period": "2026-09-22",
+      "period": "2026-09-23",
       "frequency": "daily",
       "frequency_label": "Hằng ngày",
       "source": "Yahoo Finance",
       "source_url": "https://finance.yahoo.com/quote/%5EVIX",
-      "pipeline_updated_at": "2026-09-22T16:38:02+07:00",
+      "pipeline_updated_at": "2026-09-23T16:48:57+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
@@ -247,11 +247,11 @@ window.MACRO_SNAPSHOT = {
       "frequency_label": "Hằng ngày",
       "source": "Yahoo Finance",
       "source_url": "https://finance.yahoo.com/quote/%5EN225",
-      "pipeline_updated_at": "2026-09-22T16:38:02+07:00",
+      "pipeline_updated_at": "2026-09-23T16:48:57+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
-        "age_days": 4,
+        "age_days": 5,
         "stale_after_days": 7
       },
       "history_points": 400,
@@ -261,20 +261,20 @@ window.MACRO_SNAPSHOT = {
       "key": "hsi",
       "label": "Hang Seng",
       "category": "markets",
-      "value": 25087.75,
-      "previous_value": 25042.7109375,
-      "change": 45.0390625,
-      "change_pct": 0.1798489892424411,
+      "value": 24834.119140625,
+      "previous_value": 25087.75,
+      "change": -253.630859375,
+      "change_pct": -1.010974915546432,
       "change_basis": "percent",
-      "direction": "up",
+      "direction": "down",
       "interpretation": "unknown",
       "unit": "điểm",
-      "period": "2026-09-22",
+      "period": "2026-09-23",
       "frequency": "daily",
       "frequency_label": "Hằng ngày",
       "source": "Yahoo Finance",
       "source_url": "https://finance.yahoo.com/quote/%5EHSI",
-      "pipeline_updated_at": "2026-09-22T16:38:02+07:00",
+      "pipeline_updated_at": "2026-09-23T16:48:57+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
@@ -288,20 +288,20 @@ window.MACRO_SNAPSHOT = {
       "key": "gold_world",
       "label": "Vàng thế giới",
       "category": "commodities",
-      "value": 4352.0,
-      "previous_value": 4383.89990234375,
-      "change": -31.89990234375,
-      "change_pct": -0.7276603721425177,
+      "value": 4352.10009765625,
+      "previous_value": 4376.39990234375,
+      "change": -24.2998046875,
+      "change_pct": -0.5552464406757347,
       "change_basis": "percent",
       "direction": "down",
       "interpretation": "unknown",
       "unit": "USD/oz",
-      "period": "2026-09-22",
+      "period": "2026-09-23",
       "frequency": "daily",
       "frequency_label": "Hằng ngày",
       "source": "Yahoo Finance",
       "source_url": "https://finance.yahoo.com/quote/GC=F",
-      "pipeline_updated_at": "2026-09-22T16:38:02+07:00",
+      "pipeline_updated_at": "2026-09-23T16:48:57+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
@@ -315,20 +315,20 @@ window.MACRO_SNAPSHOT = {
       "key": "brent",
       "label": "Dầu Brent",
       "category": "commodities",
-      "value": 99.51000213623047,
-      "previous_value": 100.33999633789062,
-      "change": -0.8299942016601562,
-      "change_pct": -0.827181813785588,
+      "value": 95.79000091552734,
+      "previous_value": 99.25,
+      "change": -3.4599990844726562,
+      "change_pct": -3.4861451732721975,
       "change_basis": "percent",
       "direction": "down",
       "interpretation": "unknown",
       "unit": "USD/thùng",
-      "period": "2026-09-22",
+      "period": "2026-09-23",
       "frequency": "daily",
       "frequency_label": "Hằng ngày",
       "source": "Yahoo Finance",
       "source_url": "https://finance.yahoo.com/quote/BZ=F",
-      "pipeline_updated_at": "2026-09-22T16:38:02+07:00",
+      "pipeline_updated_at": "2026-09-23T16:48:57+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
@@ -342,20 +342,20 @@ window.MACRO_SNAPSHOT = {
       "key": "usdvnd_mkt",
       "label": "USD/VND (quốc tế)",
       "category": "currency",
-      "value": 26020.0,
+      "value": 26013.0,
       "previous_value": 26020.0,
-      "change": 0.0,
-      "change_pct": 0.0,
+      "change": -7.0,
+      "change_pct": -0.026902382782475018,
       "change_basis": "percent",
-      "direction": "flat",
+      "direction": "down",
       "interpretation": "unknown",
       "unit": "đồng/USD",
-      "period": "2026-09-22",
+      "period": "2026-09-23",
       "frequency": "daily",
       "frequency_label": "Hằng ngày",
       "source": "Yahoo Finance",
       "source_url": "https://finance.yahoo.com/quote/VND=X",
-      "pipeline_updated_at": "2026-09-22T16:38:02+07:00",
+      "pipeline_updated_at": "2026-09-23T16:48:57+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
@@ -369,54 +369,54 @@ window.MACRO_SNAPSHOT = {
       "key": "usdvnd_vcb",
       "label": "USD/VND (VCB bán ra)",
       "category": "currency",
-      "value": 26210.0,
-      "previous_value": 26200.0,
-      "change": 10.0,
-      "change_pct": 0.03816793893129771,
+      "value": 26180.0,
+      "previous_value": 26210.0,
+      "change": -30.0,
+      "change_pct": -0.11446012972148034,
       "change_basis": "percent",
-      "direction": "up",
+      "direction": "down",
       "interpretation": "unknown",
       "unit": "đồng/USD",
-      "period": "2026-09-22",
+      "period": "2026-09-23",
       "frequency": "daily",
       "frequency_label": "Hằng ngày",
       "source": "Vietcombank",
       "source_url": "https://www.vietcombank.com.vn/vi-VN/KHCN/Cong-cu-tien-ich/Ty-gia",
-      "pipeline_updated_at": "2026-09-22T16:38:02+07:00",
+      "pipeline_updated_at": "2026-09-23T16:48:57+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
         "age_days": 0,
         "stale_after_days": 7
       },
-      "history_points": 39,
+      "history_points": 40,
       "history_scope": "Lịch sử tích lũy từ khi pipeline bắt đầu chạy đều."
     },
     {
       "key": "gold_sjc",
       "label": "Vàng SJC bán ra (HCM)",
       "category": "commodities",
-      "value": 144900000.0,
-      "previous_value": 146600000.0,
-      "change": -1700000.0,
-      "change_pct": -1.1596180081855387,
+      "value": 145500000.0,
+      "previous_value": 144900000.0,
+      "change": 600000.0,
+      "change_pct": 0.4140786749482402,
       "change_basis": "percent",
-      "direction": "down",
+      "direction": "up",
       "interpretation": "unknown",
       "unit": "đồng/lượng",
-      "period": "2026-09-22",
+      "period": "2026-09-23",
       "frequency": "daily",
       "frequency_label": "Hằng ngày",
       "source": "SJC",
       "source_url": "https://sjc.com.vn/",
-      "pipeline_updated_at": "2026-09-22T16:38:02+07:00",
+      "pipeline_updated_at": "2026-09-23T16:48:57+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
         "age_days": 0,
         "stale_after_days": 7
       },
-      "history_points": 39,
+      "history_points": 40,
       "history_scope": "Lịch sử tích lũy từ khi pipeline bắt đầu chạy đều."
     },
     {
@@ -436,11 +436,11 @@ window.MACRO_SNAPSHOT = {
       "frequency_label": "Hằng năm",
       "source": "World Bank",
       "source_url": "https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG?locations=VN",
-      "pipeline_updated_at": "2026-09-22T16:38:02+07:00",
+      "pipeline_updated_at": "2026-09-23T16:48:57+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
-        "age_days": 265,
+        "age_days": 266,
         "stale_after_days": 550
       },
       "history_points": 30,
@@ -463,11 +463,11 @@ window.MACRO_SNAPSHOT = {
       "frequency_label": "Hằng năm",
       "source": "World Bank",
       "source_url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=VN",
-      "pipeline_updated_at": "2026-09-22T16:38:02+07:00",
+      "pipeline_updated_at": "2026-09-23T16:48:57+07:00",
       "status": "available",
       "freshness": {
         "status": "current",
-        "age_days": 265,
+        "age_days": 266,
         "stale_after_days": 550
       },
       "history_points": 41,
@@ -958,10 +958,6 @@ window.MACRO_SNAPSHOT = {
       }
     ],
     "us_10y": [
-      {
-        "date": "2025-02-13",
-        "value": 4.52
-      },
       {
         "date": "2025-02-14",
         "value": 4.47
@@ -2557,6 +2553,10 @@ window.MACRO_SNAPSHOT = {
       {
         "date": "2026-09-18",
         "value": 5.01
+      },
+      {
+        "date": "2026-09-21",
+        "value": 4.96
       }
     ],
     "us_cpi": [
@@ -9451,10 +9451,6 @@ window.MACRO_SNAPSHOT = {
     ],
     "vix": [
       {
-        "date": "2025-02-21",
-        "value": 18.209999084472656
-      },
-      {
         "date": "2025-02-24",
         "value": 18.979999542236328
       },
@@ -11049,6 +11045,10 @@ window.MACRO_SNAPSHOT = {
       {
         "date": "2026-09-22",
         "value": 14.899999618530273
+      },
+      {
+        "date": "2026-09-23",
+        "value": 14.140000343322754
       }
     ],
     "nikkei": [
@@ -12655,10 +12655,6 @@ window.MACRO_SNAPSHOT = {
     ],
     "hsi": [
       {
-        "date": "2025-02-10",
-        "value": 21521.98046875
-      },
-      {
         "date": "2025-02-11",
         "value": 21294.859375
       },
@@ -14253,13 +14249,13 @@ window.MACRO_SNAPSHOT = {
       {
         "date": "2026-09-22",
         "value": 25087.75
+      },
+      {
+        "date": "2026-09-23",
+        "value": 24834.119140625
       }
     ],
     "gold_world": [
-      {
-        "date": "2025-02-20",
-        "value": 2940.0
-      },
       {
         "date": "2025-02-21",
         "value": 2937.60009765625
@@ -15854,14 +15850,14 @@ window.MACRO_SNAPSHOT = {
       },
       {
         "date": "2026-09-22",
-        "value": 4352.0
+        "value": 4376.39990234375
+      },
+      {
+        "date": "2026-09-23",
+        "value": 4352.10009765625
       }
     ],
     "brent": [
-      {
-        "date": "2025-02-20",
-        "value": 76.4800033569336
-      },
       {
         "date": "2025-02-21",
         "value": 74.43000030517578
@@ -17456,14 +17452,14 @@ window.MACRO_SNAPSHOT = {
       },
       {
         "date": "2026-09-22",
-        "value": 99.51000213623047
+        "value": 99.25
+      },
+      {
+        "date": "2026-09-23",
+        "value": 95.79000091552734
       }
     ],
     "usdvnd_mkt": [
-      {
-        "date": "2025-03-21",
-        "value": 25545.0
-      },
       {
         "date": "2025-03-24",
         "value": 25585.0
@@ -19059,6 +19055,10 @@ window.MACRO_SNAPSHOT = {
       {
         "date": "2026-09-22",
         "value": 26020.0
+      },
+      {
+        "date": "2026-09-23",
+        "value": 26013.0
       }
     ],
     "usdvnd_vcb": [
@@ -19217,6 +19217,10 @@ window.MACRO_SNAPSHOT = {
       {
         "date": "2026-09-22",
         "value": 26210.0
+      },
+      {
+        "date": "2026-09-23",
+        "value": 26180.0
       }
     ],
     "gold_sjc": [
@@ -19375,6 +19379,10 @@ window.MACRO_SNAPSHOT = {
       {
         "date": "2026-09-22",
         "value": 144900000.0
+      },
+      {
+        "date": "2026-09-23",
+        "value": 145500000.0
       }
     ],
     "vn_cpi_yoy": [
