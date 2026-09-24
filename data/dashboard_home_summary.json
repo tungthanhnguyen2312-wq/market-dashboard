@@ -1,38 +1,81 @@
 {
   "schema_version": "1.0.0",
   "contract_version": "dashboard_home_summary/v1",
-  "requested_at": "2026-09-23T17:03:04+07:00",
-  "as_of_session": "2026-09-23",
-  "source_artifact_identity": "screener_master_projection/v1:75d5cc51e1eb4856df29ba8be756e39f6ad819a87ae8ca718dd6c67f87842f19",
+  "requested_at": "2026-09-24T17:26:21+07:00",
+  "as_of_session": "2026-09-24",
+  "source_artifact_identity": "screener_master_projection/v1:788669fe2552067a9fac1c678a608d55ee51a77c779c66466db9f2e12834e329",
   "denominator": 1683,
   "reference_ticker_count": 1683,
   "current_research_scope_count": 1504,
   "outside_current_official_scope_count": 179,
   "official_scope_observed_at": "2026-09-13T08:08:05Z",
-  "price_available_count": 864,
-  "price_unavailable_count": 819,
-  "tactical_available_count": 862,
-  "tactical_unavailable_count": 821,
+  "price_available_count": 844,
+  "price_unavailable_count": 839,
+  "tactical_available_count": 842,
+  "tactical_unavailable_count": 841,
   "session_breadth": {
     "available": true,
-    "priced": 862,
-    "up": 280,
-    "down": 377,
-    "flat": 205,
-    "price_available": 864,
-    "unpriced": 819,
+    "priced": 842,
+    "up": 220,
+    "down": 444,
+    "flat": 178,
+    "price_available": 844,
+    "unpriced": 839,
     "missing_session_return": 2,
     "state": "NGHIENG_GIAM"
   },
+  "primary_decision_field": "research_action_posture",
+  "research_action_posture": {
+    "available": true,
+    "coverage": 1683,
+    "counts": {
+      "ACCUMULATE_ON_RETEST": 41,
+      "AVOID": 454,
+      "EARLY_WATCH": 167,
+      "HOLD": 9,
+      "HOLD_DO_NOT_ADD": 27,
+      "INITIATE_ON_BREAKOUT": 37,
+      "INSUFFICIENT_CURRENT_RESEARCH": 377,
+      "REDUCE": 0,
+      "WAIT_FOR_CONFIRMATION": 571
+    },
+    "order": [
+      "INITIATE_ON_BREAKOUT",
+      "ACCUMULATE_ON_RETEST",
+      "EARLY_WATCH",
+      "WAIT_FOR_CONFIRMATION",
+      "HOLD",
+      "HOLD_DO_NOT_ADD",
+      "REDUCE",
+      "AVOID",
+      "INSUFFICIENT_CURRENT_RESEARCH"
+    ],
+    "position_conditional_count": 36
+  },
+  "evidence_currency": {
+    "counts": {
+      "CURRENT_SESSION": 842,
+      "LAST_TRADE_AS_OF": 594,
+      "NO_CURRENT_EVIDENCE": 247,
+      "UNKNOWN": 0
+    },
+    "order": [
+      "CURRENT_SESSION",
+      "LAST_TRADE_AS_OF",
+      "NO_CURRENT_EVIDENCE",
+      "UNKNOWN"
+    ]
+  },
   "research_stance": {
+    "role": "SECONDARY_RESEARCH_SCREEN_DIAGNOSTIC",
     "available": true,
     "counts": {
       "ACCUMULATE_RESEARCH_CANDIDATE": 151,
-      "AVOID_NEW_ENTRY": 318,
-      "HIGH_RISK_SPECULATION_ONLY": 22,
-      "INITIATE_RESEARCH_CANDIDATE": 53,
-      "INSUFFICIENT_EVIDENCE": 185,
-      "WAIT_FOR_CONFIRMATION": 954
+      "AVOID_NEW_ENTRY": 342,
+      "HIGH_RISK_SPECULATION_ONLY": 15,
+      "INITIATE_RESEARCH_CANDIDATE": 48,
+      "INSUFFICIENT_EVIDENCE": 191,
+      "WAIT_FOR_CONFIRMATION": 936
     },
     "order": [
       "INITIATE_RESEARCH_CANDIDATE",
@@ -45,17 +88,17 @@
   },
   "tactical": {
     "available": true,
-    "coverage": 862,
+    "coverage": 842,
     "counts": {
-      "BASE_BUILDING": 24,
-      "BREAKDOWN_RISK": 54,
-      "BREAKOUT_READY": 23,
-      "DISTRIBUTION_RISK": 17,
-      "DOWNTREND": 247,
-      "EARLY_REVERSAL_CANDIDATE": 58,
-      "SELLING_PRESSURE_EASING": 207,
-      "SIDEWAYS_NEUTRAL": 77,
-      "UPTREND_CONFIRMED": 155
+      "BASE_BUILDING": 21,
+      "BREAKDOWN_RISK": 72,
+      "BREAKOUT_READY": 20,
+      "DISTRIBUTION_RISK": 15,
+      "DOWNTREND": 255,
+      "EARLY_REVERSAL_CANDIDATE": 55,
+      "SELLING_PRESSURE_EASING": 187,
+      "SIDEWAYS_NEUTRAL": 63,
+      "UPTREND_CONFIRMED": 154
     },
     "order": [
       "DOWNTREND",
@@ -71,7 +114,7 @@
   },
   "liquidity": {
     "proxy_available": true,
-    "proxy_count": 859,
+    "proxy_count": 823,
     "execution_exact_ready": 0,
     "execution_exact_established": false
   },
@@ -129,6 +172,6 @@
     "target_price": "NOT_EMITTED",
     "market_regime": "NOT_COMPUTED"
   },
-  "artifact_sha256": "207164503c08be8592f89eb84242ca54a12744ff20745a60dce3ff7cc8a3c256",
-  "artifact_identity": "dashboard_home_summary/v1:207164503c08be8592f89eb84242ca54a12744ff20745a60dce3ff7cc8a3c256"
+  "artifact_sha256": "09863ef7329d33c8f637e7e812361ac8668023716efeb2efc8d6250a124c28eb",
+  "artifact_identity": "dashboard_home_summary/v1:09863ef7329d33c8f637e7e812361ac8668023716efeb2efc8d6250a124c28eb"
 }
