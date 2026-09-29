@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "build_id": "2026-09-28-0e478ff-e74231e6c5",
-  "generated_at": "2026-09-28T17:26:42+07:00",
-  "published_at": "2026-09-28T17:26:42+07:00",
-  "market_session": "2026-09-28",
-  "git_commit": "0e478ff6fdd3352bbe9529652794270c312b7e5f",
+  "build_id": "2026-09-29-145fd03-6560653834",
+  "generated_at": "2026-09-29T17:39:33+07:00",
+  "published_at": "2026-09-29T17:39:33+07:00",
+  "market_session": "2026-09-29",
+  "git_commit": "145fd0396d2b5d1e051a368afcb78c0e1413c4cd",
   "git_commit_semantics": "pre_publication_source_head",
   "row_counts": {
     "screen_snapshot": 1683,
@@ -24,19 +24,19 @@
   },
   "files": {
     "screen_snapshot.csv": {
-      "sha256": "058a9e4ee48def7ff9866d1dc82d6e67efeb309303c33b3eb5b020c4e646efa9",
-      "size": 554560,
-      "mtime": "2026-09-28T17:26:13+07:00"
+      "sha256": "2a074f34e9d7a81e0b9625ac0f4f2be4bc8430f78ed4da91c85e7c98609fec6f",
+      "size": 554758,
+      "mtime": "2026-09-29T17:38:29+07:00"
     },
     "market_breadth.csv": {
-      "sha256": "5bb616dea09eb98f733c4eb015298104a865d0039ba740253706a7ae77838202",
-      "size": 142,
-      "mtime": "2026-09-28T17:26:13+07:00"
+      "sha256": "94f7baf5b5a7e605b9f6cd081dfaba4c1838bb39193be128dcbfa7b50bb5af2a",
+      "size": 141,
+      "mtime": "2026-09-29T17:38:29+07:00"
     },
     "analysis_latest.json": {
-      "sha256": "3f121b7aa1c53aa4db2941e56832386a41dfc19024719abee25ad2a372343c51",
+      "sha256": "9f6e72c897ac182b0507882d94cea6c33959919b60a55b6874a574b804d2aa76",
       "size": 8334,
-      "mtime": "2026-09-28T17:26:13+07:00"
+      "mtime": "2026-09-29T17:38:29+07:00"
     },
     "ai_report_latest.md": {
       "sha256": "5ca7bad344ed82d9034c39c96a338a6ae988bb931e0127776782d516109cd0cf",
@@ -49,20 +49,20 @@
       "mtime": "2026-07-11T05:48:59+07:00"
     },
     "data/screener_data.js": {
-      "sha256": "08465d14c7a7a0215289cde15873d3c7ec351e317ca34638d1544057fade0bce",
-      "size": 1937494,
-      "mtime": "2026-09-28T17:26:46+07:00"
+      "sha256": "d1dd8a02a0eaa4dd5f879b3253b9e856f960627af3f670dda450156f6766fc50",
+      "size": 1937529,
+      "mtime": "2026-09-29T17:39:42+07:00"
     }
   },
   "investment_workspace": {
     "status": "CURRENT",
-    "source_session": "2026-09-28",
-    "artifact_identity": "investment_decision_workspace_projection/v1:d5a35fe097dd65aa8466972c02a205145d8be0d0d33e44da47347d945398d364"
+    "source_session": "2026-09-29",
+    "artifact_identity": "investment_decision_workspace_projection/v1:aefaa4bb825233e25cdfed31dc1f6cb6340b27e91f6bd8544f7c5fcb33e53c4f"
   },
   "current_decision_cockpit": {
     "status": "CURRENT",
-    "source_session": "2026-09-28",
-    "projection_identity": "dashboard_decision_cockpit_projection:7e49d2be6d97dac26ae3ca3ae065e41be246e4fe5859e54f0699c5e35d0449a8",
-    "operation_identity": "daily_research_session_operation:c08d9953b190161b5a954a081cc66f7ed107262d4d578740f6b60d6e3809b987"
+    "source_session": "2026-09-29",
+    "projection_identity": "dashboard_decision_cockpit_projection:1bfda5cfe4b8ac254c439315233f17effe07b1b9c59fd8962fc60f228b856265",
+    "operation_identity": "daily_research_session_operation:b74abe76bd354747c22cbed8c2b2fb785630fef9536c3b57d592958742dcfa42"
   }
 }
