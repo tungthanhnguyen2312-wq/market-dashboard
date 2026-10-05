@@ -1,5 +1,5 @@
 {
-  "build_id": "2026-10-05-6e8feab-3df8a84ebb",
+  "build_id": "2026-10-05-729c574-c17d801e65",
   "canonical_producer_status": {
     "active_equity_universe": 1503,
     "input_candidates": 1683,
@@ -61,9 +61,9 @@
     "positive_20d_momentum_count": 254,
     "unchanged": 190
   },
-  "producer_commit": "cc8f548549cba079ffc1da5792ed5359a17e3f57",
+  "producer_commit": "317118c788bdd46bd6de55dbff3888b92de1172d",
   "producer_commit_semantics": "pre_publication_producer_head",
-  "producer_commit_summary": "Merge pull request #65 from tungthanhnguyen2312-wq/fix/owner-daily-hermetic-host-and-dashboard-reason-20261005",
+  "producer_commit_summary": "Merge pull request #66 from tungthanhnguyen2312-wq/fix/owner-daily-publication-watch-conclusion-20261005",
   "prospective_cohort_identity": {
     "reason": "NOT_RETAINED_IN_HANDOFF",
     "status": "UNAVAILABLE"
