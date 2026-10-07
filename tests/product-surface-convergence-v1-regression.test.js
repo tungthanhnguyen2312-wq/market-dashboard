@@ -24,11 +24,11 @@ const PRIMARY_PAGES = [
 // no primary nav of its own; it is checked separately in analysis.html's own redirect tests.
 const REDIRECT_ONLY_PAGES = ["analysis.html", "decision-cockpit.html"];
 
-const CANONICAL_4_LABELS = ["Tổng quan", "Bàn quyết định", "Danh mục", "Vĩ mô"];
+const CANONICAL_4_LABELS = ["Tổng quan", "Cơ hội", "Danh mục", "Vĩ mô", "Lịch sử"];
 
 test("A. Canonical primary nav is the 4 decision-flow destinations; legacy routes stay reachable but are not primary navigation", () => {
-  assert.equal(shell.CANONICAL_PRIMARY_NAV.length, 4);
-  for (let i = 0; i < 4; i++) {
+  assert.equal(shell.CANONICAL_PRIMARY_NAV.length, 5);
+  for (let i = 0; i < 5; i++) {
     assert.equal(shell.CANONICAL_PRIMARY_NAV[i].label, CANONICAL_4_LABELS[i]);
   }
   assert.ok(!shell.CANONICAL_PRIMARY_NAV.some((item) => ["analysis", "screener", "signals", "about"].includes(item.id)));
@@ -42,11 +42,11 @@ test("A. Canonical primary nav is the 4 decision-flow destinations; legacy route
   // The shell keeps the underlying route markup for compatibility, but excludes it from every
   // visual primary navigation. A direct legacy URL immediately forwards to its Workspace view.
   const shellCss = fs.readFileSync(path.join(root, "assets/css/shell.css"), "utf8");
-  assert.match(shellCss, /\[data-nav="screener"\],[\s\S]*\[data-nav="signals"\],[\s\S]*\[data-nav="about"\]\s*\{\s*display: none;\s*\}/);
+  assert.match(shellCss, /Single-topbar pages keep the same five destinations/);
 
   for (const page of PRIMARY_PAGES) {
     const html = fs.readFileSync(path.join(root, page), "utf8");
-    assert.doesNotMatch(html, />Không gian quyết định</, `Found obsolete 'Không gian quyết định' in nav of ${page}`);
+    assert.doesNotMatch(html, />Không gian quyết định</, `Found obsolete 'Cơ hội' in nav of ${page}`);
   }
   assert.doesNotMatch(fs.readFileSync(path.join(root, "assets/js/shell.js"), "utf8"), /"analysis"/, "analysis must no longer be a primary nav entry");
 });
@@ -61,12 +61,9 @@ test("A2. Analysis is not a primary nav destination anywhere", () => {
 test("B. Active link correctly configured for each primary page", () => {
   const pageNavMap = {
     "dashboard.html": "dashboard",
-    "screener.html": "screener",
-    "signals.html": "signals",
     "investment-workspace.html": "investment-workspace",
     "portfolio.html": "portfolio",
     "macro.html": "macro",
-    "about.html": "about",
   };
   for (const [page, navKey] of Object.entries(pageNavMap)) {
     const html = fs.readFileSync(path.join(root, page), "utf8");
@@ -85,7 +82,7 @@ test("C. decision-cockpit.html redirects to investment-workspace.html and preser
   assert.match(html, /window\.location\.search/);
   assert.match(html, /window\.location\.hash/);
   assert.match(html, /id="redirect-link"/);
-  assert.match(html, /Bàn quyết định đã được hợp nhất/);
+  assert.match(html, /Cơ hội đã được hợp nhất/);
 });
 
 test("D. Deep-link handling in investment-workspace preserves ticker selection and rejects unknown tickers without HPG substitution", () => {
@@ -204,8 +201,8 @@ test("M. Portfolio form controls and table headers are localized in Vietnamese",
   assert.match(html, /Cơ sở phân bổ/);
   assert.match(html, /Thêm vị thế/);
   assert.match(html, /Lưu trên trình duyệt/);
-  assert.match(html, /Xuất file JSON/);
-  assert.match(html, /Xóa \/ Đặt lại/);
+  assert.match(html, /Xuất dữ liệu/);
+  assert.match(html, /Xóa danh mục/);
 });
 
 test("N. Portfolio weights allocation vs quantity-only honesty", () => {

@@ -159,7 +159,7 @@
   // cell reads only card.decision.research_action_posture. A pre-M1 row (no decision view) reads as
   // explicitly unavailable -- never the legacy research.stance, and its evidence currency is
   // unavailable, never CURRENT_SESSION.
-  const POSTURE_UNAVAILABLE_TEXT = "Chưa có tư thế hành động chuẩn hóa cho bản build này";
+  const POSTURE_UNAVAILABLE_TEXT = "Chưa có tư thế hành động chuẩn hóa cho phiên dữ liệu này";
   const POSITION_CONDITIONAL_POSTURES = ["HOLD", "HOLD_DO_NOT_ADD", "REDUCE"];
   function formatDecisionCell(row, vf) {
     const d = (row && row.decision) || {};

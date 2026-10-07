@@ -14,7 +14,7 @@
   const SIDECAR_UNAVAILABLE = "OPTIONAL_CANDLE_SIGNAL_SIDECAR_UNAVAILABLE";
   const SIDECAR_STALE = "SIGNAL_SOURCE_SESSION_MISMATCH";
   const CANDLE_UNAVAILABLE_LABEL = "Chưa có dữ liệu mẫu hình nến phù hợp cho phiên hiện tại.";
-  const POSTURE_UNAVAILABLE_TEXT = "Chưa có tư thế hành động chuẩn hóa cho bản build này";
+  const POSTURE_UNAVAILABLE_TEXT = "Chưa có tư thế hành động chuẩn hóa cho phiên dữ liệu này";
   const esc = (value) => String(value ?? "—").replace(/[&<>"']/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
 
   function validateWorkspaceContract(workspace) {

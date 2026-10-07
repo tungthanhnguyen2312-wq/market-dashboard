@@ -774,14 +774,19 @@
 body.is-resizing-panel { cursor: col-resize !important; }
 body.is-resizing-panel * { user-select: none !important; }
 
-/* Screener, Signals and About are compatibility/detail routes; the four-item primary flow is
-   Dashboard → Workspace → Portfolio → Macro on every shared shell. */
-.vs-sidebar-nav [data-nav="screener"],
-.vs-sidebar-nav [data-nav="signals"],
-.vs-sidebar-nav [data-nav="about"],
-.vs-topbar-nav [data-nav="screener"],
-.vs-topbar-nav [data-nav="signals"],
-.vs-topbar-nav [data-nav="about"] { display: none; }
+/* Single-topbar pages keep the same five destinations visible on small screens. */
+@media (max-width: 1023px) {
+  body[data-page="investment-workspace"] .vs-topbar,
+  body[data-page="portfolio"] .vs-topbar,
+  body[data-page="about"] .vs-topbar,
+  body[data-page="signals"] .vs-topbar { flex-wrap: wrap; }
+  body[data-page="investment-workspace"] .vs-topbar-nav,
+  body[data-page="portfolio"] .vs-topbar-nav,
+  body[data-page="about"] .vs-topbar-nav,
+  body[data-page="signals"] .vs-topbar-nav { display: flex; order: 3; width: 100%; justify-content: space-between; }
+  .vs-topnav-link { font-size: .78rem; padding: .4rem; }
+  .vs-topbar-link { font-size: .7rem; }
+}
 
 @media (min-width: 1280px) {
   [data-resizable] > .vs-resize-handle { display: block; }

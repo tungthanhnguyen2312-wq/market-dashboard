@@ -31,12 +31,13 @@ test("a mobile breakpoint constrains .ws-compact-table's width instead of leavin
   assert.match(block, /\.ws-compact-table\s*\{[^}]*min-width:\s*0/, "min-width must be zeroed below 768px, overriding the shared .cockpit-table min-width:620px rule (decision-cockpit.css) that would otherwise re-float the table past the viewport");
 });
 
-test("the mobile breakpoint hides non-essential columns rather than compressing all ten into unreadable slivers", () => {
+test("mobile opportunity cards keep action, trigger, invalidation and rationale without horizontal scrolling", () => {
   const block = mediaBlockFor(768);
   // Keep only ticker (1st), status (2nd), price (3rd) and the detail entry point (10th)
   // visible; the rest (4th-9th) collapse behind the ticker-detail drawer instead.
-  assert.match(block, /th:nth-child\(n\+4\):nth-child\(-n\+9\)[\s\S]*?display:\s*none/);
-  assert.match(block, /td:nth-child\(n\+4\):nth-child\(-n\+9\)[\s\S]*?display:\s*none/);
+  assert.match(block, /#opportunity-rows tr\s*\{[^}]*flex-direction:column/);
+  assert.match(block, /td:nth-child\(3\).*td:nth-child\(4\).*td:nth-child\(5\).*display:none/);
+  assert.doesNotMatch(block, /td:nth-child\([6789]\)[^{]*\{[^}]*display:none/);
 });
 
 test("desktop (above 768px) keeps the original ten-column table untouched", () => {

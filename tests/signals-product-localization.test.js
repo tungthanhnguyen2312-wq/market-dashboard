@@ -186,7 +186,7 @@ test("primary public pages keep the centralized Vietnamese presentation layer", 
   for (const [page, scripts] of Object.entries(pages)) {
     const source = fs.readFileSync(path.join(root, page), "utf8");
     assert.match(source, /Tổng quan/);
-    assert.match(source, /Bàn quyết định|Không gian quyết định/);
+    assert.match(source, /Cơ hội/);
     scripts.forEach((script) => assert.match(source, new RegExp(script.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))));
   }
   assert.match(product, /formatDomainState/);

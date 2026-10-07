@@ -261,7 +261,7 @@
       card('Phiên nguồn', market.source_market_session || data.session || '—')
     ];
     if (market.volatility_context && market.volatility_context.median != null) {
-      cards.push(card('Biến động (Shadow)', `${(market.volatility_context.median * 100).toFixed(2)}%`));
+      cards.push(card('Biến động tham khảo', `${(market.volatility_context.median * 100).toFixed(2)}%`));
     }
     return cards.join('');
   }
@@ -342,7 +342,7 @@
       if (!c) {
         return `<tr>
           <td><button type="button" class="cockpit-chip font-monospace fw-bold" data-ticker="${esc(t)}">${esc(t)}</button></td>
-          <td colspan="5"><span class="cockpit-note">Chưa có context Cockpit cho mã này</span> <button type="button" class="btn btn-sm btn-outline-light ms-2" data-ticker="${esc(t)}">Xem chi tiết &rarr;</button></td>
+          <td colspan="5"><span class="cockpit-note">Chưa có dữ liệu bổ sung cho mã này</span> <button type="button" class="btn btn-sm btn-outline-light ms-2" data-ticker="${esc(t)}">Xem chi tiết &rarr;</button></td>
         </tr>`;
       }
       const s = c.current_decision_state || { entry_state: c.entry_state, entry_action: c.entry_action };
@@ -508,7 +508,7 @@
         <details class="vs-tech-details mt-1">
           <summary>Chi tiết kỹ thuật</summary>
           <div class="cockpit-code mt-1">
-            <div><strong>Phiên Bàn quyết định:</strong> ${esc(wsSession || "Chưa xác định")}</div>
+            <div><strong>Phiên Cơ hội:</strong> ${esc(wsSession || "Chưa xác định")}</div>
             <div><strong>Phiên dữ liệu bổ sung:</strong> ${esc(cpSession || "Chưa xác định")}</div>
             <div><strong>Mã nguyên nhân:</strong> ${esc(reasonCode || "SESSION_MISMATCH")}</div>
           </div>

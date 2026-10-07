@@ -28,7 +28,7 @@ test("shadow-recommendations.html redirects to investment-workspace.html, preser
 
 test("static fallback link and noscript notice also target the Workspace", () => {
   assert.match(html, /id="redirect-link"[^>]*href="investment-workspace\.html"/);
-  assert.match(html, /<noscript>[\s\S]*Bàn quyết định[\s\S]*<\/noscript>/i);
+  assert.match(html, /<noscript>[\s\S]*Cơ hội[\s\S]*<\/noscript>/i);
 });
 
 test("no leftover Shadow/experiment vocabulary or raw contract identities are user-visible", () => {

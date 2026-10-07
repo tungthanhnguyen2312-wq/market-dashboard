@@ -4,6 +4,12 @@ This repository is the GitHub-facing dashboard and its publishable assets. It do
 
 ## Current product surfaces
 
+Investor navigation: **Tổng quan | Cơ hội | Danh mục | Vĩ mô | Lịch sử**.
+Cơ hội keeps the compatible `investment-workspace.html` route. Discovery, analysis,
+technical evidence and watchlist are internal views; older URLs still redirect.
+The Vietnamese presentation and progressive-disclosure contract is documented in
+[docs/INVESTOR_FIRST_UX_V1.md](docs/INVESTOR_FIRST_UX_V1.md).
+
 The current research surface is `data/investment_decision_workspace.json`, a serialized
 Producer-owned Workspace projection. Home, Analysis, Tactical Signals, Screener links,
 Workspace detail, and Portfolio use it as descriptive research context. The Dashboard does not

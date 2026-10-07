@@ -58,11 +58,11 @@
     AVOID: "risk",
     INSUFFICIENT_CURRENT_RESEARCH: "neutral",
   };
-  const POSTURE_UNAVAILABLE_TEXT = "Chưa có tư thế hành động chuẩn hóa cho bản build này";
+  const POSTURE_UNAVAILABLE_TEXT = "Chưa có tư thế hành động chuẩn hóa cho phiên dữ liệu này";
   const EVIDENCE_CURRENCY_ORDER = ["CURRENT_SESSION", "LAST_TRADE_AS_OF", "NO_CURRENT_EVIDENCE", "UNKNOWN"];
   const EVIDENCE_CURRENCY_LABELS = {
-    CURRENT_SESSION: "bằng chứng phiên hiện tại",
-    LAST_TRADE_AS_OF: "bằng chứng cũ",
+    CURRENT_SESSION: "dữ liệu phiên hiện tại",
+    LAST_TRADE_AS_OF: "dữ liệu đã cũ",
     NO_CURRENT_EVIDENCE: "không có bằng chứng hiện tại",
     UNKNOWN: "chưa xác định",
   };
@@ -351,7 +351,7 @@
     const currency = (summary.evidence_currency || {}).counts || {};
     // Absent currency block (pre-M1): unavailable -- never counted as CURRENT_SESSION.
     const currencyLine = !summary.evidence_currency
-      ? `<span data-evidence-currency="UNAVAILABLE">chưa có dữ liệu cho bản build này</span>`
+      ? `<span data-evidence-currency="UNAVAILABLE">chưa có dữ liệu cho phiên dữ liệu này</span>`
       : EVIDENCE_CURRENCY_ORDER
       .filter((name) => name !== "UNKNOWN" || currency[name])
       .map((name) => `<span data-evidence-currency="${esc(name)}">${(currency[name] || 0).toLocaleString("vi-VN")} ${esc(EVIDENCE_CURRENCY_LABELS[name])}</span>`)
@@ -368,11 +368,7 @@
       <p class="product-muted mb-2">Độ mới bằng chứng: ${currencyLine}</p>
       <div class="decision-summary-grid mb-3">${cards}</div>
       <details class="mb-3"><summary class="product-muted">Sàng lọc nghiên cứu (phụ, không phải quyết định hành động)</summary><ul class="cockpit-list">${stanceSecondary}</ul></details>
-      <div class="decision-summary-actions">
-        <a class="vs-btn vs-btn-primary" href="investment-workspace.html">Mở Bàn quyết định</a>
-        <a class="vs-btn" href="investment-workspace.html?view=explore">Khám phá cơ hội</a>
-        <a class="vs-btn" href="investment-workspace.html?view=technical">Tín hiệu kỹ thuật</a>
-      </div>`;
+      `;
   }
 
   function fillText(id, text, className) {
@@ -422,11 +418,6 @@
               ${state ? `<span class="badge-soft ${state.cls}">${esc(state.text)}</span>` : ""}
             </div>
             <div class="text-xs text-muted">${esc(breadthText)}</div>
-          </div>
-          <div>
-            <a href="investment-workspace.html" class="vs-btn" style="background: var(--primary); color: #03080A; font-weight: 700; border: none; font-size: 0.8rem; padding: 0.4rem 0.9rem;">
-              Mở Bàn quyết định →
-            </a>
           </div>
         </div>
       </div>`;
@@ -597,15 +588,66 @@
     ])
       .then(([summary, buildInfo]) => {
         const buildInfoSession = buildInfo && typeof buildInfo.market_session === "string" ? buildInfo.market_session : null;
-        if (!validateHomeSummary(summary, buildInfoSession)) throw new Error("invalid or session-incoherent dashboard home summary");
+        if (!buildInfoSession || !validateHomeSummary(summary, buildInfoSession)) throw new Error("invalid or session-incoherent dashboard home summary");
         summaryHost.innerHTML = renderDecisionSummaryHtml(summary);
         renderMarketOverview(summary);
+        renderInvestorHome(summary);
+        bootHomeOpportunities(summary.as_of_session);
       })
       .catch((error) => {
         if (typeof console !== "undefined" && console.debug) console.debug("dashboard summary unavailable:", error);
-        summaryHost.innerHTML = `<p class="cockpit-note mb-0">Tạm chưa có dữ liệu tóm tắt cho phiên hiện tại. Không gian quyết định vẫn là cửa vào sản phẩm chính.</p>`;
+        summaryHost.innerHTML = `<p class="cockpit-note mb-0">Tạm chưa có dữ liệu tóm tắt cho phiên hiện tại.</p>`;
+        fillText("home-sectors", "Chưa có dữ liệu ngành hiện tại.");
+        fillText("home-opportunities", "Chưa có dữ liệu cùng phiên để xem xét cổ phiếu.");
+        fillText("home-risks", "Chưa thể đánh giá rủi ro do thiếu dữ liệu phiên hiện tại.");
         renderHeroBanner(null);
       });
+  }
+
+  function investorRiskHtml(summary) {
+    const risks = [];
+    const breadth = summary.session_breadth || {};
+    const state = marketBreadthStateLabel(breadth);
+    if (!breadth.available) risks.push("Chưa có dữ liệu tăng/giảm của phiên hiện tại.");
+    else if (state && state.text === "Nghiêng giảm") risks.push("Số mã giảm áp đảo số mã tăng.");
+    else if (state && state.text === "Giằng co") risks.push("Thị trường giằng co; số mã tăng và giảm chưa nghiêng rõ về một phía.");
+    if (summary.price_unavailable_count > 0) risks.push(`${summary.price_unavailable_count.toLocaleString("vi-VN")} mã tham chiếu thiếu giá đúng phiên; bức tranh thị trường chưa đầy đủ.`);
+    const currency = (summary.evidence_currency || {}).counts || {};
+    if (currency.LAST_TRADE_AS_OF) risks.push(`${currency.LAST_TRADE_AS_OF.toLocaleString("vi-VN")} mã có dữ liệu đã cũ.`);
+    if (currency.NO_CURRENT_EVIDENCE) risks.push(`${currency.NO_CURRENT_EVIDENCE.toLocaleString("vi-VN")} mã chưa có dữ liệu nghiên cứu hiện tại.`);
+    if (!summary.liquidity || !summary.liquidity.execution_exact_established) risks.push("Chưa đủ dữ liệu xác lập khả năng vào/ra vị thế. Thanh khoản tham khảo không chứng minh khả năng thực hiện lệnh.");
+    return `<ul class="cockpit-list">${(risks.length ? risks : ["Chưa ghi nhận cảnh báo trong các dữ liệu được công bố; vẫn cần kiểm tra từng mã."]).map((risk) => `<li>${esc(risk)}</li>`).join("")}</ul>`;
+  }
+
+  function renderInvestorHome(summary) {
+    const sectorHost = document.getElementById("home-sectors");
+    if (sectorHost) sectorHost.innerHTML = summary.sector.available
+      ? `<p class="cockpit-note">Các nhóm có nhiều mã trong phạm vi dữ liệu; chưa có cơ sở xác định ngành dẫn dắt.</p><div class="home-sector-list">${(summary.sector.rows || []).slice(0, 4).map((row) => `<div><span>${esc(row.label)}</span><strong>${esc(row.count.toLocaleString("vi-VN"))} mã</strong></div>`).join("")}</div>`
+      : '<p class="cockpit-note">Chưa có dữ liệu ngành hiện tại.</p>';
+    const risks = document.getElementById("home-risks");
+    if (risks) risks.innerHTML = investorRiskHtml(summary);
+    fillText("home-coverage", `Phạm vi tham chiếu: ${summary.reference_ticker_count.toLocaleString("vi-VN")} mã. Có giá đúng phiên: ${summary.price_available_count.toLocaleString("vi-VN")} mã. Thanh khoản tham khảo: ${summary.liquidity.proxy_count.toLocaleString("vi-VN")} mã.`);
+    fillText("market-last-updated", `Phiên ${summary.as_of_session}`);
+  }
+
+  function homeOpportunitiesHtml(index, session, workspaceApi) {
+    if (!index || index.as_of_session !== session || index.contract_version !== "workspace_index/v1" || !index.cards) return '<p class="cockpit-note">Chưa có dữ liệu cổ phiếu cùng phiên. Không dùng dữ liệu cũ thay thế.</p>';
+    return workspaceApi.notableTickers(index.cards).map((ticker) => {
+      const card = index.cards[ticker];
+      const trigger = card.reference_trigger || (card.tactical || {}).reference_trigger || {};
+      const warning = ((card.counter_thesis || {}).key_counter_thesis || [])[0];
+      return `<article class="home-opportunity" data-focus-ticker="${esc(ticker)}"><h3><a href="investment-workspace.html?ticker=${encodeURIComponent(ticker)}">${esc(ticker)}</a></h3><p>${esc(formatLabel(card.entry_state, "tactical_state"))}</p><div>${workspaceApi.actionPostureHtml(card)} ${workspaceApi.evidenceCurrencyHtml(card.evidence_currency)}</div><p>${esc(workspaceApi.compactReasons(card, 1)[0])}</p><p class="cockpit-note">${trigger.trigger_level != null ? `Mức tham chiếu: ${esc(trigger.trigger_level)} — cần xác nhận, chưa phải điểm mua.` : "Chưa có mức kích hoạt được xác lập."}</p><p class="cockpit-note">Lưu ý: ${esc(warning ? formatLabel(warning, "setup_tag") : "Cần kiểm tra điều kiện vô hiệu và dữ liệu còn thiếu.")}</p></article>`;
+    }).join("") || '<p class="cockpit-note">Chưa có mã đáng chú ý theo trạng thái hiện tại.</p>';
+  }
+
+  function bootHomeOpportunities(session) {
+    const host = document.getElementById("home-opportunities");
+    if (!host) return;
+    fetch("data/workspace_index.json", { cache: "no-store" }).then((response) => {
+      if (!response.ok) throw new Error("workspace index unavailable");
+      return response.json();
+    }).then((index) => { host.innerHTML = homeOpportunitiesHtml(index, session, window.VSInvestmentWorkspace); })
+      .catch((error) => { console.debug("Home opportunities unavailable", error); host.textContent = "Chưa có dữ liệu cổ phiếu để xem xét."; });
   }
 
   if (typeof document !== "undefined" && document.body && document.body.dataset.page === "dashboard") {
@@ -637,5 +679,6 @@
     renderMarketOverview,
     validateProjection,
     validateHomeSummary,
+    investorRiskHtml, homeOpportunitiesHtml,
   };
 });

@@ -20,7 +20,7 @@
 
   /* Màu CỐ ĐỊNH theo khoá chỉ báo (Objective D, Phase 4B) — trước đây gán theo vị trí
    * trong mảng ĐÃ LỌC (index % CHART_COLORS.series.length): nếu 1 chỉ báo trong nhóm
-   * tạm thời "unavailable" ở lần publish này, mọi chỉ báo sau nó dịch màu — cùng 1 chỉ
+   * tạm thời "unavailable" ở lần cập nhật này, mọi chỉ báo sau nó dịch màu — cùng 1 chỉ
    * báo (vd us_10y) có thể đổi màu giữa các lần tải tuỳ chỉ báo nào khác có mặt. Bảng
    * dưới đây khoá màu theo CHÍNH khoá chỉ báo nên ổn định qua mọi lần tải/nhóm/thứ tự;
    * đã chọn để phân biệt tốt trên nền dark-slate và không chỉ dựa vào đỏ/xanh lá. */
@@ -238,7 +238,7 @@
       details.append(detailRow("Tần suất", item.frequency_label || item.frequency || "—"));
       details.append(detailRow("Cập nhật", formatGeneratedAt(item.pipeline_updated_at)));
       details.append(detailRow("Nguồn", externalLink(item.source || "Nguồn", item.source_url)));
-      if (item.history_scope) details.append(detailRow("Phạm vi", item.history_scope));
+      if (item.history_scope) details.append(detailRow("Phạm vi", item.history_scope.replace("pipeline bắt đầu chạy đều", "quy trình cập nhật bắt đầu hoạt động đều")));
 
       card.append(top, valueRow, delta, details);
       container.append(card);
@@ -390,7 +390,7 @@
       var legend = element("div", "macro-legend");
       legend.setAttribute("role", "group");
       legend.setAttribute("aria-label", "Bật/tắt chỉ báo trong biểu đồ " + group.title);
-      body.append(wrap, legend, element("p", "macro-chart-note", "Dữ liệu từ " + dates[0] + " đến " + dates[dates.length - 1] + ". Xem bảng chỉ báo để đọc giá trị và metadata nguồn."));
+      body.append(wrap, legend, element("p", "macro-chart-note", "Dữ liệu từ " + dates[0] + " đến " + dates[dates.length - 1] + ". Xem bảng chỉ báo để đọc giá trị và thông tin nguồn."));
       card.append(header, body);
       container.append(card);
 
@@ -479,16 +479,16 @@
         }
       });
       if (grid.childElementCount) content.append(grid);
-      else content.append(element("p", "val-muted", "Snapshot đánh dấu khả dụng nhưng chưa có giá trị giao dịch để hiển thị."));
+      else content.append(element("p", "val-muted", "Dữ liệu được ghi nhận là có sẵn nhưng chưa có giá trị giao dịch để hiển thị."));
       return;
     }
 
-    status.textContent = "Chưa có trong snapshot";
+    status.textContent = "Chưa có trong bản dữ liệu";
     status.className = "badge-soft bs-gray";
     var empty = element("div", "macro-foreign-empty");
     empty.append(icon("database-zap"));
     var copy = element("div");
-    copy.append(element("h3", "", "Chưa có dữ liệu giao dịch khối ngoại trong snapshot"));
+    copy.append(element("h3", "", "Chưa có dữ liệu giao dịch khối ngoại trong bản dữ liệu"));
     copy.append(element("p", "", "Room ngoại còn lại không phải giá trị mua, bán hay mua bán ròng nên không được dùng để suy diễn dòng tiền."));
     var links = element("div", "macro-reference-links");
     (data.reference_links || []).forEach(function (item) {
@@ -534,7 +534,7 @@
     });
     var quality = snapshot.quality || {};
     byId("table-summary").textContent = (quality.available_count || 0) + "/" +
-      (quality.catalog_count || snapshot.indicators.length) + " chỉ báo có dữ liệu trong lần publish này.";
+      (quality.catalog_count || snapshot.indicators.length) + " chỉ báo có dữ liệu trong lần cập nhật này.";
   }
 
   function renderSnapshot(snapshot, source) {
@@ -560,8 +560,8 @@
 
   function renderUnavailable(kind) {
     var invalid = kind === "invalid";
-    setStatusBadge(invalid ? "File không hợp lệ" : "Chưa có snapshot", "bs-red");
-    setNotice("error", invalid ? "Snapshot không đúng schema an toàn nên trang không hiển thị dữ liệu." : "Tạm chưa có dữ liệu vĩ mô cho phiên hiện tại.", "circle-x");
+    setStatusBadge(invalid ? "Dữ liệu không hợp lệ" : "Chưa có dữ liệu", "bs-red");
+    setNotice("error", invalid ? "Dữ liệu vĩ mô không hợp lệ nên chưa thể hiển thị. Vui lòng thử lại." : "Tạm chưa có dữ liệu vĩ mô cho phiên hiện tại.", "circle-x");
     byId("macro-kpis").replaceChildren(element("div", "macro-empty-chart", "Không có chỉ báo khả dụng để hiển thị."));
     byId("macro-charts").replaceChildren(element("div", "macro-empty-chart", "Chưa đủ dữ liệu lịch sử để vẽ biểu đồ."));
     byId("macro-table-body").replaceChildren((function () {

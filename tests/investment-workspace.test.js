@@ -52,14 +52,14 @@ test("page declares the opportunity list, filters, five investor-facing decision
     assert.match(script, new RegExp(`ws-section-title">${label}`));
   }
   // Deeper diagnostics (Quyết định, Doanh nghiệp, ...) live once, inside a single merged
-  // "Chi tiết phân tích" progressive-disclosure area, not as always-visible plain h6 sections.
+  // "Dữ liệu &amp; phương pháp" progressive-disclosure area, not as always-visible plain h6 sections.
   for (const label of ["Quyết định", "Doanh nghiệp", "Định giá", "Kỹ thuật", "Kích hoạt / Vô hiệu", "Danh mục", "Dữ liệu"]) {
     assert.match(script, new RegExp(`<h6>${label.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}`));
   }
-  assert.match(script, /<details class="ws-deep-evidence"><summary>Chi tiết phân tích<\/summary>/);
+  assert.match(script, /<details class="ws-deep-evidence"><summary>Dữ liệu &amp; phương pháp<\/summary>/);
   assert.doesNotMatch(script, /<details class="mt-3">/, "the old second details must be merged into the one ws-deep-evidence disclosure");
   assert.match(html, /CHỈ MANG TÍNH NGHIÊN CỨU/);
-  assert.match(html, /không phải lệnh thực hiện/i);
+  assert.match(html, /không phải lệnh (thực hiện|giao dịch)/i);
   assert.doesNotMatch(html + script, /execute trade|place order|sell order/i);
 });
 
@@ -71,7 +71,7 @@ test("decision card renderer is reusable without changing stance semantics", () 
   assert.match(html, /<h6>Quyết định/);
   assert.doesNotMatch(html, /BUY NOW|place order/i);
   const missing = ws.decisionCardHtml(null, { ticker: "AAA" });
-  assert.match(missing, /Không có thẻ Không gian quyết định cho AAA/);
+  assert.match(missing, /Không có thẻ Cơ hội cho AAA/);
   assert.doesNotMatch(missing, /HPG/);
 });
 
@@ -195,7 +195,7 @@ test("evidence quality is qualitative, explained, and never a probability claim"
   assert.deepEqual(current, {
     label: "Hiện hành",
     tone: "constructive",
-    why: "Trạng thái kỹ thuật được giữ lại cho phiên Workspace hiện tại.",
+    why: "Trạng thái kỹ thuật được giữ lại cho phiên dữ liệu hiện tại.",
   });
   const missing = ws.evidenceQuality(card({ entry_state: "", valuation: { relative_research_state: "UNAVAILABLE" } }), "tactical");
   assert.equal(missing.label, "Chưa đủ dữ liệu");
@@ -576,7 +576,7 @@ test("selected candlestick and SMC evidence is exact-session only and uses centr
   assert.match(current, /Khối lệnh tăng[\s\S]*OB Bull/);
   assert.doesNotMatch(current, /unsupported/);
   const stale = ws.selectedSignalEvidenceHtml(snapshot, "AAA", "2026-09-19", registry, candleApi);
-  assert.match(stale, /Chưa có mẫu hình nến\/SMC hiện hành/);
+  assert.match(stale, /Chưa có mẫu hình nến hoặc cấu trúc dòng tiền \(SMC\) hiện hành/);
 });
 
 test("legacy valuation artifacts remain safe while HPG-like old summaries do not claim absolute valuation methods", () => {

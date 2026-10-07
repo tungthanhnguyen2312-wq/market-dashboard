@@ -27,32 +27,20 @@
   background: rgba(var(--primary-rgb), 0.18);
 }
 
-/* Mobile 375-430px acceptance (DASHBOARD_INVESTOR_FIRST_LOCALIZATION_AND_UI_CLOSEOUT_V1
- * corrective closeout): the Opportunities table's 10 nowrap-header columns give it a
- * real content-driven min width around 979px. table-layout:auto (the default) treats
- * the "width: 100%" above as a floor, not a cap, so it never shrinks -- and unlike a
- * normal block element, that oversized table is NOT reliably contained by
- * .ws-list-scroll's own overflow-x:auto: the page itself (document.documentElement /
- * window) still measures the wider content and gains real horizontal scroll/zoom,
- * confirmed by toggling table-layout and width live and watching
- * document.documentElement.scrollWidth track the table's own rendered width exactly,
- * regardless of the scroll wrapper. table-layout:fixed makes the table's own width
- * authoritative instead of content-driven, which is what actually stops the leak; the
- * shared .cockpit-table min-width:620px rule (assets/css/decision-cockpit.css, a
- * different table on a different page) must also be zeroed out here or it re-floors
- * the width past the viewport again. Rather than compress 10 columns into ~33px each
- * (unreadable), only the ticker, current status, current price and the detail-drawer
- * entry point stay visible below 768px; the rest remain one tap away via Chi tiết.
- * Desktop (>768px) is completely unaffected. */
+/* On mobile the primary opportunity list becomes readable cards. All decision
+   conditions remain available without horizontal scrolling. Analysis is a deeper table. */
 @media (max-width: 768px) {
-  .ws-compact-table {
-    table-layout: fixed;
-    min-width: 0;
-  }
-  .ws-compact-table th:nth-child(n+4):nth-child(-n+9),
-  .ws-compact-table td:nth-child(n+4):nth-child(-n+9) {
-    display: none;
-  }
+  .ws-compact-table { table-layout: fixed; min-width: 0; }
+  #analysis-table { table-layout: auto; min-width: 720px; }
+  #opportunity-table, #opportunity-rows { display:block; width:100%; }
+  #opportunity-table thead { display:none; }
+  #opportunity-rows tr { display:flex; flex-direction:column; padding:.85rem; border-bottom:1px solid var(--border-medium); }
+  #opportunity-rows td { display:block; width:100%; padding:.25rem 0; border:0; position:static; box-shadow:none; background:transparent; }
+  #opportunity-rows td:nth-child(3), #opportunity-rows td:nth-child(4), #opportunity-rows td:nth-child(5) { display:none; }
+  #opportunity-rows td:nth-child(8) { order:-1; }
+  #opportunity-rows td:first-child { order:-3; }
+  #opportunity-rows td:nth-child(2) { order:-2; }
+  #opportunity-rows td[data-label]::before { content:attr(data-label) ": "; color:var(--text-muted); }
 }
 .ws-ticker-link {
   font-size: 0.95rem;
@@ -285,3 +273,13 @@
 
 @media (min-width: 481px) and (max-width: 980px) { .ws-focus-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 
+
+@media (max-width:768px) {
+  .ws-view-tabs { flex-wrap:wrap; overflow:visible; }
+  .ws-view-tab { padding:.5rem .55rem; font-size:.82rem; }
+  .decision-drawer-header { flex-wrap:wrap; gap:.5rem; padding:.75rem; }
+  .decision-drawer-body { padding:.85rem; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .decision-drawer,.decision-drawer-backdrop { transition:none; }
+}

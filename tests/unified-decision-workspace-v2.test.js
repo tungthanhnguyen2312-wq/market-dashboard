@@ -22,9 +22,9 @@ const shellCss = fs.readFileSync(path.join(root, "assets/css/shell.css"), "utf8"
 const shell = require(path.join(root, "assets/js/shell.js"));
 
 test("primary nav has four decision-flow destinations and legacy surfaces remain routes", () => {
-  assert.deepEqual(shell.CANONICAL_PRIMARY_NAV.map((item) => item.id), ["dashboard", "investment-workspace", "portfolio", "macro"]);
+  assert.deepEqual(shell.CANONICAL_PRIMARY_NAV.map((item) => item.id), ["dashboard", "investment-workspace", "portfolio", "macro", "archive"]);
   assert.ok(!shell.CANONICAL_PRIMARY_NAV.some((item) => ["analysis", "screener", "signals"].includes(item.id)));
-  assert.match(shellCss, /\[data-nav="screener"\],[\s\S]*\[data-nav="signals"\],[\s\S]*\[data-nav="about"\]\s*\{\s*display: none;\s*\}/);
+  assert.match(shellCss, /Single-topbar pages keep the same five destinations/);
 });
 
 test("analysis.html redirects to investment-workspace.html?view=analysis, preserving other query params and hash", () => {

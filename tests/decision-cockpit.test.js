@@ -20,10 +20,10 @@ test("decision-cockpit.html loads value-format.js before decision-cockpit.js", (
 
 test("decision-cockpit.html is a thin deterministic redirect preserving query and hash", () => {
   assert.doesNotMatch(html, /<meta http-equiv="refresh"/);
-  assert.doesNotMatch(html, /Không gian quyết định/);
+  assert.doesNotMatch(html, /Bàn quyết định/);
   assert.match(html, /window\.location\.replace\("investment-workspace\.html" \+ search \+ hash\)/);
   assert.match(html, /id="redirect-link"/);
-  assert.match(html, /Bàn quyết định đã được hợp nhất/);
+  assert.match(html, /Cơ hội đã được hợp nhất/);
   assert.match(html, /Chỉ phục vụ nghiên cứu có người kiểm tra/);
 
   // Test redirect logic with query and hash preservation
@@ -38,9 +38,9 @@ test("decision-cockpit.html is a thin deterministic redirect preserving query an
 test("major static page chrome is in natural Vietnamese without English remnants across merged surfaces", () => {
   const wsHtml = fs.readFileSync(path.join(root, "investment-workspace.html"), "utf8");
   const requiredVi = [
-    "Bàn quyết định",
+    "Cơ hội",
     "Nguồn dữ liệu / Bằng chứng",
-    "Chỉ để người đọc rà soát nghiên cứu",
+    "Thông tin để tham khảo và kiểm chứng",
     "Nhịp thị trường",
     "Bộ lọc",
     "Danh sách theo dõi",

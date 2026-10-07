@@ -167,7 +167,7 @@ test("G. Owner Focus: contains real tickers and renders from real Cockpit ticker
   const htmlNoCockpitCard = dc.renderOwnerFocusHtml(bareCockpit, workspace.cards);
   assert.ok(htmlNoCockpitCard.includes("HPG"));
   assert.ok(htmlNoCockpitCard.includes("SSI"));
-  assert.match(htmlNoCockpitCard, /Chưa có context Cockpit cho mã này/);
+  assert.match(htmlNoCockpitCard, /Chưa có dữ liệu bổ sung cho mã này/);
   assert.doesNotMatch(htmlNoCockpitCard, /Chờ xác nhận|Tránh mở vị thế mới|Tích lũy nghiên cứu/);
 });
 
@@ -253,12 +253,12 @@ test("M. Session Coherence: a genuine workspace/cockpit session disagreement is 
 test("N. Compatibility Page: decision-cockpit.html is a thin redirect preserving query and hash", () => {
   const html = fs.readFileSync(path.join(root, "decision-cockpit.html"), "utf8");
   assert.doesNotMatch(html, /<meta http-equiv="refresh"/);
-  assert.doesNotMatch(html, /Không gian quyết định/);
+  assert.doesNotMatch(html, /Bàn quyết định/);
   assert.match(html, /window\.location\.replace/);
   assert.match(html, /search/);
   assert.match(html, /hash/);
   assert.match(html, /id="redirect-link"/);
-  assert.match(html, /Bàn quyết định đã được hợp nhất/);
+  assert.match(html, /Cơ hội đã được hợp nhất/);
 });
 
 test("O. About Page Doctrine: does not claim AI is data authority or deterministic models are truth authority", () => {

@@ -108,6 +108,9 @@ jobs:
       - name: Dashboard Home performance and investor-first tests
         run: node --test tests/dashboard-home-performance-and-investor-first.test.js
 
+      - name: Investor-first Vietnamese UX and semantic parity
+        run: node --test tests/investor-first-ux-v1.test.js tests/workspace-mobile-overflow.test.js
+
       - name: JavaScript syntax checks
         run: |
           node --check assets/js/candlestick-patterns.js

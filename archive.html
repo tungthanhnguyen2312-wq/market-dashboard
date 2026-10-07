@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Archive | Stock Look Up</title>
+  <title>Lịch sử | Stock Lookup</title>
   <meta name="description" content="Kho lưu trữ các báo cáo/playbook thị trường tĩnh theo phiên của Stock Look Up.">
   <link rel="canonical" href="https://tungthanhnguyen2312-wq.github.io/market-dashboard/archive.html">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2303080A'/%3E%3Crect x='6' y='18' width='5' height='8' rx='1' fill='%2320E7CF'/%3E%3Crect x='14' y='12' width='5' height='14' rx='1' fill='%2327E6A1'/%3E%3Crect x='22' y='6' width='5' height='20' rx='1' fill='%2327E6A1'/%3E%3C/svg%3E">
@@ -19,13 +19,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=2026-10-06-5a050b4-4199a62b9b">
+  <link rel="stylesheet" href="style.css?v=2026-10-06-5a050b4-4199a62b9b&amp;ui=investor-first-v1">
 
   <!-- Tailwind CSS build sẵn bằng CLI standalone (xem build_frontend.bat + tailwind.config.js)
        — thay cho Play CDN chạy JIT trong trình duyệt. Giữ NGUYÊN behavior cũ
        (corePlugins.preflight:false, theme.extend colors/fontFamily như cũ). -->
-  <link rel="stylesheet" href="assets/css/tailwind.generated.css?v=2026-10-06-5a050b4-4199a62b9b">
-  <link rel="stylesheet" href="assets/css/shell.css?v=2026-10-06-5a050b4-4199a62b9b">
+  <link rel="stylesheet" href="assets/css/tailwind.generated.css?v=2026-10-06-5a050b4-4199a62b9b&amp;ui=investor-first-v1">
+  <link rel="stylesheet" href="assets/css/shell.css?v=2026-10-06-5a050b4-4199a62b9b&amp;ui=investor-first-v1">
 </head>
 <body class="bg-bg text-white font-sans" data-page="archive">
 
@@ -36,16 +36,7 @@
       <button class="vs-sidebar-toggle ms-auto" id="sidebar-close" style="position:absolute; top:0.9rem; right:0.9rem;" aria-label="Đóng menu">
         <i data-lucide="x"></i>
       </button>
-      <nav class="vs-sidebar-nav">
-        <a class="vs-sidebar-link" href="dashboard.html" data-nav="dashboard" title="Tổng quan"><i data-lucide="layout-dashboard"></i><span class="vs-sidebar-link-label">Tổng quan</span></a>
-        <a class="vs-sidebar-link" href="screener.html" data-nav="screener" title="Bộ lọc"><i data-lucide="filter"></i><span class="vs-sidebar-link-label">Bộ lọc</span></a>
-        <a class="vs-sidebar-link" href="signals.html" data-nav="signals" title="Tín hiệu"><i data-lucide="activity"></i><span class="vs-sidebar-link-label">Tín hiệu</span></a>
-        <a class="vs-sidebar-link" href="investment-workspace.html" data-nav="investment-workspace" title="Bàn quyết định"><i data-lucide="layout-list"></i><span class="vs-sidebar-link-label">Bàn quyết định</span></a>
-        <a class="vs-sidebar-link" href="portfolio.html" data-nav="portfolio" title="Danh mục"><i data-lucide="wallet-cards"></i><span class="vs-sidebar-link-label">Danh mục</span></a>
-        <a class="vs-sidebar-link" href="macro.html" data-nav="macro" title="Vĩ mô"><i data-lucide="globe"></i><span class="vs-sidebar-link-label">Vĩ mô</span></a>
-        <a class="vs-sidebar-link" href="about.html" data-nav="about" title="Giới thiệu"><i data-lucide="info"></i><span class="vs-sidebar-link-label">Giới thiệu</span></a>
-        <a class="vs-sidebar-link is-active active" href="archive.html" data-nav="archive" title="Lịch sử"><i data-lucide="history"></i><span class="vs-sidebar-link-label">Lịch sử</span></a>
-      </nav>
+      <nav class="vs-sidebar-nav" aria-label="Điều hướng chính"><a class="vs-sidebar-link" href="dashboard.html" data-nav="dashboard">Tổng quan</a><a class="vs-sidebar-link" href="investment-workspace.html" data-nav="investment-workspace">Cơ hội</a><a class="vs-sidebar-link" href="portfolio.html" data-nav="portfolio">Danh mục</a><a class="vs-sidebar-link" href="macro.html" data-nav="macro">Vĩ mô</a><a class="vs-sidebar-link is-active active" href="archive.html" data-nav="archive" aria-current="page">Lịch sử</a></nav>
       <div class="vs-sidebar-foot">Stock Lookup</div>
     </aside>
     <div class="vs-sidebar-overlay" id="sidebar-overlay"></div>
@@ -55,15 +46,7 @@
       <header class="vs-topbar">
         <button class="vs-sidebar-toggle" id="sidebar-toggle" aria-label="Mở menu"><i data-lucide="menu"></i></button>
         <a class="vs-topbar-brand" href="dashboard.html"><span class="vs-brand-dot"></span><span>Stock Lookup</span></a>
-        <nav class="vs-topbar-nav" aria-label="Điều hướng chính">
-          <a class="vs-topnav-link" href="dashboard.html" data-nav="dashboard" title="Tổng quan"><i data-lucide="layout-dashboard"></i><span>Tổng quan</span></a>
-          <a class="vs-topnav-link" href="screener.html" data-nav="screener" title="Bộ lọc"><i data-lucide="filter"></i><span>Bộ lọc</span></a>
-          <a class="vs-topnav-link" href="signals.html" data-nav="signals" title="Tín hiệu"><i data-lucide="activity"></i><span>Tín hiệu</span></a>
-          <a class="vs-topnav-link" href="investment-workspace.html" data-nav="investment-workspace" title="Bàn quyết định"><i data-lucide="layout-list"></i><span>Bàn quyết định</span></a>
-          <a class="vs-topnav-link" href="portfolio.html" data-nav="portfolio" title="Danh mục"><i data-lucide="wallet-cards"></i><span>Danh mục</span></a>
-          <a class="vs-topnav-link" href="macro.html" data-nav="macro" title="Vĩ mô"><i data-lucide="globe"></i><span>Vĩ mô</span></a>
-          <a class="vs-topnav-link" href="about.html" data-nav="about" title="Giới thiệu"><i data-lucide="info"></i><span>Giới thiệu</span></a>
-        </nav>
+        <nav class="vs-topbar-nav" aria-label="Điều hướng chính"><a class="vs-topnav-link" href="dashboard.html" data-nav="dashboard">Tổng quan</a><a class="vs-topnav-link" href="investment-workspace.html" data-nav="investment-workspace">Cơ hội</a><a class="vs-topnav-link" href="portfolio.html" data-nav="portfolio">Danh mục</a><a class="vs-topnav-link" href="macro.html" data-nav="macro">Vĩ mô</a><a class="vs-topnav-link is-active active" href="archive.html" data-nav="archive" aria-current="page">Lịch sử</a></nav>
         <span class="vs-topbar-spacer"></span>
         <a class="vs-topbar-link is-active active" href="archive.html"><i data-lucide="history"></i>Lịch sử</a>
       </header>
@@ -98,15 +81,15 @@
         </div>
       </main>
 
-      <footer class="vs-statusfooter">
-        <span>Phục vụ nghiên cứu, không phải lệnh giao dịch. Dữ liệu và phân tích là bản snapshot phục vụ nghiên cứu độc lập.</span>
+      <footer class="vs-statusfooter"><a href="about.html">Dữ liệu &amp; phương pháp</a>
+        <span>Phục vụ nghiên cứu, không phải lệnh giao dịch. Dữ liệu và phân tích là bản ghi phục vụ nghiên cứu độc lập.</span>
       </footer>
     </div>
   </div>
 
   <script src="https://unpkg.com/lucide@1.24.0"></script>
-  <script src="assets/js/shell.js?v=2026-10-06-5a050b4-4199a62b9b"></script>
-  <script src="data/build_info.js?v=2026-10-06-5a050b4-4199a62b9b"></script>
-  <script src="assets/js/archive.js?v=2026-10-06-5a050b4-4199a62b9b"></script>
+  <script src="assets/js/shell.js?v=2026-10-06-5a050b4-4199a62b9b&amp;ui=investor-first-v1"></script>
+  <script src="data/build_info.js?v=2026-10-06-5a050b4-4199a62b9b&amp;ui=investor-first-v1"></script>
+  <script src="assets/js/archive.js?v=2026-10-06-5a050b4-4199a62b9b&amp;ui=investor-first-v1"></script>
 </body>
 </html>
