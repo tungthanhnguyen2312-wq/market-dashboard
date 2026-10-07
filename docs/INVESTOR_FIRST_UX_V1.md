@@ -61,6 +61,8 @@ No document horizontal overflow or JavaScript page errors. Mobile menu parity,
 drawer Escape/focus restoration and keyboard tab switching verified in Chromium.
 The main mobile list retains action, trigger, invalidation and uncertainty as cards.
 Advanced tables remain deeper disclosure/detail surfaces.
+The mobile research table keeps a readable minimum width and scrolls inside its
+own container; the primary opportunity cards do not require horizontal scrolling.
 
 Language audit over eleven current/compatibility HTML sources: 52 occurrences of
 the former product name removed; both occurrences each of Stored only in this

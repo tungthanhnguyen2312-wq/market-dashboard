@@ -23,6 +23,10 @@ const assert = require('node:assert/strict');
       const measurement=await page.evaluate(()=>({width:innerWidth,scroll:document.documentElement.scrollWidth,
         text:document.body.innerText.replace(/\b(?:A32\nAAA)[\s\S]*?\nMở chi tiết mã/, 'Mở chi tiết mã')}));
       assert.ok(measurement.scroll<=width+1,`${name} overflow at ${width}: ${measurement.scroll}`);
+      if(name==='explore'&&width<=768) {
+        const table=await page.locator('#analysis-table').evaluate(el=>({width:el.offsetWidth,container:el.parentElement.clientWidth,overflow:getComputedStyle(el.parentElement).overflowX}));
+        assert.ok(table.width>=720&&table.width>table.container&&table.overflow==='auto','deep research table must scroll within its container');
+      }
       const leaked=measurement.text.match(/\b(?:localStorage|READY_FOR_AI|RAW_AS_TRADED|proxy|snapshot|Workspace|build|pipeline|artifact)\b|Bàn quyết định|Stored only in this browser|Add position|Clear\/reset/gi);
       await page.screenshot({path:`logs/ux-${name}-${width}.png`,fullPage:name!=='drawer'});
       results.push({name,width,scroll:measurement.scroll,leaked});

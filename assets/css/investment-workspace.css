@@ -31,6 +31,7 @@
    conditions remain available without horizontal scrolling. Analysis is a deeper table. */
 @media (max-width: 768px) {
   .ws-compact-table { table-layout: fixed; min-width: 0; }
+  #analysis-table { table-layout: auto; min-width: 720px; }
   #opportunity-table, #opportunity-rows { display:block; width:100%; }
   #opportunity-table thead { display:none; }
   #opportunity-rows tr { display:flex; flex-direction:column; padding:.85rem; border-bottom:1px solid var(--border-medium); }
