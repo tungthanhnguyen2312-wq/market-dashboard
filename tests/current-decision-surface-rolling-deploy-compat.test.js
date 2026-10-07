@@ -25,7 +25,7 @@ const sm = require(path.join(root, "assets/js/screener-master.js"));
 const signals = require(path.join(root, "assets/js/signals-product.js"));
 
 const FIXTURE = JSON.parse(fs.readFileSync(path.join(__dirname, "fixtures/pre-m1-rolling-deploy-payloads.json"), "utf8"));
-const UNAVAILABLE = "Chưa có tư thế hành động chuẩn hóa cho bản build này";
+const UNAVAILABLE = "Chưa có tư thế hành động chuẩn hóa cho phiên dữ liệu này";
 const WAIT_LABEL = "Chờ xác nhận";
 
 function clone(value) { return JSON.parse(JSON.stringify(value)); }

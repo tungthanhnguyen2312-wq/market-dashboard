@@ -72,8 +72,8 @@
     { id: "hold", label: "Nắm giữ (nếu đang nắm giữ)", group: "posture", test: (c) => c.research_action_posture === "HOLD" || c.research_action_posture === "HOLD_DO_NOT_ADD" },
     { id: "avoid", label: "Tránh / giảm tỷ trọng", group: "posture", test: (c) => c.research_action_posture === "AVOID" || c.research_action_posture === "REDUCE" },
     { id: "insufficient", label: "Chưa đủ bằng chứng hiện tại", group: "posture", test: (c) => c.research_action_posture === "INSUFFICIENT_CURRENT_RESEARCH" },
-    { id: "evidence_current", label: "Bằng chứng phiên hiện tại", group: "evidence", test: (c) => evidenceCurrencyClass(c.evidence_currency) === "CURRENT_SESSION" },
-    { id: "evidence_stale", label: "Bằng chứng cũ", group: "evidence", test: (c) => evidenceCurrencyClass(c.evidence_currency) === "LAST_TRADE_AS_OF" },
+    { id: "evidence_current", label: "Dữ liệu phiên hiện tại", group: "evidence", test: (c) => evidenceCurrencyClass(c.evidence_currency) === "CURRENT_SESSION" },
+    { id: "evidence_stale", label: "Dữ liệu đã cũ", group: "evidence", test: (c) => evidenceCurrencyClass(c.evidence_currency) === "LAST_TRADE_AS_OF" },
     { id: "evidence_none", label: "Không có bằng chứng hiện tại", group: "evidence", test: (c) => evidenceCurrencyClass(c.evidence_currency) === "NO_CURRENT_EVIDENCE" },
     { id: "priority_now", label: "Ưu tiên xem ngay", group: "priority", test: (c) => ((c.opportunity_priority || {}).research_priority_tier) === "PRIORITY_NOW" },
     { id: "screen_initiate", label: "Sàng lọc: ứng viên mở vị thế", group: "stance", test: (c) => c.research_stance === "INITIATE_RESEARCH_CANDIDATE" },
@@ -133,7 +133,7 @@
   const CONSTRUCTIVE_POSTURES = new Set(["INITIATE_ON_BREAKOUT", "ACCUMULATE_ON_RETEST", "EARLY_WATCH"]);
   // Rolling-deploy compatibility: a pre-M1 Workspace card has no research_action_posture. The
   // primary decision then reads as explicitly unavailable -- never the legacy research_stance.
-  const POSTURE_UNAVAILABLE_TEXT = "Chưa có tư thế hành động chuẩn hóa cho bản build này";
+  const POSTURE_UNAVAILABLE_TEXT = "Chưa có tư thế hành động chuẩn hóa cho phiên dữ liệu này";
 
   function stanceEntryGuidance(researchStance, entryAction) {
     if (VETO_RESEARCH_STANCES.has(researchStance)) {
@@ -347,7 +347,7 @@
   }
   function sectorDisplayHtml(value) {
     const vf = getValueFormat();
-    if (vf && typeof vf.sectorLineageHtml === "function") return vf.sectorLineageHtml(value);
+    if (vf && typeof vf.formatSectorLineage === "function") return `<span data-sector="${escHtml(value || "")}">${escHtml(vf.formatSectorLineage(value).label)}</span>`;
     return escHtml(value);
   }
   function sectorDisplayLabel(value) {
@@ -694,6 +694,13 @@
     }
     return hasRetainedValue(flow.relationship) ? pill(flow.relationship, "flow_price_relationship") : '<span class="cockpit-note">—</span>';
   }
+  function notableTickers(cards) {
+    const states = ["BREAKOUT_READY", "EARLY_REVERSAL_CANDIDATE", "BASE_BUILDING"];
+    return Object.keys(cards || {}).filter((ticker) => {
+      const card = cards[ticker];
+      return CONSTRUCTIVE_POSTURES.has(card.research_action_posture) || (states.includes(card.entry_state) && card.research_action_posture !== "AVOID" && card.research_action_posture !== "REDUCE");
+    }).slice(0, 4);
+  }
   function compactReasons(card, limit) {
     const reasons = (((card || {}).why || {}).deterministic_reasons || []).slice(0, limit || 3);
     return reasons.length ? reasons.map((reason) => formatWorkspaceState(reason, "rule_condition")) : ["Chưa có lý do ngắn được giữ lại"];
@@ -766,11 +773,11 @@
     }
     if (axis === "fundamental") {
       if (!fundamental.state || fundamental.state === "UNAVAILABLE") return { label: "Chưa đủ dữ liệu", tone: "neutral", why: "Chưa có nền tảng doanh nghiệp đủ để diễn giải." };
-      if (freshness === "CURRENT") return { label: "Hiện hành", tone: "constructive", why: "Nền tảng doanh nghiệp có dữ liệu cùng phiên Workspace." };
+      if (freshness === "CURRENT") return { label: "Hiện hành", tone: "constructive", why: "Nền tảng doanh nghiệp có dữ liệu cùng phiên dữ liệu." };
       return { label: "Hạn chế", tone: "caution", why: "Nền tảng doanh nghiệp không thuộc phiên hiện tại hoặc có giới hạn được giữ lại." };
     }
     if (!card || !card.entry_state) return { label: "Chưa đủ dữ liệu", tone: "neutral", why: "Chưa có trạng thái kỹ thuật được giữ lại." };
-    if (freshness === "CURRENT") return { label: "Hiện hành", tone: "constructive", why: "Trạng thái kỹ thuật được giữ lại cho phiên Workspace hiện tại." };
+    if (freshness === "CURRENT") return { label: "Hiện hành", tone: "constructive", why: "Trạng thái kỹ thuật được giữ lại cho phiên dữ liệu hiện tại." };
     return { label: "Hạn chế", tone: "caution", why: "Trạng thái kỹ thuật không thuộc phiên hiện tại hoặc có giới hạn độ mới." };
   }
   function evidenceQualityHtml(quality) {
@@ -808,11 +815,11 @@
   }
   function selectedSignalEvidenceHtml(snapshot, ticker, session, registry, candleApi) {
     if (!snapshot || snapshot.scan_date !== session) {
-      return '<p class="ws-signal-unavailable">Chưa có mẫu hình nến/SMC hiện hành.</p>';
+      return '<p class="ws-signal-unavailable">Chưa có mẫu hình nến hoặc cấu trúc dòng tiền (SMC) hiện hành.</p>';
     }
     const row = ((snapshot.watchlist || []).find((item) => String(item.ticker || "").toUpperCase() === String(ticker || "").toUpperCase()));
     if (!row || (!(row.patterns || []).length && !(row.smc || []).length)) {
-      return '<p class="ws-signal-unavailable">Chưa có mẫu hình nến/SMC hiện hành.</p>';
+      return '<p class="ws-signal-unavailable">Chưa có mẫu hình nến hoặc cấu trúc dòng tiền (SMC) hiện hành.</p>';
     }
     const patterns = (row.patterns || []).map((key) => (registry || {})[key]).filter(Boolean);
     const smc = (row.smc || []).map((key) => ({ key, info: candleApi && candleApi.smcInfo ? candleApi.smcInfo(key) : null })).filter((item) => item.info);
@@ -934,7 +941,7 @@
     const opts = options || {};
     const ticker = String((opts.ticker || (card && card.ticker) || "")).trim().toUpperCase();
     if (!card) {
-      return `<div class="cockpit-note" data-drawer-unavailable="true">Không có thẻ Không gian quyết định cho ${escHtml(ticker) || "UNKNOWN"}. Không chọn mã thay thế.</div>`;
+      return `<div class="cockpit-note" data-drawer-unavailable="true">Không có thẻ Cơ hội cho ${escHtml(ticker) || "UNKNOWN"}. Không chọn mã thay thế.</div>`;
     }
     const portfolio = opts.portfolio || card.portfolio || { evaluated: false, status: "NOT_EVALUATED" };
     const val = card.valuation || {};
@@ -967,7 +974,7 @@
             <h5 id="ws-section-price-${escHtml(ticker)}" class="ws-section-title">Giá &amp; xu hướng</h5>
             ${technicalSnapshotHtml(card)}
             <div class="ws-evidence-summary-item"><div>${helpLabelHtml("Mức độ tin cậy của bằng chứng")}${evidenceQualityHtml(technicalQuality)}</div><strong>${escHtml(formatWorkspaceState(card.entry_state, "tactical_state"))}</strong><p>${escHtml(technicalQuality.why)}</p></div>
-            <div class="ws-selected-signal" data-selected-signal-for="${escHtml(ticker)}"><p class="cockpit-note">Đang kiểm tra mẫu hình nến/SMC hiện hành…</p></div>
+            <div class="ws-selected-signal" data-selected-signal-for="${escHtml(ticker)}"><p class="cockpit-note">Đang kiểm tra mẫu hình nến và cấu trúc dòng tiền (SMC)…</p></div>
           </section>
 
           <section class="ws-section" aria-labelledby="ws-section-signal-${escHtml(ticker)}">
@@ -1001,7 +1008,7 @@
             <div class="mt-2 cockpit-note">Hồ sơ nghiên cứu dự kiến: ${pill((card.prospective_case || {}).status, "prospective_case")} · vòng đời luận điểm: ${escHtml(formatWorkspaceState((card.prospective_case || {}).thesis_lifecycle_state, "prospective_case"))}</div>
           </section>
 
-          <details class="ws-deep-evidence"><summary>Chi tiết phân tích</summary><div class="cockpit-detail-grid">
+          <details class="ws-deep-evidence"><summary>Dữ liệu &amp; phương pháp</summary><div class="cockpit-detail-grid">
             <div class="card"><div class="card-header"><h6>Quyết định</h6></div><div class="card-body">
               <b>Mã</b> ${escHtml(ticker)} · <b>Ngành</b> ${sectorDisplayHtml(card.sector)}<br>
               <div class="mt-1"><b>Phạm vi nghiên cứu chính thức</b> ${card.official_research_scope ? pill(card.official_research_scope.scope_bucket, "official_scope") : pill(null, "official_scope")}${
@@ -1140,21 +1147,15 @@
           <td>${hasRetainedValue(price) ? `<b>${esc(formatDiagnosticNumber(price))}</b>` : '<span class="cockpit-note">—</span>'}</td>
           <td>${rowSignalVelocityHtml(card)}</td>
           <td>${rowFlowPriceHtml(card)}</td>
-          <td>${hasRetainedValue(trigger.trigger_level) ? esc(formatDiagnosticNumber(trigger.trigger_level)) : '<span class="cockpit-note">—</span>'}</td>
-          <td>${invalidation.boundary_type ? esc(conditionHeadline(invalidation).label) : '<span class="cockpit-note">—</span>'}</td>
-          <td>${actionPostureHtml(card)}<div>${evidenceCurrencyHtml(card.evidence_currency)}</div><div class="cockpit-note">${esc(researchScreenLabel(card))} (sàng lọc phụ)</div></td>
-          <td class="cockpit-note">${esc(compactReasons(card, 1)[0])}</td>
+          <td data-label="Kích hoạt tham chiếu">${hasRetainedValue(trigger.trigger_level) ? esc(formatDiagnosticNumber(trigger.trigger_level)) : '<span class="cockpit-note">Chưa có mức kích hoạt</span>'}</td>
+          <td data-label="Vô hiệu">${invalidation.boundary_type ? esc(conditionHeadline(invalidation).label) : '<span class="cockpit-note">Chưa đủ dữ liệu vô hiệu</span>'}</td>
+          <td>${actionPostureHtml(card)}<div>${evidenceCurrencyHtml(card.evidence_currency)}</div></td>
+          <td class="cockpit-note" data-label="Điểm cần xem">${esc(compactReasons(card, 1)[0])}</td>
           <td><button type="button" class="btn btn-sm btn-outline-light" data-select-ticker="${esc(ticker)}">Chi tiết</button></td>
         </tr>`;
       }
 
-      function focusTickers() {
-        const states = ["BREAKOUT_READY", "EARLY_REVERSAL_CANDIDATE", "BASE_BUILDING"];
-        return Object.keys(WORKSPACE.cards).filter((ticker) => {
-          const card = WORKSPACE.cards[ticker];
-          return CONSTRUCTIVE_POSTURES.has(card.research_action_posture) || (states.includes(card.entry_state) && card.research_action_posture !== "AVOID" && card.research_action_posture !== "REDUCE");
-        }).slice(0, 4);
-      }
+      function focusTickers() { return notableTickers(WORKSPACE.cards); }
       function renderDecisionFocus() {
         const root = document.getElementById("decision-focus");
         if (!root) return;
@@ -1223,11 +1224,14 @@
       function setView(view) {
         const next = VALID_VIEWS.includes(view) ? view : "opportunities";
         WORKSPACE_VIEW = next;
+        const focusSection = document.getElementById("decision-focus-section");
+        if (focusSection) focusSection.hidden = next !== "opportunities";
         document.querySelectorAll("[data-ws-view]").forEach((el) => { el.hidden = el.id !== `ws-view-${next}`; });
         document.querySelectorAll(".ws-view-tab").forEach((tab) => {
           const active = tab.dataset.view === next;
           tab.classList.toggle("active", active);
           tab.setAttribute("aria-selected", active ? "true" : "false");
+          tab.tabIndex = active ? 0 : -1;
         });
         if (next === "explore") renderAnalysisView();
         if (next === "portfolio") renderPortfolioView();
@@ -1256,7 +1260,7 @@
           const patternsPayload = api && api.loadSnapshot ? await api.loadSnapshot() : null;
           write(selectedSignalEvidenceHtml(snapshot, ticker, WORKSPACE.as_of_session, (patternsPayload || {}).registry, api));
         } catch (_) {
-          write('<p class="ws-signal-unavailable">Chưa có mẫu hình nến/SMC hiện hành.</p>');
+          write('<p class="ws-signal-unavailable">Chưa có mẫu hình nến hoặc cấu trúc dòng tiền (SMC) hiện hành.</p>');
         }
       }
 
@@ -1418,17 +1422,17 @@
         const coherence = sc ? sc.classify(data.as_of_session, sc.currentReleaseSession()) : null;
         const sessionLabel = (sc && coherence ? sc.sessionLabelText(coherence) : null) || data.as_of_session;
         const staleBanner = sc && coherence && sc.isConfirmedStale(coherence)
-          ? sc.staleBannerHtml("Bàn quyết định", coherence, "INVESTMENT_DECISION_WORKSPACE_STALE")
+          ? sc.staleBannerHtml("Cơ hội", coherence, "INVESTMENT_DECISION_WORKSPACE_STALE")
           : "";
         const scope = getProductScopeFormat();
         const referenceScope = scope
           ? scope.formatProductScope(Object.keys(data.cards).length)
           : `Phạm vi sản phẩm: ${Object.keys(data.cards).length.toLocaleString("vi-VN")} mã`;
-        document.getElementById("session-line").innerHTML = `${staleBanner}Phiên ${esc(sessionLabel)} · ${esc(referenceScope)}${provenanceBlock(data.producer_artifact_identity)}`;
+        document.getElementById("session-line").innerHTML = `${staleBanner}Phiên ${esc(sessionLabel)} · ${esc(referenceScope)}`;
         const systemDetail = document.getElementById("ws-system-status-detail");
-        if (systemDetail) systemDetail.textContent = coherence && sc && sc.isConfirmedStale(coherence)
+        if (systemDetail) systemDetail.innerHTML = coherence && sc && sc.isConfirmedStale(coherence)
           ? "Dữ liệu không còn cùng phiên với bản phát hành; xem trạng thái độ mới ở từng trục."
-          : `Dữ liệu Workspace cùng phiên ${sessionLabel}. Chi tiết nguồn gốc có trong Dữ liệu & phương pháp.`;
+          : `Dữ liệu cùng phiên ${sessionLabel}. Chi tiết nguồn gốc có trong Dữ liệu & phương pháp.${provenanceBlock(data.producer_artifact_identity)}`;
         renderFilterChips();
         renderList();
         renderDecisionFocus();
@@ -1449,6 +1453,8 @@
           const sectionEl = sectionId && document.getElementById(sectionId);
           if (sectionEl) {
             sectionEl.open = true;
+            const disclosure = sectionEl.closest("details");
+            if (disclosure) disclosure.open = true;
             if (typeof sectionEl.scrollIntoView === "function") sectionEl.scrollIntoView({ behavior: "smooth", block: "start" });
           }
         }
@@ -1496,6 +1502,16 @@
 
         document.querySelectorAll(".ws-view-tab").forEach((tab) => {
           tab.addEventListener("click", () => setView(tab.dataset.view));
+          tab.addEventListener("keydown", (event) => {
+            if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+            event.preventDefault();
+            const tabs = Array.from(document.querySelectorAll(".ws-view-tab"));
+            const current = tabs.indexOf(tab);
+            const index = event.key === "Home" ? 0 : event.key === "End" ? tabs.length - 1
+              : (current + (event.key === "ArrowRight" ? 1 : -1) + tabs.length) % tabs.length;
+            setView(tabs[index].dataset.view);
+            tabs[index].focus();
+          });
         });
 
         select.addEventListener("change", () => selectTicker(select.value, { openDrawer: true }));
@@ -1569,7 +1585,7 @@
               renderPortfolioView();
               if (SELECTED_TICKER) showDecisionCard(SELECTED_TICKER);
             } catch (err) {
-              alert("JSON portfolio_research_context không hợp lệ");
+              alert("Tệp dữ liệu danh mục không hợp lệ");
             }
           };
           reader.readAsText(file);
@@ -1667,7 +1683,7 @@
         .catch((err) => {
           const e = document.getElementById("workspace-error");
           e.hidden = false;
-          e.textContent = `Chưa thể tải Bàn quyết định lúc này. Vui lòng thử tải lại trang.`;
+          e.textContent = `Chưa thể tải Cơ hội lúc này. Vui lòng thử tải lại trang.`;
         });
     })();
   }
@@ -1679,7 +1695,7 @@
     VETO_RESEARCH_STANCES, TACTICAL_ACTIONABLE_ENTRY_READINESS, stanceEntryGuidance,
     actionPostureLabel, actionPostureHtml, evidenceCurrencyClass, evidenceCurrencyHtml, opportunityPriorityHtml,
     researchScreenHtml, researchScreenLabel, POSITION_CONDITIONAL_POSTURES, POSTURE_UNAVAILABLE_TEXT,
-    decisionCardHtml, renderDecisionCard, technicalSnapshotHtml, selectedSignalEvidenceHtml, retainedPrice, compactReasons,
+    decisionCardHtml, renderDecisionCard, technicalSnapshotHtml, selectedSignalEvidenceHtml, retainedPrice, compactReasons, notableTickers,
     evidenceQuality, evidenceSummaryHtml,
     cssEscapeSelector,
     analysisRecord, analysisRows, analysisRowHtml, analysisEvidenceHtml,

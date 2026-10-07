@@ -1,5 +1,36 @@
 # CHANGELOG UI — Refactor giao diện toàn dự án
 
+## Cập nhật 2026-10-07 — Giao diện ưu tiên nhà đầu tư V1
+
+Milestone: `INVESTOR_FIRST_DASHBOARD_UX_AND_LANGUAGE_CONVERGENCE_V1`.
+
+- Điều hướng chính thống nhất: Tổng quan, Cơ hội, Danh mục, Vĩ mô, Lịch sử.
+  Bàn quyết định đổi tên hiển thị thành Cơ hội; đường dẫn kỹ thuật giữ nguyên.
+  Bộ lọc, Tín hiệu và Phân tích tiếp tục chuyển đến chế độ xem tương ứng,
+  giữ mã, tham số và liên kết neo. Giới thiệu trở thành điều hướng phụ.
+- Tổng quan còn nhịp thị trường, nhóm ngành, cổ phiếu đáng xem và rủi ro.
+  Loại bỏ nút mở Cơ hội lặp lại, bộ lọc tương thích, báo cáo AI dài,
+  kế hoạch hành động và thẻ quảng bá lịch sử khỏi trang chủ.
+- Phân bố quyết định, phạm vi dữ liệu, thanh khoản tham khảo và giới hạn
+  thực hiện lệnh nằm trong Dữ liệu & phương pháp, thu gọn mặc định.
+- Cơ hội có Nổi bật, Khám phá (gồm phân tích đa trục), Kỹ thuật, Theo dõi,
+  Danh mục. Dải chẩn đoán thị trường chuyển vào phương pháp; thẻ nổi bật
+  chỉ xuất hiện ở chế độ Nổi bật. Trên điện thoại, danh sách mã hiển thị dạng
+  thẻ có trạng thái, quan điểm, kích hoạt, vô hiệu và dữ liệu thiếu.
+- Hợp đồng `VIETNAMESE_INVESTOR_FIRST`: Việt hóa điều khiển danh mục,
+  thông báo lỗi và thuật ngữ bản dữ liệu. Giữ các viết tắt tài chính chuẩn.
+  Trang Giới thiệu giải thích công dụng, cách đọc, giới hạn trước phương pháp.
+- Bổ sung kiểm thử thuật ngữ, điều hướng, chuyển hướng thật, chọn mã và
+  đối chiếu giá trị với baseline cho toàn bộ 1.683 mã. Tab dùng phím mũi tên;
+  giữ Escape và khôi phục focus của ngăn chi tiết.
+- Không sửa dữ liệu Daily, phép tính, chính sách hành động, định danh nguồn,
+  schema hoặc thẩm quyền Producer. Danh sách đáng xem dùng đúng quy tắc
+  chọn thẻ nổi bật đã có, không thêm điểm số hay xếp hạng.
+- Thêm tham số phiên bản giao diện `ui=investor-first-v1` cho tài nguyên
+  trang hiện hành; giữ nguyên `v` của bản dữ liệu và không sửa dữ liệu sinh sẵn.
+
+Hợp đồng thiết kế hiện hành: [docs/INVESTOR_FIRST_UX_V1.md](docs/INVESTOR_FIRST_UX_V1.md).
+
 ## Cập nhật 2026-09-03 — Hợp nhất Phân tích vào Bàn quyết định (Unified Decision Workspace V2)
 
 Tiếp nối đợt hội tụ trước (đã gộp Decision Cockpit vào Bàn quyết định): gộp nốt trang Phân tích đa trục

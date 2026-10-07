@@ -6,8 +6,8 @@
   <title>Giới thiệu | Stock Lookup</title>
   <meta name="description" content="Kiến trúc nghiên cứu bằng chứng và giới hạn phương pháp của Stock Lookup.">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="style.css?v=2026-10-06-5a050b4-4199a62b9b">
-  <link rel="stylesheet" href="assets/css/shell.css?v=2026-10-06-5a050b4-4199a62b9b">
+  <link rel="stylesheet" href="style.css?v=2026-10-06-5a050b4-4199a62b9b&amp;ui=investor-first-v1">
+  <link rel="stylesheet" href="assets/css/shell.css?v=2026-10-06-5a050b4-4199a62b9b&amp;ui=investor-first-v1">
   <style>
     .about-flow-step { display: inline-flex; align-items: center; gap: 0.5rem; }
     .about-flow-arrow { color: var(--text-muted); }
@@ -18,22 +18,20 @@
   <div class="vs-shell-main">
     <header class="vs-topbar">
       <a class="vs-topbar-brand" href="dashboard.html"><span class="vs-brand-dot"></span><span>Stock Lookup</span></a>
-      <nav class="vs-topbar-nav" aria-label="Điều hướng chính">
-        <a class="vs-topnav-link" href="dashboard.html" data-nav="dashboard" title="Tổng quan">Tổng quan</a>
-        <a class="vs-topnav-link" href="screener.html" data-nav="screener" title="Bộ lọc">Bộ lọc</a>
-        <a class="vs-topnav-link" href="signals.html" data-nav="signals" title="Tín hiệu">Tín hiệu</a>
-        <a class="vs-topnav-link" href="investment-workspace.html" data-nav="investment-workspace" title="Bàn quyết định">Bàn quyết định</a>
-        <a class="vs-topnav-link" href="portfolio.html" data-nav="portfolio" title="Danh mục">Danh mục</a>
-        <a class="vs-topnav-link" href="macro.html" data-nav="macro" title="Vĩ mô">Vĩ mô</a>
-        <a class="vs-topnav-link is-active active" href="about.html" data-nav="about" title="Giới thiệu" aria-current="page">Giới thiệu</a>
-      </nav>
+      <nav class="vs-topbar-nav" aria-label="Điều hướng chính"><a class="vs-topnav-link" href="dashboard.html" data-nav="dashboard">Tổng quan</a><a class="vs-topnav-link" href="investment-workspace.html" data-nav="investment-workspace">Cơ hội</a><a class="vs-topnav-link" href="portfolio.html" data-nav="portfolio">Danh mục</a><a class="vs-topnav-link" href="macro.html" data-nav="macro">Vĩ mô</a><a class="vs-topnav-link" href="archive.html" data-nav="archive">Lịch sử</a></nav>
       <span class="vs-topbar-spacer"></span>
-      <a class="vs-topbar-link" href="archive.html"><i data-lucide="history"></i>Lịch sử</a>
+      <a class="vs-topbar-link" href="about.html">Dữ liệu &amp; phương pháp</a>
     </header>
 
     <main class="vs-content">
+      <h1 class="h3 mb-3">Hiểu Stock Lookup</h1>
+      <section class="card mb-4"><div class="card-body"><h2 class="h5">Stock Lookup giúp gì?</h2><p>Đọc bối cảnh thị trường, tìm cổ phiếu cần xem xét và kiểm tra dữ liệu hỗ trợ hoặc phản đối một luận điểm đầu tư.</p></div></section>
+      <section class="card mb-4"><div class="card-body"><h2 class="h5">Cách đọc sản phẩm</h2><p>Tổng quan giúp nắm nhịp thị trường. Cơ hội giúp xem trạng thái từng mã, điều kiện xác nhận, điều kiện vô hiệu và rủi ro. Danh mục là bối cảnh vị thế của bạn; Vĩ mô và Lịch sử giúp đối chiếu.</p><p>Luôn đọc phiên dữ liệu và độ mới. “Chưa đủ dữ liệu” nghĩa là chưa thể kết luận; dữ liệu tham khảo chưa đồng nghĩa với dữ liệu đủ điều kiện.</p></div></section>
+      <section class="card mb-4"><div class="card-body"><h2 class="h5">Giới hạn cần nhớ</h2><ul><li>Thông tin nghiên cứu không phải lệnh giao dịch.</li><li>Không bảo đảm dự báo, không tạo giá mục tiêu hoặc xác suất giả định.</li><li>Dữ liệu thiếu, đã cũ và mâu thuẫn vẫn được ghi rõ.</li><li>Trạng thái nắm giữ hoặc giảm tỷ trọng chỉ áp dụng khi bạn có vị thế tương ứng.</li></ul></div></section>
+      <details class="card mb-4" id="about-methods"><summary class="card-header">Dữ liệu &amp; phương pháp</summary><div class="card-body">
+
       <div class="section-eyebrow">Kiến trúc sản phẩm &amp; Phương pháp luận</div>
-      <h1 class="h3">Giới thiệu Stock Lookup</h1>
+      <h2 class="h3">Giới thiệu Stock Lookup</h2>
 
       <div class="card mb-4">
         <div class="card-header"><h5>Tổng quan sản phẩm</h5></div>
@@ -54,7 +52,7 @@
               <span class="about-flow-arrow">&rarr;</span>
               <span>Quyết định nghiên cứu cổ phiếu</span>
               <span class="about-flow-arrow">&rarr;</span>
-              <span class="text-primary fw-bold">Bàn quyết định (Investment Decision Workspace)</span>
+              <span class="text-primary fw-bold">Cơ hội (Investment Decision Workspace)</span>
               <span class="about-flow-arrow">&rarr;</span>
               <span>Đánh giá kết quả tương lai (Prospective Outcomes)</span>
             </div>
@@ -69,7 +67,7 @@
           <ul class="mb-2 d-flex flex-column gap-2">
             <li><strong>Phạm vi tham chiếu (product population):</strong> toàn bộ tập hợp mã đã được quản trị (governed) mà sản phẩm theo dõi — hiện là 1.683 mã. Đây là mẫu số cố định cho mọi bảng lọc và không gian quyết định; không bị thu hẹp bởi bất kỳ trục dữ liệu nào bên dưới.</li>
             <li><strong>Phạm vi nghiên cứu chính thức hiện tại (current official research scope):</strong> tập hợp con của phạm vi tham chiếu hiện đang khớp với một dòng chính thức còn hiệu lực trên sàn (HOSE/HNX/UPCOM) tại thời điểm quan sát gần nhất — hiện là 1.504 mã.</li>
-            <li><strong>Ngoài phạm vi nghiên cứu chính thức hiện tại:</strong> phần còn lại của phạm vi tham chiếu chưa/không còn khớp với dữ liệu chính thức hiện tại (ví dụ hủy niêm yết hoặc chưa xác định được) — hiện là 179 mã. Các mã này vẫn hiển thị đầy đủ trên Bộ lọc và Bàn quyết định, kèm lý do cụ thể từ nguồn — không tự động gán nhãn "hủy niêm yết" cho toàn bộ nhóm.</li>
+            <li><strong>Ngoài phạm vi nghiên cứu chính thức hiện tại:</strong> phần còn lại của phạm vi tham chiếu chưa/không còn khớp với dữ liệu chính thức hiện tại (ví dụ hủy niêm yết hoặc chưa xác định được) — hiện là 179 mã. Các mã này vẫn hiển thị đầy đủ trên Bộ lọc và Cơ hội, kèm lý do cụ thể từ nguồn — không tự động gán nhãn "hủy niêm yết" cho toàn bộ nhóm.</li>
           </ul>
           <p class="mb-0">Sự hiện diện chính thức trên sàn (official presence) <strong>không phải</strong> là thẩm quyền về khả năng giao dịch hay thực hiện lệnh (execution/tradability authority) — đó là hai trục độc lập. Việc một mã có giá phiên hay có trạng thái kỹ thuật trong phiên hiện tại cũng là các trục độc lập với phạm vi nghiên cứu chính thức nói trên.</p>
         </div>
@@ -84,7 +82,7 @@
                 <li><a href="dashboard.html" class="fw-bold text-decoration-none">Tổng quan</a>: Nhịp đập thị trường, độ rộng phiên, thanh khoản nghiên cứu và các điểm truy cập nhanh.</li>
                 <li><a href="screener.html" class="fw-bold text-decoration-none">Bộ lọc</a>: Bộ lọc đa tiêu chí toàn diện, xem nhanh và mở thẻ quyết định chi tiết cho từng mã.</li>
                 <li><a href="signals.html" class="fw-bold text-decoration-none">Tín hiệu</a>: Phân tích kỹ thuật và cấu trúc giá, các nhóm thiết lập, điều kiện xác nhận và điều kiện vô hiệu hóa.</li>
-                <li><a href="investment-workspace.html" class="fw-bold text-decoration-none">Bàn quyết định</a>: Không gian ra quyết định trung tâm thống nhất — Cơ hội, Phân tích đa trục, Theo dõi — với thẻ quyết định 7 phần toàn diện cho từng mã.</li>
+                <li><a href="investment-workspace.html" class="fw-bold text-decoration-none">Cơ hội</a>: Không gian ra quyết định trung tâm thống nhất — Cơ hội, Phân tích đa trục, Theo dõi — với thẻ quyết định 7 phần toàn diện cho từng mã.</li>
                 <li><a href="portfolio.html" class="fw-bold text-decoration-none">Danh mục</a>: Quản lý danh mục cục bộ trên trình duyệt, theo dõi tỷ trọng và kết nối bối cảnh nghiên cứu.</li>
                 <li><a href="macro.html" class="fw-bold text-decoration-none">Vĩ mô</a>: Bối cảnh lãi suất, tỷ giá, tăng trưởng kinh tế, chỉ số quốc tế và thị trường hàng hóa.</li>
               </ul>
@@ -113,7 +111,7 @@
         <div class="card-header"><h5>Giới hạn phương pháp luận &amp; Nguyên tắc an toàn</h5></div>
         <div class="card-body">
           <ul class="mb-0 d-flex flex-column gap-2">
-            <li><strong>Tư thế nghiên cứu không phải lệnh giao dịch:</strong> Mọi thông tin chỉ phục vụ mục đích nghiên cứu, học thuật và đối sánh dữ liệu độc lập.</li>
+            <li><strong>Quan điểm hiện tại không phải lệnh giao dịch:</strong> Mọi thông tin chỉ phục vụ mục đích nghiên cứu, học thuật và đối sánh dữ liệu độc lập.</li>
             <li><strong>Tách bạch rõ ràng tính sẵn sàng của dữ liệu:</strong> Dữ liệu đại diện (proxy), dữ liệu đủ điều kiện (qualified), dữ liệu thiếu hụt (unavailable) và dữ liệu cũ (stale) luôn được hiển thị phân biệt rõ ràng, không làm mờ ranh giới.</li>
             <li><strong>Không điểm tổng số học tùy tiện:</strong> Không sử dụng điểm số tổng hợp bí mật (black-box score), không xếp hạng đầu tư trọng số chủ quan, không tạo giá mục tiêu giả định hay gán ghép xác suất tùy tiện.</li>
             <li><strong>Giữ nguyên độ mới theo từng trục dữ liệu:</strong> Một kỳ báo cáo tài chính hay sự kiện xúc tác trong quá khứ không bao giờ bị dán nhãn sai lệch thành phiên giao dịch hôm nay.</li>
@@ -125,10 +123,11 @@
       <div class="vs-alert vs-alert-warning">
         Nội dung Dashboard phục vụ nghiên cứu độc lập. Sản phẩm không lưu trữ thông tin đăng nhập, dữ liệu tài khoản giao dịch hay bí mật triển khai riêng tư.
       </div>
+    </div></details>
     </main>
 
     <footer class="vs-statusfooter">
-      <span>Phục vụ nghiên cứu, không phải lệnh giao dịch. Dữ liệu và phân tích là bản snapshot phục vụ nghiên cứu độc lập.</span>
+      <span>Phục vụ nghiên cứu, không phải lệnh giao dịch. Dữ liệu và phân tích là bản ghi phục vụ nghiên cứu độc lập.</span>
     </footer>
   </div>
 </div>

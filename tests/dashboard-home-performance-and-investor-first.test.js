@@ -71,10 +71,9 @@ test("the legacy screener only loads its dependencies and fetches the CSV once t
   assert.match(appJs, /loadScriptOnce\("https:\/\/cdn\.datatables\.net\/2\.1\.8\/js\/dataTables\.min\.js"\)/);
 });
 
-test("dashboard.html keeps the heavy screener collapsed behind an opt-in <details>, not part of the initial render", () => {
-  const match = dashboardHtml.match(/<details class="card mb-4 dashboard-screener-card">/);
-  assert.ok(match, "the legacy screener must remain a collapsed <details> section");
-  assert.doesNotMatch(dashboardHtml, /<details class="card mb-4 dashboard-screener-card" open/);
+test("Home removes the legacy screener entirely; discovery remains at its compatible route", () => {
+  assert.doesNotMatch(dashboardHtml, /dashboard-screener-card|market-table|Bộ lọc tương thích/);
+  assert.match(fs.readFileSync(path.join(root, "screener.html"), "utf8"), /params.set\("view", "explore"\)/);
 });
 
 test("asset cache-version query strings on dashboard.html's local scripts/styles are internally consistent (one deterministic build id)", () => {
@@ -119,7 +118,7 @@ test("hero banner renders real market state (session + breadth), not internal sc
   assert.match(html, /380/);
   assert.match(html, /282/);
   assert.match(html, /Nghiêng tăng/);
-  assert.match(html, /investment-workspace\.html/);
+  assert.doesNotMatch(html, /<a\b/);
   // The old hero explained internal CSV-vs-Workspace scope semantics; that copy now lives
   // only in the opt-in legacy screener section (see renderScreenerScopeNote in app.js).
   assert.doesNotMatch(html, /Bảng sàng lọc kế thừa/);
@@ -137,25 +136,24 @@ test("marketBreadthStateLabel is a pure, deterministic, descriptive label -- not
 test("the legacy CSV scope disclaimer still exists (relocated to the opt-in screener section, not deleted)", () => {
   assert.match(appJs, /Bảng sàng lọc kế thừa/);
   assert.match(appJs, /tách biệt với phạm vi tham chiếu/);
-  assert.match(dashboardHtml, /id="screener-scope-note"/);
+  assert.doesNotMatch(dashboardHtml, /id="screener-scope-note"/);
 });
 
-test("the AI report narrative stays collapsed by default (max-height preview, not fully expanded)", () => {
-  assert.match(dashboardHtml, /class="card-body report-content collapsed" id="ai-report"/);
-  const css = fs.readFileSync(path.join(root, "style.css"), "utf8");
-  assert.match(css, /\.report-content\.collapsed\s*\{\s*max-height:\s*\d+px;\s*\}/);
+test("Home removes long AI narrative and historical action plans while retaining archive access", () => {
+  assert.doesNotMatch(dashboardHtml, /id="ai-report"|id="action-plan"|id="action-plan-historical"/);
+  assert.match(dashboardHtml, /href="archive.html"/);
 });
 
 test("Home's real market summary/chart hosts are still present for dashboard-product-summary.js to fill", () => {
   assert.match(dashboardHtml, /id="dashboard-hero-banner"/);
   assert.match(dashboardHtml, /id="kpi-session-up"/);
   assert.match(dashboardHtml, /id="kpi-session-down"/);
-  assert.match(dashboardHtml, /id="chart-sector"/);
-  assert.match(dashboardHtml, /id="chart-tactical"/);
+  assert.match(dashboardHtml, /id="home-sectors"/);
+  assert.match(dashboardHtml, /id="home-risks"/);
 });
 
-test("primary route navigation is unchanged (Tổng quan/Bộ lọc/Tín hiệu/Bàn quyết định/Danh mục/Vĩ mô all present)", () => {
-  for (const href of ["dashboard.html", "screener.html", "signals.html", "investment-workspace.html", "portfolio.html", "macro.html", "about.html", "archive.html"]) {
+test("primary route navigation is unchanged (Tổng quan/Bộ lọc/Tín hiệu/Cơ hội/Danh mục/Vĩ mô all present)", () => {
+  for (const href of ["dashboard.html", "investment-workspace.html", "portfolio.html", "macro.html", "about.html", "archive.html"]) {
     assert.match(dashboardHtml, new RegExp(`href="${href}"`), `nav link to ${href} must remain present`);
   }
 });

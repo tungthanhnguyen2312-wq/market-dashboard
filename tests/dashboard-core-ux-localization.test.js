@@ -259,9 +259,9 @@ test("overview uses current projection facts with explicit denominators", () => 
   assert.match(projection.as_of_session, /^\d{4}-\d{2}-\d{2}$/);
   assert.equal(summary.as_of_session, projection.as_of_session);
   assert.match(html, new RegExp(`Quyết định nghiên cứu hiện tại|Phiên ${projection.as_of_session}`));
-  assert.match(html, /Mở Bàn quyết định|Mở Không gian quyết định/);
-  assert.match(html, /Khám phá cơ hội/);
-  assert.match(html, /Tín hiệu kỹ thuật/);
+  assert.doesNotMatch(html, /Mở Cơ hội/);
+  assert.doesNotMatch(html, /Khám phá cơ hội/);
+  assert.doesNotMatch(html, /Tín hiệu kỹ thuật/);
   assert.doesNotMatch(html, /Xem Tactical V2/);
 
   // Visible labels stay localized: every stance card renders its Vietnamese label, and none of
@@ -275,8 +275,8 @@ test("overview uses current projection facts with explicit denominators", () => 
 });
 
 test("research stance remains distinct from execution instruction", () => {
-  assert.match(workspaceHtml, /không phải lệnh thực hiện/i);
-  assert.match(dashboardHtml, /Quyết định nghiên cứu hiện tại/);
+  assert.match(workspaceHtml, /không phải lệnh (thực hiện|giao dịch)/i);
+  assert.match(dashboardHtml, /Rủi ro cần chú ý/);
   assert.doesNotMatch(vf.formatResearchStance("INITIATE_RESEARCH_CANDIDATE"), /Mua|Khuyến nghị mua/i);
   assert.doesNotMatch(overview.renderDecisionSummaryHtml(overview.summarizeScreenerOverview(projection)), /vs-btn-primary[^>]*>Mua/);
 });

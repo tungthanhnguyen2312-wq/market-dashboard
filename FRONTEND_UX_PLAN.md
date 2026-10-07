@@ -1,3 +1,10 @@
+# Current product contract — 2026-10-07
+
+The active investor information architecture and Vietnamese language contract are
+defined in [docs/INVESTOR_FIRST_UX_V1.md](docs/INVESTOR_FIRST_UX_V1.md).
+The audit and backlog below remain historical context; their old navigation,
+Home KPI/chart layout and page-count assumptions do not override the current source.
+
 # FRONTEND_UX_PLAN.md — Kế hoạch Progressive UX Enhancement
 
 > Phiên phân tích read-only 2026-07-16. File này là ĐẦU RA DUY NHẤT của phiên phân tích.

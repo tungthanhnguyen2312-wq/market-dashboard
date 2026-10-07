@@ -40,26 +40,9 @@ EXPECTED_DATA_PAGES = {
     "investment-workspace.html": "investment-workspace",
     "portfolio.html": "portfolio",
 }
-VN_NAV_LABELS = [
-    "Tổng quan",
-    "Bộ lọc",
-    "Tín hiệu",
-    "Bàn quyết định",
-    "Danh mục",
-    "Vĩ mô",
-    "Giới thiệu",
-    "Lịch sử",
-]
-COMPACT_NAV_LABELS = [
-    "Tổng quan",
-    "Bộ lọc",
-    "Tín hiệu",
-    "Bàn quyết định",
-    "Danh mục",
-    "Vĩ mô",
-    "Giới thiệu",
-]
-DECISION_FLOW_NAV_LABELS = ["Tổng quan", "Bàn quyết định", "Danh mục", "Vĩ mô"]
+VN_NAV_LABELS = ["Tổng quan", "Cơ hội", "Danh mục", "Vĩ mô", "Lịch sử"]
+COMPACT_NAV_LABELS = VN_NAV_LABELS
+DECISION_FLOW_NAV_LABELS = VN_NAV_LABELS
 OLD_ENGLISH_NAV_LABELS = ["Dashboard", "Screener", "Analysis", "Signals", "Macro", "About"]
 
 
@@ -87,7 +70,7 @@ class NavigationContractTests(unittest.TestCase):
     def test_3_all_expected_route_links_exist(self):
         for name in PAGE_NAMES:
             content = (ROOT / name).read_text(encoding="utf-8")
-            for route in PAGE_NAMES:
+            for route in ("dashboard.html", "investment-workspace.html", "portfolio.html", "macro.html", "archive.html", "about.html"):
                 self.assertIn(f'href="{route}"', content, f"Thiếu href={route} trong {name}")
         for name in PRODUCT_SURFACE_PAGES:
             content = (ROOT / name).read_text(encoding="utf-8")
@@ -95,7 +78,7 @@ class NavigationContractTests(unittest.TestCase):
                 self.assertIn(f'href="{route}"', content, f"Thiếu href={route} trong {name}")
 
     def test_4_data_nav_keys_unchanged(self):
-        expected_nav_keys = {"dashboard", "screener", "signals", "investment-workspace", "portfolio", "macro", "about", "archive"}
+        expected_nav_keys = {"dashboard", "investment-workspace", "portfolio", "macro", "archive"}
         for name in SHELL_PAGES:
             content = (ROOT / name).read_text(encoding="utf-8")
             found_keys = set(re.findall(r'data-nav=["\']([^"\']+)["\']', content))

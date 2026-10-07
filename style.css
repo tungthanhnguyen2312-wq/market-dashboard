@@ -32,7 +32,7 @@
   /* ---------- Typography ---------- */
   --text: #f8fafc;
   --text-secondary: #a5b4c7;
-  --text-muted: #64748b;
+  --text-muted: #94a3b8;
   --text-primary: var(--text);
 
   /* ---------- UI Control Accent (Teal/Cyan) ---------- */
@@ -763,3 +763,23 @@ table.dataTable thead .dt-column-order:after { color: var(--primary); }
   .dashboard-utility-card .card-body { flex-direction: column; align-items: stretch; }
   .dashboard-utility-card .vs-btn { text-align: center; }
 }
+
+/* Investor-first Home: four calm sections, no diagnostic KPI wall. */
+.vs-content.investor-home { max-width: 1200px; }
+.home-breadth { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; padding:1rem 0 0; }
+.home-breadth span { display:block; color:var(--text-muted); font-size:.85rem; }
+.home-breadth strong { display:block; font-size:1.6rem; font-variant-numeric:tabular-nums; }
+.home-sector-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.7rem 1.5rem; }
+.home-sector-list > div { display:flex; justify-content:space-between; gap:1rem; font-size:.88rem; }
+.home-sector-list strong { white-space:nowrap; }
+.home-opportunities { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:1rem; }
+.home-opportunity { padding:.8rem; background:var(--surface-2); border-radius:var(--radius-md); min-width:0; }
+.home-opportunity h3 { font-size:1.1rem; }
+.home-opportunity p { font-size:.83rem; margin:.5rem 0; }
+.home-opportunity a { color:var(--accent-text-strong); }
+#home-methods summary { cursor:pointer; }
+.decision-summary-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:.75rem; }
+.decision-stance-card .count { display:block; font-size:1.2rem; }
+.decision-stance-card .label { color:var(--text-muted); font-size:.8rem; }
+@media (max-width:1024px) { .home-opportunities { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:600px) { .home-opportunities,.home-sector-list { grid-template-columns:1fr; } }

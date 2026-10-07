@@ -150,7 +150,7 @@
         model = payload;
         render();
       } catch (err) {
-        alert("JSON danh mục không hợp lệ");
+        alert("Tệp danh mục không hợp lệ");
       }
     };
     reader.readAsText(file);
