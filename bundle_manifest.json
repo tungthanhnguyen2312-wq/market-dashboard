@@ -11,10 +11,10 @@
     "present": true,
     "records_fingerprint": "fc8f077e965877b0c160d5b0de2c2004f5758c6036453bae0bacbd11bb70a6d1",
     "input_fingerprint": "ba009fe4e46331df44838b277fe54cef4319872d2a3520aceeb7752a66f6c8c5",
-    "session_identity": "2026-10-08",
+    "session_identity": "2026-10-09",
     "authority_level": "generated_evidence"
   },
-  "generated_at": "2026-10-08T00:00:00+00:00",
+  "generated_at": "2026-10-09T00:00:00+00:00",
   "tickers": [
     "POW",
     "SSI",
@@ -29,7 +29,7 @@
     "NVL"
   ],
   "freshness": {
-    "reference_session": "2026-10-08",
+    "reference_session": "2026-10-09",
     "status": "fresh",
     "blocked": false,
     "stale": [],
@@ -72,24 +72,24 @@
       "VNM"
     ],
     "trust_state": "untrusted_basis",
-    "session_identity": "2026-10-08",
-    "generated_at": "2026-10-08T00:00:00+00:00",
+    "session_identity": "2026-10-09",
+    "generated_at": "2026-10-09T00:00:00+00:00",
     "bundle_filename": "analysis_bundle.json",
-    "bundle_sha256": "2a1bb5164636bff8aeb62c58863a35bfc8a7c421fb6366cde46eaa56424446e1",
-    "bundle_reference_session_date": "2026-10-08",
-    "bundle_generated_at": "2026-10-08T00:00:00+00:00",
+    "bundle_sha256": "2ea0dd1c271b0ca17a3f8360842e8fc40d487f67ec13c2c199632b47026aeb29",
+    "bundle_reference_session_date": "2026-10-09",
+    "bundle_generated_at": "2026-10-09T00:00:00+00:00",
     "required_artifacts": [
       {
         "file": "analysis_bundle.json",
-        "sha256": "2a1bb5164636bff8aeb62c58863a35bfc8a7c421fb6366cde46eaa56424446e1"
+        "sha256": "2ea0dd1c271b0ca17a3f8360842e8fc40d487f67ec13c2c199632b47026aeb29"
       },
       {
         "file": "focus_extract.json",
-        "sha256": "5b9c43e10820cf1570b0f33a56c1dd9391af3adf4aec3b77a054900566886128"
+        "sha256": "2bf5707297ef35c18d0da0ccb056f1a65f777d933450bbaad3534ebe9f5786cb"
       },
       {
         "file": "statement_taxonomy_sidecar.json",
-        "sha256": "d9f3874bd048c07fc6170d31c324d1a85134997cd8d28cfb0409c92d39020865"
+        "sha256": "206aef851c7588818fddf950d96c5cc4ab84482f523631156be2b22cad289298"
       }
     ],
     "expected_artifact_filenames": [
@@ -100,77 +100,77 @@
     ],
     "per_ticker": {
       "EVF": {
-        "session_identity": "2026-10-08",
+        "session_identity": "2026-10-09",
         "required_current_fields_qualified": true,
         "warnings": [
           "canonical_trusted_subset:legacy_ta_signals_not_on_session"
         ]
       },
       "FPT": {
-        "session_identity": "2026-10-08",
+        "session_identity": "2026-10-09",
         "required_current_fields_qualified": true,
         "warnings": [
           "canonical_trusted_subset:legacy_ta_signals_not_on_session"
         ]
       },
       "HPG": {
-        "session_identity": "2026-10-08",
+        "session_identity": "2026-10-09",
         "required_current_fields_qualified": true,
         "warnings": [
           "canonical_trusted_subset:legacy_ta_signals_not_on_session"
         ]
       },
       "NVL": {
-        "session_identity": "2026-10-08",
+        "session_identity": "2026-10-09",
         "required_current_fields_qualified": true,
         "warnings": [
           "canonical_trusted_subset:legacy_ta_signals_not_on_session"
         ]
       },
       "PAN": {
-        "session_identity": "2026-10-08",
+        "session_identity": "2026-10-09",
         "required_current_fields_qualified": true,
         "warnings": [
           "canonical_trusted_subset:legacy_ta_signals_not_on_session"
         ]
       },
       "PNJ": {
-        "session_identity": "2026-10-08",
+        "session_identity": "2026-10-09",
         "required_current_fields_qualified": true,
         "warnings": [
           "canonical_trusted_subset:legacy_ta_signals_not_on_session"
         ]
       },
       "POW": {
-        "session_identity": "2026-10-08",
+        "session_identity": "2026-10-09",
         "required_current_fields_qualified": true,
         "warnings": [
           "canonical_trusted_subset:legacy_ta_signals_not_on_session"
         ]
       },
       "PVD": {
-        "session_identity": "2026-10-08",
+        "session_identity": "2026-10-09",
         "required_current_fields_qualified": true,
         "warnings": [
           "canonical_trusted_subset:legacy_ta_signals_not_on_session"
         ]
       },
       "QNS": {
-        "session_identity": "2026-10-08",
+        "session_identity": "2026-10-09",
         "required_current_fields_qualified": true,
         "warnings": [
           "canonical_trusted_subset:legacy_ta_signals_not_on_session"
         ]
       },
       "SSI": {
-        "session_identity": "2026-10-08",
+        "session_identity": "2026-10-09",
         "required_current_fields_qualified": true,
         "warnings": [
           "canonical_trusted_subset:legacy_ta_signals_not_on_session"
         ]
       },
       "VNM": {
-        "session_identity": "2026-10-08",
+        "session_identity": "2026-10-09",
         "required_current_fields_qualified": true,
         "warnings": [
           "canonical_trusted_subset:legacy_ta_signals_not_on_session"
@@ -188,7 +188,7 @@
   },
   "canonical_runtime_release": {
     "release_contract": {
-      "session": "2026-10-08",
+      "session": "2026-10-09",
       "source": "retained_canonical_daily_producer",
       "unavailable_legacy_fields": [
         "historical_indicator_suite",
@@ -200,121 +200,121 @@
     },
     "lineage": {
       "current_decision_cockpit": {
-        "operation_identity": "daily_research_session_operation:537cda6b2e7085d1461d925c7f342cf5e870feca41abb6d5ecaccd71f7262a98",
-        "path": "operations-review/daily-producer-runs-v1/2026-10-08/cb57e79acb26926b77eab3ff3b109bb19b31adc8bfdd05327cf26eca0264b1c1/dashboard/current_decision_cockpit_projection.json",
-        "producer_run_identity": "daily_producer_run:cb57e79acb26926b77eab3ff3b109bb19b31adc8bfdd05327cf26eca0264b1c1",
-        "projection_identity": "dashboard_decision_cockpit_projection:c6c2bd70975300c874dcd887cbf3896316697d575f12cd35d86e9b600f1315a4",
-        "session": "2026-10-08",
-        "sha256": "a53950603008d39f0d46044fbfcf5bc7b6f4c23e65ec3e333ddab415d428f993"
+        "operation_identity": "daily_research_session_operation:dd6f88d0a0a74ce5a91f3f65667d4f5441b644cfba4e655e1a0941c85fc1fb09",
+        "path": "operations-review/daily-producer-runs-v1/2026-10-09/5aba1893481d2b78fc554226670d469aabe2d9850e95a07cac52c45c8fa4efa5/dashboard/current_decision_cockpit_projection.json",
+        "producer_run_identity": "daily_producer_run:5aba1893481d2b78fc554226670d469aabe2d9850e95a07cac52c45c8fa4efa5",
+        "projection_identity": "dashboard_decision_cockpit_projection:9f89edfb6ff1c2f76ff334dfa6b1c714b6e094280ed13cb2b706fef0a44c8052",
+        "session": "2026-10-09",
+        "sha256": "5fd86c8a85243117fb05fc7432e3d821096688c802dc838182a0585a43152427"
       },
       "daily_producer_bundle": {
-        "path": "operations-review\\daily-producer-runs-v1\\2026-10-08\\cb57e79acb26926b77eab3ff3b109bb19b31adc8bfdd05327cf26eca0264b1c1\\ai_research_session_bundle.json",
-        "sha256": "05dfedeaa9a29678ab18cb544691282ff427ba4a5d5d116bf179d7cafbe56bdd"
+        "path": "operations-review\\daily-producer-runs-v1\\2026-10-09\\5aba1893481d2b78fc554226670d469aabe2d9850e95a07cac52c45c8fa4efa5\\ai_research_session_bundle.json",
+        "sha256": "6a6b245dfe335ffa18733c4f5dd8b21dfe56bfc76dd4a939941cd431b08b9cbc"
       },
       "daily_producer_run": {
-        "path": "operations-review\\daily-producer-runs-v1\\2026-10-08\\cb57e79acb26926b77eab3ff3b109bb19b31adc8bfdd05327cf26eca0264b1c1\\run_manifest.json",
-        "run_identity": "daily_producer_run:cb57e79acb26926b77eab3ff3b109bb19b31adc8bfdd05327cf26eca0264b1c1",
-        "sha256": "09f8e751b7f8b6830f848552acfa690349eff515b253db3c727529d3e27ec312"
+        "path": "operations-review\\daily-producer-runs-v1\\2026-10-09\\5aba1893481d2b78fc554226670d469aabe2d9850e95a07cac52c45c8fa4efa5\\run_manifest.json",
+        "run_identity": "daily_producer_run:5aba1893481d2b78fc554226670d469aabe2d9850e95a07cac52c45c8fa4efa5",
+        "sha256": "a768869e2ad8d6530daab9f6a452664106a1b61d1ffa7842007632dda8e4d7ca"
       },
       "dashboard_home_summary": {
-        "artifact_identity": "dashboard_home_summary/v1:8d1a1a7d5c3e1e616a3bdb63b2c9c7049b0cebef8f0448b176e1cc3f6bf1f7a6",
-        "artifact_sha256": "8d1a1a7d5c3e1e616a3bdb63b2c9c7049b0cebef8f0448b176e1cc3f6bf1f7a6",
+        "artifact_identity": "dashboard_home_summary/v1:4208e0961377019f8712c28ec8aa532a280868e679a82693fd452309f7fc58d5",
+        "artifact_sha256": "4208e0961377019f8712c28ec8aa532a280868e679a82693fd452309f7fc58d5",
         "denominator": 1683,
         "derivation": "dashboard_home_summary.build_home_summary(restaged_presentation_screener)",
-        "operation_identity": "daily_research_session_operation:537cda6b2e7085d1461d925c7f342cf5e870feca41abb6d5ecaccd71f7262a98",
-        "path": "operations-review/current-corporate-product-projection-v1/2026-10-08/b7f8f98f8ecf6712280432fb062f3a7c5d4efc816e4089a06e57e06b94ddd669/2026-10-08/dashboard_home_summary.json",
-        "producer_run_identity": "daily_producer_run:cb57e79acb26926b77eab3ff3b109bb19b31adc8bfdd05327cf26eca0264b1c1",
+        "operation_identity": "daily_research_session_operation:dd6f88d0a0a74ce5a91f3f65667d4f5441b644cfba4e655e1a0941c85fc1fb09",
+        "path": "operations-review/current-corporate-product-projection-v1/2026-10-10/52dde79cd0cd8e75c570b000473be9c1695d57709d0456dcf7250dc4c3c185ae/2026-10-09/dashboard_home_summary.json",
+        "producer_run_identity": "daily_producer_run:5aba1893481d2b78fc554226670d469aabe2d9850e95a07cac52c45c8fa4efa5",
         "sealed_source": {
-          "artifact_identity": "dashboard_home_summary/v1:f99c8f4bd4ea6d3a9bd8f5829ff1707f421f83c247d3908c02537be898d4071a",
-          "artifact_sha256": "f99c8f4bd4ea6d3a9bd8f5829ff1707f421f83c247d3908c02537be898d4071a",
-          "operation_manifest_sha256": "c669d440135e11be678e7ec04d24b23682d5931573e7214a74728b9a57eb469a",
-          "path": "operations-review/daily-research-session-operations-v1/2026-10-08/537cda6b2e7085d1461d925c7f342cf5e870feca41abb6d5ecaccd71f7262a98/dashboard_home_summary.json",
-          "sha256": "0891d664d13f1e3bb9bdfd99466bd228dd08b9e3cf00816f9ae6dd836949e8db"
+          "artifact_identity": "dashboard_home_summary/v1:9626ae608c2a987cf43ab33c8f7dff2bd8dd0af6da482ca142314559c516c160",
+          "artifact_sha256": "9626ae608c2a987cf43ab33c8f7dff2bd8dd0af6da482ca142314559c516c160",
+          "operation_manifest_sha256": "dca9bcde345488274391e01514adc30f63cd5e5f60129a42e4f23ab83f8af7f4",
+          "path": "operations-review/daily-research-session-operations-v1/2026-10-09/dd6f88d0a0a74ce5a91f3f65667d4f5441b644cfba4e655e1a0941c85fc1fb09/dashboard_home_summary.json",
+          "sha256": "ad118f91a4d263e48a626f8dece0be262410aa5434025612445cb5690f25fea8"
         },
-        "session": "2026-10-08",
-        "sha256": "5e4811b76010b95296312eda856f90e6d3a75919bfc045be05cb07b3dd95a9c2",
-        "source_artifact_identity": "screener_master_projection/v1:226a0d2c12a9f764a535d3f3399743e78314ea5cb4a0a55e3aa67996940b57b9"
+        "session": "2026-10-09",
+        "sha256": "98835ffa9220e2ab2b6fc12bb920ee9aa3ac8a2ccf047e603d8bbb9d7f8a487b",
+        "source_artifact_identity": "screener_master_projection/v1:bd92445d8e60da71251bd5a265eebd5068ea4e7c697c94e27b3425dffb3b7cd4"
       },
       "descriptive": {
-        "artifact_identity": "market_wide_current_descriptive_research:dc7ab73964bee31e4437df5c513b7fff516abed7e395de55b90a12fdbe9ef396",
-        "path": "operations-review\\market-wide-current-descriptive-research-v1-20261008\\market_wide_current_descriptive_research_artifact.json",
-        "sha256": "1e068603fe4616af10c56bc4bae8587535dae36a3ceb18005fd292a5a49ba190"
+        "artifact_identity": "market_wide_current_descriptive_research:f7dd637012e352921a92da6768829f645ff005fadca5290cb9e6a52b7dab9c71",
+        "path": "operations-review\\market-wide-current-descriptive-research-v1-20261009\\market_wide_current_descriptive_research_artifact.json",
+        "sha256": "394eb0e84a71a5c044a18fd75cd8a25e9b5a4872878fb9faa785e692af5d5c12"
       },
       "investment_decision_workspace": {
-        "artifact_identity": "investment_decision_workspace_projection/v1:5553c993a8af85877fd144d307729ef55cf4eb12295a69a807051ccf3f31f9e0",
-        "artifact_sha256": "5553c993a8af85877fd144d307729ef55cf4eb12295a69a807051ccf3f31f9e0",
+        "artifact_identity": "investment_decision_workspace_projection/v1:c8028915320418dfd1c88af1d42fb96aeebd15a143a9cfb79e5843247490611c",
+        "artifact_sha256": "c8028915320418dfd1c88af1d42fb96aeebd15a143a9cfb79e5843247490611c",
         "derivation": "post_handoff_presentation_projection/v1",
-        "operation_identity": "daily_research_session_operation:537cda6b2e7085d1461d925c7f342cf5e870feca41abb6d5ecaccd71f7262a98",
-        "path": "operations-review/current-corporate-product-projection-v1/2026-10-08/b7f8f98f8ecf6712280432fb062f3a7c5d4efc816e4089a06e57e06b94ddd669/2026-10-08/investment_decision_workspace_projection.json",
-        "producer_run_identity": "daily_producer_run:cb57e79acb26926b77eab3ff3b109bb19b31adc8bfdd05327cf26eca0264b1c1",
+        "operation_identity": "daily_research_session_operation:dd6f88d0a0a74ce5a91f3f65667d4f5441b644cfba4e655e1a0941c85fc1fb09",
+        "path": "operations-review/current-corporate-product-projection-v1/2026-10-10/52dde79cd0cd8e75c570b000473be9c1695d57709d0456dcf7250dc4c3c185ae/2026-10-09/investment_decision_workspace_projection.json",
+        "producer_run_identity": "daily_producer_run:5aba1893481d2b78fc554226670d469aabe2d9850e95a07cac52c45c8fa4efa5",
         "sealed_source": {
-          "artifact_identity": "investment_decision_workspace_projection/v1:14ffae3440541a6e0f945edc8d1dabd6f6bcd43549bae11c7621b6972d67cdb8",
-          "artifact_sha256": "14ffae3440541a6e0f945edc8d1dabd6f6bcd43549bae11c7621b6972d67cdb8",
-          "operation_manifest_sha256": "c669d440135e11be678e7ec04d24b23682d5931573e7214a74728b9a57eb469a",
-          "path": "operations-review/daily-research-session-operations-v1/2026-10-08/537cda6b2e7085d1461d925c7f342cf5e870feca41abb6d5ecaccd71f7262a98/investment_decision_workspace_projection.json",
-          "sha256": "ce49e27f5986cb9c1f0d041e6274af07a1399d448810b1e36924be5db4dc7589"
+          "artifact_identity": "investment_decision_workspace_projection/v1:0af47ab5077da3fa4748fff4c852ab9351679980bf83dd0a0397570fe8e44685",
+          "artifact_sha256": "0af47ab5077da3fa4748fff4c852ab9351679980bf83dd0a0397570fe8e44685",
+          "operation_manifest_sha256": "dca9bcde345488274391e01514adc30f63cd5e5f60129a42e4f23ab83f8af7f4",
+          "path": "operations-review/daily-research-session-operations-v1/2026-10-09/dd6f88d0a0a74ce5a91f3f65667d4f5441b644cfba4e655e1a0941c85fc1fb09/investment_decision_workspace_projection.json",
+          "sha256": "6f1c3c7a91a91577e2ac7a484288aa223dc1c2b43749313911ee5e94df942cfe"
         },
-        "session": "2026-10-08",
-        "sha256": "61b7dff948513c6362a4129b3474bf96a16e1005ea5ca46e90818153378c73b5",
+        "session": "2026-10-09",
+        "sha256": "013f10d7d0f14d00c7523837aa3e3020dc4a602ea29bde6ddee7dbbe5b90e831",
         "ticker_denominator": 1683,
         "zero_silent_ticker_drops": true
       },
       "official_universe": {
         "artifact_identity": "current_official_market_universe:d77e16f82893df419689b24356d066d6a6431bd3c27e09190e3c319e004abb55",
-        "path": "operations-review\\corporate-daily-frozen-inputs-v1\\2026-10-08\\d77e16f82893df419689b24356d066d6a6431bd3c27e09190e3c319e004abb55.json",
+        "path": "operations-review\\corporate-daily-frozen-inputs-v1\\2026-10-09\\d77e16f82893df419689b24356d066d6a6431bd3c27e09190e3c319e004abb55.json",
         "sha256": "1552ebb30c77e4c25ba91f9e2e7cf14e806f1e825dd93733d7794707857f8585"
       },
       "presentation_projection": {
-        "restaged_dashboard_home_summary_artifact_identity": "dashboard_home_summary/v1:8d1a1a7d5c3e1e616a3bdb63b2c9c7049b0cebef8f0448b176e1cc3f6bf1f7a6",
-        "restaged_screener_master_projection_artifact_identity": "screener_master_projection/v1:226a0d2c12a9f764a535d3f3399743e78314ea5cb4a0a55e3aa67996940b57b9",
-        "restaged_workspace_artifact_identity": "investment_decision_workspace_projection/v1:5553c993a8af85877fd144d307729ef55cf4eb12295a69a807051ccf3f31f9e0",
-        "sealed_dashboard_home_summary_artifact_identity": "dashboard_home_summary/v1:f99c8f4bd4ea6d3a9bd8f5829ff1707f421f83c247d3908c02537be898d4071a",
-        "sealed_screener_master_projection_artifact_identity": "screener_master_projection/v1:0fe8e1cc8551ce22291aca11a020a1fd03768aa8bf217afa8c968e24290e718c",
-        "sealed_workspace_artifact_identity": "investment_decision_workspace_projection/v1:14ffae3440541a6e0f945edc8d1dabd6f6bcd43549bae11c7621b6972d67cdb8",
-        "session": "2026-10-08"
+        "restaged_dashboard_home_summary_artifact_identity": "dashboard_home_summary/v1:4208e0961377019f8712c28ec8aa532a280868e679a82693fd452309f7fc58d5",
+        "restaged_screener_master_projection_artifact_identity": "screener_master_projection/v1:bd92445d8e60da71251bd5a265eebd5068ea4e7c697c94e27b3425dffb3b7cd4",
+        "restaged_workspace_artifact_identity": "investment_decision_workspace_projection/v1:c8028915320418dfd1c88af1d42fb96aeebd15a143a9cfb79e5843247490611c",
+        "sealed_dashboard_home_summary_artifact_identity": "dashboard_home_summary/v1:9626ae608c2a987cf43ab33c8f7dff2bd8dd0af6da482ca142314559c516c160",
+        "sealed_screener_master_projection_artifact_identity": "screener_master_projection/v1:549e19e3e3ee4fa4620054f22113ee9532f9b329c2f58ce4c914f6e6f722ee6b",
+        "sealed_workspace_artifact_identity": "investment_decision_workspace_projection/v1:0af47ab5077da3fa4748fff4c852ab9351679980bf83dd0a0397570fe8e44685",
+        "session": "2026-10-09"
       },
       "retained_tier_handoff": {
-        "current_research_packet_identity": "current_research_decision_packet:c4fc0700eddfa04d281722ddb15ba0e6f10a8e15b0eaf460a48c9be1952908f0",
-        "path": "operations-review\\canonical-post-close-v1\\2026-10-08\\session_handoff_bundle.json",
-        "prospective_cohort_snapshot_identity": "prospective_research_cohort_snapshot:091beb976e59e0f9ca29820d18524abac974c277bbdd091ce5f21ba421040a00",
-        "retained_daily_producer_run_identity": "daily_producer_run:cb57e79acb26926b77eab3ff3b109bb19b31adc8bfdd05327cf26eca0264b1c1",
-        "runtime_daily_producer_run_identity": "daily_producer_run:cb57e79acb26926b77eab3ff3b109bb19b31adc8bfdd05327cf26eca0264b1c1",
-        "sha256": "41a378ee11d7bee251314257296bf687eb0b7c57f7cb2768868e41ea0272c76b",
+        "current_research_packet_identity": "current_research_decision_packet:06db0175a3a63d6f722c4f1ed7c81763e5bf0b8342e7fb98de93efa0298a4d47",
+        "path": "operations-review\\canonical-post-close-v1\\2026-10-09\\session_handoff_bundle.json",
+        "prospective_cohort_snapshot_identity": "prospective_research_cohort_snapshot:deffc0e828e033804106b73d6371f9f9f99bbbd1d521867701a247d75a893542",
+        "retained_daily_producer_run_identity": "daily_producer_run:5aba1893481d2b78fc554226670d469aabe2d9850e95a07cac52c45c8fa4efa5",
+        "runtime_daily_producer_run_identity": "daily_producer_run:5aba1893481d2b78fc554226670d469aabe2d9850e95a07cac52c45c8fa4efa5",
+        "sha256": "1e29cbe402edc4217cdbd41526fab8407e6d8049e382558ea2cdfe096c40b9f2",
         "source_lineage_status": "PASS"
       },
       "screener_master_projection": {
-        "artifact_identity": "screener_master_projection/v1:226a0d2c12a9f764a535d3f3399743e78314ea5cb4a0a55e3aa67996940b57b9",
-        "artifact_sha256": "226a0d2c12a9f764a535d3f3399743e78314ea5cb4a0a55e3aa67996940b57b9",
+        "artifact_identity": "screener_master_projection/v1:bd92445d8e60da71251bd5a265eebd5068ea4e7c697c94e27b3425dffb3b7cd4",
+        "artifact_sha256": "bd92445d8e60da71251bd5a265eebd5068ea4e7c697c94e27b3425dffb3b7cd4",
         "derivation": "post_handoff_presentation_projection/v1",
-        "operation_identity": "daily_research_session_operation:537cda6b2e7085d1461d925c7f342cf5e870feca41abb6d5ecaccd71f7262a98",
-        "path": "operations-review/current-corporate-product-projection-v1/2026-10-08/b7f8f98f8ecf6712280432fb062f3a7c5d4efc816e4089a06e57e06b94ddd669/2026-10-08/screener_master_projection.json",
-        "producer_run_identity": "daily_producer_run:cb57e79acb26926b77eab3ff3b109bb19b31adc8bfdd05327cf26eca0264b1c1",
+        "operation_identity": "daily_research_session_operation:dd6f88d0a0a74ce5a91f3f65667d4f5441b644cfba4e655e1a0941c85fc1fb09",
+        "path": "operations-review/current-corporate-product-projection-v1/2026-10-10/52dde79cd0cd8e75c570b000473be9c1695d57709d0456dcf7250dc4c3c185ae/2026-10-09/screener_master_projection.json",
+        "producer_run_identity": "daily_producer_run:5aba1893481d2b78fc554226670d469aabe2d9850e95a07cac52c45c8fa4efa5",
         "sealed_source": {
-          "artifact_identity": "screener_master_projection/v1:0fe8e1cc8551ce22291aca11a020a1fd03768aa8bf217afa8c968e24290e718c",
-          "artifact_sha256": "0fe8e1cc8551ce22291aca11a020a1fd03768aa8bf217afa8c968e24290e718c",
-          "operation_manifest_sha256": "c669d440135e11be678e7ec04d24b23682d5931573e7214a74728b9a57eb469a",
-          "path": "operations-review/daily-research-session-operations-v1/2026-10-08/537cda6b2e7085d1461d925c7f342cf5e870feca41abb6d5ecaccd71f7262a98/screener_master_projection.json",
-          "sha256": "347c0c20e6713fd79dd08c0e27f43e121111c523547a59fc32166a3f792c7671"
+          "artifact_identity": "screener_master_projection/v1:549e19e3e3ee4fa4620054f22113ee9532f9b329c2f58ce4c914f6e6f722ee6b",
+          "artifact_sha256": "549e19e3e3ee4fa4620054f22113ee9532f9b329c2f58ce4c914f6e6f722ee6b",
+          "operation_manifest_sha256": "dca9bcde345488274391e01514adc30f63cd5e5f60129a42e4f23ab83f8af7f4",
+          "path": "operations-review/daily-research-session-operations-v1/2026-10-09/dd6f88d0a0a74ce5a91f3f65667d4f5441b644cfba4e655e1a0941c85fc1fb09/screener_master_projection.json",
+          "sha256": "3d607fb85205f90eba156eb4662834cafb8062f3720b6152b4a6450101c68c5e"
         },
-        "session": "2026-10-08",
-        "sha256": "70edfb290796ea301effe366aa27ce752dfda284df29e14e3229388c9a37b24e",
+        "session": "2026-10-09",
+        "sha256": "12505b1a8a527ad71313cab2dc8b15b39f0d8cb653b91c3ff876a817736b2d76",
         "ticker_denominator": 1683,
         "zero_silent_ticker_drops": true
       },
       "screening": {
-        "artifact_identity": "current_market_screening_opportunity_comparison_foundation:331a50b1726483f5f096c045686740adcfadcfe92e26114aa006c2843ade7dbc",
-        "path": "operations-review\\current-market-screening-opportunity-comparison-foundation-v1-20261008\\current_market_screening_opportunity_comparison_foundation_artifact.json",
-        "sha256": "ee4c8b5aa4e6632beb510d02141298a2780c7cd8559937ee7adb57a65c48f480"
+        "artifact_identity": "current_market_screening_opportunity_comparison_foundation:140356e9237f60e1e5bfc7698aa4e9e17b65eb5c83577775abc91a37bd6e9369",
+        "path": "operations-review\\current-market-screening-opportunity-comparison-foundation-v1-20261009\\current_market_screening_opportunity_comparison_foundation_artifact.json",
+        "sha256": "fff3c4f2b07c6d00e02656f766368f26c66acafc1ba11c6381924dd7311b6223"
       },
       "tactical": {
-        "artifact_identity": "watchlist_tactical_entry_classifier:4235294232212544609cb1f9ce75efeb7476491aac0ccef763e38a1801fdf2eb",
-        "path": "operations-review\\watchlist-tactical-entry-decision-v1-20261008\\watchlist_tactical_entry_classifier_artifact.json",
-        "sha256": "1f81224c8f92c8f03de6c093a2ea0390ebc710d20d02fba531334381360833e6"
+        "artifact_identity": "watchlist_tactical_entry_classifier:a5d63cad571380cf4f267c8cfca2add876ba8940ddebb9f2509b7fefa64bed82",
+        "path": "operations-review\\watchlist-tactical-entry-decision-v1-20261009\\watchlist_tactical_entry_classifier_artifact.json",
+        "sha256": "cd36fa94d1b77cfbf92034c43f044b1f9f7b4aaaa4652f2b8d80d5108a18b956"
       },
       "triage": {
-        "artifact_identity": "full_universe_entry_candidate_triage:309e364acaeea68576e9ee84c25566bb8739566a03df7006ce9a86ac62eeca2a",
-        "path": "operations-review\\full-universe-entry-candidate-triage-v1-20261008\\full_universe_entry_candidate_triage_20261008.json",
-        "sha256": "9f6e4242ed1e1d6589823e22fabd0c294a56900266c6713368e38fb8eea55272"
+        "artifact_identity": "full_universe_entry_candidate_triage:c6f06bc3353da8015e2183b81b91065782113540c41dd58a32e3385101f9ea58",
+        "path": "operations-review\\full-universe-entry-candidate-triage-v1-20261009\\full_universe_entry_candidate_triage_20261009.json",
+        "sha256": "1b0bd14fdab1ee88c1b62bad08392211483c183bcc0296a58806005868f3fa5e"
       }
     }
   }
