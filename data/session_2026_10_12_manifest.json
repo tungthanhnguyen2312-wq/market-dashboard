@@ -1,0 +1,859 @@
+{
+  "build_id": "2026-10-12-81cf998-9e3198242e",
+  "canonical_producer_status": {
+    "active_equity_universe": 1501,
+    "input_candidates": 1683,
+    "observed_session_cohort": 866,
+    "operation_identity": "daily_research_session_operation:c108b11c2b60ed7a5fe8562c5bc01f15ee9028e32e10693bbdaefa8c9edd941b",
+    "registration_state": "COMPLETED_RETAINED_EVIDENCE",
+    "run_identity": "daily_producer_run:fcb9953697a134e7cacc2220d9fd972e819b065a749a5664ae1e465e4a0e6935",
+    "status": "COMPLETED",
+    "technical_coverage": 863
+  },
+  "contract_version": "dashboard_session_companions/v1",
+  "current_research_packet_identity": "current_research_decision_packet:0de441a80b68ca76518732e5cca41f5e3cf1b5a1cffb83009ed2909b4d17b206",
+  "dashboard_session": "2026-10-12",
+  "governed_boundaries": {
+    "authority_boundary": {
+      "entry_action_is_research_label_not_execution_instruction": true,
+      "is_actionable": false,
+      "owner_focus_is_not_portfolio_holdings": true,
+      "probability": "UNKNOWN_UNCALIBRATED",
+      "recommendation": "NOT_EMITTED",
+      "research_human_review_only": true,
+      "target_price_ranking_sizing_execution": "NOT_EMITTED"
+    },
+    "blocked_dimensions": [
+      "STRICT_VALUATION",
+      "NO_LIQUIDITY_SIZING_EXECUTION_AUTHORITY",
+      "NO_EXPLICIT_PORTFOLIO"
+    ],
+    "calibrated_targets_probabilities": "NOT_EMITTED",
+    "explicit_portfolio": "NOT_SUPPLIED",
+    "liquidity_sizing_execution": "BLOCKED_NO_SIZING_EXECUTION_AUTHORITY",
+    "macro_optional": "UNAVAILABLE",
+    "pit_raw_as_traded": "NOT_PROMOTED",
+    "prohibited_claims": [
+      "No price targets or expected returns.",
+      "No buy/sell/hold recommendations.",
+      "No portfolio weighting or position sizing.",
+      "No probabilistic predictions or calibrated bull/bear certainty.",
+      "No unqualified liquidity or execution-capacity assertions.",
+      "Strict valuation, PIT, and RAW_AS_TRADED remain unpromoted."
+    ],
+    "strict_valuation": "BLOCKED"
+  },
+  "market_summary": {
+    "above_ma20": 339,
+    "advance_ratio": 0.40324449594438005,
+    "advancing": 348,
+    "at_or_below_ma20": 524,
+    "breadth_descriptor": "MARKET_BREADTH_MIXED",
+    "declining": 331,
+    "median_20d_cross_sectional_volatility": {
+      "authority_tier": "SHADOW_ONLY",
+      "value": 0.021031235321060365,
+      "warning": "CONTEMPORANEOUS_CROSS_SECTION_ONLY_NOT_HISTORICAL_REGIME"
+    },
+    "momentum_descriptor": "MOMENTUM_BREADTH_MIXED",
+    "negative_20d_momentum_count": 510,
+    "positive_20d_momentum_count": 314,
+    "unchanged": 184
+  },
+  "producer_commit": "4755d94a977f468a4122e40fba77850281582f42",
+  "producer_commit_semantics": "pre_publication_producer_head",
+  "producer_commit_summary": "daily: retain 2026-10-12 completed session",
+  "prospective_cohort_identity": "prospective_research_cohort_snapshot:98e014b76746f1065d4c88bf9d96b1f74fcba22e2e8620f77fc54b9aac03fda6",
+  "schema_version": "1.0.0",
+  "source_artifacts": {
+    "canonical_current_session": [
+      {
+        "component_id": "corporate_intelligence",
+        "execution_disposition": "REUSE_CURRENT_VALID_RETAINED",
+        "freshness": "EXACT_SESSION",
+        "identity": "market_wide_current_corporate_intelligence:f6bb68e9edc7e56cee50f409a4311ac7dc259d6d689bf4f6e5cfdd182dc9ca68",
+        "path": "operations-review/market-wide-current-corporate-intelligence-v1-20261012/market_wide_current_corporate_intelligence_artifact.json",
+        "session": "2026-10-12"
+      },
+      {
+        "component_id": "descriptive",
+        "execution_disposition": "REUSE_CURRENT_VALID_RETAINED",
+        "freshness": "EXACT_SESSION",
+        "identity": "market_wide_current_descriptive_research:2eef0b4ac381a1fb443713b383e69666207c9e12da83ab16a9aa24222e7d2398",
+        "path": "operations-review/market-wide-current-descriptive-research-v1-20261012/market_wide_current_descriptive_research_artifact.json",
+        "session": "2026-10-12"
+      },
+      {
+        "component_id": "event_context",
+        "execution_disposition": "NOT_APPLICABLE",
+        "freshness": "EXACT_SESSION",
+        "identity": "current_official_event_context:94285766f7790735d0c6ad82089002eb25fdcfc5d594f76ac2a33bb3851f1ce3",
+        "path": "operations-review/corporate-daily-frozen-inputs-v1/2026-10-12/94285766f7790735d0c6ad82089002eb25fdcfc5d594f76ac2a33bb3851f1ce3.json",
+        "session": "2026-10-12"
+      },
+      {
+        "component_id": "screening",
+        "execution_disposition": "REUSE_CURRENT_VALID_RETAINED",
+        "freshness": "EXACT_SESSION",
+        "identity": "current_market_screening_opportunity_comparison_foundation:21633b47184eefc8dc7ab267fdc1987d419568a6992fc28bc6e41ca33dd451e5",
+        "path": "operations-review/current-market-screening-opportunity-comparison-foundation-v1-20261012/current_market_screening_opportunity_comparison_foundation_artifact.json",
+        "session": "2026-10-12"
+      },
+      {
+        "component_id": "tactical",
+        "execution_disposition": "REUSE_CURRENT_VALID_RETAINED",
+        "freshness": "EXACT_SESSION",
+        "identity": "watchlist_tactical_entry_classifier:9f9ee9935e747e923fe5484017950a2e438435c4e687ab0f38017ee37a4b1c19",
+        "path": "operations-review/watchlist-tactical-entry-decision-v1-20261012/watchlist_tactical_entry_classifier_artifact.json",
+        "session": "2026-10-12"
+      },
+      {
+        "component_id": "triage",
+        "execution_disposition": "REUSE_CURRENT_VALID_RETAINED",
+        "freshness": "EXACT_SESSION",
+        "identity": "full_universe_entry_candidate_triage:ebbf447034fae4b5926548543bf93039bcd8d822ce8a6e5a1b3cfabbcfc57e17",
+        "path": "operations-review/full-universe-entry-candidate-triage-v1-20261012/full_universe_entry_candidate_triage_20261012.json",
+        "session": "2026-10-12"
+      },
+      {
+        "component_id": "valuation",
+        "execution_disposition": "BLOCKED",
+        "freshness": "EXACT_SESSION",
+        "identity": "market_wide_current_valuation:9c318649fdc88e5ce95bb09dd4b4132d8a71be5c704512fa3139002b2b787499",
+        "path": "operations-review/market-wide-current-valuation-v1-20261012-session20261012/market_wide_current_valuation_artifact.json",
+        "session": "2026-10-12"
+      }
+    ],
+    "daily_producer_run_manifest": {
+      "path": "operations-review/daily-producer-runs-v1/2026-10-12/fcb9953697a134e7cacc2220d9fd972e819b065a749a5664ae1e465e4a0e6935/run_manifest.json",
+      "run_identity": "daily_producer_run:fcb9953697a134e7cacc2220d9fd972e819b065a749a5664ae1e465e4a0e6935"
+    },
+    "retained_tier_handoff": {
+      "path": "operations-review/canonical-post-close-v1/2026-10-12/session_handoff_bundle.json",
+      "session": "2026-10-12"
+    },
+    "reusable_prior_context": [
+      {
+        "component_id": "catalyst",
+        "execution_disposition": "REUSE_HISTORICAL_CONTEXT",
+        "freshness": "ACCEPTED_DEGRADED",
+        "identity": "catalyst_event_research_context:fcbada853866b0136a6c106da17b687dced1a8fe1a5c4021923b7582ed0c50fb",
+        "path": "operations-review/catalyst-event-research-context-v1-20260820/catalyst_event_research_context_artifact.json",
+        "session": "2026-08-20"
+      },
+      {
+        "component_id": "fundamental",
+        "execution_disposition": "REUSE_HISTORICAL_CONTEXT",
+        "freshness": "ACCEPTED_UNDATED_RETAINED_CONTEXT",
+        "identity": "market_wide_current_fundamental_research:6d79b8d10b5a03dbffb515f44beceb24fc4e33bf29de920cb4da08f028acfa71",
+        "path": "operations-review/market-wide-current-fundamental-research-v1-20261012/market_wide_current_fundamental_research_artifact.json",
+        "session": "2026-10-12"
+      },
+      {
+        "component_id": "official_universe",
+        "execution_disposition": "NOT_APPLICABLE",
+        "freshness": "CONTRACT_DEFINED_CONTEXT",
+        "identity": "current_official_market_universe:d77e16f82893df419689b24356d066d6a6431bd3c27e09190e3c319e004abb55",
+        "path": "operations-review/corporate-daily-frozen-inputs-v1/2026-10-12/d77e16f82893df419689b24356d066d6a6431bd3c27e09190e3c319e004abb55.json",
+        "session": null
+      },
+      {
+        "component_id": "macro",
+        "execution_disposition": "REUSE_HISTORICAL_CONTEXT",
+        "freshness": null,
+        "identity": "current_macro_regime:294ba6430359bbef97deab15ad422fe2ebc63174369899eee1dfbb6abe432888",
+        "path": null,
+        "session": "2026-10-12"
+      }
+    ]
+  },
+  "tactical_triage_counts": {
+    "base_building": 10,
+    "breakdown_risk": 64,
+    "breakout_ready": 23,
+    "distribution_risk": 29,
+    "downtrend": 157,
+    "early_reversal_candidate": 31,
+    "high_priority_review": 64,
+    "selling_pressure_easing": 89,
+    "sideways_neutral": 276,
+    "total_entry_relevant": 64,
+    "uptrend_confirmed": 184
+  },
+  "thesis_evidence": {
+    "current": {
+      "artifact_identity": "thesis_product_manifest/v1:43caff132cb24ca3eabba600ef99882b1b72d2d33b42a5e857770f61c8a316d9",
+      "built_count": 1683,
+      "component_status": "BUILT",
+      "input_digest": "2ef932e999fbc8ca2117334198e2653d84b011c74fea2ea925db39dba4f73b63",
+      "partial_count": 0,
+      "path": "operations-review/thesis-evidence-current-v1/2026-10-12/2ef932e999fbc8ca2117334198e2653d84b011c74fea2ea925db39dba4f73b63/manifest.json",
+      "status": "COLLECTED",
+      "unavailable_count": 0
+    },
+    "explanation_policy": "DETERMINISTIC_REFERENCES_ONLY_NO_NEW_AI_VERDICT",
+    "focus_cards": [
+      {
+        "blocker_families": [
+          "BALANCE_SHEET_DETERIORATING",
+          "CORROBORATING_COPY_ONLY",
+          "CURRENT_RATIO_WORSENING",
+          "DEBT_TO_EQUITY_DECREASING",
+          "EXISTING_RELATIONSHIP_OWNER_NO_RECOMPUTATION",
+          "EXPENSIVE_RELATIVE_RESEARCH_PEER_VALUATION",
+          "EXPLANATORY_ONLY_NO_DIRECTIONAL_POLARITY",
+          "INCOMPLETE_AGGREGATE_CONSTITUENTS",
+          "INSUFFICIENT_LOOKBACK",
+          "MOMENTUM_DIRECTION_ALIGNED",
+          "MORPHOLOGY_HAS_ZERO_ACTION_AUTHORITY",
+          "OUTSIDE_RETAINED_FOREIGN_COHORT",
+          "PORTFOLIO_CONTEXT_NOT_PROVIDED",
+          "PRICE_VOLUME_CONFIRMATION",
+          "PROFITABLE_CORE_OPERATIONS",
+          "P_B_IS_RESEARCH_TOTAL_EQUITY_NCI_NOT_DEDUCTED_NOT_COMMON_SHAREHOLDER",
+          "RETROSPECTIVE_CURRENT_RESEARCH_ONLY_NOT_HISTORICAL_AS_KNOWN",
+          "SHARE_BASIS_PROXY_CURRENT_SHARE_RESEARCH_PROXY",
+          "SOURCE_NOT_QUALIFIED",
+          "STALE_OLDER_COMPLETED_PERIOD",
+          "STRUCTURE_UNAVAILABLE",
+          "UNKNOWN_NATIVE_VOLUME_UNIT_DIMENSIONLESS_CONTEXT_ONLY",
+          "UNVERIFIABLE",
+          "VOLUME_FLOW_OWNS_CANONICAL_PARTICIPATION"
+        ],
+        "card_identity": "thesis_decision_card/v2:0135a6d8bc4998f92dcd8723dae60592466dcedf2550da45c20dc79cc41a08a4",
+        "lenses": {
+          "LONG_TERM_INVESTOR": {
+            "conflict_kinds": [],
+            "contest_basis": [],
+            "lens_cap": {
+              "anchor_axis": "FUNDAMENTAL",
+              "reason_class": null
+            },
+            "state": "CONTESTED"
+          },
+          "SHORT_TERM_INVESTOR": {
+            "conflict_kinds": [],
+            "contest_basis": [],
+            "lens_cap": {
+              "anchor_axis": "TECHNICAL",
+              "reason_class": null
+            },
+            "state": "SUPPORTIVE"
+          }
+        },
+        "matrix_identity": "thesis_evidence_matrix/v1:23eae36277b614f5a55ed179118d8c9dcc8c17e7b4f5949818b8134bc6294fc5",
+        "matrix_status": "BUILT",
+        "non_voting": true,
+        "reason_class": null,
+        "ticker": "ACV"
+      },
+      {
+        "blocker_families": [
+          "BALANCE_SHEET_STRENGTHENING",
+          "CORROBORATING_COPY_ONLY",
+          "CURRENT_RATIO_IMPROVING",
+          "DEBT_TO_EQUITY_INCREASING",
+          "EXISTING_RELATIONSHIP_OWNER_NO_RECOMPUTATION",
+          "EXPENSIVE_RELATIVE_RESEARCH_PEER_VALUATION",
+          "EXPLANATORY_ONLY_NO_DIRECTIONAL_POLARITY",
+          "INCOMPLETE_AGGREGATE_CONSTITUENTS",
+          "INSUFFICIENT_LOOKBACK",
+          "MORPHOLOGY_HAS_ZERO_ACTION_AUTHORITY",
+          "OUTSIDE_RETAINED_FOREIGN_COHORT",
+          "PORTFOLIO_CONTEXT_NOT_PROVIDED",
+          "PRICE_VOLUME_CONTRADICTION",
+          "PROFITABLE_CORE_OPERATIONS",
+          "P_B_IS_RESEARCH_TOTAL_EQUITY_NCI_NOT_DEDUCTED_NOT_COMMON_SHAREHOLDER",
+          "RETROSPECTIVE_CURRENT_RESEARCH_ONLY_NOT_HISTORICAL_AS_KNOWN",
+          "SHARE_BASIS_PROXY_CURRENT_SHARE_RESEARCH_PROXY",
+          "SOURCE_NOT_QUALIFIED",
+          "STALE_OLDER_COMPLETED_PERIOD",
+          "STRUCTURE_UNAVAILABLE",
+          "UNKNOWN_NATIVE_VOLUME_UNIT_DIMENSIONLESS_CONTEXT_ONLY",
+          "UNVERIFIABLE",
+          "VOLUME_FLOW_OWNS_CANONICAL_PARTICIPATION"
+        ],
+        "card_identity": "thesis_decision_card/v2:046894c853a094960631671d5f126b1b2730b55abef491d1ea9ad269b7c21b40",
+        "lenses": {
+          "LONG_TERM_INVESTOR": {
+            "conflict_kinds": [
+              "FUNDAMENTAL_VALUATION_DIVERGENCE"
+            ],
+            "contest_basis": [
+              "thesis_conflict/v1:f2e02a601e48930aacc50a22eb97a6b86a8ab19ab3fbd202ef8cf127125cf326"
+            ],
+            "lens_cap": {
+              "anchor_axis": "FUNDAMENTAL",
+              "reason_class": null
+            },
+            "state": "CONTESTED"
+          },
+          "SHORT_TERM_INVESTOR": {
+            "conflict_kinds": [],
+            "contest_basis": [],
+            "lens_cap": {
+              "anchor_axis": "TECHNICAL",
+              "reason_class": null
+            },
+            "state": "ADVERSE"
+          }
+        },
+        "matrix_identity": "thesis_evidence_matrix/v1:edd9836380841b39e43775d043a21f1bf68b9e47d8f28279b4bf3dc1ceb9b19b",
+        "matrix_status": "BUILT",
+        "non_voting": true,
+        "reason_class": null,
+        "ticker": "BCM"
+      },
+      {
+        "blocker_families": [
+          "BALANCE_SHEET_STRENGTHENING",
+          "CORROBORATING_COPY_ONLY",
+          "CURRENT_RATIO_WORSENING",
+          "DEBT_TO_EQUITY_DECREASING",
+          "EXISTING_RELATIONSHIP_OWNER_NO_RECOMPUTATION",
+          "EXPLANATORY_ONLY_NO_DIRECTIONAL_POLARITY",
+          "INCOMPLETE_AGGREGATE_CONSTITUENTS",
+          "MORPHOLOGY_HAS_ZERO_ACTION_AUTHORITY",
+          "NO_COMPLETED_PERIOD",
+          "NO_COMPLETE_CALENDAR_QUALIFIED_PERIOD",
+          "OUTSIDE_RETAINED_FOREIGN_COHORT",
+          "PORTFOLIO_CONTEXT_NOT_PROVIDED",
+          "PRICE_VOLUME_CONTRADICTION",
+          "PROFITABLE_CORE_OPERATIONS",
+          "PROVEN_GAP",
+          "P_B_IS_RESEARCH_TOTAL_EQUITY_NCI_NOT_DEDUCTED_NOT_COMMON_SHAREHOLDER",
+          "RETROSPECTIVE_CURRENT_RESEARCH_ONLY_NOT_HISTORICAL_AS_KNOWN",
+          "SHARE_BASIS_PROXY_CURRENT_SHARE_RESEARCH_PROXY",
+          "SOURCE_NOT_QUALIFIED",
+          "STALE_OLDER_COMPLETED_PERIOD",
+          "STRUCTURE_UNAVAILABLE",
+          "UNKNOWN_NATIVE_VOLUME_UNIT_DIMENSIONLESS_CONTEXT_ONLY",
+          "VALUATION_IN_LINE_WITH_PEERS",
+          "VOLUME_FLOW_OWNS_CANONICAL_PARTICIPATION"
+        ],
+        "card_identity": "thesis_decision_card/v2:96ef811a5d85157af305e53a5bd0628a382ad3129ecda3a0f403a449a6aa51a3",
+        "lenses": {
+          "LONG_TERM_INVESTOR": {
+            "conflict_kinds": [],
+            "contest_basis": [],
+            "lens_cap": {
+              "anchor_axis": "FUNDAMENTAL",
+              "reason_class": null
+            },
+            "state": "CONTESTED"
+          },
+          "SHORT_TERM_INVESTOR": {
+            "conflict_kinds": [
+              "TECHNICAL_INTRA_TIMEFRAME_CONFLICT"
+            ],
+            "contest_basis": [
+              "thesis_conflict/v1:f4a45a753fe60c3553c71706b3d97a1c9bc544ca4cc3435c51c2914a16016baa"
+            ],
+            "lens_cap": {
+              "anchor_axis": "TECHNICAL",
+              "reason_class": null
+            },
+            "state": "CONTESTED"
+          }
+        },
+        "matrix_identity": "thesis_evidence_matrix/v1:6db9b35ea8fabd8b60641eb72406da7daf6979a6803393c37646f8dbd265d4dd",
+        "matrix_status": "BUILT",
+        "non_voting": true,
+        "reason_class": null,
+        "ticker": "BDG"
+      },
+      {
+        "blocker_families": [
+          "CORROBORATING_COPY_ONLY",
+          "EXISTING_RELATIONSHIP_OWNER_NO_RECOMPUTATION",
+          "EXPLANATORY_ONLY_NO_DIRECTIONAL_POLARITY",
+          "INCOMPLETE_AGGREGATE_CONSTITUENTS",
+          "INSUFFICIENT_LOOKBACK",
+          "MOMENTUM_DIRECTION_ALIGNED",
+          "MORPHOLOGY_HAS_ZERO_ACTION_AUTHORITY",
+          "OUTSIDE_RETAINED_FOREIGN_COHORT",
+          "PORTFOLIO_CONTEXT_NOT_PROVIDED",
+          "PRICE_VOLUME_CONFIRMATION",
+          "PROFITABLE_CORE_OPERATIONS",
+          "P_B_IS_RESEARCH_TOTAL_EQUITY_NCI_NOT_DEDUCTED_NOT_COMMON_SHAREHOLDER",
+          "RETROSPECTIVE_CURRENT_RESEARCH_ONLY_NOT_HISTORICAL_AS_KNOWN",
+          "SHARE_BASIS_PROXY_CURRENT_SHARE_RESEARCH_PROXY",
+          "SOURCE_NOT_QUALIFIED",
+          "STALE_OLDER_COMPLETED_PERIOD",
+          "STRUCTURE_UNAVAILABLE",
+          "UNKNOWN_NATIVE_VOLUME_UNIT_DIMENSIONLESS_CONTEXT_ONLY",
+          "UNVERIFIABLE",
+          "VOLUME_FLOW_OWNS_CANONICAL_PARTICIPATION"
+        ],
+        "card_identity": "thesis_decision_card/v2:623cc80ba1cf16ab05198b2bbce4e4a6027b4c446d0dbce827915a3e8d1a9e94",
+        "lenses": {
+          "LONG_TERM_INVESTOR": {
+            "conflict_kinds": [],
+            "contest_basis": [],
+            "lens_cap": {
+              "anchor_axis": "FUNDAMENTAL",
+              "reason_class": null
+            },
+            "state": "NOT_CONFIRMED"
+          },
+          "SHORT_TERM_INVESTOR": {
+            "conflict_kinds": [],
+            "contest_basis": [],
+            "lens_cap": {
+              "anchor_axis": "TECHNICAL",
+              "reason_class": null
+            },
+            "state": "SUPPORTIVE"
+          }
+        },
+        "matrix_identity": "thesis_evidence_matrix/v1:eafc5ee0a6b90dba59256d745ed6bd842b9203a4f82599c43e738b04aaaa208b",
+        "matrix_status": "BUILT",
+        "non_voting": true,
+        "reason_class": null,
+        "ticker": "CAT"
+      },
+      {
+        "blocker_families": [
+          "BALANCE_SHEET_STRENGTHENING",
+          "CORROBORATING_COPY_ONLY",
+          "CURRENT_RATIO_IMPROVING",
+          "DEBT_TO_EQUITY_DECREASING",
+          "EXISTING_RELATIONSHIP_OWNER_NO_RECOMPUTATION",
+          "EXPLANATORY_ONLY_NO_DIRECTIONAL_POLARITY",
+          "INCOMPLETE_AGGREGATE_CONSTITUENTS",
+          "INSUFFICIENT_LOOKBACK",
+          "MORPHOLOGY_HAS_ZERO_ACTION_AUTHORITY",
+          "OUTSIDE_RETAINED_FOREIGN_COHORT",
+          "PORTFOLIO_CONTEXT_NOT_PROVIDED",
+          "PROFITABLE_CORE_OPERATIONS",
+          "P_B_IS_RESEARCH_TOTAL_EQUITY_NCI_NOT_DEDUCTED_NOT_COMMON_SHAREHOLDER",
+          "RETROSPECTIVE_CURRENT_RESEARCH_ONLY_NOT_HISTORICAL_AS_KNOWN",
+          "SHARE_BASIS_PROXY_CURRENT_SHARE_RESEARCH_PROXY",
+          "SOURCE_NOT_QUALIFIED",
+          "STALE_OLDER_COMPLETED_PERIOD",
+          "STRUCTURE_UNAVAILABLE",
+          "UNKNOWN_NATIVE_VOLUME_UNIT_DIMENSIONLESS_CONTEXT_ONLY",
+          "UNVERIFIABLE",
+          "VALUATION_IN_LINE_WITH_PEERS",
+          "VOLUME_FLOW_OWNS_CANONICAL_PARTICIPATION"
+        ],
+        "card_identity": "thesis_decision_card/v2:d95b926313e2d1911503d29d8633c0bd5d4ecfc5a6554be05204a3d860871302",
+        "lenses": {
+          "LONG_TERM_INVESTOR": {
+            "conflict_kinds": [],
+            "contest_basis": [],
+            "lens_cap": {
+              "anchor_axis": "FUNDAMENTAL",
+              "reason_class": null
+            },
+            "state": "NOT_CONFIRMED"
+          },
+          "SHORT_TERM_INVESTOR": {
+            "conflict_kinds": [],
+            "contest_basis": [],
+            "lens_cap": {
+              "anchor_axis": "TECHNICAL",
+              "reason_class": null
+            },
+            "state": "ADVERSE"
+          }
+        },
+        "matrix_identity": "thesis_evidence_matrix/v1:a97491e701dde060ff3609af9ac41ae50dfb87567db15273be90de1070fb588f",
+        "matrix_status": "BUILT",
+        "non_voting": true,
+        "reason_class": null,
+        "ticker": "DLG"
+      },
+      {
+        "blocker_families": [
+          "BALANCE_SHEET_STRENGTHENING",
+          "CORROBORATING_COPY_ONLY",
+          "CURRENT_RATIO_IMPROVING",
+          "DEBT_TO_EQUITY_DECREASING",
+          "EV_EBITDA_SINGLE_REPORTING_PERIOD_NOT_TTM",
+          "EXISTING_RELATIONSHIP_OWNER_NO_RECOMPUTATION",
+          "EXPENSIVE_RELATIVE_RESEARCH_PEER_VALUATION",
+          "EXPLANATORY_ONLY_NO_DIRECTIONAL_POLARITY",
+          "INCOMPLETE_AGGREGATE_CONSTITUENTS",
+          "INSUFFICIENT_LOOKBACK",
+          "MORPHOLOGY_HAS_ZERO_ACTION_AUTHORITY",
+          "OUTSIDE_RETAINED_FOREIGN_COHORT",
+          "PORTFOLIO_CONTEXT_NOT_PROVIDED",
+          "PRICE_VOLUME_CONTRADICTION",
+          "PROFITABLE_CORE_OPERATIONS",
+          "P_B_IS_RESEARCH_TOTAL_EQUITY_NCI_NOT_DEDUCTED_NOT_COMMON_SHAREHOLDER",
+          "RETROSPECTIVE_CURRENT_RESEARCH_ONLY_NOT_HISTORICAL_AS_KNOWN",
+          "SHARE_BASIS_PROXY_CURRENT_SHARE_RESEARCH_PROXY",
+          "SOURCE_NOT_QUALIFIED",
+          "STALE_OLDER_COMPLETED_PERIOD",
+          "STRUCTURE_UNAVAILABLE",
+          "UNKNOWN_NATIVE_VOLUME_UNIT_DIMENSIONLESS_CONTEXT_ONLY",
+          "UNVERIFIABLE",
+          "VOLUME_FLOW_OWNS_CANONICAL_PARTICIPATION"
+        ],
+        "card_identity": "thesis_decision_card/v2:bda6c9ea67b10e3274b2712051e0873ea9c3a4532b664317e221383b0bc02110",
+        "lenses": {
+          "LONG_TERM_INVESTOR": {
+            "conflict_kinds": [
+              "FUNDAMENTAL_VALUATION_DIVERGENCE"
+            ],
+            "contest_basis": [
+              "thesis_conflict/v1:bfdb5d3dc5527fe16f3538098996c6e490601edce76bdcb2440978eecf7b37d1"
+            ],
+            "lens_cap": {
+              "anchor_axis": "FUNDAMENTAL",
+              "reason_class": null
+            },
+            "state": "CONTESTED"
+          },
+          "SHORT_TERM_INVESTOR": {
+            "conflict_kinds": [],
+            "contest_basis": [],
+            "lens_cap": {
+              "anchor_axis": "TECHNICAL",
+              "reason_class": null
+            },
+            "state": "ADVERSE"
+          }
+        },
+        "matrix_identity": "thesis_evidence_matrix/v1:7d533fe33f129a5ea46bf8bb59edbe433bf8dbd88109322decb6b08119709fb9",
+        "matrix_status": "BUILT",
+        "non_voting": true,
+        "reason_class": null,
+        "ticker": "L14"
+      },
+      {
+        "blocker_families": [
+          "CORROBORATING_COPY_ONLY",
+          "EXISTING_RELATIONSHIP_OWNER_NO_RECOMPUTATION",
+          "EXPLANATORY_ONLY_NO_DIRECTIONAL_POLARITY",
+          "INCOMPLETE_AGGREGATE_CONSTITUENTS",
+          "INSUFFICIENT_LOOKBACK",
+          "MORPHOLOGY_HAS_ZERO_ACTION_AUTHORITY",
+          "OUTSIDE_RETAINED_FOREIGN_COHORT",
+          "PORTFOLIO_CONTEXT_NOT_PROVIDED",
+          "PROFITABLE_CORE_OPERATIONS",
+          "P_B_IS_RESEARCH_TOTAL_EQUITY_NCI_NOT_DEDUCTED_NOT_COMMON_SHAREHOLDER",
+          "RETROSPECTIVE_CURRENT_RESEARCH_ONLY_NOT_HISTORICAL_AS_KNOWN",
+          "SHARE_BASIS_PROXY_CURRENT_SHARE_RESEARCH_PROXY",
+          "SOURCE_NOT_QUALIFIED",
+          "STALE_OLDER_COMPLETED_PERIOD",
+          "STRUCTURE_UNAVAILABLE",
+          "UNKNOWN_NATIVE_VOLUME_UNIT_DIMENSIONLESS_CONTEXT_ONLY",
+          "UNVERIFIABLE",
+          "VOLUME_FLOW_OWNS_CANONICAL_PARTICIPATION"
+        ],
+        "card_identity": "thesis_decision_card/v2:43e6fddccc05e7f74daa84724f19d7378dd01891c5fa5f16d82555395479dfd4",
+        "lenses": {
+          "LONG_TERM_INVESTOR": {
+            "conflict_kinds": [],
+            "contest_basis": [],
+            "lens_cap": {
+              "anchor_axis": "FUNDAMENTAL",
+              "reason_class": null
+            },
+            "state": "NOT_CONFIRMED"
+          },
+          "SHORT_TERM_INVESTOR": {
+            "conflict_kinds": [
+              "MACRO_SECTOR_DIVERGENCE"
+            ],
+            "contest_basis": [
+              "thesis_conflict/v1:bf1756ddc81b00c702fe87332521583d14c9246a20d0a3a8aae7ed824fe94f32"
+            ],
+            "lens_cap": {
+              "anchor_axis": "TECHNICAL",
+              "reason_class": null
+            },
+            "state": "CONTESTED"
+          }
+        },
+        "matrix_identity": "thesis_evidence_matrix/v1:e8fcc3109fc52c2ce5c3520ec294354ceb2859888831ceccc0e24fbf1825a576",
+        "matrix_status": "BUILT",
+        "non_voting": true,
+        "reason_class": null,
+        "ticker": "MBB"
+      },
+      {
+        "blocker_families": [
+          "BALANCE_SHEET_STRENGTHENING",
+          "CORROBORATING_COPY_ONLY",
+          "CURRENT_RATIO_WORSENING",
+          "DEBT_TO_EQUITY_DECREASING",
+          "EXISTING_RELATIONSHIP_OWNER_NO_RECOMPUTATION",
+          "EXPLANATORY_ONLY_NO_DIRECTIONAL_POLARITY",
+          "INCOMPLETE_AGGREGATE_CONSTITUENTS",
+          "INSUFFICIENT_LOOKBACK",
+          "MORPHOLOGY_HAS_ZERO_ACTION_AUTHORITY",
+          "OUTSIDE_RETAINED_FOREIGN_COHORT",
+          "PORTFOLIO_CONTEXT_NOT_PROVIDED",
+          "PRICE_VOLUME_CONTRADICTION",
+          "PROFITABLE_CORE_OPERATIONS",
+          "P_B_IS_RESEARCH_TOTAL_EQUITY_NCI_NOT_DEDUCTED_NOT_COMMON_SHAREHOLDER",
+          "RETROSPECTIVE_CURRENT_RESEARCH_ONLY_NOT_HISTORICAL_AS_KNOWN",
+          "SHARE_BASIS_PROXY_CURRENT_SHARE_RESEARCH_PROXY",
+          "SOURCE_NOT_QUALIFIED",
+          "STALE_OLDER_COMPLETED_PERIOD",
+          "STRUCTURE_UNAVAILABLE",
+          "UNKNOWN_NATIVE_VOLUME_UNIT_DIMENSIONLESS_CONTEXT_ONLY",
+          "UNVERIFIABLE",
+          "VALUATION_IN_LINE_WITH_PEERS",
+          "VOLUME_FLOW_OWNS_CANONICAL_PARTICIPATION"
+        ],
+        "card_identity": "thesis_decision_card/v2:2bd4ca9c1033e6e0fbba3c1511582f2e441c7532994ba271ff9986af73578ec7",
+        "lenses": {
+          "LONG_TERM_INVESTOR": {
+            "conflict_kinds": [],
+            "contest_basis": [],
+            "lens_cap": {
+              "anchor_axis": "FUNDAMENTAL",
+              "reason_class": null
+            },
+            "state": "CONTESTED"
+          },
+          "SHORT_TERM_INVESTOR": {
+            "conflict_kinds": [],
+            "contest_basis": [],
+            "lens_cap": {
+              "anchor_axis": "TECHNICAL",
+              "reason_class": null
+            },
+            "state": "ADVERSE"
+          }
+        },
+        "matrix_identity": "thesis_evidence_matrix/v1:c18826785f9afd93d97157a7bcfaa3e3f861d9290250e923816adc1fd78dc7e9",
+        "matrix_status": "BUILT",
+        "non_voting": true,
+        "reason_class": null,
+        "ticker": "PC1"
+      },
+      {
+        "blocker_families": [
+          "BALANCE_SHEET_DETERIORATING",
+          "CORROBORATING_COPY_ONLY",
+          "CURRENT_RATIO_WORSENING",
+          "DEBT_TO_EQUITY_DECREASING",
+          "EXISTING_RELATIONSHIP_OWNER_NO_RECOMPUTATION",
+          "EXPLANATORY_ONLY_NO_DIRECTIONAL_POLARITY",
+          "INCOMPLETE_AGGREGATE_CONSTITUENTS",
+          "INSUFFICIENT_LOOKBACK",
+          "MORPHOLOGY_HAS_ZERO_ACTION_AUTHORITY",
+          "OUTSIDE_RETAINED_FOREIGN_COHORT",
+          "PORTFOLIO_CONTEXT_NOT_PROVIDED",
+          "PRICE_VOLUME_CONTRADICTION",
+          "PROFITABLE_CORE_OPERATIONS",
+          "P_B_IS_RESEARCH_TOTAL_EQUITY_NCI_NOT_DEDUCTED_NOT_COMMON_SHAREHOLDER",
+          "RETROSPECTIVE_CURRENT_RESEARCH_ONLY_NOT_HISTORICAL_AS_KNOWN",
+          "SHARE_BASIS_PROXY_CURRENT_SHARE_RESEARCH_PROXY",
+          "SOURCE_NOT_QUALIFIED",
+          "STALE_OLDER_COMPLETED_PERIOD",
+          "STRUCTURE_UNAVAILABLE",
+          "UNKNOWN_NATIVE_VOLUME_UNIT_DIMENSIONLESS_CONTEXT_ONLY",
+          "UNVERIFIABLE",
+          "VALUATION_IN_LINE_WITH_PEERS",
+          "VOLUME_FLOW_OWNS_CANONICAL_PARTICIPATION"
+        ],
+        "card_identity": "thesis_decision_card/v2:19b26d4bf07fdc6594b948dcd2337645511d52c75fda098892322b3b62dee3c2",
+        "lenses": {
+          "LONG_TERM_INVESTOR": {
+            "conflict_kinds": [],
+            "contest_basis": [],
+            "lens_cap": {
+              "anchor_axis": "FUNDAMENTAL",
+              "reason_class": null
+            },
+            "state": "CONTESTED"
+          },
+          "SHORT_TERM_INVESTOR": {
+            "conflict_kinds": [
+              "TECHNICAL_INTRA_TIMEFRAME_CONFLICT"
+            ],
+            "contest_basis": [
+              "thesis_conflict/v1:0f53d7e44d799753cfac241af273a6812f4053f997e02cf04bafc0c6f12eaa9d"
+            ],
+            "lens_cap": {
+              "anchor_axis": "TECHNICAL",
+              "reason_class": null
+            },
+            "state": "CONTESTED"
+          }
+        },
+        "matrix_identity": "thesis_evidence_matrix/v1:b1f6f817a2207ae6e21a794849a7c5ea218a85e96506a0ccb5c18c76bac5384f",
+        "matrix_status": "BUILT",
+        "non_voting": true,
+        "reason_class": null,
+        "ticker": "REE"
+      },
+      {
+        "blocker_families": [
+          "CORROBORATING_COPY_ONLY",
+          "EXISTING_RELATIONSHIP_OWNER_NO_RECOMPUTATION",
+          "EXPLANATORY_ONLY_NO_DIRECTIONAL_POLARITY",
+          "INCOMPLETE_AGGREGATE_CONSTITUENTS",
+          "INSUFFICIENT_LOOKBACK",
+          "MORPHOLOGY_HAS_ZERO_ACTION_AUTHORITY",
+          "OUTSIDE_RETAINED_FOREIGN_COHORT",
+          "PORTFOLIO_CONTEXT_NOT_PROVIDED",
+          "PRICE_VOLUME_CONTRADICTION",
+          "PROFITABLE_CORE_OPERATIONS",
+          "P_B_IS_RESEARCH_TOTAL_EQUITY_NCI_NOT_DEDUCTED_NOT_COMMON_SHAREHOLDER",
+          "RETROSPECTIVE_CURRENT_RESEARCH_ONLY_NOT_HISTORICAL_AS_KNOWN",
+          "SHARE_BASIS_PROXY_CURRENT_SHARE_RESEARCH_PROXY",
+          "SOURCE_NOT_QUALIFIED",
+          "STALE_OLDER_COMPLETED_PERIOD",
+          "STRUCTURE_UNAVAILABLE",
+          "UNKNOWN_NATIVE_VOLUME_UNIT_DIMENSIONLESS_CONTEXT_ONLY",
+          "UNVERIFIABLE",
+          "VOLUME_FLOW_OWNS_CANONICAL_PARTICIPATION"
+        ],
+        "card_identity": "thesis_decision_card/v2:7ce34d8f1efb04ee9eefbb53be77f78e445ddc659b9d8a4a904b33dde3deadce",
+        "lenses": {
+          "LONG_TERM_INVESTOR": {
+            "conflict_kinds": [],
+            "contest_basis": [],
+            "lens_cap": {
+              "anchor_axis": "FUNDAMENTAL",
+              "reason_class": null
+            },
+            "state": "NOT_CONFIRMED"
+          },
+          "SHORT_TERM_INVESTOR": {
+            "conflict_kinds": [
+              "MACRO_SECTOR_DIVERGENCE"
+            ],
+            "contest_basis": [
+              "thesis_conflict/v1:3a54ee1a523f2b62599d0e8c8864055e45613cfc64760564df95ea4663fc2c44"
+            ],
+            "lens_cap": {
+              "anchor_axis": "TECHNICAL",
+              "reason_class": null
+            },
+            "state": "CONTESTED"
+          }
+        },
+        "matrix_identity": "thesis_evidence_matrix/v1:9677a76a5e78513a2a6ab86872fa35f108deee336bc66df458a3d0679a42e192",
+        "matrix_status": "BUILT",
+        "non_voting": true,
+        "reason_class": null,
+        "ticker": "TPB"
+      },
+      {
+        "blocker_families": [
+          "CORROBORATING_COPY_ONLY",
+          "EXISTING_RELATIONSHIP_OWNER_NO_RECOMPUTATION",
+          "EXPLANATORY_ONLY_NO_DIRECTIONAL_POLARITY",
+          "INCOMPLETE_AGGREGATE_CONSTITUENTS",
+          "INSUFFICIENT_LOOKBACK",
+          "MORPHOLOGY_HAS_ZERO_ACTION_AUTHORITY",
+          "OUTSIDE_RETAINED_FOREIGN_COHORT",
+          "PORTFOLIO_CONTEXT_NOT_PROVIDED",
+          "PROFITABLE_CORE_OPERATIONS",
+          "P_B_IS_RESEARCH_TOTAL_EQUITY_NCI_NOT_DEDUCTED_NOT_COMMON_SHAREHOLDER",
+          "RETROSPECTIVE_CURRENT_RESEARCH_ONLY_NOT_HISTORICAL_AS_KNOWN",
+          "SHARE_BASIS_PROXY_CURRENT_SHARE_RESEARCH_PROXY",
+          "SOURCE_NOT_QUALIFIED",
+          "STALE_OLDER_COMPLETED_PERIOD",
+          "STRUCTURE_UNAVAILABLE",
+          "UNKNOWN_NATIVE_VOLUME_UNIT_DIMENSIONLESS_CONTEXT_ONLY",
+          "UNVERIFIABLE",
+          "VOLUME_FLOW_OWNS_CANONICAL_PARTICIPATION"
+        ],
+        "card_identity": "thesis_decision_card/v2:b6b713dda92581b689ffc21303612ab525be8f987c045080dadf540a033e88a5",
+        "lenses": {
+          "LONG_TERM_INVESTOR": {
+            "conflict_kinds": [],
+            "contest_basis": [],
+            "lens_cap": {
+              "anchor_axis": "FUNDAMENTAL",
+              "reason_class": null
+            },
+            "state": "NOT_CONFIRMED"
+          },
+          "SHORT_TERM_INVESTOR": {
+            "conflict_kinds": [],
+            "contest_basis": [],
+            "lens_cap": {
+              "anchor_axis": "TECHNICAL",
+              "reason_class": null
+            },
+            "state": "ADVERSE"
+          }
+        },
+        "matrix_identity": "thesis_evidence_matrix/v1:e8b510b85c0457150660607d79f4537cc632aef7c1a34d624bd3b346c9c54793",
+        "matrix_status": "BUILT",
+        "non_voting": true,
+        "reason_class": null,
+        "ticker": "VCK"
+      },
+      {
+        "blocker_families": [
+          "CORROBORATING_COPY_ONLY",
+          "EXISTING_RELATIONSHIP_OWNER_NO_RECOMPUTATION",
+          "EXPLANATORY_ONLY_NO_DIRECTIONAL_POLARITY",
+          "INCOMPLETE_AGGREGATE_CONSTITUENTS",
+          "INSUFFICIENT_LOOKBACK",
+          "MORPHOLOGY_HAS_ZERO_ACTION_AUTHORITY",
+          "OUTSIDE_RETAINED_FOREIGN_COHORT",
+          "PORTFOLIO_CONTEXT_NOT_PROVIDED",
+          "PRICE_VOLUME_CONTRADICTION",
+          "PROFITABLE_CORE_OPERATIONS",
+          "P_B_IS_RESEARCH_TOTAL_EQUITY_NCI_NOT_DEDUCTED_NOT_COMMON_SHAREHOLDER",
+          "RETROSPECTIVE_CURRENT_RESEARCH_ONLY_NOT_HISTORICAL_AS_KNOWN",
+          "SHARE_BASIS_PROXY_CURRENT_SHARE_RESEARCH_PROXY",
+          "SOURCE_NOT_QUALIFIED",
+          "STALE_OLDER_COMPLETED_PERIOD",
+          "STRUCTURE_UNAVAILABLE",
+          "UNKNOWN_NATIVE_VOLUME_UNIT_DIMENSIONLESS_CONTEXT_ONLY",
+          "UNVERIFIABLE",
+          "VOLUME_FLOW_OWNS_CANONICAL_PARTICIPATION"
+        ],
+        "card_identity": "thesis_decision_card/v2:5608188eccd2311079b2ec908727e0f990c8cba5e90abe28bc0d4bb9ccd1bb28",
+        "lenses": {
+          "LONG_TERM_INVESTOR": {
+            "conflict_kinds": [],
+            "contest_basis": [],
+            "lens_cap": {
+              "anchor_axis": "FUNDAMENTAL",
+              "reason_class": null
+            },
+            "state": "NOT_CONFIRMED"
+          },
+          "SHORT_TERM_INVESTOR": {
+            "conflict_kinds": [],
+            "contest_basis": [],
+            "lens_cap": {
+              "anchor_axis": "TECHNICAL",
+              "reason_class": null
+            },
+            "state": "ADVERSE"
+          }
+        },
+        "matrix_identity": "thesis_evidence_matrix/v1:ed6a3658bb8e49efa3034e05d81537cfab8b236012d0e9c8646efc725108d8cd",
+        "matrix_status": "BUILT",
+        "non_voting": true,
+        "reason_class": null,
+        "ticker": "VPX"
+      }
+    ],
+    "t0": {
+      "artifact_identity": "thesis_product_manifest/v1:277b9e9ceefb088364a2c2602bbb0157a64cf5555ecfd82b4a8f5a749c3adccb",
+      "built_count": 1683,
+      "component_status": "BUILT",
+      "input_digest": "a1ac88facdd4cc09b38353ea070a3a71247acd7ceed71b153bbf0191bf6f36df",
+      "partial_count": 0,
+      "path": "operations-review/thesis-evidence-t0-v1/2026-10-12/a1ac88facdd4cc09b38353ea070a3a71247acd7ceed71b153bbf0191bf6f36df/manifest.json",
+      "status": "COLLECTED",
+      "unavailable_count": 0
+    }
+  },
+  "warnings": [
+    "Catalyst context is explicitly earlier retained evidence.",
+    "Corporate Intelligence uses retained source evidence; event freshness remains per record.",
+    "Strategy fit is separate from entry action, scenario probability, and portfolio action.",
+    "Fundamental context is retained/undated rather than session-stamped.",
+    "Strict valuation and valuation peer comparison remain unavailable.",
+    "Macro evidence is accepted only when known by the retained equity session; otherwise it is preserved as unavailable context.",
+    "Research priority tier is a research-lane signal, not entry timing, full-position readiness, or position sizing; see entry_relevant and lane_specific_priority on each decision-queue record.",
+    "Integrated Decision delivery is a same-session research overlay; it does not confer execution authority."
+  ]
+}
