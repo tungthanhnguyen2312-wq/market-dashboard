@@ -118,6 +118,7 @@ jobs:
           node --check assets/js/company-panel.js
           node --check assets/js/value-format.js
           node --check assets/js/investment-workspace.js
+          node --check assets/js/workspace-card-presentation.js
           node --check assets/js/dashboard-product-summary.js
           node --check assets/js/screener-master.js
           node --check assets/js/signals-product.js
