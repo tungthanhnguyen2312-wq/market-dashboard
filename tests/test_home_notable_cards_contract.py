@@ -1,7 +1,7 @@
 """Upstream contract for Home's four cards.
 
 Published ``dashboard_home_summary/v1`` has aggregate counts only. Home selects four
-cards by scanning ``workspace_index/v1``. That scan is the 4,664,540-byte download.
+cards by scanning ``workspace_index/v1``. The October 14 index is 4,658,611 bytes.
 
 Producer must add an optional ``notable_cards`` object on the same summary, then
 recompute ``artifact_sha256`` / ``artifact_identity`` with the existing
@@ -68,16 +68,17 @@ FIXTURE_PATH = ROOT / "tests" / "fixtures" / "home_notable_cards_v1.json"
 class HomeNotableCardsContractTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.summary_bytes = SUMMARY_PATH.read_bytes()
-        cls.index_bytes = INDEX_PATH.read_bytes()
+        # Published LF bytes, independent of Windows checkout conversion.
+        cls.summary_bytes = SUMMARY_PATH.read_bytes().replace(b"\r\n", b"\n")
+        cls.index_bytes = INDEX_PATH.read_bytes().replace(b"\r\n", b"\n")
         cls.summary = json.loads(cls.summary_bytes.decode("utf-8"))
         cls.index = json.loads(cls.index_bytes.decode("utf-8"))
         cls.build_info = json.loads(BUILD_INFO_PATH.read_text(encoding="utf-8"))
 
     def test_retained_summary_has_no_notable_block_and_index_cost_is_unchanged(self):
         self.assertNotIn("notable_cards", self.summary)
-        self.assertEqual(len(self.summary_bytes), 4771)
-        self.assertEqual(len(self.index_bytes), 4664540)
+        self.assertEqual(len(self.summary_bytes), 4591)
+        self.assertEqual(len(self.index_bytes), 4658611)
         self.assertEqual(self.summary["contract_version"], "dashboard_home_summary/v1")
         self.assertEqual(self.index["contract_version"], "workspace_index/v1")
         self.assertEqual(self.summary["as_of_session"], self.build_info["market_session"])
@@ -88,7 +89,7 @@ class HomeNotableCardsContractTests(unittest.TestCase):
 
     def test_required_upstream_block_is_four_verbatim_cards(self):
         tickers = notable_membership(self.index["cards"])
-        self.assertEqual(tickers, ["AAS", "ABW", "ACB", "ACG"])
+        self.assertEqual(tickers, ["AAA", "ABB", "ABI", "ACB"])
         block = {
             "contract_version": NOTABLE_CARDS_CONTRACT,
             "as_of_session": self.index["as_of_session"],
@@ -106,8 +107,10 @@ class HomeNotableCardsContractTests(unittest.TestCase):
                 ordered["notable_cards"] = block
             ordered[key] = value
         body = (json.dumps(ordered, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
-        self.assertEqual(len(body), 10066)
-        self.assertEqual(len(self.summary_bytes) + len(self.index_bytes), 4669311)
+        # Local pass-through shape; actual Producer publication is independently
+        # checked with its own identity and serialization in integration fixtures.
+        self.assertEqual(len(body), 10059)
+        self.assertEqual(len(self.summary_bytes) + len(self.index_bytes), 4663202)
         self.assertLess(len(body), len(self.index_bytes))
         for card in block["cards"]:
             self.assertEqual(tuple(card), PASS_THROUGH_FIELDS)

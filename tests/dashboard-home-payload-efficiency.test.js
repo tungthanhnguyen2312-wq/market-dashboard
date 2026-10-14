@@ -16,8 +16,10 @@ const root = path.resolve(__dirname, "..");
 const overview = require("../assets/js/dashboard-product-summary.js");
 const presentation = require("../assets/js/workspace-card-presentation.js");
 
-const summaryBytes = fs.readFileSync(path.join(root, "data/dashboard_home_summary.json"));
-const indexBytes = fs.readFileSync(path.join(root, "data/workspace_index.json"));
+// Measure published LF bytes consistently across Windows autocrlf checkouts.
+const publishedBytes = (name) => Buffer.from(fs.readFileSync(path.join(root, name), "utf8").replace(/\r\n/g, "\n"), "utf8");
+const summaryBytes = publishedBytes("data/dashboard_home_summary.json");
+const indexBytes = publishedBytes("data/workspace_index.json");
 const summary = JSON.parse(summaryBytes.toString("utf8"));
 const index = JSON.parse(indexBytes.toString("utf8"));
 const buildInfo = JSON.parse(fs.readFileSync(path.join(root, "data/build_info.json"), "utf8"));
@@ -74,9 +76,9 @@ const enlarged = Buffer.from(`${JSON.stringify(summaryWithBlock(notableBlock), n
 
 test("retained Home data bytes are the summary plus the full workspace index", () => {
   assert.equal(summary.notable_cards, undefined);
-  assert.equal(summaryBytes.length, 4771);
-  assert.equal(indexBytes.length, 4664540);
-  assert.equal(summaryBytes.length + indexBytes.length, 4669311);
+  assert.equal(summaryBytes.length, 4591);
+  assert.equal(indexBytes.length, 4658611);
+  assert.equal(summaryBytes.length + indexBytes.length, 4663202);
   assert.equal(overview.homeOpportunityRequestPlan(summary, buildInfo).join(","), overview.WORKSPACE_INDEX_URL);
   assert.deepEqual(overview.buildInfoRequestPlan(buildInfo), []);
 });
@@ -91,13 +93,13 @@ test("a qualified notable block matches the four index cards and drops the index
   assert.equal(fromBlock, fromIndex);
   assert.deepEqual(
     [...fromBlock.matchAll(/data-focus-ticker="([^"]+)"/g)].map((match) => match[1]),
-    ["AAS", "ABW", "ACB", "ACG"],
+    ["AAA", "ABB", "ABI", "ACB"],
   );
   assert.deepEqual(
     [...fromBlock.matchAll(/href="([^"]+)"/g)].map((match) => match[1]),
-    ["AAS", "ABW", "ACB", "ACG"].map((ticker) => `investment-workspace.html?ticker=${ticker}`),
+    ["AAA", "ABB", "ABI", "ACB"].map((ticker) => `investment-workspace.html?ticker=${ticker}`),
   );
-  assert.match(fromBlock, /CONSTRUCTIVE_NON_BREAKOUT_WITH_USABLE_FUNDAMENTAL|nền tảng/);
+  assert.ok(notableBlock.cards.every((card) => card.why.deterministic_reasons.length > 0));
   assert.equal(overview.validateHomeSummary(withCards, buildInfo.market_session), true);
   assert.deepEqual(overview.homeOpportunityRequestPlan(withCards, buildInfo), []);
   assert.ok(enlarged.length < 20000);
@@ -155,8 +157,8 @@ test("boot renders the published cards once and does not fetch the index", async
   try {
     overview.bootHomeOpportunities(buildInfo.market_session, withCards, buildInfo);
     assert.equal(fetches, 0);
-    assert.match(host.innerHTML, /data-focus-ticker="AAS"/);
-    assert.match(host.innerHTML, /data-focus-ticker="ACG"/);
+    assert.match(host.innerHTML, /data-focus-ticker="AAA"/);
+    assert.match(host.innerHTML, /data-focus-ticker="ACB"/);
   } finally {
     global.document = previous.document;
     global.window = previous.window;
@@ -168,6 +170,9 @@ test("producer notable_cards fixture avoids the index and preserves the four car
   const fixture = JSON.parse(fs.readFileSync(path.join(root, "tests/fixtures/home_notable_cards_v1.json"), "utf8"));
   const block = fixture.block;
   const withCards = summaryWithBlock(block);
+  // This retained Producer fixture belongs to October 13, independently of
+  // the current published summary. Bind its enclosing test summary explicitly.
+  withCards.as_of_session = fixture.session;
   const fixtureBuildInfo = {
     market_session: fixture.session,
     investment_workspace: {
@@ -232,7 +237,7 @@ test("boot without a notable block fetches workspace_index.json once", async () 
     overview.bootHomeOpportunities(buildInfo.market_session, summary, buildInfo);
     await new Promise((resolve) => setTimeout(resolve, 0));
     assert.deepEqual(urls, [overview.WORKSPACE_INDEX_URL]);
-    assert.match(host.innerHTML, /data-focus-ticker="AAS"/);
+    assert.match(host.innerHTML, /data-focus-ticker="AAA"/);
   } finally {
     global.document = previous.document;
     global.window = previous.window;
