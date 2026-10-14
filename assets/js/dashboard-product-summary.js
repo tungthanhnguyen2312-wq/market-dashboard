@@ -15,15 +15,21 @@
 
   const SCREENER_URL = "data/screener_master_projection.json";
   const SCREENER_CONTRACT = "screener_master_projection/v1";
-  // DASHBOARD_HOME_SUMMARY_AND_CACHE_BUSTING_V1: Home's boot path (bootDashboardOverview)
-  // fetches ONLY this small, presentation-only, Producer-derived summary -- never the full
-  // ~6.4MB screener_master_projection.json above. SCREENER_URL/SCREENER_CONTRACT and
-  // summarizeScreenerOverview()/validateProjection() are kept (still exported, still used by
-  // existing tests, and still a legitimate direct API over the full projection for a caller
-  // that genuinely needs it) but Home itself no longer calls them at boot.
+  // DASHBOARD_HOME_SUMMARY_AND_CACHE_BUSTING_V1: Home's aggregate boot fetches this
+  // small Producer summary, never screener_master_projection.json. The four opportunity
+  // cards still read workspace_index.json until summary.notable_cards is published.
+  // SCREENER_URL and summarizeScreenerOverview() stay exported for callers that need them.
   const HOME_SUMMARY_URL = "data/dashboard_home_summary.json";
   const HOME_SUMMARY_CONTRACT = "dashboard_home_summary/v1";
   const BUILD_INFO_URL = "data/build_info.json";
+  const WORKSPACE_INDEX_URL = "data/workspace_index.json";
+  const WORKSPACE_INDEX_CONTRACT = "workspace_index/v1";
+  // Optional nested block. Absent on published dashboard_home_summary/v1 today.
+  // Home renders it only when Producer has bound the same four pass-through cards
+  // the full index would have selected. It does not choose or invent them.
+  const NOTABLE_CARDS_CONTRACT = "dashboard_home_notable_cards/v1";
+  const NOTABLE_SELECTION = "PUBLISHED_INSERTION_ORDER_NOTABLE_MEMBERSHIP_V1";
+  const NOTABLE_SELECTION_LIMIT = 4;
   const ENTITY_CLASS_VOCABULARY = ["corporate", "bank", "securities", "insurance", "finance_company"];
   const STANCE_ORDER = [
     "INITIATE_RESEARCH_CANDIDATE",
@@ -576,14 +582,62 @@
     return true;
   }
 
+  function embeddedBuildInfo() {
+    if (typeof window === "undefined" || !window.BUILD_INFO || typeof window.BUILD_INFO !== "object") return null;
+    return window.BUILD_INFO;
+  }
+
+  function buildInfoRequestPlan(embedded) {
+    if (embedded && typeof embedded.market_session === "string" && embedded.market_session) return [];
+    return [BUILD_INFO_URL];
+  }
+
   function loadBuildInfo() {
-    const embedded = (typeof window !== "undefined" && window.BUILD_INFO && typeof window.BUILD_INFO === "object")
-      ? window.BUILD_INFO
-      : null;
-    if (embedded && typeof embedded.market_session === "string" && embedded.market_session) {
-      return Promise.resolve(embedded);
-    }
+    const embedded = embeddedBuildInfo();
+    if (buildInfoRequestPlan(embedded).length === 0) return Promise.resolve(embedded);
     return fetch(BUILD_INFO_URL, { cache: "no-store" }).then((response) => (response.ok ? response.json() : null)).catch(() => null);
+  }
+
+  function currentWorkspaceArtifactIdentity(buildInfo) {
+    const workspace = buildInfo && buildInfo.investment_workspace;
+    if (!workspace || workspace.status !== "CURRENT") return null;
+    if (typeof buildInfo.market_session !== "string" || !buildInfo.market_session) return null;
+    if (workspace.source_session !== buildInfo.market_session) return null;
+    if (typeof workspace.artifact_identity !== "string" || !workspace.artifact_identity) return null;
+    return workspace.artifact_identity;
+  }
+
+  function qualifiedNotableCards(summary, session, buildInfo) {
+    const block = summary && summary.notable_cards;
+    if (!block) return null;
+    const identity = currentWorkspaceArtifactIdentity(buildInfo);
+    if (!session || summary.as_of_session !== session || !identity) return null;
+    if (block.contract_version !== NOTABLE_CARDS_CONTRACT) return null;
+    if (block.as_of_session !== session) return null;
+    if (block.source_contract_version !== WORKSPACE_INDEX_CONTRACT) return null;
+    if (block.source_artifact_identity !== identity) return null;
+    if (block.selection !== NOTABLE_SELECTION) return null;
+    if (block.selection_limit !== NOTABLE_SELECTION_LIMIT) return null;
+    if (!Array.isArray(block.cards) || block.cards.length > NOTABLE_SELECTION_LIMIT) return null;
+    const seen = new Set();
+    for (const card of block.cards) {
+      if (!card || typeof card !== "object" || Array.isArray(card)) return null;
+      if (typeof card.ticker !== "string" || !card.ticker || seen.has(card.ticker)) return null;
+      seen.add(card.ticker);
+      if (card.as_of_session !== session) return null;
+      if (card.why != null && (typeof card.why !== "object" || Array.isArray(card.why))) return null;
+      if (card.why && card.why.deterministic_reasons != null && !Array.isArray(card.why.deterministic_reasons)) return null;
+      if (card.counter_thesis != null && (typeof card.counter_thesis !== "object" || Array.isArray(card.counter_thesis))) return null;
+      if (card.counter_thesis && card.counter_thesis.key_counter_thesis != null && !Array.isArray(card.counter_thesis.key_counter_thesis)) return null;
+      if (card.reference_trigger != null && (typeof card.reference_trigger !== "object" || Array.isArray(card.reference_trigger))) return null;
+    }
+    return block;
+  }
+
+  function homeOpportunityRequestPlan(summary, buildInfo) {
+    const session = buildInfo && typeof buildInfo.market_session === "string" ? buildInfo.market_session : "";
+    if (qualifiedNotableCards(summary, session, buildInfo)) return [];
+    return [WORKSPACE_INDEX_URL];
   }
 
   function bootDashboardOverview() {
@@ -602,7 +656,7 @@
         summaryHost.innerHTML = renderDecisionSummaryHtml(summary);
         renderMarketOverview(summary);
         renderInvestorHome(summary);
-        bootHomeOpportunities(summary.as_of_session);
+        bootHomeOpportunities(summary.as_of_session, summary, buildInfo);
       })
       .catch((error) => {
         if (typeof console !== "undefined" && console.debug) console.debug("dashboard summary unavailable:", error);
@@ -640,25 +694,44 @@
     fillText("market-last-updated", `Phiên ${summary.as_of_session}`);
   }
 
-  function homeOpportunitiesHtml(index, session, workspaceApi) {
-    if (!index || index.as_of_session !== session || index.contract_version !== "workspace_index/v1" || !index.cards) return '<p class="cockpit-note">Chưa có dữ liệu cổ phiếu cùng phiên. Không dùng dữ liệu cũ thay thế.</p>';
-    return workspaceApi.notableTickers(index.cards).map((ticker) => {
-      const card = index.cards[ticker];
-      const trigger = card.reference_trigger || (card.tactical || {}).reference_trigger || {};
-      const warning = ((card.counter_thesis || {}).key_counter_thesis || [])[0];
-      return `<article class="home-opportunity" data-focus-ticker="${esc(ticker)}"><h3><a href="investment-workspace.html?ticker=${encodeURIComponent(ticker)}">${esc(ticker)}</a></h3><p>${esc(formatLabel(card.entry_state, "tactical_state"))}</p><div>${workspaceApi.actionPostureHtml(card)} ${workspaceApi.evidenceCurrencyHtml(card.evidence_currency)}</div><p>${esc(workspaceApi.compactReasons(card, 1)[0])}</p><p class="cockpit-note">${trigger.trigger_level != null ? `Mức tham chiếu: ${esc(trigger.trigger_level)} — cần xác nhận, chưa phải điểm mua.` : "Chưa có mức kích hoạt được xác lập."}</p><p class="cockpit-note">Lưu ý: ${esc(warning ? formatLabel(warning, "setup_tag") : "Cần kiểm tra điều kiện vô hiệu và dữ liệu còn thiếu.")}</p></article>`;
-    }).join("") || '<p class="cockpit-note">Chưa có mã đáng chú ý theo trạng thái hiện tại.</p>';
+  function opportunityArticleHtml(ticker, card, workspaceApi) {
+    const trigger = card.reference_trigger || (card.tactical || {}).reference_trigger || {};
+    const warning = ((card.counter_thesis || {}).key_counter_thesis || [])[0];
+    return `<article class="home-opportunity" data-focus-ticker="${esc(ticker)}"><h3><a href="investment-workspace.html?ticker=${encodeURIComponent(ticker)}">${esc(ticker)}</a></h3><p>${esc(formatLabel(card.entry_state, "tactical_state"))}</p><div>${workspaceApi.actionPostureHtml(card)} ${workspaceApi.evidenceCurrencyHtml(card.evidence_currency)}</div><p>${esc(workspaceApi.compactReasons(card, 1)[0])}</p><p class="cockpit-note">${trigger.trigger_level != null ? `Mức tham chiếu: ${esc(trigger.trigger_level)} — cần xác nhận, chưa phải điểm mua.` : "Chưa có mức kích hoạt được xác lập."}</p><p class="cockpit-note">Lưu ý: ${esc(warning ? formatLabel(warning, "setup_tag") : "Cần kiểm tra điều kiện vô hiệu và dữ liệu còn thiếu.")}</p></article>`;
   }
 
-  function bootHomeOpportunities(session) {
+  function homeOpportunitiesHtml(index, session, workspaceApi) {
+    if (!index || index.as_of_session !== session || index.contract_version !== WORKSPACE_INDEX_CONTRACT || !index.cards) return '<p class="cockpit-note">Chưa có dữ liệu cổ phiếu cùng phiên. Không dùng dữ liệu cũ thay thế.</p>';
+    return workspaceApi.notableTickers(index.cards).map((ticker) => opportunityArticleHtml(ticker, index.cards[ticker], workspaceApi)).join("") || '<p class="cockpit-note">Chưa có mã đáng chú ý theo trạng thái hiện tại.</p>';
+  }
+
+  function publishedNotableHtml(block, workspaceApi) {
+    return block.cards.map((card) => opportunityArticleHtml(card.ticker, card, workspaceApi)).join("") || '<p class="cockpit-note">Chưa có mã đáng chú ý theo trạng thái hiện tại.</p>';
+  }
+
+  function presentationApi() {
+    const root = typeof window !== "undefined" ? window : globalThis;
+    return root.VSWorkspaceCardPresentation || root.VSInvestmentWorkspace || null;
+  }
+
+  function bootHomeOpportunities(session, summary, buildInfo) {
     const host = document.getElementById("home-opportunities");
     if (!host) return;
-    fetch("data/workspace_index.json", { cache: "no-store" }).then((response) => {
+    const published = qualifiedNotableCards(summary, session, buildInfo);
+    if (published) {
+      try {
+        host.innerHTML = publishedNotableHtml(published, presentationApi());
+      } catch (error) {
+        if (typeof console !== "undefined" && console.debug) console.debug("Home opportunities unavailable", error);
+        host.textContent = "Chưa có dữ liệu cổ phiếu để xem xét.";
+      }
+      return;
+    }
+    fetch(WORKSPACE_INDEX_URL, { cache: "no-store" }).then((response) => {
       if (!response.ok) throw new Error("workspace index unavailable");
       return response.json();
     }).then((index) => {
-      const workspaceApi = window.VSWorkspaceCardPresentation || window.VSInvestmentWorkspace;
-      host.innerHTML = homeOpportunitiesHtml(index, session, workspaceApi);
+      host.innerHTML = homeOpportunitiesHtml(index, session, presentationApi());
     })
       .catch((error) => { console.debug("Home opportunities unavailable", error); host.textContent = "Chưa có dữ liệu cổ phiếu để xem xét."; });
   }
@@ -676,6 +749,16 @@
     SCREENER_CONTRACT,
     HOME_SUMMARY_URL,
     HOME_SUMMARY_CONTRACT,
+    BUILD_INFO_URL,
+    WORKSPACE_INDEX_URL,
+    NOTABLE_CARDS_CONTRACT,
+    NOTABLE_SELECTION,
+    NOTABLE_SELECTION_LIMIT,
+    buildInfoRequestPlan,
+    qualifiedNotableCards,
+    homeOpportunityRequestPlan,
+    publishedNotableHtml,
+    bootHomeOpportunities,
     STANCE_ORDER,
     POSTURE_ORDER,
     POSTURE_UNAVAILABLE_TEXT,
