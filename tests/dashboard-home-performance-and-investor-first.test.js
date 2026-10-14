@@ -44,6 +44,33 @@ function renderedTextOnly(html) {
     .trim();
 }
 
+test("Home loads the shared card presentation instead of the full Workspace module", () => {
+  assert.match(dashboardHtml, /assets\/js\/workspace-card-presentation\.js/);
+  assert.doesNotMatch(dashboardHtml, /assets\/js\/investment-workspace\.js/);
+  const presentationIdx = dashboardHtml.indexOf("workspace-card-presentation.js");
+  const summaryIdx = dashboardHtml.indexOf("dashboard-product-summary.js");
+  assert.ok(presentationIdx !== -1 && presentationIdx < summaryIdx);
+  const presentation = require("../assets/js/workspace-card-presentation.js");
+  const workspace = require("../assets/js/investment-workspace.js");
+  const cards = {
+    AAA: { research_action_posture: "AVOID", entry_state: "BREAKOUT_READY" },
+    HPG: {
+      research_action_posture: "EARLY_WATCH",
+      entry_state: "BASE_BUILDING",
+      evidence_currency: "CURRENT_SESSION",
+      why: { deterministic_reasons: ["ABOVE_SMA50"] },
+    },
+  };
+  assert.deepEqual(presentation.notableTickers(cards), ["HPG"]);
+  assert.equal(workspace.notableTickers, presentation.notableTickers);
+  assert.equal(workspace.actionPostureHtml(cards.HPG), presentation.actionPostureHtml(cards.HPG));
+  assert.equal(overview.homeOpportunitiesHtml(
+    { as_of_session: "2026-10-13", contract_version: "workspace_index/v1", cards },
+    "2026-10-13",
+    presentation,
+  ).includes("HPG"), true);
+});
+
 test("dashboard.html does not eagerly load jQuery/DataTables/PapaParse/company-panel.js", () => {
   assert.doesNotMatch(dashboardHtml, /<script[^>]*src="https:\/\/cdn\.jsdelivr\.net\/npm\/jquery/);
   assert.doesNotMatch(dashboardHtml, /<script[^>]*src="https:\/\/cdn\.datatables\.net/);

@@ -576,6 +576,16 @@
     return true;
   }
 
+  function loadBuildInfo() {
+    const embedded = (typeof window !== "undefined" && window.BUILD_INFO && typeof window.BUILD_INFO === "object")
+      ? window.BUILD_INFO
+      : null;
+    if (embedded && typeof embedded.market_session === "string" && embedded.market_session) {
+      return Promise.resolve(embedded);
+    }
+    return fetch(BUILD_INFO_URL, { cache: "no-store" }).then((response) => (response.ok ? response.json() : null)).catch(() => null);
+  }
+
   function bootDashboardOverview() {
     const summaryHost = typeof document !== "undefined" ? document.getElementById("current-product-summary") : null;
     if (!summaryHost) return;
@@ -584,7 +594,7 @@
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         return response.json();
       }),
-      fetch(BUILD_INFO_URL, { cache: "no-store" }).then((response) => (response.ok ? response.json() : null)).catch(() => null),
+      loadBuildInfo(),
     ])
       .then(([summary, buildInfo]) => {
         const buildInfoSession = buildInfo && typeof buildInfo.market_session === "string" ? buildInfo.market_session : null;
@@ -646,7 +656,10 @@
     fetch("data/workspace_index.json", { cache: "no-store" }).then((response) => {
       if (!response.ok) throw new Error("workspace index unavailable");
       return response.json();
-    }).then((index) => { host.innerHTML = homeOpportunitiesHtml(index, session, window.VSInvestmentWorkspace); })
+    }).then((index) => {
+      const workspaceApi = window.VSWorkspaceCardPresentation || window.VSInvestmentWorkspace;
+      host.innerHTML = homeOpportunitiesHtml(index, session, workspaceApi);
+    })
       .catch((error) => { console.debug("Home opportunities unavailable", error); host.textContent = "Chưa có dữ liệu cổ phiếu để xem xét."; });
   }
 

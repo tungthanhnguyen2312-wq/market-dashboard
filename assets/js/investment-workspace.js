@@ -32,6 +32,29 @@
     return null;
   }
 
+  function getWorkspaceCardPresentation() {
+    if (typeof window !== "undefined" && window.VSWorkspaceCardPresentation) return window.VSWorkspaceCardPresentation;
+    if (typeof require === "function") {
+      try { return require("./workspace-card-presentation.js"); } catch (err) { return null; }
+    }
+    return null;
+  }
+
+  const {
+    POSITION_CONDITIONAL_POSTURES,
+    CONSTRUCTIVE_POSTURES,
+    POSTURE_UNAVAILABLE_TEXT,
+    escHtml,
+    formatWorkspaceState,
+    evidenceCurrencyClass,
+    evidenceCurrencyLabel,
+    evidenceCurrencyHtml,
+    actionPostureLabel,
+    actionPostureHtml,
+    notableTickers,
+    compactReasons,
+  } = getWorkspaceCardPresentation();
+
   function validateWorkspaceContract(workspace) {
     return Boolean(
       workspace &&
@@ -129,11 +152,10 @@
   // from the Producer -- nothing here re-derives or overrides a decision.
   const VETO_RESEARCH_STANCES = new Set(["HIGH_RISK_SPECULATION_ONLY", "AVOID_NEW_ENTRY"]);
   const TACTICAL_ACTIONABLE_ENTRY_READINESS = new Set(["EARLY_ENTRY", "BUY_ON_CONFIRMATION", "ACCUMULATE_IN_BASE"]);
-  const POSITION_CONDITIONAL_POSTURES = new Set(["HOLD", "HOLD_DO_NOT_ADD", "REDUCE"]);
-  const CONSTRUCTIVE_POSTURES = new Set(["INITIATE_ON_BREAKOUT", "ACCUMULATE_ON_RETEST", "EARLY_WATCH"]);
   // Rolling-deploy compatibility: a pre-M1 Workspace card has no research_action_posture. The
   // primary decision then reads as explicitly unavailable -- never the legacy research_stance.
-  const POSTURE_UNAVAILABLE_TEXT = "Chưa có tư thế hành động chuẩn hóa cho phiên dữ liệu này";
+  // Posture, evidence-currency, and notable-ticker presentation live in
+  // workspace-card-presentation.js so Home does not parse this module.
 
   function stanceEntryGuidance(researchStance, entryAction) {
     if (VETO_RESEARCH_STANCES.has(researchStance)) {
@@ -148,48 +170,6 @@
     return "";
   }
 
-  function evidenceCurrencyClass(value) {
-    const raw = String(value || "");
-    if (raw.indexOf("LAST_TRADE_AS_OF:") === 0) return "LAST_TRADE_AS_OF";
-    return (raw === "CURRENT_SESSION" || raw === "NO_CURRENT_EVIDENCE") ? raw : "UNKNOWN";
-  }
-  function evidenceCurrencyLabel(value) {
-    const vf = getValueFormat();
-    if (vf && typeof vf.formatEvidenceCurrency === "function") return vf.formatEvidenceCurrency(value);
-    return unavailableLabel(value);
-  }
-  function evidenceCurrencyHtml(value) {
-    const cls = evidenceCurrencyClass(value);
-    const vf = getValueFormat();
-    const tone = (vf && typeof vf.getSemanticTone === "function") ? vf.getSemanticTone(cls, "evidence_currency") : "neutral";
-    return `<span class="cockpit-state tone-${tone} ws-evidence-currency" data-evidence-currency="${escHtml(cls)}" data-tone="${tone}" title="${escHtml(value || "")}">${escHtml(evidenceCurrencyLabel(value))}</span>`;
-  }
-
-  // Primary action label for one card. Posture HOLD / HOLD_DO_NOT_ADD / REDUCE without a confirmed
-  // position reads conditionally ("Nắm giữ — nếu đang nắm giữ"): ownership is never fabricated.
-  // A NO_CURRENT_EVIDENCE record can never read as "Chờ xác nhận" (the Producer already resolves
-  // it to INSUFFICIENT_CURRENT_RESEARCH; a violating input is shown as no-current-evidence).
-  function actionPostureLabel(card) {
-    const c = card || {};
-    const posture = c.research_action_posture;
-    if (!posture) return POSTURE_UNAVAILABLE_TEXT;
-    if (evidenceCurrencyClass(c.evidence_currency) === "NO_CURRENT_EVIDENCE" && posture === "WAIT_FOR_CONFIRMATION") {
-      return formatWorkspaceState("NO_CURRENT_EVIDENCE", "evidence_currency");
-    }
-    const label = formatWorkspaceState(posture, "research_action_posture");
-    const position = ((c.position_context || {}).position_state) || "UNKNOWN_POSITION_NOT_SUPPLIED";
-    const held = position === "HELD" || position === "HELD_ABOVE_POLICY_CAP";
-    const conditional = POSITION_CONDITIONAL_POSTURES.has(posture) && !held;
-    return conditional ? `${label} — nếu đang nắm giữ` : label;
-  }
-  function actionPostureHtml(card) {
-    const c = card || {};
-    const raw = c.research_action_posture || "UNAVAILABLE";
-    const violating = evidenceCurrencyClass(c.evidence_currency) === "NO_CURRENT_EVIDENCE" && raw === "WAIT_FOR_CONFIRMATION";
-    const vf = getValueFormat();
-    const tone = violating ? "neutral" : ((vf && typeof vf.getSemanticTone === "function") ? vf.getSemanticTone(raw, "research_action_posture") : "neutral");
-    return `<span class="cockpit-state tone-${tone} ws-action-posture" data-action-posture="${escHtml(raw)}" data-tone="${tone}"${violating ? ' data-contract-violation="NO_CURRENT_EVIDENCE_WAIT"' : ""} title="${escHtml(raw)}">${escHtml(actionPostureLabel(c))}</span>`;
-  }
   // Orthogonal inspection-order axis, rendered separately; never alters the posture label/color.
   function opportunityPriorityHtml(card) {
     const tier = ((card || {}).opportunity_priority || {}).research_priority_tier || "UNAVAILABLE";
@@ -337,14 +317,6 @@
     }
     return null;
   }
-  function formatWorkspaceState(value, domain) {
-    const vf = getValueFormat();
-    if (domain === "rule_condition" && vf && typeof vf.formatKnownLabel === "function") {
-      return vf.formatKnownLabel(value, domain);
-    }
-    if (vf && typeof vf.formatDomainState === "function") return vf.formatDomainState(value, domain).label;
-    return unavailableLabel(value);
-  }
   function sectorDisplayHtml(value) {
     const vf = getValueFormat();
     if (vf && typeof vf.formatSectorLineage === "function") return `<span data-sector="${escHtml(value || "")}">${escHtml(vf.formatSectorLineage(value).label)}</span>`;
@@ -418,9 +390,6 @@
       return `<div class="cockpit-note">${escHtml(field)}: <span data-state="${escHtml(value)}" title="${escHtml(value)}">${escHtml(label)}</span></div>`;
     });
     return `${lines.join("")}${detailsHtml(ctx, "Chi tiết dữ liệu")}`;
-  }
-  function escHtml(v) {
-    return String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   }
   // CSS.escape is a browser global, absent in this project's Node test harness (and in older
   // browsers) -- selector construction must not crash or fall back to unescaped interpolation
@@ -693,17 +662,6 @@
       return '<span class="cockpit-note">Chưa theo dõi</span>';
     }
     return hasRetainedValue(flow.relationship) ? pill(flow.relationship, "flow_price_relationship") : '<span class="cockpit-note">—</span>';
-  }
-  function notableTickers(cards) {
-    const states = ["BREAKOUT_READY", "EARLY_REVERSAL_CANDIDATE", "BASE_BUILDING"];
-    return Object.keys(cards || {}).filter((ticker) => {
-      const card = cards[ticker];
-      return CONSTRUCTIVE_POSTURES.has(card.research_action_posture) || (states.includes(card.entry_state) && card.research_action_posture !== "AVOID" && card.research_action_posture !== "REDUCE");
-    }).slice(0, 4);
-  }
-  function compactReasons(card, limit) {
-    const reasons = (((card || {}).why || {}).deterministic_reasons || []).slice(0, limit || 3);
-    return reasons.length ? reasons.map((reason) => formatWorkspaceState(reason, "rule_condition")) : ["Chưa có lý do ngắn được giữ lại"];
   }
   const MICRO_EXPLANATIONS = {
     "Pha kỹ thuật": "Mô tả bối cảnh giá theo dữ liệu được giữ lại. Đây là bằng chứng nghiên cứu, không phải lệnh mua hoặc bán.",
