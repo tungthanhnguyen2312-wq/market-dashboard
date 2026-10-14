@@ -84,7 +84,9 @@ test("the drawer is the sole normal-screen ticker detail surface; the in-page ca
   const sectionTag = wsHtml.match(/<section[^>]*id="decision-card-section"[^>]*>/)[0];
   assert.match(sectionTag, /class="[^"]*\bd-none\b[^"]*\bd-print-block\b[^"]*"/);
   assert.doesNotMatch(wsHtml, /<details[^>]*id="decision-card-section"/);
-  assert.match(wsJs, /renderDecisionCard\(card, drawerEl, cardOpts\);\s*\n\s*if \(inPageEl\) renderDecisionCard\(card, inPageEl, cardOpts\);/);
+  assert.match(wsJs, /renderDecisionCardSurfaces\(card, \[drawerEl, inPageEl\], cardOpts\);/);
+  assert.match(wsJs, /function renderDecisionCardSurfaces\(card, containers, options\)/);
+  assert.match(wsJs, /const html = decisionCardHtml\(card, options\);\s*\n\s*\(containers \|\| \[\]\)\.forEach/);
 });
 
 test("data, methodology and portfolio-risk are progressive disclosure, not standalone cards", () => {
