@@ -1,43 +1,43 @@
 {
   "schema_version": "1.0.0",
   "contract_version": "dashboard_home_summary/v1",
-  "requested_at": "2026-10-13T21:59:10+07:00",
-  "as_of_session": "2026-10-13",
-  "source_artifact_identity": "screener_master_projection/v1:b854a9aacf2129ec5d5152fccd28f399d838a43fe981bbd7a44b6f39de215f5a",
+  "requested_at": "2026-10-14T17:57:41+07:00",
+  "as_of_session": "2026-10-14",
+  "source_artifact_identity": "screener_master_projection/v1:dfffb3d6468a6241bd41893d26c8c194b9ba5ed8b4a2801692c347e6e28d2f08",
   "denominator": 1683,
   "reference_ticker_count": 1683,
   "current_research_scope_count": 1504,
   "outside_current_official_scope_count": 179,
   "official_scope_observed_at": "2026-09-13T08:08:05Z",
-  "price_available_count": 845,
-  "price_unavailable_count": 838,
-  "tactical_available_count": 840,
-  "tactical_unavailable_count": 843,
+  "price_available_count": 834,
+  "price_unavailable_count": 849,
+  "tactical_available_count": 829,
+  "tactical_unavailable_count": 854,
   "session_breadth": {
     "available": true,
-    "priced": 840,
-    "up": 212,
-    "down": 410,
-    "flat": 218,
-    "price_available": 845,
-    "unpriced": 838,
+    "priced": 829,
+    "up": 304,
+    "down": 326,
+    "flat": 199,
+    "price_available": 834,
+    "unpriced": 849,
     "missing_session_return": 5,
-    "state": "NGHIENG_GIAM"
+    "state": "GIANG_CO"
   },
   "primary_decision_field": "research_action_posture",
   "research_action_posture": {
     "available": true,
     "coverage": 1683,
     "counts": {
-      "ACCUMULATE_ON_RETEST": 5,
-      "AVOID": 470,
-      "EARLY_WATCH": 137,
+      "ACCUMULATE_ON_RETEST": 4,
+      "AVOID": 461,
+      "EARLY_WATCH": 123,
       "HOLD": 0,
-      "HOLD_DO_NOT_ADD": 30,
-      "INITIATE_ON_BREAKOUT": 23,
-      "INSUFFICIENT_CURRENT_RESEARCH": 485,
+      "HOLD_DO_NOT_ADD": 36,
+      "INITIATE_ON_BREAKOUT": 18,
+      "INSUFFICIENT_CURRENT_RESEARCH": 483,
       "REDUCE": 0,
-      "WAIT_FOR_CONFIRMATION": 533
+      "WAIT_FOR_CONFIRMATION": 558
     },
     "order": [
       "INITIATE_ON_BREAKOUT",
@@ -50,12 +50,12 @@
       "AVOID",
       "INSUFFICIENT_CURRENT_RESEARCH"
     ],
-    "position_conditional_count": 30
+    "position_conditional_count": 36
   },
   "evidence_currency": {
     "counts": {
-      "CURRENT_SESSION": 840,
-      "LAST_TRADE_AS_OF": 607,
+      "CURRENT_SESSION": 829,
+      "LAST_TRADE_AS_OF": 618,
       "NO_CURRENT_EVIDENCE": 236,
       "UNKNOWN": 0
     },
@@ -70,12 +70,12 @@
     "role": "SECONDARY_RESEARCH_SCREEN_DIAGNOSTIC",
     "available": true,
     "counts": {
-      "ACCUMULATE_RESEARCH_CANDIDATE": 152,
-      "AVOID_NEW_ENTRY": 275,
-      "HIGH_RISK_SPECULATION_ONLY": 20,
-      "INITIATE_RESEARCH_CANDIDATE": 31,
-      "INSUFFICIENT_EVIDENCE": 185,
-      "WAIT_FOR_CONFIRMATION": 1020
+      "ACCUMULATE_RESEARCH_CANDIDATE": 143,
+      "AVOID_NEW_ENTRY": 258,
+      "HIGH_RISK_SPECULATION_ONLY": 23,
+      "INITIATE_RESEARCH_CANDIDATE": 28,
+      "INSUFFICIENT_EVIDENCE": 191,
+      "WAIT_FOR_CONFIRMATION": 1040
     },
     "order": [
       "INITIATE_RESEARCH_CANDIDATE",
@@ -88,17 +88,17 @@
   },
   "tactical": {
     "available": true,
-    "coverage": 840,
+    "coverage": 829,
     "counts": {
-      "BASE_BUILDING": 3,
-      "BREAKDOWN_RISK": 63,
-      "BREAKOUT_READY": 8,
-      "DISTRIBUTION_RISK": 26,
-      "DOWNTREND": 186,
-      "EARLY_REVERSAL_CANDIDATE": 38,
-      "SELLING_PRESSURE_EASING": 91,
-      "SIDEWAYS_NEUTRAL": 250,
-      "UPTREND_CONFIRMED": 175
+      "BASE_BUILDING": 5,
+      "BREAKDOWN_RISK": 67,
+      "BREAKOUT_READY": 25,
+      "DISTRIBUTION_RISK": 28,
+      "DOWNTREND": 163,
+      "EARLY_REVERSAL_CANDIDATE": 36,
+      "SELLING_PRESSURE_EASING": 78,
+      "SIDEWAYS_NEUTRAL": 263,
+      "UPTREND_CONFIRMED": 164
     },
     "order": [
       "DOWNTREND",
@@ -114,7 +114,7 @@
   },
   "liquidity": {
     "proxy_available": true,
-    "proxy_count": 839,
+    "proxy_count": 828,
     "execution_exact_ready": 0,
     "execution_exact_established": false
   },
@@ -172,6 +172,6 @@
     "target_price": "NOT_EMITTED",
     "market_regime": "NOT_COMPUTED"
   },
-  "artifact_sha256": "52b87a403d929e42e37c9255a95f220d6617d4b5026538f60ec71dd29ec031ff",
-  "artifact_identity": "dashboard_home_summary/v1:52b87a403d929e42e37c9255a95f220d6617d4b5026538f60ec71dd29ec031ff"
+  "artifact_sha256": "655aefb5d524b2879e0be9d5652c94ac50914f57ce5eeb979a51b35e354300fe",
+  "artifact_identity": "dashboard_home_summary/v1:655aefb5d524b2879e0be9d5652c94ac50914f57ce5eeb979a51b35e354300fe"
 }
