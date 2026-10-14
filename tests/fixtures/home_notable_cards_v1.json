@@ -1,0 +1,153 @@
+{
+  "producer": "dashboard_home_summary.with_notable_cards",
+  "producer_commit": "1b0c5c8d",
+  "block": {
+    "contract_version": "dashboard_home_notable_cards/v1",
+    "as_of_session": "2026-10-13",
+    "source_contract_version": "workspace_index/v1",
+    "source_artifact_identity": "investment_decision_workspace_projection/v1:f1cebf6b2b771160750dd65b7bcacf75e0e34ea0dc9a3018282a4920948476d2",
+    "selection": "PUBLISHED_INSERTION_ORDER_NOTABLE_MEMBERSHIP_V1",
+    "selection_limit": 4,
+    "cards": [
+      {
+        "ticker": "AAS",
+        "as_of_session": "2026-10-13",
+        "research_action_posture": "ACCUMULATE_ON_RETEST",
+        "entry_state": "UPTREND_CONFIRMED",
+        "evidence_currency": "CURRENT_SESSION",
+        "position_context": {
+          "position_state": "UNKNOWN_POSITION_NOT_SUPPLIED",
+          "status": "NOT_SUPPLIED"
+        },
+        "why": {
+          "deterministic_reasons": [
+            "CONSTRUCTIVE_NON_BREAKOUT_WITH_USABLE_FUNDAMENTAL",
+            "PROFITABLE_FUNDAMENTAL"
+          ]
+        },
+        "reference_trigger": {
+          "display_note": "Reference level only -- not a confirmed entry (điểm mua) unless trigger_condition_satisfied is true.",
+          "entry_authority": false,
+          "invalidation_level": 9.7,
+          "invalidation_method": "CONFIRMED_SWING_LOW_BY_RULE_OR_V1_SUPPORT_FALLBACK",
+          "status": "AVAILABLE",
+          "trigger_condition_attached": true,
+          "trigger_condition_satisfied": false,
+          "trigger_level": 10,
+          "trigger_level_exists": true,
+          "trigger_state": "APPROACHING",
+          "trigger_type": "PIVOT_BREAKOUT_TRIGGER"
+        },
+        "counter_thesis": {
+          "key_counter_thesis": []
+        }
+      },
+      {
+        "ticker": "ABW",
+        "as_of_session": "2026-10-13",
+        "research_action_posture": "EARLY_WATCH",
+        "entry_state": "EARLY_REVERSAL_CANDIDATE",
+        "evidence_currency": "CURRENT_SESSION",
+        "position_context": {
+          "position_state": "UNKNOWN_POSITION_NOT_SUPPLIED",
+          "status": "NOT_SUPPLIED"
+        },
+        "why": {
+          "deterministic_reasons": [
+            "EARLY_REVERSAL_CANDIDATE",
+            "PROFITABLE_FUNDAMENTAL"
+          ]
+        },
+        "reference_trigger": {
+          "display_note": "Reference level only -- not a confirmed entry (điểm mua) unless trigger_condition_satisfied is true.",
+          "entry_authority": false,
+          "invalidation_level": 13.8,
+          "invalidation_method": "CONFIRMED_SWING_LOW_BY_RULE_OR_V1_SUPPORT_FALLBACK",
+          "status": "AVAILABLE",
+          "trigger_condition_attached": false,
+          "trigger_condition_satisfied": false,
+          "trigger_level": null,
+          "trigger_level_exists": false,
+          "trigger_state": "BELOW_TRIGGER",
+          "trigger_type": "NO_TRIGGER"
+        },
+        "counter_thesis": {
+          "key_counter_thesis": []
+        }
+      },
+      {
+        "ticker": "ACB",
+        "as_of_session": "2026-10-13",
+        "research_action_posture": "EARLY_WATCH",
+        "entry_state": "DOWNTREND",
+        "evidence_currency": "CURRENT_SESSION",
+        "position_context": {
+          "position_state": "UNKNOWN_POSITION_NOT_SUPPLIED",
+          "status": "NOT_SUPPLIED"
+        },
+        "why": {
+          "deterministic_reasons": [
+            "ADVERSE_TACTICAL_ENTRY_STATE"
+          ]
+        },
+        "reference_trigger": {
+          "display_note": "Reference level only -- not a confirmed entry (điểm mua) unless trigger_condition_satisfied is true.",
+          "entry_authority": false,
+          "invalidation_level": 20.15,
+          "invalidation_method": "CONFIRMED_SWING_LOW_BY_RULE_OR_V1_SUPPORT_FALLBACK",
+          "status": "AVAILABLE",
+          "trigger_condition_attached": false,
+          "trigger_condition_satisfied": false,
+          "trigger_level": null,
+          "trigger_level_exists": false,
+          "trigger_state": "BELOW_TRIGGER",
+          "trigger_type": "NO_TRIGGER"
+        },
+        "counter_thesis": {
+          "key_counter_thesis": [
+            "TECHNICAL_DETERIORATION"
+          ]
+        }
+      },
+      {
+        "ticker": "ACG",
+        "as_of_session": "2026-10-13",
+        "research_action_posture": "EARLY_WATCH",
+        "entry_state": "SIDEWAYS_NEUTRAL",
+        "evidence_currency": "CURRENT_SESSION",
+        "position_context": {
+          "position_state": "UNKNOWN_POSITION_NOT_SUPPLIED",
+          "status": "NOT_SUPPLIED"
+        },
+        "why": {
+          "deterministic_reasons": [
+            "TACTICAL_STATE_AWAITING_CONFIRMATION",
+            "PRICE_VOLUME_DISTRIBUTION_RISK",
+            "TECHNICAL_DETERIORATION"
+          ]
+        },
+        "reference_trigger": {
+          "display_note": "Reference level only -- not a confirmed entry (điểm mua) unless trigger_condition_satisfied is true.",
+          "entry_authority": false,
+          "invalidation_level": 29.9,
+          "invalidation_method": "CONFIRMED_SWING_LOW_BY_RULE_OR_V1_SUPPORT_FALLBACK",
+          "status": "AVAILABLE",
+          "trigger_condition_attached": false,
+          "trigger_condition_satisfied": false,
+          "trigger_level": null,
+          "trigger_level_exists": false,
+          "trigger_state": "BELOW_TRIGGER",
+          "trigger_type": "NO_TRIGGER"
+        },
+        "counter_thesis": {
+          "key_counter_thesis": [
+            "PRICE_VOLUME_DISTRIBUTION_RISK",
+            "TECHNICAL_DETERIORATION"
+          ]
+        }
+      }
+    ]
+  },
+  "session": "2026-10-13",
+  "workspace_artifact_identity": "investment_decision_workspace_projection/v1:f1cebf6b2b771160750dd65b7bcacf75e0e34ea0dc9a3018282a4920948476d2"
+}

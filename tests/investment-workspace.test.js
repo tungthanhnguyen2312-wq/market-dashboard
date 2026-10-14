@@ -579,6 +579,116 @@ test("selected candlestick and SMC evidence is exact-session only and uses centr
   assert.match(stale, /Chưa có mẫu hình nến hoặc cấu trúc dòng tiền \(SMC\) hiện hành/);
 });
 
+test("proxy or blocked metrics are not labeled ready", () => {
+  const proxyCard = diagnosticCard({
+    valuation: {
+      method_diagnostics: {
+        "P/E_TTM": {
+          status: "READY_RESEARCH_PROXY", value: 9.5, availability_state: "AVAILABLE_QUALIFIED",
+          share_basis: "CURRENT_SHARE_RESEARCH_PROXY", period_basis: "TTM_SUM",
+        },
+        "P/B_CURRENT_RESEARCH": {
+          status: "INPUT_BLOCKED", value: null, availability_state: "NOT_AVAILABLE",
+          blocker_reason_codes: ["SHARE_BASIS_UNAVAILABLE"],
+        },
+        "EV/EBITDA": {
+          status: "NOT_APPLICABLE", value: null, availability_state: "NOT_AVAILABLE",
+        },
+      },
+    },
+    display_metrics: {
+      pe_ttm: { display_state: "AVAILABLE", value: 9.5 },
+      roa: { display_state: "AVAILABLE", value: 0.042 },
+    },
+    fundamental: {
+      current_features: {
+        roa_eop_proxy: {
+          status: "READY_RESEARCH_PROXY", value: 0.042, method: "ending_balance_proxy",
+          input_periods: ["2026-H1"], blocker_reason_codes: [],
+        },
+      },
+    },
+  });
+  const html = ws.decisionCardHtml(proxyCard, {
+    ticker: "AAA",
+    displayMetricCatalog: { pe_ttm: { label: "P/E" }, roa: { label: "ROA" } },
+  });
+  const pe = html.match(/<article class="ws-valuation-method" data-method="P\/E_TTM">[\s\S]*?<\/article>/);
+  assert.ok(pe);
+  assert.match(pe[0], /P\/E · 12 tháng gần nhất/);
+  assert.match(pe[0], /Proxy nghiên cứu/);
+  assert.doesNotMatch(pe[0], /Sẵn sàng/);
+  const blocked = html.match(/<article class="ws-valuation-method" data-method="P\/B_CURRENT_RESEARCH">[\s\S]*?<\/article>/);
+  assert.match(blocked[0], /P\/B · nghiên cứu hiện tại/);
+  assert.match(blocked[0], /Bị chặn/);
+  assert.doesNotMatch(blocked[0], /Sẵn sàng|READY/);
+  const ev = html.match(/<article class="ws-valuation-method" data-method="EV\/EBITDA">[\s\S]*?<\/article>/);
+  assert.match(ev[0], /Không áp dụng/);
+  const slot = ws.metricSlotHtml(proxyCard.display_metrics, { pe_ttm: { label: "P/E" }, roa: { label: "ROA" } }, "roa", proxyCard.fundamental.current_features.roa_eop_proxy);
+  assert.match(slot, /Proxy nghiên cứu/);
+  assert.doesNotMatch(slot, /Sẵn sàng|\bREADY\b/);
+});
+
+test("H1 ending-assets ROA stays distinct from annualized and average-assets ROA", () => {
+  const html = ws.returnBalanceMetricsHtml({
+    current_features: {
+      roa_eop_proxy: {
+        status: "READY_RESEARCH_PROXY", value: 0.042, method: "ENDING_BALANCE_PROXY=earnings/ending_balance",
+        input_periods: ["2026-H1"],
+      },
+      same_provider_roa_avg_assets: {
+        status: "RESEARCH_USABLE", value: 0.08,
+        method: "same_provider_standalone_flow_average_of_period_boundary_balances/v1",
+        input_periods: ["2025"],
+      },
+      roa_annualized: {
+        status: "DERIVED_PROXY", value: 0.11, method: "annualized_run_rate_research_proxy",
+        input_periods: ["2026-H1"],
+      },
+    },
+  });
+  const ending = html.match(/data-metric-id="roa_eop_proxy"[\s\S]*?<\/article>/);
+  const average = html.match(/data-metric-id="same_provider_roa_avg_assets"[\s\S]*?<\/article>/);
+  const annualized = html.match(/data-metric-id="roa_annualized"[\s\S]*?<\/article>/);
+  assert.match(ending[0], /data-balance="ending-assets"/);
+  assert.match(ending[0], /tài sản cuối kỳ/);
+  assert.match(ending[0], /2026-H1/);
+  assert.match(ending[0], /Proxy nghiên cứu/);
+  assert.doesNotMatch(ending[0], /bình quân|quy năm|Sẵn sàng/);
+  assert.match(average[0], /data-balance="average-assets"/);
+  assert.match(average[0], /tài sản bình quân/);
+  assert.doesNotMatch(average[0], /cuối kỳ|quy năm/);
+  assert.match(annualized[0], /data-balance="annualized"/);
+  assert.match(annualized[0], /đã quy năm/);
+  assert.doesNotMatch(annualized[0], /cuối kỳ|bình quân/);
+  assert.match(ending[0], /4,2%/);
+  assert.equal(ws.returnBalanceMetricsHtml({ current_features: {} }), "");
+  assert.equal(ws.returnBalanceMetricsHtml({}), "");
+});
+
+test("an unpublished return metric is not calculated in the browser", () => {
+  const html = ws.returnBalanceMetricsHtml({
+    current_features: {
+      roa_eop_proxy: { status: "BLOCKED", value: null, method: "blocked_feature_contract/v1", input_periods: [], blocker_reason_codes: ["CROSS_PROVIDER_OR_DURATION_INCOMPATIBLE"] },
+    },
+  });
+  assert.match(html, /data-balance="ending-assets"/);
+  assert.match(html, /Bị chặn/);
+  assert.match(html, /Khác nguồn hoặc khác độ dài kỳ/);
+  assert.match(html, /Chưa có số liệu được công bố/);
+  assert.doesNotMatch(html, /data-retained-value="true"/);
+  assert.doesNotMatch(html, /data-metric-id="same_provider_roa_avg_assets"|data-balance="annualized"/);
+});
+
+test("decision surfaces share one rendered card", () => {
+  const card = diagnosticCard();
+  const drawer = { innerHTML: "" };
+  const printCopy = { innerHTML: "" };
+  const html = ws.renderDecisionCardSurfaces(card, [drawer, printCopy], { ticker: "AAA" });
+  assert.equal(drawer.innerHTML, html);
+  assert.equal(printCopy.innerHTML, html);
+});
+
 test("legacy valuation artifacts remain safe while HPG-like old summaries do not claim absolute valuation methods", () => {
   const legacy = diagnosticCard({
     valuation: { relative_research_state: "ABSOLUTE_RESEARCH_ONLY", usable_relative_method_count: 4, supporting_methods: [] },
