@@ -62,6 +62,9 @@ def pass_through_card(ticker: str, card: dict) -> dict:
     return projected
 
 
+FIXTURE_PATH = ROOT / "tests" / "fixtures" / "home_notable_cards_v1.json"
+
+
 class HomeNotableCardsContractTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -113,6 +116,26 @@ class HomeNotableCardsContractTests(unittest.TestCase):
         # Identity fields stay fixed-width, so this size is the post-rehash size.
         self.assertEqual(len(ordered["artifact_sha256"]), 64)
         self.assertTrue(ordered["artifact_identity"].startswith("dashboard_home_summary/v1:"))
+
+    def test_producer_fixture_is_separate_from_published_output(self):
+        """The fixture is the Producer compact-summary shape. It is not a claim
+        that the retained publication already contains notable_cards."""
+        fixture = json.loads(FIXTURE_PATH.read_text(encoding="utf-8"))
+        block = fixture["block"]
+        self.assertNotIn("notable_cards", self.summary)
+        self.assertEqual(block["contract_version"], NOTABLE_CARDS_CONTRACT)
+        self.assertEqual(block["selection"], NOTABLE_SELECTION)
+        self.assertEqual(block["selection_limit"], NOTABLE_SELECTION_LIMIT)
+        self.assertEqual([card["ticker"] for card in block["cards"]], ["AAS", "ABW", "ACB", "ACG"])
+        self.assertEqual(tuple(block), (
+            "contract_version", "as_of_session", "source_contract_version",
+            "source_artifact_identity", "selection", "selection_limit", "cards",
+        ))
+        for card in block["cards"]:
+            self.assertEqual(tuple(card), PASS_THROUGH_FIELDS)
+        self.assertEqual(fixture["workspace_artifact_identity"], block["source_artifact_identity"])
+        self.assertLess(FIXTURE_PATH.stat().st_size, 20000)
+        self.assertGreater(len(self.index_bytes), FIXTURE_PATH.stat().st_size)
 
     def test_dashboard_consumer_accepts_only_the_qualified_block(self):
         tickers = notable_membership(self.index["cards"])

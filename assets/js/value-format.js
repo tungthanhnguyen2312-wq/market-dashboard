@@ -374,6 +374,15 @@
     NOT_APPLICABLE: "Không áp dụng",
     NOT_TRACKED: "Chưa theo dõi",
     TEMPORARILY_UNAVAILABLE: "Tạm chưa có dữ liệu",
+    BLOCKED: "Bị chặn",
+    INPUT_BLOCKED: "Đầu vào dữ liệu bị chặn",
+    STALE: "Đã cũ",
+    UNAVAILABLE: "Chưa có dữ liệu",
+    NOT_AVAILABLE: "Chưa có dữ liệu",
+    PROXY: "Proxy nghiên cứu",
+    RESEARCH_PROXY: "Proxy nghiên cứu",
+    DERIVED_PROXY: "Proxy nghiên cứu",
+    READY_RESEARCH_PROXY: "Proxy nghiên cứu",
   });
 
   // One centralized presentation layer for retained diagnostic blocker/status codes.
@@ -385,6 +394,7 @@
     READY_RESEARCH_ONLY: "Đối sánh tương đối đủ điều kiện nghiên cứu",
     MISSING_DEBT_OR_CASH: "Thiếu dữ liệu nợ hoặc tiền mặt đủ điều kiện",
     MISSING_DEBT_OR_CASH_INPUTS: "Thiếu dữ liệu nợ hoặc tiền mặt đủ điều kiện",
+    CROSS_PROVIDER_OR_DURATION_INCOMPATIBLE: "Khác nguồn hoặc khác độ dài kỳ, chưa đối sánh được",
     MISSING_SAME_PROVIDER_TICKER_PERIOD_SCOPE_REPRESENTATION: "Thiếu dữ liệu cùng nguồn theo mã và kỳ",
     MISSING_SAME_PROVIDER_CONSECUTIVE_PERIOD_BOUNDARY_BALANCES: "Thiếu số dư đầu/cuối kỳ cùng nguồn",
     MISSING_SAME_PROVIDER_FLOW_AND_ENDING_BALANCE_SHEET_INPUT: "Thiếu dòng và số dư cuối kỳ tương thích",
@@ -435,7 +445,7 @@
     TRIGGERED: "Đã kích hoạt",
     NOT_AVAILABLE: "Chưa có",
     PRODUCT_READY_RESEARCH_CONTEXT: "Bối cảnh nghiên cứu đã sẵn sàng",
-    READY_RESEARCH_PROXY: "Dữ liệu nghiên cứu sẵn sàng",
+    READY_RESEARCH_PROXY: "Proxy nghiên cứu",
   });
 
   const FRESHNESS_MAP = Object.freeze({
@@ -503,7 +513,7 @@
     PRICE_UNAVAILABLE: "Chưa có giá",
     PARTIAL: "Một phần",
     BLOCKED: "Bị chặn",
-    READY_RESEARCH_PROXY: "Dữ liệu nghiên cứu sẵn sàng",
+    READY_RESEARCH_PROXY: "Proxy nghiên cứu",
     CURRENT_SHARE_RESEARCH_PROXY: "Proxy số cổ phiếu hiện tại",
     TTM: "12 tháng gần nhất",
     TTM_SUM: "Tổng 12 tháng gần nhất",
@@ -1126,6 +1136,8 @@
     AVAILABLE: "info",
     PRICE_AVAILABLE: "info",
     RESEARCH_PROXY: "info",
+    READY_RESEARCH_PROXY: "info",
+    DERIVED_PROXY: "info",
     LIQUIDITY_RESEARCH_PROXY: "info",
     QUALIFIED_CLASSIFICATION: "info",
     SHORT_TERM_FEW_SESSIONS: "info",
@@ -1190,6 +1202,8 @@
       NOT_EVALUATED: "neutral",
       NOT_APPLICABLE: "neutral",
       READY: "constructive",
+      READY_RESEARCH_PROXY: "info",
+      DERIVED_PROXY: "info",
     },
     data_readiness: {
       READY: "constructive",
@@ -1320,6 +1334,7 @@
     if (raw.includes("RISK") || raw.includes("BREAKDOWN") || raw.includes("INVALID") || raw.includes("DETERIORAT") || raw.includes("LOSS")) return "adverse";
     if (raw.includes("WAIT") || raw.includes("WATCH") || raw.includes("BASE") || raw.includes("REVERSAL") || raw.includes("STALE") || raw.includes("CONDITIONAL")) return "watch";
     if (raw.includes("UNAVAILABLE") || raw.includes("UNKNOWN") || raw.includes("INSUFFICIENT") || raw.includes("BLOCKED")) return "neutral";
+    if (raw.includes("PROXY")) return "info";
 
     return "neutral";
   }

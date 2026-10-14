@@ -485,7 +485,41 @@
     }
     return '<span class="cockpit-note ws-diagnostic-value">Chưa có dữ liệu</span>';
   }
+  function recordStatusBlob(record) {
+    const source = record || {};
+    return [
+      source.status, source.fitness, source.research_fitness, source.share_basis, source.method,
+      source.availability_state, source.display_state, source.evidence_fitness, source.freshness_status,
+    ].filter((part) => part !== null && part !== undefined && part !== "").join(" ").toUpperCase();
+  }
+
+  // Producer status stays the visible status. A proxy or blocked label never becomes READY.
+  function financialStatusLabel(record) {
+    const source = record || {};
+    const tokens = [source.status, source.display_state, source.availability_state]
+      .filter((part) => part !== null && part !== undefined && part !== "")
+      .map((part) => String(part).toUpperCase());
+    if (tokens.includes("NOT_APPLICABLE")) return { label: "Không áp dụng", tone: "neutral", kind: "not_applicable" };
+    if (tokens.some((token) => token === "BLOCKED" || token === "INPUT_BLOCKED" || token.includes("BLOCKED"))) {
+      return { label: "Bị chặn", tone: "adverse", kind: "blocked" };
+    }
+    const blob = recordStatusBlob(source);
+    if (blob.includes("PROXY")) return { label: "Proxy nghiên cứu", tone: "info", kind: "proxy" };
+    if (blob.includes("STALE")) return { label: "Đã cũ", tone: "watch", kind: "stale" };
+    if (tokens.includes("TEMPORARILY_UNAVAILABLE")) return { label: "Tạm chưa có dữ liệu", tone: "neutral", kind: "unavailable" };
+    if (tokens.some((token) => token === "UNAVAILABLE" || token === "NOT_AVAILABLE" || token === "MISSING")) {
+      return { label: "Chưa có dữ liệu", tone: "neutral", kind: "unavailable" };
+    }
+    if (tokens.includes("INSUFFICIENT_DATA")) return { label: "Chưa đủ dữ liệu", tone: "neutral", kind: "insufficient" };
+    return { label: "", tone: "neutral", kind: "published" };
+  }
+
   function valuationAvailabilityHtml(method) {
+    const classified = financialStatusLabel(method);
+    if (classified.label) {
+      const raw = (method && (method.status || method.availability_state || method.display_state)) || classified.kind;
+      return diagnosticPill(raw, classified.label, classified.tone);
+    }
     const availability = (method || {}).availability_state || "NOT_AVAILABLE";
     const blockers = (method || {}).blocker_reason_codes || [];
     const isBlockedWithoutValue = availability === "NOT_AVAILABLE" && !hasRetainedValue((method || {}).value)
@@ -509,14 +543,39 @@
     if (hasRetainedValue(peer.premium_or_discount_to_peer_median)) details.push(`Chênh lệch so với trung vị: ${formatDiagnosticNumber(peer.premium_or_discount_to_peer_median)}`);
     return `<div class="cockpit-note ws-diagnostic-context">Bối cảnh đối sánh: ${status ? diagnosticReasonHtml(status) : "Chưa có dữ liệu"}${details.length ? `<br>${escHtml(details.join(" · "))}` : ""}</div>`;
   }
+  const VALUATION_METHOD_LABELS = Object.freeze({
+    "P/E": "P/E",
+    "P/E_TTM": "P/E · 12 tháng gần nhất",
+    "P/E_REPORTED_PERIOD": "P/E · kỳ báo cáo · chỉ nghiên cứu",
+    "P/S": "P/S",
+    "P/S_TTM": "P/S · 12 tháng gần nhất",
+    "P/S_REPORTED_PERIOD": "P/S · kỳ báo cáo · chỉ nghiên cứu",
+    "P/B": "P/B",
+    "P/B_CURRENT_RESEARCH": "P/B · nghiên cứu hiện tại",
+    "P/B_OFFICIAL_RESEARCH": "P/B · nghiên cứu chính thức",
+    "EV/EBITDA": "EV/EBITDA",
+    "EV/EBITDA_CALC_READY": "EV/EBITDA · khả năng tính đã công bố",
+    "EV/Sales": "EV/Doanh thu",
+    "market_cap": "Vốn hóa",
+  });
+
+  function valuationMethodLabel(methodId) {
+    return VALUATION_METHOD_LABELS[methodId] || methodId;
+  }
+
   function valuationMethodHtml(methodId, method) {
     const detail = method || {};
     const blockers = Array.isArray(detail.blocker_reason_codes) ? detail.blocker_reason_codes : [];
     const context = [];
     if (detail.period_basis) context.push(`Kỳ: ${formatWorkspaceState(detail.period_basis, "data_fitness")}`);
     if (detail.share_basis) context.push(`Cơ sở: ${formatWorkspaceState(detail.share_basis, "data_fitness")}`);
+    if (detail.denominator_period_semantics) context.push(`Mẫu số: ${formatWorkspaceState(detail.denominator_period_semantics, "data_fitness")}`);
+    const reporting = detail.reporting_basis;
+    if (reporting && typeof reporting === "object" && reporting.time_basis) {
+      context.push(`Cơ sở kỳ: ${formatWorkspaceState(reporting.time_basis, "data_fitness")}`);
+    }
     return `<article class="ws-valuation-method" data-method="${escHtml(methodId)}">
-      <div class="ws-valuation-method-head"><strong>${escHtml(methodId)}</strong>${valuationAvailabilityHtml(detail)}</div>
+      <div class="ws-valuation-method-head"><strong>${escHtml(valuationMethodLabel(methodId))}</strong>${valuationAvailabilityHtml(detail)}</div>
       <div class="ws-valuation-method-value">${diagnosticValueHtml(detail)}</div>
       ${valuationPeerContextHtml(detail.peer_relative)}
       ${context.length ? `<div class="cockpit-note ws-diagnostic-context">${escHtml(context.join(" · "))}</div>` : ""}
@@ -870,15 +929,46 @@
     return escHtml(String(value ?? ""));
   }
 
-  function metricSlotHtml(displayMetrics, catalog, metricId) {
+  function sourceRecordForMetric(card, metricId) {
+    const features = ((card || {}).fundamental || {}).current_features || {};
+    const methods = ((card || {}).valuation || {}).method_diagnostics || {};
+    const published = {
+      pe_ttm: methods["P/E_TTM"],
+      ps_ttm: methods["P/S_TTM"],
+      pb: methods["P/B"],
+      ev_sales: methods["EV/Sales"],
+      ev_ebitda: methods["EV/EBITDA"],
+      roa: features.roa_eop_proxy || features.return_on_assets,
+      roe: features.roe_eop_proxy || features.return_on_equity,
+    };
+    return published[metricId] || null;
+  }
+
+  function metricSlotHtml(displayMetrics, catalog, metricId, sourceRecord) {
     const record = (displayMetrics || {})[metricId];
     if (!record) return "";
     const label = ((catalog || {})[metricId] || {}).label || metricId;
-    const isAvailable = record.display_state === "AVAILABLE";
-    const valueHtml = isAvailable
-      ? metricValueHtml(metricId, record.value)
-      : `<span class="cockpit-note">${escHtml(formatWorkspaceState(record.display_state, "metric_display_state"))}</span>`;
-    return `<div class="ws-metric-slot" data-metric-id="${escHtml(metricId)}" data-metric-state="${escHtml(record.display_state)}">`
+    const sourceClassified = sourceRecord ? financialStatusLabel(sourceRecord) : { label: "", kind: "published" };
+    const displayClassified = financialStatusLabel(record);
+    const guard = sourceClassified.kind !== "published" ? sourceClassified : displayClassified;
+    const isAvailable = record.display_state === "AVAILABLE" && guard.kind === "published";
+    let valueHtml;
+    if (isAvailable) {
+      valueHtml = metricValueHtml(metricId, record.value);
+    } else if (guard.label) {
+      const reason = sourceRecord && Array.isArray(sourceRecord.blocker_reason_codes) && sourceRecord.blocker_reason_codes[0]
+        ? ` · ${diagnosticReasonLabel(sourceRecord.blocker_reason_codes[0])}`
+        : "";
+      const retainedSource = sourceRecord && hasRetainedValue(sourceRecord.value) ? sourceRecord.value : null;
+      const retainedDisplay = guard.kind === "proxy" && hasRetainedValue(record.value) ? record.value : null;
+      const retained = retainedSource !== null ? retainedSource : retainedDisplay;
+      const retainedHtml = retained !== null ? ` · ${metricValueHtml(metricId, retained)}` : "";
+      valueHtml = `<span class="cockpit-note">${escHtml(`${guard.label}${reason}`)}</span>${retainedHtml}`;
+    } else {
+      valueHtml = `<span class="cockpit-note">${escHtml(formatWorkspaceState(record.display_state, "metric_display_state"))}</span>`;
+    }
+    const stateAttr = guard.kind === "published" ? record.display_state : ((sourceRecord && sourceRecord.status) || record.display_state);
+    return `<div class="ws-metric-slot" data-metric-id="${escHtml(metricId)}" data-metric-state="${escHtml(stateAttr)}">`
       + `<span class="ws-metric-label">${escHtml(label)}</span><span class="ws-metric-value">${valueHtml}</span></div>`;
   }
 
@@ -891,8 +981,75 @@
     const displayMetrics = (card || {}).display_metrics;
     const catalog = (options || {}).displayMetricCatalog;
     if (!displayMetrics || !catalog) return "";
-    const rows = metricIds.map((id) => metricSlotHtml(displayMetrics, catalog, id)).join("");
+    const rows = metricIds.map((id) => metricSlotHtml(displayMetrics, catalog, id, sourceRecordForMetric(card, id))).join("");
     return `<div class="ws-metric-group"><h6>${escHtml(groupLabel)}</h6><div class="ws-metric-grid">${rows}</div></div>`;
+  }
+
+  function returnBalanceKind(featureId, feature) {
+    const method = String((feature && feature.method) || "");
+    const warnings = Array.isArray(feature && feature.warnings) ? feature.warnings.join(" ") : "";
+    const blob = `${featureId} ${method} ${warnings}`.toLowerCase();
+    const equity = /(^|_)roe($|_)|return_on_equity/.test(featureId) && !/roa|return_on_assets|asset/.test(featureId);
+    const name = /roa|return_on_assets/.test(featureId) || (!equity && /asset/.test(blob) && /roa|return/.test(featureId))
+      ? "ROA"
+      : (equity || /roe|return_on_equity/.test(featureId) ? "ROE" : null);
+    if (!name) return null;
+    if (/annual/.test(blob)) return { name, balance: "annualized", phrase: "đã quy năm" };
+    if (/average|avg_/.test(blob)) {
+      return { name, balance: equity ? "average-equity" : "average-assets", phrase: equity ? "vốn bình quân" : "tài sản bình quân" };
+    }
+    if (/eop|ending|end_of_period|ending_balance/.test(blob)) {
+      return { name, balance: equity ? "ending-equity" : "ending-assets", phrase: equity ? "vốn cuối kỳ" : "tài sản cuối kỳ" };
+    }
+    return { name, balance: "unspecified", phrase: "phương pháp mẫu số chưa được công bố" };
+  }
+
+  function reportedPeriodText(feature) {
+    const periods = Array.isArray(feature && feature.input_periods) ? feature.input_periods.filter((period) => period !== null && period !== undefined && period !== "") : [];
+    if (periods.length) return periods.join(", ");
+    if (feature && feature.period_basis) return String(feature.period_basis);
+    if (feature && feature.reporting_period) return String(feature.reporting_period);
+    return "";
+  }
+
+  function returnBalanceMetricsHtml(fundamental) {
+    const features = fundamental && fundamental.current_features;
+    if (!features || typeof features !== "object" || Array.isArray(features)) return "";
+    const preferred = [
+      "roa_eop_proxy", "roe_eop_proxy", "same_provider_roa", "same_provider_roe",
+      "same_provider_roa_eop_proxy", "same_provider_roe_eop_proxy",
+      "same_provider_roa_avg_assets", "same_provider_roe_avg_equity",
+      "roa_annualized", "roe_annualized", "return_on_assets", "return_on_equity",
+    ];
+    const ids = [];
+    preferred.forEach((id) => {
+      if (Object.prototype.hasOwnProperty.call(features, id)) ids.push(id);
+    });
+    Object.keys(features).sort().forEach((id) => {
+      if (!ids.includes(id) && /roa|roe|return_on_assets|return_on_equity/i.test(id)) ids.push(id);
+    });
+    const rows = ids.map((id) => {
+      const feature = features[id] || {};
+      const kind = returnBalanceKind(id, feature);
+      if (!kind) return "";
+      const classified = financialStatusLabel(feature);
+      const statusLabel = classified.label || "Có dữ liệu nghiên cứu";
+      const period = reportedPeriodText(feature);
+      const reason = Array.isArray(feature.blocker_reason_codes) && feature.blocker_reason_codes[0]
+        ? diagnosticReasonLabel(feature.blocker_reason_codes[0])
+        : "";
+      const metricId = kind.name === "ROE" ? "roe" : "roa";
+      const valueHtml = hasRetainedValue(feature.value)
+        ? `<strong class="ws-diagnostic-value" data-retained-value="true">${metricValueHtml(metricId, feature.value)}</strong>`
+        : `<span class="cockpit-note ws-diagnostic-value">Chưa có số liệu được công bố</span>`;
+      return `<article class="ws-valuation-method ws-return-metric" data-metric-id="${escHtml(id)}" data-balance="${escHtml(kind.balance)}" data-return-name="${escHtml(kind.name)}">
+        <div class="ws-valuation-method-head"><strong>${escHtml(kind.name)}</strong>${diagnosticPill(feature.status || classified.kind, statusLabel, classified.tone || "neutral")}</div>
+        <div class="ws-valuation-method-value">${valueHtml}</div>
+        <div class="cockpit-note ws-diagnostic-context">${escHtml(kind.phrase)}${period ? ` · Kỳ ${escHtml(period)}` : ""}</div>
+        ${reason ? `<div class="cockpit-note ws-diagnostic-blocker">${escHtml(reason)}</div>` : ""}
+      </article>`;
+    }).join("");
+    return rows ? `<div class="ws-valuation-methods" aria-label="ROA và ROE theo phương pháp đã công bố">${rows}</div>` : "";
   }
 
   function decisionCardHtml(card, options) {
@@ -951,6 +1108,7 @@
             <div class="ws-evidence-summary-item"><div>${helpLabelHtml("Nền tảng")}${evidenceQualityHtml(foundationQuality)}</div><strong>${escHtml(formatWorkspaceState(fundamental.state, "fundamental_state"))}</strong><p>${escHtml(formatWorkspaceState(fundamental.trajectory, "fundamental_trajectory"))}</p></div>
             ${valuationEvidenceSummaryHtml(val)}
             ${investorMetricsGridHtml(card, opts, ["gross_margin", "net_margin", "revenue_growth_yoy", "net_income_growth_yoy", "operating_cash_flow_sign", "roe", "roa", "debt_to_equity", "ebitda"], "Cơ bản")}
+            ${returnBalanceMetricsHtml(fundamental)}
             ${investorMetricsGridHtml(card, opts, ["pe_ttm", "pb", "ps_ttm", "ev_sales", "ev_ebitda"], "Định giá")}
           </section>
 
@@ -1050,6 +1208,14 @@
   function renderDecisionCard(card, container, options) {
     const html = decisionCardHtml(card, options);
     if (container) container.innerHTML = html;
+    return html;
+  }
+
+  function renderDecisionCardSurfaces(card, containers, options) {
+    const html = decisionCardHtml(card, options);
+    (containers || []).forEach((container) => {
+      if (container) container.innerHTML = html;
+    });
     return html;
   }
 
@@ -1310,11 +1476,9 @@
             sourceArtifacts: WORKSPACE.source_artifacts,
             displayMetricCatalog: WORKSPACE.display_metric_catalog,
           };
-          // The drawer is the sole on-screen interaction surface. The in-page copy is print-only
-          // (d-none d-print-block on #decision-card-section) so it always renders too, just never
-          // shown on screen.
-          renderDecisionCard(card, drawerEl, cardOpts);
-          if (inPageEl) renderDecisionCard(card, inPageEl, cardOpts);
+          // The drawer is the on-screen surface. The in-page node is print-only. Both receive
+          // the same HTML string from one decisionCardHtml call.
+          renderDecisionCardSurfaces(card, [drawerEl, inPageEl], cardOpts);
           if (drawerBadge) drawerBadge.innerHTML = actionPostureHtml(card);
           renderSelectedSignalEvidence(ticker);
         });
@@ -1653,7 +1817,8 @@
     VETO_RESEARCH_STANCES, TACTICAL_ACTIONABLE_ENTRY_READINESS, stanceEntryGuidance,
     actionPostureLabel, actionPostureHtml, evidenceCurrencyClass, evidenceCurrencyHtml, opportunityPriorityHtml,
     researchScreenHtml, researchScreenLabel, POSITION_CONDITIONAL_POSTURES, POSTURE_UNAVAILABLE_TEXT,
-    decisionCardHtml, renderDecisionCard, technicalSnapshotHtml, selectedSignalEvidenceHtml, retainedPrice, compactReasons, notableTickers,
+    decisionCardHtml, renderDecisionCard, renderDecisionCardSurfaces, technicalSnapshotHtml, selectedSignalEvidenceHtml, retainedPrice, compactReasons, notableTickers,
+    financialStatusLabel, returnBalanceMetricsHtml, valuationMethodLabel,
     evidenceQuality, evidenceSummaryHtml,
     cssEscapeSelector,
     analysisRecord, analysisRows, analysisRowHtml, analysisEvidenceHtml,

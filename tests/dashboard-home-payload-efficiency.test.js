@@ -164,6 +164,60 @@ test("boot renders the published cards once and does not fetch the index", async
   }
 });
 
+test("producer notable_cards fixture avoids the index and preserves the four cards", () => {
+  const fixture = JSON.parse(fs.readFileSync(path.join(root, "tests/fixtures/home_notable_cards_v1.json"), "utf8"));
+  const block = fixture.block;
+  const withCards = summaryWithBlock(block);
+  const fixtureBuildInfo = {
+    market_session: fixture.session,
+    investment_workspace: {
+      status: "CURRENT",
+      source_session: fixture.session,
+      artifact_identity: fixture.workspace_artifact_identity,
+    },
+  };
+  const indexForParity = {
+    contract_version: "workspace_index/v1",
+    as_of_session: fixture.session,
+    source_artifact_identity: fixture.workspace_artifact_identity,
+    cards: Object.fromEntries(block.cards.map((card) => [card.ticker, card])),
+  };
+  const fromIndex = overview.homeOpportunitiesHtml(indexForParity, fixture.session, presentation);
+  const qualified = overview.qualifiedNotableCards(withCards, fixture.session, fixtureBuildInfo);
+  const fromBlock = overview.publishedNotableHtml(qualified, presentation);
+  assert.equal(fromBlock, fromIndex);
+  assert.deepEqual(
+    [...fromBlock.matchAll(/data-focus-ticker="([^"]+)"/g)].map((match) => match[1]),
+    ["AAS", "ABW", "ACB", "ACG"],
+  );
+  assert.deepEqual(
+    [...fromBlock.matchAll(/href="([^"]+)"/g)].map((match) => match[1]),
+    ["AAS", "ABW", "ACB", "ACG"].map((ticker) => `investment-workspace.html?ticker=${ticker}`),
+  );
+  assert.equal(overview.homeOpportunityRequestPlan(withCards, fixtureBuildInfo).length, 0);
+  assert.deepEqual(overview.buildInfoRequestPlan(fixtureBuildInfo), []);
+  const fixtureBytes = Buffer.byteLength(JSON.stringify(withCards));
+  assert.ok(fixtureBytes < 20000);
+  assert.equal(block.cards.length, 4);
+  const cases = {
+    missing: summary,
+    stale: summaryWithBlock({ ...block, as_of_session: "2000-01-01" }),
+    invalid: summaryWithBlock({ ...block, contract_version: "other" }),
+    identity: summaryWithBlock({ ...block, source_artifact_identity: "investment_decision_workspace_projection/v1:0" }),
+  };
+  for (const candidate of Object.values(cases)) {
+    assert.equal(overview.qualifiedNotableCards(candidate, fixture.session, fixtureBuildInfo), null);
+    assert.deepEqual(overview.homeOpportunityRequestPlan(candidate, fixtureBuildInfo), [overview.WORKSPACE_INDEX_URL]);
+  }
+  console.log(JSON.stringify({
+    published_output_bytes: summaryBytes.length + indexBytes.length,
+    fixture_summary_bytes: fixtureBytes,
+    index_fetch_when_fixture_qualified: 0,
+    index_fetch_when_fixture_rejected: 1,
+    build_info_fetch_when_embedded: 0,
+  }));
+});
+
 test("boot without a notable block fetches workspace_index.json once", async () => {
   const host = { innerHTML: "", textContent: "" };
   const previous = { document: global.document, window: global.window, fetch: global.fetch };
