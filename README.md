@@ -1,43 +1,50 @@
-# Stock Look Up dashboard
+<a id="stock-look-up-dashboard"></a>
+# Dashboard Stock Look Up
 
-This repository is the GitHub-facing dashboard and its publishable assets. It does not contain the producer pipeline, runtime database, backups, or private AI artifacts.
+Repository này chứa dashboard hiển thị trên GitHub và các tài nguyên có thể phát hành của dashboard. Repository không chứa pipeline Producer, cơ sở dữ liệu runtime, bản sao lưu hoặc artifact AI riêng tư.
 
-## Current product surfaces
+<a id="current-product-surfaces"></a>
+## Các giao diện sản phẩm hiện tại
 
-Investor navigation: **Tổng quan | Cơ hội | Danh mục | Vĩ mô | Lịch sử**.
-Cơ hội keeps the compatible `investment-workspace.html` route. Discovery, analysis,
-technical evidence and watchlist are internal views; older URLs still redirect.
-The Vietnamese presentation and progressive-disclosure contract is documented in
+Thanh điều hướng dành cho nhà đầu tư: **Tổng quan | Cơ hội | Danh mục | Vĩ mô | Lịch sử**.
+Cơ hội giữ route tương thích `investment-workspace.html`. Khám phá, phân tích,
+evidence kỹ thuật và danh sách theo dõi là các chế độ xem bên trong; URL cũ vẫn
+được chuyển hướng. Quy ước trình bày bằng tiếng Việt và hiển thị chi tiết theo
+nhu cầu được mô tả tại
 [docs/INVESTOR_FIRST_UX_V1.md](docs/INVESTOR_FIRST_UX_V1.md).
 
-The current research surface is `data/investment_decision_workspace.json`, a serialized
-Producer-owned Workspace projection. Home, Analysis, Tactical Signals, Screener links,
-Workspace detail, and Portfolio use it as descriptive research context. The Dashboard does not
-calculate a score, ranking, target price, probability, sizing, or execution command. Legacy
-candlestick and sector assets remain optional secondary sidecars; publication authority remains
-in the private Producer repository.
+Giao diện nghiên cứu hiện tại sử dụng `data/investment_decision_workspace.json`,
+bản chiếu Workspace được tuần tự hóa do Producer quản lý. Trang Tổng quan,
+Phân tích, Tín hiệu kỹ thuật, liên kết từ bộ lọc cổ phiếu, chi tiết Workspace và
+Danh mục dùng bản chiếu này làm ngữ cảnh nghiên cứu mô tả. Dashboard không tính
+điểm, xếp hạng, giá mục tiêu, xác suất, quy mô vị thế hay lệnh thực thi. Các tài
+nguyên nến giá và ngành cũ vẫn là phần bổ trợ tùy chọn; authority phát hành vẫn
+thuộc repository Producer riêng tư.
 
-## Repository boundary
+<a id="repository-boundary"></a>
+## Ranh giới repository
 
-- Keep dashboard source, static assets, and reusable developer documentation in this repository.
-- Keep machine-specific procedures, runtime data, generated local reports, and backups outside the repository.
-- A local integration uses `STOCK_LOOKUP_RUNTIME_ROOT` supplied by the operator or deployment configuration. Do not assume that a runtime is adjacent to this checkout.
+- Lưu mã nguồn dashboard, tài nguyên tĩnh và tài liệu phát triển có thể tái sử dụng trong repository này.
+- Đặt quy trình riêng của từng máy, dữ liệu runtime, báo cáo sinh cục bộ và bản sao lưu bên ngoài repository.
+- Tích hợp cục bộ dùng `STOCK_LOOKUP_RUNTIME_ROOT` do người vận hành hoặc cấu hình triển khai cung cấp. Không giả định runtime nằm cạnh checkout này.
 
-## Local preview
+<a id="local-preview"></a>
+## Xem trước cục bộ
 
-Run from the repository root:
+Chạy từ thư mục gốc của repository:
 
 ```powershell
 Set-Location <dashboard-repository>
 python -m http.server 8017
 ```
 
-Then open `http://localhost:8017/dashboard.html`.
+Sau đó mở `http://localhost:8017/dashboard.html`.
 
-## Documentation
+<a id="documentation"></a>
+## Tài liệu
 
-- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) describes the dashboard boundary and data flow.
-- [docs/USER_GUIDE.md](docs/USER_GUIDE.md) and [docs/CLI_REFERENCE.md](docs/CLI_REFERENCE.md) are developer-facing references.
-- Historical audits in `docs/` are retained as point-in-time evidence; they are not current operating instructions.
+- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) mô tả ranh giới dashboard và luồng dữ liệu.
+- [docs/USER_GUIDE.md](docs/USER_GUIDE.md) và [docs/CLI_REFERENCE.md](docs/CLI_REFERENCE.md) là tài liệu tham khảo dành cho người phát triển.
+- Các bản đánh giá lịch sử trong `docs/` được giữ làm bằng chứng tại thời điểm ghi nhận; chúng không phải hướng dẫn vận hành hiện tại.
 
-For contribution and security information, see [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md).
+Thông tin đóng góp và bảo mật nằm tại [CONTRIBUTING.md](CONTRIBUTING.md) và [SECURITY.md](SECURITY.md).
