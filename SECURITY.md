@@ -1,26 +1,30 @@
-# Security Policy
+<a id="security-policy"></a>
+# Chính sách bảo mật
 
-## Scope
+<a id="scope"></a>
+## Phạm vi
 
-This repository publishes a **static dashboard** (HTML/CSS/JS served via GitHub Pages) plus
-public documentation. It does not run a server, does not accept user input that reaches a
-backend, and does not store credentials or user data client-side. The data pipeline that
-produces the CSV/JSON files consumed by the dashboard runs locally and is **not** part of
-this repository (see [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)).
+Repository này phát hành **dashboard tĩnh** (HTML/CSS/JS được phục vụ qua GitHub
+Pages) và tài liệu công khai. Repository không vận hành máy chủ, không nhận đầu
+vào người dùng được chuyển tới backend và không lưu thông tin xác thực hay dữ
+liệu người dùng ở phía trình duyệt. Pipeline tạo các file CSV/JSON mà dashboard
+sử dụng chạy cục bộ và **không** thuộc repository này
+(xem [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)).
 
-## Reporting a Vulnerability
+<a id="reporting-a-vulnerability"></a>
+## Báo cáo lỗ hổng
 
-If you find a security issue in the published site (e.g. an XSS vector in how the dashboard
-renders CSV/JSON/Markdown data, or a dependency pulled from CDN with a known CVE), please
-open a [GitHub issue](https://github.com/tungthanhnguyen2312-wq/market-dashboard/issues) with
-a clear description and reproduction steps. Do not
-include real portfolio/financial data in reports — sample/synthetic data is enough to
-reproduce a rendering bug.
+Nếu phát hiện vấn đề bảo mật trên website đã phát hành (ví dụ nguy cơ XSS trong
+cách dashboard hiển thị dữ liệu CSV/JSON/Markdown hoặc dependency từ CDN có CVE
+đã biết), hãy mở [GitHub issue](https://github.com/tungthanhnguyen2312-wq/market-dashboard/issues)
+với mô tả rõ ràng và các bước tái hiện. Không đưa dữ liệu danh mục/tài chính
+thực vào báo cáo — dữ liệu mẫu/tổng hợp là đủ để tái hiện lỗi hiển thị.
 
-There is no bug bounty program; this is a personal/portfolio project maintained on a
-best-effort basis.
+Không có chương trình thưởng phát hiện lỗi; đây là dự án cá nhân/hồ sơ năng lực,
+được duy trì trong khả năng của người phụ trách.
 
-## Supported Versions
+<a id="supported-versions"></a>
+## Phiên bản được hỗ trợ
 
-Only the `main` branch is maintained. There are no tagged releases with independent security
-support at this time.
+Chỉ branch `main` được duy trì. Hiện không có bản phát hành gắn tag nào được hỗ
+trợ bảo mật độc lập.
