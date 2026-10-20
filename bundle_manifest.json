@@ -11,10 +11,10 @@
     "present": true,
     "records_fingerprint": "fc8f077e965877b0c160d5b0de2c2004f5758c6036453bae0bacbd11bb70a6d1",
     "input_fingerprint": "ba009fe4e46331df44838b277fe54cef4319872d2a3520aceeb7752a66f6c8c5",
-    "session_identity": "2026-10-19",
+    "session_identity": "2026-10-20",
     "authority_level": "generated_evidence"
   },
-  "generated_at": "2026-10-19T00:00:00+00:00",
+  "generated_at": "2026-10-20T00:00:00+00:00",
   "tickers": [
     "POW",
     "SSI",
@@ -29,7 +29,7 @@
     "NVL"
   ],
   "freshness": {
-    "reference_session": "2026-10-19",
+    "reference_session": "2026-10-20",
     "status": "fresh",
     "blocked": false,
     "stale": [],
@@ -72,24 +72,24 @@
       "VNM"
     ],
     "trust_state": "untrusted_basis",
-    "session_identity": "2026-10-19",
-    "generated_at": "2026-10-19T00:00:00+00:00",
+    "session_identity": "2026-10-20",
+    "generated_at": "2026-10-20T00:00:00+00:00",
     "bundle_filename": "analysis_bundle.json",
-    "bundle_sha256": "8d6ed3724355c0c5dc774289b043aef0fc53b5e9f95d0213a2c4fd8e0eb976c1",
-    "bundle_reference_session_date": "2026-10-19",
-    "bundle_generated_at": "2026-10-19T00:00:00+00:00",
+    "bundle_sha256": "9f2f542b8a82c7afdfb74e019fa7aece6836b535a2b83c45ed9b3821c9dbd7fb",
+    "bundle_reference_session_date": "2026-10-20",
+    "bundle_generated_at": "2026-10-20T00:00:00+00:00",
     "required_artifacts": [
       {
         "file": "analysis_bundle.json",
-        "sha256": "8d6ed3724355c0c5dc774289b043aef0fc53b5e9f95d0213a2c4fd8e0eb976c1"
+        "sha256": "9f2f542b8a82c7afdfb74e019fa7aece6836b535a2b83c45ed9b3821c9dbd7fb"
       },
       {
         "file": "focus_extract.json",
-        "sha256": "d54f2e6915f1f9460232cf3b00c97e3180f9686fd99fb9b9a0fdd8f6a69b0ac2"
+        "sha256": "c0e44c6f140200597267331accdf6ed1ec8c078e1e22b7cd431b6e12015baecc"
       },
       {
         "file": "statement_taxonomy_sidecar.json",
-        "sha256": "293a71aef54fe81a8abfbc56dcfc103eba8e02193692db6fd23257b45d0ccbf6"
+        "sha256": "2455114e65181616849021e725ef06e041197f97401784c44829cf633949fa0c"
       }
     ],
     "expected_artifact_filenames": [
@@ -100,77 +100,77 @@
     ],
     "per_ticker": {
       "EVF": {
-        "session_identity": "2026-10-19",
+        "session_identity": "2026-10-20",
         "required_current_fields_qualified": true,
         "warnings": [
           "canonical_trusted_subset:legacy_ta_signals_not_on_session"
         ]
       },
       "FPT": {
-        "session_identity": "2026-10-19",
+        "session_identity": "2026-10-20",
         "required_current_fields_qualified": true,
         "warnings": [
           "canonical_trusted_subset:legacy_ta_signals_not_on_session"
         ]
       },
       "HPG": {
-        "session_identity": "2026-10-19",
+        "session_identity": "2026-10-20",
         "required_current_fields_qualified": true,
         "warnings": [
           "canonical_trusted_subset:legacy_ta_signals_not_on_session"
         ]
       },
       "NVL": {
-        "session_identity": "2026-10-19",
+        "session_identity": "2026-10-20",
         "required_current_fields_qualified": true,
         "warnings": [
           "canonical_trusted_subset:legacy_ta_signals_not_on_session"
         ]
       },
       "PAN": {
-        "session_identity": "2026-10-19",
+        "session_identity": "2026-10-20",
         "required_current_fields_qualified": true,
         "warnings": [
           "canonical_trusted_subset:legacy_ta_signals_not_on_session"
         ]
       },
       "PNJ": {
-        "session_identity": "2026-10-19",
+        "session_identity": "2026-10-20",
         "required_current_fields_qualified": true,
         "warnings": [
           "canonical_trusted_subset:legacy_ta_signals_not_on_session"
         ]
       },
       "POW": {
-        "session_identity": "2026-10-19",
+        "session_identity": "2026-10-20",
         "required_current_fields_qualified": true,
         "warnings": [
           "canonical_trusted_subset:legacy_ta_signals_not_on_session"
         ]
       },
       "PVD": {
-        "session_identity": "2026-10-19",
+        "session_identity": "2026-10-20",
         "required_current_fields_qualified": true,
         "warnings": [
           "canonical_trusted_subset:legacy_ta_signals_not_on_session"
         ]
       },
       "QNS": {
-        "session_identity": "2026-10-19",
+        "session_identity": "2026-10-20",
         "required_current_fields_qualified": true,
         "warnings": [
           "canonical_trusted_subset:legacy_ta_signals_not_on_session"
         ]
       },
       "SSI": {
-        "session_identity": "2026-10-19",
+        "session_identity": "2026-10-20",
         "required_current_fields_qualified": true,
         "warnings": [
           "canonical_trusted_subset:legacy_ta_signals_not_on_session"
         ]
       },
       "VNM": {
-        "session_identity": "2026-10-19",
+        "session_identity": "2026-10-20",
         "required_current_fields_qualified": true,
         "warnings": [
           "canonical_trusted_subset:legacy_ta_signals_not_on_session"
@@ -188,7 +188,7 @@
   },
   "canonical_runtime_release": {
     "release_contract": {
-      "session": "2026-10-19",
+      "session": "2026-10-20",
       "source": "retained_canonical_daily_producer",
       "unavailable_legacy_fields": [
         "historical_indicator_suite",
@@ -200,121 +200,121 @@
     },
     "lineage": {
       "current_decision_cockpit": {
-        "operation_identity": "daily_research_session_operation:8ba91b9177c77dd040c9d71eb192ebb831820fe74ff3856692310540a8cf1cde",
-        "path": "T:\\StockLookup\\production-v1\\retained-evidence\\operations-review\\daily-producer-runs-v1\\2026-10-19\\4524489d45e47881fb3f052f51515cfcd9b049f2cb97a13868befa3f796cca53\\dashboard\\current_decision_cockpit_projection.json",
-        "producer_run_identity": "daily_producer_run:4524489d45e47881fb3f052f51515cfcd9b049f2cb97a13868befa3f796cca53",
-        "projection_identity": "dashboard_decision_cockpit_projection:606b76a563816289a65ec1fbc90e338f85d004cae10850e31bce3aafa5d3f214",
-        "session": "2026-10-19",
-        "sha256": "0d177369e240c4b79e6e6a048cb5a986d51195520ae47910586bf0083ef19b31"
+        "operation_identity": "daily_research_session_operation:ff1241eedba63efafa9fcca43bca00c4d61f52042eb1322fbd91b5196477cd52",
+        "path": "T:\\StockLookup\\production-v1\\retained-evidence\\operations-review\\daily-producer-runs-v1\\2026-10-20\\962380ab4df532631211d64251883212b01880f29feaf9ba2f446a2df1be02f9\\dashboard\\current_decision_cockpit_projection.json",
+        "producer_run_identity": "daily_producer_run:962380ab4df532631211d64251883212b01880f29feaf9ba2f446a2df1be02f9",
+        "projection_identity": "dashboard_decision_cockpit_projection:9be839ef351bcc387cfe11f7fa87954432676f9ffb831218110bc1591398a31d",
+        "session": "2026-10-20",
+        "sha256": "d78000d08608ed980479e51ae554dadef5c8ed81d633efc21593a4ef84e89069"
       },
       "daily_producer_bundle": {
-        "path": "T:\\StockLookup\\production-v1\\retained-evidence\\operations-review\\daily-producer-runs-v1\\2026-10-19\\4524489d45e47881fb3f052f51515cfcd9b049f2cb97a13868befa3f796cca53\\ai_research_session_bundle.json",
-        "sha256": "99e349b61141918862c7c18c0a80487312a87708f0457a4743a1c68e03510306"
+        "path": "T:\\StockLookup\\production-v1\\retained-evidence\\operations-review\\daily-producer-runs-v1\\2026-10-20\\962380ab4df532631211d64251883212b01880f29feaf9ba2f446a2df1be02f9\\ai_research_session_bundle.json",
+        "sha256": "41842aaab6cc71e59e9ff4b4acfb0db801a7a1132ffd73118df1036c017a2b35"
       },
       "daily_producer_run": {
-        "path": "T:\\StockLookup\\production-v1\\retained-evidence\\operations-review\\daily-producer-runs-v1\\2026-10-19\\4524489d45e47881fb3f052f51515cfcd9b049f2cb97a13868befa3f796cca53\\run_manifest.json",
-        "run_identity": "daily_producer_run:4524489d45e47881fb3f052f51515cfcd9b049f2cb97a13868befa3f796cca53",
-        "sha256": "3e876afada56d07c0a2b7b2e566ba85c0272018358e286f2cee5203c4e00b8f3"
+        "path": "T:\\StockLookup\\production-v1\\retained-evidence\\operations-review\\daily-producer-runs-v1\\2026-10-20\\962380ab4df532631211d64251883212b01880f29feaf9ba2f446a2df1be02f9\\run_manifest.json",
+        "run_identity": "daily_producer_run:962380ab4df532631211d64251883212b01880f29feaf9ba2f446a2df1be02f9",
+        "sha256": "fa5f8165303a1ef7d75c6d09ed0511563141d6d0828d436ff1e8436389d126bf"
       },
       "dashboard_home_summary": {
-        "artifact_identity": "dashboard_home_summary/v1:e983c17a85af1098d40a51b6138245d1b1faf116816f6a06f51e006155eda3af",
-        "artifact_sha256": "e983c17a85af1098d40a51b6138245d1b1faf116816f6a06f51e006155eda3af",
+        "artifact_identity": "dashboard_home_summary/v1:49bc417430116a5ffeb64a46133eddfbd9b8b5c100bf46d020ddc769683b88a1",
+        "artifact_sha256": "49bc417430116a5ffeb64a46133eddfbd9b8b5c100bf46d020ddc769683b88a1",
         "denominator": 1683,
         "derivation": "dashboard_home_summary.build_home_summary(restaged_presentation_screener)",
-        "operation_identity": "daily_research_session_operation:8ba91b9177c77dd040c9d71eb192ebb831820fe74ff3856692310540a8cf1cde",
-        "path": "T:\\StockLookup\\production-v1\\retained-evidence\\operations-review\\current-corporate-product-projection-v1\\2026-10-19\\f947c08ba94fc93297a39fe644ef78181275495c27e215a1a3a0e4b679fbe127\\2026-10-19\\dashboard_home_summary.json",
-        "producer_run_identity": "daily_producer_run:4524489d45e47881fb3f052f51515cfcd9b049f2cb97a13868befa3f796cca53",
+        "operation_identity": "daily_research_session_operation:ff1241eedba63efafa9fcca43bca00c4d61f52042eb1322fbd91b5196477cd52",
+        "path": "T:\\StockLookup\\production-v1\\retained-evidence\\operations-review\\current-corporate-product-projection-v1\\2026-10-20\\fd4ab21b21694811d82c10bb5935b83fec14d23a5c415a05e98c980026d33351\\2026-10-20\\dashboard_home_summary.json",
+        "producer_run_identity": "daily_producer_run:962380ab4df532631211d64251883212b01880f29feaf9ba2f446a2df1be02f9",
         "sealed_source": {
-          "artifact_identity": "dashboard_home_summary/v1:1192a4927380876bde935cc785153a6fc214a3f8e8a68d03eb4180850e07bcf3",
-          "artifact_sha256": "1192a4927380876bde935cc785153a6fc214a3f8e8a68d03eb4180850e07bcf3",
-          "operation_manifest_sha256": "b7a0c0840cde0ad92c9c3add956cbfc3b05753628985df044e151877457573b6",
-          "path": "T:\\StockLookup\\production-v1\\retained-evidence\\operations-review\\daily-research-session-operations-v1\\2026-10-19\\8ba91b9177c77dd040c9d71eb192ebb831820fe74ff3856692310540a8cf1cde\\dashboard_home_summary.json",
-          "sha256": "4a6fee0debe9678e5abff18bbce75c38a576e085997dc44b10d081cb50953d05"
+          "artifact_identity": "dashboard_home_summary/v1:59f7b918bbe15eaba39b631a1cfb8b8585df206a4103568b54bab7d1b0fa0d48",
+          "artifact_sha256": "59f7b918bbe15eaba39b631a1cfb8b8585df206a4103568b54bab7d1b0fa0d48",
+          "operation_manifest_sha256": "a671fcf7440f65e870bd9dd7895438a4b0178d57c483a3d8e3a2f26dc3564980",
+          "path": "T:\\StockLookup\\production-v1\\retained-evidence\\operations-review\\daily-research-session-operations-v1\\2026-10-20\\ff1241eedba63efafa9fcca43bca00c4d61f52042eb1322fbd91b5196477cd52\\dashboard_home_summary.json",
+          "sha256": "f42acca2470a044bd6a1b6702f9a7dc804b5f86a54c35a50891e25522597de4c"
         },
-        "session": "2026-10-19",
-        "sha256": "4008d7a2a911515f17e9ccf2ddb19e7d78e0d95a1de1589c9c95154bcbc40092",
-        "source_artifact_identity": "screener_master_projection/v1:111c24c646eb6203a594f5e6d3b450d615f10955127c9e3f6503df1b9502a8f4"
+        "session": "2026-10-20",
+        "sha256": "8778da24d7071c122710efb09a59c49bc78752358ad23551d5ad70f62f949254",
+        "source_artifact_identity": "screener_master_projection/v1:8d24703a6c8702978d986165843bf0ca174cb4fcb7ef6b11863595235fa3e6ab"
       },
       "descriptive": {
-        "artifact_identity": "market_wide_current_descriptive_research:916329471dc81f56a92e766dff50c0b198b0f906d9845037b119698d472697c8",
-        "path": "T:\\StockLookup\\production-v1\\retained-evidence\\operations-review\\market-wide-current-descriptive-research-v1-20261019\\market_wide_current_descriptive_research_artifact.json",
-        "sha256": "426e54770630a7f45a1723b9a59adabb3d5283f7593828cc06d263d4acdc8c09"
+        "artifact_identity": "market_wide_current_descriptive_research:99201e6d94d4392ec8033e3db8fcd0f787720152da227295acbfbe319a93b7c2",
+        "path": "T:\\StockLookup\\production-v1\\retained-evidence\\operations-review\\market-wide-current-descriptive-research-v1-20261020\\market_wide_current_descriptive_research_artifact.json",
+        "sha256": "ca71d1115d42b876b19d5e58143f00570b5ceb3c86e779ae68c14386b2c527d5"
       },
       "investment_decision_workspace": {
-        "artifact_identity": "investment_decision_workspace_projection/v1:f21e00170e5ca6f723fd51fa2804f2c0303b42b96efffbb299bea914fbc3c73b",
-        "artifact_sha256": "f21e00170e5ca6f723fd51fa2804f2c0303b42b96efffbb299bea914fbc3c73b",
+        "artifact_identity": "investment_decision_workspace_projection/v1:ffb6a4b062d89d8590d81689fc83d37c0a7a0184c4b8b6d7bf99f175eb2c617a",
+        "artifact_sha256": "ffb6a4b062d89d8590d81689fc83d37c0a7a0184c4b8b6d7bf99f175eb2c617a",
         "derivation": "post_handoff_presentation_projection/v1",
-        "operation_identity": "daily_research_session_operation:8ba91b9177c77dd040c9d71eb192ebb831820fe74ff3856692310540a8cf1cde",
-        "path": "T:\\StockLookup\\production-v1\\retained-evidence\\operations-review\\current-corporate-product-projection-v1\\2026-10-19\\f947c08ba94fc93297a39fe644ef78181275495c27e215a1a3a0e4b679fbe127\\2026-10-19\\investment_decision_workspace_projection.json",
-        "producer_run_identity": "daily_producer_run:4524489d45e47881fb3f052f51515cfcd9b049f2cb97a13868befa3f796cca53",
+        "operation_identity": "daily_research_session_operation:ff1241eedba63efafa9fcca43bca00c4d61f52042eb1322fbd91b5196477cd52",
+        "path": "T:\\StockLookup\\production-v1\\retained-evidence\\operations-review\\current-corporate-product-projection-v1\\2026-10-20\\fd4ab21b21694811d82c10bb5935b83fec14d23a5c415a05e98c980026d33351\\2026-10-20\\investment_decision_workspace_projection.json",
+        "producer_run_identity": "daily_producer_run:962380ab4df532631211d64251883212b01880f29feaf9ba2f446a2df1be02f9",
         "sealed_source": {
-          "artifact_identity": "investment_decision_workspace_projection/v1:7e5971ebc839e566f4e8ab4f2d301febca9c9f7f85f7fd898b1b2f8eb00f9601",
-          "artifact_sha256": "7e5971ebc839e566f4e8ab4f2d301febca9c9f7f85f7fd898b1b2f8eb00f9601",
-          "operation_manifest_sha256": "b7a0c0840cde0ad92c9c3add956cbfc3b05753628985df044e151877457573b6",
-          "path": "T:\\StockLookup\\production-v1\\retained-evidence\\operations-review\\daily-research-session-operations-v1\\2026-10-19\\8ba91b9177c77dd040c9d71eb192ebb831820fe74ff3856692310540a8cf1cde\\investment_decision_workspace_projection.json",
-          "sha256": "bee5175fca629309f3a11fb626c7332c2ad55c21266a9caf38e7114c58502744"
+          "artifact_identity": "investment_decision_workspace_projection/v1:f7836232c71cad73e8e4ffcef25cf9f9f28be5e23833af7d5bbb9fba17ca2843",
+          "artifact_sha256": "f7836232c71cad73e8e4ffcef25cf9f9f28be5e23833af7d5bbb9fba17ca2843",
+          "operation_manifest_sha256": "a671fcf7440f65e870bd9dd7895438a4b0178d57c483a3d8e3a2f26dc3564980",
+          "path": "T:\\StockLookup\\production-v1\\retained-evidence\\operations-review\\daily-research-session-operations-v1\\2026-10-20\\ff1241eedba63efafa9fcca43bca00c4d61f52042eb1322fbd91b5196477cd52\\investment_decision_workspace_projection.json",
+          "sha256": "83c74e1f7be5ec772026ed3b463c3174299f28cf1fc6de5d8bb313de1c463dcb"
         },
-        "session": "2026-10-19",
-        "sha256": "04a3b6917349fbd6bc396710a32c54f796c76e39cb90fdd4d35db8527c51755c",
+        "session": "2026-10-20",
+        "sha256": "68f32dbc89be1838a6b641d4e01254a834165682a29acae0c87f0440a146b0ad",
         "ticker_denominator": 1683,
         "zero_silent_ticker_drops": true
       },
       "official_universe": {
         "artifact_identity": "current_official_market_universe:d77e16f82893df419689b24356d066d6a6431bd3c27e09190e3c319e004abb55",
-        "path": "operations-review\\corporate-daily-frozen-inputs-v1\\2026-10-19\\d77e16f82893df419689b24356d066d6a6431bd3c27e09190e3c319e004abb55.json",
+        "path": "operations-review\\corporate-daily-frozen-inputs-v1\\2026-10-20\\d77e16f82893df419689b24356d066d6a6431bd3c27e09190e3c319e004abb55.json",
         "sha256": "1552ebb30c77e4c25ba91f9e2e7cf14e806f1e825dd93733d7794707857f8585"
       },
       "presentation_projection": {
-        "restaged_dashboard_home_summary_artifact_identity": "dashboard_home_summary/v1:e983c17a85af1098d40a51b6138245d1b1faf116816f6a06f51e006155eda3af",
-        "restaged_screener_master_projection_artifact_identity": "screener_master_projection/v1:111c24c646eb6203a594f5e6d3b450d615f10955127c9e3f6503df1b9502a8f4",
-        "restaged_workspace_artifact_identity": "investment_decision_workspace_projection/v1:f21e00170e5ca6f723fd51fa2804f2c0303b42b96efffbb299bea914fbc3c73b",
-        "sealed_dashboard_home_summary_artifact_identity": "dashboard_home_summary/v1:1192a4927380876bde935cc785153a6fc214a3f8e8a68d03eb4180850e07bcf3",
-        "sealed_screener_master_projection_artifact_identity": "screener_master_projection/v1:f70d048b963d1a6073f219a14c87b404085c3381be101fb7017b02a40d09cd55",
-        "sealed_workspace_artifact_identity": "investment_decision_workspace_projection/v1:7e5971ebc839e566f4e8ab4f2d301febca9c9f7f85f7fd898b1b2f8eb00f9601",
-        "session": "2026-10-19"
+        "restaged_dashboard_home_summary_artifact_identity": "dashboard_home_summary/v1:49bc417430116a5ffeb64a46133eddfbd9b8b5c100bf46d020ddc769683b88a1",
+        "restaged_screener_master_projection_artifact_identity": "screener_master_projection/v1:8d24703a6c8702978d986165843bf0ca174cb4fcb7ef6b11863595235fa3e6ab",
+        "restaged_workspace_artifact_identity": "investment_decision_workspace_projection/v1:ffb6a4b062d89d8590d81689fc83d37c0a7a0184c4b8b6d7bf99f175eb2c617a",
+        "sealed_dashboard_home_summary_artifact_identity": "dashboard_home_summary/v1:59f7b918bbe15eaba39b631a1cfb8b8585df206a4103568b54bab7d1b0fa0d48",
+        "sealed_screener_master_projection_artifact_identity": "screener_master_projection/v1:3dddf200982e6598a81acebfa66cfd87100d311f37f9d06de563576865d4691c",
+        "sealed_workspace_artifact_identity": "investment_decision_workspace_projection/v1:f7836232c71cad73e8e4ffcef25cf9f9f28be5e23833af7d5bbb9fba17ca2843",
+        "session": "2026-10-20"
       },
       "retained_tier_handoff": {
-        "current_research_packet_identity": "current_research_decision_packet:1de0d5df98733a7283def1c86d6a5888c873cbdbd5168fbf494e46bb46cbd766",
-        "path": "T:\\StockLookup\\production-v1\\retained-evidence\\operations-review\\canonical-post-close-v1\\2026-10-19\\session_handoff_bundle.json",
-        "prospective_cohort_snapshot_identity": "prospective_research_cohort_snapshot:2ae71ee1b83abb8157c4cee17f61865924c5c14e5e63ed29c8a9ac8aafbe8be8",
-        "retained_daily_producer_run_identity": "daily_producer_run:4524489d45e47881fb3f052f51515cfcd9b049f2cb97a13868befa3f796cca53",
-        "runtime_daily_producer_run_identity": "daily_producer_run:4524489d45e47881fb3f052f51515cfcd9b049f2cb97a13868befa3f796cca53",
-        "sha256": "76aab6a6df4066fb4210598567801b9037a741ea167c0fc89c7e2072cdce261b",
+        "current_research_packet_identity": "current_research_decision_packet:247623127888c531ba84edc3ee5c90ab26b65b6a790ac45187d8ffefa7c939cc",
+        "path": "T:\\StockLookup\\production-v1\\retained-evidence\\operations-review\\canonical-post-close-v1\\2026-10-20\\session_handoff_bundle.json",
+        "prospective_cohort_snapshot_identity": "prospective_research_cohort_snapshot:5ac6d92b2f297863ff9e51049da09c57928dd0a75693a90ee55e3a3c2b6d124b",
+        "retained_daily_producer_run_identity": "daily_producer_run:962380ab4df532631211d64251883212b01880f29feaf9ba2f446a2df1be02f9",
+        "runtime_daily_producer_run_identity": "daily_producer_run:962380ab4df532631211d64251883212b01880f29feaf9ba2f446a2df1be02f9",
+        "sha256": "e930631914ef8651c5d57a04fab88027d32778e9eef458281710b7126f5c1827",
         "source_lineage_status": "PASS"
       },
       "screener_master_projection": {
-        "artifact_identity": "screener_master_projection/v1:111c24c646eb6203a594f5e6d3b450d615f10955127c9e3f6503df1b9502a8f4",
-        "artifact_sha256": "111c24c646eb6203a594f5e6d3b450d615f10955127c9e3f6503df1b9502a8f4",
+        "artifact_identity": "screener_master_projection/v1:8d24703a6c8702978d986165843bf0ca174cb4fcb7ef6b11863595235fa3e6ab",
+        "artifact_sha256": "8d24703a6c8702978d986165843bf0ca174cb4fcb7ef6b11863595235fa3e6ab",
         "derivation": "post_handoff_presentation_projection/v1",
-        "operation_identity": "daily_research_session_operation:8ba91b9177c77dd040c9d71eb192ebb831820fe74ff3856692310540a8cf1cde",
-        "path": "T:\\StockLookup\\production-v1\\retained-evidence\\operations-review\\current-corporate-product-projection-v1\\2026-10-19\\f947c08ba94fc93297a39fe644ef78181275495c27e215a1a3a0e4b679fbe127\\2026-10-19\\screener_master_projection.json",
-        "producer_run_identity": "daily_producer_run:4524489d45e47881fb3f052f51515cfcd9b049f2cb97a13868befa3f796cca53",
+        "operation_identity": "daily_research_session_operation:ff1241eedba63efafa9fcca43bca00c4d61f52042eb1322fbd91b5196477cd52",
+        "path": "T:\\StockLookup\\production-v1\\retained-evidence\\operations-review\\current-corporate-product-projection-v1\\2026-10-20\\fd4ab21b21694811d82c10bb5935b83fec14d23a5c415a05e98c980026d33351\\2026-10-20\\screener_master_projection.json",
+        "producer_run_identity": "daily_producer_run:962380ab4df532631211d64251883212b01880f29feaf9ba2f446a2df1be02f9",
         "sealed_source": {
-          "artifact_identity": "screener_master_projection/v1:f70d048b963d1a6073f219a14c87b404085c3381be101fb7017b02a40d09cd55",
-          "artifact_sha256": "f70d048b963d1a6073f219a14c87b404085c3381be101fb7017b02a40d09cd55",
-          "operation_manifest_sha256": "b7a0c0840cde0ad92c9c3add956cbfc3b05753628985df044e151877457573b6",
-          "path": "T:\\StockLookup\\production-v1\\retained-evidence\\operations-review\\daily-research-session-operations-v1\\2026-10-19\\8ba91b9177c77dd040c9d71eb192ebb831820fe74ff3856692310540a8cf1cde\\screener_master_projection.json",
-          "sha256": "a21f08fc677c675a90630d8041c8e8c163c700735e3ae8e3450404510cdee39b"
+          "artifact_identity": "screener_master_projection/v1:3dddf200982e6598a81acebfa66cfd87100d311f37f9d06de563576865d4691c",
+          "artifact_sha256": "3dddf200982e6598a81acebfa66cfd87100d311f37f9d06de563576865d4691c",
+          "operation_manifest_sha256": "a671fcf7440f65e870bd9dd7895438a4b0178d57c483a3d8e3a2f26dc3564980",
+          "path": "T:\\StockLookup\\production-v1\\retained-evidence\\operations-review\\daily-research-session-operations-v1\\2026-10-20\\ff1241eedba63efafa9fcca43bca00c4d61f52042eb1322fbd91b5196477cd52\\screener_master_projection.json",
+          "sha256": "86816a9741217cf9e7a627cb75f88868bc694111f1613862804c433c5440f392"
         },
-        "session": "2026-10-19",
-        "sha256": "e2d4a9f513313f196f698628ceead7ce396ed8636021313268d4934314f6afc8",
+        "session": "2026-10-20",
+        "sha256": "8d9bc3ff7ce8b34e572945ae831bd0b94b163e5720935b41550af6008cc020ee",
         "ticker_denominator": 1683,
         "zero_silent_ticker_drops": true
       },
       "screening": {
-        "artifact_identity": "current_market_screening_opportunity_comparison_foundation:e03471c99e95e799d62da6adfebdd39468ce521a201fe911acbb149c37bc9a9a",
-        "path": "T:\\StockLookup\\production-v1\\retained-evidence\\operations-review\\current-market-screening-opportunity-comparison-foundation-v1-20261019\\current_market_screening_opportunity_comparison_foundation_artifact.json",
-        "sha256": "b60750b8c0444bd8df6daa489f34595cfd3480fad21b858cc01aab5fd95879be"
+        "artifact_identity": "current_market_screening_opportunity_comparison_foundation:8267b8a9d5350a1d414b2f16dd06b8c83e91432de3566b4f194421c95c89cfbe",
+        "path": "T:\\StockLookup\\production-v1\\retained-evidence\\operations-review\\current-market-screening-opportunity-comparison-foundation-v1-20261020\\current_market_screening_opportunity_comparison_foundation_artifact.json",
+        "sha256": "77e7204a416b4fd898b3f3390121f1814be182999985d2ff83953629957b9f6d"
       },
       "tactical": {
-        "artifact_identity": "watchlist_tactical_entry_classifier:7268f8dc14320631268f4425b06e5a29415a8bcd62dd5d7851ef5ca6d819e559",
-        "path": "T:\\StockLookup\\production-v1\\retained-evidence\\operations-review\\watchlist-tactical-entry-decision-v1-20261019\\watchlist_tactical_entry_classifier_artifact.json",
-        "sha256": "fb466c65cf4fa60baed80902ec3618e51d252c33a2ca1586a8b952f97e9bc807"
+        "artifact_identity": "watchlist_tactical_entry_classifier:457f650c503abc826b60cb42070aef1b2da97d0f82ac02bf0410ddb441c5ba85",
+        "path": "T:\\StockLookup\\production-v1\\retained-evidence\\operations-review\\watchlist-tactical-entry-decision-v1-20261020\\watchlist_tactical_entry_classifier_artifact.json",
+        "sha256": "d99dba14f0f4a78322b8c38ddae98c20d557903312f23ed67e4a051d362e5615"
       },
       "triage": {
-        "artifact_identity": "full_universe_entry_candidate_triage:b2cde14730a254c2627935ee48bb64460a681f435520e55f3917b2e5b246d939",
-        "path": "T:\\StockLookup\\production-v1\\retained-evidence\\operations-review\\full-universe-entry-candidate-triage-v1-20261019\\full_universe_entry_candidate_triage_20261019.json",
-        "sha256": "88893ad17b6ffcb93768f7e5d76222ddb5b914994fa9e0a457eaa513ec63bb0f"
+        "artifact_identity": "full_universe_entry_candidate_triage:8775fc9df235485f575b1d511c303be08dbcb5c98752e30e8a02e52488a33861",
+        "path": "T:\\StockLookup\\production-v1\\retained-evidence\\operations-review\\full-universe-entry-candidate-triage-v1-20261020\\full_universe_entry_candidate_triage_20261020.json",
+        "sha256": "a8586644458ac651f4cb7f830a7761ba145cc8073a4f2dd982f094e66a8e2eb2"
       }
     }
   }
