@@ -629,6 +629,28 @@ test("proxy or blocked metrics are not labeled ready", () => {
   assert.doesNotMatch(slot, /Sẵn sàng|\bREADY\b/);
 });
 
+test("research P/B is not rendered as an official exact multiple", () => {
+  const card = diagnosticCard({
+    valuation: {
+      method_diagnostics: {
+        "P/B_CURRENT_RESEARCH": {
+          status: "RESEARCH_USABLE",
+          value: 1.27446,
+          availability_state: "AVAILABLE_REFERENCE_ONLY",
+          share_basis: "CURRENT_SHARE_RESEARCH_PROXY",
+          limitations: ["RESEARCH_PROXY_NOT_OFFICIAL_EXACT_PB"],
+        },
+      },
+    },
+  });
+  const html = ws.decisionCardHtml(card, { ticker: "HPG" });
+  const block = html.match(/<article class="ws-valuation-method" data-method="P\/B_CURRENT_RESEARCH">[\s\S]*?<\/article>/);
+  assert.ok(block);
+  assert.match(block[0], /P\/B · nghiên cứu hiện tại/);
+  assert.match(block[0], /1\.27446/);
+  assert.doesNotMatch(block[0], /P\/B chính thức|official exact|EXACT_METHOD_VALUE/);
+});
+
 test("H1 ending-assets ROA stays distinct from annualized and average-assets ROA", () => {
   const html = ws.returnBalanceMetricsHtml({
     current_features: {
