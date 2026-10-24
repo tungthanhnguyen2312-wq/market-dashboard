@@ -5,9 +5,7 @@
 ## Phạm vi
 
 Repository này phát hành **dashboard tĩnh** (HTML/CSS/JS được phục vụ qua GitHub
-Pages) và tài liệu công khai. Repository không vận hành máy chủ, không nhận đầu
-vào người dùng được chuyển tới backend và không lưu thông tin xác thực hay dữ
-liệu người dùng ở phía trình duyệt. Pipeline tạo các file CSV/JSON mà dashboard
+Pages) và tài liệu công khai. Repository không vận hành backend nhận thông tin đăng nhập tài khoản giao dịch. Trang Danh mục có thể lưu dữ liệu người dùng tự nhập (mã cổ phiếu, khối lượng/tỷ trọng, tiền mặt) vào `localStorage` ngay trên trình duyệt thông qua `portfolio.js`; dữ liệu này không được đồng bộ lên máy chủ bởi chức năng Danh mục hiện tại. Người dùng nên tránh nhập thông tin nhận dạng cá nhân, mật khẩu hay bí mật tài khoản. Xóa dữ liệu trang web/trình duyệt có thể xóa danh mục đã lưu. Pipeline tạo các file CSV/JSON mà dashboard
 sử dụng chạy cục bộ và **không** thuộc repository này
 (xem [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)).
 
