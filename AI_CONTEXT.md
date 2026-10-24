@@ -3,7 +3,7 @@
 > **Đã cập nhật ranh giới kiến trúc (xem ghi chú dưới) — nội dung vận hành gốc phản ánh code
 > thực tế tại 2026-07-17, dưới cấu trúc một-repo cũ.** File này dành cho AI/agent làm việc trong
 > repository này (Dashboard/publication). Authority hiện tại cho toàn workspace là `docs/STATE.md`
-> của repository Producer (`stock-core-private`, repo riêng, không nằm trong checkout này) — file
+> của repository Producer (`stocklookup-engine`, thư mục cục bộ `stock-core-private`, repo riêng, không nằm trong checkout này) — file
 > này mô tả riêng repository này, không cạnh tranh với authority đó. Không chứa secret. Tài liệu
 > người đọc: `README.md` + `docs/`.
 
@@ -12,9 +12,9 @@
 Pipeline Python thu thập và phân tích dữ liệu chứng khoán Việt Nam (~1.700 mã): giá OHLCV hằng
 ngày, metadata cơ bản, vĩ mô, tin tức, cổ đông lớn, báo cáo tài chính quý (BCTC), chỉ báo kỹ
 thuật và báo cáo AI — rồi xuất snapshot cho dashboard tĩnh publish lên GitHub Pages. **Repository
-này (`market-dashboard`) là thành phần Dashboard/publication**: git ở đây chỉ track website và
+này (`stocklookup-dashboard`, thư mục cục bộ `market-dashboard`) là thành phần Dashboard/publication**: git ở đây chỉ track website và
 tài liệu. Pipeline Python (`vn_stock_pipeline.py`, `meta_sync.py`, và các script khác nêu dưới)
-có nguồn chuẩn ở repository Producer riêng (`stock-core-private`) — bản `.py` xuất hiện trong
+có nguồn chuẩn ở repository Producer riêng (`stocklookup-engine`) — bản `.py` xuất hiện trong
 thư mục này chỉ là **bản deploy cục bộ, gitignore có chủ đích** (xem rule `*.py` của
 `.gitignore`, ngoại lệ duy nhất được track là `publish_dashboard.py`), không phải nguồn chuẩn
 của repo này.

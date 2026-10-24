@@ -7,7 +7,7 @@ phạm vi của repository hẹp hơn những gì bạn có thể hình dung ban
 <a id="what-this-repository-actually-contains"></a>
 ## Repository này thực sự chứa những gì
 
-Repository (`market-dashboard`) là **website dashboard công khai** của một dự án
+Repository (`stocklookup-dashboard`, thư mục cục bộ `market-dashboard`) là **website dashboard công khai** của một dự án
 dữ liệu thị trường chứng khoán Việt Nam cá nhân. Repository được chủ động tách
 khỏi toàn bộ dự án:
 

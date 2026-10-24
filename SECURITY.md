@@ -16,7 +16,7 @@ sử dụng chạy cục bộ và **không** thuộc repository này
 
 Nếu phát hiện vấn đề bảo mật trên website đã phát hành (ví dụ nguy cơ XSS trong
 cách dashboard hiển thị dữ liệu CSV/JSON/Markdown hoặc dependency từ CDN có CVE
-đã biết), hãy mở [GitHub issue](https://github.com/tungthanhnguyen2312-wq/market-dashboard/issues)
+đã biết), hãy mở [GitHub issue](https://github.com/tungthanhnguyen2312-wq/stocklookup-dashboard/issues)
 với mô tả rõ ràng và các bước tái hiện. Không đưa dữ liệu danh mục/tài chính
 thực vào báo cáo — dữ liệu mẫu/tổng hợp là đủ để tái hiện lỗi hiển thị.
 

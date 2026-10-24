@@ -19,7 +19,18 @@ Phân tích, Tín hiệu kỹ thuật, liên kết từ bộ lọc cổ phiếu,
 Danh mục dùng bản chiếu này làm ngữ cảnh nghiên cứu mô tả. Dashboard không tính
 điểm, xếp hạng, giá mục tiêu, xác suất, quy mô vị thế hay lệnh thực thi. Các tài
 nguyên nến giá và ngành cũ vẫn là phần bổ trợ tùy chọn; authority phát hành vẫn
-thuộc repository Producer riêng tư.
+thuộc repository Producer riêng.
+
+<a id="stock-lookup-repositories"></a>
+## Các repository của Stock Lookup
+
+| Repository | Vai trò | Thư mục cục bộ |
+|---|---|---|
+| [stocklookup-engine](https://github.com/tungthanhnguyen2312-wq/stocklookup-engine) | Producer: thu thập evidence, chuẩn hóa, phân tích tài chính/định giá/quyết định, phát hành | `stock-core-private` |
+| [stocklookup-ai-research](https://github.com/tungthanhnguyen2312-wq/stocklookup-ai-research) | Consumer: ngữ cảnh và báo cáo nghiên cứu AI | `ai-core-private` |
+| [stocklookup-dashboard](https://github.com/tungthanhnguyen2312-wq/stocklookup-dashboard) (repository này) | Website công khai | `market-dashboard` |
+
+Website: <https://tungthanhnguyen2312-wq.github.io/stocklookup-dashboard/>
 
 <a id="repository-boundary"></a>
 ## Ranh giới repository
