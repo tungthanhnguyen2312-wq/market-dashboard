@@ -21,6 +21,11 @@ Danh mục dùng bản chiếu này làm ngữ cảnh nghiên cứu mô tả. Da
 nguyên nến giá và ngành cũ vẫn là phần bổ trợ tùy chọn; authority phát hành vẫn
 thuộc repository Producer riêng.
 
+<a id="ung-ho-stock-lookup"></a>
+## Ủng hộ Stock Lookup
+
+Nếu Dashboard hữu ích, hãy [bấm **Star** cho repository công khai](https://github.com/tungthanhnguyen2312-wq/stocklookup-dashboard), [gửi góp ý hoặc báo lỗi](https://github.com/tungthanhnguyen2312-wq/stocklookup-dashboard/issues). Bạn có thể sử dụng website mà không cần fork hoặc clone. Star và đóng góp đều tự nguyện; kênh tài trợ chỉ được liên kết khi đã được kích hoạt chính thức.
+
 <a id="stock-lookup-repositories"></a>
 ## Các repository của Stock Lookup
 
