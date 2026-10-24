@@ -3,6 +3,17 @@
 
 Repository này chứa dashboard hiển thị trên GitHub và các tài nguyên có thể phát hành của dashboard. Repository không chứa pipeline Producer, cơ sở dữ liệu runtime, bản sao lưu hoặc artifact AI riêng tư.
 
+<a id="dung-thu-trong-mot-phut"></a>
+## Dùng thử ngay trên trình duyệt
+
+**[Mở Stock Lookup Dashboard](https://tungthanhnguyen2312-wq.github.io/stocklookup-dashboard/)** — không cần cài Python, fork hay clone mã nguồn để xem dữ liệu nghiên cứu công khai.
+
+1. **Tổng quan:** xem phiên dữ liệu, độ rộng thị trường, nhóm ngành và các rủi ro cần chú ý.
+2. **Cơ hội:** chọn một mã để xem trạng thái nghiên cứu, bằng chứng, điều kiện xác nhận và vô hiệu hóa. Các trạng thái có thể thiếu hoặc cũ; xem thời điểm và giới hạn sử dụng.
+3. **Danh mục:** tự nhập dữ liệu danh mục nếu muốn; phần này lưu trên trình duyệt của bạn, không đồng bộ tài khoản giao dịch.
+
+Thông tin chỉ phục vụ nghiên cứu, không phải khuyến nghị mua/bán hay cam kết kết quả đầu tư. [Xem cách đọc dữ liệu](https://tungthanhnguyen2312-wq.github.io/stocklookup-dashboard/about.html).
+
 <a id="current-product-surfaces"></a>
 ## Các giao diện sản phẩm hiện tại
 
